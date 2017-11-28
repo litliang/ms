@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:background="@color/bgWhite"
+    android:id="@+id/item_store_jf_layout"
+    android:orientation="horizontal">
+
+     <TextView
+         android:layout_width="0dp"
+         android:layout_height="match_parent"
+         android:text="必胜客"
+         android:layout_weight="1"
+         android:singleLine="true"
+         android:id="@+id/store_detail_search_name"
+         android:gravity="center"
+
+         />
+     <TextView
+         android:layout_width="0dp"
+         android:layout_weight="2"
+         android:layout_height="match_parent"
+         android:text="500"
+         android:gravity="center"
+         android:id="@+id/store_detail_search_number"
+         />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="15dp"
+        android:layout_gravity="center"
+        android:src="@mipmap/icon_arrow_right_gray_middle"
+        />
+
+</LinearLayout>

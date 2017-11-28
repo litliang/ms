@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="#fff">
+
+        <LinearLayout
+            android:id="@+id/orderDetailsLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_cart"/>
+                <TextView
+                    android:id="@+id/tvNum"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/shape_round_red"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:textSize="8sp"
+                    android:visibility="visible"
+                    android:textColor="@color/white"/>
+            </RelativeLayout>
+            <ImageView
+                android:id="@+id/ivArrow"
+                android:layout_width="16dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="5dp"
+                android:visibility="gone"
+                android:background="@drawable/selector_arrow_down_up_red"/>
+            <TextView
+                android:id="@+id/unit"
+                style="@style/plane_order8_style"
+                android:layout_marginLeft="18dp"
+                android:text="@string/rmb"/>
+
+            <TextView
+                android:id="@+id/tvTotalAmount"
+                style="@style/plane_order9_style"
+                android:layout_toRightOf="@id/unit"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvSubmit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/color_status"
+            android:gravity="center"
+            android:text="特惠付款"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+</LinearLayout>

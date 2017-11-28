@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:background="@color/color_F5F5F5"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/rl_title"
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_F5F5F5"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_bg_corner_gray_stroke"
+                android:orientation="vertical"
+                android:paddingLeft="13dp"
+                android:paddingRight="13dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@color/transparent"
+                    android:gravity="center_vertical"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/panelRandom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        >
+
+                        <ImageView
+                            android:id="@+id/ivRandom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/selected_light_blue_new"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="8dp"
+                            android:text="随机金额"
+                            android:textColor="@color/color_0a1333"
+                            android:textSize="15sp"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/panelEqual"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="38dp"
+                        android:gravity="center_vertical|right"
+                        >
+
+                        <ImageView
+                            android:id="@+id/ivEqual"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/selected_light_blue_new"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="8dp"
+                            android:text="等值金额"
+                            android:textColor="@color/color_0a1333"
+                            android:textSize="15sp"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/divider_color3"/>
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:stretchColumns="1">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        >
+
+                        <TextView
+                            android:id="@+id/tvAmountLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:gravity="center_vertical"
+                            android:text="单个金额"
+                            android:textColor="@color/color_0a153b"
+                            android:textSize="15sp"
+                            />
+
+                        <EditText
+                            android:id="@+id/etPerAmount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="输入单个金额"
+                            android:inputType="numberDecimal"
+                            android:paddingLeft="16dp"
+                            android:textColor="@color/color_0a153b"
+                            android:textColorHint="@color/color_666666"
+                            android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="元"
+                            android:textColor="@color/color_0a153b"
+                            android:textSize="14sp"/>
+                    </TableRow>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/divider_color3"/>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:gravity="center_vertical"
+                            android:text="红包数"
+                            android:textColor="@color/color_0a153b"
+                            android:textSize="15sp"
+                            />
+
+                        <EditText
+                            android:id="@+id/etBounsNum"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:hint="输入份数"
+                            android:inputType="number"
+                            android:paddingLeft="16dp"
+                            android:text="1"
+                            android:textColor="@color/color_0a153b"
+                            android:textColorHint="@color/color_666666"
+                            android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="份"
+                            android:textColor="@color/color_0a153b"
+                            android:textSize="14sp"
+                            />
+                    </TableRow>
+                </TableLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/divider_color3"/>
+
+
+                <LinearLayout
+                    android:id="@+id/panelBounsTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bouns_theme"
+                        android:textColor="@color/color_0a153b"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/tvBounsTheme"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="13dp"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical|right"
+                        android:singleLine="true"
+                        android:textColorHint="@color/color_0a1333"
+                        android:textSize="15sp"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="9dp"
+                        android:src="@mipmap/icon_arrow_right_gray_middle"
+                        />
+                </LinearLayout>
+                <EditText
+                    android:id="@+id/etBounsWishes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_f0f0f0"
+                    android:gravity="top"
+                    android:layout_marginBottom="17dp"
+                    android:lineSpacingMultiplier="1.2"
+                    android:maxLength="20"
+                    android:minLines="4"
+                    android:padding="13dp"
+                    android:textColor="@color/color_0a1333"
+                    android:textColorHint="@color/color_999999"
+                    android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+                    android:textSize="15sp"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="13dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/panelRecvProtocal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/ivProtocalSelect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/selected_light_blue_new"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="4dp"
+                        android:text="我已阅读并接受"
+                        android:textColor="#acacac"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvServiceProtocal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:text="&lt;服务协议&gt;"
+                    android:textColor="#4b6881"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:text="24小时未领取自动返还到红包余额账户哦~~"
+                android:textColor="#acacac"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/tvTotalAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:gravity="center"
+                android:text="¥0.00"
+                android:textColor="#d6c07f"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/tvBuy"
+                style="@style/my_btn_bg_style"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="69dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/plug_money"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

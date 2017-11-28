@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:background="@color/white_ffffff"
+    tools:context="com.yzb.card.king.ui.travel.activity.TravelSaleActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:background="@color/titleRed"
+        android:gravity="top">
+
+        <LinearLayout
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/title_l_r"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:id="@+id/img_title_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_back_white"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/hotelName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="3dp"
+            android:text="@string/travel_sell_privilege"
+            android:textColor="#fff"
+            android:textSize="@dimen/titlebar_text_size"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/line_temaihui_left"/>
+
+        <TextView
+            android:id="@+id/tx_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="天天特价"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:textSize="15sp"
+
+            android:textColor="#333333"
+            />
+
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:background="@mipmap/line_temaihui_right"/>
+
+
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        style="@style/swiperefrsh_style">
+
+        <com.yzb.card.king.ui.appwidget.HeadFootRecyclerView
+            android:id="@+id/gridView_sale"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/me"
+            android:paddingRight="@dimen/title_l_r"
+            android:paddingLeft="@dimen/title_l_r"
+            android:cacheColorHint="#00000000"
+            android:fadingEdge="none"
+            android:gravity="center"
+            android:listSelector="#00000000"
+            android:scrollbars="none"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/titleRed"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/pre_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical|left">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="9dp"
+                android:layout_margin="10dp"
+                android:src="@mipmap/icon_back_white"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="前一天"
+                    android:textColor="#fff"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_calendar"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="6dp"
+            android:layout_weight="2"
+            android:background="@drawable/ticket_list_item_bg"
+            android:gravity="center"
+            android:onClick="getDate"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/img_calendar"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginRight="5dp"
+                android:src="@mipmap/icon_date"/>
+
+                <TextView
+                    android:id="@+id/tv_start_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="04-02"
+                    android:textColor="@color/ticket_red"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/tv_start_week"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="周二"
+                    android:layout_marginLeft="9dp"
+                    android:textColor="@color/ticket_red"
+                    android:textSize="12sp"/>
+            <ImageView
+                android:id="@+id/img_arrow_down_red"
+                android:layout_width="9dp"
+                android:layout_height="6dp"
+                android:layout_marginLeft="9dp"
+                android:src="@mipmap/icon_input_arrow"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/next_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical|right">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="后一天"
+                    android:textColor="#fff"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="9dp"
+                android:layout_margin="10dp"
+                android:src="@mipmap/icon_slider_time_right"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

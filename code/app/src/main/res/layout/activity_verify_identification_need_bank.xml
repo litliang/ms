@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"/>
+    <View
+        android:id="@+id/lineTitel"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/setting_F4F4F4"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <!--顶部部分；-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_jfb_round_corner5dp_white_solid"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/tv_bank_code_label"
+                    style="@style/setting_modify_binded_phone_tv_left"
+                    android:text="@string/setting_bank_card_num" />
+
+                <EditText
+                    android:id="@+id/et_bank_id"
+                    style="@style/setting_modify_binded_phone_et"
+                    android:layout_alignBottom="@+id/tv_bank_code_label"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_toRightOf="@+id/tv_bank_code_label"
+                    android:hint="@string/setting_input_bank_card_num_hint"
+                    android:inputType="number" />
+
+                <ImageView
+                    android:id="@+id/iv_capture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/tv_bank_code_label"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/icon_camera_blue" />
+
+                <include
+                    android:id="@+id/divider"
+                    layout="@layout/divider_d7d7d7"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/tv_bank_code_label"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:id="@+id/tv_id_bank_name_label"
+                    style="@style/setting_modify_binded_phone_tv_left"
+                    android:layout_below="@+id/divider"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/setting_bank_card_name" />
+
+                <TextView
+                    android:id="@+id/tv_id_bank_name"
+                    style="@style/setting_modify_binded_phone_et"
+                    android:layout_alignBottom="@+id/tv_id_bank_name_label"
+                    android:layout_alignLeft="@+id/et_bank_id"
+                    android:hint="@string/setting_name_gerated"
+                    android:singleLine="false" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_jfb_round_corner5dp_white_solid"
+                android:paddingBottom="10dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <LinearLayout
+                    android:id="@+id/panel_sf_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_sf_type"
+                        style="@style/setting_modify_binded_phone_tv_left"
+                        android:paddingRight="10dp"
+                        android:text="@string/setting_sfz" />
+
+                    <ImageView
+                        android:id="@+id/iv_passport_nav_right"
+                        android:layout_width="7dp"
+                        android:layout_height="12dp"
+                        android:background="@mipmap/arrow_small_right"
+                        android:scaleType="fitCenter" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/et_identification_id"
+                    style="@style/setting_modify_binded_phone_et"
+                    android:layout_alignBottom="@+id/panel_sf_type"
+                    android:layout_marginLeft="32dp"
+                    android:layout_toRightOf="@+id/panel_sf_type"
+                    android:hint="@string/setting_input_zj_code" />
+
+                <include
+                    android:id="@+id/divider2"
+                    layout="@layout/divider_d7d7d7"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/panel_sf_type"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:id="@+id/tv_card_holder_label"
+                    style="@style/setting_modify_binded_phone_tv_left"
+                    android:layout_below="@+id/divider2"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/setting_input_card_holder_name" />
+
+                <EditText
+                    android:id="@+id/et_card_holder_name"
+                    style="@style/setting_modify_binded_phone_et"
+                    android:layout_alignBottom="@+id/tv_card_holder_label"
+                    android:layout_alignLeft="@+id/et_identification_id"
+                    android:layout_toRightOf="@+id/tv_card_holder_label"
+                    android:hint="@string/setting_input_card_holder_name2" />
+
+            </RelativeLayout>
+
+
+            <!--协议-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center_vertical">
+
+                <CheckBox
+                    android:id="@+id/checkbox_protocal"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/selector_checkbox_red_gray_bg"
+                    android:button="@null"
+                    android:checked="true"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:id="@+id/tv_agree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="@string/setting_agree"
+                    android:textColor="@color/setting_A0A0A0"
+                    android:textSize="9sp" />
+
+                <TextView
+                    android:id="@+id/tvProtocol1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setting_protocal1"
+                    android:textColor="@color/wordBlue"
+                    android:textSize="9sp" />
+
+                <TextView
+                    android:id="@+id/tvProtocol2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/setting_protocal2"
+                    android:textColor="@color/wordBlue"
+                    android:textSize="9sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_safe_verify"
+                style="@style/setting_next_tv"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/setting_safe_verify" />
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout style="@style/titlebar_style">
+
+        <LinearLayout
+            android:id="@+id/panel_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:onClick="goBack"
+            android:paddingLeft="15dp"
+            android:paddingRight="20dp">
+
+            <include layout="@layout/nav_left" />
+        </LinearLayout>
+
+        <include
+            layout="@layout/titlebar_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/panel_back" />
+
+        <TextView
+            android:id="@+id/titlebar_title"
+            style="@style/titlebar_title_style"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="美食概览" />
+
+        <ImageView
+            android:id="@+id/iv_share"
+            style="@style/iv1_style"
+            android:layout_width="21dp"
+            android:layout_height="19dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@mipmap/icon_share_white" />
+
+    </RelativeLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yzb.card.king.ui.appwidget.ExpandableLayoutListView
+            android:id="@+id/expandListView"
+            style="@style/listview_style" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

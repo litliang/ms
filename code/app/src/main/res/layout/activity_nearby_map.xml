@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <View
+            android:id="@+id/bottomView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@mipmap/icon_back_gray"
+            />
+    </LinearLayout>
+
+    <com.yzb.card.king.ui.app.view.MaxMinHeightView
+        android:id="@+id/maxMinView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="14dp"
+            android:src="@mipmap/icon_nearby_map_nava_up"
+            />
+
+        <LinearLayout
+            android:id="@+id/panel_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="14dp"
+            android:paddingRight="5dp"
+            android:paddingTop="14dp">
+
+            <include layout="@layout/item_nearby_map_category"/>
+
+            <include layout="@layout/item_nearby_map_category"/>
+
+            <include layout="@layout/item_nearby_map_category"/>
+
+            <include layout="@layout/item_nearby_map_category"/>
+
+            <include layout="@layout/item_nearby_map_category"/>
+
+            <include layout="@layout/item_nearby_map_category"/>
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/listView"
+            style="@style/listview_style"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"/>
+    </com.yzb.card.king.ui.app.view.MaxMinHeightView>
+</RelativeLayout>

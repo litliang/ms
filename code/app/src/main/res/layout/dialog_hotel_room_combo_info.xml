@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_ffffff"
+        android:orientation="vertical">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="13dp"
+                    android:paddingTop="13dp">
+
+                    <TextView
+                        android:id="@+id/tvRoomNameInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="4dp"
+                        android:text="商务房（含早）商务房（含早）商务房（含早）商务房（含早）"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:textColor="@color/color_333333"
+                        android:textSize="15sp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|right"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvBedTypeMessage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="9dp"
+                            android:text="大床1.5m/双床1.2m"
+                            android:textColor="@color/color_666666"
+                            android:textSize="12sp"/>
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginRight="3dp"
+                            android:background="#cdcdcd"/>
+
+                        <TextView
+                            android:id="@+id/roomAr"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="面积：30"
+                            android:textColor="@color/color_666666"
+                            android:textSize="12sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#cdcdcd"/>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingBottom="12dp"
+                        android:paddingTop="12dp">
+
+                        <com.yzb.card.king.ui.appwidget.SpecHeightGridView
+                            android:id="@+id/gvFactivity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:cacheColorHint="@color/white"
+                            android:listSelector="@android:color/transparent"
+                            android:numColumns="2"
+                            android:scrollbars="none"
+                            android:verticalSpacing="12dp"
+                            android:visibility="visible"/>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ivArrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_arrow_right_item_gray"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#cdcdcd"/>
+
+                <include layout="@layout/dialog_app_discounts"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#cdcdcd"/>
+
+                <LinearLayout
+                    android:id="@+id/llPayCancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:layout_weight="3.5"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="3dp"
+                            android:text="付费取消"
+                            android:textColor="@color/color_333333"
+                            android:textSize="10sp"/>
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvCancelTypeMsg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginRight="7dp"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="3"
+                        android:text="订单确定后，预订人因自身原因或因其他 非法定原因要求变更或取消的，将扣收全 额预付款。"
+                        android:textColor="@color/color_666666"
+                        android:textSize="12sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_arrow_right_item_gray"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llRoomAddBedMeg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:layout_weight="3.5"
+                        android:orientation="horizontal">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="3dp"
+                            android:text="加床"
+                            android:textColor="@color/color_333333"
+                            android:textSize="10sp"/>
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvAddBed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginRight="7dp"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textColor="@color/color_666666"
+                        android:textSize="12sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_arrow_right_item_gray"
+                        android:visibility="invisible"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </LinearLayout>
+</LinearLayout>

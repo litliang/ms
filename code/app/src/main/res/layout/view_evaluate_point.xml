@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:ratingbar="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.yzb.card.king.ui.appwidget.StarBar
+            android:id="@+id/starBarTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ratingbar:isIndicator="false"
+            ratingbar:starCount="0"
+            ratingbar:starDistance="2dp"
+            ratingbar:starEmpty="@mipmap/star_empty"
+            ratingbar:starFill="@mipmap/star_full"
+            ratingbar:starSize="12dp"/>
+
+        <TextView
+            android:id="@+id/tvNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="5dp"
+            android:lines="1"
+            android:text="0.0分"
+            android:textColor="@color/color_be9743"/>
+    </LinearLayout>
+</LinearLayout>

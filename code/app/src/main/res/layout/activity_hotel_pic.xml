@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tl="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical"
+              tools:context=".ui.hotel.activtiy.HotelPicActivity">
+    <!--标题-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:background="@color/white_ffffff">
+
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:onClick="back"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/icon_arrow_back_black"/>
+
+        </RelativeLayout>
+
+        <com.flyco.tablayout.SegmentTabLayout
+            android:id="@+id/tl_1"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            tl:tl_bar_color="#ffffff"
+            tl:tl_indicator_color="@color/titleRed"
+            tl:tl_indicator_corner_radius="8dp"
+            tl:tl_tab_padding="20dp"
+            tl:tl_textUnselectColor="#363636"/>
+
+
+    </RelativeLayout>
+    <!--标签-->
+    <com.flyco.tablayout.SlidingTabLayout
+        android:id="@+id/tl_8"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:background="@color/color_f0f0f0"
+        tl:tl_indicator_color="@android:color/transparent"
+        tl:tl_textSelectColor="@color/titleRed"
+        tl:tl_textUnselectColor="#363636"
+        tl:tl_textsize="14sp"
+        tl:tl_underline_color="@android:color/transparent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/llImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/frl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"></FrameLayout>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/bgWhite">
+            </android.support.v4.view.ViewPager>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llVideo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <WebView
+                android:id="@+id/webView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

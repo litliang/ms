@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="110dp"
+              android:layout_height="wrap_content"
+              android:background="@drawable/selector_bg_corner_blue_gray_stroke"
+              android:clickable="true"
+              android:gravity="center_horizontal"
+              android:orientation="vertical"
+              android:paddingBottom="4dp"
+              android:paddingTop="4dp"
+    >
+
+    <TextView
+        android:id="@+id/tvLineName"
+        style="@style/travel_detail_title_style"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:text="A线"
+        android:textColor="@drawable/selector_txt_color_green_dark_gray"
+        android:textSize="14dp"
+        />
+
+    <TextView
+        android:id="@+id/tvLineType"
+        style="@style/travel_detail_title_style"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="2dp"
+        android:ellipsize="middle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text=""
+        android:textColor="@drawable/selector_txt_color_dark_green_gray"
+        android:textSize="11sp"
+        />
+</LinearLayout>

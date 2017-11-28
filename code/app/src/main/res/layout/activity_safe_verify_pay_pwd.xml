@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"/>
+    <View
+        android:id="@+id/lineTitel"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/setting_F4F4F4"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/setting_FCFCFC"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingBottom="20dp"
+                android:paddingTop="20dp">
+
+                <TextView
+                    android:id="@+id/tv_input_notice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="@string/setting_safe_verify_notice"
+                    android:textColor="@color/setting_636363"
+                    android:textSize="15sp"/>
+
+                <RelativeLayout
+                    android:layout_width="317dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:layout_marginTop="19dp">
+
+                    <com.yzb.wallet.gridpasswordview.GridPasswordView
+                        android:id="@+id/gv_pay_pwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:passwordLength="6"
+                        app:passwordTransformation="*"
+                        app:passwordType="numberPassword"
+                        app:textColor="@color/wordBlack"
+                        app:textSize="20sp"/>
+
+                    <EditText
+                        android:id="@+id/shadowText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_other_pay_method"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:layout_marginTop="21dp"
+                    android:gravity="center"
+                    android:singleLine="false"
+                    android:text="@string/setting_choose_other_verify_method"
+                    android:textColor="@color/setting_00B5D3"
+                    android:textSize="12sp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_next_step"
+                style="@style/setting_next_tv"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="21dp"
+                android:text="@string/setting_next_step"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

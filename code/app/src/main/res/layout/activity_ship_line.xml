@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/titleRed"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/llBack"
+            android:layout_width="40dp"
+            android:layout_height="30dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:src="@mipmap/icon_back_white"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etFilter"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_weight="1"
+            android:background="@drawable/ticket_list_item_bg"
+            android:gravity="center"
+            android:hint="北京/bj/beijing/pek"
+            android:inputType="textFilter"
+            android:lines="1"
+            android:padding="3dp"
+            android:textColorHint="@color/ticket_gray3"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tvSearchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_round_corner_white"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/text_search"
+            android:textColor="@color/ticket_red"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tvCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="7dp"
+            android:text="@string/text_cancel"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="54dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="@string/history"
+            android:textColor="@color/ticket_red"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:background="@mipmap/ticket_shadow_bg"/>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/llHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#c1c1c1"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white">
+
+        <ExpandableListView
+            android:id="@+id/expandableListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:groupIndicator="@null"
+            android:scrollbars="none"/>
+    </RelativeLayout>
+
+</LinearLayout>

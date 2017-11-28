@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f0f0f0"
+    >
+
+
+    <com.yzb.card.king.ui.appwidget.VpSwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        style="@style/swiperefrsh_style"
+        android:layout_above="@+id/llBottomTab"
+        android:background="@android:color/transparent">
+
+        <com.yzb.card.king.ui.appwidget.HeadFootRecyclerView
+            android:id="@+id/lvHomeHotelpage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_ffffff"
+            android:divider="@null"
+            android:listSelector="@android:color/transparent"
+            android:dividerHeight="10dp"/>
+    </com.yzb.card.king.ui.appwidget.VpSwipeRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/llBottomTab"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:background="@color/hotel_black2"
+        android:layout_height="@dimen/tab_bottom_h">
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="22dp"
+        android:padding="@dimen/title_l_r"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:background="@drawable/icon_round_transparent_grey"
+            android:padding="12dp"
+            android:onClick="backAction"
+            android:src="@mipmap/icon_arrow_white_left"/>
+
+
+        <ImageView
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:background="@drawable/icon_round_transparent_grey"
+            android:padding="13dp"
+            android:onClick="onMenuAction"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/icon_home_hotel_menu"/>
+
+    </RelativeLayout>
+</RelativeLayout>

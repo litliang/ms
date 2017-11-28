@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright 2014 The Android Open Source Project
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/explore_io_card_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="@dimen/card_elevation"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_f0f0f0"
+        android:orientation="horizontal">
+
+
+        <View
+            android:id="@+id/lineYellow"
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:background="@color/color_d6c07f"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llGiveContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="9dp"
+                    android:layout_marginRight="9dp"
+                    android:layout_marginTop="9dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="超级赠送"
+                        android:textColor="@color/color_d6c07f"/>
+
+                    <TextView
+                        android:id="@+id/tvGiveContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textColor="@color/color_666666"
+                        tools:text="Gavan Griffith raises concerns about relationship between George Brandis, Justin Gleeson"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#e6e6e6"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="9dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvMealTypeDesc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="上海爱尚居酒店"
+                            android:textColor="@color/color_333333"
+                            android:textSize="13sp"/>
+
+                        <TextView
+                            android:id="@+id/tvBackMoney"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/shap_corner_rich_blue"
+                            android:padding="3dp"
+                            android:text="返"
+                            android:textColor="@color/white_ffffff"
+                            android:textSize="8sp"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ivLifeStages"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:background="@mipmap/icon_bg_life_stages"/>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="6dp">
+
+                    <LinearLayout
+                        android:id="@+id/llFav"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvBankPre"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:background="@drawable/shap_corner_rich_blue"
+                            android:padding="3dp"
+                            android:text="银行优惠"
+                            android:textColor="@color/white_ffffff"
+                            android:textSize="8sp"/>
+
+                        <TextView
+                            android:id="@+id/tvQuan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:background="@drawable/shap_corner_lightblue"
+                            android:padding="3dp"
+                            android:text="券"
+                            android:textColor="@color/color_476b98"
+                            android:textSize="8sp"/>
+
+                        <TextView
+                            android:id="@+id/tvQiang"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:background="@drawable/shap_corner_lightblue"
+                            android:padding="3dp"
+                            android:text="抢"
+                            android:textColor="@color/color_476b98"
+                            android:textSize="8sp"/>
+
+                        <TextView
+                            android:id="@+id/tvKaquanyi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shap_corner_lightblue"
+                            android:padding="3dp"
+                            android:text="卡权益"
+                            android:textColor="@color/color_476b98"
+                            android:textSize="8sp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvShopName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/llFav"
+                        android:layout_marginTop="9dp"
+                        android:text="酒店直销"
+                        android:textColor="#b2b2b2"
+                        android:textSize="@dimen/text_size_12"/>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="39dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/tv_selfdrive_money_unit"
+                                    android:textColor="@color/color_d6c07f"
+                                    android:textSize="9sp"/>
+
+                                <TextView
+                                    android:id="@+id/tvRoomComboPrice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="280"
+                                    android:textColor="@color/color_d6c07f"
+                                    android:textSize="16sp"/>
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tvLeftRoom"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="正在甩房"
+                                android:textColor="@color/color_d6c07f"
+                                android:textSize="9sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llPayCombo"
+                            android:layout_width="39dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/shap_corner_rich_top_yellow"
+                                android:gravity="center"
+                                android:paddingBottom="4dp"
+                                android:paddingTop="4dp"
+                                android:text="预订"
+                                android:textColor="@color/white_ffffff"
+                                android:textSize="12sp"/>
+
+                            <TextView
+                                android:id="@+id/tvPayType"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/shap_corner_hollow_bottom_yellow"
+                                android:gravity="center"
+                                android:paddingBottom="3dp"
+                                android:paddingTop="3dp"
+                                android:text="到店付"
+                                android:textColor="@color/color_d6c07f"
+                                android:textSize="7sp"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="11dp"
+                android:background="#e6e6e6"/>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

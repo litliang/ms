@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F2"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".ui.credit.activity.DiscountInfoActivity">
+
+    <include
+        layout="@layout/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height" />
+    <View
+        android:id="@+id/lineTitel"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+    <com.yzb.card.king.ui.appwidget.OptionView
+        android:id="@+id/optionView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/sRL"
+        style="@style/swiperefrsh_style"
+        android:background="@android:color/transparent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:divider="@null"
+            android:dividerHeight="11dp" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

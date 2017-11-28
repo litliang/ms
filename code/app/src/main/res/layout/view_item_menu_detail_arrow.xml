@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvMenuName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="威士忌（1瓶）"
+            android:textSize="12sp"
+            android:layout_weight="1.5"
+            android:textColor="@color/color_666666"
+            />
+        <TextView
+            android:id="@+id/tvPice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="2份"
+            android:textSize="12sp"
+            android:textColor="@color/color_666666"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/icon_arrow_right_item_gray"/>
+    </LinearLayout>
+
+</LinearLayout>

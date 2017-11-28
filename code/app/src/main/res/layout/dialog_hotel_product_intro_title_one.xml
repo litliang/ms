@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="联邦大酒店游泳池"
+                android:textColor="@color/color_333333"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/tvPersonTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1人5次"
+                android:textColor="@color/color_333333"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="上海联邦大酒店1楼"
+                android:textColor="@color/color_666666"
+                android:textSize="12sp"/>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvCancelStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:drawableLeft="@mipmap/icon_cancel_status"
+            android:drawablePadding="4dp"
+            android:text="随时退"
+            android:textColor="@color/color_476b98"
+            android:textSize="12sp"/>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="10dp"
+        android:background="#cdcdcd"/>
+
+</LinearLayout>

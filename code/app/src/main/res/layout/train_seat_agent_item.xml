@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="17dp"
+    android:paddingBottom="10dp"
+    android:background="@color/train_ffffff">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|left"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvAgentName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/train_tv_14"
+            android:textColor="@color/train_3f3f3f"/>
+
+        <TextView
+            android:id="@+id/tvExplain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text=""
+            android:textSize="@dimen/train_tv_12"
+            android:textColor="@color/train_a0a0a0"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="right"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:text="@string/train_rmb"
+                android:textSize="@dimen/train_tv_14"
+                android:textColor="@color/ticket_red"/>
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="@dimen/train_tv_16"
+                android:textColor="@color/ticket_red"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvAllowance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text=""
+            android:textSize="@dimen/train_tv_10"
+            android:textColor="@color/train_a0a0a0"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvAdvance"
+            android:layout_width="44dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center"
+            android:text="@string/train_yuding"
+            android:textSize="@dimen/train_tv_11"
+            android:textColor="@color/train_ffffff"
+            android:background="@drawable/plane_homepage_shape"/>
+
+    </LinearLayout>
+</LinearLayout>

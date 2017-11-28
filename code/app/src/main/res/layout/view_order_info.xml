@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/rl_order_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/shape_bg_corner_gray_stroke"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="16dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="已支付"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/title_size_16"/>
+
+
+                <TextView
+                    android:id="@+id/tvProductName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:textColor="#788181"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="40dp"
+                android:background="#e6e6e6"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"
+                        android:text="总额"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/title_size_16"/>
+
+                    <TextView
+                        android:id="@+id/tvOrderAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="¥0"
+                        android:textColor="#cca253"
+                        android:textSize="@dimen/title_size_16"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="订单:"
+                        android:textColor="#788181"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/order_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:textColor="#788181"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/vOneLine"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/divider_color3"/>
+
+        <LinearLayout
+            android:id="@+id/llOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/tvProductAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_333333"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tvProductTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#788181"
+                android:layout_marginTop="4dp"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/hotels_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/discount_mindcard_homepage_shape_white"
+        android:paddingBottom="15dp"
+        android:visibility="gone"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/room_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/order_detail_wordblack"
+                android:layout_weight="1"
+                android:textSize="14sp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_arrow_right_hotel_order_gray"
+               />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/type"
+            android:background="#f5f5f5"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line1"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/tvOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="时  间："
+                android:textSize="13sp"
+                android:textColor="#999999"/>
+
+
+            <TextView
+                android:id="@+id/arrive_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tvOne"
+                android:textColor="#343434"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/tvTwoo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/tvOne"
+                android:text="类  型："
+                android:textSize="13sp"
+                android:textColor="#999999"/>
+
+
+            <TextView
+                android:id="@+id/room_nights"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tvTwoo"
+                android:layout_alignTop="@id/tvTwoo"
+                android:textColor="#343434"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/room_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/room_nights"
+                android:layout_alignTop="@id/tvTwoo"
+                android:textColor="#343434"
+                android:textSize="13sp"
+                />
+
+            <TextView
+                android:id="@+id/bedtype"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/room_num"
+                android:textColor="#343434"
+                android:textSize="13sp"
+                android:layout_alignTop="@id/tvTwoo"
+                />
+
+            <TextView
+                android:id="@+id/ruzhuren"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvTwoo"
+                android:layout_marginTop="5dp"
+                android:text="入住人:"
+                android:textColor="#999999"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/guest_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/ruzhuren"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/ruzhuren"
+                android:textColor="@color/wordBlack"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/zaocan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/bedtype"
+                android:layout_alignTop="@id/tvTwoo"
+                android:layout_marginLeft="15dp"
+                android:textColor="#343434"
+                android:textSize="13sp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_modify_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_order_header"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/discount_mindcard_homepage_shape_white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:visibility="gone"
+        >
+
+        <ImageView
+            android:id="@+id/ivbarcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/travel_order_detail_flag"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/saoyisao2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="消费时请出示--"
+                android:textColor="@color/color_333333"
+                android:textSize="11sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/evaluation_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/discount_mindcard_homepage_shape_white_top"
+            android:gravity="center_vertical"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/assessRL"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:id="@+id/iv_eval"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/icon_comment_orderdetail"/>
+
+                <TextView
+                    android:id="@+id/tv_eval_hotels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="9dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_eval"
+                    android:text="我要点评"
+                    android:textColor="@color/color_4D4D4D"
+                    android:textSize="13sp"/>
+
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="40dp"
+                android:background="@color/divider_color3"/>
+
+
+            <RelativeLayout
+                android:id="@+id/bookagainRl"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+              >
+
+                <ImageView
+                    android:id="@+id/iv_again"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/icon_again_orderdetail"/>
+
+
+                <TextView
+                    android:id="@+id/tv_again_booking"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="9dp"
+                    android:layout_toRightOf="@id/iv_again"
+                    android:text="再次预定"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/color_4D4D4D"
+                    android:textSize="13sp"/>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/divider_color3"/>
+    </LinearLayout>
+</LinearLayout>

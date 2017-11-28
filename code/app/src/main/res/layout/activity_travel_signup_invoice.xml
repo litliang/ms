@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:gravity="center_vertical"
+              android:orientation="vertical"
+    >
+    <!--报销凭证块-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:id="@+id/tvBxpzToggleTxt"
+            style="@style/travel_order_title_style"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="left|center_vertical"
+            android:text="报销凭证"/>
+
+        <com.yzb.card.king.ui.appwidget.SlideButton
+            android:id="@+id/bxpzSlideButton"
+            android:layout_width="40dp"
+            android:layout_height="23dp"/>
+    </LinearLayout>
+
+    <include layout="@layout/activity_hotel_order_divider"/>
+
+    <LinearLayout
+        android:id="@+id/panelInvoiceView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/panelRise"
+                style="@style/travel_order_panel_invoice"
+                >
+
+                <TextView
+                    style="@style/travel_order_title_style"
+                    android:text="@string/tv_selfdrive_faPiaoTaiTou"
+                    />
+
+                <TextView
+                    android:id="@+id/tvRiseName"
+                    style="@style/travel_order_perprice_style"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:text=""
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/icon_arrow_right_grey_travel"/>
+
+            </LinearLayout>
+
+            <include layout="@layout/activity_hotel_order_divider"/>
+
+            <LinearLayout
+                android:id="@+id/panelAddress"
+                style="@style/travel_order_panel_invoice"
+                >
+
+                <TextView
+                    style="@style/travel_order_title_style"
+                    android:layout_weight="1"
+                    android:text="@string/tv_selfdrive_peisong_address"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivAddressArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_arrow_right_grey_travel"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/panelSubAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_FAFAFA"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <LinearLayout
+                    android:id="@+id/panelGetAddress"
+                    style="@style/travel_order_address_subpanel_invoice">
+
+                    <!--收货人-->
+                    <TextView
+                        style="@style/travel_order_perprice_style"
+                        android:text="收货人"
+                        />
+
+                    <!--收货人-->
+                    <TextView
+                        android:id="@+id/tvPeopleName"
+                        style="@style/travel_order_perprice_style"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:text=""
+                        />
+
+                    <ImageView
+                        android:id="@+id/ivGetAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/icon_travel_address_person"/>
+                </LinearLayout>
+
+                <include layout="@layout/activity_hotel_order_divider"/>
+
+                <LinearLayout
+                    style="@style/travel_order_address_subpanel_invoice">
+
+                    <!--电话-->
+                    <TextView
+                        style="@style/travel_order_perprice_style"
+                        android:text="电话"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvPeoplePhone"
+                        style="@style/travel_order_perprice_style"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="33dp"
+                        android:layout_weight="1"
+                        android:text=""
+                        />
+                </LinearLayout>
+
+                <include layout="@layout/activity_hotel_order_divider"/>
+
+                <LinearLayout
+                    style="@style/travel_order_address_subpanel_invoice"
+                    android:gravity="top">
+
+                    <!--详细地址-->
+                    <TextView
+                        style="@style/travel_order_perprice_style"
+                        android:text="详细地址"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvPeopleAddress"
+                        style="@style/travel_order_perprice_style"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:text=""
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <include layout="@layout/activity_hotel_order_divider"/>
+
+        <LinearLayout
+            android:id="@+id/panelPostFee"
+            style="@style/travel_order_panel_invoice">
+
+            <TextView
+                style="@style/travel_order_title_style"
+                android:text="邮费"/>
+
+            <!--邮费-->
+            <TextView
+                android:id="@+id/tv_postage"
+                style="@style/travel_order_perprice_style"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text=""/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

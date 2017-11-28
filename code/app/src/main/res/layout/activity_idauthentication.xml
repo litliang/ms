@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:background="@color/gray_EAEAEA">
+
+    <include
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"/>
+    <View
+        android:id="@+id/lineTitel"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llStep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/shape_jfb_round_corner5dp_white_solid"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <!--3个图片行-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="37dp"
+                    android:layout_marginRight="37dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <ImageView
+                        android:id="@+id/ivFirstStep"
+                        style="@style/setting_step_round_iv" />
+
+                    <ImageView
+                        android:id="@+id/ivFirstLine"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/selector_setting_step_line" />
+
+                    <ImageView
+                        android:id="@+id/ivSecondStep"
+                        style="@style/setting_step_round_iv" />
+
+                    <ImageView
+                        android:id="@+id/ivSecondLine"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/selector_setting_step_line" />
+
+                    <ImageView
+                        android:id="@+id/ivThirdStep"
+                        style="@style/setting_step_round_iv" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="14dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvStep1"
+                        style="@style/setting_step_notice_tv"
+                        android:layout_width="wrap_content"
+                        android:text="@string/setting_verify_zj"
+                        android:layout_marginLeft="13dp"/>
+
+                    <TextView
+                        android:id="@+id/tvStep2"
+                        style="@style/setting_step_notice_tv"
+                        android:text="@string/setting_verify_yhk"
+                        android:layout_weight="1"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/tvStep3"
+                        style="@style/setting_step_notice_tv"
+                        android:text="@string/setting_verify_cg"
+                        android:layout_marginRight="13dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <FrameLayout
+                android:id="@+id/flContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvButton"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_orange_corner_2"
+                android:gravity="center"
+                android:text="@string/setting_next_step"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:id="@+id/llForget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="17dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_round_blue_help"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/settings_blue"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="10sp"
+                    android:text="原手机号丢失？"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

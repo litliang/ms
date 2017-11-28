@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:ndroid="http://schemas.android.com/apk/res/android">
+    <item ndroid:color="@color/white" ndroid:state_enabled="false"/>
+    <item ndroid:color="@color/gray6"/>
+</selector>

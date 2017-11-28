@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/titleRed"
+    android:orientation="vertical"
+    android:paddingBottom="15dp">
+
+    <ImageView
+        android:id="@+id/tv_tickets_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginLeft="25dp"
+        android:maxWidth="35dp"
+        android:layout_marginTop="15dp" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tv_tickets_icon"
+        android:layout_marginLeft="3dp"
+        android:layout_toRightOf="@id/tv_tickets_icon"
+        android:text="已预订"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_order_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tv_tickets_icon"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="25dp"
+        android:text="1088"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tv_status"
+        android:layout_toLeftOf="@id/tv_order_amount"
+        android:text="总额明细¥"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/order_no_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/tv_tickets_icon"
+        android:layout_below="@id/tv_tickets_icon"
+        android:layout_marginTop="15dp"
+        android:text="订单号"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/order_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/order_no_"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="25dp"
+        android:text="KW11656123123"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+</RelativeLayout>

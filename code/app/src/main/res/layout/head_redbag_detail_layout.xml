@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    tools:context="com.yzb.card.king.ui.bonus.activity.RedBagDetailActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+     <ImageView
+         android:id="@+id/thumbImg"
+         android:src="@mipmap/icon_redbag_normal_detail"
+         android:layout_width="match_parent"
+         android:scaleType="fitXY"
+         android:adjustViewBounds="true"
+         android:layout_height="130dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:background="@mipmap/red_packet_background"/>
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/redbag_detail_usercicle_img"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:scaleType="fitCenter"
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
+</FrameLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        >
+
+        <View
+            android:id="@+id/tvCircle"
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/shape_solid_yellow_circle"
+            />
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tvCircle"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="-8dp"
+            android:layout_toRightOf="@+id/tvCircle"
+            android:text=""
+            android:textColor="@color/color_333333"
+            android:textSize="13sp"/>
+    </RelativeLayout>
+
+</RelativeLayout>

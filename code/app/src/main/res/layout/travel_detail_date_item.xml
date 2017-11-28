@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginRight="10dp"
+              android:background="@drawable/selector_bg_corner_blue_gray_stroke"
+              android:clickable="true"
+              android:gravity="center"
+              android:orientation="vertical"
+              android:paddingBottom="2dp"
+              android:paddingLeft="20dp"
+              android:paddingRight="20dp"
+              android:paddingTop="2dp">
+
+    <TextView
+        android:id="@+id/tvLineName"
+        style="@style/travel_detail_title_style"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:text="A线"
+        android:textColor="@drawable/selector_text_color_blue_gray"
+        />
+
+    <TextView
+        android:id="@+id/tvLineType"
+        style="@style/travel_detail_title_style"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="卢浮宫/直飞"
+        android:textColor="@drawable/selector_text_color_blue_gray"
+        android:textSize="10sp"
+        />
+</LinearLayout>

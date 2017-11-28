@@ -1,0 +1,119 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/line"
+        android:clickable="true"/>
+
+    <LinearLayout
+        android:id="@+id/panelNav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/shape_corner4dp_halftranspant_solid"
+        android:gravity="center"
+        android:padding="8dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_route_plan_nav"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:text="导航"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/panelStreet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/panelNav"
+        android:layout_alignRight="@+id/panelNav"
+        android:layout_below="@+id/panelNav"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/shape_corner4dp_halftranspant_solid"
+        android:gravity="center"
+        android:padding="8dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_route_plan_street"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:text="街景"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            />
+
+    </LinearLayout>
+
+    <!--我的位置-->
+    <LinearLayout
+        android:id="@+id/ll_my_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/panelBottom"
+        android:layout_marginLeft="10dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_round_gray_5dp"
+            android:src="@mipmap/icon_mylocation__new"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/panelBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
+
+        <!--放大-->
+        <ImageView
+            android:id="@+id/tv_zoom_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_round_gray_5dp"
+            android:src="@mipmap/icon_map_zoom_in_new"
+            />
+
+        <!--缩小-->
+        <ImageView
+            android:id="@+id/tv_zoom_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_round_gray_5dp"
+            android:src="@mipmap/icon_map_zoom_out_new"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

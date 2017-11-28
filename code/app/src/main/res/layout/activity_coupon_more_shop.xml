@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        style="@style/titlebar_style"
+        android:background="@color/white_ffffff">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:src="@mipmap/icon_arrow_back_black" />
+
+        <LinearLayout
+            android:id="@+id/panelLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/ivBack"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="60dp"
+                android:singleLine="true"
+                android:text="合肥"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/icon_coupon_search_map" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/ivRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/title_l_r"
+            android:background="@mipmap/icon_my_coupon_golder" />
+
+
+        <LinearLayout
+            android:id="@+id/panelSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/ivRight"
+            android:layout_toRightOf="@id/panelLocation"
+            android:layout_weight="1"
+            android:background="@drawable/bg_f5f5f5"
+            android:gravity="left|center_vertical"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="8dp">
+
+
+            <TextView
+                android:id="@+id/llSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="2dp"
+                android:layout_weight="1"
+                android:drawableLeft="@mipmap/icon_search_gray_new"
+                android:drawablePadding="6dp"
+                android:gravity="left"
+                android:maxLines="1"
+                android:text="搜索更多优惠"
+                android:textColor="#949494"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+        <com.yzb.card.king.ui.appwidget.LoadMoreListView
+            android:id="@+id/listView"
+            style="@style/listview_style"
+            android:background="@color/transparent"
+            android:divider="@color/transparent"
+            android:dividerHeight="10dp"
+            android:paddingBottom="13dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="13dp"
+            android:scrollbars="none"
+            />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <!--底部筛选栏-->
+    <LinearLayout
+        android:id="@+id/panelBottom"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:background="@color/bgBlack"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/panelNoUse"
+            style="@style/coupon_search_bottom_panel"
+            >
+
+            <ImageView
+                android:id="@+id/ivTabNoUse"
+                style="@style/coupon_search_bottom_iv"
+                android:src="@drawable/selector_coupon_use"
+                />
+
+            <TextView
+                android:id="@+id/tvTabNoUse"
+                style="@style/coupon_search_bottom_tv"
+                android:text="分类"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/panelSort"
+            style="@style/coupon_search_bottom_panel"
+            >
+
+            <ImageView
+                android:id="@+id/ivTabSort"
+                style="@style/coupon_search_bottom_iv"
+                android:src="@drawable/selector_coupon_sort"
+                />
+
+            <TextView
+                android:id="@+id/tvTabSort"
+                style="@style/coupon_search_bottom_tv"
+                android:text="智能排序"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/panelNearby"
+            style="@style/coupon_search_bottom_panel"
+            >
+
+            <ImageView
+                android:id="@+id/ivTabNearby"
+                style="@style/coupon_search_bottom_iv"
+                android:src="@drawable/selector_coupon_nearby"
+                />
+
+            <TextView
+                android:id="@+id/tvTabNearby"
+                style="@style/coupon_search_bottom_tv"
+                android:text="附近"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/panelShopCoupon"
+            style="@style/coupon_search_bottom_panel"
+            >
+
+            <ImageView
+                android:id="@+id/ivTabCoupon"
+                style="@style/coupon_search_bottom_iv"
+                android:src="@drawable/selector_coupon_discount"/>
+
+            <TextView
+                android:id="@+id/tvTabCoupon"
+                style="@style/coupon_search_bottom_tv"
+                android:text="优惠商家"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

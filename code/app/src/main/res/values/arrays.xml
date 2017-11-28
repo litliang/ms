@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--账单日-->
+    <string-array name="zdr_date_array">
+        <item>每月1日</item>
+        <item>每月2日</item>
+        <item>每月3日</item>
+        <item>每月4日</item>
+        <item>每月5日</item>
+        <item>每月6日</item>
+        <item>每月7日</item>
+        <item>每月8日</item>
+        <item>每月9日</item>
+        <item>每月10日</item>
+
+        <item>每月11日</item>
+        <item>每月12日</item>
+        <item>每月13日</item>
+        <item>每月14日</item>
+        <item>每月15日</item>
+        <item>每月16日</item>
+        <item>每月17日</item>
+        <item>每月18日</item>
+        <item>每月19日</item>
+        <item>每月20日</item>
+
+        <item>每月21日</item>
+        <item>每月22日</item>
+        <item>每月23日</item>
+        <item>每月24日</item>
+        <item>每月25日</item>
+        <item>每月26日</item>
+        <item>每月27日</item>
+        <item>每月28日</item>
+    </string-array>
+
+    <!--  <item>QQ空间</item>
+        <item>新浪微博</item>
+        <item>腾讯微博</item>-->
+    <string-array name="share_platforms">
+        <item>微信朋友圈</item>
+        <item>微信好友</item>
+        <item>QQ好友</item>
+    </string-array>
+
+    <string-array name="share_platforms_array">
+        <item>微信好友</item>
+        <item>朋友圈</item>
+        <item>QQ</item>
+        <item>QQ空间</item>
+        <item>邮件</item>
+        <item>短信</item>
+        <item>复制</item>
+    </string-array>
+
+    <!-- <item>新浪微博</item>-->
+    <string-array name="share_giftcard_platforms">
+        <item>嗨生活</item>
+        <item>微信好朋友</item>
+        <item>QQ好友</item>
+        <item>微信朋友圈</item>
+        <item>更多</item>
+    </string-array>
+
+    <!--        <item>com.tencent.mobileqq</item>
+        <item>com.sina.weibo</item>
+        <item>com.tencent.WBlog</item>-->
+
+    <string-array name="share_platforms_packages">
+        <item>com.tencent.mm</item>
+        <item>com.tencent.mm</item>
+        <item>com.tencent.mobileqq</item>
+    </string-array>
+
+    <string-array name="share_platforms_packages1">
+        <item>com.tencent.mm</item>
+        <item>com.tencent.mobileqq</item>
+        <item>com.tencent.mm</item>
+        <item>更多</item>
+    </string-array>
+
+    <string-array name="week_name">
+        <item>星期日</item>
+        <item>星期一</item>
+        <item>星期二</item>
+        <item>星期三</item>
+        <item>星期四</item>
+        <item>星期五</item>
+        <item>星期六</item>
+    </string-array>
+
+    <string-array name="jfb_account_summary_mywallet_titles">
+        <item>优惠券</item>
+        <item>商家订单</item>
+        <item>卡王积分</item>
+        <item>银行积分</item>
+    </string-array>
+
+    <string-array name="jfb_jfmx_tab_titles">
+        <item>积分收入</item>
+        <item>积分支出</item>
+        <item>积分账单</item>
+    </string-array>
+
+    <!--设置 start-->
+    <string-array name="setting_certificate_type">
+        <item>身份证</item>
+        <item>护照</item>
+        <item>台胞证</item>
+        <item>回乡证</item>
+        <item>军人证</item>
+        <item>港澳通行证</item>
+    </string-array>
+
+
+    <string-array name="giftcard_home_channels">
+        <item>购买卡</item>
+        <item>激活实体卡</item>
+        <item>领用e卡</item>
+        <item>卡订单</item>
+    </string-array>
+
+    <string-array name="giftcard_home_bottom_channels">
+        <item>电子卡</item>
+        <item>实体卡</item>
+        <item>卡兑换</item>
+        <item>卡记录</item>
+    </string-array>
+
+    <string-array name="coupons_home_channels">
+        <item>发红包</item>
+        <item>领取红包</item>
+        <item>提现</item>
+        <item>红包记录</item>
+    </string-array>
+
+    <string-array name="setting_month_array">
+        <item>1月</item>
+        <item>2月</item>
+        <item>3月</item>
+        <item>4月</item>
+        <item>5月</item>
+        <item>6月</item>
+        <item>7月</item>
+        <item>8月</item>
+        <item>9月</item>
+        <item>10月</item>
+        <item>11月</item>
+        <item>12月</item>
+    </string-array>
+
+    <!--直辖市-->
+    <string-array name="direct_city">
+        <item>北京</item>
+        <item>上海</item>
+        <item>天津</item>
+        <item>重庆</item>
+    </string-array>
+
+    <integer-array name="giftcard_limit_array">
+        <item>500</item>
+        <item>800</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>5000</item>
+    </integer-array>
+
+
+    <string-array name="route_plan_type1">
+        <item>驾车</item>
+        <item>公交</item>
+        <item>步行</item>
+        <item>骑行</item>
+    </string-array>
+    <string-array name="route_plan_type2"><!--不包括公交-->
+        <item>驾车</item>
+        <item>步行</item>
+        <item>骑行</item>
+    </string-array>
+
+    <string-array name="pj_tab_titles">
+        <item>全部</item>
+        <item>好评</item>
+        <item>中评</item>
+        <item>差评</item>
+        <item>有图</item>
+    </string-array>
+
+    <string-array name="transport_title_array">
+        <item>火车票</item>
+        <item>汽车票</item>
+        <item>船票</item>
+        <item>接送机</item>
+        <item>接送火车</item>
+        <item>专车出行</item>
+        <item>自驾租车</item>
+        <item>日租包车</item>
+    </string-array>
+
+    <string-array name="choice_money_array">
+        <item>不限</item>
+        <item>&#165;150以下</item>
+        <item>&#165;150-300</item>
+        <item>&#165;301-450</item>
+        <item>&#165;451-600</item>
+        <item>&#165;601-1000</item>
+        <item>&#165;1000以上</item>
+    </string-array>
+
+    <string-array name="choice_star_level">
+        <item>不限</item>
+        <item>快捷连锁</item>
+        <item>二星及以下/经济</item>
+        <item>三星/舒适</item>
+        <item>四星/高档</item>
+        <item>五星/豪华</item>
+    </string-array>
+
+    <string-array name="estimated_fare">
+        <item>经济型</item>
+        <item>舒适型</item>
+        <item>豪华型</item>
+        <item>商务型</item>
+        <item>特斯拉</item>
+    </string-array>
+
+    <string-array name="setting_indexs">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <integer-array  name="setting_indexs_inte">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </integer-array >
+
+    <string-array name="letters">
+        <item>定位</item>
+        <item>热门</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+        <item>O</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+    </string-array>
+
+    <string-array name="nearby_map_category">
+        <item>交通</item>
+        <item>餐饮</item>
+        <item>娱乐</item>
+        <item>景点</item>
+        <item>购物</item>
+        <item>酒店</item>
+    </string-array>
+    <string-array name="number_1_10">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="phone_border_type">
+        <item>境内手机</item>
+        <item>境外手机</item>
+    </string-array>
+    <string-array name="hotel_nearby">
+        <item>交通</item>
+        <item>美食</item>
+        <item>酒店</item>
+        <item>景点</item>
+        <item>购物</item>
+        <item>娱乐</item>
+    </string-array>
+
+
+    <string-array name="cap_letters">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+        <item>O</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+    </string-array>
+
+    <string-array name="applicant_name_array">
+        <item>企业</item>
+        <item>个人</item>
+        <item>政务机关行政单位</item>
+    </string-array>
+
+    <integer-array  name="applicant_value_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </integer-array>
+
+    <string-array name="mail_name_array">
+        <item>门店自取</item>
+        <item>邮寄</item>
+    </string-array>
+
+    <integer-array  name="mail_value_array">
+        <item>1</item>
+        <item>2</item>
+    </integer-array>
+
+
+    <string-array name="jisong_type_name_array">
+        <item>本人使用</item>
+        <item>赠与亲友</item>
+    </string-array>
+
+    <integer-array  name="jisong_type_value_array">
+        <item>1</item>
+        <item>2</item>
+    </integer-array>
+
+
+    <integer-array  name="invoice_type_value_array">
+        <item>1</item>
+        <item>2</item>
+    </integer-array>
+
+    <string-array name="invoice_type_name_array">
+        <item>普通发票</item>
+        <item>专用发票</item>
+    </string-array>
+
+    <integer-array  name="invoice_content1_value_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </integer-array>
+
+    <string-array name="invoice_content1_name_array">
+        <item>房费</item>
+        <item>代订房费</item>
+        <item>住宿费</item>
+        <item>代订住宿费</item>
+        <item>旅游费</item>
+        <item>差旅费</item>
+        <item>团费</item>
+        <item>考察费</item>
+        <item>服务费</item>
+        <item>代办签证费</item>
+    </string-array>
+
+    <string-array name="invoice_content_name_array">
+        <item>房费</item>
+        <item>招待费</item>
+        <item>餐费</item>
+        <item>服务器费</item>
+    </string-array>
+
+
+    <string-array name="tab_hotel_type_name_array">
+        <item>优惠促销</item>
+        <item>银行优惠</item>
+        <item>生活分期</item>
+        <item>酒店品牌</item>
+    </string-array>
+
+
+    <string-array name="today_left_room_name_array">
+        <item>星级价格</item>
+        <item>床型</item>
+        <item>排序</item>
+    </string-array>
+
+    <string-array name="gife_pp_name_array">
+        <item>限时抢购</item>
+        <item>酒店</item>
+        <item>品牌</item>
+        <item>筛选</item>
+        <item>智能排序</item>
+    </string-array>
+
+    <string-array name="gift_combo_name_array">
+        <item>限时抢购</item>
+        <item>卡权益</item>
+
+    </string-array>
+
+    <string-array name="life_stage_name_array">
+        <item>全部银行</item>
+        <item>酒店</item>
+        <item>分期数</item>
+    </string-array>
+
+    <string-array name="bank_preferential_name_array">
+        <item>全部银行</item>
+        <item>酒店</item>
+        <item>优惠类型</item>
+        <item>活动期限</item>
+    </string-array>
+
+    <string-array name="product_channel_name_array">
+        <item>酒店</item>
+        <item>机票</item>
+        <item>旅游</item>
+    </string-array>
+
+    <integer-array name="product_channel_value_array">
+        <item>8</item>
+        <item>6</item>
+        <item>3</item>
+    </integer-array>
+
+    <string-array name="today_leftroom_sort_name_array">
+        <item>智能排序</item>
+        <item>高价优先</item>
+        <item>低价优先</item>
+        <item>优惠力度</item>
+    </string-array>
+
+    <integer-array name="today_leftroom_sort_value_array">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </integer-array>
+
+    <string-array name="gift_combo_sort_name_array">
+        <item>智能排序</item>
+        <item>高价优先</item>
+        <item>低价优先</item>
+        <item>销量优先</item>
+    </string-array>
+    <integer-array name="gift_combo_sort_value_array">
+        <item>0</item>
+        <item>2</item>
+        <item>1</item>
+        <item>3</item>
+    </integer-array>
+
+    <string-array name="hotel_sort_name_array">
+        <item>智能排序</item>
+        <item>高价优先</item>
+        <item>低价优先</item>
+        <item>距离优先</item>
+    </string-array>
+
+    <integer-array name="hotel_sort_value_array">
+        <item>0</item>
+        <item>2</item>
+        <item>1</item>
+        <item>3</item>
+    </integer-array>
+
+    <string-array name="user_bank_info_name_array">
+        <item>全部银行</item>
+        <item>我的银行</item>
+    </string-array>
+
+    <string-array name="bed_type_name_array">
+        <item>单床</item>
+        <item>双床</item>
+        <item>圆床</item>
+        <item>水床</item>
+        <item>单床/双床</item>
+        <item>大床/单床</item>
+        <item>大床/双床</item>
+    </string-array>
+    <integer-array name="bed_type_value_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </integer-array>
+
+    <string-array name="life_stage_num_name_array">
+        <item>3期</item>
+        <item>6期</item>
+        <item>12期</item>
+        <item>18期</item>
+        <item>24期</item>
+    </string-array>
+
+    <integer-array name="life_stage_num_value_array">
+        <item>3</item>
+        <item>6</item>
+        <item>12</item>
+        <item>18</item>
+        <item>24</item>
+    </integer-array>
+
+
+    <string-array name="preferential_type_name_array">
+        <item>全部类型</item>
+        <item>刷卡返现</item>
+        <item>刷卡立减</item>
+        <item>刷卡享折扣</item>
+    </string-array>
+
+    <integer-array name="preferential_type_value_array">
+
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </integer-array>
+
+    <string-array name="hotel_start_name_array">
+        <item>不限</item>
+        <item>经济型</item>
+        <item>二星级</item>
+        <item>三星/舒适</item>
+        <item>四星/高档</item>
+        <item>五星/豪华</item>
+        <item>五星以上</item>
+    </string-array>
+
+    <string-array name="hotel_start_name_value_array">
+        <item>0</item>
+        <item>2</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+
+    <string-array name="promotion_type_name_array">
+        <item>今日甩房</item>
+        <item>限时抢购</item>
+        <item>卡权益</item>
+        <item>代金券</item>
+        <item>返现</item>
+        <item>优惠券</item>
+        <item>商家积分</item>
+    </string-array>
+
+    <integer-array name="promotion_type_value_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </integer-array>
+
+
+
+    <string-array name="hotel_grade_name_array">
+        <item>4.5分以上</item>
+        <item>4分以上</item>
+        <item>3.5分以上</item>
+        <item>3分以上</item>
+    </string-array>
+
+    <integer-array name="hotel_grade_value_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </integer-array>
+
+
+    <string-array name="hotel_validity_name_array">
+        <item>三个月</item>
+        <item>半年</item>
+        <item>一年</item>
+        <item>两年</item>
+        <item>五年</item>
+
+    </string-array>
+    <integer-array name="hotel_validity_value_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </integer-array>
+
+    <string-array name="hotel_apply_name_array">
+        <item>唯一门店可用</item>
+        <item>多门店通用</item>
+    </string-array>
+
+    <integer-array name="hotel_apply_value_array">
+        <item>1</item>
+        <item>2</item>
+
+    </integer-array>
+
+    <string-array name="hotel_screen_name_array">
+        <item>单早</item>
+        <item>大床</item>
+        <item>到店付</item>
+        <item>直销</item>
+    </string-array>
+
+    <integer-array name="hotel_screen_value_array">
+        <item>1</item>
+        <item>3</item>
+        <item>1</item>
+        <item>1</item>
+    </integer-array>
+
+
+    <string-array name="hotel_all_screen_name_array">
+        <item>供应商</item>
+        <item>支付方式</item>
+        <item>餐种</item>
+        <item>床型</item>
+    </string-array>
+
+    <string-array name="hotel_all_screen_pay_name_array">
+        <item>到店付</item>
+        <item>在线付</item>
+        <item>担保付</item>
+    </string-array>
+    <integer-array  name="hotel_all_screen_pay_value_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </integer-array>
+
+    <string-array name="hotel_all_screen_food_name_array">
+        <item>单早</item>
+        <item>双早</item>
+        <item>不含早</item>
+    </string-array>
+    <integer-array  name="hotel_all_screen_food_value_array">
+        <item>1</item>
+        <item>2</item>
+        <item>0</item>
+    </integer-array>
+
+    <string-array name="hotel_all_screen_bed_name_array">
+        <item>单床</item>
+        <item>双床</item>
+        <item>木床</item>
+        <item>圆床</item>
+        <item>水床</item>
+        <item>单床/双床</item>
+        <item>大床/单床</item>
+    </string-array>
+    <integer-array  name="hotel_all_screen_bed_value_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </integer-array>
+
+    <string-array name="ticket_air_line_company_name_array">
+        <item>不限</item>
+        <item>东方航空</item>
+    </string-array>
+
+    <string-array name="month_air_line_name_array">
+        <item>不限日期</item>
+        <item>10月</item>
+        <item>11月</item>
+        <item>12月</item>
+    </string-array>
+
+</resources>

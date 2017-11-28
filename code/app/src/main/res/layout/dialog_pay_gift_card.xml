@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <!--实体卡号-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/giftcard_dialog_left_text_style"
+                    android:text="@string/pay_stkkh" />
+
+                <EditText
+                    android:id="@+id/et_card_number"
+                    style="@style/giftcard_dialog_input_text_style"
+                    android:hint="@string/pay_qsrstkh"
+                    android:inputType="number"
+                    android:text="" />
+
+                <ImageView
+                    android:id="@+id/iv_scan"
+                    android:layout_width="24dp"
+                    android:layout_height="22dp"
+                    android:layout_marginLeft="8dp"
+                    android:src="@mipmap/icon_sys_red" />
+
+            </LinearLayout>
+
+            <View
+                style="@style/giftcard_view_line_style"
+                android:layout_marginTop="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical|bottom"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/giftcard_dialog_left_text_style"
+                    android:text="密\u3000\u3000\u3000码" />
+
+                <EditText
+                    android:id="@+id/et_pwd"
+                    style="@style/giftcard_dialog_input_text_style"
+                    android:hint="@string/pay_qsrsmm"
+                    android:inputType="textPassword"
+                    android:text="" />
+
+            </LinearLayout>
+
+            <View
+                style="@style/giftcard_view_line_style"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:id="@+id/tv_ok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/bg_round_corner_red_5"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/ok"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/gift_card_introduce"
+                android:textColor="@color/pay_919191"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+        <!--进度条-->
+        <LinearLayout
+            android:id="@+id/llProgress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:gravity="center">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

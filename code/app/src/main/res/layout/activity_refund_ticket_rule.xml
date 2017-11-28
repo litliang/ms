@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical"
+    >
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/color_EFEFEF"/>
+
+    <LinearLayout
+        android:id="@+id/llParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="15dp"
+            >
+
+            <TextView
+                android:id="@+id/tvRMB"
+                style="@style/ticket_refund_ticketrule_style"
+                android:text="¥ "
+                />
+
+            <TextView
+                android:id="@+id/tvPrice"
+                style="@style/ticket_refund_ticketrule_style"
+                android:layout_alignBottom="@+id/tvRMB"
+                android:layout_toRightOf="@+id/tvRMB"
+                android:text="0"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/tvPriceIntro"
+                style="@style/ticket_refund_ticketrule_style"
+                android:layout_alignBottom="@+id/tvRMB"
+                android:layout_toRightOf="@+id/tvPrice"
+                android:text=" 人均含税价"
+                />
+
+            <TextView
+                android:id="@+id/tvPref"
+                style="@style/ticket_refund_ticketrule_style"
+                android:layout_alignLeft="@+id/tvRMB"
+                android:layout_below="@+id/tvRMB"
+                android:layout_marginTop="5dp"
+                android:text=""
+                android:textColor="@color/ticket_gray5"
+                android:textSize="14sp"
+                android:visibility="gone"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/shape_setting_round_corner5dp_red_solid"
+            android:paddingBottom="8dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="8dp"
+            android:text="预订"
+            android:textColor="@color/white"
+            android:textSize="13dp"
+            />
+
+    </LinearLayout>
+</LinearLayout>

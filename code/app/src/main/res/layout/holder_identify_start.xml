@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="280dp"
+        android:layout_height="156dp"
+        android:layout_marginTop="44dp"
+        android:background="@color/hotel_f5f5f5"
+        android:layout_gravity="center_horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/person_id"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="认证须知：\n需要准备个人证件，个人储蓄卡\n证件正反面、银行卡正面照、以及手持证件自拍照"
+            android:textSize="11sp"
+            android:textColor="@color/user_center_black"
+            android:lineSpacingExtra="5dp"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:text="开始认证"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:background="@drawable/selector_normal_button"
+        android:layout_marginTop="58dp"/>
+</LinearLayout>

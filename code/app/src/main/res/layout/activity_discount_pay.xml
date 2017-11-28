@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/color_F5F5F5"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar_height"/>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/activity_discountpay_top"/>
+
+            <!--优惠部分-->
+            <include layout="@layout/activity_discountpay_coupon"/>
+
+            <include layout="@layout/activity_discountpay_platform_shop"/>
+
+            <View style="@style/payment_view_line_style"/>
+
+            <View
+                style="@style/payment_view_line_style"
+                android:layout_marginTop="12dp"/>
+
+            <include layout="@layout/activity_discountpay_paymethod"/>
+
+            <include layout="@layout/activity_discountpay_coupon_toggle"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <include layout="@layout/activity_discountpay_submit_line"/>
+</LinearLayout>

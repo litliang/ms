@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        >
+
+        <RelativeLayout
+            android:id="@+id/rlBack"
+            android:layout_width="50dp"
+            android:onClick="backAction"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="16dp"
+                android:src="@mipmap/icon_back_gray"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="4dp"/>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/page_margin_left_right"
+            android:layout_marginTop="@dimen/page_margin_left_right"
+            android:textColor="@color/color_333333"
+            android:text="@string/login_title"
+            android:textSize="@dimen/titlebar_text_size" />
+
+    </RelativeLayout>
+
+</LinearLayout>

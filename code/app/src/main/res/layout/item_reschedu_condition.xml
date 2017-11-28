@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:gravity="center_vertical"
+              android:orientation="horizontal"
+              android:paddingBottom="10dp"
+              android:paddingTop="10dp">
+
+    <ImageView
+        android:id="@+id/ivClock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_all_time"
+        />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="起飞前2小时外"
+        android:textColor="@color/color_333333"
+        android:textSize="13sp"
+        />
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:text="¥0/人"
+        android:textColor="@color/color_333333"
+        android:textSize="13sp"
+        />
+</LinearLayout>

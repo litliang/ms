@@ -1,0 +1,22 @@
+<RelativeLayout
+    android:id="@+id/rootView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.yzb.card.king.ui.appwidget.SlideUnConflictViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:id="@+id/panel_dots"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/viewPager"
+        android:paddingBottom="8dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+</RelativeLayout>

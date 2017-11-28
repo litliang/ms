@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tvTabName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:text="卡權益"
+        android:textSize="12sp"
+        android:background="@drawable/selector_tab_top_blue_gray"
+        android:textColor="@color/selector_square_blue_gray"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:layout_weight="1"/>
+</LinearLayout>

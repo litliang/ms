@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/llParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/shape_rounded_rectangle_white_add_roster">
+        <ListView
+            android:id="@+id/llTravellerPlanInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:divider="@color/black2"
+            android:dividerHeight="0.5dip"
+            android:listSelector="@android:color/transparent">
+
+        </ListView>
+    </LinearLayout>
+
+</LinearLayout>

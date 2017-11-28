@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:orientation="vertical"
+    >
+
+    <!--行程选择块-->
+    <LinearLayout
+        android:id="@+id/panelLinesSelect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.yzb.card.king.ui.appwidget.MeasureHeightLinearLayout
+            android:id="@+id/tvMeasureLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="13dp"
+            android:paddingTop="13dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_travel_detail_left"/>
+
+            <TextView
+                style="@style/travel_detail_title_style"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:gravity="center"
+                android:text="行程选择"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_travel_detail_right"
+                />
+        </com.yzb.card.king.ui.appwidget.MeasureHeightLinearLayout>
+
+        <com.yzb.card.king.ui.travel.activity.view.TravelDetailLinesView
+            android:id="@+id/detailLinesView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+    <!--出发地块-->
+    <LinearLayout
+        android:id="@+id/panelStartPalace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_travel_map_blue"/>
+
+        <TextView
+            android:id="@+id/tvStartPlace"
+            style="@style/travel_detail_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:text=""
+            />
+
+        <!--出发地说明-->
+        <TextView
+            android:id="@+id/tvStartPlaceIntro"
+            style="@style/travel_detail_title_style"
+            android:layout_width="0dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:text=""
+            android:textColor="@color/color_666666"
+            android:textSize="12sp"
+            />
+        <!--更多出发地-->
+        <LinearLayout
+            android:id="@+id/panelMorePlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/travel_detail_text_gray_style"
+                android:layout_marginLeft="5dp"
+                android:text="更多出发地"
+                android:textSize="12sp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:src="@mipmap/icon_arrow_right_gray_small"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--日期列表-->
+    <LinearLayout
+        android:id="@+id/panelDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:gravity="top"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/dateRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scrollbars="none"/>
+
+        <include
+            layout="@layout/item_travel_date_more"/>
+    </LinearLayout>
+
+
+    <!--线路介绍-->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <!--线路介绍（ 锦江模式）-->
+        <LinearLayout
+            android:id="@+id/panelLineRouteJj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/panelLineIntroPdf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_travel_jinjiang_left"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/shap_corner_yellow"
+                    android:gravity="center"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingTop="5dp"
+                    android:text="查看线路"
+                    android:textColor="@color/color_b59849"
+                    android:textSize="13sp"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_travel_jinjiang_right"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <!--线路介绍（非 锦江模式）-->
+        <com.yzb.card.king.ui.travel.activity.view.TravelDetailLineRouteView
+            android:id="@+id/lineRouteView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/color_F5F5F5"/>
+</LinearLayout>

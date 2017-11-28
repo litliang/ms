@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include layout="@layout/header"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/hotel_f5f5f5"
+                android:orientation="vertical">
+
+                <com.yzb.card.king.ui.appwidget.LoadMoreListView
+                    android:id="@+id/couponLv"
+                    style="@style/listview_style"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/transparent"
+                    android:divider="@color/transparent"
+                    android:dividerHeight="13dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="13dp"
+                    android:paddingTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/tvCouponLittle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:text="@string/little_coupon_notice"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:visibility="gone"
+                    />
+            </LinearLayout>
+        </ScrollView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/panelBottom"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:background="@color/bgBlack"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/panelNoUse"
+            style="@style/coupon_search_bottom_panel"
+            >
+
+            <ImageView
+                android:id="@+id/ivTabNoUse"
+                style="@style/coupon_search_bottom_iv"
+                android:src="@drawable/selector_coupon_use"
+                />
+
+            <TextView
+                android:id="@+id/tvTabNoUse"
+                style="@style/coupon_search_bottom_tv"
+                android:text="分类"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/panelSort"
+            style="@style/coupon_search_bottom_panel"
+            >
+
+            <ImageView
+                android:id="@+id/ivTabSort"
+                style="@style/coupon_search_bottom_iv"
+                android:src="@drawable/selector_coupon_sort"
+                />
+
+            <TextView
+                android:id="@+id/tvTabSort"
+                style="@style/coupon_search_bottom_tv"
+                android:text="智能排序"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/panelNearby"
+            style="@style/coupon_search_bottom_panel"
+            >
+
+            <ImageView
+                android:id="@+id/ivTabNearby"
+                style="@style/coupon_search_bottom_iv"
+                android:src="@drawable/selector_coupon_nearby"
+                />
+
+            <TextView
+                android:id="@+id/tvTabNearby"
+                style="@style/coupon_search_bottom_tv"
+                android:text="附近"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/panelShopCoupon"
+            style="@style/coupon_search_bottom_panel">
+
+            <ImageView
+                android:id="@+id/ivTabCoupon"
+                style="@style/coupon_search_bottom_iv"
+                android:src="@drawable/selector_coupon_discount"/>
+
+            <TextView
+                android:id="@+id/tvTabCoupon"
+                style="@style/coupon_search_bottom_tv"
+                android:layout_marginTop="3dp"
+                android:text="优惠商家"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

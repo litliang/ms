@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/rl_title"
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"/>
+
+    <View
+        android:id="@+id/lineTitel"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_F5F5F5"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/panelScanDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white_ffffff"
+                android:gravity="center_vertical"
+                android:paddingBottom="10dp"
+                android:paddingLeft="@dimen/title_l_r"
+                android:paddingRight="@dimen/title_l_r"
+                android:paddingTop="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/tvLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="礼品卡账户余额"
+                    android:textColor="@color/user_center_black"
+                    android:textSize="16sp"
+                    />
+
+                <TextView
+                    android:id="@+id/giftcardSumAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/tvLabel"
+                    android:text="¥0.00"
+                    android:textColor="#bf9543"
+                    android:textSize="18sp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="1dp"
+                        android:text="明细"
+                        android:textColor="#333333"
+                        android:textSize="16sp"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_menu_giftcard"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/ivThumb"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_marginTop="15dp"
+                android:scaleType="fitXY"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="13dp"
+                android:background="@drawable/shape_bg_corner_gray_stroke"
+                android:gravity="center_vertical"
+                android:paddingBottom="14dp"
+                android:paddingLeft="14dp"
+                android:paddingTop="14dp"
+                >
+
+                <EditText
+                    android:id="@+id/etCardMsg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:maxLength="20"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="#5b688e"
+                    android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+                    android:textSize="15sp"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="13dp"
+                    android:src="@mipmap/icon_giftcard_plus_new"
+                    />
+            </LinearLayout>
+
+            <!--匿名-->
+            <LinearLayout
+                android:id="@+id/panelCryptonym"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical|right"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+                <ImageView
+                    android:id="@+id/ivCryptonym"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selected_light_blue_new"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="8dp"
+                    android:text="匿名"
+                    android:textColor="#021239"
+                    android:textSize="15sp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/shape_bg_corner_gray_stroke"
+                android:orientation="vertical"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                >
+
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:stretchColumns="1">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        >
+
+                        <TextView
+                            android:id="@+id/tvAmountLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/text_total_amount"
+                            android:textColor="@color/color_0a153b"
+                            android:textSize="15sp"
+                            />
+
+                        <EditText
+                            android:id="@+id/etSumAmount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="@string/text_total_amount_hint"
+                            android:inputType="numberDecimal"
+                            android:paddingLeft="16dp"
+                            android:textColor="@color/color_0a153b"
+                            android:textColorHint="@color/color_666666"
+                            android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+                            android:textSize="15sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="元"
+                            android:textColor="@color/color_0a153b"
+                            android:textSize="14sp"
+                            />
+                    </TableRow>
+
+                </TableLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="13dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/panelRecvProtocal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/ivProtocalSelect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/selected_light_blue_new"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="8dp"
+                        android:text="我已阅读并接受"
+                        android:textColor="#535353"
+                        android:textSize="13sp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvServiceProtocal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:text="&lt;服务协议&gt;"
+                    android:textColor="#3e6c90"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvTotalAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:gravity="center"
+                android:text="¥0.00"
+                android:textColor="#d5c17d"
+                android:textSize="21sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvBuy"
+                style="@style/my_btn_bg_style"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="26dp"
+                android:text="确认购买"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

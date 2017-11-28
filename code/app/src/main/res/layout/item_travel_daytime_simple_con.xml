@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+    >
+
+    <ImageView
+        android:id="@+id/ivTrafficType"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitCenter"
+        />
+
+    <TextView
+        android:id="@+id/tvContent"
+        style="@style/travel_detail_dayroute_listitem_style"
+        android:layout_alignTop="@+id/ivTrafficType"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/ivTrafficType"
+        android:lineSpacingMultiplier="1.2"
+        android:text=""
+        />
+
+</RelativeLayout>

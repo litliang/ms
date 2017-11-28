@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_F5F5F5"
+                android:fitsSystemWindows="true">
+
+    <include
+        android:id="@+id/rl_title"
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"/>
+
+    <View
+        android:id="@+id/lineTitel"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/rl_title"
+        android:background="#cdcdcd"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/lineTitel"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/hotel_F5F5F5"
+            android:orientation="vertical"
+            android:paddingBottom="50dp">
+
+            <!-- 房间简介 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="@dimen/title_l_r"
+                android:layout_marginRight="@dimen/title_l_r"
+                android:layout_marginTop="10dp"
+                android:background="@mipmap/bg_hotel_room_top_order"
+                android:orientation="vertical"
+                android:padding="11dp">
+
+                <TextView
+                    android:id="@+id/tvRoomDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textColor="@color/white_ffffff"
+                    android:textSize="@dimen/title_size_16"/>
+
+
+                <TextView
+                    android:id="@+id/tvRoomName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginTop="6dp"
+                    android:lineSpacingExtra="2dp"
+                    android:textColor="@color/color_dbe1ea"
+                    android:textSize="@dimen/text_size_12"/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white_ffffff"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/title_l_r"
+                android:paddingRight="@dimen/title_l_r">
+
+                <LinearLayout
+                    android:id="@+id/llGetType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:background="@color/white_ffffff"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="使用者"
+                            android:textColor="#999999"
+                            android:textSize="14sp"/>
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvMailType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginRight="7dp"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="本人使用"
+                        android:textColor="@color/color_333333"
+                        android:textSize="14sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_arrow_right_item_gray"/>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/llDuifang"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <include layout="@layout/activity_hotel_order_divider"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3.5"
+                            android:orientation="horizontal"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="对方账户"
+                                android:textColor="#999999"
+                                android:textSize="14sp"/>
+
+
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/etLinkManName"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:hint="请输入对方账户手机号码"
+                            android:textColor="@color/color_0a1333"
+                            android:textColorHint="@color/color_999999"
+                            android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+                            android:textSize="14sp"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="invisible"
+                            android:src="@mipmap/icon_hotel_room_phone"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <include layout="@layout/activity_hotel_order_divider"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3.5"
+                            android:text="联系电话"
+                            android:textColor="#999999"
+                            android:textSize="14sp"/>
+
+
+                        <EditText
+                            android:id="@+id/et_user_phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:hint="请输入联系电话号码"
+                            android:inputType="number"
+                            android:maxLength="11"
+                            android:textColor="@color/color_0a1333"
+                            android:textColorHint="@color/color_999999"
+                            android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+                            android:textSize="14sp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_open_contact"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/icon_hotel_room_phone"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:id="@+id/llBill"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:background="@color/white_ffffff"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="@dimen/title_l_r"
+                    android:paddingRight="@dimen/title_l_r"
+                    android:paddingTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="发票"
+                            android:textColor="#999999"
+                            android:textSize="14sp"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="13dp"
+                            android:background="@mipmap/icon_question_mark"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvInvoice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginRight="7dp"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="不需要发票"
+                        android:textColor="@color/color_333333"
+                        android:textSize="14sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_arrow_right_item_gray"/>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!--超值加购-->
+            <include layout="@layout/view_overbalance_goods"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/activity_hotel_order_bottom"/>
+</RelativeLayout>

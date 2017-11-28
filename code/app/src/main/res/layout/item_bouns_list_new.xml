@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="153dp"
+        android:layout_height="191dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"/>
+
+    <TextView
+        android:id="@+id/tvThemeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="26dp"
+        android:singleLine="true"
+        android:text="祝福语"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tvGiverIntro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvThemeName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:text="李中华的红包"
+        android:textColor="@color/color_fef200"
+        android:textSize="10sp"/>
+
+    <TextView
+        android:id="@+id/tvClickGet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/iv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="23dp"
+        android:alpha="0.7"
+        android:background="@drawable/shape_transport_white_corner_stroke"
+        android:paddingBottom="5dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="5dp"
+        android:text="@string/click_get"
+        android:textColor="@color/credit_D84043"
+        android:textSize="12sp"
+        android:textStyle="bold"/>
+</RelativeLayout>

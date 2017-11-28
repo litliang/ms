@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/title_view_height"
+                android:gravity="center_vertical"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white_ffffff"
+                    android:paddingRight="@dimen/title_l_r">
+
+                    <LinearLayout
+                        android:id="@+id/llTemp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/title_l_r"
+                            android:adjustViewBounds="true"
+                            android:background="@mipmap/icon_arrow_back_black"
+                            android:maxHeight="20dp"
+                            android:maxWidth="20dp"
+                            android:scaleType="centerInside"/>
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:text="输入商家名称"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/titlebar_text_size"
+                        />
+
+                </RelativeLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#cdcdcd"/>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white_ffffff"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:background="@color/white_ffffff"
+                    android:orientation="vertical"
+                    android:paddingRight="@dimen/title_l_r"
+                    android:paddingLeft="@dimen/title_l_r"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="商品名称"
+                        android:layout_marginTop="10dp"
+                        android:textSize="14sp"
+                        android:maxLines="2"
+                        android:textColor="@color/color_333333"/>
+
+                    <TextView
+                        android:id="@+id/tvGiftCardName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/color_666666"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="5dp"
+                        />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#cdcdcd"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="数量"
+                        android:layout_marginTop="10dp"
+                        android:textSize="14sp"
+                        android:maxLines="2"
+                        android:textColor="@color/color_333333"/>
+
+                    <TextView
+                        android:id="@+id/tvNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/color_666666"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="5dp"
+                        />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#cdcdcd"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="使用场所"
+                        android:layout_marginTop="10dp"
+                        android:textSize="14sp"
+                        android:maxLines="2"
+                        android:textColor="@color/color_333333"/>
+
+                    <TextView
+                        android:id="@+id/tvCarQuanyiDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/color_666666"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="5dp"
+                        />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#cdcdcd"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="条款和使用说明"
+                        android:layout_marginTop="10dp"
+                        android:textSize="14sp"
+                        android:maxLines="2"
+                        android:textColor="@color/color_333333"/>
+
+                    <TextView
+                        android:id="@+id/tvShuoming"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/color_666666"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="5dp"
+                        />
+
+
+                </LinearLayout>
+            </ScrollView>
+
+
+        </LinearLayout>
+
+        <include
+            layout="@layout/view_dialog_bottom_public_function"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/llPlusGoods"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fbefee"
+            android:orientation="horizontal"
+            android:paddingBottom="7dp"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="@dimen/title_l_r"
+            android:paddingTop="7dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/icon_extra_goods"
+                android:drawablePadding="5dp"
+                android:text="超值加购"
+                android:textColor="#990101"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <!-- 超值加购 -->
+        <com.yzb.card.king.ui.appwidget.WholeRecyclerView
+            android:id="@+id/wvOverbancegoods"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:descendantFocusability="beforeDescendants"
+            android:fastScrollEnabled="false"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="@dimen/title_l_r"
+            android:scrollbars="none"/>
+    </LinearLayout>
+</LinearLayout>

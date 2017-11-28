@@ -1,0 +1,128 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/header"
+        android:layout_width="match_parent"
+        android:layout_height="44dp" />
+
+    <LinearLayout
+        android:id="@+id/selector"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/myBankLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/bankName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="我的银行"
+                android:textColor="@color/bgBlack"
+                android:textSize="14dp" />
+
+            <ImageView
+                android:id="@+id/myBankImage"
+                android:layout_width="15dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="5dp"
+                android:src="@mipmap/icon_arrow_down_grey" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.1dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:background="@color/gray"
+            android:visibility="invisible"/>
+
+        <LinearLayout
+            android:id="@+id/activity_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="活动分类"
+                android:textColor="@color/bgBlack"
+                android:textSize="14dp" />
+
+            <ImageView
+                android:id="@+id/activityImage"
+                android:layout_width="15dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="5dp"
+                android:src="@mipmap/icon_arrow_down_grey" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.1dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:background="@color/gray"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:id="@+id/city_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="城市"
+                android:textColor="@color/bgBlack"
+                android:textSize="14dp" />
+
+            <ImageView
+                android:id="@+id/cityImage"
+                android:layout_width="15dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="5dp"
+                android:src="@mipmap/icon_arrow_down_grey" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/gray4"
+            android:focusable="false"
+            android:overScrollMode="never"
+            android:scrollbars="none"/>
+    </LinearLayout>
+</LinearLayout>

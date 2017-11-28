@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_f0f0f0"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="@dimen/title_l_r"
+                    android:paddingTop="8dp"
+                    android:text="@string/send_hilife_account"
+                    android:textColor="#666666"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_ffffff"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/title_l_r">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape_bg_corner_solid_gray"
+                        android:orientation="horizontal"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="12dp"
+                        android:paddingTop="8dp">
+
+                        <EditText
+                            android:id="@+id/etPhoneAccount"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:inputType="number"
+                            android:background="@android:color/transparent"
+                            android:maxLength="11"
+                            android:hint="请输入对方账户"
+                            android:textSize="@dimen/title_size_16"/>
+
+                        <LinearLayout
+                            android:id="@+id/llAddContact"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginRight="8dp"
+                                android:background="@color/bg_focus"/>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@mipmap/icon_add_account_blue_phone"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/tvAddAccount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/title_l_r"
+                        android:text="@string/send_add"
+                        android:textColor="#999999"
+                        android:textSize="@dimen/title_size_16"/>
+
+                </LinearLayout>
+
+                <!--发送添加的联系人-->
+                <com.yzb.card.king.ui.appwidget.WholeRecyclerView
+                    android:id="@+id/addPayeeWv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </com.yzb.card.king.ui.appwidget.WholeRecyclerView>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_f0f0f0"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="@dimen/title_l_r"
+                    android:paddingTop="8dp"
+                    android:text="@string/send_used_payee"
+                    android:textColor="#666666"/>
+
+                <!--发送添加的常用收款人-->
+                <com.yzb.card.king.ui.appwidget.WholeRecyclerView
+                    android:id="@+id/payeeWv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </com.yzb.card.king.ui.appwidget.WholeRecyclerView>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/tvSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/titleRed"
+        android:paddingBottom="10dp"
+        android:paddingLeft="@dimen/title_l_r"
+        android:paddingRight="@dimen/title_l_r"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/tvNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="已选择"
+            android:textColor="@color/white_ffffff"
+            android:textSize="@dimen/title_size_14"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/setting_ok"
+            android:textColor="@color/white_ffffff"
+            android:textSize="@dimen/title_size_20"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

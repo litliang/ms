@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!-- 头 -->
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar_height"
+        android:background="@color/color_436a8e"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="20dp">
+
+            <ImageView
+                android:id="@+id/img_title_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_back_white"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_multi_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/fromTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="@dimen/titlebar_text_size"/>
+
+            <ImageView
+                android:id="@+id/iv_arrow_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"/>
+
+            <TextView
+                android:id="@+id/toTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="@dimen/titlebar_text_size"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/multTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="订单填写"
+            android:textColor="@color/text_color_white"
+            android:textSize="@dimen/titlebar_text_size"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/color_f0f0f0"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/ticket_order_plane_detail"/>
+
+            <LinearLayout
+                android:id="@+id/ll_discount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_price"
+                android:paddingLeft="10dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_discount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="经济舱9.9折 免费提前改期"
+                    android:textColor="@color/color_4D4D4D"
+                    android:textSize="12sp"/>
+
+                <ImageView
+                    android:layout_width="6dp"
+                    android:layout_height="12dp"
+                    android:layout_marginLeft="6dp"
+                    android:background="@mipmap/arrow_right_grey"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+                <!-- 乘机人 -->
+                <LinearLayout
+                    android:id="@+id/cjrLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="乘机人"
+                        android:textColor="@color/color_333333"
+                        android:textSize="13sp"/>
+
+                    <TextView
+                        android:id="@+id/tvPassengerNum"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="@string/ticket_passengers"
+                        android:textColor="#436a90"
+                        android:textSize="13sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:src="@mipmap/icon_blue_ticket_add_guesture"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#dddddd"/>
+
+                <com.yzb.card.king.ui.appwidget.WholeRecyclerView
+                    android:id="@+id/cjrListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"/>
+            </LinearLayout>
+
+            <include layout="@layout/ticket_order_contact"/>
+
+            <LinearLayout
+                android:id="@+id/panelInsurance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/title_l_r"
+                    android:paddingRight="@dimen/title_l_r"
+                    android:paddingTop="7dp"
+                    android:paddingBottom="7dp"
+                    android:background="#eff6f9"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="保险"
+                        android:textColor="#4a719e"
+                        android:textSize="14sp"
+                        android:drawablePadding="5dp"
+                        android:drawableLeft="@mipmap/icon_order_baoxian"/>
+                </LinearLayout>
+
+                <com.yzb.card.king.ui.appwidget.WholeRecyclerView
+                    android:id="@+id/bxListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_ffffff"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"/>
+            </LinearLayout>
+
+            <!--超值加购-->
+            <include layout="@layout/view_overbalance_goods"/>
+
+            <include layout="@layout/ticket_order_invoice"/>
+
+            <!-- 服务条款 -->
+            <LinearLayout
+                android:id="@+id/fwtkLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical"
+                android:paddingBottom="29dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/tv_service"
+                    style="@style/plane_order7_style"
+                    android:lineSpacingMultiplier="1.2"
+                    android:text="@string/ticket_terms_service_line"
+                    android:textColor="@color/color_999999"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/ticket_order_bottom"/>
+</LinearLayout>

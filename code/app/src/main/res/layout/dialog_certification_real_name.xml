@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_jfb_round_corner5dp_white_solid"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:gravity="center"
+        android:text="@string/certification_message"
+        android:textColor="@color/color_4D4D4D"
+        android:textSize="11sp"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/icon_giftcard_light_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:gravity="center"
+        >
+
+
+        <TextView
+            android:id="@+id/tvNowLook"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/just_certification"
+            android:textColor="#cc984a"
+            android:textSize="13sp"
+            />
+    </LinearLayout>
+</LinearLayout>

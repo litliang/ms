@@ -1,0 +1,158 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/color_f0f0f0"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/rl_title"
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"/>
+
+    <View
+        android:id="@+id/lineTitel"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/allBank_layout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/card_brown"/>
+
+                <TextView
+                    android:id="@+id/tvAllBank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="全部银行"
+                    android:textColor="@color/bgBlack"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="6dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@mipmap/icon_arrow_down_grey"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="0.1dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:background="@color/gray"/>
+
+            <LinearLayout
+                android:id="@+id/cardUse_layout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/card_type"/>
+
+                <TextView
+                    android:id="@+id/tvCardType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="办卡用途"
+                    android:textColor="@color/bgBlack"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="6dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@mipmap/icon_arrow_down_grey"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="0.1dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:background="@color/gray"/>
+
+            <LinearLayout
+                android:id="@+id/cardGrade_layout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/card_level"/>
+
+                <TextView
+                    android:id="@+id/tvCardLevel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="办卡等级"
+                    android:textColor="@color/bgBlack"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="6dp"
+                    android:layout_marginLeft="6dp"
+                    android:src="@mipmap/icon_arrow_down_grey"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/gray3"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.yzb.card.king.ui.appwidget.SmoothListView.SmoothListView
+                android:id="@+id/listView_more_screening_bank"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="false"
+                android:footerDividersEnabled="false"
+                android:overScrollMode="never"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

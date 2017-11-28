@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:tl="http://schemas.android.com/apk/res-auto"
+              android:fitsSystemWindows="true"
+              android:background="@color/white_ffffff"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/panel_left"
+        style="@style/titlebar_style">
+
+        <LinearLayout
+            android:id="@+id/panel_back1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:onClick="backAction"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/title_l_r">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/icon_back_white"
+                android:scaleType="fitXY" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llParent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|right"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+            <ImageView
+                android:id="@+id/ivSearch"
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:background="@mipmap/icon_search_bar_white"/>
+
+            <ImageView
+                android:id="@+id/iv_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:background="@mipmap/icon_top_menu"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.flyco.tablayout.SlidingTabLayout
+        android:id="@+id/tl_8"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:background="@color/white_ffffff"
+        tl:tl_textsize="15sp"
+        tl:tl_indicator_color="@android:color/transparent"
+        tl:tl_textSelectColor="@color/color_d4b877"
+        tl:tl_textUnselectColor="#363636"
+        tl:tl_indicator_style="TRIANGLE"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cdcdcd"
+        />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:background="@color/white_ffffff"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:id="@+id/llBottomTab"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="@color/hotel_black2"
+        android:layout_height="@dimen/tab_bottom_h">
+
+    </LinearLayout>
+
+</LinearLayout>

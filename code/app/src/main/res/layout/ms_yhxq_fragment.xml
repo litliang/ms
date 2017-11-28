@@ -1,0 +1,187 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color_white"
+    android:orientation="vertical">
+
+    <com.yzb.card.king.ui.appwidget.SpecHeightGridView
+        android:id="@+id/bank_gv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="85dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
+        android:horizontalSpacing="5dp"
+        android:numColumns="3"
+        android:scrollbars="none"
+        android:scrollingCache="false"
+        android:verticalSpacing="5dp">
+
+    </com.yzb.card.king.ui.appwidget.SpecHeightGridView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="时效"
+        android:textColor="#231815"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/expand_content_bg" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_xian"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:background="@mipmap/icon_label_xian2" />
+
+        <TextView
+            android:id="@+id/tv_jryyh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/iv_xian"
+            android:text="今日有优惠"
+            android:textColor="#D84043"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:id="@+id/panel_xdsd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tv_jryyh"
+            android:layout_alignRight="@+id/tv_jryyh"
+            android:layout_below="@+id/tv_jryyh"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="限定时段"
+                android:textColor="#424242"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_xdsd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="2016/01/01~2016/05/31"
+                android:textColor="#7A7A7A"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/panel_xdrq"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tv_jryyh"
+            android:layout_alignRight="@+id/tv_jryyh"
+            android:layout_below="@+id/panel_xdsd"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="限定日期"
+                android:textColor="#424242"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_xdrq"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="每周五使用"
+                android:textColor="#7A7A7A"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/divider_color4" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_yhlabel"
+            style="@style/tv8_style"
+            android:layout_weight="0"
+            android:padding="10dp"
+            android:text="优惠" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/expand_content_bg" />
+
+        <TextView
+            android:id="@+id/tv_yhlist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="0dp"
+            android:text=""
+            android:textColor="#7A7A7A"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/divider_color4" />
+
+    <TextView
+        style="@style/tv8_style"
+        android:layout_weight="0"
+        android:padding="10dp"
+        android:text="注意事项" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/expand_content_bg" />
+
+    <TextView
+        android:id="@+id/tv_careList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="0dp"
+        android:text=""
+        android:textColor="#7A7A7A"
+        android:textSize="13sp" />
+
+</LinearLayout>
+

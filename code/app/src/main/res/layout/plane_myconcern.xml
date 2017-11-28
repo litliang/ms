@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yzb.card.king.ui.appwidget.menulistview.ItemMenuView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                          android:layout_width="match_parent"
+                                                          android:layout_height="120dp"
+                                                          android:orientation="vertical"
+                                                          android:paddingLeft="10dp"
+                                                          android:paddingRight="10dp"
+                                                          android:paddingTop="7dp">
+    <LinearLayout
+        android:id="@+id/llOne"
+        android:layout_width="75dp"
+        android:layout_height="107dp"
+        android:layout_alignParentRight="true"
+        android:gravity="right"
+        >
+
+        <ImageView
+            android:id="@+id/tvDelete"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:padding="17dp"
+            android:layout_marginTop="10dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/bg_rule_entiy_white"
+            android:src="@mipmap/ic_msg_del"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_item"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@mipmap/icon_jipiao_gz_bg"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/secondll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="13dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="5dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/hbLog"
+                        android:layout_width="13dp"
+                        android:layout_height="13dp"
+                        android:layout_marginRight="3dp"/>
+                    <TextView
+                        android:id="@+id/hb_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="3dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="left|center"
+                        android:text=" 澳门航空MX4036"
+                        android:textSize="10sp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_gray_edge_1_corner_8"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/star_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text="上海"
+                            android:textColor="@color/bgBlack"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:id="@+id/star_jc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="首都机场"
+                            android:textColor="#999999"
+                            android:textSize="10sp"/>
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/seTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:drawableBottom="@mipmap/mileage_bg"
+                        android:gravity="center_horizontal"
+                        android:text="1.55h"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_gray_edge_1_corner_8"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/end_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text="北京"
+                            android:textColor="@color/bgBlack"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:id="@+id/end_jc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="虹桥机场"
+                            android:textColor="#999999"
+                            android:textSize="10sp"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    >
+
+                    <TextView
+                        android:id="@+id/chufaRiqi"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="3dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="left|center"
+                        android:text=" 澳门航空MX4036"
+                        android:textSize="10sp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/secondll"
+                android:src="@mipmap/jipiao_icon_line_dashed"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2.4"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:id="@+id/btn_zt"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="起飞"
+                    android:textColor="@color/color_bf9644"
+                    android:textSize="18sp"
+                    />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</com.yzb.card.king.ui.appwidget.menulistview.ItemMenuView>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/ivCard"
+            android:layout_width="117dp"
+            android:layout_height="73dp"
+            android:scaleType="fitXY"
+            />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="13dp"
+            android:paddingTop="6dp">
+
+            <TextView
+                android:id="@+id/tvRepayment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/card_repayment"
+                android:textColor="@color/color_4c4c4c"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tvDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/card_duration"
+                android:textColor="@color/ticket_red"
+                android:textSize="14sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tvUserCardInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_4c4c4c"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right">
+
+                    <TextView
+                        android:id="@+id/tvBind"
+                        android:layout_width="53dp"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="14dp"
+                        android:background="@drawable/brown_edge_corner_4"
+                        android:gravity="center"
+                        android:text="解 绑"
+                        android:textColor="@color/credit_brown"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/tvSearch"
+                        android:layout_width="53dp"
+                        android:layout_height="25dp"
+                        android:background="@drawable/brown_edge_corner_4"
+                        android:gravity="center"
+                        android:text="还 款"
+                        android:textColor="@color/credit_brown"
+                        android:textSize="12sp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#efefef"
+    android:orientation="vertical">
+
+    <RelativeLayout style="@style/titlebar_style">
+
+        <LinearLayout
+            android:id="@+id/panel_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:onClick="goBack"
+            android:paddingLeft="20dp"
+            android:paddingRight="30dp">
+
+            <include layout="@layout/nav_left" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/titlebar_title"
+            style="@style/titlebar_title_style"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="叫车订单" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/titleRed"
+        android:paddingBottom="15dp"
+        android:paddingLeft="15dp">
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:paddingTop="15dp"
+            android:text="服务完成"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/status"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/order_no_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="订单号"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/order_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/order_no_"
+                android:text="123123123"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:text="2016-12-12 21:02"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:text="总额"
+            android:textColor="@color/jfb_2B2B2B"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/total_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/total"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/total"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/mark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¥"
+                android:textColor="@color/jfb_D84043"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_order_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/total"
+                android:layout_toRightOf="@id/mark"
+                android:text="73"
+                android:textColor="@color/jfb_D84043"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/total"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/total_layout"
+                android:layout_gravity="center_vertical"
+                android:text="明细"
+                android:textColor="@color/blue_00B5D3" />
+
+            <ImageView
+                android:id="@+id/icon_arrow_detail"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="20dp"
+                android:src="@mipmap/icon_arrow_detail" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/total"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_red_corner"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="我要点评"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/tv_car_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="经济型"
+            android:textColor="@color/jfb_2B2B2B"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/icon_car_people_blue"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/tv_car_type"
+            android:src="@mipmap/icon_car_people_blue" />
+
+        <TextView
+            android:id="@+id/tv_person_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_toRightOf="@id/icon_car_people_blue"
+            android:text="x4" />
+
+        <ImageView
+            android:id="@+id/icon_car_salute_blue"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/tv_person_total"
+            android:src="@mipmap/icon_car_salute_blue" />
+
+        <TextView
+            android:id="@+id/luggate_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_toRightOf="@id/icon_car_salute_blue"
+            android:text="x2"
+            android:textSize="14sp" />
+
+        <com.yzb.card.king.ui.appwidget.PlaneTicketsView
+            android:id="@+id/plane_view"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_below="@id/tv_car_type" />
+
+        <TextView
+            android:id="@+id/arrivals_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/plane_view"
+            android:text="FM9264    预计12:45抵达"
+            android:textColor="@color/jfb_2B2B2B"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/arrivals_time"
+            android:layout_marginTop="10dp"
+            android:text="若航班晚点，司机将免费等待"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_taxi_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hint"
+            android:layout_marginTop="10dp"
+            android:text="订车人   孙悟空     131****12312"
+            android:textColor="@color/jfb_2B2B2B"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/tv_taxi_person"
+            android:layout_marginTop="10dp"
+            android:background="@color/line_color" />
+
+
+        <TextView
+            android:id="@+id/coupon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line2"
+            android:layout_marginTop="10dp"
+            android:text="已享优惠"
+            android:textColor="@color/jfb_2B2B2B"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/coupon"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/coupon"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/mark2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¥"
+                android:textColor="@color/jfb_D84043"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/coupon_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/mark2"
+                android:text="50"
+                android:textColor="@color/jfb_D84043"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_coupon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/line2"
+            android:layout_marginTop="10dp"
+            android:text="(酒店专享)50元接送机券"
+            android:textColor="@color/jfb_2B2B2B"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/explanation1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/coupon"
+            android:layout_marginTop="10dp"
+            android:text="1.本优惠券通过卡王用车-接送机频道，可预订由卡王提供的国内接送机产品，每张优惠券50元;"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/explanation2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/explanation1"
+            android:layout_marginTop="3dp"
+            android:text="2.支持网站和手机预订，每张订单限用一张优惠券，每张优惠券仅限使用1次，有效期自发起日起90天内预订使用有效."
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

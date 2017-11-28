@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:ratingbar="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_centerInParent="true"
+              android:background="@android:color/white"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/titleRed"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/iv_back"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="16dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="16dp"
+                android:background="@mipmap/icon_back_white"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"/>
+
+        <ImageView
+            android:id="@+id/iv_clock"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginRight="18dp"
+            android:background="@mipmap/icon_time_white"/>
+
+        <!--<ImageView
+            android:id="@+id/iv_msg"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginRight="18dp"
+            android:layout_toLeftOf="@+id/iv_share"
+            android:background="@drawable/icon_comment_white" />-->
+
+        <ImageView
+            android:id="@+id/iv_share"
+            android:layout_width="18dp"
+            android:layout_height="16dp"
+            android:layout_marginRight="11dp"
+            android:background="@mipmap/icon_share_white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- 影片信息 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/store_photo"
+                android:layout_width="92dp"
+                android:layout_height="115dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="11dp"/>
+
+            <TextView
+                android:id="@+id/pic_codes"
+                style="@style/tv7_style"
+                android:layout_alignBottom="@+id/store_photo"
+                android:layout_alignRight="@+id/store_photo"
+                android:layout_marginBottom="8dp"
+                android:background="@color/color_black"
+                android:text="0张"
+                android:textSize="8sp"/>
+
+            <TextView
+                android:id="@+id/store_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/store_photo"
+                android:layout_marginLeft="14dp"
+                android:layout_toRightOf="@+id/store_photo"
+                android:text=""
+                android:textColor="@color/black9"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:id="@+id/store_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/store_name"
+                android:layout_alignStart="@+id/store_name"
+                android:layout_below="@+id/store_name">
+
+                <com.yzb.card.king.ui.appwidget.StarBar
+                    android:id="@+id/starBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    ratingbar:isIndicator="false"
+                    ratingbar:starCount="5"
+                    ratingbar:starDistance="2dp"
+                    ratingbar:starEmpty="@mipmap/star_empty"
+                    ratingbar:starFill="@mipmap/star_full"
+                    ratingbar:starSize="12dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/store_vote"
+                style="@style/tv10_style"
+                android:layout_alignTop="@+id/store_rating"
+                android:layout_marginLeft="4dp"
+                android:layout_toEndOf="@+id/store_rating"
+                android:layout_toRightOf="@+id/store_rating"
+                android:text="0.0分"
+                android:textColor="@color/gray24"
+                android:textSize="10dp"/>
+
+            <TextView
+                android:id="@+id/store_addr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/store_rating"
+                android:layout_alignStart="@+id/store_rating"
+                android:layout_below="@+id/store_vote"
+                android:layout_marginTop="12dp"
+                android:text=""
+                android:textColor="@color/gray24"
+                android:textSize="12dp"/>
+
+            <TextView
+                android:id="@+id/store_tel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/store_addr"
+                android:layout_alignStart="@+id/store_addr"
+                android:layout_below="@+id/store_addr"
+                android:layout_marginTop="12dp"
+                android:text=""
+                android:textColor="@color/gray24"
+                android:textSize="12dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/store_tel"
+                android:layout_below="@+id/store_tel"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="13dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/store_vote_count"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/pingjia_0"
+                        android:textColor="@color/gray24"
+                        android:textSize="12dp"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/btn_collect"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:id="@+id/collect_status"
+                        android:layout_width="15dp"
+                        android:layout_height="14dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_toLeftOf="@+id/collect_text"
+                        android:layout_toStartOf="@+id/collect_text"
+                        android:background="@mipmap/icon_footer_sc_gray"
+                        android:checked="false"
+                        android:textOff=""
+                        android:textOn=""/>
+
+                    <TextView
+                        android:id="@+id/collect_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:text="收藏"
+                        android:textColor="@color/gray24"
+                        android:textSize="10dp"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="13dp"
+            android:background="#E9E9E9"/>
+
+        <com.yzb.card.king.ui.appwidget.CustomGallery
+            android:id="@+id/gallery"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:background="@mipmap/slider_bg">
+
+        </com.yzb.card.king.ui.appwidget.CustomGallery>
+
+        <TextView
+            android:id="@+id/filmName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text=""
+            android:textColor="#262626"
+            android:textSize="13dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/collectCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text=""
+                android:textColor="#919191"
+                android:textSize="12dp"/>
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="人想看"
+                android:textColor="#919191"
+                android:textSize="12dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.yzb.card.king.ui.appwidget.StarBar
+                    android:id="@+id/filmRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    ratingbar:isIndicator="false"
+                    ratingbar:starCount="5"
+                    ratingbar:starDistance="2dp"
+                    ratingbar:starEmpty="@mipmap/star_empty"
+                    ratingbar:starFill="@mipmap/star_full"
+                    ratingbar:starSize="11dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/filmVote"
+                style="@style/tv10_style"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="0.5"
+                android:text="0.0分"
+                android:textColor="#919191"
+                android:textSize="7sp"/>
+
+            <TextView
+                android:id="@+id/duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text=""
+                android:textColor="#919191"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="min"
+                android:textColor="@color/gray24"
+                android:textSize="12dp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray25"/>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
+            style="@style/TabLayoutTextAppearance2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:tabBackground="@color/text_color_white"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/color_status"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/color_status"
+            app:tabTextColor="@color/text_color_3"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="17dp"
+            android:background="@color/pink"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="温馨提示：开场前40分钟关闭在线销售"
+                android:textColor="@color/white"
+                android:textSize="9dp"/>
+
+        </LinearLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+</LinearLayout>

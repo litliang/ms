@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                >
+
+                <TextView
+                    android:id="@+id/tvMaxAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0元"
+                    android:textColor="@color/color_b69b3f"
+                    android:textSize="24sp"/>
+
+                <TextView
+                    android:id="@+id/tvActName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/shape_jfb_red_corner5dp_white_solid"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="7dp"
+                    android:paddingRight="7dp"
+                    android:paddingTop="3dp"
+                    android:text="满减券"
+                    android:textColor="@color/color_cc0000"
+                    android:textSize="12sp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp"
+                >
+
+                <TextView
+                    android:id="@+id/tvChannelName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="名称"
+                    android:textColor="@color/color_333333"
+                    android:textSize="16sp"
+                    />
+
+                <TextView
+                    android:id="@+id/tvCouponIntro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="left"
+                    android:text="满0减0\n仅在合肥酒店使用\n 0000-00-00至0000-00-00快到期"
+                    android:textColor="@color/color_8f8f8f"
+                    android:textSize="13sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="top|center_horizontal"
+                >
+
+                <ImageView
+                    android:id="@+id/ivCreateCommand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:src="@mipmap/icon_travel_share"
+                    />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/panelUse"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivCouponState"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/icon_coupon_no_use"/>
+
+                <TextView
+                    android:id="@+id/tvUseState"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:ems="1"
+                    android:gravity="center"
+                    android:text="立即使用"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@mipmap/icon_coupon_dot_line"/>
+
+        <TextView
+            android:id="@+id/tvUseIntegral"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingBottom="11dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="11dp"
+            android:singleLine="false"
+            android:text="使用时段："
+            android:textColor="@color/color_999999"
+            android:textSize="13sp"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

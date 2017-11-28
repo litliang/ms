@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp">
+        <com.yzb.card.king.ui.appwidget.DiscountView
+            android:id="@+id/llCoupon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:ico="@drawable/icon_label_yhj"
+            app:centerText="优惠券"
+            app:tailText="点击领取>"/>
+        <com.yzb.card.king.ui.appwidget.PointView
+            android:id="@+id/llPlatformPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            app:ico="@drawable/icon_label_jf"
+            app:centerText="积分"
+            app:tailText="送积分>"
+            />
+        <!--<com.yzb.card.king.ui.appwidget.DiscountView-->
+            <!--android:id="@+id/llShopPoint"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="6dp"-->
+            <!--app:ico="@drawable/icon_label_yhj"-->
+            <!--app:centerText="商家积分"-->
+            <!--app:tailText="每满100元送1积分"/>-->
+        <com.yzb.card.king.ui.appwidget.DiscountView
+            android:id="@+id/llBankDiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            app:ico="@drawable/icon_label_yhyh"
+            app:centerText="@string/hotel_bank_privilege"
+            app:tailText="@string/hotel_bank_privilege_1"/>
+    </LinearLayout>
+
+</merge>

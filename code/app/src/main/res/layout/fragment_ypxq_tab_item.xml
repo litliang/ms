@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:background="@color/text_color_white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/panel_wdyh"
+            style="@style/horizonal_linear_wrap_style1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_bank"
+                style="@style/tv50_style"
+                android:maxLength="4"
+                android:singleLine="true"
+                android:text="我的银行" />
+
+            <ImageView
+                android:id="@+id/iv_bank"
+                style="@style/iv40_style"
+                android:background="@mipmap/arrow_down_grey" />
+
+        </LinearLayout>
+
+        <include
+            layout="@layout/verical_divier"
+            android:layout_width="0.5dp"
+            android:layout_height="15dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0" />
+
+        <LinearLayout
+            android:id="@+id/panel_fj"
+            style="@style/horizonal_linear_wrap_style1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center">
+
+
+            <TextView
+                android:id="@+id/tv_fj"
+                style="@style/tv50_style"
+                android:maxLength="4"
+                android:text="@string/text_fj" />
+
+            <ImageView
+                android:id="@+id/iv_fj"
+                style="@style/iv40_style"
+                android:background="@mipmap/arrow_down_grey"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <include
+            layout="@layout/verical_divier"
+            android:layout_width="0.5dp"
+            android:layout_height="15dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0" />
+
+        <LinearLayout
+            android:id="@+id/panel_fl"
+            style="@style/horizonal_linear_wrap_style1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_fl"
+                style="@style/tv50_style"
+                android:maxLength="4"
+                android:singleLine="true"
+                android:text="影片" />
+
+            <ImageView
+                android:id="@+id/iv_fl"
+                style="@style/iv40_style"
+                android:background="@mipmap/arrow_down_grey" />
+
+        </LinearLayout>
+
+        <include
+            layout="@layout/verical_divier"
+            android:layout_width="0.5dp"
+            android:layout_height="15dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0" />
+
+        <LinearLayout
+            android:id="@+id/panel_znpx"
+            style="@style/horizonal_linear_wrap_style1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center">
+
+
+            <TextView
+                android:id="@+id/tv_px"
+                style="@style/tv50_style"
+                android:maxLength="4"
+                android:singleLine="true"
+                android:text="智能排序" />
+
+            <ImageView
+                android:id="@+id/iv_px"
+                style="@style/iv40_style"
+                android:background="@mipmap/arrow_down_grey" />
+        </LinearLayout>
+
+        <include
+            layout="@layout/verical_divier"
+            android:layout_width="0.5dp"
+            android:layout_height="15dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0" />
+
+        <LinearLayout
+            android:id="@+id/panel_sx"
+            style="@style/horizonal_linear_wrap_style1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_sx"
+                style="@style/tv50_style"
+                android:maxLength="4"
+                android:singleLine="true"
+                android:text="筛选" />
+
+            <ImageView
+                android:id="@+id/iv_sx"
+                style="@style/iv40_style"
+                android:background="@mipmap/arrow_down_grey" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/divider_small_height"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#E1E1E1" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@id/id_stickynavlayout_innerscrollview"
+            style="@style/listview_style"
+            android:divider="@null"
+            android:dividerHeight="0dp" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

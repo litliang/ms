@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="9dp"
+              android:background="@color/white"
+              android:orientation="vertical"
+              android:paddingLeft="16dp"
+              android:paddingRight="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/bxpz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="报销凭证"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:text="该产品由众安保险提供，服务器电话4000256454"
+                android:textColor="@color/color_a0a0a0"
+                android:textSize="10sp"/>
+
+        </LinearLayout>
+        <com.yzb.card.king.ui.appwidget.SlideButton
+            android:id="@+id/sbWipedOut"
+            android:layout_width="47dp"
+            android:layout_height="27dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bxpzLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/ticket_bxpz_notice"
+            android:textColor="@color/color_a0a0a0"
+            android:textSize="10sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#dddddd"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:text="行程单和发票"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#dddddd"/>
+
+        <RelativeLayout
+            android:id="@+id/fpttLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/plane_order4_style"
+                android:layout_centerVertical="true"
+                android:text="发票抬头"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/tvDebitRise"
+                style="@style/plane_order4_style"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/tvTitle"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="15sp"/>
+
+            <include layout="@layout/arrow_right_iv_red"/>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#dddddd"/>
+
+        <include layout="@layout/ticket_order_address"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#dddddd"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_postfee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp">
+
+            <TextView
+                android:id="@+id/tv_post_fee0"
+                style="@style/plane_order4_style"
+                android:text="邮费"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/tv_post_fee"
+                style="@style/plane_order4_style"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="32dp"
+                android:layout_toRightOf="@id/tv_post_fee0"
+                android:textSize="15sp"
+                />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#dddddd"/>
+    </LinearLayout>
+
+</LinearLayout>

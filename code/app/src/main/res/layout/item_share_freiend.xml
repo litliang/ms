@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:alpha="1"
+    android:background="#ffffff">
+
+    <ImageButton
+        android:id="@+id/imageButton_qq"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imageButton_weixin"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/icon_qq" />
+
+    <ImageButton
+        android:id="@+id/imageButton_cancel"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignEnd="@+id/imageButton_qq"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/imageButton_qq"
+        android:layout_marginTop="5dp"
+        android:background="@null"
+        app:srcCompat="@mipmap/travel_delete" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageButton_xinlang"
+        android:layout_alignStart="@+id/imageButton_xinlang"
+        android:layout_alignTop="@+id/textView"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:text="微信好朋友"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignLeft="@id/imageButton_qq"
+        android:layout_alignStart="@id/imageButton_qq"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:text="QQ好友"
+        android:textSize="15sp" />
+
+    <ImageButton
+        android:id="@+id/imageButton_txweibo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@id/imageButton_qq"
+        android:layout_alignStart="@id/imageButton_qq"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="23dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/icon_tencentweibo" />
+
+    <ImageButton
+        android:id="@+id/imageButton_weixin"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignTop="@+id/imageButton_weixin_zone"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/icon_share_giftcard_weixin" />
+
+    <ImageButton
+        android:id="@+id/imageButton_zone"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/imageButton_xinlang"
+        android:layout_marginLeft="20dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/icon_qqzone" />
+
+    <ImageButton
+        android:id="@+id/imageButton_xinlang"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/imageButton_weixin"
+        android:layout_alignStart="@+id/imageButton_weixin"
+        android:layout_alignTop="@+id/imageButton_txweibo"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/icon_weibo" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/imageButton_weixin_zone"
+        android:layout_alignRight="@+id/imageButton_weixin_zone"
+        android:layout_below="@+id/imageButton_weixin_zone"
+        android:paddingTop="10dp"
+        android:text="微信朋友圈"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageButton_xinlang"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp"
+        android:text="新浪微博"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView8"
+        android:layout_alignBottom="@+id/textView8"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginLeft="13dp"
+        android:text="QQ空间"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView8"
+        android:layout_alignBottom="@+id/textView8"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3"
+        android:text="腾讯微博"
+        android:textSize="15sp" />
+
+    <ImageButton
+        android:id="@+id/imageButton_weixin_zone"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageButton_cancel"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/icon_share_giftcard_circle" />
+
+</RelativeLayout>

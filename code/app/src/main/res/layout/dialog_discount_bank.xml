@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:gravity="center_vertical"
+              android:orientation="horizontal"
+              android:paddingBottom="15dp"
+              android:paddingTop="15dp">
+
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"/>
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="银行名称"
+        android:textColor="@color/color_333333"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/tv_bank_coupon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="49dp"
+        android:layout_marginRight="10dp"
+        android:text="9.5折买单立减"
+        android:textColor="@color/color_fb800b"
+        android:textSize="13sp"/>
+</LinearLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="14dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <com.yzb.card.king.ui.other.widget.RoundImageView
+            android:id="@+id/ivPhoto"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_marginRight="15dp"
+            app:borderRadius="3dp"
+            app:type="round"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="洛维奇"
+                    android:textColor="@color/user_center_black"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="14dp"
+                    android:background="@drawable/bg_blue_corner_2"
+                    android:gravity="center"
+                    android:text="已实名"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="@string/user_id"
+                android:textColor="@color/gray6"
+                android:textSize="13sp"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

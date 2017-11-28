@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/text1"
+        android:layout_toRightOf="@+id/text1" />
+
+    <TextView
+        android:id="@+id/bgnTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="10dp"
+        android:text="19:05"
+        android:textColor="@color/user_333333"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/view"
+        android:layout_alignStart="@+id/view"
+        android:layout_marginStart="14dp" />
+
+    <TextView
+        android:id="@+id/language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buyBtn"
+        android:layout_marginLeft="39dp"
+        android:layout_toEndOf="@+id/view2"
+        android:layout_toRightOf="@+id/view2"
+        android:text="国语"
+        android:textColor="@color/black10"
+        android:textSize="11dp" />
+
+    <TextView
+        android:id="@+id/filmEffect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/language"
+        android:layout_marginLeft="2dp"
+        android:layout_toEndOf="@+id/language"
+        android:layout_toRightOf="@+id/language"
+        android:text="3D"
+        android:textColor="@color/black10"
+        android:textSize="11dp" />
+
+    <TextView
+        android:id="@+id/endTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/bgnTime"
+        android:layout_alignStart="@+id/bgnTime"
+        android:layout_below="@+id/bgnTime"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="11dp"
+        android:text="20:50"
+        android:textColor="@color/gray13"
+        android:textSize="11dp" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/endTime"
+        android:layout_toEndOf="@+id/endTime"
+        android:layout_toRightOf="@+id/endTime"
+        android:text="散场"
+        android:textColor="@color/gray13"
+        android:textSize="11dp" />
+
+    <TextView
+        android:id="@+id/hallName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3号厅"
+        android:textColor="@color/gray13"
+        android:textSize="11dp"
+        android:layout_alignTop="@+id/text1"
+        android:layout_alignLeft="@+id/language"
+        android:layout_alignStart="@+id/language" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bgnTime"
+        android:layout_toLeftOf="@+id/price"
+        android:layout_toStartOf="@+id/price"
+        android:text="@string/rmb"
+        android:textColor="@color/ticket_red"
+        android:textSize="13dp" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/text2"
+        android:layout_alignBottom="@+id/text2"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_toLeftOf="@+id/buyBtn"
+        android:layout_toStartOf="@+id/buyBtn"
+        android:text="33"
+        android:textColor="@color/ticket_red"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/buyBtn"
+        android:layout_width="27dp"
+        android:layout_height="18dp"
+        android:layout_alignBottom="@+id/text2"
+        android:layout_alignEnd="@+id/view"
+        android:layout_alignRight="@+id/view"
+        android:layout_marginBottom="1dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:background="@drawable/style_btn_red_small_circle"
+        android:text="购票"
+        android:textColor="@color/wordRed"
+        android:textSize="8dp" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/endTime"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/listview_divider_color" />
+
+</RelativeLayout>

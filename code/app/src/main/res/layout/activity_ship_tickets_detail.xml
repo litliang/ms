@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#efefef"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout style="@style/titlebar_style">
+
+        <LinearLayout
+            android:id="@+id/panel_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:onClick="goBack"
+            android:paddingLeft="20dp"
+            android:paddingRight="30dp">
+
+            <include layout="@layout/nav_left" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/titlebar_title"
+            style="@style/titlebar_title_style"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="船票订单" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/header_order" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_bottom_white_10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/train_tv_tool_name_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/top_round_bg"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_start_city"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="上海"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_start_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_start_city"
+                        android:layout_marginTop="10dp"
+                        android:text="08:35"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tv_start_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_start_time"
+                        android:layout_marginTop="10dp"
+                        android:text="5月6日"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_tool_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="D123"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tv_tool_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_tool_num"
+                        android:layout_centerHorizontal="true"
+                        android:text="中渤海三号"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tv_end_city"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="北京"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_end_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/tv_end_city"
+                        android:layout_marginTop="10dp"
+                        android:text="10:30"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tv_end_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/tv_end_time"
+                        android:layout_marginTop="10dp"
+                        android:text="5月6日"
+                        android:textColor="@color/white" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="15dp">
+
+                    <TextView
+                        android:id="@+id/tv_apply_person"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="等船人"
+                        android:textColor="@color/jfb_2B2B2B"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tv_guest_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:layout_toRightOf="@id/tv_apply_person"
+                        android:text="孙悟空"
+                        android:textColor="@color/jfb_2B2B2B"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_id_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/tv_guest_name"
+                        android:layout_below="@id/tv_apply_person"
+                        android:layout_marginTop="10dp"
+                        android:text="二代身份证  123123123123123123123" />
+
+                    <TextView
+                        android:id="@+id/line1"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_below="@id/tv_id_card"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/line_color" />
+
+                    <TextView
+                        android:id="@+id/contacts_"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/line1"
+                        android:layout_marginTop="10dp"
+                        android:text="联系人"
+                        android:textColor="@color/jfb_2B2B2B"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tv_contacts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/tv_id_card"
+                        android:layout_below="@id/line1"
+                        android:layout_marginTop="10dp"
+                        android:text="孙悟空"
+                        android:textColor="@color/jfb_2B2B2B"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/line2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_below="@id/tv_contacts"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/line_color" />
+
+                    <TextView
+                        android:id="@+id/tv_contacts_mobile_"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/line2"
+                        android:layout_marginTop="10dp"
+                        android:text="联系手机"
+                        android:textColor="@color/jfb_2B2B2B"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tv_contacts_mobile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/tv_contacts"
+                        android:layout_below="@id/line2"
+                        android:layout_marginTop="10dp"
+                        android:text="13188228325"
+                        android:textColor="@color/jfb_2B2B2B"
+                        android:textSize="15sp" />
+
+
+                    <TextView
+                        android:id="@+id/line3"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_below="@id/tv_contacts_mobile"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/line_color" />
+
+                    <TextView
+                        android:id="@+id/cancel_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/line3"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/channel_bg"
+                        android:paddingBottom="3dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="3dp"
+                        android:text="取消订单"
+                        android:textColor="@color/jfb_D84043"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/pay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/line3"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toLeftOf="@id/cancel_order"
+                        android:background="@drawable/channel_bg"
+                        android:paddingBottom="3dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="3dp"
+                        android:text="支付"
+                        android:textColor="@color/jfb_D84043"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

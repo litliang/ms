@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical" android:layout_width="match_parent"
+              android:fitsSystemWindows="true"
+              android:background="@color/white_ffffff"
+              android:layout_height="match_parent">
+    <include
+        layout="@layout/title_headercity_search_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/bg_focus"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="@dimen/title_l_r"
+        android:layout_height="match_parent">
+        <com.yzb.card.king.ui.appwidget.HeadFootRecyclerView
+            android:id="@+id/lvHomeHotelpage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_ffffff"
+            android:divider="@null"
+          />
+    </LinearLayout>
+
+</LinearLayout>

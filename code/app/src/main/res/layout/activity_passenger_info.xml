@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/setting_F4F4F4"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        layout="@layout/title_header_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="18dp"
+        android:visibility="gone"
+        android:background="@android:color/transparent"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_invite_friends_fill"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="9dp"
+                android:singleLine="true"
+                android:text="@string/setting_invite_friends_fill"
+                android:textColor="@color/color_99681e"
+                android:textSize="14sp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/icon_invite_friend"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_add_passenger"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical|right"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="9dp"
+                android:text="@string/setting_add_common_passenger"
+                android:textColor="@color/color_1f8a99"
+                android:textSize="14sp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/icon_toursetting_add"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
+        <include
+            android:id="@+id/viewAdd"
+            layout="@layout/view_add_invoice"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"/>
+
+        <com.yzb.card.king.ui.appwidget.VpSwipeRefreshLayout
+            android:id="@+id/swipeRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            >
+
+            <com.yzb.card.king.ui.appwidget.menulistview.MenuListView
+                android:id="@+id/listview"
+                style="@style/listview_style"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:divider="@drawable/bg_transparent"
+                android:dividerHeight="10dp"
+                android:scrollbars="none"/>
+
+        </com.yzb.card.king.ui.appwidget.VpSwipeRefreshLayout>
+
+
+        <TextView
+            android:id="@+id/tvGoonAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/white_ffffff"
+            android:background="@color/color_980100"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
+            android:textSize="@dimen/button_text_size"
+            android:text="@string/tv_goon_add"/>
+    </LinearLayout>
+
+</LinearLayout>

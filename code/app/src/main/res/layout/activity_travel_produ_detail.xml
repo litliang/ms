@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+
+    <FrameLayout
+        android:id="@+id/panelCenter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/panelBottom"
+        android:background="@color/white">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--可滑动部分-->
+            <com.yzb.card.king.ui.appwidget.SmoothScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="60dp"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <com.yzb.card.king.ui.travel.activity.view.TravelDetailHeaderView
+                        android:id="@+id/headerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <com.yzb.card.king.ui.travel.activity.view.TravelDetailHeaderTabView
+                        android:id="@+id/headerTabView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"/>
+
+                    <!--4个栏目-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!--优惠部分-->
+                        <com.yzb.card.king.ui.travel.activity.view.TravelDetailCouponView
+                            android:id="@+id/couponView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp"/>
+                        <!--评价部分-->
+                        <com.yzb.card.king.ui.travel.activity.view.TravelDetailEvaluateView
+                            android:id="@+id/evaluateView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp"/>
+
+                        <!--行程介绍-->
+                        <com.yzb.card.king.ui.travel.activity.view.TravelDetailJourneyView
+                            android:id="@+id/journeyView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp"/>
+
+                        <!--须知-->
+                        <com.yzb.card.king.ui.travel.activity.view.TravelDetailNoticeView
+                            android:id="@+id/noticeView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.yzb.card.king.ui.appwidget.SmoothScrollView>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <!--上层-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--顶层固定区域-->
+            <include layout="@layout/travel_detail_titlebar"/>
+
+            <com.yzb.card.king.ui.travel.activity.view.TravelDetailHeaderTabView
+                android:id="@+id/topTabView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:visibility="gone"/>
+
+            <!--顶部行程介绍-->
+            <com.yzb.card.king.ui.travel.activity.view.TravelDetailLinesView
+                android:id="@+id/topDetailLinesView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:visibility="gone"
+                />
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <include
+        android:id="@+id/panelBottom"
+        layout="@layout/travel_detail_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/panelBottom"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="60dp"
+        android:layout_marginRight="13dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvModeSwitch"
+            style="@style/travel_detail_right_side_round"
+            android:gravity="center"
+            android:singleLine="false"
+            android:text="简单\n行程"
+            android:textColor="@color/white"
+            android:textSize="13sp"/>
+
+        <LinearLayout
+            android:id="@+id/panelJourneySummary"
+            style="@style/travel_detail_right_side_round"
+            android:layout_marginTop="5dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/icon_menu_white"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

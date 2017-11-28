@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yzb.card.king.ui.appwidget.menulistview.ItemMenuView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                          xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                          android:layout_width="match_parent"
+                                                          android:layout_height="134dp"
+                                                          android:minHeight="134dp"
+    >
+
+    <RelativeLayout
+        android:id="@+id/message_activity_delete_layout"
+        android:layout_width="70dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:background="#f5f5f5"
+        android:gravity="center"
+        android:minHeight="100dp"
+        >
+
+        <ImageView
+            android:id="@+id/message_detail_delete_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="@drawable/bg_rule_entiy_white"
+            android:padding="6dp"
+            android:src="@mipmap/ic_msg_del"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/item_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@color/bgWhite"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp"
+        android:paddingLeft="@dimen/title_l_r"
+        android:paddingRight="@dimen/title_l_r"
+        android:paddingTop="20dp">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="133dp"
+            android:layout_height="95dp"
+            android:layout_alignParentLeft="true"
+            app:cardCornerRadius="5dp"
+            >
+
+            <ImageView
+                android:id="@+id/collecet_list_image"
+                android:layout_width="133dp"
+                android:layout_height="95dp"
+              />
+
+        </android.support.v7.widget.CardView>
+
+        <RelativeLayout
+            android:id="@+id/llcontentRight"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            >
+
+            <LinearLayout
+                android:id="@+id/ll_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/shop_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:layout_toLeftOf="@+id/collect_more"
+                    android:layout_weight="2"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="江诗丹顿酒桶系列"
+                    android:textColor="#323232"
+                    android:textSize="@dimen/title_size_16"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/contentinfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_title"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="15dp"
+                android:maxLines="2"
+                android:text=""
+                android:textColor="#999999"
+                android:textSize="@dimen/title_size_14"
+                />
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                >
+
+                <TextView
+                    android:id="@+id/shop_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="¥"
+                    android:textColor="#bd973f"
+                    android:layout_alignBottom="@+id/shop_people"
+                    android:textSize="@dimen/title_size_14"/>
+
+                <TextView
+                    android:id="@+id/shop_people"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/shop_money"
+                    android:text="700"
+                    android:textColor="#bd973f"
+                    android:textSize="@dimen/title_size_16"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</com.yzb.card.king.ui.appwidget.menulistview.ItemMenuView>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <LinearLayout
+
+        style="@style/titlebar_style1"
+        android:background="#f5f5f5"
+        android:gravity="right|center_vertical"
+        >
+
+        <LinearLayout
+            android:id="@+id/headerLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/title_view_height"
+            android:gravity="center"
+            android:paddingLeft="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_home_shop_white_r"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/icon_map_white_new"
+                    android:scaleType="fitXY"/>
+
+                <TextView
+                    android:id="@+id/tvCityName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:maxLength="4"
+                    android:maxWidth="60dp"
+                    android:textColor="#656565"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_home_shop_white_r"
+            android:gravity="left|center_vertical"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="8dp">
+
+
+            <TextView
+                android:id="@+id/llSearch"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/icon_search_gray_new"
+                android:drawablePadding="6dp"
+                android:layout_marginRight="2dp"
+                android:gravity="left"
+                android:text="搜索目的地/酒店/景点/关键字"
+                android:maxLines="1"
+                android:textColor="#949494"
+                android:textSize="14sp"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/icon_home_shop_scanner"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/title_view_height"
+            android:paddingRight="8dp"
+            android:layout_marginLeft="4dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_home_shop_white_r"
+                android:orientation="horizontal"
+                android:paddingBottom="6dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="6dp">
+
+                <ImageView
+                    android:id="@+id/iv_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/icon_message_white_new"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

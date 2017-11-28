@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+        <ImageView
+            android:id="@+id/ivPic"
+            android:layout_width="117dp"
+            android:layout_height="73dp"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true">
+            <TextView
+                android:id="@+id/tvSearch"
+                android:layout_width="72dp"
+                android:layout_height="22dp"
+                android:text="额度查询"
+                android:background="@drawable/selector_tab_top_blue_gray"
+                android:textSize="12sp"
+                android:textColor="@color/selector_square_blue_gray"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/tvManage"
+                android:layout_width="72dp"
+                android:layout_height="22dp"
+                android:text="额度调整"
+                android:background="@drawable/shap_corner_gray"
+                android:textSize="12sp"
+                android:textColor="@color/text_color_33"
+                android:gravity="center"
+                android:layout_marginTop="11dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

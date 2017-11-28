@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white_ffffff"
+              android:gravity="center_horizontal"
+              android:orientation="vertical"
+              android:paddingLeft="4dp"
+              android:paddingRight="4dp"
+              android:paddingBottom="8dp"
+    >
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="5dp"
+        >
+
+        <ImageView
+            android:id="@+id/iv_pic"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitXY"/>
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_introduce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:lines="2"
+        android:maxLines="2"
+        android:minLines="2"
+        android:textColor="@color/color_333333"
+        android:textSize="14sp"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_mon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_price"
+            android:layout_marginLeft="3dp"
+            android:layout_toLeftOf="@+id/tv_price"
+            android:text="¥"
+            android:textColor="#c49347"
+            android:textSize="12sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_toLeftOf="@+id/tv_qi"
+            android:text="0"
+            android:textColor="#c49347"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_qi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="3dp"
+            android:text="起"
+            android:textColor="#989898"
+            android:textSize="15sp"
+            />
+    </RelativeLayout>
+
+
+</LinearLayout>

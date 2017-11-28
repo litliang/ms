@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/icon_giftcard_recv_suc"
+            />
+
+        <TextView
+            android:id="@+id/giftcardAmount"
+            android:layout_width="142dp"
+            android:layout_height="77dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="75dp"
+            android:background="@mipmap/icon_giftcard_red_bg"
+            android:gravity="center_horizontal"
+            android:paddingTop="13dp"
+            android:text="0元"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@color/transparent"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tvScanDetail"
+            android:layout_width="82dp"
+            android:layout_height="31dp"
+            android:background="@drawable/shape_round_solid_light_gray3"
+            android:gravity="center"
+            android:text="查看详情"
+            android:textColor="@color/color_d91627"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/tvContinue"
+            android:layout_width="82dp"
+            android:layout_height="31dp"
+            android:layout_marginLeft="52dp"
+            android:background="@drawable/shape_corner5dp_dark_red"
+            android:gravity="center"
+            android:text="继续领取"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            />
+    </LinearLayout>
+</LinearLayout>

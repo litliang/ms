@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yzb.card.king.ui.appwidget.SpecHeightGridView
+    android:id="@+id/gridView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:numColumns="4"
+    android:scrollbars="none">
+
+</com.yzb.card.king.ui.appwidget.SpecHeightGridView>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"/>
+    <View
+        android:id="@+id/lineTitel"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/setting_F4F4F4"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <!--顶部部分；-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_jfb_round_corner5dp_white_solid"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/tv_new_pwd_label"
+                    style="@style/setting_modify_binded_phone_tv_left"
+                    android:text="@string/setting_reset_new_pwd" />
+
+                <EditText
+                    android:id="@+id/et_pay_pwd"
+                    style="@style/setting_modify_binded_phone_et"
+                    android:layout_alignBottom="@+id/tv_new_pwd_label"
+                    android:layout_marginLeft="45dp"
+                    android:layout_toRightOf="@+id/tv_new_pwd_label"
+                    android:hint="@string/setting_input_pwd_hint"
+                    android:inputType="numberPassword"
+                    android:maxLength="6" />
+
+                <ImageView
+                    android:id="@+id/iv_show_or_hide_pwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/tv_new_pwd_label"
+                    android:layout_alignParentRight="true"
+                    android:background="@mipmap/icon_hide_grey"
+                    android:scaleType="fitXY" />
+
+                <include
+                    android:id="@+id/divider"
+                    layout="@layout/divider_d7d7d7"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/tv_new_pwd_label"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:id="@+id/tv_again_new_pwd_label"
+                    style="@style/setting_modify_binded_phone_tv_left"
+                    android:layout_below="@+id/divider"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/setting_sure_new_pwd" />
+
+                <EditText
+                    android:id="@+id/et_again_pay_pwd"
+                    style="@style/setting_modify_binded_phone_et"
+                    android:layout_alignBottom="@+id/tv_again_new_pwd_label"
+                    android:layout_alignLeft="@+id/et_pay_pwd"
+                    android:hint="@string/setting_again_new_pwd"
+                    android:inputType="numberPassword"
+                    android:maxLength="6" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_ok"
+                style="@style/setting_next_tv"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/setting_ok" />
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

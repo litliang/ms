@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/integral_gray_eaeaea"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+
+    <include
+        layout="@layout/view_public_head_title_left"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.yzb.card.king.ui.appwidget.SlideShow1ItemView
+        android:id="@+id/slideShowView1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/white" />
+
+    <RelativeLayout
+        android:id="@+id/rlOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="9dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:paddingTop="9dp">
+
+        <LinearLayout
+            android:id="@+id/ivOne"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:gravity="center">
+
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/icon_point_dlc"
+                android:scaleType="fitCenter"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="11dp"
+            android:layout_toRightOf="@+id/ivOne"
+            android:text="@string/integral_dui_li_cheng"
+            android:textColor="@color/jfb_636363"
+            android:textSize="14sp"/>
+
+        <ImageView
+            android:layout_width="7dp"
+            android:layout_height="12dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/arrow_right_grey"
+            android:scaleType="fitXY"/>
+    </RelativeLayout>
+
+    <include layout="@layout/divider_d7d7d7"/>
+
+    <RelativeLayout
+        android:id="@+id/rlTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="9dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:paddingTop="9dp">
+
+        <LinearLayout
+            android:id="@+id/ivTwo"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:gravity="center">
+
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/icon_point_dyk"
+                android:scaleType="fitCenter"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="11dp"
+            android:layout_toRightOf="@+id/ivTwo"
+            android:text="@string/integral_dui_you_ka"
+            android:textColor="@color/jfb_636363"
+            android:textSize="14sp"/>
+
+        <ImageView
+            android:layout_width="7dp"
+            android:layout_height="12dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/arrow_right_grey"
+            android:scaleType="fitXY"/>
+    </RelativeLayout>
+
+    <include layout="@layout/divider_d7d7d7"/>
+
+    <RelativeLayout
+        android:id="@+id/rlThree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="9dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:paddingTop="9dp">
+
+        <LinearLayout
+            android:id="@+id/ivThree"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/icon_point_dhf"
+                android:scaleType="fitCenter"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="11dp"
+            android:layout_toRightOf="@+id/ivThree"
+            android:text="@string/integral_dui_hua_fei"
+            android:textColor="@color/jfb_636363"
+            android:textSize="14sp"/>
+
+        <ImageView
+            android:layout_width="7dp"
+            android:layout_height="12dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/arrow_right_grey"
+            android:scaleType="fitXY"/>
+    </RelativeLayout>
+
+    <include layout="@layout/divider_d7d7d7"/>
+
+    <RelativeLayout
+        android:id="@+id/rlFour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="9dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:paddingTop="9dp">
+
+        <LinearLayout
+            android:id="@+id/ivFour"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:gravity="center">
+
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/icon_point_dll"
+                android:scaleType="fitCenter"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="11dp"
+            android:layout_toRightOf="@+id/ivFour"
+            android:text="@string/integral_dui_liu_liang"
+            android:textColor="@color/jfb_636363"
+            android:textSize="14sp"/>
+
+        <ImageView
+            android:layout_width="7dp"
+            android:layout_height="12dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/arrow_right_grey"
+            android:scaleType="fitXY"/>
+    </RelativeLayout>
+
+    <include layout="@layout/divider_d7d7d7"/>
+
+    <RelativeLayout
+        android:id="@+id/rlFive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="9dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:paddingTop="9dp">
+
+        <LinearLayout
+            android:id="@+id/ivFive"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:gravity="center">
+
+            <ImageView
+
+                android:layout_width="23dp"
+                android:layout_height="22dp"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/icon_point_dxj"
+                android:scaleType="fitCenter"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="11dp"
+            android:layout_toRightOf="@+id/ivFive"
+            android:text="@string/integral_dui_xian_jin"
+            android:textColor="@color/jfb_636363"
+            android:textSize="14sp"/>
+
+        <ImageView
+            android:layout_width="7dp"
+            android:layout_height="12dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/arrow_right_grey"
+            android:scaleType="fitXY"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

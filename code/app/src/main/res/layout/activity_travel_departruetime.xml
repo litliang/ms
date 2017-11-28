@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_white">
+
+    <RelativeLayout
+        android:id="@+id/title"
+        style="@style/titlebar_style">
+
+        <LinearLayout
+            android:id="@+id/panel_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:onClick="goBack"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="30dp">
+
+            <include layout="@layout/nav_left"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/titlebar_title"
+            style="@style/titlebar_title_style"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textSize="@dimen/titlebar_text_size"
+            android:text="出发时间"/>
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/gridview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginLeft="@dimen/title_l_r"
+        android:layout_marginRight="@dimen/title_l_r"
+        />
+
+    <View
+        android:id="@+id/viewlinetime"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/gridview"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/hotel_f5f5f5"
+        ></View>
+
+    <TextView
+        android:id="@+id/custom_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewlinetime"
+        android:layout_marginLeft="@dimen/title_l_r"
+        android:layout_marginTop="10dp"
+        android:text="自定义时间"
+        android:textColor="@color/ship_333333"
+        android:textSize="13sp"/>
+
+    <LinearLayout
+        android:id="@+id/starttime_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/custom_time"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="@dimen/title_l_r"
+        android:layout_marginRight="@dimen/title_l_r"
+        android:background="@drawable/bg_round_corner_white_gray"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/bg_rule_null_yellow"/>
+
+        <TextView
+            android:id="@+id/starttime_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="@string/travel_departrue_elary_time"
+            android:textColor="@color/color_4c4c4c"
+            android:textSize="13sp"
+            />
+
+        <TextView
+            android:id="@+id/elarytime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:hint="输入出发时间"
+            android:textColor="@color/color_4c4c4c"
+            android:textColorHint="@color/train_cccccc"
+            android:textSize="13sp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lasttime_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/starttime_layout"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="@dimen/title_l_r"
+        android:layout_marginRight="@dimen/title_l_r"
+        android:background="@drawable/bg_round_corner_white_gray"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/bg_rule_null_red"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="@string/travel_departrue_last_time"
+            android:textColor="@color/color_4c4c4c"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/lasttime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:hint="输入出发时间"
+            android:textColor="@color/color_4c4c4c"
+            android:textColorHint="@color/train_cccccc"
+            android:textSize="13sp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_black"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <RelativeLayout
+            android:id="@+id/reset_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bg_black_orange"
+                android:text="重置"
+                android:textColor="@color/wordWhite"
+                android:textSize="15sp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/complete_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/complete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bg_black_orange"
+                android:text="完成"
+                android:textColor="@color/wordWhite"
+                android:textSize="15sp"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

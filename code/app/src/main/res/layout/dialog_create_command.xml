@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_bg_corner_solid_white"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/transparent"
+        android:gravity="center"
+        android:text="@string/create_command_suces"
+        android:textColor="@color/color_4D4D4D"
+        android:textSize="14sp"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@mipmap/icon_giftcard_light_line"/>
+
+    <TextView
+        android:id="@+id/tvCommandContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="top"
+        android:lineSpacingMultiplier="1.2"
+        android:paddingBottom="13dp"
+        android:paddingTop="13dp"
+        android:textColor="@color/color_999999"
+        android:textSize="10sp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/divider_color3"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:id="@+id/tvNoShare"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingBottom="13dp"
+            android:paddingTop="13dp"
+            android:text="@string/no_share"
+            android:textColor="@color/color_4D4D4D"
+            android:textSize="14sp"
+            />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="17dp"
+            android:background="@color/divider_color3"/>
+
+        <TextView
+            android:id="@+id/tvPast"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingBottom="13dp"
+            android:paddingTop="13dp"
+            android:text="@string/go_to_paste"
+            android:textColor="@color/color_fc7f0b"
+            android:textSize="14sp"
+            />
+    </LinearLayout>
+</LinearLayout>

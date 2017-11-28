@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="#f5f5f5"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical"
+              tools:context="com.yzb.card.king.ui.integral.MyRemindActivity">
+
+    <RelativeLayout style="@style/titlebar_style">
+
+        <LinearLayout
+            android:id="@+id/panel_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:onClick="goBack"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="30dp">
+
+            <include layout="@layout/nav_left"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/titlebar_title"
+            style="@style/titlebar_title_style"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textSize="@dimen/titlebar_text_size"
+            android:text="@string/jbf_my_collect"/>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f5f5f5"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp">
+
+        <TextView
+            android:id="@+id/all"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white_ffffff"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:text="全部"
+            android:textSize="@dimen/title_size_16"
+            android:textColor="@drawable/myreming_bg_txt"/>
+
+        <TextView
+            android:id="@+id/shop"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@color/white_ffffff"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:textSize="@dimen/title_size_16"
+            android:text="商品"
+            android:textColor="@drawable/myreming_bg_txt"/>
+
+        <TextView
+            android:id="@+id/shopStor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white_ffffff"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:text="商铺"
+            android:textSize="@dimen/title_size_16"
+            android:textColor="@drawable/myreming_bg_txt"/>
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/sRL1"
+        style="@style/swiperefrsh_style"
+        android:background="@android:color/transparent">
+
+
+        <com.yzb.card.king.ui.appwidget.menulistview.MenuListView
+            android:id="@+id/collect_show"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f5f5f5"
+            android:divider="#f5f5f5"
+            android:dividerHeight="10dp"
+            />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <FrameLayout
+        android:id="@+id/frlinfo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="#f5f5f5"
+        />
+</LinearLayout>

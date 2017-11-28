@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--取车换车日期-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/titleRed"
+        android:gravity="center_vertical"
+        android:paddingBottom="8dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="8dp">
+
+        <LinearLayout
+            android:id="@+id/llResetTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_rounded_rectangle_white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="6dip">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvStartTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="取 05月25日 10:34"
+                    android:textColor="@color/red_d84043"
+                    android:textSize="9sp" />
+
+                <TextView
+                    android:id="@+id/tvEndTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="还 05月25日 10:34"
+                    android:textColor="@color/red_d84043"
+                    android:textSize="9sp"
+                     />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:background="@mipmap/icon_select_down" />
+        </LinearLayout>
+        <!--搜索-->
+        <LinearLayout
+            android:id="@+id/poi_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="2dip"
+            android:layout_weight="1"
+            android:background="@drawable/shape_rounded_rectangle_white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="3dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dip"
+            android:paddingTop="3dp"
+
+            >
+
+            <ImageButton
+                android:id="@+id/ibSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dip"
+                android:background="@mipmap/icon_search_bar"
+                android:focusable="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white_ffffff"
+                android:hint="@string/hint_search_address"
+                android:singleLine="true"
+                android:textColorHint="@color/gray_aaaaaa"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <!--地址信息-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/red_f3c6c6"
+        android:gravity="center_vertical"
+        android:paddingBottom="5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dip"
+            android:src="@mipmap/icon_map_red" />
+
+        <TextView
+            android:id="@+id/tvAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textColor="#750204"
+            android:layout_marginLeft="3dp"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <!--信息加载-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/sRL"
+            style="@style/swiperefrsh_style"
+            android:layout_weight="1">
+
+            <com.yzb.card.king.ui.appwidget.HeadFootRecyclerView
+                android:id="@+id/lvShopSelect"
+                android:layout_width="match_parent"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_height="match_parent">
+
+            </com.yzb.card.king.ui.appwidget.HeadFootRecyclerView>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <!--价格、距离筛选-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/red_d84043"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
+
+            <LinearLayout
+                android:id="@+id/llPriceHighLow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/icon_sort_arrow_down" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/tv_price_high_low"
+                    android:textColor="@color/white_ffffff"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llDistanceFarNear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/icon_sort_arrow_down" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/tv_distance_far_near"
+                    android:textColor="@color/white_ffffff"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

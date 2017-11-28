@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rounded_rectangle_white_10"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_rounded_rectangle_gray_10"
+            android:paddingBottom="7dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="7dp">
+
+            <TextView
+                android:id="@+id/tvCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="center"
+                android:paddingBottom="6dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="6dp"
+                android:text="@string/pickerview_cancel"
+                android:textColor="@color/selfedrive_blue_00B5D3"
+                android:textSize="@dimen/txt_11sp"/>
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/tvSubmit"
+                android:layout_toRightOf="@+id/tvCancel"
+                android:gravity="center"
+                android:text="@string/title_modfy_get_bus_time"
+                android:textColor="@color/black2"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@id/tvSubmit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:paddingBottom="6dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="6dp"
+                android:text="@string/pickerview_submit"
+                android:textColor="@color/selfedrive_blue_00B5D3"
+                android:textSize="@dimen/txt_11sp"/>
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/timepicker"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dip"
+            android:orientation="horizontal">
+
+            <com.jamgle.pickerviewlib.lib.WheelView
+                android:id="@+id/wvContent"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

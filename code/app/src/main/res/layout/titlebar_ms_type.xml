@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/panel_type"
+    style="@style/horizonal_linear_wrap_style">
+
+    <TextView
+        android:id="@+id/tv_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_color_white"
+        android:text=""
+        android:textSize="12sp"
+        android:maxWidth="60dp"
+        android:lines="1"
+        android:ellipsize="end"/>
+
+    <include
+        android:id="@+id/arrow_down_type"
+        layout="@layout/arrow_down" />
+</LinearLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/llNoData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="vertical"
+
+        >
+
+        <LinearLayout
+            android:id="@+id/llInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvBankMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="53dp"
+                android:layout_marginTop="100dp"
+                android:drawableLeft="@mipmap/hotel_card_icon"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="@string/ticket_no_bank_dis"
+                android:textColor="@color/color_666666"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tvBindCard"
+                android:layout_width="175dp"
+                android:layout_height="29dp"
+                android:background="@drawable/bg_red_corner_2"
+                android:gravity="center"
+                android:text="@string/travel_bind_card"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                />
+
+            <TextView
+                android:id="@+id/tvApplyCard"
+                android:layout_width="175dp"
+                android:layout_height="29dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_red_edge_1_corner_2"
+                android:gravity="center"
+                android:text= "@string/travel_transact_card"
+                android:textColor="@color/titleRed"
+                android:textSize="15sp"
+                />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlBankMore"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvMoreBank"
+                android:layout_width="173dp"
+                android:layout_height="28dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/shape_rectangle_blue_more"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="@string/ticket_more_bank"
+                android:textColor="@color/color_5d7e98"
+                android:textSize="15sp"
+                android:visibility="visible"/>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

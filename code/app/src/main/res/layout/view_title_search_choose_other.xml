@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+
+        style="@style/titlebar_style">
+
+        <include
+            android:id="@+id/headerLeft"
+            layout="@layout/titlebar_ms_type"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/titlebar_center_height"
+            android:layout_marginLeft="16dp" />
+
+        <include
+            android:id="@+id/viewModle"
+            layout="@layout/titlebar_ms_type"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/titlebar_center_height"
+            android:layout_marginLeft="16dp" />
+
+        <TextView
+            android:id="@+id/middleTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/train_ffffff"
+            android:textSize="@dimen/titlebar_text_size"
+           />
+
+
+        <LinearLayout
+            android:id="@+id/llSearch"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:gravity="center">
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/llParent"
+            android:background="@mipmap/icon_search_bar_white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llParent"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:visibility="gone"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_top_right"
+                style="@style/iv1_style"
+                android:layout_width="@dimen/titlebar_center_height2"
+                android:layout_height="@dimen/titlebar_center_height2"
+                android:layout_marginRight="16dp"
+                android:background="@mipmap/icon_nav_user" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

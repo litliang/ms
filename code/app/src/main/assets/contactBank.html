@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.json.min.js"></script>
+    <script type="text/javascript" src="js/util.js"></script>
+    <title>联络银行</title>
+    <style>
+        html,body{
+            height: 100%;
+            background: #e3e3e2;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            window.JsFunction.onLoad();
+        });
+
+        function addData(data){
+            var dataJson = $.parseJSON(data);
+            $.each(dataJson, function(i, items){
+                var html = '<li class="list"><a href="#" onClick="window.JsFunction.showDetail(\''+items.bankId+'\',\''+items.bankName+'\')">'
+                         +'<img class="bank-logo" src="images/'
+                         +selectBankLogo(parseInt(items.bankId))
+                         +'" />'+items.bankName+'</a></li>';
+
+                $("#myBank").after(html)
+            })
+        }
+
+        function addOtherData(data){
+            var dataJson = $.parseJSON(data);
+            $.each(dataJson, function(i, items){
+                var html = '<li class="list"><a href="#" onClick="window.JsFunction.showDetail(\''+items.id+'\',\''+items.bankName+'\')">'
+                         +'<img class="bank-logo" src="images/'
+                         +selectBankLogo(parseInt(items.id))
+                         +'" />'+items.bankName+'</a></li>';
+
+                $("#otherBank").after(html)
+            })
+        }
+    </script>
+</head>
+<body>
+
+<!--我的银行 start-->
+<div class="bank-list-box">
+    <h4 class="h4-title">我的银行</h4>
+    <ul class="list-ul">
+        <li id="myBank"></li>
+        <!--<li class="list"><a href="#" onClick="window.JsFunction.showDetail('中国银行')"><img class="bank-logo" src="images/bank_logo_zg.png" />中国银行</a></li>
+        <li class="list"><a href="#" onClick="window.JsFunction.showDetail('工商银行')"><img class="bank-logo" src="images/bank_logo_gs.png" />工商银行</a></li>-->
+    </ul>
+</div>
+<!--我的银行 end-->
+
+<!--我的银行 start-->
+<div class="bank-list-box">
+    <h4 class="h4-title">其他银行</h4>
+    <ul class="list-ul">
+        <li id="otherBank"></li>
+        <!--<li class="list"><a href="#" onClick="window.JsFunction.showDetail('交通银行')"><img class="bank-logo" src="images/bank_logo_jt.png" />交通银行</a></li>-->
+        <!--<li class="list"><a href="#" onClick="window.JsFunction.showDetail('浦发银行')"><img class="bank-logo" src="images/bank_logo_pf.png" />浦发银行</a></li>-->
+    </ul>
+</div>
+<!--我的银行 end-->
+
+</body>
+</html>

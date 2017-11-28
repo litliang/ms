@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yzb.card.king.ui.credit.activity.BillImportActivity">
+
+    <RelativeLayout
+        android:id="@+id/title"
+        style="@style/titlebar_style"
+        android:background="@color/white_ffffff">
+
+        <LinearLayout
+            android:id="@+id/panel_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:paddingRight="30dp">
+
+            <ImageView
+                android:id="@+id/headerLeftImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/title_l_r"
+                android:adjustViewBounds="true"
+                android:maxHeight="20dp"
+                android:maxWidth="20dp"
+                android:scaleType="centerInside"
+                android:background="@mipmap/icon_arrow_back_black"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/titlebar_title"
+            style="@style/titlebar_title_style"
+            android:layout_centerInParent="true"
+            android:textColor="@color/color_333333"
+            android:gravity="center"
+            android:text="账单导入"/>
+    </RelativeLayout>
+    <View
+        android:id="@+id/lineTitel"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_round_corner_white_3dp"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:id="@+id/email_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
+
+            <ImageView
+                android:id="@+id/img_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/bg_rule_white_grey"
+                android:src="@mipmap/bank_logo_abc_back"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/img_logo"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="转发邮件"
+                    android:textColor="#4c4c4c"
+                    android:textSize="38px"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="转发账单邮件，管理家人的信用卡"
+                    android:textColor="#8e8e8e"
+                    android:textSize="28px"
+                    />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:src="@mipmap/icon_arrow_next"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/color_e6e6e6"
+            ></View>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textSize="38px"
+            android:textColor="#4c4c4c"
+            android:text="专属邮箱:xuejiaxing@qq.com"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/color_e6e6e6"
+            ></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="38px"
+                android:textColor="#4c4c4c"
+                android:text="特别声明:"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="33px"
+                android:textColor="#bababa"
+                android:text="*卡王非常尊重用户个人讯息的隐私，故不收集用户的邮箱账密，亦不收集网银账密。"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="33px"
+                android:textColor="#bababa"
+                android:text="*为方便用户体验便捷的信用卡管理，可将您所收到的账单发至本平台配发的用户专属邮箱，即可便捷的管理您及家人的信用卡。"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="33px"
+                android:textColor="#bababa"
+                android:layout_margin="16dp"
+                android:text="*假如您了解所用邮箱转寄设定，可直接复制专属邮箱前往设定即可，反之，则请进入转发邮件页面，內含各邮箱的设定方法，您可依说明进行设定。"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="33px"
+                android:textColor="#bababa"
+                android:text="*同一邮箱同一银行仅需设定一次即可。"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

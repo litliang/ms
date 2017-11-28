@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="9dp"
+              android:background="@color/white"
+              android:orientation="vertical"
+              android:paddingLeft="16dp"
+              android:paddingRight="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/lxr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="联系人"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"/>
+
+        <EditText
+            android:id="@+id/lxrName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:textColor="@color/color_333333"
+            android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+            android:textSize="15sp"/>
+
+        <ImageView
+            android:id="@+id/lxrButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_round_blue_people"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/lxr_fengexian"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#dddddd"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/sjh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机号"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"/>
+
+        <EditText
+            android:id="@+id/lxrMobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/sjh_86"
+            android:layout_marginLeft="6dp"
+            android:background="@null"
+            android:hint="用于接收航班短信"
+            android:inputType="number"
+            android:maxLength="11"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:singleLine="true"
+            android:textColor="@color/color_333333"
+            android:textColorHint="@color/color_999999"
+            android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+            android:textSize="14sp"/>
+    </LinearLayout>
+
+</LinearLayout>

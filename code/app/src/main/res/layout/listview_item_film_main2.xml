@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:clickable="true">
+
+    <ImageView
+        android:id="@+id/iv_pic"
+        style="@style/iv_headpic_style"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
+
+    <LinearLayout
+        android:id="@+id/panel0"
+        style="@style/horizonal_linear_style"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/iv_pic">
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/tv1_style"
+            android:text=""
+            android:textColor="#969696"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_yxl"
+            style="@style/tv2_style"
+            android:text="月销0笔"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/panel1"
+        style="@style/horizonal_linear_style"
+        android:layout_alignLeft="@+id/panel0"
+        android:layout_alignRight="@+id/panel0"
+        android:layout_below="@+id/panel0"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical">
+
+        <include layout="@layout/ratingbar" />
+
+        <TextView
+            android:id="@+id/tv_fs"
+            style="@style/tv3_style"
+            android:layout_marginLeft="9dp"
+            android:layout_weight="1"
+            android:text="0.0分"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/tv_jg"
+            style="@style/tv2_style"
+            android:text="¥0起"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/panel2"
+        style="@style/horizonal_linear_style"
+        android:layout_alignLeft="@+id/panel1"
+        android:layout_alignRight="@+id/panel1"
+        android:layout_below="@+id/panel1"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="top">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:orientation="vertical">
+            <!--近期场次-->
+            <TextView
+                android:id="@+id/tv_jqcc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="近期场次"
+                android:textColor="#898989"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_empty_hd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="今日无优惠"
+                android:textColor="#D84043"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/panel_yh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/panel1"
+                android:layout_alignRight="@+id/panel1"
+                android:layout_below="@+id/panel2"
+                android:orientation="vertical">
+
+                <include layout="@layout/store_yh_item" />
+
+                <include layout="@layout/store_yh_item" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_jl"
+            style="@style/tv5_style"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:gravity="right|center_vertical"
+            android:text=""
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <include
+        android:id="@+id/footer_divider"
+        layout="@layout/listview_divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignLeft="@+id/panel2"
+        android:layout_below="@+id/panel2" />
+
+</RelativeLayout>

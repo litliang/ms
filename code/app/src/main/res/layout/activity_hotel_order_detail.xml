@@ -1,0 +1,1007 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#efefef"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <RelativeLayout style="@style/titlebar_style_blue">
+
+        <LinearLayout
+            android:id="@+id/panelBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="30dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@mipmap/icon_back_white"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/titlebar_title"
+            style="@style/titlebar_title_style"
+            android:layout_centerInParent="true"
+            android:text="订单详情"
+            android:textSize="@dimen/titlebar_text_size"/>
+
+        <LinearLayout
+            android:id="@+id/panelShare"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="@dimen/title_l_r">
+
+            <ImageView
+                android:id="@+id/share_hotel"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/icon_share_white_xi"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_44698f"
+        android:orientation="vertical"
+        android:padding="@dimen/title_l_r">
+
+        <TextView
+            android:id="@+id/tvOrderStatusMsg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white_ffffff"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvOrderPromt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/color_d6c07f"
+                android:textSize="@dimen/sp_14"/>
+
+            <TextView
+                android:id="@+id/tvOtherOrderMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_d6c07f"
+                android:textSize="@dimen/sp_14"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llOneOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:id="@+id/tvOrderTuikuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shap_corner_rich_blue_hotel"
+                android:paddingBottom="7dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="7dp"
+                android:text="退款"
+                android:textColor="@color/white_ffffff"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tvOrderQuxiaoTuikuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shap_corner_rich_blue_hotel"
+                android:paddingBottom="7dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="7dp"
+                android:text="取消退款"
+                android:textColor="@color/white_ffffff"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tvOrderFunction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shap_corner_rich_blue_hotel"
+                android:paddingBottom="7dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="7dp"
+                android:text="取消订单"
+                android:textColor="@color/white_ffffff"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tvOrderFanxian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shap_corner_rich_blue_hotel"
+                android:paddingBottom="7dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="7dp"
+                android:text="申请返现"
+                android:textColor="@color/white_ffffff"
+                android:textSize="14sp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tvOrderDel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shap_corner_rich_blue_hotel"
+                android:paddingBottom="7dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="7dp"
+                android:text="删除"
+                android:textColor="@color/white_ffffff"
+                android:textSize="14sp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tvOrderPingjia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shap_corner_rich_blue_hotel"
+                android:paddingBottom="7dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="7dp"
+                android:text="评价"
+                android:textColor="@color/white_ffffff"
+                android:textSize="14sp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tvOrderPay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shap_corner_rich_blue_hotel"
+                android:paddingBottom="7dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="7dp"
+                android:text="支付"
+                android:textColor="@color/white_ffffff"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tvOrderAgain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shap_corner_rich_blue_hotel"
+                android:paddingBottom="7dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="7dp"
+                android:text="再次预订"
+                android:textColor="@color/white_ffffff"
+                android:textSize="14sp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="30dp"
+            >
+
+            <LinearLayout
+                android:id="@+id/llConfirmCancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white_ffffff"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="12dp"
+                android:paddingLeft="@dimen/title_l_r"
+                android:paddingRight="@dimen/title_l_r"
+                android:paddingTop="12dp"
+                android:visibility="gone"
+                >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvCancelOrderMsg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:text="订单确认后，付费取消"
+                        android:textColor="#333333"
+                        android:textSize="14sp"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_arrow_right_item_gray"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/quesation_layout"
+                style="@style/HotelOrderViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                >
+
+                <TextView
+                    android:id="@+id/tv_queastion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:text="快速解决入住问题"
+                    android:textColor="@color/order_detail_wordblack"
+                    android:textSize="14sp"/>
+
+                <LinearLayout
+                    android:id="@+id/question1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_queastion"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/tvFunctionOne"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="7.5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_hotelorderdetail_question"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="13dp"
+                        android:paddingRight="13dp"
+                        android:paddingTop="5dp"
+                        android:text="如何开发票"
+                        android:textColor="#5c7d99"
+                        android:textSize="14sp"/>
+
+
+                    <TextView
+                        android:id="@+id/tvFunctionTwo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7.5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_hotelorderdetail_question"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="13dp"
+                        android:paddingRight="13dp"
+                        android:paddingTop="5dp"
+                        android:text="查看确认信息"
+                        android:textColor="#5c7d99"
+                        android:textSize="14sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/question2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/question1"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:paddingBottom="15dp">
+
+                    <TextView
+                        android:id="@+id/tvFunctionThree"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginRight="7.5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_hotelorderdetail_question"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="13dp"
+                        android:paddingRight="13dp"
+                        android:paddingTop="5dp"
+                        android:text="取消订单"
+                        android:textColor="#5c7d99"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7.5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_hotelorderdetail_question"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="13dp"
+                        android:paddingRight="13dp"
+                        android:paddingTop="5dp"
+                        android:text="退款何时到账"
+                        android:textColor="#5c7d99"
+                        android:textSize="14sp"
+                        android:visibility="invisible"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                style="@style/HotelOrderViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvProductName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textColor="#333333"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@mipmap/icon_arrow_right_item_gray"/>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#dddddd"/>
+
+                <LinearLayout
+                    android:id="@+id/llCardBenefit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvDeliveryStatus"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="快件已签收"
+                            android:textColor="@color/color_666666"
+                            android:textSize="14sp"
+                            />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:background="@mipmap/icon_arrow_right_item_gray"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#dddddd"/>
+
+                    <TextView
+                        android:id="@+id/tvConsigneeInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginTop="12dp"
+                        android:lineSpacingExtra="12dp"
+                        android:textColor="@color/color_666666"
+                        android:textSize="@dimen/sp_14"/>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#dddddd"/>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvHotelOrderLinkeManInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:lineSpacingExtra="12dp"
+                    android:textColor="@color/color_666666"
+                    android:textSize="@dimen/sp_14"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#dddddd"/>
+
+                <LinearLayout
+                    android:id="@+id/llHotelOrderDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="12dp">
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/address_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/discount_mindcard_homepage_shape_white_bottom"
+                android:orientation="vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+
+                <LinearLayout
+                    android:id="@+id/llRoomOrderHotel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:id="@+id/address_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@mipmap/bg_hotel_address_map"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/hotels_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:singleLine="true"
+                                android:textColor="#333333"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:id="@+id/address"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#666666"
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/hotel_detail_Rl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="5dp"
+                                android:background="@mipmap/icon_arrow_right_item_gray"/>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#dddddd"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvHotelPhoneNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="12dp"
+                            android:background="@drawable/bg_hotelorderdetail_question"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="13dp"
+                            android:paddingRight="13dp"
+                            android:paddingTop="5dp"
+                            android:text="联系酒店"
+                            android:textColor="#5c7d99"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:id="@+id/tvSupplierPhoneNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_hotelorderdetail_question"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="13dp"
+                            android:paddingRight="13dp"
+                            android:paddingTop="5dp"
+                            android:text="联系供应商"
+                            android:textColor="#5c7d99"
+                            android:textSize="14sp"
+                            android:visibility="gone"/>
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#dddddd"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llOtherOrderHotel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <com.zhy.view.flowlayout.FlowLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvHotelOrderPay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="12dp"
+                            android:background="@drawable/bg_hotelorderdetail_question"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="13dp"
+                            android:paddingRight="13dp"
+                            android:paddingTop="5dp"
+                            android:text="支付"
+                            android:textColor="#5c7d99"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:id="@+id/tvHotelOrderCancel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="12dp"
+                            android:background="@drawable/bg_hotelorderdetail_question"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="13dp"
+                            android:paddingRight="13dp"
+                            android:paddingTop="5dp"
+                            android:text="取消"
+                            android:textColor="#5c7d99"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            />
+
+                        <TextView
+                            android:id="@+id/tvHotelOrderDel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="12dp"
+                            android:background="@drawable/bg_hotelorderdetail_question"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="13dp"
+                            android:paddingRight="13dp"
+                            android:paddingTop="5dp"
+                            android:text="删除"
+                            android:textColor="#5c7d99"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            />
+
+                        <TextView
+                            android:id="@+id/tvHotelOrderRefund"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="12dp"
+                            android:background="@drawable/bg_hotelorderdetail_question"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="13dp"
+                            android:paddingRight="13dp"
+                            android:paddingTop="5dp"
+                            android:text="退款"
+                            android:textColor="#5c7d99"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            />
+
+                        <TextView
+                            android:id="@+id/tvHotelOrderCancelRefund"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_hotelorderdetail_question"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="13dp"
+                            android:paddingRight="13dp"
+                            android:paddingTop="5dp"
+                            android:text="取消退款"
+                            android:textColor="#5c7d99"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            />
+
+                    </com.zhy.view.flowlayout.FlowLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#dddddd"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:id="@+id/tvOtherProductName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:textColor="@color/color_666666"
+                            android:textSize="14sp"/>
+
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:background="@mipmap/icon_arrow_right_item_gray"/>
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#dddddd"/>
+
+                    <LinearLayout
+                        android:id="@+id/llHotelOtherProductPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:id="@+id/tvHotelOtherProductPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:text="酒店"
+                            android:textColor="@color/color_666666"
+                            android:textSize="14sp"/>
+
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:background="@mipmap/icon_blue_phone"/>
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/vOtherLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#dddddd"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/hotel_around_line"
+                    android:layout_marginTop="6dp"
+                    android:background="@color/white_ffffff"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/icon_hotel_nearby_server"/>
+
+                        <TextView
+                            android:id="@+id/textView22"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="周边"
+                            android:textColor="@color/color_333333"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="#adadad"
+                            />
+
+                        <TextView
+                            android:id="@+id/transportion"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/transportion"
+                            android:textColor="@color/selector_bg_blue_gray"
+                            android:textSize="14sp"/>
+
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="#adadad"/>
+
+                        <TextView
+                            android:id="@+id/food_tv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/food"
+                            android:textColor="@color/selector_bg_blue_gray"
+                            android:textSize="14sp"/>
+
+
+                        <TextView
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="#adadad"/>
+
+                        <TextView
+                            android:id="@+id/amusement"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/amusement"
+                            android:textColor="@color/selector_bg_blue_gray"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="#adadad"/>
+
+                        <TextView
+                            android:id="@+id/landscape"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/landscape"
+                            android:textColor="@color/selector_bg_blue_gray"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="#adadad"/>
+
+
+                        <TextView
+                            android:id="@+id/gouwu"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/gouwu"
+                            android:textColor="@color/selector_bg_blue_gray"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="#adadad"/>
+
+                        <TextView
+                            android:id="@+id/jiud"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/jiudian"
+                            android:textColor="@color/selector_bg_blue_gray"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="#adadad"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tvSuoquFapiao"
+                style="@style/HotelOrderViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="请向酒店前台索取发票"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/sp_14"/>
+
+
+            <TextView
+                android:id="@+id/tvFapiaoInfo"
+                style="@style/HotelOrderViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="12dp"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/sp_14"/>
+
+
+            <TextView
+                android:id="@+id/tvHotelOrderHandleTimeInfo"
+                style="@style/HotelOrderViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="12dp"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/sp_14"/>
+
+
+            <RelativeLayout
+                android:id="@+id/appShopPhone"
+                style="@style/HotelOrderViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/icon_blue_phone_order"
+                    android:drawablePadding="5dp"
+                    android:text="拨打嗨生活客服电话"
+                    android:textColor="#44698f"
+                    android:textSize="16sp"/>
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

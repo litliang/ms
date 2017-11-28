@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.json.min.js"></script>
+    <script type="text/javascript" src="js/util.js"></script>
+    <title>额度调整</title>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            window.JsFunction.onLoad();
+        });
+
+        function addData(data){
+            var dataJson = $.parseJSON(data);
+            $.each(dataJson, function(i, items){
+                var html = '<li class="list"><a href="#">'
+                         +'<img class="bank-logo" src="images/'
+                         +selectBankLogo(items.bankId)
+                         +'" />'+items.bankName+'<span class="money">额度 '
+                         +items.fullLimit+'</span>' +'<img class="arrow-up" src="images/icon_up_arrow_red.png"/>';
+                if(items.adjustStatus == '' || items.adjustStatus == null || items.adjustStatus == '0'){
+                    var creditId = items.id;
+
+                    html+='<i class="icon-round-green-up" onClick="window.JsFunction.adjustLimit('+creditId+')"></i>';
+                }
+                    html+='</a></li>';
+
+                $("li:last").after(html)
+            })
+        }
+
+        function showMoreData(){
+            $("#moreData").show();
+        }
+
+        function hideMoreData(){
+            $("#moreData").hide();
+        }
+
+        function clearData(){
+            $(".list-ul").html("<li></li>");
+        }
+
+
+    </script>
+</head>
+<body>
+
+<!--调整 start-->
+<div class="bank-list-box quota">
+    <ul class="list-ul">
+        <li></li>
+        <!--<li class="list">
+            <a href="#">
+                <img class="bank-logo" src="images/bank_logo_zg.png" />
+                中国银行
+                <span class="money">额度<strong>30000</strong></span>
+                <i class="icon-round-green-up"></i>
+            </a>
+        </li>
+        <li class="list">
+            <a href="#">
+                <img class="bank-logo" src="images/bank_logo_gs.png" />
+                工商银行
+                <span class="money">额度<strong>30000</strong></span>
+                <i class="icon-round-green-up"></i>
+            </a>
+        </li>-->
+    </ul>
+</div>
+<div style="text-align:center;font-size:15pt;display:none;" id="moreData"
+     onClick="window.JsFunction.readMoreData()">读取更多数据
+</div>
+<!--调整 end-->
+<div class="btn-box">
+    <a class="up-btn" href="#" onClick="window.JsFunction.adjustLimitAll()"><i
+            class="icon-up-money"></i>一键申请</a>
+</div>
+</body>
+</html>

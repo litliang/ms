@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="15dp">
+
+        <LinearLayout
+            android:id="@+id/llLifeStage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_weight="3.5"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shap_corner_rich_blue"
+                    android:padding="3dp"
+                    android:text="生活分期"
+                    android:textColor="@color/white_ffffff"
+                    android:textSize="10sp"/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvBankStageDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="可支持交通银行3期付款，建设银行"
+                android:textColor="@color/color_666666"
+                android:textSize="12sp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/icon_arrow_right_item_gray"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSuperGive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_weight="3.5"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shap_corner_rich_yellow"
+                    android:padding="3dp"
+                    android:text="超级赠送"
+                    android:textColor="@color/white_ffffff"
+                    android:textSize="10sp"/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvSuperGiveContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="超级巴士往返上海一次接机服务服务, 含有水果、点心、饮料等特殊礼品的..."
+                android:textColor="@color/color_666666"
+                android:textSize="12sp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/icon_arrow_right_item_gray"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llBankFavorable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_weight="3.5"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shap_corner_rich_blue"
+                    android:padding="3dp"
+                    android:text="银行优惠"
+                    android:textColor="@color/white_ffffff"
+                    android:textSize="10sp"/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvBankFavDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="交通银行、农业、交通银行"
+                android:textColor="@color/color_666666"
+                android:textSize="12sp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/icon_arrow_right_item_gray"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llReturnMoney"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_weight="3.5"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shap_corner_rich_blue"
+                    android:padding="3dp"
+                    android:text="返"
+                    android:textColor="@color/white_ffffff"
+                    android:textSize="10sp"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginRight="7dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="离店后返现，30天内有效"
+                    android:textColor="@color/color_333333"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginRight="7dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="返现条件：离店后30日内登陆到嗨生活手机客户端，找到订单-酒店订单中申请返现。"
+                    android:textColor="@color/color_666666"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/icon_arrow_right_item_gray"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llGetCoupon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_weight="3.5"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shap_corner_blue"
+                    android:padding="3dp"
+                    android:text="券"
+                    android:textColor="@color/color_476b98"
+                    android:textSize="10sp"/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="可适用优惠券和代金券"
+                android:textColor="@color/color_666666"
+                android:textSize="12sp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/icon_arrow_right_item_gray"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llMerchantIntegral"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_weight="3.5"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shap_corner_rich_yellow"
+                    android:padding="3dp"
+                    android:text="商家积分"
+                    android:textColor="@color/white_ffffff"
+                    android:textSize="10sp"/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text="购买商家直销商品可获增商家积分，满300元获30积分，积分可用于购买商家商品，兑换比例100积分=1元"
+                android:textColor="@color/color_666666"
+                android:textSize="12sp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/icon_arrow_right_item_gray"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

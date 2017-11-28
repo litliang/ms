@@ -1,0 +1,939 @@
+/*信用卡详情*/
+.card-detail .card-box{
+    padding: 0;
+}
+.card-detail .card-box .card-list .img-wrap {
+    width: 120px;
+    height: 71px;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 3px 3px 3px rgba(200,200,200,.4);
+}
+.card-detail .card-box .card-list .text-wrap{
+    margin-left: 135px;
+}
+.card-detail .card-box .card-list .text-wrap .h5-title{
+    font-size: 18px;
+    margin-top: -5px;
+}
+.card-detail .card-box .card-list .text-wrap .p-text{
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+/*.card-detail .card-box .card-list .list:last-child a.list-a{
+    border-bottom: 1px solid #e5e5e5;
+}*/
+.card-detail .card-box .card-list .text-wrap .p-number{
+    font-size: 15px;
+}
+.card-detail-dl{
+
+}
+.card-detail-dl dt{
+    position: relative;
+    line-height: 30px;
+    font-size: 13px;
+    border-top: 1px solid #e5e5e5;
+    color: #1a1a1a;
+    padding:10px;
+    cursor: pointer;
+}
+.card-detail-dl dt:after{
+    display: block;
+    position: absolute;
+    content: "";
+    right: 10px;
+    top: 50%;
+    width: 8px;
+    height: 14px;
+    margin-top: -7px;
+    background: url("../images/icon-arrow-right-grey.png") no-repeat;
+    background-size: 100% 100%;
+    z-index: 2;
+}
+.card-detail-dl dt .icon-online-gif{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-top: -3px;
+    margin-right: 10px;
+    background: url("../images/icon-onlie-gife.png") no-repeat;
+    background-size: 100% 100%;
+}
+.card-detail-dl dd{
+    display: none;
+    padding:10px;
+    line-height: 24px;
+    font-size: 13px;
+    color: #1a1a1a;
+    border-top: 1px solid #e5e5e5;
+}
+.card-detail-dl *:last-child{
+    border-bottom: 0;
+}
+
+
+.card-table-info{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.card-table-info .td-label{
+    padding-left: 10px;
+    color: #808080;
+    font-size: 13px;
+    line-height: 30px;
+    vertical-align: top;
+    width: 70px;
+}
+.card-table-info .td-text{
+    padding-left: 5px;
+    color: #1a1a1a;
+    font-size: 13px;
+    padding-right: 10px;
+    line-height: 22px;
+}
+.card-table-info .table-fenqi{
+    width: 100%;
+}
+.card-table-info .table-fenqi th{
+    background: #f5f5f5;
+    text-align: center;
+    border: 1px solid #d9d9d9;
+    font-size: 13px;
+    line-height: 30px;
+}
+.card-table-info .table-fenqi td{
+    text-align: center;
+    border: 1px solid #d9d9d9;
+    font-size: 13px;
+    line-height: 30px;
+}
+
+.bank-detail-servers{
+    padding: 0 10px;
+}
+.bank-detail-servers li{
+    position: relative;
+   color: #1a1a1a;
+    line-height: 20px;
+    height: 60px;
+    padding:10px 0 10px 50px;
+    font-size: 13px;
+}
+.bank-detail-servers li .icon{
+    position: absolute;
+    left: 0;
+    top:10px;
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+.bank-detail-servers li .icon img{
+    width: 100%;
+    height: 100%;
+}
+
+.bank-card-question-list{
+    padding:10px 0;
+}
+.bank-card-question-list li{
+    padding: 0 10px;
+}
+.bank-card-question-list li a{
+    display: block;
+    line-height: 24px;
+    font-size: 13px;
+    color: #1a1a1a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.bank-card-question-list li a:hover{
+    text-decoration: underline;
+    color: #1c6cab;
+}
+
+.btn-apply-card,
+.btn-apply-card:hover{
+    display: block;
+    background: #ff0000;
+    font-size: 18px;
+    height: 44px;
+    line-height: 44px;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+}
+
+/*额度调整*/
+.bank-list-box.quota{
+    border-bottom: 0;
+}
+.bank-list-box.quota .list-ul .list:last-child>a{
+    border-bottom: 1px solid #e5e5e5;
+}
+.bank-list-box .list-ul .list>a .money{
+    display: block;
+    width: 120px;
+    position: absolute;
+    right: 40px;
+    top: 0;
+    font-size: 13px;
+    color: #1a1a1a;
+}
+.bank-list-box .list-ul .list>a .money strong{
+    display: inline-block;
+    font-size: 16px;
+    color: #f54d4d;
+    padding-left: 5px;
+    vertical-align: middle;
+   /* font-weight: normal;*/
+}
+.bank-list-box .list-ul .list>a .icon-round-green-up{
+    position: absolute;
+    right: 10px;
+    top:50%;
+    display: block;
+    width: 22px;
+    height: 22px;
+    margin-top: -11px;
+    background: url("../images/icon-round-green-up.png") no-repeat;
+    background-size: 100% 100%;
+}
+.bank-list-box.quota  .list-ul .list>a:after{
+    display: none;
+}
+
+.btn-box{
+    padding:10px;
+    margin: 20px 0;
+}
+.up-btn{
+    display: block;
+    font-size: 16px;
+    color: #1c6cab;
+    border: 1px solid #1c6cab;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    background: #fff;
+    border-radius: 5px;
+}
+.up-btn  .icon-up-money{
+    display: inline-block;
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    background: url("../images/icon-up-money.png") no-repeat;
+    background-size: 100% 100%;
+    margin-right: 10px;
+    margin-top: -3px;
+}
+/*在线办卡*/
+.card-bank-box{
+    margin-bottom: 10px;
+    background: #fff;
+    border-bottom: 1px solid #d9d9d9;
+}
+.card-bank-box .list-ul{
+    overflow:hidden;
+    zoom: 1;
+    padding-top: 15px;
+}
+.card-bank-box .list-ul >li{
+    float: left;
+    width: 25%;
+    margin-bottom: 15px;
+
+}
+.card-bank-box .list-ul >li >a{
+    display: block;
+}
+.card-bank-box .list-ul >li .icon{
+    display: block;
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+}
+.card-bank-box .list-ul >li .icon img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.card-bank-box .list-ul >li .span-text{
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    color: #1a1a1a;
+}
+
+.online-quick-box{
+    margin-bottom: 10px;
+    background: #fff;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 5px;
+}
+.online-quick-table{
+    width: 100%;
+}
+.online-quick-table td{
+    padding: 5px;
+    width: 50%;
+}
+.online-quick-table td{
+    padding: 5px;
+    width: 50%;
+}
+.online-quick-table td .quick-tool-div{
+    height: 100%;
+    position: relative;
+    display: block;
+    border:1px solid #e5e5e5;
+}
+.online-quick-table td .online-banner-box{
+    width: 100%;
+}
+.online-quick-table td .online-banner-box a{
+    display: block;
+}
+.online-quick-table td .online-banner-box a img{
+   width: 100%;
+}
+.quick-tool-a{
+   position: absolute;
+    width: 100%;
+    height: 60px;
+    left: 0;
+    top:50%;
+    margin-top: -30px;
+   display: block;
+   padding:10px 10px 10px 56px;
+}
+.quick-tool-a .p1{
+    font-size: 15px;
+    color: #1a1a1a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.quick-tool-a .p2{
+    font-size: 12px;
+    color: #818385;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.icon-online-quick,
+.icon-online-life,
+.icon-online-money
+{
+    position: absolute;
+    top:10px;
+    left: 10px;
+    display: block;
+    width: 36px;
+    height: 36px;
+}
+
+.icon-online-quick{
+    background: url("../images/icon-onlie-quick.png") no-repeat;
+    background-size: 100% 100%;
+}
+.icon-online-life{
+    background: url("../images/icon-onlie-life.png") no-repeat;
+    background-size: 100% 100%;
+}
+.icon-online-money{
+    background: url("../images/icon-onlie-quick.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.hot-card-box {
+    margin-bottom: 10px;
+    background: #fff;
+    border-bottom: 1px solid #d9d9d9;
+}
+.hot-card-box .hot-card-title{
+    position: relative;
+    border-bottom: 1px solid #e5e5e5;
+    height: 44px;
+    padding: 0 10px;
+}
+.hot-card-box .hot-card-title .name{
+    display: block;
+    font-size: 16px;
+    line-height: 44px;
+}
+.hot-card-box .hot-card-title .icon-online-gif{
+    position: absolute;
+    display: block;
+    right: 10px;
+    top:50%;
+    margin-top: -15px;
+    width: 30px;
+    height: 30px;
+    background: url("../images/icon-onlie-gife.png") no-repeat;
+    background-size: 100% 100%;
+}
+.hot-card-box .hot-card-content{
+
+}
+.hot-card-box .list-ul{
+    padding: 0 10px;
+}
+.hot-card-box .list-ul>li>a{
+    position: relative;
+    display: block;
+    min-height: 86px;
+    padding: 15px 10px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.hot-card-box .list-ul>li:last-child>a{
+    border-bottom: 0;
+}
+.hot-card-box .list-ul>li>a:after{
+    display: block;
+    position: absolute;
+    content: "";
+    right: 10px;
+    top: 50%;
+    width: 8px;
+    height: 14px;
+    margin-top: -7px;
+    background: url("../images/icon-arrow-right-grey.png") no-repeat;
+    background-size: 100% 100%;
+    z-index: 2;
+}
+.hot-card-box .list-ul .img-wrap{
+    position: absolute;
+    left: 10px;
+    top:10px;
+    width: 94px;
+    height: 56px;
+}
+.hot-card-box .list-ul .img-wrap img{
+    width: 100%;
+    height: 100%;
+}
+.hot-card-box .list-ul .text-wrap{
+    margin-left: 110px;
+    padding-right: 90px;
+}
+
+.hot-card-box .list-ul .text-wrap .h5-title{
+    font-size: 16px;
+    color: #1a1a1a;
+    font-weight: normal;
+    padding-bottom: 5px;
+    line-height: 26px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.hot-card-box .list-ul .text-wrap .p-text{
+    font-size: 13px;
+    line-height: 20px;
+    color: #808080;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.hot-card-box .list-ul .people-wrap{
+    position: absolute;
+    right: 28px;
+    top:10px;
+    width: 60px;
+    height: 56px;
+    text-align: center;
+    padding:5px 0;
+}
+.hot-card-box .list-ul .people-wrap strong{
+    display: block;
+    color: #f73a3a;
+    font-size: 16px;
+    line-height: 26px;
+    padding-top: 5px;
+    text-align: center;
+}
+.hot-card-box .list-ul .people-wrap p{
+    text-align: center;
+    font-size: 13px;
+    color: #1a1a1a;
+    line-height: 20px;
+}
+
+/*办卡列表*/
+.card-search-top{
+    background: #fff;
+    height: 40px;
+    border-bottom: 1px solid #d9d9d9;
+}
+.card-search-top .list-ul{
+    height: 40px;
+    position: relative;
+    z-index: 10;
+}
+.card-search-top .list-ul>li{
+    float: left;
+    width: 33.33%;
+    height: 40px;
+}
+.card-search-top .list-ul>li>a:after{
+    position: absolute;
+    right: 0;
+    top:50%;
+    margin-top:-10px ;
+    display: block;
+    width: 1px;
+    height: 20px;
+    content: "";
+    font-size: 0;
+    overflow: hidden;
+    background: #d9d9d9;
+}
+.card-search-top .list-ul>li:last-child>a:after{
+    display: none;
+}
+.card-search-top .list-ul>li>a,
+.card-search-top .list-ul>li>a:hover{
+    position: relative;
+    line-height: 40px;
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    color: #1a1a1a;
+}
+.card-search-top .list-ul>li>a .icon-arrow-grey-right{
+    display: inline-block;
+    width: 14px;
+    height: 8px;
+    vertical-align: middle;
+    background: url("../images/icon-arrow-down-grey.png") no-repeat;
+    background-size: 100% 100%;
+    margin-left: 7px;
+}
+.card-search-top .list-ul>li.active .sub-nav{
+    display: block;
+}
+.card-search-top .list-ul>li.active>a{
+    color: #1c6cab;
+}
+.card-search-top .list-ul .sub-nav{
+    display: none;
+    width: 100%;
+    position: absolute;
+    top:100%;
+    left: 0;
+    background: #fff;
+}
+.card-search-top .list-ul .sub-nav li a{
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    font-size: 13px;
+    color: #1a1a1a;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 0 10px;
+}
+.card-search-top .list-ul .sub-nav li.active a{
+    color: #1c6cab;
+}
+.card-box{
+    padding: 0 10px;
+    background: #fff;
+}
+.card-box .card-list{
+
+}
+.card-box .card-list .list{
+    position: relative;
+}
+.card-box .card-list .list .round-gif{
+    position: absolute;
+    right: 10px;
+    top:15px;
+    display: block;
+    width: 25px;
+    height: 25px;
+    background: url("../images/icon-round-gif.png") no-repeat;
+    background-size: 100% 100%;
+}
+.card-box .card-list .list:last-child a.list-a{
+    border-bottom: 0;
+}
+.card-box .card-list .list a.list-a{
+    position: relative;
+    display: block;
+    padding: 15px 10px;
+    border-bottom: 1px solid #e6e6e6;
+}
+.card-box .card-list .img-wrap{
+    position: absolute;
+    left: 10px;
+    top:10px;
+    width: 94px;
+    height: 56px;
+}
+.card-box .card-list .img-wrap img{
+    width: 100%;
+    height: 100%;
+}
+.card-box .card-list .text-wrap{
+    margin-left: 110px;
+}
+.card-box .card-list .text-wrap .h5-title{
+    font-size: 16px;
+    color: #1a1a1a;
+    font-weight: normal;
+}
+.card-box .card-list .text-wrap .p-text{
+    font-size: 13px;
+    color: #808080;
+}
+.card-box .card-list .text-wrap .p-number{
+    font-size: 13px;
+    color: #1a1a1a;
+}
+.card-box .card-list .text-wrap .p-number span{
+    color: #f73a3a;
+}
+
+/*�쿨��Ȳ�ѯ*/
+.card-progress-box{
+    background: #fff;
+}
+.card-progress-list{
+    padding: 0 10px;
+}
+.card-progress-list li.list{
+    position: relative;
+    border-bottom: 1px solid #e5e5e5;
+}
+.card-progress-list li.list:after{
+    clear: both;
+    content: "";
+    display: block;
+}
+.card-progress-list li.list:last-child{
+    border-bottom: 0;
+}
+.card-progress-list li.list .bank-logo{
+    display: block;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -18px;
+    margin-right: 10px;
+}
+.card-progress-list li.list .name{
+    float: left;
+    width: 140px;
+    height: 56px;
+    line-height: 56px;
+    font-size: 18px;
+    color: #000;
+    padding-left: 55px;
+}
+.card-progress-list li.list .time{
+    float: left;
+    width: 80px;
+    height: 56px;
+    line-height: 56px;
+    font-size: 16px;
+    color: #000;
+    padding-left: 10px;
+}
+.card-progress-list li.list .search-link-a{
+    position: absolute;
+    right: 0;
+    top:50%;
+    margin-top: -16px;
+    display: inline-block;
+    padding: 0 15px;
+    height: 32px;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 32px;
+    color: #1c6cab;
+    border: 1px solid #1c6cab;
+    font-size: 16px;
+
+}
+
+/*��������*/
+.bank-list-box{
+    border-bottom: 1px solid #cececa;
+    margin-bottom: 10px;
+    background: #fff;
+}
+.bank-list-box .h4-title{
+    position: relative;
+    height: 42px;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 0 10px;
+    line-height: 42px;
+    font-size: 16px;
+    color: #808080;
+    font-weight: normal;
+}
+.bank-list-box .h4-title .more-a{
+    position: absolute;
+    right: 10px;
+    top:0;
+    color: #1c6cab;
+    font-size: 13px;
+    padding-right: 25px;
+}
+.bank-list-box .h4-title .more-a:after{
+    display: block;
+    position: absolute;
+    content: "";
+    right: 10px;
+    top: 50%;
+    width: 8px;
+    height: 14px;
+    margin-top: -7px;
+    background: url("../images/icon-arrow-right-grey.png") no-repeat;
+    background-size: 100% 100%;
+    z-index: 2;
+}
+.bank-list-box .list-ul{
+    padding: 0 10px;
+}
+.bank-list-box .list-ul .list>a{
+    position: relative;
+    display: block;
+    height: 56px;
+    line-height: 56px;
+    font-size: 18px;
+    color: #000;
+    padding-left: 60px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.bank-list-box .list-ul .list:last-child>a{
+    border-bottom: none;
+}
+.bank-list-box .list-ul .list>a .bank-logo{
+    display: block;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    left: 10px;
+    top:50%;
+    margin-top: -18px;
+    margin-right: 10px;
+}
+.bank-list-box .list-ul .list>a:after{
+    display: block;
+    position: absolute;
+    content: "";
+    right: 10px;
+    top:50%;
+    width: 8px;
+    height: 14px;
+    margin-top: -7px;
+    background: url("../images/icon-arrow-right-grey.png") no-repeat;
+    background-size:100% 100%;
+    z-index: 2;
+
+}
+
+.bank-list-box .list-ul .list .list-div {
+    position: relative;
+    border-bottom: 1px solid #e5e5e5;
+    margin: 0 10px;
+    padding: 8px 0;
+}
+.bank-list-box .list-ul .list:last-child .list-div{
+    border-bottom: 0;
+}
+.bank-list-box .list-ul .list .list-div h5{
+    font-size: 16px;
+    line-height: 30px;
+}
+.bank-list-box .list-ul .list .list-div p{
+    color: #808080;
+    font-size: 13px;
+    line-height: 18px;
+    padding-right: 45px;
+}
+.bank-list-box .list-ul .list .list-div a.tool-a{
+    position: absolute;
+    right: 10px;
+    top:50%;
+    margin-top: -16px;
+    display: block;
+    width: 32px;
+    height: 32px;
+}
+
+.icon-round-green-phone,
+.icon-round-green-email{
+    display: block;
+    width: 32px;
+    height: 32px;
+}
+.bank-list-box .list-ul .list .icon-round-green-phone{
+    background: url("../images/icon-round-green-phone.png") no-repeat;
+    background-size: 100% 100%;
+}
+.bank-list-box .list-ul .list .icon-round-green-email{
+    background: url("../images/icon-round-green-email.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+/*�ʼ�ת��*/
+.mail-relay{
+    padding-top: 5px;
+}
+.mail-relay ul{
+    padding: 0 10px;
+}
+.mail-relay .list{
+    height: 60px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.mail-relay .list .img-response{
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+}
+
+/*�ʼ�ת������*/
+.mail-relay-rule{
+
+}
+.mail-relay-rule .mail-relay-rule-header{
+    position: relative;
+    height: 60px;
+    padding: 0 10px;
+    box-shadow: 0 2px 0 #e6e6e6;
+}
+.mail-relay-rule .mail-relay-rule-header .mail-logo{
+    height: 60px;
+}
+.mail-relay-rule .mail-relay-rule-header .mail-logo img{
+    display: block;
+    height: 100%;
+}
+.mail-relay-rule .mail-relay-rule-header .right-tool{
+    position: absolute;
+    right: 10px;
+    top:50%;
+    margin-top: -20px;
+    height: 40px;
+}
+.mail-relay-rule .mail-relay-rule-header .right-tool a{
+    margin-left: 15px;
+    float: left;
+}
+
+.icon-round-grey-email,
+.icon-round-grey-relay{
+    width: 40px;
+    height: 40px;
+    display: block;
+}
+.icon-round-grey-email{
+    background: url("../images/icon-round-grey-email.png") no-repeat;
+    background-size: 100%;
+}
+.icon-round-grey-relay{
+    background: url("../images/icon-round-grey-relay.png") no-repeat;
+    background-size: 100%;
+}
+
+.mail-relay-text{
+    padding: 10px;
+}
+.mail-relay-text h4{
+    padding-top: 10px;
+    font-size: 16px;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+.mail-relay-text p{
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.mail-relay-text .mail-img-box{
+    display: block;
+    margin-bottom: 10px;
+}
+.mail-relay-text .mail-img-box img{
+    border: 1px solid #e6e6e6;
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+   /* width: 100%;*/
+
+}
+
+/*�����˵�*/
+.mail-header{
+    position: relative;
+    border-bottom: 1px solid #cccccc;
+    box-shadow: 0 2px 0 #e6e6e6;
+}
+.mail-header a{
+    position: relative;
+    display: block;
+    padding: 12px 10px;
+    height: 64px;
+}
+.mail-header a:after{
+    position: absolute;
+    right: 10px;
+    top:50%;
+    margin-top: -9px;
+    display: block;
+    content: "";
+    width: 10px;
+    height: 18px;
+    background: url("../images/icon-arrow-right-grey.png") no-repeat;
+    background-size: 100%;
+}
+.mail-header .img-wrap{
+    position: absolute;
+    left: 10px;
+    top:50%;
+    margin-top: -20px;
+    width: 40px;
+    height: 40px;
+}
+.mail-header .img-wrap  i{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url("../images/icon-roud-email.png") no-repeat;
+    background-size: 100%;
+}
+.mail-header .text-wrap{
+    margin-left: 65px;
+}
+.mail-header .text-wrap .p1{
+    font-size: 16px;
+    color: #1a1a1a;
+    font-weight: bold;
+}
+.mail-header .text-wrap .p2{
+    font-size: 13px;
+    color: #808080;
+}
+
+.text-box{
+    padding: 10px;
+}
+.text-box p{
+    font-size: 13px;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    line-height: 22px;
+}

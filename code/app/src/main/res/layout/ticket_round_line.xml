@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/title_l_r"
+        android:layout_marginLeft="@dimen/title_l_r"
+        android:gravity="">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/title_l_r"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#9a9a9a"
+                android:text="出发城市"
+                android:textSize="11sp"/>
+            <TextView
+                android:id="@+id/tv_start_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="16dp"
+                android:onClick="getPlace"
+                android:textColor="#2D2D2D"
+                android:textSize="16sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/divider_color3"/>
+
+            <LinearLayout
+                android:id="@+id/ll_start_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:onClick="getDate">
+
+                <TextView
+                    android:id="@+id/tv_start_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="13dp"
+                    android:textColor="#2D2D2D"
+                    android:text="asd"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/tv_start_week"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="8dp"
+                    android:text="A"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="#9a9a9a"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/divider_color3"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/trunsImage"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="30dp"
+            android:src="@mipmap/icon_round_wf"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/title_l_r"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#9a9a9a"
+                android:gravity="right"
+                android:text="到达城市"
+                android:textSize="11sp"/>
+            <TextView
+                android:id="@+id/tv_end_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="right"
+                android:onClick="getPlace"
+                android:textColor="#2D2D2D"
+                android:textSize="16sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/divider_color3"/>
+
+            <LinearLayout
+                android:id="@+id/ll_end_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="horizontal"
+                android:onClick="getDate">
+
+                <TextView
+                    android:id="@+id/tv_end_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="13dp"
+                    android:textColor="#2D2D2D"
+                    android:text="A"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/tv_end_week"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="5dp"
+                    android:text="a"
+                    android:textColor="#9a9a9a"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/divider_color3"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

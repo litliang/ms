@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_jfb_round_corner5dp_white_solid"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:gravity="center"
+        android:text="@string/buy_suces"
+        android:textColor="@color/color_4D4D4D"
+        android:textSize="14sp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/icon_giftcard_light_line"/>
+
+    <TextView
+        android:id="@+id/tvSure"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:gravity="center"
+        android:text="@string/bt_dailyrent_confirm"
+        android:textColor="@color/color_D84043"
+        android:textSize="13sp"/>
+</LinearLayout>

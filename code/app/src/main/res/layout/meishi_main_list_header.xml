@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/text_color_white"
+    android:orientation="vertical">
+    <!--顶部轮播-->
+    <com.yzb.card.king.ui.appwidget.SlideShow1ItemView
+        android:id="@+id/slideShowView1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+
+    <include layout="@layout/slideview_8channel" />
+
+    <LinearLayout
+        android:id="@+id/panel_dots2"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#d8d8d8" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:background="#E8E8E8" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#d8d8d8" />
+    <!--
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp"
+            android:paddingTop="6dp">
+
+            <ImageView
+                android:layout_width="5dp"
+                android:layout_height="17dp"
+                android:background="@mipmap/icon_title_left"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                style="@style/tv2_style"
+                android:layout_marginLeft="11dp"
+                android:text="美食指南"
+                android:textColor="#585858"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+        -->
+    <!--美食指南轮播块
+    <com.yzb.card.king.ui.appwidget.SlideShow2ItemView
+        android:id="@+id/slideShowView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#d8d8d8" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:background="#E8E8E8" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#d8d8d8" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingBottom="4dp"
+        android:paddingRight="10dp"
+        android:paddingTop="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="5dp"
+                android:layout_height="17dp"
+                android:background="@mipmap/icon_title_left"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                style="@style/tv2_style"
+                android:layout_marginLeft="11dp"
+                android:text="推荐美食"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/panel_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/tv6_style"
+                android:text="更多"
+                android:textColor="#FC7F0B"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="11dp"
+                android:layout_height="3dp"
+                android:background="@mipmap/icon_more_radius_ms"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
+    </RelativeLayout>
+-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingBottom="4dp"
+        android:paddingRight="10dp"
+        android:paddingTop="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="5dp"
+                android:layout_height="17dp"
+                android:background="@drawable/bg_cen_yellow"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                style="@style/tv2_style"
+                android:layout_marginLeft="11dp"
+                android:text="@string/food_today_food_recommended"
+                android:textColor="#74797a"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</LinearLayout>

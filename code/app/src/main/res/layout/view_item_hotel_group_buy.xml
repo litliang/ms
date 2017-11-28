@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:id="@+id/llOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="96dp"
+            android:layout_marginRight="8dp"
+           />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="商务套餐3日"
+                        android:textSize="13sp"
+                        android:maxLines="2"
+                        android:textColor="#5b5e60"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="有效期限  2016-09-03"
+                        android:textSize="11sp"
+                        android:layout_marginTop="8dp"
+                        android:textColor="#848485"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="有效期限  2016-09-03"
+                        android:layout_marginTop="8dp"
+                        android:textSize="11sp"
+                        android:textColor="#848485"/>
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="7dp"
+                    android:layout_height="12dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@mipmap/icon_arrow_right_red" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="14dp"
+                    android:background="@drawable/shape_rounded_rectangle_yellow_hole"
+                    android:gravity="center"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="未消费退款"
+                    android:textColor="@color/white_ffffff"
+                    android:textSize="8sp" />
+
+                <TextView
+                    android:layout_width="44dp"
+                    android:layout_height="14dp"
+                    android:background="@drawable/shape_rounded_rectangle_yellow_hole"
+                    android:gravity="center"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="过期返还"
+                    android:layout_marginLeft="4dp"
+                    android:textColor="@color/white_ffffff"
+                    android:textSize="8sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#c54b53"
+                        android:textSize="18sp"
+                        android:text="@string/tv_selfdrive_money_unit"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#c54b53"
+                        android:textSize="23sp"
+                        android:text="280"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#e6e6e6"/>
+</LinearLayout>

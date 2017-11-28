@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ll_root_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:background="@drawable/selector_corner_stroke_gray_yellow"
+        android:gravity="center"
+        android:text="标题"
+        android:textColor="@drawable/selector_text_color_gray_red"
+        android:textSize="13sp"/>
+</LinearLayout>

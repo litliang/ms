@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:background="@color/hotel_f5f5f5">
+
+    <include
+        android:id="@+id/rl_title"
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+
+    <RelativeLayout
+        android:id="@+id/rlBankCard"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="@dimen/title_l_r"
+        android:layout_marginRight="@dimen/title_l_r"
+        android:layout_marginTop="@dimen/title_l_r"
+        android:background="@drawable/discount_mindcard_homepage_shape_white"
+        android:paddingLeft="@dimen/title_l_r"
+        android:paddingRight="@dimen/title_l_r"
+        >
+
+        <ImageView
+            android:id="@+id/ivBankLogo"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/circle_edge_bank_icon"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:gravity="center_vertical"
+            android:layout_toRightOf="@id/ivBankLogo"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvBankName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_4c4c4c"
+                android:textSize="15sp"/>
+
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tvBankName"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:textColor="@color/gray6"
+                android:textSize="13sp"/>
+
+
+            <TextView
+                android:id="@+id/tvTailNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tvUserName"
+                android:textColor="@color/gray6"
+                android:textSize="13sp"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_arrow_right_gray_small_one"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/title_l_r"
+        android:layout_marginRight="@dimen/title_l_r"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_marginTop="10dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="提现金额"
+                android:textColor="@color/color_333333"
+                android:textSize="16sp"/>
+            <EditText
+                android:id="@+id/etAmount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="请输入金额"
+                android:inputType="numberDecimal"
+                android:paddingLeft="17dp"
+                android:textColor="@color/gray6"
+                android:textColorHint="@color/gray6"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <include layout="@layout/divider_horizontal"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="可用余额"
+                android:textColor="@color/color_333333"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/tvLeftAmount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:maxLength="20"
+                android:paddingLeft="17dp"
+                android:textColor="@color/gray6"
+                android:textSize="13sp"
+                android:text="@string/charge_money"/>
+        </LinearLayout>
+
+        <include layout="@layout/divider_horizontal"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="33dp"
+        android:background="@drawable/selector_normal_button"
+        android:text="两小时内到账，确认提现"
+        android:textColor="@color/white"
+        android:textSize="14sp"/>
+</LinearLayout>

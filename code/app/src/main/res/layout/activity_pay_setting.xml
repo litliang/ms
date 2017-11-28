@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:dslv="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"/>
+    <View
+        android:id="@+id/lineTitel"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/ll_sc_root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/setting_F4F4F4"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="30dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@color/white"
+                android:paddingBottom="12dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="12dp">
+
+                <TextView
+                    style="@style/setting_reset_pwd_tv_left"
+                    android:text="@string/setting_no_password_for_small_amount"/>
+
+                <LinearLayout
+                    android:id="@+id/llNoPass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true">
+
+                    <com.yzb.card.king.ui.appwidget.SlideButton
+                        android:id="@+id/sbNoPass"
+                        android:layout_width="45dp"
+                        android:layout_height="23dp"/>
+                </LinearLayout>
+
+
+            </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/llAmount"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/color_e6e6e6"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="免密金额"
+                    android:textColor="@color/user_center_black"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/tvAmount"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@color/white"
+                    android:hint="@string/pay_setting_input_amount"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="14dp"
+                    android:paddingLeft="14dp"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginBottom="9dp"/>
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/rl_system_auto_select"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:background="@color/white"
+                android:paddingBottom="12dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="12dp">
+
+                <TextView
+                    style="@style/setting_reset_pwd_tv_left"
+                    android:text="@string/setting_system_auto_select"/>
+
+                <LinearLayout
+                    android:id="@+id/llSlideButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true">
+
+                    <com.yzb.card.king.ui.appwidget.SlideButton
+                        android:id="@+id/slide_button_auto_hk"
+                        android:layout_width="45dp"
+                        android:layout_height="23dp"/>
+                </LinearLayout>
+
+
+            </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/llAuto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:text="@string/setting_deduction_notice"
+                        android:textColor="@color/setting_7A7A7A"
+                        android:textSize="13sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="扣款顺序拖动"
+                        android:textColor="#3d6d99"
+                        android:textSize="13sp"/>
+                </LinearLayout>
+
+                <com.mobeta.android.dslv.DragSortListView
+                    android:id="@+id/listview"
+                    style="@style/listview_style"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:focusable="false"
+                    dslv:collapsed_height="2dp"
+                    dslv:drag_enabled="true"
+                    dslv:drag_handle_id="@id/drag_handle"
+                    dslv:drag_scroll_start="0.33"
+                    dslv:drag_start_mode="onDown"
+                    dslv:float_alpha="0.6"
+                    dslv:max_drag_scroll_speed="0.5"
+                    dslv:remove_enabled="true"
+                    dslv:remove_mode="flingRemove"
+                    dslv:slide_shuffle_speed="0.3"
+                    dslv:sort_enabled="true"
+                    dslv:track_drag_sort="false"
+                    dslv:use_default_controller="true"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/tv_notice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="false"
+                        android:background="@android:color/transparent"
+                        android:lineSpacingMultiplier="1.2"
+                        android:singleLine="false"
+                        android:text="@string/setting_surport_version"
+                        android:textColor="@color/setting_7A7A7A"
+                        android:textSize="13sp"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

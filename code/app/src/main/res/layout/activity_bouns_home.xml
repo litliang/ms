@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/color_f0f0f0"
+    android:orientation="vertical"
+    >
+
+    <include
+        android:id="@+id/rl_title"
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/divider_color2"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_F5F5F5"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="16dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="16dp">
+
+                    <!--第一列-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/icon_bouns_rmb"
+                                />
+
+                            <TextView
+                                android:id="@+id/textView22"
+                                style="@style/redpacket_home_gray_txt"
+                                android:layout_marginLeft="5dp"
+                                android:text="红包余额"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="13dp"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/tvRestAmount"
+                                style="@style/redpacket_home_dark_gray_txt"
+                                android:text="0.00"
+                                android:textStyle="bold"
+                                />
+
+                            <TextView
+                                style="@style/redpacket_home_gray_txt"
+                                android:layout_marginLeft="1dp"
+                                android:text="元"
+                                />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:src="@mipmap/icon_vertical_line"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/redpacket_home_gray_txt"
+                                android:layout_centerHorizontal="true"
+                                android:text="昨日收益"
+                                />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="13dp"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/tvYestodayIncome"
+                                    style="@style/redpacket_home_dark_gray_txt"
+                                    android:text="+0.00"
+                                    android:textStyle="bold"
+                                    />
+
+                                <TextView
+                                    style="@style/redpacket_home_gray_txt"
+                                    android:layout_marginLeft="1dp"
+                                    android:text="元"
+                                    />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvColum4"
+                                style="@style/redpacket_home_gray_txt"
+                                android:text="年化率"
+                                />
+
+                            <TextView
+                                android:id="@+id/tvYearRate"
+                                style="@style/redpacket_home_dark_gray_txt"
+                                android:layout_marginTop="13dp"
+                                android:text="0.0%"
+                                android:textStyle="bold"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvColum6"
+                                style="@style/redpacket_home_gray_txt"
+                                android:layout_centerHorizontal="true"
+                                android:text="累计收益"
+                                />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="13dp"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/tvTotalIncome"
+                                    style="@style/redpacket_home_dark_gray_txt"
+                                    android:text="+0.00"
+                                    android:textStyle="bold"
+                                    />
+
+                                <TextView
+                                    style="@style/redpacket_home_gray_txt"
+                                    android:layout_marginLeft="1dp"
+                                    android:text="元"
+                                    />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_bg_corner_solid_white"
+                    android:orientation="vertical"
+                    android:paddingBottom="9dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="13dp"
+                        android:paddingTop="13dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/icon_route_list"
+                            />
+
+                        <TextView
+                            style="@style/redpacket_home_dark_gray_txt"
+                            android:layout_marginLeft="5dp"
+                            android:text="欢乐送"
+                            android:textSize="15sp"/>
+                    </LinearLayout>
+
+                    <com.yzb.card.king.ui.appwidget.SpecHeightGridView
+                        android:id="@+id/gvRedPackets"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:cacheColorHint="@color/white"
+                        android:horizontalSpacing="23dp"
+                        android:listSelector="@null"
+                        android:numColumns="2"
+                        android:scrollbars="none"
+                        android:scrollingCache="false"
+                        android:verticalSpacing="15dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <com.yzb.card.king.ui.appwidget.SpecHeightGridView
+        android:id="@+id/gvChannels"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:cacheColorHint="@color/white"
+        android:listSelector="@null"
+        android:numColumns="4"
+        android:scrollbars="none"
+        android:scrollingCache="false"/>
+</LinearLayout>

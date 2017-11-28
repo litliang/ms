@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="107dp"
+    android:background="@android:color/white"
+    android:clickable="true">
+
+    <ImageView
+        android:id="@+id/ivPhoto"
+        style="@style/iv_headpic_style"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
+
+    <RelativeLayout
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/ivAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_round_add"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/ivAdd1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="可选规格"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:textColor="@color/ticket_red"
+            android:textSize="10sp"
+            android:visibility="gone"
+            android:background="@drawable/bg_goods_item_text"/>
+        <TextView
+            android:id="@+id/ivAdd2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="售罄"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:textSize="10sp"
+            android:textColor="@color/ticket_red"
+            android:background="@drawable/bg_goods_item_text"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/panel0"
+        style="@style/horizonal_linear_style"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="14dp"
+        android:layout_toRightOf="@+id/ivPhoto">
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/tv1_style"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/panel1"
+        style="@style/horizonal_linear_style"
+        android:layout_alignLeft="@+id/panel0"
+        android:layout_alignRight="@+id/panel0"
+        android:layout_below="@+id/panel0"
+        android:layout_marginTop="9dp">
+
+        <TextView
+            android:id="@+id/tvSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray7"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/panel2"
+        style="@style/vertical_linear_wrap_style"
+        android:layout_alignLeft="@+id/panel1"
+        android:layout_alignRight="@+id/panel1"
+        android:layout_below="@+id/panel1"
+        android:layout_marginBottom="9dp"
+        android:layout_marginTop="9dp"
+        android:gravity="top">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/tv2_style"
+                android:text="@string/rmb"
+                android:textColor="#D84043"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvPrice"
+                style="@style/tv2_style"
+                android:layout_weight="1"
+                android:textColor="#D84043"
+                android:textSize="14sp" />
+
+            <TextView
+                style="@style/tv2_style"
+                android:text="月销"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvSaleNum"
+                style="@style/tv2_style"
+                android:text="0"
+                android:textSize="12sp" />
+
+            <TextView
+                style="@style/tv2_style"
+                android:text="笔"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <include
+        android:id="@+id/footer_divider"
+        layout="@layout/listview_divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignLeft="@+id/panel2"
+        android:layout_below="@+id/panel2" />
+
+</RelativeLayout>

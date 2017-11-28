@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar_height"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_F5F5F5"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/icon_giftcard_logo"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/giftcard_rest_amount"
+                    android:textColor="@color/color_333333"
+                    android:textSize="17sp"/>
+
+                <TextView
+                    android:id="@+id/tvGiftCardAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:text="¥0.0"
+                    android:textColor="@color/color_bf9543"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+
+                <EditText
+                    android:id="@+id/etAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="46dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_bg_corner_gray_stroke"
+                    android:gravity="center"
+                    android:hint="请输入本次使用金额"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:textColor="@color/color_333333"
+                    android:textColorHint="@color/color_cdcdcd"
+                    android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvUse"
+                style="@style/my_btn_bg_style"
+                android:layout_height="45dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="69dp"
+                android:text="@string/ok"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

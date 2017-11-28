@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@android:color/transparent"
+              android:gravity="center"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="恭喜您获得0元优惠券"
+        android:textColor="#FFD31A"
+        android:textSize="17sp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/coupon_pic_succee"/>
+
+    <TextView
+        android:id="@+id/tvChakan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="14dp"
+        android:paddingLeft="14dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:text="立即查看"
+        android:background="@color/titleRed"/>
+
+</LinearLayout>

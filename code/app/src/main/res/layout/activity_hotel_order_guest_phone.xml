@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="40dp"
+              android:background="@color/white"
+              android:gravity="center_vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_phone_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:id="@+id/tv_phone_type"
+            style="@style/hotel_order1_style"
+            android:layout_marginLeft="5dp"
+            android:text="境内手机"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:src="@mipmap/icon_creen_arrow_down"/>
+    </LinearLayout>
+
+    <!--国家代码-->
+    <LinearLayout
+        android:id="@+id/ll_country_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="+"
+            android:textColor="@color/color_999999"
+            android:textSize="15sp"
+            />
+
+        <EditText
+            android:id="@+id/et_country_code"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="国家区号"
+            android:inputType="number"
+            android:longClickable="false"
+            android:maxLength="6"
+            android:paddingLeft="5dp"
+            android:textColor="@color/color_0a1333"
+            android:textColorHint="@color/color_999999"
+            android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+            android:textSize="15sp"/>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:background="@color/gray18"
+            />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_user_phone"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@null"
+        android:hint="用于接收通知"
+        android:inputType="number"
+        android:maxLength="11"
+        android:paddingLeft="5dp"
+        android:textColor="@color/color_0a1333"
+        android:textColorHint="@color/color_999999"
+        android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+        android:textSize="15sp"/>
+
+    <ImageView
+        android:id="@+id/iv_open_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_round_blue_people"/>
+
+</LinearLayout>

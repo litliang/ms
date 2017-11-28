@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:gravity="center_vertical"
+              android:orientation="horizontal"
+    >
+
+    <LinearLayout
+        android:id="@+id/panelInRoomexplain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/hotel_order1_style"
+            android:text="入住人"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:src="@mipmap/icon_user_bz"
+            />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.GridLayout
+        android:id="@+id/guestGridLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="43dp"
+        android:layout_weight="1"
+        app:columnCount="1"/>
+
+    <ImageView
+        android:id="@+id/ivGetGuest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:src="@mipmap/icon_giftcard_plus2"/>
+
+</LinearLayout>

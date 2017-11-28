@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_recv_bouns_bg"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/transparent"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tvCancel"
+            android:layout_width="82dp"
+            android:layout_height="31dp"
+            android:background="@drawable/shape_round_solid_light_gray2"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/color_331415"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/tvSure"
+            android:layout_width="82dp"
+            android:layout_height="31dp"
+            android:layout_marginLeft="52dp"
+            android:background="@drawable/shape_setting_round_corner5dp_red_solid"
+            android:gravity="center"
+            android:text="@string/ticket_receive_now"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            />
+    </LinearLayout>
+
+</LinearLayout>

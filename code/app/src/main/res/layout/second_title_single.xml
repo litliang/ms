@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar_height"
+        android:background="@color/color_436a8e"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/title_l_r"
+        android:paddingRight="@dimen/title_l_r">
+
+        <LinearLayout
+            android:id="@+id/pre_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|left"
+            android:onClick="refresh">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="9dp"
+                android:layout_marginRight="10dp"
+                android:src="@mipmap/jipiao_icon_tobefore"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvPreDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="前一天"
+                    android:textColor="@drawable/selector_grey_white"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/tv_pre_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@drawable/selector_grey_white"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_second_title"
+            android:gravity="center_vertical"
+            android:onClick="getDate"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/img_calendar"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="5dp"
+                android:src="@mipmap/jipiao_icon_data"/>
+
+            <ImageView
+                android:id="@+id/img_arrow_down_red"
+                android:layout_width="9dp"
+                android:layout_height="6dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="14dp"
+                android:src="@mipmap/icon_arrow_down_gray"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/img_arrow_down_red"
+                android:layout_toRightOf="@id/img_calendar"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_start_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/color_333333"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/tv_center_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:textColor="@color/color_333333"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/next_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|right"
+            android:onClick="refresh">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="后一天"
+                    android:textColor="@drawable/selector_grey_white"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/tv_next_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@drawable/selector_grey_white"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="9dp"
+                android:layout_marginLeft="10dp"
+                android:src="@mipmap/jipiao_icon_toafter"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

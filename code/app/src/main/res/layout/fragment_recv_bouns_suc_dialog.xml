@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="78dp"
+            android:layout_marginRight="78dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/icon_open_bouns"/>
+
+        <ImageView
+            android:id="@+id/ivStar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_bouns_bg_star"/>
+
+        <TextView
+            android:id="@+id/tvAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tvClickGet"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="14dp"
+            android:text="0元"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvClickGet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/iv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="27dp"
+            android:text="@string/ticket_receive_suc"
+            android:textColor="@color/color_f5fe8e"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@color/transparent"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tvScanDetail"
+            android:layout_width="82dp"
+            android:layout_height="31dp"
+            android:background="@drawable/shape_round_solid_light_gray3"
+            android:gravity="center"
+            android:text="查看详情"
+            android:textColor="@color/color_d91627"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/tvContinue"
+            android:layout_width="82dp"
+            android:layout_height="31dp"
+            android:layout_marginLeft="52dp"
+            android:background="@drawable/shape_corner5dp_dark_red"
+            android:gravity="center"
+            android:text="继续领取"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            />
+    </LinearLayout>
+</LinearLayout>

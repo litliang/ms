@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="10dp"
+              android:background="@color/white"
+              android:orientation="vertical"
+              android:paddingLeft="15dp"
+              android:paddingRight="15dp">
+    <!--礼品卡-->
+    <LinearLayout
+        android:id="@+id/llGiftCard"
+        style="@style/payment_horizon_panel_style">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_discount_giftcard"/>
+
+        <TextView
+            style="@style/payment_horizon_left_text_style"
+            android:text="@string/pay_lpk"/>
+
+        <TextView
+            android:id="@+id/tvGiftCardAmount"
+            style="@style/payment_horizon_right_text_style"
+            android:text=""/>
+
+        <include layout="@layout/arrow_right"/>
+    </LinearLayout>
+
+    <View style="@style/payment_view_line_style"/>
+
+    <LinearLayout
+        android:id="@+id/llBonus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!--红包-->
+        <LinearLayout
+
+            style="@style/payment_horizon_panel_style">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_discount_bouns"/>
+
+            <TextView
+                style="@style/payment_horizon_left_text_style"
+                android:text="@string/pay_hb"/>
+
+            <TextView
+                android:id="@+id/tvBonusAmount"
+                style="@style/payment_horizon_right_text_style"
+                android:text=""/>
+
+            <include layout="@layout/arrow_right"/>
+        </LinearLayout>
+
+        <View
+            style="@style/payment_view_line_style"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llCoupon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/payment_horizon_panel_style">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_discount_coupon"/>
+
+            <TextView
+                android:id="@+id/tv_coupon_number"
+                style="@style/payment_horizon_left_text_style"
+                android:text="@string/pay_yhq_with_number"/>
+
+            <TextView
+                android:id="@+id/tvCouponAmount"
+                style="@style/payment_horizon_right_text_style"
+                android:text="-0"/>
+
+            <include layout="@layout/arrow_right"/>
+        </LinearLayout>
+
+        <View
+            style="@style/payment_view_line_style"/>
+    </LinearLayout>
+
+    <!--积分抵扣-->
+    <LinearLayout
+        android:id="@+id/llIntegral"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/payment_horizon_panel_style">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_discount_interal"/>
+
+            <TextView
+                style="@style/payment_horizon_left_text_style"
+                android:text="积分"/>
+
+            <TextView
+                android:id="@+id/tvIntegralAmount"
+                style="@style/payment_horizon_right_text_style"
+                android:text=""/>
+
+            <include layout="@layout/arrow_right"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <include layout="@layout/activity_hotel_order_divider"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/orderDetailsLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvTotalAmount"
+                style="@style/plane_order9_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¥0"
+                android:textColor="@color/color_bf9543"
+                android:textSize="17sp"/>
+
+            <ImageView
+                android:id="@+id/orderDetailsImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:src="@mipmap/icon_travel_yellow_down"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvSubmit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/color_980100"
+            android:gravity="center"
+            android:text="提交订单"
+            android:textColor="@color/white"
+            android:textSize="17sp"/>
+
+    </LinearLayout>
+</LinearLayout>

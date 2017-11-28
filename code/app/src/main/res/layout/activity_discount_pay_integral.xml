@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/color_F5F5F5"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar_height"/>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+
+                <android.support.v7.widget.GridLayout
+                    android:id="@+id/integralGridLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:columnCount="1"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/activity_pay_integral_panel_left_text_style"
+                        android:text="@string/pay_jfdh"/>
+
+                    <EditText
+                        android:id="@+id/etExchangeMoney"
+                        style="@style/integral_list_right_et_style"
+                        android:inputType="numberDecimal"
+                        android:text=""/>
+
+                    <TextView
+                        style="@style/integral_list_right_yuan_style"
+                        android:text="@string/pay_yuan"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_e6e6e6"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/activity_pay_integral_panel_left_text_style"
+                        android:text="@string/pay_syjf"/>
+
+                    <EditText
+                        android:id="@+id/etExchangeIntegral"
+                        style="@style/integral_list_right_et_style"
+                        android:inputType="number"
+                        android:text=""/>
+
+                    <TextView
+                        style="@style/integral_list_right_yuan_style"
+                        android:text="@string/pay_fen"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_e6e6e6"/>
+
+                <TextView
+                    android:id="@+id/tvUseIntegral"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="13dp"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/bg_corner_stroke_red"
+                    android:gravity="center"
+                    android:paddingBottom="7dp"
+                    android:paddingLeft="26dp"
+                    android:paddingRight="26dp"
+                    android:paddingTop="7dp"
+                    android:text="使用"
+                    android:textColor="@color/titleRed"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="19dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="41dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/pay_mx"
+                    android:textColor="@color/color_666666"
+                    android:textSize="16sp"/>
+
+                <android.support.v7.widget.GridLayout
+                    android:id="@+id/integralDetailGridLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:columnCount="1"/>
+
+                <TextView
+                    android:id="@+id/tvTotalAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="41dp"
+                    android:gravity="right|center_vertical"
+                    android:text="合计0.0元"
+                    android:textColor="@color/color_333333"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rlInstruction"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/pay_sm"
+                    android:textColor="@color/color_333333"
+                    android:textSize="16sp"/>
+
+                <include layout="@layout/arrow_right"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_ok"
+                style="@style/my_btn_bg_style"
+                android:layout_height="45dp"
+                android:layout_marginBottom="41dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="41dp"
+                android:text="@string/setting_ok"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:background="@color/color_f0f0f0"
+              android:orientation="vertical">
+
+    <include
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"/>
+
+    <View
+        android:id="@+id/lineTitel"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/setting_F4F4F4"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/title_l_r"
+                android:layout_marginRight="@dimen/title_l_r"
+                android:layout_marginTop="@dimen/title_l_r"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="请绑定持卡人本人的信用卡、储蓄卡"
+                    android:textColor="#646464"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+            <!--顶部部分；-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_jfb_round_corner5dp_white_solid"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/tv_bank_code_label"
+                    style="@style/setting_modify_binded_phone_tv_left"
+                    android:text="卡号" />
+
+
+                <EditText
+                    android:id="@+id/et_bank_id"
+                    android:maxLength="23"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:layout_toRightOf="@+id/tv_bank_code_label"
+                    android:hint="无需网银、免手续费"
+                    android:inputType="numberSigned"
+                    android:paddingLeft="15dp"
+                    android:textColor="#333333"
+                    android:textColorHint="@color/gray6"
+                    android:textSize="13sp"/>
+
+                <ImageView
+                    android:id="@+id/iv_capture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/icon_camera_gray_wallet" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/title_l_r"
+                android:layout_marginRight="@dimen/title_l_r"
+                android:layout_marginTop="@dimen/title_l_r"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="嗨生活智能加密，保障你的用卡安全"
+                    android:textColor="#949494"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvNextStep"
+                style="@style/setting_next_tv"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="@dimen/title_l_r"
+                android:text="下一步" />
+        </LinearLayout>
+
+</LinearLayout>

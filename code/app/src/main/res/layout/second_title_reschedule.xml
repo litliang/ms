@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar_height"
+        android:background="@color/color_436a8e"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <TextView
+            android:id="@+id/tvPreDay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="选择改签日期"
+            android:textColor="@color/color_436a8e"
+            android:textSize="12sp"/>
+
+        <RelativeLayout
+            android:id="@+id/panelDate"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_weight="2"
+            android:background="@drawable/ticket_list_item_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/img_calendar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/jipiao_icon_data"/>
+
+                <TextView
+                    android:id="@+id/tv_start_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="00-00"
+                    android:textColor="@color/color_333333"
+                    android:textSize="9sp"/>
+
+                <TextView
+                    android:id="@+id/tv_start_week"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="周次"
+                    android:textColor="@color/color_333333"
+                    android:textSize="9sp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/img_arrow_down_red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/icon_arrow_down_gray"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/next_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

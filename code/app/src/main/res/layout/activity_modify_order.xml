@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar_height"
+        android:background="@color/color_436a8e">
+
+        <LinearLayout
+            android:id="@+id/rl_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:onClick="back"
+            android:paddingLeft="15dp"
+            android:paddingRight="20dp">
+
+            <ImageView
+                android:id="@+id/img_title_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_back_white"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_title_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:onClick="getPlace"
+            android:text="@string/modify_order_application"
+            android:textColor="@color/white"
+            android:textSize="@dimen/titlebar_text_size"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titlebar"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_F5F5F5"
+            android:orientation="vertical">
+
+            <com.yzb.card.king.ui.appwidget.WholeListView
+                android:id="@+id/orderListView"
+                style="@style/listview_style"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/transparent"
+                android:divider="@drawable/listview_divider_white"
+                android:dividerHeight="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/shape_bg_corner_gray_stroke"
+                android:orientation="vertical"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="5dp"
+                android:visibility="gone"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/update"
+                    android:textColor="@color/color_333333"
+                    android:textSize="13sp"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10.5dp"
+                    android:background="#EBEBEB"/>
+
+                <!--更改条件-->
+                <com.yzb.card.king.ui.appwidget.WholeListView
+                    android:id="@+id/conditionListView"
+                    style="@style/listview_style"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:divider="@null"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/reason_for_change"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                android:background="@drawable/shape_bg_corner_gray_stroke"
+                android:gravity="center_vertical"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp">
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gaiqianyunayin"
+                    android:textColor="@color/bgBlack"
+                    android:textSize="17sp"/>
+
+                <TextView
+                    android:id="@+id/tv_reason"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:singleLine="false"
+                    android:textSize="17sp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/arrow_right_grey"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btn_ok"
+                style="@style/my_btn_bg_style"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="40dp"
+                android:layout_marginLeft="15dp"
+                android:background="@color/color_436a8e"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="54dp"
+                android:text="确认"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

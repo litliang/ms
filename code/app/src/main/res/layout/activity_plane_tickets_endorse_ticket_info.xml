@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout style="@style/titlebar_style"
+        android:background="@color/color_436a8e">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:onClick="backAction"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="30dp">
+
+            <include layout="@layout/nav_left"/>
+        </LinearLayout>
+
+        <TextView
+            style="@style/titlebar_title_style"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="改签详情"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/listView"
+            style="@style/listview_style"
+            android:background="@color/transparent"
+            android:divider="@color/transparent"
+            android:dividerHeight="10dp"
+            android:paddingBottom="13dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:scrollbars="none"
+            />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:gravity="center_vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_ffffff"
+            android:paddingRight="@dimen/title_l_r">
+
+            <LinearLayout
+                android:id="@+id/llTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/title_l_r"
+                    android:adjustViewBounds="true"
+                    android:background="@mipmap/icon_arrow_back_black"
+                    android:maxHeight="20dp"
+                    android:maxWidth="20dp"
+                    android:scaleType="centerInside"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="输入商家名称"
+                android:textColor="#333333"
+                android:textSize="@dimen/titlebar_text_size"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/white_ffffff"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/wvLvData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@color/color_e3e3e3"
+            android:paddingRight="@dimen/title_l_r"
+            android:paddingLeft="@dimen/title_l_r"
+            android:listSelector="@android:color/transparent">
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+
+</LinearLayout>

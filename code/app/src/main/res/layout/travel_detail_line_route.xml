@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_route_list"/>
+
+        <TextView
+            style="@style/travel_detail_title_style"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:text="线路介绍"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/travel_detail_lineintro_panel"
+        android:layout_height="46dp"
+        >
+
+        <TextView
+
+            style="@style/travel_detail_lineintro_left"
+            android:text="住宿"
+            />
+
+        <TextView
+            android:id="@+id/tvHotelInfo"
+            style="@style/travel_detail_lineintro_right"
+            android:layout_marginLeft="20dp"
+            android:text="暂无酒店信息"
+            />
+
+    </LinearLayout>
+
+    <include layout="@layout/travel_detail_divider"/>
+
+    <LinearLayout
+        style="@style/travel_detail_lineintro_panel"
+        >
+
+        <TextView
+            style="@style/travel_detail_lineintro_left"
+            android:text="景点"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvAllScenerySpotNum"
+                    style="@style/travel_detail_lineintro_right"
+                    android:text="@string/travel_detail_per"
+                    android:textColor="@color/color_333333"
+                    />
+
+                <TextView
+                    style="@style/travel_detail_lineintro_right"
+                    android:text="总共"
+                    android:textSize="11sp"
+                    />
+            </LinearLayout>
+
+
+            <include layout="@layout/vertical_divider_small"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvClassicsSpotNum"
+                    style="@style/travel_detail_lineintro_right"
+                    android:text="@string/travel_detail_per"
+                    android:textColor="@color/color_333333"
+                    />
+
+                <TextView
+                    style="@style/travel_detail_lineintro_right"
+                    android:text="经典"
+                    android:textSize="11sp"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvScenerySpotList"
+            style="@style/travel_detail_lineintro_right"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="12dp"
+            android:ellipsize="end"
+            android:maxEms="15"
+            android:singleLine="true"
+            android:text=""
+            android:textSize="13sp"
+            />
+    </LinearLayout>
+
+    <include layout="@layout/travel_detail_divider"/>
+
+    <LinearLayout
+        style="@style/travel_detail_lineintro_panel"
+        >
+
+        <TextView
+            style="@style/travel_detail_lineintro_left"
+            android:text="用餐"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/dinnerRecyclerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/tvfeatureGroupDinner"
+                style="@style/travel_detail_lineintro_right"
+                android:layout_marginLeft="10dp"
+                android:text="@string/travel_detail_feature_dinner"
+                android:textSize="11sp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/travel_detail_divider"/>
+
+    <LinearLayout
+        style="@style/travel_detail_lineintro_panel"
+        >
+
+        <TextView
+            style="@style/travel_detail_lineintro_left"
+            android:text="交通"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp">
+            <!--1个交通工具-->
+            <TextView
+                android:id="@+id/tvTrafficTimeType"
+                style="@style/travel_detail_lineintro_right"
+                android:text=""
+                />
+            <!--多个交通工具-->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/multTrafficRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/travel_detail_divider"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_route_list"/>
+
+        <TextView
+            style="@style/travel_detail_title_style"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="行程安排"
+            />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!--行程安排 图文模式-->
+        <com.yzb.card.king.ui.appwidget.WholeListView
+            android:id="@+id/photoTxtListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cacheColorHint="@color/white"
+            android:divider="@drawable/horiz_divider"
+            android:scrollingCache="false"/>
+
+        <!--行程安排 简单行程-->
+        <com.yzb.card.king.ui.appwidget.WholeListView
+            android:id="@+id/simpleRouteListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cacheColorHint="@color/white"
+            android:divider="@drawable/horiz_divider"
+            android:scrollingCache="false"/>
+    </FrameLayout>
+
+</LinearLayout>

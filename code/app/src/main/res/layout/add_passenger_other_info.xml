@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white_ffffff"
+              android:orientation="vertical"
+            >
+
+
+    <TableLayout
+        android:id="@+id/ll_may_hide_part"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:stretchColumns="1">
+
+        <TableRow
+            android:id="@+id/ll_birthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="@dimen/title_l_r"
+            android:gravity="center_vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:text="出生日期"
+                android:textColor="@color/color_4D4D4D"
+                android:textSize="15sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:text=""
+                android:textColor="@color/color_4D4D4D"
+                android:textSize="14sp"
+                />
+
+            <ImageView
+                android:id="@+id/iv_birthday_nav_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/icon_arrow_right_gray_middle"/>
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/divider_color3"/>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="@dimen/title_l_r"
+            android:gravity="center_vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:text="性别"
+                android:textColor="@color/color_4D4D4D"
+                android:textSize="15sp"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                >
+
+                <TextView
+                    android:id="@+id/tv_sex_boy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                   android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingBottom="6dp"
+                    android:paddingTop="6dp"
+                    android:text="@string/setting_passenger_boy"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="@drawable/selector_text_color_red_gray"
+                    android:background="@drawable/shap_corner_blue"
+                    android:textSize="14sp"
+                    />
+
+
+
+                <TextView
+                    android:id="@+id/tv_sex_girl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingBottom="6dp"
+                    android:paddingTop="6dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/shap_corner_gray"
+                    android:text="@string/setting_passenger_girl"
+                    android:textColor="@drawable/selector_text_color_red_gray"
+                    android:textSize="14sp"
+                    />
+
+            </LinearLayout>
+
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/divider_color3"/>
+
+        <TableRow
+            android:id="@+id/ll_country"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="@dimen/title_l_r"
+            android:gravity="center_vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:text="国籍"
+                android:textColor="@color/color_4D4D4D"
+                android:textSize="15sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_country_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="16dp"
+                android:text=""
+                android:textColor="@color/credit_A0A0A0"
+                android:textSize="14sp"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/icon_arrow_right_gray_middle"/>
+        </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/divider_color3"/>
+
+        <TableRow
+            android:id="@+id/llValidityDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="@dimen/title_l_r"
+            android:gravity="center_vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:text="证件有效期"
+                android:textColor="@color/color_4D4D4D"
+                android:textSize="15sp"
+                />
+
+            <TextView
+                android:id="@+id/tvValidityDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="20dp"
+                android:textColor="@color/color_333333"
+                android:textSize="14sp"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/icon_arrow_right_gray_middle"/>
+        </TableRow>
+        <View
+            android:id="@+id/lineValidityDate"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/divider_color3"/>
+    </TableLayout>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/title_l_r"
+        android:paddingRight="@dimen/title_l_r"
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:text="手机号"
+            android:textColor="@color/color_4D4D4D"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="+86"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"
+            android:drawablePadding="5dp"
+            android:drawableRight="@mipmap/icon_arrow_right_gray_middle"
+            />
+
+        <EditText
+            android:id="@+id/et_mobile_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="输入手机号"
+            android:inputType="number"
+            android:maxLength="11"
+            android:paddingLeft="16dp"
+            android:text=""
+            android:textColor="@color/color_4D4D4D"
+            android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+            android:textSize="14sp"
+            />
+
+        <ImageView
+            android:id="@+id/iv_contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_pepole_dark_blue"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/title_l_r"
+        android:paddingRight="@dimen/title_l_r"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:text="邮箱"
+            android:textColor="@color/color_4D4D4D"
+            android:textSize="15sp"
+            />
+
+        <EditText
+            android:id="@+id/et_email_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="选填"
+            android:paddingLeft="16dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/color_4D4D4D"
+            android:textColorHint="@color/color_999999"
+            android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+            android:textSize="14sp"/>
+    </TableRow>
+</LinearLayout>

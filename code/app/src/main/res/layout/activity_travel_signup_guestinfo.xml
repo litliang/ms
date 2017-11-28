@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            style="@style/travel_order_title_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/lkxx"
+            />
+
+        <ImageView
+            android:id="@+id/travellerAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_travel_edit"/>
+    </LinearLayout>
+
+    <include layout="@layout/activity_hotel_order_divider"/>
+
+    <com.yzb.card.king.ui.appwidget.WholeListView
+        android:id="@+id/passengerListView"
+        style="@style/listview_style"
+        android:layout_height="wrap_content"
+        android:divider="@null"/>
+
+    <include layout="@layout/activity_hotel_order_divider"/>
+</LinearLayout>

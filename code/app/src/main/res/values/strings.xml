@@ -1,0 +1,1599 @@
+<resources>
+
+    <string name="app_name">嗨生活</string>
+
+
+    <string name="smoothlistview_header_hint_normal">下拉刷新</string>
+    <string name="smoothlistview_header_hint_ready">松开刷新数据</string>
+    <string name="smoothlistview_header_hint_loading">正在加载...</string>
+    <string name="smoothlistview_header_last_time">上次更新时间：</string>
+    <string name="smoothlistview_footer_hint_normal">查看更多</string>
+    <string name="smoothlistview_footer_hint_ready">松开载入更多</string>
+    <string name="gouwu">购物</string>
+    <string name="jiudian">酒店</string>
+    <!-- 用户 start-->
+    <string name="revert_pass_word">忘记密码？</string>
+    <string name="register">注册</string>
+    <string name="login_title">登录</string>
+    <string name="close">关闭</string>
+    <string name="zan_suc">点赞成功</string>
+    <string name="person_bouns">%1$s的红包</string>
+    <string name="zan_cancel_suc">取消赞成功</string>
+    <string name="comment_suc">评价成功</string>
+    <string name="comment_fail">评价失败</string>
+    <string name="zan_fail">点赞失败</string>
+    <string name="no_mark">您还没有打分</string>
+    <string name="no_select_tag">您还没有选择标签</string>
+    <string name="input_comment_content">请输入评论内容</string>
+    <string name="txt_phone_login">手机登录</string>
+    <string name="txt_account_login">账号登录</string>
+    <string name="txt_phone_number">手机号</string>
+    <string name="txt_yanzhengma">验证码</string>
+    <string name="txt_comment_suc">评论成功</string>
+    <string name="txt_comment_fail">评论失败</string>
+    <string name="txt_mima">密  码</string>
+    <string name="txt_account">账  号</string>
+    <string name="hint_phone_number">请输入手机号</string>
+    <string name="hint_name">请输入姓名</string>
+    <string name="hint_yanzhengma">请输入验证码</string>
+    <string name="hint_mima">请输入密码</string>
+    <string name="giftcard_rest_amount">礼品卡账户余额</string>
+    <string name="hint_input_account">请输入账号</string>
+    <string name="toast_chech_your_phone_number">请检查您输入的手机号码</string>
+    <string name="toast_password_isSure">密码是6-20位英文字母、数字或符号</string>
+    <string name="txt_lx_three">不可连续三码（含）以上数字或字母（如：２３４、ＢＣＤ、ＦＥＧ）</string>
+    <string name="txt_mima_equlas">密码不能和手机号相同</string>
+    <string name="txt_mima_two">两次输入密码不一致</string>
+    <string name="txt_get_yanzhenma">获取验证码</string>
+    <string name="txt_wangji_mima">忘记密码</string>
+    <string name="txt_pj_all">全部(%1$s)</string>
+    <string name="txt_pj_good">好评(%1$s)</string>
+    <string name="txt_pj_normal">中评(%1$s)</string>
+    <string name="txt_pj_bad">差评(%1$s)</string>
+    <string name="travel_orignal_start_price">原价：¥%1$s/人</string>
+    <string name="travel_detail_per">%1$s个</string>
+    <string name="travel_detail_every">%1$s次</string>
+    <string name="travel_detail_feature_dinner">特色团餐：%1$s</string>
+    <string name="travel_bank_coupon">银行优惠</string>
+    <string name="travel_city_diff_intro">(%1$s到%2$s的费用自理~~)</string>
+    <string name="txt_login_str">登录</string>
+    <string name="transfer_limit_instruction">现金的支付限额有账户的认证等级、收款卡是否为同名卡等因素共同确定，转账信息提交后会确定是否超限。</string>
+    <string name="transfer_limit_value">单笔%1$.2f&#160;&#160;单日消费%2$.2f元</string>
+    <string name="transfer_limit_name">%1$s（尾号%2$s）</string>
+    <string name="cardNmu_cardName">%1$s&#160;&#160;%2$s</string>
+    <string name="float_price">¥%1$.2f</string>
+    <string name="transfer_cardName_tailNum">%1$s(%2$s)</string>
+    <string name="time_table_insturction">若在2小时服务时间外转账、或因系统维护2小时服务暂停时均为次日23:59到账</string>
+    <string name="time_table_instruction_now">若转到朋友的嗨生活账户可实时到账。</string>
+    <string name="charge_amount_limit">该卡本次可转%1$.2f元</string>
+    <string name="charge_money">%1$.2f元</string>
+    <string name="charge_cardType_tail">%1$s(尾号%2$s)</string>
+    <string name="card_amount_can_use">可用额度%1$.2f元</string>
+    <string name="cash_success">预计两小时内&#160;&#160;(%1$s)&#160;&#160;到账</string>
+    <string name="user_center">个人中心</string>
+    <!-- 用户 end-->
+    <!--信用卡 start-->
+    <!--信用卡 end-->
+    <!--积分宝 start-->
+    <string name="integral_jifen_youhui">积分优惠</string>
+    <string name="jbf_without_plan">无合作计划</string>
+    <string name="jfb_select_exchange_mileage">请选择可兑换的里程</string>
+    <string name="jbf_zjf">赚积分</string>
+    <string name="jfb_bank_jf">银行积分</string>
+    <string name="jfb_store_jf">商家积分</string>
+    <string name="jfb_sbxyk">申办信用卡</string>
+    <string name="jfb_share_app">分享app</string>
+    <string name="jbf_kwh_title">Hi Life汇</string>
+    <string name="jbf_jf_share">积分分享</string>
+    <string name="jbf_account_gy">账户概要</string>
+    <string name="jbf_setting">设置</string>
+    <string name="jbf_my_notice">我的提醒</string>
+    <string name="jbf_my_collect">我的收藏</string>
+    <string name="my_collect">个人中心-->我的收藏</string>
+    <string name="jbf_zhgy_title">账户概要</string>
+    <string name="jbf_my_wallet">我的钱包</string>
+    <string name="jbf_lpk">礼品卡(%1$s)</string>
+    <string name="jbf_hbye">红包余额</string>
+    <string name="jbf_yhq">优惠券</string>
+    <string name="giftcard_buy_mind_card">选购心意卡</string>
+    <string name="jbf_sjdd">商家订单</string>
+    <string name="jbf_cardking_fj">Hi Life积分</string>
+    <string name="jbf_bank_fj">银行积分</string>
+    <string name="jbf_money_ccount">¥%1$s</string>
+    <string name="jbf_available_ccount">%1$s张可用</string>
+    <string name="jbf_ds_account">%1$s笔代收</string>
+    <string name="jbf_available_jf_account">%1$s分可用</string>
+    <string name="jbf_query">查询</string>
+    <string name="jbf_lpk_detail">礼品卡明细</string>
+    <string name="giftcard_recv">礼品卡领取</string>
+    <string name="jbf_hb_detail">红包明细</string>
+    <string name="jbf_yhq_detail">优惠券明细</string>
+    <string name="jbf_sjdd_detail">商家订单明细</string>
+    <string name="jbf_cardking_fj_detail">Hi Life积分明细</string>
+    <string name="jbf_bank_jf_detail">银行卡积分明细</string>
+    <string name="jbf_jfmx_title">积分明细</string>
+    <string name="jfb_jfjy">积分结余: %1$s</string>
+    <string name="jbf_jf_share_title">积分分享</string>
+    <string name="jfb_add_name">添加名单</string>
+    <string name="jfb_click_give">点击赠送</string>
+    <string name="jfb_add_new_name">添加新名单</string>
+    <string name="tv_credit_account_jiebang">解绑</string>
+    <string name="jfb_nick_name">昵称</string>
+    <string name="jfb_nick_name_hint">请输入昵称</string>
+    <string name="jfb_phone">手机号码</string>
+    <string name="jfb_phone_hint">请输入手机号码</string>
+    <string name="jfb_relation">与卡主关系</string>
+    <string name="jfb_relation_hint">请选择关系</string>
+    <string name="jfb_commit">提交</string>
+    <string name="jfb_nickname_no_empty">昵称不能为空</string>
+    <string name="jfb_phone_no_empty">手机号不能为空</string>
+    <string name="jfb_get_phone_number_fail">获取联系人手机号失败</string>
+    <string name="jfb_get_name_fail">获取联系人姓名失败</string>
+    <string name="integral_dui_li_cheng">兑里程</string>
+    <string name="integral_flight_plan_table">飞行里程兑换表</string>
+    <string name="integral_dui_you_ka">兑油卡</string>
+    <string name="jbf_qb">钱包</string>
+    <string name="integral_dui_hua_fei">兑话费</string>
+    <string name="integral_dui_liu_liang">兑流量</string>
+    <string name="integral_dui_xian_jin">兑现金</string>
+    <string name="integral_tijiao">提交</string>
+    <string name="integral_title_travler_plan">常旅客计划</string>
+    <string name="intergral_exchange_zhunze">兑换准则</string>
+    <string name="intergral_exchange_mingxi">兑换明细</string>
+    <string name="intergral_exchange_mingxi_1">请添加兑换明细</string>
+    <string name="integeral_china_yidong">中国移动</string>
+    <string name="integral_china_liantong">中国联通</string>
+    <string name="integral_china_dianxin">中国电信</string>
+    <string name="integral_input_phone_number">请输入手机号码</string>
+    <string name="integral_ping_tai_jifen">平台积分</string>
+    <string name="integral_integral">积分</string>
+    <string name="integral_money">金额</string>
+    <string name="integral_gongli">公里</string>
+    <string name="integral_add_new_traveller">添加新的常旅客</string>
+    <string name="integral_exchange_flow_money">总兑换流量金额：</string>
+    <string name="integral_exchange_phone_money">总兑换话费金额：</string>
+    <string name="integral_exchange_mileage">总兑换里程数：</string>
+    <string name="integral_exchange_money">总兑换金额：</string>
+    <string name="integral_zhong_shi_hua">中石化</string>
+    <string name="integral_zhong_shi_you">中石油</string>
+    <string name="integral_exchange_youka_money">总兑换油卡金额：</string>
+    <string name="integral_bug_new_card">购置新卡</string>
+    <string name="integral_song_huo_address">送货地址</string>
+    <string name="integral_card_king_desc">积分概要\n用于兑换抽奖励的积分</string>
+    <string name="integral_hui_yuan_rank">会员等级：</string>
+    <string name="integral_hui_yuan_rank2">会员等级</string>
+    <string name="integral_hui_yuan_start">会员始于：</string>
+    <string name="integral_hai_jifen_mingxi">嗨生活积分明细</string>
+    <string name="integral_xin_yongka_mingxi">信用卡积分明细</string>
+    <string name="integral_red_bo_total">积分总额：</string>
+    <string name="hini_input_red_bao_money">请输入积分</string>
+    <string name="integral_zensong">赠送</string>
+    <string name="integral_vip_number">会员卡号码</string>
+    <string name="integral_add_travller_plan">添加到我的常旅客计划</string>
+    <string name="integral_welcome_exchange_user">尊敬的###，您好\n\u3000\u3000您可将红包里的
+        积分礼卷分享给您兑换名单里的成员。</string>
+    <string name="integral_jine_no">金額不足，请修正</string>
+    <string name="integral_just_get">立即使用</string>
+    <string name="integral_gift_card">礼品卡</string>
+    <string name="gift_card_store">礼品卡商城</string>
+    <string name="gift_send_mind">送心意</string>
+    <string name="gift_card_detail">礼品卡明细</string>
+    <string name="giftcard_active">激活实体卡</string>
+    <string name="giftcard_give">送礼品卡</string>
+    <string name="integral_fen_hot">分热度</string>
+    <string name="giftcard_shop_spec_card">特色心意卡</string>
+    <string name="giftcard_shop_notice">给老人的心意，给老人的祝福...</string>
+    <string name="integral_welcome_exchange_mileage">尊敬的###，您好\n\u3000\u3000我们为您汇总
+        了您所添加的航空公司与Hi Life平台以及您所拥有的信用卡之间的合作兑换计划。\n详情请见下图</string>
+    <string name="integral_detail">查看详情</string>
+    <string name="integral_user_lack_integral">您的平台账户积分不足</string>
+    <string name="integral_exchange_money_tv">兑换金额</string>
+    <string name="intergral_exchange">兑换</string>
+    <string name="hint_integral_input_your_youka_number">请输入油卡编号</string>
+    <string name="integral_contact_us">联系我们</string>
+    <string name="integral_input_integral_num">请输入兑换的积分</string>
+    <string name="integral_input_money_num">请输入金额</string>
+    <string name="integral_no_integer">请检查输入的数字</string>
+    <string name="integral_select_integral_bili">请选择积分兑换比例</string>
+    <string name="integral_help">帮助</string>
+    <string name="integral_added_this_ruled">您已添加过该平台的兑换明细</string>
+
+    <string name="integral_no_rate_information">无比例信息</string>
+    <string name="integral_current_plan">当前无计划</string>
+    <string name="integral_toast_please_one_plan">请选择一条航空计划，方可查阅详情</string>
+    <string name="integral_please_add_passengers">请先添加常旅客</string>
+    <string name="integral_exchange_must_one">兑换金额必须大于1</string>
+    <string name="integral_please_select_exchange_detail">请选择兑换明细</string>
+    <string name="integral_please_add_exchange_plan">请添加兑换里程计划</string>
+    <string name="integral_exchange_failed">积分兑换失败</string>
+    <string name="integral_exchange_success">兑换成功</string>
+
+    <!--积分宝 end-->
+    <!--商户优惠 start-->
+    <!--首页商户优惠-->
+    <string name="merchant_offers_quick_payment">便捷支付</string>
+    <string name="merchant_offers_easily_payment">轻松玩转掌上支付</string>
+    <string name="merchant_offers_scan">扫一扫</string>
+    <string name="merchant_offers_q_payment">码尚付</string>
+    <string name="merchant_offers_flash_pay">云闪付</string>
+    <string name="merchant_offers_hand_to_pay">碰碰付</string>
+
+    <string name="category_scp">奢侈品</string>
+    <string name="category_ms">美食</string>
+    <string name="category_travel">旅游</string>
+    <string name="category_film">电影</string>
+    <string name="map_notuse">影片模式下，地图模式不可用</string>
+    <string name="yp">影片</string>
+    <string name="yy">影院</string>
+
+    <!--toast-->
+    <string name="merchant_offers_toast_worship">敬请期待</string>
+    <!--dialog-->
+    <string name="merchant_offers_title">提示</string>
+    <string name="merchant_offers_your_phone_no_nfc">您的手机不支持NFC功能</string>
+    <string name="merchant_offers_confirm">确定</string>
+    <string name="merchant_offers_if_open_nfc">检测到您没开启NFC,是否要开启</string>
+    <string name="merchant_offers_close">不开启</string>
+    <string name="merchant_offers_open">开启</string>
+
+    <!--商户优惠 end-->
+
+    <!--旅游 start -->
+    <string name="travel_sell_privilege">特卖惠</string>
+
+
+    <!--旅游 end -->
+    <!--生活服务  start-->
+    <!--生活服务  end-->
+
+    <string name="txt_register_str">注册</string>
+    <string name="go_login">立即登录</string>
+    <string name="redbag_price">红包金额</string>
+    <string name="equals_price">等值金额</string>
+    <string name="random_price">随机金额</string>
+    <string name="fuwuxieyi">&#060;服务协议&#062;</string>
+    <string name="pls_login">请登录</string>
+    <string name="mind_card_send">送出</string>
+
+    <string name="action_settings">Settings</string>
+    <!--<string name="pull_to_refresh_pull_label">下拉刷新</string>-->
+    <string name="pull_to_refresh_header_last_time">最后更新时间 : </string>
+    <!--<string name="pull_to_refresh_release_label">松开后刷新</string>-->
+    <!--<string name="pull_to_refresh_refreshing_label">正在刷新\u2026</string>-->
+    <string name="pull_to_refresh_footer_release_label">松开后加载</string>
+    <string name="pull_to_refresh_footer_pull_label">下拉加载更多</string>
+    <string name="pull_to_refresh_footer_refreshing_label">正在加载中\u2026</string>
+    <string name="pushmsg_center_no_more_msg">已经到底啦</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_credit_repay1">CreditRepayActivity1</string>
+
+    <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
+    <string name="select_zdr_text">选择账单日</string>
+    <string name="select_hkr_text">选择还款日</string>
+    <string name="text_cancel">取消</string>
+    <string name="text_yes">确定</string>
+    <string name="send_pic_number">发送(%1$s/9)</string>
+    <string name="image_send_str">发送</string>
+
+
+    <string name="share_fail">分享失败</string>
+    <string name="share_cancel">分享取消</string>
+    <string name="send_suc">发送成功</string>
+
+
+    <string name="text_tjms">推荐美食</string>
+    <string name="text_more">更多</string>
+    <string name="text_select_standard">请选择规格</string>
+    <string name="text_no_goods">没有商品</string>
+    <string name="title_activity_ms_more">MsMoreActivity</string>
+    <string name="text_myyh">我的银行</string>
+    <string name="three_dot">...</string>
+    <string name="text_fj">附近</string>
+    <string name="text_fl">分类</string>
+    <string name="text_znpx">智能排序</string>
+    <string name="text_sx">筛选</string>
+    <string name="title_activity_ms_detail">MsDetailActivity</string>
+    <string name="text_share">分享</string>
+
+    <string name="gravity_left">left</string>
+    <string name="gravity_center">center</string>
+    <string name="gravity_right">right</string>
+
+    <string name="time_out">超时</string>
+    <string name="network_error">网络错误，请稍后重试</string>
+    <string name="server_error">服务器错误，请稍后重试</string>
+    <string name="general_error">请求失败，请重试</string>
+    <string name="text_mszn">美食指南</string>
+    <string name="text_tppmd">同品牌门店</string>
+    <string name="text_yhxq">优惠详情</string>
+    <string name="text_shxx">商户信息</string>
+    <string name="text_sjxx">商家信息</string>
+    <string name="text_pj_number">评价(0)</string>
+
+    <string-array name="tabs_title">
+        <item>@string/text_yhxq</item>
+        <item>@string/text_shxx</item>
+        <item>@string/text_pj_number</item>
+        <item>@string/text_sjxx</item>
+    </string-array>
+
+    <string name="tip_drag">长按编辑，拖拽排序</string>
+    <string name="my_cahnnel">我的频道</string>
+    <string name="other_channel">其他频道</string>
+    <string name="edit">编辑</string>
+    <string name="finish">完成</string>
+
+
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="save">保存</string>
+    <string name="waiting">请稍后…</string>
+    <string name="zhou">周</string>
+
+    <!--SeatSaleActivity start-->
+    <string name="seat_position">第 %1$d 排,第 %2$d 列</string>
+    <string name="seat_max_error_msg">一次最多选择 %1$d 个座位</string>
+    <!--end-->
+
+    <!-- 旅游 -->
+    <string name="rmb">¥ </string>
+    <string name="cr">成人</string>
+    <string name="et">儿童</string>
+    <string name="ye">婴儿</string>
+    <string name="dj">单价</string>
+    <string name="zcdw">占床单价</string>
+    <string name="bzcdw">不占床单价</string>
+    <string name="fj">房间</string>
+    <string name="srf">双人房</string>
+    <string name="pf">拼房</string>
+    <string name="cj">差价</string>
+    <string name="lkxx">旅客信息</string>
+    <string name="lxr">联系人</string>
+    <string name="fen">分</string>
+    <string name="pj">评价(</string>
+    <string name="cfd">出发地:</string>
+    <string name="jg">0.00</string>
+    <string name="qr">起/人</string>
+    <string name="sy">剩余</string>
+    <string name="ticket_rest_ticket">剩%1$d张</string>
+    <string name="cfdate">出发日期不能为空</string>
+    <string name="collsb">收藏失败</string>
+    <string name="collsucc">收藏成功</string>
+    <string name="qxcoll">取消收藏成功</string>
+    <string name="jzsb">详情加载失败，请稍后重试</string>
+    <string name="xqjzsb">详情加载失败，无法进入地图模式</string>
+    <string name="xqjzsb_wf">详情加载失败,无法查看图片</string>
+    <string name="loading">正在加载</string>
+    <string name="loading_giftcard_amount">正在获取礼品卡余额...</string>
+    <string name="getFail">获取失败，请重试</string>
+    <string name="submitSucc">退票成功</string>
+    <string name="fs">粉丝</string>
+    <string name="tel">tel:</string>
+    <string name="notSq">您还没有授权</string>
+    <string name="kh">&lt;p&gt;&lt;/p&gt;</string>
+    <string name="bx">不限</string>
+    <string name="gzr">工作日，</string>
+    <string name="zm">周末，</string>
+    <string name="jjr">节假日，</string>
+    <string name="my">每月</string>
+    <string name="day">日</string>
+    <string name="fh">~</string>
+    <string name="xsbk">线上办卡</string>
+    <string name="travel_detail_title">行程详情</string>
+    <string name="travel_line_intro">线路介绍</string>
+    <string name="travel_other_more">其它更多</string>
+    <string name="travel_bind_card">去添加</string>
+    <string name="travel_transact_card">去办卡</string>
+    <string name="travel_you_no_binded_bank_card">您没有绑定银行卡！</string>
+    <string name="travel_trip">行程</string>
+    <string name="travel_sort_str">排序</string>
+    <string name="travel_tab_price_l_h">价格从低到高</string>
+    <string name="travel_tab_price_h_l">价格从高到低</string>
+    <string name="travel_tab_sales_l_h">销量从低到高</string>
+    <string name="travel_tab_sales_h_l">销量从高到低</string>
+    <string name="travel_more_bank">多家银行></string>
+    <string name="travel_no_travel_info">暂无旅游信息</string>
+    <string name="travel_your_bank_no_pre">您的银行卡暂无优惠</string>
+    <string name="travel_your_no_bank">您没有绑定银行卡</string>
+    <string name="travel_from_city">出发</string>
+    <string name="travel_all_function">全部</string>
+
+    <!-- 机票 -->
+    <string name="home_ticket_tab_one">航班动态</string>
+    <string name="home_ticket_tab_two">值机选座</string>
+    <string name="home_ticket_tab_three">常旅客卡</string>
+    <string name="home_ticket_tab_four">订单管理</string>
+
+    <string name="home_ticket_low_price">低价机票</string>
+    <string name="home_ticket_add_hotel">机+酒</string>
+    <string name="home_mul_price">多地比价</string>
+    <string name="home_company_lvke">企业商旅</string>
+
+
+    <string name="ticket_wf">往返</string>
+    <string name="ticket_dc">多程</string>
+    <string name="ticket_sr_succ">请输入正确的航班号</string>
+    <string name="ticket_yuan_next">¥%1$s</string>
+    <string name="ticket_dc_order">多程订单</string>
+    <string name="ticket_create_order_fail">提交订单失败</string>
+    <string name="ticket_create_order_suc">提交订单成功</string>
+    <string name="ticket_single_route">单程</string>
+    <string name="ticket_pj">票价 ¥ </string>
+    <string name="ticket_hkry">  航空 + 燃油 ¥ </string>
+    <string name="ticket_lxrnotN">联系人手机号不能为空</string>
+    <string name="ticket_lxrgscw">联系人手机号格式有误</string>
+    <string name="ticket_yf">邮费（全国 ¥ </string>
+    <string name="travel_postfee">邮费(全国%1$s¥)</string>
+    <string name="select_post_fee">请选择邮费</string>
+    <string name="select_debitrise">请选择发票抬头</string>
+    <string name="select_address">请选择送货地址</string>
+    <string name="ticket_oil_fee">邮费 ¥%1$s</string>
+    <string name="ticket_jh_time">计划出发:</string>
+    <string name="ticket_jh_time1">计划抵达:</string>
+    <string name="ticket_15">15</string>
+    <string name="ticket_chose_plane">请选择乘机人</string>
+    <string name="ticket_no_available_passenger">没有可退票乘机人</string>
+    <string name="ticke_chose_guest">请选择退票人</string>
+    <string name="ticke_chose_yuanyin">请选择退票原因</string>
+    <string name="ticke_input_yuanyin">请输入退票原因</string>
+    <string name="ticke_upload_img">请上传因病证明图片</string>
+    <string name="ticket_tax_price">含税总价</string>
+    <string name="ticket_notax_price">裸机价</string>
+    <string name="ticket_multi_flight">多程航班</string>
+    <string name="ticket_xzcjr">请选择乘机人</string>
+    <string name="ticket_txlxr">请填写联系人</string>
+    <string name="ticke_lxr_phone">请填写联系人手机号码</string>
+    <string name="ticket_ws_toast">请完善上一个行程</string>
+    <string name="ticket_xzfptt">请选择发票抬头</string>
+    <string name="ticket_post_type">请选择邮费</string>
+    <string name="ticket_xzaddress">请选择收货地址</string>
+    <string name="ticket_has_refund">该乘机人已退票</string>
+    <string name="ticket_has_upsign">该乘机人已改签</string>
+    <string name="ticket_tyfwtk">请同意服务条款</string>
+    <string name="ticket_terms_service_line">我已阅读并同意购票须知、保险经纪委托协议、锂电池及危险品须知。</string>
+    <string name="ticket_service_line2_1">锂电池及危险品须知</string>
+    <string name="ticket_service_line2_2">保险经纪委托协议</string>
+    <string name="ticket_service_line2_3">购票须知</string>
+
+    <string name="ticket_pj1">票价</string>
+    <string name="ticket_pj2">票价%1$s</string>
+    <string name="ticket_single_pj">单程票价%1$s</string>
+    <string name="ticket_single_pj2">单程票价</string>
+    <string name="ticket_round_pj">往返票价</string>
+    <string name="ticket_multi_pj">多程票价</string>
+    <string name="ticket_person_num">%1$sx%2$d人</string>
+    <string name="ticket_x">x</string>
+    <string name="ticket_ren">人</string>
+    <string name="ticket_bxpz_notice">\u3000\u3000请在航班起飞后7天内，到东方航空机场柜台或直属售票处打印。</string>
+    <string name="ticket_jjry">机建 ＋ 燃油</string>
+    <string name="ticket_monDay">M月d日</string>
+    <string name="ticke_yjf">邮寄费</string>
+    <string name="buy_suces">购买成功</string>
+    <string name="certification_message">您还没有进行实名认证，可能会影响您的使用！</string>
+    <string name="set_pay_message">您还没有设置支付密码,这会影响您的使用。</string>
+    <string name="create_command_suces">已为您生成嗨口令</string>
+    <string name="now_send">立即发送></string>
+    <string name="now_look">立即查看></string>
+    <string name="just_certification">马上认证></string>
+    <string name="ticket_taxes_fee">税费 </string>
+    <string name="ticket_taxes_fee2">税费¥%1$s</string>
+    <string name="ticket_passenger_not_same">乘客人数不一致</string>
+    <string name="ticket_bx_price">¥%1$s/份</string>
+    <string name="ticket_passengers">添加 成人%1$d人 儿童%2$d人 婴儿%3$d人</string>
+    <string name="zhongzhuan">中转</string>
+    <string name="ticket_price">¥%1$s</string>
+    <string name="ticket_child_price">儿童/¥%1$s</string>
+    <string name="ticket_baby_price">婴儿/¥%1$s</string>
+    <string name="multine_toast">最多只能添加4程</string>
+    <string name="ticket_erye_ydxz">婴儿儿童预定须知</string>
+    <string name="ticket_cr_et_chose">一名成人只能携带2名儿童或一个婴儿</string>
+    <string name="toast_at_less_one_city">多程至少有一个国际城市</string>
+    <string name="ticket_please_ws_info">请完善多程信息</string>
+    <string name="toast_has_been_set">已重置</string>
+
+    <!-- 特惠付款 -->
+    <string name="pay_sjmc">商家名称</string>
+    <string name="giftcard_notice">请关注礼品卡有效期，并及时领用</string>
+    <string name="giftcard_notice2">收到的实体卡确认有效后，点“立即激活” 可用于消费</string>
+    <string name="giftcard_notice3">新版实体卡，支持二维码扫描领用</string>
+    <string name="pay_xfze">消费总额</string>
+    <string name="pay_msg_sr">请询问服务员后输入</string>
+    <string name="pay_msg_yh">输入不参与优惠金额</string>
+    <string name="pay_bcy">不参与优惠金额:</string>
+    <string name="pay_yhq">优惠券</string>
+    <string name="pay_yhq_with_number">优惠券(已选择%1$s张)</string>
+    <string name="pay_yfdk">积分抵扣</string>
+    <string name="pay_hb">红包</string>
+    <string name="pay_lpk">礼品卡</string>
+    <string name="pay_fkfs">付款方式</string>
+    <string name="pay_jsje">实付金额</string>
+    <string name="pay_hbze">红包总额</string>
+    <string name="pay_zhye">账户余额</string>
+    <string name="text_how_active">如何激活</string>
+    <string name="now_active">立即激活</string>
+    <string name="pay_jfdh">积分兑换</string>
+    <string name="pay_yuan">元</string>
+    <string name="pay_fen">分</string>
+    <string name="pay_syjf">使用积分</string>
+    <string name="pay_mx">明细</string>
+    <string name="pay_hj">合计</string>
+    <string name="pay_sm">说明</string>
+    <string name="pay_jfye">积分余额</string>
+    <string name="pay_zpkze">礼品卡总额</string>
+    <string name="pay_bcsyje">请输入本次使用金额</string>
+    <string name="pay_stkkh">实体卡卡号</string>
+    <string name="giftcard_actual_card">实体卡</string>
+    <string name="pay_qsrstkh">请输入实体卡号</string>
+    <string name="pay_qsrsmm">请输入密码</string>
+
+    <!--自驾租车-->
+    <string name="to_str">至</string>
+    <string name="qr_xc_str">确认行程</string>
+    <string name="shop_selecte_str">门店选择</string>
+    <string name="bus_selecte_str">车辆选择</string>
+    <string name="write_order_str">订单填写</string>
+    <string name="nearby_shop_str">附近门店</string>
+    <string name="hint_search_address">搜索地址</string>
+    <string name="tv_price_high_low">价格由低到高</string>
+    <string name="tv_distance_far_near">距离由近及远</string>
+    <string name="tv_title_select_motorcycle_type">选择车型</string>
+    <string name="tv_selfdrive_assess">估价</string>
+    <string name="tv_selfdrive_start">起</string>
+    <string name="tv_selfdrive_money_unit">¥</string>
+    <string name="tv_selfdrive_yue">约</string>
+    <string name="tv_selfdrive_order_money">订单金额</string>
+    <string name="tv_selfdrive_get_city">取车城市</string>
+    <string name="tv_selfdrive_get_time">取车时间</string>
+    <string name="tv_selfdrive_get_shop">取车门店</string>
+    <string name="tv_selfdrive_back_city">还车城市</string>
+    <string name="tv_selfdrive_back_time">还车时间</string>
+    <string name="tv_selfdrive_back_shop">还车门店</string>
+    <string name="tv_selfdrive_canel_rule">取消规则</string>
+    <string name="tv_selfdrive_quxiaopinzheng">报销凭证</string>
+    <string name="tv_selfdrive_get_tip">取车提示</string>
+    <string name="tv_selfdrive_tehuifukuan">特惠付款</string>
+    <string name="tv_selfdrive_linkman">联系人</string>
+    <string name="hint_selfdrive_input_your_name">请输入您的姓名</string>
+    <string name="tv_selfdrive_linkman_phone">联系电话</string>
+    <string name="hint_selfdrive_input_your_phone">请输入您的电话</string>
+    <string name="tv_selfdrive_songche">服务点送车服务</string>
+    <string name="tv_selfdrive_shouche">服务点收车服务</string>
+    <string name="tv_selfdrvie_total">共计</string>
+    <string name="title_selfdrvie_fareestimate">车费预估</string>
+    <string name="title_modfy_get_bus_time">修改取车时间</string>
+    <string name="tv_selfdrive_get">取</string>
+    <string name="tv_selfdrive_back">还</string>
+    <string name="tv_selfdrive_rise">起</string>
+    <string name="tv_selfdrive_average_daily">日均</string>
+    <string name="tv_selfdrive_score">分</string>
+    <string name="tv_selfdrive_shop_desc">距离##KM 中华H230D等17种@@@</string>
+    <string name="tv_selfdrive_success_ratio">&#160;&#160;|&#160;&#160;派车成功率</string>
+    <string name="tv_selfdrive_route_messages">用于接收航线短信</string>
+    <string name="tv_selfdrive_back_bus_address">收车地址</string>
+    <string name="tv_selfdrive_send_bus_address">送车地址</string>
+    <string name="hint_selfdrive_send_bus_address">请输入送车地址</string>
+    <string name="hint_selfdrive_back_bus_address">请输入收车地址</string>
+    <string name="tv_selfdrive_cancel_rule_content">线上预付定金时：\n1.取车日之前，大于1天取消，退换订金100%\n2.取车日之前，小于或等于1天取消，订金不能退还\n预订当天未提车，预付款全额扣除\n如需提前还车，需联系订车网，费用按调整后实际用车数收费</string>
+    <string name="tv_selfdrive_get_bus_prompt">1.请携带您的身份证，驾驶证及信用卡去门店办理手续\n2.您的驾龄需超过12个月才能租赁本车型</string>
+    <string name="common_xx_yuan">%1$s元</string>
+    <string name="tv_selfdrive_youfei">邮费（全国¥0）</string>
+    <string name="tv_selfdrive_faPiaoTaiTou">发票抬头</string>
+    <string name="tv_selfdrive_peisong_address">配送地址</string>
+    <string name="tv_selfdrive_delivery_address">送货地址</string>
+    <string name="tv_selfdrive_linkman_number_86">手机号&#160;&#160;&#160;&#160;&#160;+86&#160;＞</string>
+
+    <!--日租包车-->
+    <string name="bt_dailyrent_confirm">确认</string>
+    <string name="tv_dailyrent_city">城市</string>
+    <string name="hint_dailyrent_input_depart_city">请输入出发城市</string>
+    <string name="tv_dailyrent_depart_place">出发地</string>
+    <string name="tv_dailyrent_use_bus_date">用车时间</string>
+    <string name="tv_dailyrent_use_bus_duration">用车时长</string>
+    <string name="tv_dailyrent_input_depart_place">请输入出发地</string>
+    <string name="tv_dailyrent_input_use_time">请输入用车时间</string>
+    <string name="toast_back_time_low_get_time">还车时间不得早于取车时间</string>
+    <string name="toast_zoayu_today">设置的不得早于今天</string>
+    <string name="today">今天</string>
+    <string name="tomorrow">明天</string>
+    <string name="houtian">后天</string>
+    <string name="toast_input_time_error">输入时间错误</string>
+
+    <!--火车票-->
+    <string name="train">火车票</string>
+    <string name="orderform">订单填写</string>
+    <string name="input_intro">填写说明</string>
+    <string name="readbeforebooking">预订需知</string>
+    <string name="accidentinsurance">意外险</string>
+    <string name="train_yudingxuzhi">预订需知</string>
+    <string name="train_shanghai">上海</string>
+    <string name="train_beijing">北京</string>
+    <string name="train_yuding">预定</string>
+    <string name="train_zhang">张</string>
+    <string name="train_agent_explain">7*24小时预订服务</string>
+    <string name="train_cardking">嗨生活</string>
+    <string name="train_rmb">¥</string>
+    <string name="train_jingtingzixun">经停资讯</string>
+    <string name="train_zhengwandian">正晚点</string>
+    <string name="train_shikebiao">时刻表</string>
+    <string name="train_chezhanmingcheng">车站名</string>
+    <string name="train_daodashijian">到达时间</string>
+    <string name="train_chufashijian">出发时间</string>
+    <string name="train_tingliu">停留</string>
+    <string name="no_identification">您还没有实名认证</string>
+
+    <!--接送机-->
+    <string name="shuttle_order_submit">订单提交</string>
+    <string name="shuttle_yongcheshijian">用车时间：</string>
+    <string name="shuttle_jijiaguize">计价规则：</string>
+    <string name="shuttle_xiangqing">详情</string>
+    <string name="shuttle_introductions">本次服务由嗨生活提供</string>
+    <string name="shuttle_bangrendingche">帮人订车</string>
+    <string name="shuttle_86">+86</string>
+    <string name="shuttle_lianxidianhua">联系电话</string>
+    <string name="shuttle_jieshouduanxin">用于接收航班短信</string>
+    <string name="shuttle_lianxiren">联系人</string>
+    <string name="shuttle_mobile">手机号</string>
+    <string name="shuttle_quxiaoguize">取消规则</string>
+    <string name="shuttle_fapiaoguize">发票规则</string>
+    <string name="shuttle_yutidingdan">预提订单</string>
+    <string name="shuttle_yuguzongjia">预估总价</string>
+    <string name="shuttle_qi">起</string>
+    <string name="shuttle_select_terminal">请输入航站楼</string>
+    <string name="shuttle_select_place">请输入目的地</string>
+    <string name="shuttle_select_time">请选择用车时间</string>
+    <string name="shuttle_tv_terminal">航站楼</string>
+    <string name="shuttle_tv_place">目的地</string>
+    <string name="shuttle_tv_time">用车时间</string>
+    <string name="shuttle_depart_time">出发时间</string>
+    <string name="shuttle_x">x</string>
+
+    <!--接送火车-->
+    <string name="shuttle_train_station">火车站</string>
+    <string name="shuttle_train_stationhint">请输入火车站</string>
+    <string name="shuttle_train_chufadi">出发地</string>
+    <string name="shuttle_train_chufadihint">请输入出发地</string>
+    <string name="shuttle_train_mudidihint">请输入目的地</string>
+    <string name="address_search">搜索</string>
+    <string name="address_shurudizhi">输入地址</string>
+
+
+    <!--航线-->
+    <string name="text_search">搜索</string>
+    <string name="history">历史</string>
+    <string name="hot_info">热门</string>
+    <string name="is_located">正在定位……</string>
+    <string name="locate_failure_reposition">定位失败，点击重新定位</string>
+
+    <!--专车出行-->
+    <string name="special_use_car_now">现在用车</string>
+    <string name="transport_special_distance_before">本次用车预计行驶</string>
+    <string name="transport_special_distance_after">公里约</string>
+    <string name="transport_special_duration_after">分钟</string>
+    <string name="transport_st_end_place_same">出发地和目的地不能相同</string>
+
+    <string name="transport_get_category_error">获取分类信息失败，请重试</string>
+    <string name="transport_book_need_know">预定需知</string>
+    <string name="transport_load_error">加载失败</string>
+    <string name="transport_line_no_empty">航站楼不能为空</string>
+    <string name="transport_start_no_empty">出发地不能为空</string>
+    <string name="transport_cardtime_no_empty">用车时间不能为空</string>
+
+
+    <string name="jia_ge">价格</string>
+    <string name="special_home_qi">起</string>
+    <string name="special_chefeixiangqing">车费详情</string>
+    <string name="special_yue">约</string>
+    <string name="special_price_instruction_1">以为多家专车服务商的最低估价</string>
+    <string name="special_price_instruction_2">服务中产生的高速费、停车费、路桥费有乘客支付</string>
+    <string name="special_price_instruction_3">最终用车服务费以账单为准</string>
+    <string name="special_price_qibufei">起步费</string>
+    <string name="special_price_lichengfei">起</string>
+    <string name="special_price_shichangfei">起</string>
+
+    <string name="title_activity_integral_main">IntegralMainActivity</string>
+    <string name="title_activity_earn_points">EarnPointsActivity</string>
+
+    <!--信用卡-->
+    <string name="tv_add_credit_card">添加银行卡</string>
+    <string name="tv_unline_handle_card">在线办卡</string>
+    <string name="tv_quota_adjustment">额度管理</string>
+    <string name="tv_credit_yxq">无效的有效期</string>
+    <string name="tv_bank_type_error">银行卡格式错误,请重新输入</string>
+    <string name="tv_credit_smcg">扫描成功.</string>
+    <string name="tv_credit_smgb">扫描关闭</string>
+    <string name="tv_credit_ckybd">此卡已绑定</string>
+    <string name="tv_credit_add_succ">信用卡添加成功</string>
+    <string name="tv_credit_add_err">添加信用卡失败</string>
+    <string name="tv_credit_not_xc">没有查到此信用卡的信息</string>
+    <string name="tv_credit_name_notnull">姓名不能为空</string>
+    <string name="tv_credit_zdr_notnull">账单日不能为空</string>
+    <string name="tv_credit_zdr_wx">账单日无效</string>
+    <string name="tv_credit_hkr_notnull">还款日不能为空</string>
+    <string name="tv_credit_hkr_not_zdr">账单日不能等于还款日</string>
+    <string name="tv_credit_hkr_wx">还款日无效</string>
+    <string name="tv_credit_cvvL">CVV为长度</string>
+    <string name="tv_credit_sz">的数字.</string>
+    <string name="tv_credit_yzbm">邮政编码: </string>
+    <string name="tv_bank_num_notNull">银行卡号不能为空</string>
+    <string name="tv_card_num_wx">卡号无效</string>
+    <string name="tv_card_zdrnotsame">账单日和还款日不能相同</string>
+    <string name="tv_bank_dq">该银行卡已到期，到期时间: </string>
+    <string name="tv_link_bank">联系银行</string>
+    <string name="tv_credit_card_huankuan">最后还款</string>
+    <string name="tv_credit_card_from_the_reimbursement">距离还款</string>
+    <string name="tv_credit_card_yuqi_day_num">逾期天数</string>
+    <string name="tv_credit_card_all_money">全部额度</string>
+    <string name="tv_credit_card_used_money">可用额度</string>
+    <string name="tv_credit_card_account">已出账单</string>
+    <string name="tv_credit_repayment">还款</string>
+    <string name="tv_credit_day_on">天内</string>
+    <string name="tv_credit_yuqi_tianshu">逾期天数</string>
+    <string name="tv_credit_yinghuan">应还</string>
+    <string name="tv_credit_mianxi">免息</string>
+    <string name="tv_credit_xinyongedu">信用额度</string>
+    <string name="tv_credit_shenyuedu">剩余额度</string>
+    <string name="tv_credit_check_status">查看状态</string>
+    <string name="tv_credit_low">最低</string>
+    <string name="tv_credit_select_card">选择卡片</string>
+    <string name="tv_credit_account_info">账单信息</string>
+    <string name="tv_credit_account_1">本期账单</string>
+    <string name="tv_credit_account_2">未出账单</string>
+    <string name="tv_credit_account_3">历史账单</string>
+    <string name="tv_credit_account_4">分期账单</string>
+    <string name="tv_credit_account_5">积分账单</string>
+    <string name="tv_credit_account_6">导入账单</string>
+    <string name="tv_credit_account_gaiyao">信用卡账户概要</string>
+    <string name="credit_coming_soon">敬请期待</string>
+    <string name="tv_credit_daoruzhangdan">导入账单</string>
+
+    <!--积分宝 start-->
+
+
+    <!--积分包 end-->
+
+    <!--信用卡 start-->
+    <string name="credit_card">信用卡</string>
+    <string name="credit_repay_title">信用卡还款</string>
+    <string name="credit_repay_zdr">账单日</string>
+    <string name="credit_repay_now_hk">本期还款</string>
+    <string name="credit_repay_min_hk">最低还款</string>
+    <string name="credit_repay_zdzq">账单周期</string>
+    <string name="credit_repay_skmx">刷卡免息</string>
+    <string name="credit_repay_hkr">还款日</string>
+    <string name="credit_repay_sqfq">申请分期</string>
+    <string name="credit_repay_hk">还款</string>
+    <string name="credit_repay_has_hk">我已还款</string>
+    <string name="credit_repay_notice">注：账户余额支付可实时到账，银行卡支付T＋1到账</string>
+    <string name="credit_repay_je">¥%1$s</string>
+    <string name="credit_repay_skmx_value">%1$s天</string>
+    <string name="credit_hkfs">还款方式</string>
+    <string name="credit_add_card">添加银行卡</string>
+    <string name="credit_input_zddate_hint">请输入账单日</string>
+    <string name="credit_input_hkdate_hint">请输入还款日</string>
+    <string name="credit_input_xyed_hint">请输入信用额度</string>
+    <string name="credit_input_name_hint">请输入您的姓名</string>
+    <string name="credit_xye">信用额</string>
+    <string name="credit_name">姓\u3000名</string>
+    <string name="credit_auto_hk">自动还款</string>
+    <string name="credit_all_hk">全额还款</string>
+    <string name="credit_min_hk">最低还款</string>
+    <string name="credit_no_nf">免年费</string>
+    <string name="credit_nf_date">年费收取日</string>
+    <string name="credit_mnf_if_condition">满足条件免年费</string>
+    <string name="credit_min_sk_count">最低刷卡次数</string>
+    <string name="credit_all_sk_count">刷卡总金额</string>
+
+    <string name="text_total_amount">总金额</string>
+    <string name="text_total_amount_hint">输入总金额</string>
+    <string name="text_per_amount">单个金额</string>
+    <string name="text_per_amount_hint">输入单个金额</string>
+
+    <string name="credit_gd_nf">固定年费</string>
+    <string name="credit_jf_notify">缴费提醒</string>
+    <string name="credit_hk_twice_day">(还款前2天)</string>
+    <string name="credit_input_hkje_hint">请输入还款金额</string>
+    <string name="credit_input_repay_method">请选择还款方式</string>
+    <string name="credit_repay_ye">余额</string>
+    <string name="credit_repay_available_ye">可用余额%1$s元</string>
+    <string name="credit_repay_available_ed">可用额度%1$s元</string>
+    <string name="huankuai">还款</string>
+    <string name="tv_credit_hkr_not_dy_zdr">还款日不能大于账单日25天</string>
+    <string name="tv_credit_xye_notnull">信用额不能为空</string>
+    <string name="tv_credit_edwx">额度无效</string>
+    <string name="tv_credit_yxq_notnull">有效期不能为空</string>
+    <string name="tv_credit_aqm_must_three">安全码必须为3位</string>
+    <string name="tv_credit_hq">获取</string>
+    <string name="tv_credit_sryzm">请输入验证码</string>
+    <string name="please_choice_nf_type">请选择免年费方式</string>
+    <string name="credit_repay_amount_notice">还款金额不能等于0</string>
+    <string name="credit_card_reset_credit_info">重设信息</string>
+    <string name="credit_card_all">全部</string>
+    <string name="credit_card_nfsq_date_notnull">年费收取日不能为空</string>
+    <string name="credit_save_success">保存成功</string>
+    <string name="credit_save_failed">保存失败，请重试</string>
+    <string name="credit_repay_shnf_date">年费收取日</string>
+    <string name="credit_input_sk_count_hint">请输入刷卡次数</string>
+    <string name="credit_input_sk_total_je_hint">请输入刷卡总金额</string>
+    <string name="credit_input_nf_hint">请输入年费</string>
+    <string name="credit_input_fix_nf_hint">请输入固定年费</string>
+    <string name="credit_sk_count">刷卡次数</string>
+    <string name="credit_sk_total_je">刷卡总金额</string>
+    <string name="credit_repay_no_small_je">还款额不能低于最低还款额</string>
+    <string name="credit_repay_load_error">账单详情加载失败,刷新试试</string>
+    <string name="jfb_add_friend_sucess">添加好友成功</string>
+    <string name="jfb_add_friend_fail">添加好友失败,请重试</string>
+    <string name="credit_service_agreement">服务协议</string>
+    <string name="card_s_notn">刷卡次数不能为空</string>
+    <string name="card_s_not_zero">刷卡次数不能为0</string>
+    <string name="card_s_total_notn">刷卡总金额不能为空</string>
+    <string name="card_s_total_not_zero">刷卡总金额不能为0</string>
+    <string name="card_gdnf_notn">固定年费不能为空</string>
+    <string name="card_gdnf_not_zero">固定年费不能为0</string>
+    <string name="credit_add_succ">添加成功</string>
+    <string name="credit_yet_hk">已还款</string>
+    <string name="credit_hk_succ">还款成功</string>
+    <string name="credit_repay_yhk">您已还款</string>
+    <string name="credit_hk_fail_cs">发送已还款请求失败，请重试</string>
+    <string name="credit_detail_jzsb">信用卡详情加载失败</string>
+    <string name="credit_hq_fail">获取失败</string>
+    <string name="credit_ye_hk">余额还款</string>
+    <string name="credit_pay_succ">支付成功</string>
+    <string name="credit_sent_ed_succ">成功向银行发送额度提升请求</string>
+    <string name="credit_add_credit_card">添加银行卡</string>
+
+    <string name="toast_debit_card">此为借记卡，请至钱包中查看</string>
+    <string name="toast_credit_card">此为信用卡，可享受银行优惠</string>
+    <!--信用卡 end-->
+
+    <!--设置-->
+    <string name="user_center_yonghuguanli">用户管理</string>
+    <string name="user_help">帮助</string>
+    <string name="user_agree_register_agreement">注册代表你已阅读并同意</string>
+    <string name="user_app_agreement">嗨生活协议</string>
+
+    <!--gengqiyun start-->
+    <string name="set_pay_new_password">新密码</string>
+    <string name="set_pay_confirm_password">确认密码</string>
+    <string name="set_pay_hint_six_number_password">请输入6位数字密码</string>
+    <string name="set_pay_hint_resix_number_password">再次输入密码</string>
+    <string name="setting_barcode_notice">扫我把我加入积分分享名单</string>
+    <string name="setting_verify_sf">验证身份</string>
+    <string name="setting_set">设置</string>
+    <string name="setting_verify_finished">验证完成</string>
+    <string name="setting_verifycode_error">验证码错误</string>
+    <string name="setting_get_cities_fail">获取城市列表失败，请重试</string>
+    <string name="setting_sf_verify">身份验证</string>
+    <string name="setting_modify_binding_phone">修改绑定手机</string>
+    <string name="setting_set_new_binding_phone">设置新的绑定手机</string>
+    <string name="setting_bind_success">绑定成功</string>
+    <string name="setting_binded_phone">已绑定手机</string>
+    <string name="setting_new_binded_phone">新绑定手机</string>
+    <string name="setting_verify_code">验证码</string>
+    <string name="setting_get_verify_code">获取验证码</string>
+    <string name="setting_input_verify_code_hint">请输入验证码</string>
+    <string name="setting_next_step">下一步</string>
+    <string name="setting_reset_login_pwd">重置登录密码</string>
+    <string name="setting_reset_pay_pwd">重置交易密码</string>
+    <string name="setting_set_pay_pwd">设置支付密码</string>
+    <string name="setting_reset_old_pwd">旧密码</string>
+    <string name="setting_reset_new_pwd">新密码</string>
+    <string name="setting_vip_nickname">会员昵称</string>
+    <string name="setting_input_pwd_hint">请输入密码</string>
+    <string name="setting_ok">确认</string>
+    <string name="setting_pwd_set">密码设置</string>
+    <string name="setting_input_orignal_pay_pwd">记得原支付密码</string>
+    <string name="setting_input_name">请输入姓名</string>
+    <string name="setting_forget_orignal_pay_pwd">忘记原支付密码</string>
+    <string name="setting_forget_login_pwd">忘记登录密码？</string>
+    <string name="setting_sure_new_pwd">确认新密码</string>
+    <string name="setting_again_new_pwd">请再次输入密码</string>
+    <string name="setting_reset_login_pwd_notice">密码由6~20位英文字母，数字或符号组成</string>
+    <string name="setting_pwd_not_allow_empty">密码不能为空</string>
+    <string name="setting_no_valid_pay_pwd">请输入正确的6位支付密码</string>
+    <string name="setting_pwd_format_error">密码格式有误</string>
+    <string name="setting_pwd_not_equal">密码不相同</string>
+    <string name="setting_committing">正在提交，请稍后...</string>
+    <string name="setting_verify_identification">验证身份证件</string>
+    <string name="setting_name">姓名</string>
+    <string name="setting_id_number">身份证号码</string>
+    <string name="setting_id_number_format_error">身份证号码格式有误</string>
+    <string name="setting_sfz">身份证</string>
+    <string name="setting_identification_number_hint">请输入实名认证时的证件号码</string>
+    <string name="setting_bind_phone">已绑定手机</string>
+    <string name="setting_send_verify_code">获取验证码</string>
+    <string name="setting_verify_code_right">验证码正确</string>
+    <string name="setting_input_verify_code_hint2">请输入短信验证码</string>
+    <string name="setting_safe_verify">进行安全验证</string>
+    <string name="setting_safe_verify2">安全校验</string>
+    <string name="setting_safe_verify_notice">请输入支付密码，以完成身份验证</string>
+    <string name="setting_safe_verify_new_notice">请输入新支付密码，以完成身份验证</string>
+    <string name="setting_safe_verify_new_notice2">请再次输入新支付密码，以完成身份验证</string>
+    <string name="setting_choose_other_verify_method">选择其他验证方式</string>
+    <string name="setting_bank_card_num">银行卡号</string>
+    <string name="setting_bank_card">银行卡</string>
+    <string name="setting_input_bank_card_num_hint">请输入银行卡号</string>
+    <string name="setting_bank_card_name">银行名称</string>
+    <string name="setting_name_gerated">系统根据卡号自动生成</string>
+    <string name="setting_input_sfz_code">请输入身份证号码</string>
+    <string name="setting_input_zj_code">请输入证件号码</string>
+    <string name="setting_input_card_holder_name">持卡人姓名</string>
+    <string name="setting_input_card_holder_name2">账户证件持卡人</string>
+    <string name="setting_agree">同意</string>
+    <string name="setting_protocal1">《快捷签约协议》</string>
+    <string name="setting_protocal2">《交通银行储蓄卡快捷支付业务线上支付协议》</string>
+    <string name="setting_verify_yhk">银行卡</string>
+    <string name="setting_verify_zj">证件</string>
+    <string name="setting_verify_cg">完成</string>
+    <string name="setting_passenger_info">旅客信息</string>
+    <string name="setting_passenger_rule">退改签规则</string>
+    <string name="setting_passenger_detial">保险详情</string>
+    <string name="setting_passenger_name">旅客姓名</string>
+    <string name="setting_passenger_chinese_name">中文姓名</string>
+    <string name="setting_passenger_chinese_name_hint">请确保与证件保持一致</string>
+    <string name="setting_passenger_eng_name">英文姓</string>
+    <string name="setting_passenger_eng_name_hint">如张小白填写 为“zhang”</string>
+    <string name="setting_passenger_eng_name_">英文名</string>
+    <string name="setting_passenger_eng_name_hint2">如张小白填写为“xiaobai”</string>
+    <string name="setting_passenger_common_info">常用信息</string>
+    <string name="setting_passenger_identification_id">证件号码</string>
+    <string name="setting_passenger_other_info">其他信息</string>
+    <string name="setting_passenger_11_phone_number">11位手机号码\u3000\u3000选填</string>
+    <string name="setting_passenger_passport">护照</string>
+    <string name="setting_passenger_birthday">生日</string>
+    <string name="setting_passenger_please_select">请选择</string>
+    <string name="setting_passenger_sex">性别</string>
+    <string name="setting_passenger_boy">男</string>
+    <string name="setting_passenger_girl">女</string>
+    <string name="setting_passenger_country_">国籍</string>
+
+    <string name="setting_add_common_passenger">新增常用旅客</string>
+    <string name="setting_modify_common_passenger">修改常用旅客</string>
+    <string name="setting_invite_friends_fill">邀请好友填写</string>
+    <string name="setting_id_number_value">身份证 %1$s</string>
+    <string name="setting_share_to_friend_notice">邀请共同出行的好友填写旅客信息，携手成就 精彩旅程！</string>
+    <string name="setting_select_identification_type">选择证件类型</string>
+    <string name="setting_debit_rise">抬头</string>
+    <string name="seting_debit_info">发票信息</string>
+    <string name="tv_setting_debit_info_save">填写发票信息并保留</string>
+    <string name="tv_goon_add">继续添加</string>
+    <string name="setting_add_debit_rise2">新增发票抬头</string>
+    <string name="setting_modify_debit_rise2">修改发票抬头</string>
+    <string name="setting_add_debit_rise">新增常用发票抬头</string>
+    <string name="setting_no_debit_rise_notice">您还没有常用发票抬头，赶快添加吧！</string>
+    <string name="setting_no_debit_address_notice">您还没有常用收货地址，赶快添加吧！</string>
+    <string name="setting_no_debit_tourist_notice">您还没有旅客信息，赶快添加吧！</string>
+    <string name="setting_no_connector">您还没有任何联络人，赶快添加吧！</string>
+    <string name="setting_set_default_address">设为默认收货地址</string>
+    <string name="setting_add_debit_rise_et_hint">公司名称必填</string>
+    <string name="setting_add_debit_rise_et_hint1"> 输入姓名</string>
+    <string name="debit_rise_not_allow_empty">内容不能为空</string>
+    <string name="setting_add_adress">新增地址</string>
+    <string name="tv_application_str">申请方</string>
+    <string name="tv_invoice_str">发票类型</string>
+    <string name="tv_invoice_content_str">发票内容</string>
+    <string name="setting_recv_goods_adress">收货地址</string>
+    <string name="setting_add_goods_address">新增地址</string>
+    <string name="setting_modify_goods_address">修改地址</string>
+    <string name="setting_recv_goods_person">收货人</string>
+    <string name="setting_recv_goods_person_hint">收货人姓名</string>
+    <string name="setting_phone">手机号码</string>
+    <string name="setting_phone_format_error">*手机号格式有误</string>
+    <string name="setting_province">省市区</string>
+    <string name="setting_province_hint">请选择地区</string>
+    <string name="setting_input_area">输入地区</string>
+    <string name="setting_locate">定位</string>
+    <string name="setting_locate_fail">定位失败</string>
+    <string name="setting_locate_not">定位失败，请选择出发地</string>
+    <string name="please_chose_city">请选择目的地</string>
+    <string name="setting_locate_fail_notice">定位失败,无法获取邮费信息</string>
+    <string name="setting_detail_address">详细地址</string>
+    <string name="setting_detail_address_hint">输入详细地址</string>
+    <string name="setting_postal_code">邮政编码</string>
+    <string name="setting_postal_code_hint">自动得出</string>
+    <string name="setting_taxpayer_code">纳税人识别号</string>
+    <string name="setting_company_address">公司地址</string>
+    <string name="setting_company_phone">公司电话</string>
+    <string name="setting_bank_name">开户银行名称</string>
+    <string name="setting_bank_account">开户银行账户</string>
+
+    <string name="setting_input_gov_hint">请输入政务行政单位</string>
+
+    <string name="setting_fill_content">开增值税发票须填写</string>
+
+    <string name="setting_company_actual_address">请输入营业执照上的注册地址</string>
+    <string name="setting_company_actual_phone">请输入营业执照上的注册电话（选填）</string>
+    <string name="setting_company_bank_name">请输入开户许可证上的银行名称（选填）</string>
+    <string name="setting_company_bank_content">请输入开户银行的账户（选填）</string>
+
+
+    <string name="setting_get_verifycode_sucess">获取验证码成功</string>
+    <string name="setting_get_verifycode_fail">获取验证码失败，请重试</string>
+    <string name="setting_send_verifycode_s">已发送%1$ss</string>
+
+    <string name="setting_recv_goods_not_empty">收货人不能为空</string>
+    <string name="setting_phone_not_empty">手机号码不能为空</string>
+    <string name="setting_province_not_empty">省市区不能为空</string>
+    <string name="setting_detail_address_not_empty">详细地址不能为空</string>
+    <string name="setting_postal_code_not_empty">邮政编码不能为空</string>
+    <string name="setting_my_collect">我的收藏</string>
+    <string name="setting_my_remind">我的提醒</string>
+    <string name="setting_system_auto_select">系统自动选择</string>
+    <string name="setting_deduction_order">扣款顺序</string>
+    <string name="setting_drag">拖动</string>
+    <string name="setting_wallet">钱包</string>
+    <string name="setting_surport_version">牵手付功能目前仅支持具备NFC功能的安卓4.4.2及以上 版本手机。</string>
+    <string name="setting_more_declare">更多说明</string>
+    <string name="setting_pay_settting">支付设置</string>
+    <string name="setting_check_own_identification">校验本人身份证件</string>
+    <string name="setting_auto">自动</string>
+    <string name="setting_hand">手动</string>
+
+    <string name="setting_pwd_same">新密码不能与旧密码不能相同</string>
+
+    <string name="setting_protocol_content">协议内容</string>
+    <string name="app_load_data_error">加载失败，请重试</string>
+    <string name="app_update_info_success">修改成功</string>
+    <string name="app_update_info_error">修改失败</string>
+    <string name="app_op_info_success">操作成功</string>
+    <string name="app_op_info_error">操作失败</string>
+    <string name="app_delete_success">删除成功</string>
+    <string name="app_delete_error">删除失败</string>
+    <string name="app_set_success">设置成功</string>
+    <string name="app_set_error">设置失败</string>
+    <string name="app_delete">删除</string>
+    <string name="setting_set_default_debitrise">设为默认</string>
+    <string name="setting_eng_letters">qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM</string>
+
+    <string name="setting_deduction_notice">系统将根据您的排列顺序扣款，</string>
+    <string name="setting_checking_pay_pwd">正在校验支付密码...</string>
+    <string name="setting_checking_login_pwd">正在验证...</string>
+    <string name="setting_loading_cityinfo">正在获取城市信息...</string>
+    <string name="setting_loading_data">正在获取数据...</string>
+    <string name="setting_reset_pwd_sucess">密码修改成功</string>
+
+    <string name="setting_zh_name_empty">中文姓名不能为空</string>
+    <string name="setting_en_name_empty">英文姓不能为空</string>
+    <string name="setting_en_name_empty2">英文名不能为空</string>
+    <string name="setting_input_zh_name">中文姓名格式有误</string>
+    <string name="setting_input_en_name1">英文姓格式有误</string>
+    <string name="setting_input_en_name2">英文名格式有误</string>
+    <string name="setting_cetificate_format_error">证件号格式不正确</string>
+    <string name="setting_cetificate_empty">证件号不能为空</string>
+    <string name="setting_birthday_empty">生日不能为空</string>
+    <string name="setting_country_empty">国籍不能为空</string>
+    <string name="setting_email_form">邮箱格式不正确</string>
+    <string name="setting_validity_date">请输入证件的结束日期</string>
+
+    <string name="setting_agree_protocol_notice">您还没有同意协议</string>
+    <string name="setting_please_input_six_pwd">请输入正确的6位密码</string>
+    <string name="setting_loading">加载中，请稍后...</string>
+    <string name="setting_paypwd_set_success">支付密码设置成功</string>
+    <string name="setting_paypwd_set_fail">支付密码设置失败</string>
+    <string name="setting_verify_success">验证成功</string>
+
+    <string name="app_load_verify_error">验证失败，请重试</string>
+    <string name="app_select_country">国籍选择</string>
+    <string name="app_no_data">没有数据</string>
+    <string name="sure_send">确认发送</string>
+    <string name="net_error">请求服务器失败，请检查网络</string>
+
+    <string name="hint_set_pay_password">请输入支付密码</string>
+    <string name="hint_set_pay_password_length_six">支付密码长度等于6</string>
+    <string name="hint_set_pay_password_no_same">支付密码不一样</string>
+
+    <string name="send_hilife_account">发送嗨生活账户</string>
+    <string name="send_add">添加</string>
+    <string name="send_del">删除</string>
+    <string name="send_used_payee">发给常用收款人</string>
+
+    <string name="account_no_registered">该手机尚未注册</string>
+    <!--gengqiyun end-->
+    <!--设置 end-->
+
+    <!--地图模式 start-->
+    <string name="map_model_query_all_store">查询屏幕范围内的所有商家</string>
+    <!--地图模式 end-->
+
+
+    <string name="ms_platform_jf">平台  (每满100送%1$s积分)</string>
+    <string name="ms_store_jf">商家  (每满100送%1$s积分)</string>
+
+
+    <!--酒店start-->
+
+    <!--酒店 hotel-->
+
+    <string name="tab_today_left_room">今日甩房</string>
+    <string name="tab_gift_package">礼品套餐</string>
+    <string name="tab_life_stage">生活分期</string>
+    <string name="tab_bank_preferential">银行优惠</string>
+
+    <string name="tab_screening">筛选</string>
+    <string name="tab_price_start">价格星级</string>
+    <string name="tab_lcation_area">位置区域</string>
+    <string name="tab_sorting">排序</string>
+    <string name="hotel_btn_clear">清空</string>
+    <string name="hotel_btn_confirm">确定</string>
+
+    <string name="hotel_facility_name">酒店设施</string>
+
+    <string name="hotel_search_history">搜索历史</string>
+
+    <string name="hotel_screen">筛选</string>
+    <string name="hotel_postion_district">位置区域</string>
+
+    <string name="to_expand_hint">展开</string>
+    <string name="to_shrink_hint">收缩</string>
+    <string name="see_more">更多</string>
+    <string name="go_for_you">为您推荐</string>
+    <string name="shou_qi">收起</string>
+    <string name="hotel_hight_end_hotel">高端酒店</string>
+    <string name="hotel_inbound_mobile">境内手机号</string>
+    <string name="hotel_outbound_mobile">境外手机号</string>
+    <string name="mobile_format_error">请输入合法手机号</string>
+    <string name="email_format_error">请输入合法email</string>
+    <string name="hotel_today_recommand_hotel">今日推荐</string>
+    <string name="hotel_recommendey_hotel">推荐酒店</string>
+    <string name="email_empty_notice">Email不能为空</string>
+    <string name="hotel_browe_count">浏览次数/%1$d次</string>
+    <string name="hotel_detail">详情></string>
+    <string name="hotel_order_person_known">入住人需知</string>
+    <string name="hotel_domestic_mobile_phone">境内手机</string>
+    <string name="hotel_order_notice">卡王会根据您的付款方式进行预授权或扣除房费， 如订单不确认将解除预授权或全额退款至您的付款账户。该订单确认后不可被取消修改，若未入住将收取您首日房费¥528"</string>
+    <string name="hotel_order_detail_notice">卡王会根据您的付款方式进行预授权或扣除房费，如订单不确认将解除预授权或全额退款至您的付款账户。该订单确认后不可取消修改。如未入住酒店将收取您全额房费 ¥</string>
+    <string name="hotel_order_notice2">该酒店的入住时间为14:00，退房标准结算时间为12：00。如提前入住或推迟离店，均需酌情加一定的费用。</string>
+
+    <string name="hotel_order_notice2_pre">特别提示：</string>
+    <string name="hotel_order_notice_one">入住日期当天中午12：00之前可免费取消，之后预定人因自身原因或其他非法定原因要求取消，将扣收全部支付金额。如订单无法确认，将退还全部支付金额。</string>
+    <string name="hotel_order_notice_two">预定人若因自身原因或其他非法定原因要求取消，将扣收全部支付金额。如订单无法确认，将退还全部支付金额。</string>
+    <string name="hotel_order_notice_three">后到店需担保。未触发担保可免费取消；触发担保后，入住日期当天中午12:00之前可免费取消，之后预定人若因自身原因或其他非法定原因要求取消，将扣收全额担保金。</string>
+    <string name="hotel_order_notice_four">后到店需担保。未触发担保可免费取消；触发担保后，预定人若因自身原因或其他非法定原因要求取消，将扣收全额担保金。</string>
+    <string name="hotel_order_notice_five">因酒店房间紧张，需缴纳首晚房费进行担保。到店后仍需支付房费，审核离店后，担保金将于5个工作日内原路退回。入住日期当天中午12:00之前可免费取消，之后预定人若因自身原因或其他非法定原因要求取消，将扣收全额担保金。</string>
+    <string name="hotel_order_notice_six">因酒店房间紧张，需缴纳首晚房费进行担保。到店后仍需支付房费，审核离店后，担保金将于5个工作日内原路退回。预定人若因自身原因或其他非法定原因要求取消，将扣收全额担保金。</string>
+
+    <string name="hotel_order_notice21">预订说明：预订成功后，凭确认短信说明兑换使用租车券，可直接 抵扣租金和保险费用。</string>
+    <string name="hotel_order_notice21_pre">预订说明：</string>
+    <string name="hotel_name_input_notice">姓名 1间房填一个人</string>
+    <string name="hotel_outside_mobile_phone_1">（包含港澳台）</string>
+    <string name="hotel_outside_mobile_phone_2">（不包含港澳台）</string>
+    <string name="hotel_outside_mobile_phone">境外手机</string>
+    <string name="hotel_breakfast">早餐：</string>
+    <string name="hotel_bed_type">床型：</string>
+    <string name="hotel_bed_width">床宽：</string>
+    <string name="hotel_extra_bed">加床：</string>
+    <string name="hotel_smokeless">无烟：</string>
+    <string name="hotel_broadband">宽带：</string>
+    <string name="hotel_subscribe">预约</string>
+
+    <string name="hotel_guest_explain_0">入住时间：\n14:00以后\u3000离店时间：12:00以前节假日及月、10月周末早餐78/位</string>
+    <string name="hotel_guest_explain_1">酒店提示：\n2016-03-18至2016-12-31提前预定早餐优惠价为45元，如需要请在订单中注明。（节假日及4月、10月周末早餐78/位）</string>
+    <string name="hotel_guest_explain_2">儿童和加床：\n不接受18岁以下客人单独入住。1.2米以下儿童使用现有床铺免费，含儿童早餐。1.8米以下儿童加床收费，每晚RMB150.00，不含儿童早餐。1.2米到1.4米儿童使用现有床位免费。1.4米以上早餐按照成人标准100%收费。</string>
+    <string name="hotel_guest_explain_3">膳食安排：\n自助早餐\u3000 78</string>
+    <string name="hotel_guest_explain_4">宠物：\n不可携带宠物</string>
+
+
+    <string name="hotel_bank_privilege_detail">银行优惠详情</string>
+    <string name="hotel_privilege">优惠卷</string>
+    <string name="hotel_click_get">点击领取 ></string>
+    <string name="click_get">点击领取</string>
+    <string name="hotel_merchants_integral">积分</string>
+    <string name="hotel_bank_privilege">银行优惠</string>
+    <string name="hotel_bank_privilege_1">刷指定银行卡可享优惠 ></string>
+    <string name="hotel_selling_points_detail">详情/酒店秀</string>
+    <string name="hotel_map_live">地图/实景</string>
+    <string name="hotel_coupon">优惠卷</string>
+    <string name="hotel_life_span">使用期限</string>
+    <string name="hotel_want_rz">输入想入住的酒店</string>
+    <string name="hotel_hotel_group_buying">酒店团购</string>
+    <string name="hotel_man">人)</string>
+    <string name="qi">/起</string>
+    <string name="txt_recv_coupon_center">领券中心</string>
+    <string name="little_coupon_notice">您的优惠券有点少哦</string>
+    <string name="hotel_name">酒店</string>
+    <string name="hotel_star_kjls">快捷连锁</string>
+    <string name="hotel_star_two">二星及以下/经济</string>
+    <string name="hotel_star_three">三星/舒适</string>
+    <string name="hotel_star_four">四星/高档</string>
+    <string name="hotel_star_five">五星/豪华</string>
+    <string name="hotel_price_one">150以下</string>
+    <string name="hotel_price_two">150-300</string>
+    <string name="hotel_price_three">301-450</string>
+    <string name="hotel_price_four">451-600</string>
+    <string name="hotel_price_five">601-1000</string>
+    <string name="hotel_price_six">1000以上</string>
+    <!--toast-->
+    <string name="hotel_toast_riqi_big">入住日期不能大于离店日期</string>
+    <string name="hotel_toast_riqi_small">离店日期不能小于入住日期</string>
+    <string name="hotel_toast_most_30_d">最多30晚</string>
+    <string name="hotel_toast_one_night">1晚</string>
+    <string name="hotel_toast_night">晚</string>
+    <string name="hotel_toast_add_no_same">入住人信息不可重复</string>
+
+    <!--酒店end-->
+
+    <!--我的 start-->
+    <!--我的页面-->
+    <string name="my_center">个人中心</string>
+    <string name="my_no_pay">未支付</string>
+    <string name="my_payed">已支付</string>
+    <string name="my_tuikuan">已退款</string>
+    <string name="my_all_order">全部订单</string>
+    <string name="my_order">我的订单</string>
+    <string name="my_wallet">钱包</string>
+    <string name="my_gift_card">送礼品卡</string>
+    <string name="my_red_envelope">发红包</string>
+    <string name="red_envelope">红包</string>
+    <string name="my_coupons">使用优惠券</string>
+    <string name="my_card_refund">信用卡还款</string>
+    <string name="my_financial_life">金融生活</string>
+    <string name="my_insurance_services">保险服务</string>
+    <string name="my_account_details">账户明细</string>
+    <string name="my_remind">我的提醒</string>
+    <string name="my_collection">我的收藏</string>
+    <string name="my_wechat">微信公众号</string>
+    <string name="my_help">帮助</string>
+    <!--我的 end-->
+    <!--旅游-->
+    <string name="travel_departrue_time">输入出发时间</string>
+    <string name="travel_departrue_elary_time">最早出发时间 :</string>
+    <string name="travel_departrue_last_time">最晚出发时间 :</string>
+
+    <!--美食-->
+    <string name="food_today_food_recommended">今日美食推荐</string>
+    <string name="food_recommend_dining_room">推荐餐厅</string>
+    <string name="food_people_kilometre">¥#/人|$公里</string>
+    <string name="food_bi">笔</string>
+    <string name="food_yx">月销</string>
+    <string name="food_tppmd">同品牌门店(</string>
+    <string name="food_ymjzsb">页面加载失败，请稍后重试</string>
+    <string name="food_sjjzsb">数据加载失败，刷新试试</string>
+
+    <!--嗨生活汇 -->
+    <string name="card_king_myRemind">我的提醒</string>
+    <string name="card_king_myCollect">我的收藏</string>
+    <string name="setting_jieshoutongzhi">接收通知</string>
+    <string name="setting_yinxiao">音效</string>
+    <string name="setting_qingchuhuancun">清除缓存</string>
+    <string name="toast_please_check_phone_net">请检查手机网络</string>
+    <string name="setting_paypwd_error">密码校验失败，请重试</string>
+
+    <!--用戶-->
+    <string name="user_login">尚未登录</string>
+    <string name="user_login_out">登出</string>
+    <string name="user_click_login">点击登录</string>
+    <string name="title_activity_setting_protocol">SettingProtocolActivity</string>
+    <string name="integral_title_name">我的信用卡</string>
+    <string name="toast_added_this_data">已添加过</string>
+    <string name="title_activity_set_pay_pwd_step1">SetPayPwdStep1Activity</string>
+    <string name="title_activity_set_pay_pwd_step2">SetPayPwdStep2Activity</string>
+    <string name="integral_bank_jifen_mingxi">银行积分明细</string>
+    <string name="title_activity_city_life_filter_list">CityLifeFilterListActivity</string>
+
+    <!--牵手付-->
+    <string name="hand_to_hand_money_no_same">转账金额不一致，请检查</string>
+
+
+    <!--NFC-->
+    <string name="service_name">CardEmulation Sample</string>
+
+    <!--Dialog-->
+    <string name="dialog_title">提示</string>
+    <string name="dialog_button_know">知道了</string>
+    <string name="dialog_person_not_same">乘客数量不一致，要提交订单吗？</string>
+    <string name="dialog_not_login">您还没登录，是否现在登录？</string>
+    <string name="not_login">不登陆</string>
+    <string name="toast_no_login">未登录</string>
+
+    <string name="dialog_msg_platform_integral_num">您在该平台拥有的积分数：</string>
+    <string name="dialog_msg_comitting">正在提交，请稍后...</string>
+
+
+    <!--toast-->
+    <string name="toast_setting_rise">请设置抬头</string>
+    <string name="toast_setting_address">请设置送货地址</string>
+    <string name="title_activity_add_bank_card">AddBankCardActivity</string>
+    <string name="title_activity_gallery">GalleryActivity</string>
+    <string name="title_activity_map_model">MapModelActivity</string>
+    <string name="wang_go">输入想去旅游的地方</string>
+    <string name="shop_sr">输入商户名/品牌</string>
+
+    <!--订单管理-->
+    <string name="order_title_order_manager">订单管理</string>
+    <string name="id_card">身份证&#160;&#160;&#160;&#160;</string>
+    <string name="seat">%1$s车厢%2$s座</string>
+    <string name="check_port">检票口%1$s</string>
+    <string name="check_in">取票号:%1$s</string>
+    <string name="passenger">乘机人&#160;&#160;&#160;&#160;%1$s</string>
+    <string name="departure">%1$s发车</string>
+    <string name="booking_car">订车人:&#160;&#160;&#160;&#160;%1$s&#160;&#160;&#160;&#160;%2$s</string>
+    <string name="between">间</string>
+    <string name="travel_no_pdf_travel_detail">该出发日期没有行程详情</string>
+    <string name="travel_no_kc">已售罄</string>
+    <string name="order_no_record">暂无信息</string>
+    <string name="order_hoteldetail_room_people">入住人 </string>
+    <string name="order_hoteldetail_room_breakfast">含早餐 </string>
+    <string name="no">无</string>
+    <string name="yes">有</string>
+    <string name="wei">位</string>
+    <string name="hanzaocan">含早餐</string>
+    <string name="nozaocan">不含早餐</string>
+
+    <string name="order_dialog_title_del_order">确认删除该条订单?</string>
+    <string name="order_cancel_order">取消</string>
+    <string name="order_confirm_order">确定</string>
+
+    <string name="order_dialog_title_cancel_order">您确定要取消该订单？</string>
+    <string name="order_dialog_cancel_order">取消订单</string>
+    <string name="order_dialog_give_up">放弃</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="travel_take_activity">订单填写</string>
+    <string name="common_preference_payment">特惠付款</string>
+    <string name="discount_payment_use_jf">使用积分</string>
+    <string name="discount_use_giftcard">使用礼品卡</string>
+    <string name="gift_card_introduce">说明：输入实体卡卡号与卡片背面刮开的密码，点击确认，即可完成充值</string>
+    <string name="order_hoteldetail_room">酒店订单</string>
+    <string name="order_hoteldetail_food">餐厅订单</string>
+    <string name="order_hoteldetail_jiuba">酒吧订单</string>
+    <string name="order_hoteldetail_huichang">会场订单</string>
+    <string name="order_hoteldetail_sport">运动订单</string>
+    <string name="expirydate">有效期 ：</string>
+    <string name="no_pay">待支付</string>
+    <string name="arleday_pay">已支付</string>
+    <string name="go_pay">去支付</string>
+    <string name="arleday_cancle">已取消</string>
+    <string name="arleday_complete">已完成</string>
+    <string name="arleday_tuikuan">已退款</string>
+    <string name="order_bugticket_again">再次购票</string>
+    <string name="order_book_again">再次预定</string>
+    <string name="order_share">分享</string>
+    <string name="no_share">不分享了</string>
+    <string name="go_to_paste">去粘贴</string>
+    <string name="order_assess">评价</string>
+    <string name="order_exite_money">退款</string>
+    <string name="order_delete">删除</string>
+    <string name="order_gopay">支付</string>
+    <string name="order_goout_again">再次出行</string>
+    <string name="order_comment_hotel">点评酒店</string>
+    <string name="order_comment_hotel_below">帮助千万用户</string>
+    <string name="order_fast_chooseroom">快速选房下单</string>
+    <string name="amusement">娱乐</string>
+    <string name="transportion">交通</string>
+    <string name="food">餐饮</string>
+    <string name="landscape">景点</string>
+    <string name="around">周边</string>
+    <string name="hotel_nophone">此酒店无电话</string>
+    <string name="norouteguidance">无法进入导航</string>
+
+    <!--footer-->
+    <string name="list_footer_loading">正在加载中…</string>
+    <string name="list_footer_network_error">点击重新加载</string>
+    <string name="list_footer_end">已经到底了</string>
+    <string name="same_city_error">出发城市不能与落地城市相同</string>
+    <string name="choice_car_location">请选择还车地点</string>
+    <string name="check_balance">查询余额</string>
+    <string name="keyword_location_hotel_name">关键字 / 位置 / 品牌 / 酒店名</string>
+    <string name="start_level">价格 / 星级</string>
+    <string name="credit_repay_sz">2256877777</string>
+    <string name="buxian">不限</string>
+    <string name="dangyuexiaoliangbang">当月销量榜</string>
+    <string name="hit_bang">热映先锋榜</string>
+    <string name="hit_shoucang">热映收藏榜</string>
+    <string name="huodongneirong">活动内容</string>
+    <string name="pingjia_0">评价(0)</string>
+    <string name="upload_max_picnum_notice">最多只能上传9张图片哦</string>
+    <string name="sd_card_unavailable">sd卡不可用</string>
+    <string name="get_img_error">图片获取失败</string>
+    <string name="title_activity_low_price">LowPriceActivity</string>
+    <string name="direct">直飞</string>
+    <string name="price">价格</string>
+    <string name="time">时间</string>
+    <string name="order_manager">订单管理</string>
+    <string name="daifukuan">待付款</string>
+    <string name="yifukuan">已付款</string>
+    <string name="yi_quxiao">已取消</string>
+    <string name="daizhifu">待支付</string>
+    <string name="cpupon_platform">平台优惠券</string>
+    <string name="business_integration">商家积分</string>
+    <string name="bank_offer">银行优惠</string>
+    <string name="singeline">单程</string>
+    <string name="price_low_to_high">价格由低到高</string>
+    <string name="pricet_high_to_low">价格由高到低</string>
+    <string name="flight_dynamics">航班动态</string>
+    <string name="choice_tuikuan_type">选择退款方式</string>
+    <string name="cash_balance_of_wallet">钱包现金余额</string>
+    <string name="instant_arrival">即时到账</string>
+    <string name="returned_the_same_way">原路退回</string>
+    <string name="two_to_ten">2-10个工作日到账</string>
+    <string name="reason_for_refund">退票原因</string>
+    <string name="connect_mobile">联系手机</string>
+    <string name="refund_content">请确认联系到您,否则可能影响退票</string>
+    <string name="affect_the_refund">影响退票</string>
+    <string name="tijiaoshenqing">提交申请</string>
+    <string name="refund_application">退票申请</string>
+    <string name="modify_order_application">改签申请</string>
+    <string name="zh9745">深圳航空 ZH9745 经济舱</string>
+    <string name="update">更改条件</string>
+    <string name="choice_update_person">选择改签乘机人</string>
+    <string name="gaiqianyunayin">改签原因</string>
+    <string name="please_choice_yuanyin">请选择改签原因</string>
+    <string name="ticket_back_detail">退改签详情</string>
+    <string name="ticket_back_rule">退改签规则</string>
+    <string name="choice_date">选择改签日期</string>
+    <string name="ticket_update">改</string>
+    <string name="ticket_ding">订</string>
+    <string name="plane_please_hbh">请输入航班号</string>
+    <string name="ticket_adault_empty">成人数量不能为空</string>
+    <string name="no_more_ticket">余票不足</string>
+    <string name="ticket_leave_ticket">%1$s张</string>
+    <string name="reason_for_change">退改签原因</string>
+    <string name="ticket_receive_now">立即领取</string>
+    <string name="recv_bouns">领取红包</string>
+    <string name="ticket_receive_finish">已领完</string>
+    <string name="ticket_receive_suc">领取成功</string>
+    <string name="app_order_suc">下单成功</string>
+    <string name="ticket_receive_fail">领取失败</string>
+    <string name="ticket_nomore_adult">不能添加更多成人</string>
+    <string name="ticket_nomore_child">不能添加更多儿童</string>
+    <string name="ticket_nomore_baby">不能添加更多婴儿</string>
+    <string name="less_one_reason_for_change">最少选择一个原因</string>
+    <string name="select_change_reason">请选择改签原因</string>
+    <string name="string_pay">支付</string>
+    <string name="pay_down">已支付</string>
+    <string name="tuipiao">退票</string>
+    <string name="gaiqian">改签</string>
+    <string name="zaicifasong">再次发送</string>
+    <string name="discount_payment_pay_suc">充值成功</string>
+    <string name="discount_payment_pay_fail">充值失败</string>
+    <string name="ticket_add_one_day">+%1$d天</string>
+    <string name="chengjiren">乘机人</string>
+    <string name="cancel_order">取消订单</string>
+    <string name="register_input_model">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="register_input_model1">0123456789</string>
+    <string name="any">不限</string>
+    <string name="ticket_no_bank_dis">您绑定的银行卡没有优惠</string>
+    <string name="ticket_no_bank_card">您没绑定的银行卡</string>
+    <string name="ticket_login">您还没登录</string>
+    <string name="ticket_more_bank">更多银行 >></string>
+    <string name="title_activity_near_by_map">NearByMapActivity</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="empty"/>
+    <string name="room_area">建筑面积%1$s</string>
+    <string name="room_floor">楼层%1$s</string>
+    <string name="room_name_bed">%1$s（%2$s）</string>
+    <string name="country_code_empty_notice">国家代码不能为空</string>
+    <string name="select_arrive_shop_time">请选择到店时间</string>
+    <string name="hotel_guest_input_notice">入住人不能为空</string>
+    <string name="hotel_guest_num_not_same">房间数与入住人数不一致</string>
+    <string name="title_activity_hotel_map">HotelMapActivity</string>
+    <string name="hotel_floor_balcony">%1$s --- %2$s</string>
+    <string name="business_time">营业  %1$s</string>
+    <string name="retail_price">门市价：¥%1$.0f</string>
+    <string name="balcony">包厢 %1$s</string>
+    <string name="policy_limit">(%1$s)</string>
+    <string name="policy_latest_order">最新预定：%1$s</string>
+    <string name="detail_position">位置：%1$s</string>
+    <string name="detail_meal_type">餐种：%1$s</string>
+    <string name="detail_bar_type">类型：%1$s</string>
+    <string name="detail_balcony">包厢：%1$s</string>
+    <string name="detail_flavor">风味：%1$s</string>
+    <string name="detail_wifi">宽带：%1$s</string>
+    <string name="detail_smoke">吸烟规定：%1$s</string>
+    <string name="detail_meal">%1$s（%2$s）</string>
+    <string name="detail_breakfast">早餐（%1$s）</string>
+    <string name="detail_lunch">午餐（%1$s）</string>
+    <string name="detail_dinner">晚餐（%1$s）</string>
+    <string name="menu_price">¥%1$d%2$s</string>
+    <string name="bar_whine_num">%1$d%2$s</string>
+    <string name="bar_whine_price">¥%1$d元</string>
+    <string name="bar_max_people">可容纳人数：%1$s</string>
+    <string name="bar_area">面积：%1$s</string>
+    <string name="bar_size">尺寸（米）：%1$.1f x %2$.1f</string>
+    <string name="bar_layout">布局风格：%1$s</string>
+    <string name="bar_type">类型：%1$s</string>
+    <string name="bar_business_time">营业时间：%1$s</string>
+    <string name="sport_location">位置：%1$s</string>
+    <string name="sport_business_time">营业：%1$s</string>
+    <string name="sport_time_length">时长：%1$s</string>
+    <string name="sport_price">价格：%1$fRMB</string>
+    <string name="sport_course">项目疗程：%1$s</string>
+    <string name="sport_standard">收费标准：%1$s</string>
+    <string name="sport_num">%1$d人</string>
+    <string name="parentheses_text">（%1$s）</string>
+    <string name="night_duration">%1$d晚</string>
+    <string name="order_time_num">时长：%1$s&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;%2$d人</string>
+    <string name="order_use_time">使用时间：%1$s到%2$s&#160;&#160;&#160;%3$s</string>
+    <string name="order_expiry_date">有效期：%1$s--%2$s</string>
+    <string name="order_time_room_num">日期%1$s&#160;&#160;&#160; %2$s&#160;&#160;&#160; %3$d间</string>
+    <string name="text_more_introduce">更多说明</string>
+    <string name="introduce">说明</string>
+    <string name="hotel_detail_point">%1$.1f分</string>
+    <string name="can_not_get_location">无法获取您当前的位置</string>
+    <string name="label_expand">展开</string>
+    <string name="label_shrink">收缩</string>
+    <string name="order_travel_detail_roomnum">间房</string>
+    <string name="order_travel_detail_pinfang_yes">(有拼房)</string>
+    <string name="order_travel_detail_pinfang_no">(无拼房)</string>
+    <string name="card_has_apply">已申请</string>
+    <string name="card_repayment">最后还款&#160;%1$s</string>
+    <string name="card_duration">距离还款&#160;%1$d天</string>
+    <string name="travel_nohotel_info">暂无酒店信息</string>
+    <string name="card_tail_num">尾号%1$s</string>
+    <string name="card_register">注销：账户余额支付可实时到账，银行卡支付T+1到账</string>
+    <string name="card_balance">当日可用余额%1$.1f元</string>
+    <string name="card_input_mobile_valid_code">请输入%1$s收到的验证码</string>
+    <string name="card_day">%1$d天</string>
+    <string name="card_rate">%1$.1f %%</string>
+    <string name="card_bank_and_tail">%1$s(尾号%2$s)</string>
+    <string name="card_repay_amount">%1$s元</string>
+    <string name="card_bank_tail_name">%1$s&#160;&#160;(%2$s)&#160;&#160;%3$s</string>
+    <string name="card_pay_success">付款成功,银行处理中……</string>
+    <string name="card_repay_success">还款成功</string>
+    <string name="card_bill_time">明天到账（最晚24:00）</string>
+    <string name="card_repay_result">银行延后1-2日更新还款结果</string>
+    <string name="card_user_instruction_title">持卡人说明</string>
+    <string name="card_user_instruction_content">为了保障账户资金安全，只能绑定认证用户本人的银行卡</string>
+    <string name="card_phone_instruction_title">手机号说明</string>
+    <string name="card_phone_instruction_content">银行预留手机号是办理该银行卡是所填写的手机号。没有预留、手机号忘记或者停用，请联系银行客服更新处理。大陆手机号码11位，非大陆手机号码为“国家代码-手机号码”形式。</string>
+
+    <!--消息 start-->
+    <string name="title_jpush_notification">消息</string>
+    <string name="message_order">订单通知</string>
+    <string name="message_activity">活动通知</string>
+    <string name="message_cardstore">礼品卡商城</string>
+    <string name="message_system">系统消息</string>
+    <string name="message_del_dialog">您确定删除该通知么</string>
+    <string name="msg_del_notice">确定删除吗?</string>
+    <string name="message_notice_detail">查看详情</string>
+    <string name="select_giftcard_notice">请选择礼品卡</string>
+    <string name="gift_card_user_detail">礼品卡明细</string>
+    <string name="gift_card_notice_txt">明细仅保留6个月内信息</string>
+    <string name="setting_no_password_for_small_amount">小额免密支付</string>
+    <string name="pay_setting_input_amount">请输入免密金额</string>
+    <string name="transfer_pay_out">支出：%1$.2f</string>
+    <string name="transfer_pay_in">收入：%1$.2f</string>
+    <string name="map_pano">实景</string>
+    <string name="select_theme">请选择主题</string>
+    <string name="user_id">身份证：%1$s</string>
+    <string name="redbag_goon_info">24小时未领完的红包将退还至红包余额</string>
+    <!--消息 end-->
+
+    <string name="wallet_fee">服务费：¥%1$.2f</string>
+    <string name="string_price">¥%1$s</string>
+
+    <!---红包-->
+    <string name="bouns_theme">红包主题</string>
+    <string name="bouns_theme1">红包主题:</string>
+    <string name="bouns_remarks">红包寄语:</string>
+    <string name="plug_money">塞钱</string>
+    <string name="give_bouns">红包</string>
+    <string name="define_red_envelope">自定义红包</string>
+    <string name="bouns_background_image">背景图片</string>
+    <string name="bouns_add_background_image">选择</string>
+    <string name="hint_bouns_theme_name">如张三的红包</string>
+    <string name="hint_bouns_theme_remarks">最好的祝福送给你，希望你开开心心</string>
+    <string name="add_image_prompt">添加图片会使红包与众不同哦～</string>
+    <string name="toast_set_define_name">请输入自定义红包主题名</string>
+    <string name="toast_set_define_dedark">请输入自定义红包寄语</string>
+    <string name="toast_set_define_imagebackground">请添加自定义红包背景</string>
+    <!--码尚付-->
+    <string name="msf_for_me_pay_money">码尚付扫一扫，向我付款</string>
+    <string name="msf_for_me_collection_money">码尚付扫一扫，向我收款</string>
+    <string name="msf_jiami_no_info">条形码经过加密处理，无透露个人讯息隐患。</string>
+    <string name="credit_user_tail">%1$s &#160;&#160;|&#160;&#160; 尾号%2$s</string>
+    <string name="card_add_notice">为了验证卡片的有效性，我们将从您卡中扣除0.01元进行验证，钱款会打入您的钱包中！</string>
+    <string name="hotel_use_limit">适用范围：%1$s</string>
+    <string name="hotel_time_limit">有效时限：%1$s</string>
+    <string name="gym_course">项目疗程：%1$s</string>
+    <string name="gym_instrument">健身器材：%1$s</string>
+    <string name="gym_box">储物柜：%1$s</string>
+    <string name="gym_bath">淋浴：%1$s</string>
+    <string name="gym_use_limit">适用范围：%1$s</string>
+    <string name="gym_time_limit">有限时效：%1$s</string>
+    <string name="gym_use_time">使用时限：%1$s</string>
+    <string name="policy_price">%1$.0f</string>
+    <string name="bed_type">床型：%1$s</string>
+    <string name="hotel_use_time">使用时间：%1$s</string>
+    <string name="hall_capacity">容量：%1$s</string>
+    <string name="title_activity_coupon_shop">CouponShopActivity</string>
+    <string name="bt_dailyrent_submit">提交</string>
+</resources>

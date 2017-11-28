@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.yzb.card.king.ui.ticket.activity.CheckInActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:background="@color/titleRed"
+        android:gravity="top">
+
+        <LinearLayout
+            android:id="@+id/iv_back"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img_title_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_back_white"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="在线选座"
+            android:textColor="@color/text_color_white"
+            android:textSize="21sp"/>
+    </RelativeLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/text_color_white"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:id="@+id/hkgs_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:id="@+id/hkgs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/bgBlack"
+                android:layout_margin="10dp"
+                android:text="航空公司"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tx_hkgs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/hkgs"
+            android:hint="请选择航空公司"/>
+
+
+        <ImageView
+            android:layout_width="8dp"
+            android:layout_height="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:background="@mipmap/icon_setting_arrow_next_grey"
+            />
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/wordGreyLight"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:id="@+id/sfz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColor="@color/bgBlack"
+                android:text="身份证"
+                android:textSize="20sp"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@mipmap/arrow_down_grey"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tx_sfz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/sfz"
+            android:background="@null"
+            android:hint="请填写您的身份证号码"/>
+
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:background="@mipmap/icon_people_number"
+            />
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/wordGreyLight"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColor="@color/bgBlack"
+                android:text="手机号码"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tx_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/phone"
+            android:background="@null"
+            android:hint="用于接收在线选座短信"/>
+
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:background="@mipmap/icon_people_number"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+
+        <Button
+            android:id="@+id/searchPlane"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="14dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_zj_xz_yellow"
+            android:focusable="true"
+            android:text="查询在线选座航班"
+            android:textColor="#fff"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="17dp"
+        android:text="点击‘办理在线选座’代表您已经阅读并同意"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="17dp"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="在线选座协议"
+            android:textColor="@color/blue_00B5D3"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=","
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue_00B5D3"
+            android:text="在线选座须知"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="和"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue_00B5D3"
+            android:text="危险品公告"
+            />
+    </LinearLayout>
+</LinearLayout>

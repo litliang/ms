@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/text_color_white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_name"
+        style="@style/tv13_style"
+        android:padding="10dp"
+        android:text=""
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/iv_food"
+        style="@style/iv_base_style2"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+    <TextView
+        android:id="@+id/tv_introduce"
+        style="@style/tv12_style"
+        android:layout_width="match_parent"
+        android:lineSpacingMultiplier="1.2"
+        android:padding="10dp"
+        android:text=""
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_tj"
+        style="@style/tv15_style"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="最地道推荐"
+        android:textSize="13sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/divider_color7" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.yzb.card.king.ui.appwidget.TagFlowLayout
+            android:id="@+id/flowlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:max_select="-1" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@drawable/rect_divider" />
+</LinearLayout>

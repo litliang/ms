@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#eaeaea"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <RelativeLayout style="@style/titlebar_style">
+
+        <LinearLayout
+            android:id="@+id/panel_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:onClick="goBack"
+            android:paddingLeft="20dp"
+            android:paddingRight="30dp">
+
+            <include layout="@layout/nav_left"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/titlebar_title"
+            style="@style/titlebar_title_style"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/jbf_zjf"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/jfb_EAEAEA"
+            android:orientation="vertical">
+
+            <com.yzb.card.king.ui.appwidget.SlideShow1ItemView
+                android:id="@+id/slideShowView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_bank_jf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="9dp"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:paddingTop="9dp">
+
+                <LinearLayout
+                    android:id="@+id/iv_left0"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp">
+
+                    <ImageView
+
+                        android:layout_width="24dp"
+                        android:layout_height="19dp"
+                        android:layout_centerVertical="true"
+                        android:background="@mipmap/icon_jfb_yhjf"
+                        android:scaleType="fitCenter"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="11dp"
+                    android:layout_toRightOf="@+id/iv_left0"
+                    android:text="@string/jfb_bank_jf"
+                    android:textColor="@color/jfb_636363"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:layout_height="12dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/arrow_right_grey"
+                    android:scaleType="fitXY"/>
+            </RelativeLayout>
+
+            <include layout="@layout/divider_d7d7d7"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_store_jf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="9dp"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:paddingTop="9dp">
+
+                <LinearLayout
+                    android:id="@+id/iv_left1"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp">
+
+                    <ImageView
+
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_centerVertical="true"
+                        android:background="@mipmap/icon_jfb_sjjf"
+                        android:scaleType="fitCenter"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="11dp"
+                    android:layout_toRightOf="@+id/iv_left1"
+                    android:text="@string/jfb_store_jf"
+                    android:textColor="@color/jfb_636363"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:layout_height="12dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/arrow_right_grey"
+                    android:scaleType="fitXY"/>
+            </RelativeLayout>
+
+            <include layout="@layout/divider_d7d7d7"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_sbxyk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="9dp"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:paddingTop="9dp">
+
+                <LinearLayout
+                    android:id="@+id/iv_left2"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="18dp"
+                        android:layout_centerVertical="true"
+                        android:background="@mipmap/icon_jfb_sbxyk"
+                        android:scaleType="fitCenter"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="11dp"
+                    android:layout_toRightOf="@+id/iv_left2"
+                    android:text="@string/jfb_sbxyk"
+                    android:textColor="@color/jfb_636363"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:layout_height="12dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/arrow_right_grey"
+                    android:scaleType="fitXY"/>
+            </RelativeLayout>
+
+            <include layout="@layout/divider_d7d7d7"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_share_app"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="9dp"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:paddingTop="9dp">
+
+                <LinearLayout
+                    android:id="@+id/iv_left3"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp">
+
+                    <ImageView
+
+                        android:layout_width="21dp"
+                        android:layout_height="25dp"
+                        android:layout_centerVertical="true"
+                        android:background="@mipmap/icon_jfb_fxapp"
+                        android:scaleType="fitCenter"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="11dp"
+                    android:layout_toRightOf="@+id/iv_left3"
+                    android:text="@string/jfb_share_app"
+                    android:textColor="@color/jfb_636363"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:layout_height="12dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/arrow_right_grey"
+                    android:scaleType="fitXY"/>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</LinearLayout>

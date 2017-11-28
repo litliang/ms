@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="0dp">
+
+        <TextView
+            android:id="@+id/tv_order"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/icon_round_number_blue"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/ticket_23C6FB"
+            android:textSize="8sp"/>
+
+        <TextView
+            android:id="@+id/flightDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="03-10 周六"
+            android:textColor="@color/color_a0a0a0"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tv_start_end_city"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:singleLine="false"
+            android:text="北京－上海"
+            android:textColor="@color/color_a0a0a0"
+            android:textSize="12sp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:layout_marginRight="10dp"
+                android:background="@mipmap/icon_all_time"/>
+
+            <TextView
+                android:id="@+id/totalTimeLength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/color_a0a0a0"
+                android:textSize="11sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/firstLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/startTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:text="08:35"
+                android:textColor="@color/color_303030"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/endTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="20dp"
+                android:text="10:30"
+                android:textColor="@color/color_303030"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/line"
+            android:layout_width="wrap_content"
+            android:layout_height="49dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginTop="8dp"
+            android:background="@mipmap/line_01"/>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/startAirportName"
+                style="@style/plane_order2_style"
+                android:layout_marginTop="2dp"
+                android:text="浦东机场T2"/>
+
+            <TextView
+                android:id="@+id/timeLength"
+                style="@style/plane_order1_style"
+                android:layout_marginTop="24dp"
+                android:text="2h10m"
+                android:textSize="10sp"/>
+
+            <TextView
+                android:id="@+id/endAirportName"
+                style="@style/plane_order2_style"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="2dp"
+                android:text="北京机场"
+                android:textSize="12sp"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/hbImage"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="3dp"
+            android:gravity="right"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/flightName"
+                style="@style/plane_order1_style"
+                android:text="春秋航空"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/tv_flightNumber"
+                style="@style/plane_order1_style"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:text="MU5122"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/tv_flightType"
+                style="@style/plane_order1_style"
+                android:text="空客320"
+                android:textSize="11sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!--有中转情况；-->
+    <LinearLayout
+        android:id="@+id/secondLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="2dp"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:id="@+id/rl_zhuan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            >
+
+            <TextView
+                android:id="@+id/zhuanCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="42dp"
+                android:text="上海"
+                android:textColor="#898989"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/tv_zhuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/zhuanCity"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_toRightOf="@id/zhuanCity"
+                android:background="@drawable/icon_round_red_stroke"
+                android:gravity="center"
+                android:text="转"
+                android:textColor="@color/color_D84043"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/zhuanTimeLength"
+                style="@style/plane_order5_style"
+                android:layout_alignTop="@id/zhuanCity"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="2dp"
+                android:layout_toRightOf="@id/tv_zhuan"
+                android:text=""/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/startTime2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="08:35"
+                    android:textColor="@color/color_303030"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/endTime2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="20dp"
+                    android:text="10:30"
+                    android:textColor="@color/color_303030"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/line2"
+                android:layout_width="wrap_content"
+                android:layout_height="49dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"
+                android:layout_marginTop="5dp"
+                android:background="@mipmap/line_03"/>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/startAirportName2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="浦东机场T2"
+                    android:textColor="@color/color_303030"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/timeLength2"
+                    style="@style/plane_order1_style"
+                    android:layout_marginTop="20dp"
+                    android:text="2h10m"/>
+
+                <TextView
+                    android:id="@+id/endAirportName2"
+                    style="@style/plane_order2_style"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="2dp"
+                    android:text="北京机场"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/hbImage2"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                android:gravity="right"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/flightName2"
+                    style="@style/plane_order1_style"
+                    android:text="春秋航空"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tv_flightNumber2"
+                    style="@style/plane_order1_style"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginTop="4dp"
+                    android:text="MU5122"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:id="@+id/tv_flightType2"
+                    style="@style/plane_order1_style"
+                    android:text="空客320"
+                    android:textSize="10sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

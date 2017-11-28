@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="right"
+    android:orientation="horizontal"
+    android:paddingTop="10dp"
+    android:paddingBottom="15dp">
+
+    <TextView
+        android:id="@+id/tvFreePay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/bg_gray_edge_1_corner_8"
+        android:gravity="center"
+        android:paddingBottom="1dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingTop="1dp"
+        android:text="免费取消"
+        android:textColor="@color/color_4D4D4D"
+        android:textSize="8sp" />
+
+    <TextView
+        android:id="@+id/tvPayWay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:text="在线付"
+        android:textColor="@color/color_69769b"
+        android:textSize="10sp"
+        android:layout_marginRight="6dp"
+        android:layout_gravity="center_vertical"/>
+
+    <TextView
+        android:id="@+id/tvRetailPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray5"
+        android:textSize="8sp"
+        android:layout_gravity="center_vertical"/>
+
+    <LinearLayout
+        android:id="@+id/llPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal"
+        android:layout_gravity="top">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_selfdrive_money_unit"
+            android:textColor="#cc9e3c"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:textColor="@color/hotel_yellow"
+            android:text="149"
+            android:textSize="19sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llPay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp">
+
+        <TextView
+            android:id="@+id/tvPay"
+            android:layout_width="60dp"
+            android:layout_height="23dp"
+            android:layout_marginBottom="1dp"
+            android:background="@drawable/bg_brown_corner_2"
+            android:gravity="center"
+            android:paddingBottom="2dp"
+            android:paddingLeft="9dp"
+            android:paddingRight="9dp"
+            android:paddingTop="2dp"
+            android:text="预定"
+            android:textColor="#fff"
+            android:textSize="14sp"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/activity_crash_detail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical"
+                android:background="@color/hotel_F5F5F5"
+                tools:context="com.yzb.card.king.ui.my.activity.CrashDetailActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:background="@color/titleRed"
+        android:gravity="top">
+
+        <LinearLayout
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:onClick="backAction"
+            android:paddingLeft="@dimen/title_l_r">
+
+            <ImageView
+                android:id="@+id/img_title_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_back_white"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/bill_titleName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="现金余额明细"
+            android:textColor="#fff"
+            android:textSize="@dimen/titlebar_text_size"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_title"
+        >
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/giftcard_swipe_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp"
+            >
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/card_bill_detail_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="460dp"
+                android:background="@color/hotel_F5F5F5"
+                />
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_title"
+        >
+
+        <LinearLayout
+            android:id="@+id/bill_llayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_mingxi_checked"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/giftcard_check_img"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#4f4f4f"
+                android:gravity="center"
+                android:layout_marginLeft="8dp"
+                android:text="@string/gift_card_notice_txt"
+                android:id="@+id/giftcard_noticeinfo_txt" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

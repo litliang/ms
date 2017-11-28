@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="13dp"
+        android:paddingTop="13dp">
+
+        <TextView
+            android:id="@+id/travellerName"
+            style="@style/travel_order_perprice_style"
+            android:text=""
+            />
+
+        <TextView
+            android:id="@+id/travellerGender"
+            style="@style/travel_order_title_style"
+            android:layout_marginLeft="18dp"
+            android:minEms="1"
+            android:text=""
+            android:textColor="@color/color_3f3f3f"
+            />
+
+        <TextView
+            android:id="@+id/travellerType"
+            style="@style/travel_order_title_style"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:textColor="@color/color_3f3f3f"
+            />
+
+        <TextView
+            android:id="@+id/travellerCut"
+            style="@style/travel_order_title_style"
+            android:gravity="center_vertical|right"
+            android:text="删除"
+            android:textColor="@color/color_bf9641"
+            />
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/divider"
+        layout="@layout/activity_hotel_order_divider"
+        android:layout_width="102dp"
+        android:layout_height="0.5dp"/>
+
+</LinearLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="14dp">
+
+        <com.yzb.card.king.ui.appwidget.WholeRecyclerView
+            android:id="@+id/routeListView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:divider="@null"
+            android:overScrollMode="never"
+            android:scrollbars="none"/>
+
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_cangwei"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="14dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/cangwei"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/color_333333"
+            android:textSize="14sp"/>
+
+        <!--总票价-->
+        <TextView
+            android:id="@+id/tv_total_piaojia"
+            style="@style/plane_order2_style"
+            android:layout_alignBottom="@id/cangwei"
+            android:layout_alignParentRight="true"
+            android:text="¥0"
+            android:textColor="@color/color_bf9642"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <!--票价  不包括税费-->
+        <TextView
+            android:id="@+id/piaojia"
+            style="@style/plane_order5_style"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/cangwei"
+            android:layout_marginTop="8dp"
+            android:text="多程票价¥0"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp"/>
+
+        <!--税费-->
+        <TextView
+            android:id="@+id/tv_tax_fee"
+            style="@style/plane_order5_style"
+            android:layout_alignBottom="@id/piaojia"
+            android:layout_alignParentRight="true"
+            android:text="@string/ticket_taxes_fee2"
+            android:textColor="@color/color_999999"
+            android:textSize="12sp"/>
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/piaojia"
+            android:layout_marginTop="8dp"
+            android:background="#dddddd"/>
+
+        <TextView
+            android:id="@+id/tv_takeoff_notice"
+            style="@style/plane_order5_style"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/view_line"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="航班起飞前2.5小时完成出票"/>
+
+    </RelativeLayout>
+</merge>

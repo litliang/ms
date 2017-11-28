@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <ImageView
+        style="@style/iv1_style"
+        android:layout_width="12dp"
+        android:layout_height="15dp"
+        android:background="@mipmap/icon_map_red" />
+
+    <TextView
+        android:id="@+id/tv_location"
+        style="@style/tv12_style"
+        android:layout_marginLeft="3dp"
+        android:text=""
+        android:textColor="#6B6B6B"
+        android:textSize="14sp" />
+</LinearLayout>

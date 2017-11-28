@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/rl_title"
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"/>
+
+    <View
+        android:id="@+id/lineTitel"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_F5F5F5"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/shape_bg_corner_solid_white"
+                android:orientation="vertical"
+                android:paddingLeft="13dp"
+                android:paddingRight="13dp"
+                >
+
+                <EditText
+                    android:id="@+id/etGiftCardNo"
+                    style="@style/giftcard_active_card_et"
+                    android:hint="请输入礼品卡号"
+                    android:textSize="@dimen/sp_15"
+                    />
+
+                <include layout="@layout/activity_hotel_order_divider"/>
+
+                <EditText
+                    android:id="@+id/etGiftCardPwd"
+                    style="@style/giftcard_active_card_et"
+                    android:hint="请输入礼品密码"
+                    android:inputType="textPassword"
+                    android:textSize="@dimen/sp_15"
+                    />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="13dp"
+                android:gravity="center_vertical">
+
+                <View
+                    android:id="@+id/dotView"
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/shape_round_solid_gray_small"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_toRightOf="@+id/dotView"
+                    android:gravity="center_vertical"
+                    android:text="请关注礼品卡有效期"
+                    android:textColor="@color/color_b3b3b3"
+                    android:textSize="14sp"/>
+
+                <LinearLayout
+                    android:id="@+id/panelHowActive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_marginLeft="1dp"
+                        android:background="@mipmap/icong_blue_solid_question"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:text="@string/text_how_active"
+                        android:textColor="#436a8e"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvNowActive"
+                style="@style/my_btn_bg_style"
+                android:layout_height="46dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="20dp"
+                android:textSize="@dimen/button_text_size"
+                android:text="@string/now_active"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="13dp"
+                android:layout_toRightOf="@+id/dotView"
+                android:text="@string/giftcard_notice2"
+                android:textColor="#9a9a9a"
+                android:textSize="14sp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="37dp"
+                android:layout_marginRight="37dp"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/icon_giftcard_bg"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_toRightOf="@+id/dotView"
+                android:text="实体卡，支持二维码扫描领用"
+                android:textColor="@color/color_5f5f5f"
+                android:textSize="13sp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

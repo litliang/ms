@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@color/bgWhite"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:id="@+id/bill_crash_shouru_txt"
+            android:textColor="@color/wordBlack2"
+            android:layout_marginTop="10dp"
+            android:text="收入" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:id="@+id/bill_crash_number_txt"
+            android:textColor="@color/wordBlack2"
+            android:layout_marginTop="10dp"
+            android:text="-666.66" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/bill_crash_date_txt"
+        android:text="2016-12-12"
+        android:gravity="center_vertical"
+        android:textColor="@color/bgColor_overlay"
+        android:layout_marginLeft="20dp"
+        />
+
+    <include
+        android:id="@+id/divider0"
+        layout="@layout/divider_d7d7d7"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/panel_title"
+        android:layout_marginLeft="20dp"
+        />
+
+</LinearLayout>

@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/bgGrey"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/style_grey_circle"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/payAmountLayout"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginBottom="3dp"
+                android:gravity="center_vertical|bottom"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="消费金额"
+                    android:textColor="@color/gray6"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/rmb"
+                    android:textColor="@color/gray7"
+                    android:textSize="25sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/showAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:text="0.00"
+                    android:textColor="@color/gray7"
+                    android:textSize="25sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/validateNumLayout"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="验  证  码"
+                    android:textColor="@color/gray6"
+                    android:textSize="13sp"/>
+
+                <com.jungly.gridpasswordview.GridPasswordView
+                    android:id="@+id/inputPwd"
+                    android:layout_width="120dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="10dp"
+                    android:inputType="number"
+                    app:dividerColor="#BABFC3"
+                    app:passwordLength="4"
+                    app:passwordType="numberPassword"
+                    app:textColor="@color/gray7"/>
+
+                <TextView
+                    android:id="@+id/btGetCode"
+                    android:layout_width="60dp"
+                    android:layout_height="26dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/style_btn_red_small"
+                    android:gravity="center"
+                    android:text="获取验证码"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <ImageView
+                android:id="@+id/key01"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@mipmap/pos_number_01"/>
+
+            <ImageView
+                android:id="@+id/key04"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@mipmap/pos_number_04"/>
+
+            <ImageView
+                android:id="@+id/key07"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@mipmap/pos_number_07"/>
+
+            <ImageView
+                android:id="@+id/keyPoint"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@mipmap/pos_number_dian"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <ImageView
+                android:id="@+id/key02"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@mipmap/pos_number_02"/>
+
+            <ImageView
+                android:id="@+id/key05"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@mipmap/pos_number_05"/>
+
+            <ImageView
+                android:id="@+id/key08"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@mipmap/pos_number_08"/>
+
+            <ImageView
+                android:id="@+id/key0"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@mipmap/pos_number_0"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <ImageView
+                android:id="@+id/key03"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@mipmap/pos_number_03"/>
+
+            <ImageView
+                android:id="@+id/key06"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@mipmap/pos_number_06"/>
+
+            <ImageView
+                android:id="@+id/key09"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@mipmap/pos_number_09"/>
+
+            <ImageView
+                android:id="@+id/key00"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@mipmap/pos_number_00"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <ImageView
+                android:id="@+id/keyQx"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@mipmap/pos_number_qx"/>
+
+            <ImageView
+                android:id="@+id/keyQc"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@mipmap/pos_number_qc"/>
+
+            <ImageView
+                android:id="@+id/keyQr"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:src="@mipmap/pos_number_qr"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="240dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:background="@mipmap/icon_pay_02"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/showGet"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|right"
+            android:paddingRight="25dp"
+            android:text="收"
+            android:textColor="@color/wordGrey"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/showPay"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:paddingLeft="25dp"
+            android:text="付"
+            android:textColor="@color/wordRed"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+</LinearLayout>

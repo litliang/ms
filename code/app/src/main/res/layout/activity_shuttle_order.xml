@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/ticket_list_bg">
+
+    <!-- 头 -->
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:gravity="top">
+
+        <LinearLayout
+            android:id="@+id/iv_back"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img_title_back"
+                android:layout_width="10dp"
+                android:layout_height="16dp"
+                android:src="@mipmap/icon_back_white"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/shuttle_order_submit"
+            android:textColor="@color/text_color_white"
+            android:textSize="@dimen/train_tv_21"/>
+
+    </RelativeLayout>
+    <!-- 头 -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="44dp"
+        android:layout_marginBottom="46dp"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- 基本信息 -->
+            <FrameLayout
+                android:id="@+id/baseInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="23dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="29dp"
+                android:layout_marginBottom="6dp">
+
+            </FrameLayout>
+            <!-- 基本信息 -->
+
+            <!-- 第一个联系人 -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:background="@drawable/ticket_list_item_bg">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="41dp"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:layout_width="0px"
+                        android:layout_height="0px"/>
+                    <TextView
+                        style="@style/shuttle_order_style2"
+                        android:layout_marginLeft="11dp"
+                        android:text="联系电话"/>
+                    <EditText
+                        android:id="@+id/lxrMobile1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="11dp"
+                        android:background="@null"
+                        android:hint="@string/shuttle_lianxidianhua"
+                        android:textColorHint="@color/train_cccccc"
+                        android:maxLength="11"
+                        android:inputType="phone"
+                        android:textSize="@dimen/train_tv_15"
+                        android:textColor="@color/color_3F3F3F"/>
+
+                    <ImageButton
+                        android:id="@+id/lxrButton1"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_marginRight="18dp"
+                        android:background="@mipmap/shuttle_order_people"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/train_eaeaea"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="41dp">
+
+                    <TextView
+                        style="@style/shuttle_order_style2"
+                        android:layout_marginLeft="11dp"
+                        android:text="@string/shuttle_bangrendingche"/>
+
+                    <TextView
+                        style="@style/shuttle_order_style2"
+                        android:layout_marginLeft="20dp"
+                        android:text="@string/shuttle_86"/>
+
+                    <ImageView
+                        android:layout_width="6dp"
+                        android:layout_height="11dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@mipmap/shuttle_order_detail_arrow"/>
+
+                    <EditText
+                        android:id="@+id/lxrMobile2"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/shuttle_jieshouduanxin"
+                        android:textColorHint="@color/color_a0a0a0"
+                        android:maxLength="11"
+                        android:inputType="phone"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:textSize="@dimen/train_tv_14"
+                        android:textColor="@color/color_3F3F3F"/>
+
+                    <com.yzb.card.king.ui.appwidget.SlideButton
+                        android:id="@+id/my_slide_button"
+                        android:layout_width="47dp"
+                        android:layout_height="27dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <!-- 第一个联系人 -->
+
+            <!-- 第二个联系人 -->
+            <LinearLayout
+                android:id="@+id/secondLxrLayout"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="11dp"
+                android:visibility="gone"
+                android:background="@drawable/ticket_list_item_bg"
+                >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="41dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/lxr"
+                        style="@style/shuttle_order_style2"
+                        android:layout_marginLeft="11dp"
+                        android:text="@string/shuttle_lianxiren"/>
+
+                    <EditText
+                        android:id="@+id/lxrName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:maxLength="20"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:textSize="15sp"
+                        android:textColor="@color/color_303030"/>
+
+                    <ImageButton
+                        android:id="@+id/lxrEditButton"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@mipmap/icon_add_people"/>
+
+                    <ImageButton
+                        android:id="@+id/lxrButton"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_marginRight="18dp"
+                        android:background="@mipmap/shuttle_order_people"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="41dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/sjh"
+                        style="@style/shuttle_order_style2"
+                        android:layout_marginLeft="11dp"
+                        android:text="@string/shuttle_mobile"/>
+
+                    <TextView
+                        android:id="@+id/sjh_86"
+                        style="@style/shuttle_order_style2"
+                        android:layout_marginLeft="34dp"
+                        android:text="@string/shuttle_86"/>
+
+                    <ImageView
+                        android:layout_width="6dp"
+                        android:layout_height="11dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@mipmap/shuttle_order_detail_arrow"/>
+
+                    <EditText
+                        android:id="@+id/lxrMobile"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/shuttle_jieshouduanxin"
+                        android:textColorHint="@color/color_a0a0a0"
+                        android:maxLength="11"
+                        android:numeric="integer"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:textSize="@dimen/train_tv_14"
+                        android:textColor="@color/color_3F3F3F"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <!-- 第二个联系人 -->
+
+            <!-- 意外险 -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="11dp"
+                android:paddingBottom="12dp"
+                android:background="@drawable/ticket_list_item_bg">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/shuttle_order_style2"
+                        android:layout_marginLeft="11dp"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/shuttle_quxiaoguize"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginRight="22dp"
+                        android:paddingBottom="4dp"
+                        android:text="如需发票，请在服务完成后，在订单详情页提交开票信 息。开票金额不包含优惠券金额。如需发票，请在服务完成后，在订单详情页提交开票信 息。开票金额不包含优惠券金额。"
+                        android:textSize="@dimen/train_tv_10"
+                        android:textColor="@color/train_919191"/>
+
+                </LinearLayout>
+                
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="76dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="22dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@color/train_eaeaea"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/shuttle_order_style2"
+                        android:layout_marginLeft="11dp"
+                        android:text="@string/shuttle_fapiaoguize"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="22dp"
+                        android:paddingBottom="4dp"
+                        android:text="如需发票，请在服务完成后，在订单详情页提交开票信 息。开票金额不包含优惠券金额"
+                        android:textSize="@dimen/train_tv_10"
+                        android:textColor="@color/train_919191"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <!-- 意外险 -->
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 下单 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_gravity="bottom"
+        android:background="@color/white_ffffff">
+
+        <RelativeLayout
+            android:id="@+id/orderDetailsLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/yuguzongjia"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/shuttle_yuguzongjia"
+                android:textSize="@dimen/train_tv_10"
+                android:textColor="@color/train_a5a5a5"/>
+
+            <TextView
+                android:id="@+id/jine"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_toRightOf="@id/yuguzongjia"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/ticket_red"
+                android:layout_marginLeft="6dp"
+                android:text="@string/train_rmb"/>
+
+            <TextView
+                android:id="@+id/totalAmount"
+                style="@style/plane_order9_style"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/jine"
+                android:text="0"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_toRightOf="@id/totalAmount"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/shuttle_qi"
+                android:textSize="@dimen/train_tv_14"
+                android:textColor="@color/train_a5a5a5"/>
+
+            <ImageView
+                android:id="@+id/orderDetailsImage"
+                android:layout_width="10dp"
+                android:layout_height="16dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="17dp"
+                android:background="@mipmap/icon_footer_arrow_right"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvSubmit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/color_status"
+            android:gravity="center"
+            android:text="@string/shuttle_yutidingdan"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+    <!-- 下单 -->
+
+</FrameLayout>

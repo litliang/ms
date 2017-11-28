@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/text_color_white"
+    android:orientation="vertical">
+
+    <!--代码中动态设置；-->
+    <com.yzb.card.king.ui.appwidget.SlideUnConflictViewPager
+        android:id="@+id/viewPager3"
+        android:layout_width="match_parent"
+        android:layout_height="95dp" />
+
+    <LinearLayout
+        android:id="@+id/panel_dots3"
+        style="@style/horizonal_linear_style"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center">
+
+    </LinearLayout>
+</LinearLayout>

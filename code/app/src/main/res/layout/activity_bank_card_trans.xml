@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:background="@color/color_f0f0f0">
+
+    <include
+        android:id="@+id/rl_title"
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/title_l_r"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="@dimen/title_l_r"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="姓名"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="收款人姓名"
+                android:paddingLeft="14dp"
+                android:textColor="@color/color_333333"
+                android:textColorHint="@color/gray6"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/ivPeople"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:src="@mipmap/percenter_icon_person" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#cdcdcd"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="卡号"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/etCardNum"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="收款人储蓄卡号"
+                android:inputType="number"
+                android:paddingLeft="14dp"
+                android:textColor="@color/color_333333"
+                android:textColorHint="@color/gray6"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/ivCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_camera_gray_wallet" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llBankInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#cdcdcd"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="14dp"
+                    android:text="银行"
+                    android:textColor="@color/color_333333"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/ivBankLogo"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
+
+                <TextView
+                    android:id="@+id/tvBankName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/color_333333"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:id="@+id/llSelectedBank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"
+                        android:text="选择银行"
+                        android:textColor="@color/gray6"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/icon_arrow_right_gray_middle" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#cdcdcd"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="时间"
+                    android:textColor="@color/color_333333"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tvTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="14dp"
+                    android:text="两小时内到账"
+                    android:textColor="@color/color_333333"
+                    android:textColorHint="@color/gray6"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tvTimeTable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="到账时间"
+                    android:textColor="#436a9c"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/white"
+        android:layout_marginLeft="@dimen/title_l_r"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="@dimen/title_l_r"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="金额"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"/>
+
+        <EditText
+            android:id="@+id/etAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="输入金额"
+            android:paddingLeft="14dp"
+            android:textColor="@color/color_333333"
+            android:textColorHint="@color/gray6"
+            android:inputType="numberDecimal"
+            android:maxLength="11"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/tvNotice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="限额说明"
+            android:textColor="#436a9c"
+            android:textSize="14sp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btNext"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/selector_normal_button"
+        android:text="下一步"
+        android:textColor="@color/white"
+        android:textSize="15sp"/>
+</LinearLayout>

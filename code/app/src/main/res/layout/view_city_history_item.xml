@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:background="@color/white_ffffff"
+              android:layout_height="wrap_content">
+
+    <com.yzb.card.king.ui.appwidget.WholeRecyclerView
+        android:id="@+id/wvBrand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/title_l_r"
+        android:layout_marginRight="40dp"
+        android:listSelector="@android:color/transparent">
+    </com.yzb.card.king.ui.appwidget.WholeRecyclerView>
+
+</LinearLayout>

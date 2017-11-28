@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yzb.card.king.ui.appwidget.menulistview.ItemMenuView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                          android:layout_width="match_parent"
+                                                          android:layout_height="wrap_content"
+                                                          android:minHeight="100dp">
+
+
+    <RelativeLayout
+        android:id="@+id/message_activity_delete_layout"
+        android:layout_width="70dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:minHeight="100dp"
+        android:background="#f5f5f5"
+        >
+
+        <ImageView
+            android:id="@+id/message_detail_delete_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="@drawable/bg_rule_entiy_white"
+            android:padding="6dp"
+            android:src="@mipmap/ic_msg_del"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bgWhite"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/remind_list_image"
+                    android:layout_width="154dp"
+                    android:layout_height="87dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="horizontal"
+                    android:paddingTop="50dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/iv_x"
+                        android:layout_width="100dp"
+                        android:layout_height="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="12dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvCardNumbernbsp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text=" "
+                        />
+
+                    <TextView
+                        android:id="@+id/tvCardNumber1"
+                        android:layout_width="6dp"
+                        android:layout_height="8dp"
+                        android:layout_marginTop="10dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvCardNumber2"
+                        android:layout_width="6dp"
+                        android:layout_height="8dp"
+                        android:layout_marginTop="10dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvCardNumber3"
+                        android:layout_width="6dp"
+                        android:layout_height="8dp"
+                        android:layout_marginTop="10dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvCardNumber4"
+                        android:layout_width="6dp"
+                        android:layout_height="8dp"
+                        android:layout_marginTop="10dp"
+                        />
+
+                </LinearLayout>
+            </FrameLayout>
+
+            <RelativeLayout
+                android:id="@+id/llcontentRight"
+                android:layout_width="wrap_content"
+                android:layout_height="101dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/titleinfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/remind_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="银行活动"
+                        android:textColor="#4e4e4e"
+                        android:textSize="13sp"
+                        android:textStyle="bold"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/remind_context"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titleinfo"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="商品简介啥啥啥啥啥"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="16dp"
+                    >
+
+
+                    <Button
+                        android:id="@+id/remind_button2"
+                        android:layout_width="72dp"
+                        android:layout_height="21dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_round_corner_yellow"
+                        android:gravity="center"
+                        android:text="去还款"
+                        android:textColor="#fc7f0b"
+                        android:textSize="10sp"/>
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/remind_button2"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#E5E5E5"
+            ></View>
+    </LinearLayout>
+
+</com.yzb.card.king.ui.appwidget.menulistview.ItemMenuView>

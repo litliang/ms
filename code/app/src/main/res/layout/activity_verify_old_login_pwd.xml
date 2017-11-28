@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"/>
+    <View
+        android:id="@+id/lineTitel"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/setting_F4F4F4"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="14dp">
+
+            <!--旧密码；-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_jfb_round_corner5dp_white_solid"
+                android:orientation="horizontal"
+                android:paddingBottom="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="20dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/setting_modify_binded_phone_tv_left"
+                    android:text="@string/setting_reset_old_pwd" />
+
+                <EditText
+                    android:id="@+id/et_pay_pwd"
+                    style="@style/setting_modify_binded_phone_et"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:hint="@string/setting_input_pwd_hint"
+                    android:inputType="textPassword" />
+
+                <ImageView
+                    android:id="@+id/iv_show_or_hide_pwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/icon_eye_grey"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_ok"
+                style="@style/setting_next_tv"
+                android:layout_marginTop="15dp"
+                android:text="@string/setting_ok" />
+
+            <TextView
+                android:id="@+id/tv_forget_login_pwd"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/setting_forget_login_pwd"
+                android:textSize="13sp"
+                android:drawableLeft="@mipmap/icon_round_blue_help"
+                android:drawablePadding="4dp"
+                android:textColor="@color/settings_blue"/>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

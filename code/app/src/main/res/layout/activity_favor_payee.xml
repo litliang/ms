@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <RelativeLayout style="@style/titlebar_style">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:paddingLeft="15dp"
+            android:paddingRight="30dp"
+            android:src="@mipmap/icon_back_white"/>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="选择收礼人"
+            android:textColor="@color/white"
+            android:textSize="@dimen/titlebar_text_size"/>
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_F5F5F5"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingBottom="13dp"
+                android:paddingTop="13dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="17dp"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/icon_search_bar_gray_small"/>
+
+                <EditText
+                    android:id="@+id/etKeyword"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="搜索"
+                    android:paddingLeft="9dp"
+                    android:singleLine="true"
+                    android:textColor="@color/color_666666"
+                    android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:id="@+id/ivClear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingRight="13dp"
+                    android:src="@mipmap/icon_search_text_close"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="常用收礼人"
+                    android:paddingBottom="13dp"
+                    android:paddingLeft="17dp"
+                    android:paddingTop="15dp"
+                    android:textColor="@color/color_b8b8b8"
+                    android:textSize="12sp"/>
+
+                <com.yzb.card.king.ui.appwidget.LoadMoreListView
+                    android:id="@+id/listView"
+                    style="@style/listview_style"
+                    android:layout_height="wrap_content"
+                    android:dividerHeight="0.1dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

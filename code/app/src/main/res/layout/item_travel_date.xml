@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+    <!--背景-->
+    <LinearLayout
+        android:id="@+id/panelBg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/selector_bg_corner_gray_blue"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="9dp">
+
+        <!--日期+状态-->
+        <TextView
+            android:id="@+id/tvDateState"
+            style="@style/travel_detail_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minEms="3"
+            android:text="06-30  国庆"
+            android:textColor="@drawable/selector_text_color_gray_white"
+            android:textSize="12sp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginTop="3dp">
+            <!--价格-->
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="top|center_horizontal"
+                android:text="¥0"
+                android:textColor="@drawable/selector_text_color_yellow_white"
+                android:textSize="15sp"/>
+
+            <!--售完-->
+            <ImageView
+                android:id="@+id/ivSellOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/icon_travel_sellout"
+                android:visibility="visible"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/panelTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/panelBg"
+        android:layout_alignRight="@+id/panelBg"
+        android:layout_alignTop="@+id/panelBg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-7dp"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp">
+
+        <View
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@drawable/shape_round_stroke_green"/>
+
+        <!--余票数量  最少3个字符-->
+        <TextView
+            android:id="@+id/tvTicketNum"
+            style="@style/travel_detail_text_gray_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_bottom_corner_3dp"
+            android:gravity="center"
+            android:maxEms="3"
+            android:paddingBottom="1dp"
+            android:paddingLeft="1dp"
+            android:paddingRight="1dp"
+            android:text="剩余0"
+            android:textColor="@color/color_c49347"
+            android:textSize="11sp"/>
+
+        <View
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@drawable/shape_round_stroke_green"/>
+    </LinearLayout>
+
+</RelativeLayout>

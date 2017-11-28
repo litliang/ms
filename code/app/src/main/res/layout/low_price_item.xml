@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/discount_mindcard_homepage_shape_white"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/title_l_r"
+        android:layout_marginRight="@dimen/title_l_r"
+        android:layout_marginTop="@dimen/title_l_r"
+
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="675"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/tv_startAirport"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="起始"
+                        android:textColor="#A0A0A0"
+                        android:textSize="18sp"/>
+
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_duration"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|bottom"
+                            android:text="123"
+                            android:textColor="#A0A0A0"
+                            android:textSize="10sp"/>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:layout_alignParentBottom="true"
+                            android:src="@mipmap/mileage_bg"/>
+
+                        <ImageView
+                            android:id="@+id/iv_fc"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginTop="2dp"
+                            android:src="@mipmap/mileage_bg_left"
+                            android:visibility="gone"
+                            />
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/tv_endAirport"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="抵达"
+                        android:textColor="#A0A0A0"
+                        android:textSize="18sp"/>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_date_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/ll_detail"
+                    android:layout_weight="1">
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_starDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:text="2016-10-12"/>
+
+                        <TextView
+                            android:id="@+id/tv_week"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="周二"
+                            android:textSize="10sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_fcTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_toRightOf="@+id/ll_starDate"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        >
+
+                        <TextView
+                            android:id="@+id/tv_fdate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:text="2016-10-12"/>
+
+                        <TextView
+                            android:id="@+id/tv_fweek"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="周二"
+                            android:textSize="10sp"/>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:layout_below="@+id/rl_date_time"
+                    android:layout_marginTop="5dp">
+
+                    <LinearLayout
+                        android:id="@+id/ll_star"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/image_air_company"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginRight="3dp"/>
+
+                        <TextView
+                            android:id="@+id/tv_aviationType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="航空名称"
+                            android:textColor="#A0A0A0"
+                            android:textSize="10sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_fchkName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_toRightOf="@+id/ll_star"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/image_air_end"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_alignParentBottom="true"/>
+
+                        <TextView
+                            android:id="@+id/tv_aviationType_end"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="航空名称"
+                            android:textColor="#A0A0A0"
+                            android:textSize="10sp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/jipiao_icon_line_dashed"/>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="256"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="100dp"
+                    android:layout_height="80dp">
+
+                    <TextView
+                        android:id="@+id/tvAdultPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="-10dp"
+                        android:layout_marginTop="-7dp"
+                        android:gravity="center"
+                        android:text="adsf"
+                        android:textColor="@color/hotel_orange_fe7f07"
+                        android:textSize="20sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/tvAdultPrice"
+                        android:layout_toRightOf="@+id/tvAdultPrice"
+                        android:text="含税"
+                        android:textSize="10sp"/>
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

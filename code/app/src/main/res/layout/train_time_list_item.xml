@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:background="@color/train_f2f9f9">
+    
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_width="44dp"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/beforeView"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/train_e69c9e"/>
+
+        <ImageView
+            android:id="@+id/middleImg"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/icon_round_red2"/>
+
+        <View
+            android:id="@+id/afterView"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/train_e69c9e"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/trainName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="left|center_vertical"
+        android:text="@string/train_chezhanmingcheng"
+        android:textSize="@dimen/train_tv_14"
+        android:textColor="@color/train_3f3f3f"/>
+
+    <TextView
+        android:id="@+id/reachTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:layout_marginLeft="4dp"
+        android:gravity="left|center_vertical"
+        android:text="@string/train_daodashijian"
+        android:textSize="@dimen/train_tv_14"
+        android:textColor="@color/train_3f3f3f"/>
+
+    <TextView
+        android:id="@+id/startTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:layout_marginLeft="4dp"
+        android:gravity="left|center_vertical"
+        android:text="@string/train_daodashijian"
+        android:textSize="@dimen/train_tv_14"
+        android:textColor="@color/train_3f3f3f"/>
+
+    <TextView
+        android:id="@+id/dueTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:layout_marginLeft="4dp"
+        android:gravity="left|center_vertical"
+        android:text="@string/train_chezhanmingcheng"
+        android:textSize="@dimen/train_tv_14"
+        android:textColor="@color/train_3f3f3f"/>
+
+</LinearLayout>

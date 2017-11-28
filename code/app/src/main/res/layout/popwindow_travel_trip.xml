@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/white_null"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:alpha="0"
+        android:background="@color/transparent"
+        android:orientation="vertical"/>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2.7"
+        android:alpha="0.7"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/info_trip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/discount_29292b"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/detail_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="28dp"
+                android:layout_marginRight="28dp"
+                android:layout_marginTop="21dp"
+                android:lineSpacingMultiplier="1.2"
+                android:text="标题"
+                android:textColor="@color/color_66b9f2"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="28dp"
+                android:text="行程概要"
+                android:textColor="@color/white"
+                android:textSize="13sp"/>
+
+            <com.yzb.card.king.ui.appwidget.WholeRecyclerView
+                android:id="@+id/recy_trip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="15dp"/>
+
+            <LinearLayout
+                android:id="@+id/ll_price_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="价格:"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="¥0起"
+                    android:textColor="@color/yellow"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/go_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="更多详情>"
+                    android:textColor="@color/color_2eabff"
+                    android:textSize="12sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

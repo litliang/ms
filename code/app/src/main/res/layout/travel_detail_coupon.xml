@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:orientation="vertical"
+    >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/color_F5F5F5"/>
+
+    <!--银行优惠部分-->
+    <LinearLayout
+        android:id="@+id/panelBankCoupon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="13dp"
+            android:paddingTop="13dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_travel_detail_left"/>
+
+            <TextView
+                android:id="@+id/tvBankCoupon"
+                style="@style/travel_detail_title_style"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:text="优惠详情"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_travel_detail_right"
+                />
+        </LinearLayout>
+
+        <include layout="@layout/travel_detail_divider"/>
+
+        <!--2层-->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/emptyView"
+                style="@style/travel_detail_title_style"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="暂无优惠"
+                android:textSize="12.5sp"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:orientation="horizontal">
+
+                <com.yzb.card.king.ui.appwidget.SpecHeightGridView
+                    android:id="@+id/gridCouponBanks"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_weight="1"
+                    android:numColumns="3"/>
+
+                <ImageView
+                    android:id="@+id/couponBanksArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@mipmap/icon_travel_down"/>
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <include
+            layout="@layout/travel_detail_divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            />
+    </LinearLayout>
+
+    <include layout="@layout/travel_detail_platform_shop_coupon"/>
+
+    <include layout="@layout/travel_detail_coupon_redpacket"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/color_F5F5F5"/>
+</LinearLayout>

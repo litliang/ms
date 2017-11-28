@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+    >
+    <!--第一天-->
+    <LinearLayout
+        android:id="@+id/panelTitle"
+        style="@style/travel_detail_lineintro_panel"
+        android:paddingBottom="12dp"
+        android:paddingTop="12dp"
+        >
+
+        <TextView
+            android:id="@+id/tvDay"
+            style="@style/travel_detail_lineintro_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_bg_corner_blue_stroke"
+            android:paddingBottom="4dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="4dp"
+            android:text="第一天"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            />
+
+        <TextView
+            android:id="@+id/tvTravelSummay"
+            style="@style/travel_detail_lineintro_right"
+            android:layout_marginLeft="20dp"
+            android:text=""
+            android:textSize="14sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/panelDivider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/panelTitle"
+        android:layout_marginLeft="30dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:background="@drawable/shape_round_yellow_dot"/>
+
+        <include layout="@layout/travel_detail_divider"/>
+    </LinearLayout>
+
+    <com.yzb.card.king.ui.appwidget.WholeListView
+        android:id="@+id/dayTimeListView"
+        style="@style/listview_style"
+        android:divider="@null"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/panelDivider"/>
+</RelativeLayout>

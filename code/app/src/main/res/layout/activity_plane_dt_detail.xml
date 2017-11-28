@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white_ffffff"
+    android:fitsSystemWindows="true"
+    tools:context="com.yzb.card.king.ui.ticket.activity.PlaneDtDetailActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:background="@color/titleRed"
+        android:gravity="top">
+
+        <LinearLayout
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/title_l_r"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img_title_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_back_white"/>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/text_color_white"
+            android:textSize="21sp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:id="@+id/collect_plane"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:background="@mipmap/focus_succ"
+                />
+
+            <ImageView
+                android:id="@+id/share_plane"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:background="@mipmap/icon_share_white_xi"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="15dp"
+        android:background="@color/white_ffffff"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:paddingLeft="12dp"
+            android:paddingBottom="7dp"
+            android:paddingTop="7dp"
+            android:paddingRight="3dp"
+            android:background="@drawable/bg_gray_edge_corner"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="预计出发"
+                android:textSize="12sp"
+                android:textColor="#333333"
+                android:id="@+id/textView15"/>
+
+            <TextView
+                android:id="@+id/sjgo_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#282828"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:id="@+id/jhgo_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#999999"
+                android:lines="1"
+                android:textSize="12sp"
+                />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/states"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/hbdt_detail_type"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="@color/text_color_white"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bt"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/star_city_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#323232"
+                    />
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#323232"
+                    />
+
+                <TextView
+                    android:id="@+id/end_city_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#323232"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:orientation="vertical"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="20dp"
+            android:paddingLeft="12dp"
+            android:paddingBottom="7dp"
+            android:paddingTop="7dp"
+            android:paddingRight="3dp"
+            android:background="@drawable/bg_gray_edge_corner"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="预计抵达"
+                android:textSize="12sp"
+                android:textColor="#333333"
+                android:id="@+id/tvYjDepTime"
+                />
+
+            <TextView
+                android:id="@+id/sjd_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#282828"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:id="@+id/jhd_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:lines="1"
+                android:textColor="#999999"
+                android:textSize="12sp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_gray_edge_corner"
+        android:padding="1dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bgWhite"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            >
+
+            <TextView
+                android:id="@+id/qi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@mipmap/bg_hbdt_qzj"
+
+                />
+
+            <TextView
+                android:id="@+id/go_jc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/qi"
+                android:textSize="16sp"
+                android:textColor="#282828"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/go_jc"
+                android:textSize="15sp"
+                android:text="(起飞)"
+                android:textColor="#999999"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/tq_ssd"
+                android:textColor="@color/gray21"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:id="@+id/tq_ssd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/tq_tb"
+                android:textColor="@color/gray21"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:id="@+id/tq_tb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:textColor="#282828"
+                android:layout_toLeftOf="@+id/fx_detail"
+                />
+
+            <ImageView
+                android:id="@+id/fx_detail"
+                android:layout_width="8dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:visibility="invisible"
+                android:background="@mipmap/icon_setting_arrow_next_grey"
+                />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="#e6e6e6"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            >
+        </View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/bgWhite"
+            android:paddingTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:paddingBottom="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp"
+                android:background="@drawable/bg_round_corner_gray_fafafa"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#9a9a9a"
+                    android:text="航站楼"
+                    />
+
+                <TextView
+                    android:id="@+id/qfhzl_tx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#333333"
+                    android:textSize="20sp"
+                    />
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:background="@drawable/bg_round_corner_gray_fafafa"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="值机柜台"
+                    android:textColor="#9a9a9a"
+                    />
+
+                <TextView
+                    android:id="@+id/zjgt_tx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#333333"
+                    android:textSize="20sp"
+                    />
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp"
+                android:background="@drawable/bg_round_corner_gray_fafafa"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="登机口"
+                    android:textColor="#9a9a9a"
+                    />
+
+                <TextView
+                    android:id="@+id/djk_tx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#333333"
+                    android:textSize="20sp"
+                    />
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:padding="1dp"
+        android:background="@drawable/bg_gray_edge_1_corner_8"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bgWhite"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/jiang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@mipmap/bg_hbdt_qzj_low"
+
+                    />
+
+                <TextView
+                    android:id="@+id/end_jc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/jiang"
+                    android:textColor="#282828"
+                    android:textSize="17sp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/end_jc"
+                    android:textSize="15sp"
+                    android:text="(着落)"
+                    android:textColor="#999999"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/tq_ssd2"
+                    android:textColor="@color/gray21"
+                    android:textSize="20sp"
+                    />
+
+                <TextView
+                    android:id="@+id/tq_ssd2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/tq_tb1"
+                    android:textColor="@color/gray21"
+                    android:textSize="20sp"
+                    />
+
+                <TextView
+                    android:id="@+id/tq_tb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:textColor="#282828"
+                    android:layout_toLeftOf="@+id/jfx_detail"
+                    />
+
+                <ImageView
+                    android:id="@+id/jfx_detail"
+                    android:layout_width="8dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
+                    android:visibility="invisible"
+                    android:background="@mipmap/icon_setting_arrow_next_grey"
+                    />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="#e6e6e6"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/bgWhite"
+                android:paddingTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:paddingBottom="10dp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/one_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:background="@drawable/bg_round_corner_gray_fafafa"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/gray21"
+                        android:text="航站楼"
+                        />
+
+                    <TextView
+                        android:id="@+id/ddhzl_tx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#333333"
+                        android:textSize="20sp"
+                        />
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:layout_marginLeft="7dp"
+                    android:background="@drawable/bg_round_corner_gray_fafafa"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="行李转盘"
+                        android:textColor="@color/gray21"
+                        />
+
+                    <TextView
+                        android:id="@+id/xlzp_tx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#333333"
+                        android:textSize="20sp"
+                        />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:visibility="invisible"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/gray21"
+                        android:text="航站楼"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:textSize="20sp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

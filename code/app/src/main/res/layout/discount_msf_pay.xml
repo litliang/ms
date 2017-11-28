@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/bgGrey"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/style_grey_circle"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+
+
+            <EditText
+                android:id="@+id/getAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+                android:cursorVisible="false"
+                android:gravity="center"
+                android:hint="请输入金额"
+                android:maxLength="10"
+                android:textColor="@color/gray7"
+                android:textColorHint="@color/gray6"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/shadowText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+
+    </FrameLayout>
+
+    <!--数字键盘-->
+    <include
+        android:id="@+id/viewNumberKeypay"
+        layout="@layout/view_number_keypad"/>
+
+
+    <!---->
+    <include
+        layout="@layout/view_pay_collection"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textColor="#436a8e"
+        android:text="付款"
+        android:textSize="15sp"
+        android:background="@mipmap/bg_current_status"/>
+
+</LinearLayout>

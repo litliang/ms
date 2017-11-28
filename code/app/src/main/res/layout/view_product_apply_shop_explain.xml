@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <LinearLayout
+        android:id="@+id/llApplyShop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/title_l_r"
+        android:paddingRight="@dimen/title_l_r"
+        android:paddingBottom="10dp"
+        android:background="@color/white_ffffff"
+        android:paddingTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:textColor="@color/color_343434"
+            android:text="适用门店"
+            />
+
+        <ImageView
+            android:id="@+id/ivArrowApplyShop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/icon_arrow_top_gray"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <LinearLayout
+        android:id="@+id/llApplyShopContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:background="@color/color_f0f0f0"
+        android:paddingTop="10dp"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvChangeCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="切换城市"
+            android:layout_gravity="center_horizontal"
+            android:drawableRight="@mipmap/icon_blue_right_left"
+            android:drawablePadding="5dp"
+            android:textSize="14sp"
+            android:textColor="#557798"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.yzb.card.king.ui.appwidget.WholeRecyclerView
+                android:id="@+id/wvApplyShop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:listSelector="@android:color/transparent">
+            </com.yzb.card.king.ui.appwidget.WholeRecyclerView>
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/title_l_r"
+        android:paddingRight="@dimen/title_l_r"
+        android:paddingBottom="10dp"
+        android:background="@color/white_ffffff"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="使用说明"
+            android:textSize="14sp"
+            android:maxLines="2"
+            android:textColor="@color/color_333333"/>
+
+        <TextView
+            android:id="@+id/tvShuoming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/color_666666"
+            android:layout_marginTop="10dp"
+            android:text="1.本套餐仅限自己适用或赠与他人，不可二次销售\n2.入住酒店需提前预约，预约电话051-1231-7567\n3.上海浦东东方文化保留一切权利"
+            android:lineSpacingExtra="5dp"
+            />
+
+
+    </LinearLayout>
+
+</LinearLayout>

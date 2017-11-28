@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingRight="7dp"
+            android:paddingTop="15dp">
+
+            <TextView
+                android:id="@+id/tvBrandTypeName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="舒适型"
+                android:textColor="@color/color_666666"
+                android:textSize="14sp"/>
+
+
+            <LinearLayout
+                android:id="@+id/llArrowGray"
+                android:layout_width="30dp"
+                android:gravity="center_horizontal"
+                android:layout_height="18dp">
+
+                <ImageButton
+                    android:id="@+id/tvSpread"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:background="@android:color/transparent"
+                    android:src="@mipmap/icon_arrow_down_gray_item"/>
+
+                <TextView
+                    android:id="@+id/tvClearData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_456992"
+                    android:layout_gravity="right"
+                    android:visibility="gone"
+                    android:textSize="14sp"
+                    android:text="@string/hotel_btn_clear"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.yzb.card.king.ui.appwidget.WholeRecyclerView
+            android:id="@+id/wvBrand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:listSelector="@android:color/transparent">
+        </com.yzb.card.king.ui.appwidget.WholeRecyclerView>
+
+        <ImageView
+            android:id="@+id/ivLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/bg_focus"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

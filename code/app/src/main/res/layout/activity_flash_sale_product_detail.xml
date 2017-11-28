@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white_ffffff"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/rl_title"
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"/>
+
+    <View
+        android:id="@+id/lineTitel"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/ivProductImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:background="@mipmap/home_bg_banner"
+                        android:scaleType="centerCrop"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true">
+
+                        <TextView
+                            android:id="@+id/tvImageNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="14dp"
+                            android:layout_marginRight="14dp"
+                            android:background="#7f919191"
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:paddingTop="3dp"
+                            android:text="32张"
+                            android:textColor="@color/white_ffffff"
+                            android:textSize="10sp"/>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_ffffff"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="@dimen/title_l_r"
+                    android:paddingRight="@dimen/title_l_r"
+                    android:paddingTop="10dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/tvProductName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="测试"
+                        android:textColor="@color/color_333333"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvProductDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="5dp"
+                        android:text="主卡有效期：半年\n实体券领取方式：邮寄、酒店自取"
+                        android:textColor="@color/color_343434"
+                        android:textSize="14sp"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/tvBankName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:textColor="#557798"
+                        android:textSize="14sp"
+                        />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#cdcdcd"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_ffffff"
+                    android:orientation="vertical"
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="@dimen/title_l_r"
+                    android:paddingRight="@dimen/title_l_r"
+                    android:paddingTop="10dp">
+
+                    <LinearLayout
+                        android:id="@+id/llIncrementItems"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <include
+                            layout="@layout/view_item_menu_detail_arrow"/>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_f0f0f0"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#cdcdcd"/>
+
+                    <LinearLayout
+                        android:id="@+id/llApplyShop"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white_ffffff"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="@dimen/title_l_r"
+                        android:paddingRight="@dimen/title_l_r"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="适用门店"
+                            android:textColor="@color/color_343434"
+                            android:textSize="14sp"
+                            />
+
+                        <ImageView
+                            android:id="@+id/ivArrowApplyShop"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/icon_arrow_top_gray"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#cdcdcd"/>
+
+                    <LinearLayout
+                        android:id="@+id/llApplyShopContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/color_f0f0f0"
+                        android:orientation="vertical"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/tvChangeCity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:drawablePadding="5dp"
+                            android:drawableRight="@mipmap/icon_blue_right_left"
+                            android:text="切换城市"
+                            android:textColor="#557798"
+                            android:textSize="14sp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.yzb.card.king.ui.appwidget.WholeRecyclerView
+                                android:id="@+id/wvApplyShop"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:listSelector="@android:color/transparent">
+                            </com.yzb.card.king.ui.appwidget.WholeRecyclerView>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llPrivilege"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white_ffffff"
+                        android:orientation="vertical"
+                        android:paddingBottom="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:paddingLeft="@dimen/title_l_r"
+                        android:paddingRight="@dimen/title_l_r"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLines="2"
+                            android:text="礼遇"
+                            android:textColor="@color/color_333333"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:id="@+id/tvPrivilege"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="1.本套餐仅限自己适用或赠与他人，不可二次销售\n2.入住酒店需提前预约，预约电话051-1231-7567\n3.上海浦东东方文化保留一切权利"
+                            android:textColor="@color/color_666666"
+                            android:textSize="14sp"
+                            />
+
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white_ffffff"
+                        android:orientation="vertical"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="@dimen/title_l_r"
+                        android:paddingRight="@dimen/title_l_r"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLines="2"
+                            android:text="使用说明"
+                            android:textColor="@color/color_333333"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:id="@+id/tvShuoming"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:lineSpacingExtra="5dp"
+                            android:text="1.本套餐仅限自己适用或赠与他人，不可二次销售\n2.入住酒店需提前预约，预约电话051-1231-7567\n3.上海浦东东方文化保留一切权利"
+                            android:textColor="@color/color_666666"
+                            android:textSize="14sp"
+                            />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+        <include
+            layout="@layout/activity_hotel_order_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

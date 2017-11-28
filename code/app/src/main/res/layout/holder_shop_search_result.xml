@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/lvType"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:divider="@color/white"
+            android:dividerHeight="1px"
+            android:background="@drawable/ticket_list_bg"/>
+        <ListView
+            android:id="@+id/lvGoods"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@color/white"
+            android:divider="@null"
+            android:dividerHeight="0dp"/>
+    </LinearLayout>
+</LinearLayout>

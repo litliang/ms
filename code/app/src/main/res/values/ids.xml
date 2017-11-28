@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="productId" type="id"/>
+    <item name="productImageCode" type="id"/>
+    <item name="productImageLittleCode" type="id"/>
+    <item name="productDesc" type="id"/>
+    <item name="productClass" type="id"/>
+
+    <item name="bankCardId" type="id"/>
+    <item name="bankCardNo" type="id"/>
+    <item name="bankCardSort" type="id"/>
+    <item name="bankCardBalance" type="id"/>
+
+    <item name="gcOrderId" type="id"/>
+    <item name="gcOrderStatus" type="id"/>
+
+    <item name="id" type="id"/>
+    <item name="amount" type="id"/>
+    <item name="ling" type="id"/>
+    <item name="zong" type="id"/>
+    <item name="content" type="id"/>
+    <item name="cardClass" type="id"/>
+    <item name="status" type="id"/>
+    <item name="count" type="id"/>
+
+    <item name="position" type="id"/>
+
+    <item name="expandable_text" type="id"/>
+    <item name="expand_collapse" type="id"/>
+
+    <item name="id_stickynavlayout_topview" type="id"/>
+    <item name="id_stickynavlayout_viewpager" type="id"/>
+    <item name="id_stickynavlayout_indicator" type="id"/>
+    <item name="id_stickynavlayout_innerscrollview" type="id"/>
+
+    <item name="hotel_policys_bedtype" type="id"/>
+    <item name="hotel_policys_breakfast" type="id"/>
+    <item name="hotel_policys_paystatus" type="id"/>
+    <item name="hotel_policys_price" type="id"/>
+
+    <item name="tag_flowlayout_keys" type="id"/>
+    <item name="seleted_pos" type="id"/>
+
+    <item name="train_seat_type" type="id"/>
+    <item name="train_seat_price" type="id"/>
+
+    <item name="tag_first" type="id"/>
+    <item name="tag_second" type="id"/>
+
+    <item name="tag_cetificate_type" type="id"/>
+    <item name="drag_handle" type="id"/>
+
+    <item name="bank_coupon_tag_position" type="id"/>
+
+    <item name="ticket_agent_tag_op_type" type="id"/>
+    <item name="ticket_agent_tag_position" type="id"/>
+</resources>

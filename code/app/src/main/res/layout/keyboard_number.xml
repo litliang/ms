@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:id="@+id/keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:background="@android:color/white"
+        android:gravity="center">
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:background="@color/lineGrey" />
+
+        <TableRow android:gravity="center">
+
+            <ImageView
+                android:id="@+id/key01"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_01" />
+
+            <View
+                android:layout_width="1.0px"
+                android:layout_height="fill_parent"
+                android:background="@color/lineGrey" />
+
+            <ImageView
+                android:id="@+id/key02"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_02" />
+
+            <View
+                android:layout_width="1.0px"
+                android:layout_height="fill_parent"
+                android:background="@color/lineGrey" />
+
+            <ImageView
+                android:id="@+id/key03"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_03" />
+
+        </TableRow>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:background="@color/lineGrey" />
+
+        <TableRow android:gravity="center">
+
+            <ImageView
+                android:id="@+id/key04"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_04" />
+
+            <View
+                android:layout_width="1.0px"
+                android:layout_height="fill_parent"
+                android:background="@color/lineGrey" />
+
+            <ImageView
+                android:id="@+id/key05"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_05" />
+
+            <View
+                android:layout_width="1.0px"
+                android:layout_height="fill_parent"
+                android:background="@color/lineGrey" />
+
+            <ImageView
+                android:id="@+id/key06"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_06" />
+        </TableRow>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:background="@color/lineGrey" />
+
+        <TableRow android:gravity="center">
+
+            <ImageView
+                android:id="@+id/key07"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_07" />
+
+            <View
+                android:layout_width="1.0px"
+                android:layout_height="fill_parent"
+                android:background="@color/lineGrey" />
+
+            <ImageView
+                android:id="@+id/key08"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_08" />
+
+            <View
+                android:layout_width="1.0px"
+                android:layout_height="fill_parent"
+                android:background="@color/lineGrey" />
+
+            <ImageView
+                android:id="@+id/key09"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_09" />
+        </TableRow>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:background="@color/lineGrey" />
+
+        <TableRow android:gravity="center">
+
+            <ImageView
+                android:id="@+id/keypoint"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="#CAD1D8"
+                android:src="@drawable/key_point" />
+
+            <ImageView
+                android:id="@+id/key00"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_00" />
+
+            <ImageView
+                android:id="@+id/keydel"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="#CAD1D8"
+                android:src="@drawable/key_del" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

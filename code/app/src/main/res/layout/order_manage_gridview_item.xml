@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/textview11"
+        android:layout_width="match_parent"
+        android:layout_height="31dp"
+        android:text="测试"
+        android:textSize="@dimen/title_size_14"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:layout_marginTop="3dp"
+        android:textColor="@drawable/order_manage_gridview_item_textcolor"
+        android:background="@drawable/order_manage_gridview_bg"/>
+
+</RelativeLayout>

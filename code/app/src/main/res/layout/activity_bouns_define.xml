@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/header"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <LinearLayout
+                    android:id="@+id/panelBounsTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bouns_theme1"
+                        android:textColor="@color/color_333333"
+                        android:textSize="15sp"/>
+
+                    <EditText
+                        android:id="@+id/etBoundThemeName"
+                        android:layout_width="match_parent"
+                        android:layout_height="33dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/shape_bg_corner_solid_white"
+                        android:hint="@string/hint_bouns_theme_name"
+                        android:maxLines="1"
+                        android:maxLength="8"
+                        android:paddingLeft="4dp"
+                        android:singleLine="true"
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#dddddd"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/bouns_remarks"
+                    android:textColor="@color/color_333333"
+                    android:textSize="15sp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_bg_corner_solid_white"
+                    android:layout_marginBottom="10dp">
+
+                    <EditText
+                        android:id="@+id/etBounsWishes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:gravity="top"
+                        android:hint="@string/hint_bouns_theme_remarks"
+                        android:maxLength="20"
+                        android:minLines="3"
+                        android:paddingTop="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:textColor="@color/color_0a1333"
+                        android:textColorHint="@color/wordGrey"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/tvRemarkNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/msg_content"
+                        android:layout_below="@+id/etBounsWishes"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="0/50"/>
+
+                </RelativeLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#dddddd"/>
+                <LinearLayout
+                    android:id="@+id/addBackgroundImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bouns_background_image"
+                        android:textColor="@color/color_333333"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="13dp"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical|right"
+                        android:singleLine="true"
+                        android:text="@string/bouns_add_background_image"
+                        android:textColor="@color/color_476b98"
+                        android:textSize="13sp"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="9dp"
+                        android:src="@mipmap/icon_arrow_blue_right"
+                        />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/ivBackgroundImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:background="@drawable/shape_bg_corner_solid_white"
+                    android:padding="3dp"
+                   />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textSize="13sp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/add_image_prompt"
+                    />
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/transparent"
+        android:gravity="top|center_horizontal"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        >
+
+        <TextView
+            android:id="@+id/tvPreScan"
+            style="@style/redpacket_theme_bottom_txt_define"
+            android:background="@drawable/shape_bg_corner_solid_white"
+            android:text="预览"
+            android:textColor="@color/titleRed"/>
+
+        <TextView
+            android:id="@+id/tvOk"
+            style="@style/redpacket_theme_bottom_txt_define"
+            android:textColor="@color/color_dbdedd"
+            android:layout_marginLeft="55dp"
+            android:background="@drawable/shape_bg_corner_solid_red"
+            android:text="确定"
+            />
+    </LinearLayout>
+</LinearLayout>

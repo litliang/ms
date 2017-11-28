@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:alpha="0.6"
+    android:background="@color/discount_29292b">
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
+        android:paddingRight="50dp"
+        android:paddingLeft="50dp"
+        android:text="修改成功!"
+        android:background="@drawable/bg_round_corner_white_3dp"
+        android:textSize="14sp"
+        android:textColor="@color/yellow"/>
+
+
+</LinearLayout>

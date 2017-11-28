@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#efefef"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <RelativeLayout style="@style/titlebar_style">
+
+        <LinearLayout
+            android:id="@+id/panel_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:onClick="goBack"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="@dimen/title_l_r">
+
+            <include layout="@layout/nav_left"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/titlebar_title"
+            style="@style/titlebar_title_style"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="订单详情"
+            android:textSize="@dimen/titlebar_text_size"/>
+
+        <LinearLayout
+            android:id="@+id/share_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:onClick="goBack"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="@dimen/title_l_r">
+
+            <ImageView
+                android:id="@+id/share_hotel"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/icon_share_white_xi"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="30dp"
+            android:paddingTop="15dp">
+
+         <include layout="@layout/view_order_info"/>
+
+            <RelativeLayout
+                android:id="@+id/travel_content_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="1dp"
+                android:background="@drawable/discount_mindcard_homepage_shape_white_bottom"
+                android:paddingBottom="15dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+
+                <RelativeLayout
+                    android:id="@+id/type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+
+                    <TextView
+                        android:id="@+id/travel_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/order_detail_wordblack"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/travel_content1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/travel_name"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/travel_name"
+                        android:text="(天下第一湾)"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/travel_content2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/travel_name"
+                        android:layout_below="@+id/travel_name"
+                        android:layout_marginTop="5dp"
+                        android:text="置身碧海蓝天"
+                        android:textColor="@color/order_detail_wordblack"
+                        android:textSize="16sp"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/travel_content3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/travel_content2"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_toRightOf="@+id/travel_content2"
+                        android:text="(出游三亚)"
+                        android:textSize="14sp"
+                        android:visibility="gone"/>
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/line1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/type"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/msg_background"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/line1"
+                    android:layout_marginTop="15dp">
+
+                    <LinearLayout
+                        android:id="@+id/llOne"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+
+                        <ImageView
+                            android:id="@+id/iv"
+                            android:layout_width="13dp"
+                            android:layout_height="13dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@mipmap/travel_order_detail_flag"/>
+
+                        <TextView
+                            android:id="@+id/travel_route"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/iv"
+                            android:layout_alignTop="@+id/iv"
+                            android:gravity="top"
+                            android:textColor="@color/order_detail_wordblack"
+                            android:textSize="15sp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/date_use_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/llOne"
+                        android:layout_marginTop="10dp"
+                        android:text="使用日期"
+                        android:textColor="@color/gray6"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/date_use"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/date_use_tv"
+                        android:layout_marginLeft="30dp"
+                        android:layout_toRightOf="@id/date_use_tv"
+                        android:textColor="@color/order_detail_wordblack"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/zaocan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/date_use_tv"
+                        android:layout_marginTop="10dp"
+                        android:text="购买份数"
+                        android:textColor="@color/gray6"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/buy_coyies"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/date_use"
+                        android:layout_alignTop="@+id/zaocan"
+                        android:layout_toRightOf="@+id/zaocan"
+                        android:textColor="@color/order_detail_wordblack"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/pinfang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/zaocan"
+                        android:layout_below="@+id/zaocan"
+                        android:layout_marginTop="10dp"
+                        android:text="房       间"
+                        android:textColor="@color/gray6"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/pinfangtv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/buy_coyies"
+                        android:layout_below="@+id/zaocan"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@+id/pinfang"
+                        android:textColor="@color/order_detail_wordblack"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/yesorno_pinfang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/pinfangtv"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/pinfangtv"
+                        android:textColor="@color/order_detail_wordblack"
+                        android:textSize="14sp"/>
+
+                    <RelativeLayout
+                        android:id="@+id/show_id_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/zaocan"
+                        android:layout_below="@+id/pinfang">
+
+                        <TextView
+                            android:id="@+id/chuxingren"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="出  行  人"
+                            android:textColor="@color/gray6"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:id="@+id/traveler_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/chuxingren"
+                            android:layout_marginLeft="30dp"
+                            android:layout_toRightOf="@+id/chuxingren"
+                            android:textColor="@color/order_detail_wordblack"
+                            android:textSize="14sp"/>
+
+                        <com.yzb.card.king.ui.appwidget.WholeListView
+                            android:id="@+id/showidlistview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/chuxingren"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_toLeftOf="@+id/showidiv"
+                            android:layout_toRightOf="@+id/chuxingren"
+                            android:divider="@color/discount_white"
+                            android:dividerHeight="10dp"
+                            android:visibility="gone"/>
+
+                        <ImageView
+                            android:id="@+id/showidiv"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="10dp"
+                            android:src="@mipmap/icon_arrow_bottom_gray"/>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/invoice_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/discount_mindcard_homepage_shape_white"
+                android:paddingBottom="15dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+
+                <TextView
+                    android:id="@+id/invoice_delivery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/line3"
+                    android:layout_marginTop="15dp"
+                    android:text="联 系 人"
+                    android:textColor="@color/gray6"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/contactsname_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/invoice_delivery"
+                    android:layout_marginLeft="30dp"
+                    android:layout_toRightOf="@id/invoice_delivery"
+                    android:textColor="@color/order_detail_wordblack"
+                    android:textSize="14sp"/>
+
+                <View
+                    android:id="@+id/line4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/invoice_delivery"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/msg_background"/>
+
+                <TextView
+                    android:id="@+id/request"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/line4"
+                    android:layout_marginTop="15dp"
+                    android:text="电   话"
+                    android:textColor="@color/gray6"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/telphoneNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/contactsname_tv"
+                    android:layout_alignTop="@id/request"
+                    android:layout_toRightOf="@+id/request"
+                    android:textColor="@color/order_detail_wordblack"
+                    android:textSize="14sp"/>
+
+            </RelativeLayout>
+
+
+
+        <include
+            layout="@layout/view_order_day_problem"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

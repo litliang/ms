@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:orientation="vertical"
+              android:visibility="visible">
+
+    <RelativeLayout
+        android:id="@+id/panelAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
+
+        <TextView
+            style="@style/plane_order4_style"
+            android:text="配送地址"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp"/>
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="8dp"
+            android:background="@mipmap/icon_edit_red"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/panelAddressData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <include layout="@layout/activity_hotel_order_divider"/>
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/addressName"
+                style="@style/plane_order4_style"
+                android:text=""
+                android:textColor="@color/color_333333"
+                android:textSize="15sp"
+                />
+
+            <TextView
+                android:id="@+id/addressMobile"
+                style="@style/plane_order4_style"
+                android:layout_alignParentRight="true"
+                android:text=""
+                android:textColor="@color/color_333333"
+                android:textSize="15sp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/addressName"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/addressAddress"
+                    style="@style/plane_order4_style"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textColor="@color/color_333333"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>

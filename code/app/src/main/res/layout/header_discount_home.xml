@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray8"
+        android:orientation="vertical">
+
+        <com.yzb.card.king.ui.appwidget.SlideShow1ItemView
+            android:id="@+id/show1ItemView"
+            android:layout_width="match_parent"
+            android:layout_height="164dp"/>
+        <!-- 频道 begin -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@color/white_ffffff"
+            android:orientation="vertical"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
+
+            <com.yzb.card.king.ui.appwidget.SlideShow8ItemView2
+                android:id="@+id/show8ItemView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                />
+
+        </LinearLayout>
+
+
+        <!-- 礼品卡 begin -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@color/white_ffffff"
+            android:paddingLeft="@dimen/title_l_r">
+
+            <LinearLayout
+                android:id="@+id/llGiftCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                >
+
+                <ImageView
+                    android:layout_width="3dp"
+                    android:layout_height="15dp"
+                    android:background="@color/color_d6c07f"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="8dp"
+                    android:text="礼品卡推荐"
+                    android:textColor="@color/hotel_black2"
+                    android:textSize="16sp"/>
+
+                <LinearLayout
+                    android:id="@+id/discount_card_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingRight="@dimen/title_l_r"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="更多"
+                        android:textColor="#656565"
+                        android:textSize="14sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:background="@mipmap/icon_home_gray_arrow_right"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/llGiftCard"
+                android:paddingBottom="10dp"
+                android:paddingRight="@dimen/title_l_r"
+                android:paddingTop="10dp">
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/giftcard_listiew"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:numColumns="2"
+                    android:scrollbars="none"
+                    android:scrollingCache="false"
+                    />
+
+            </FrameLayout>
+        </RelativeLayout>
+        <!-- 礼品卡 end -->
+        <!-- 优惠推荐 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginTop="6dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="3dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="@dimen/title_l_r"
+                android:background="@color/color_d6c07f"/>
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="优惠中心"
+                android:textColor="@color/hotel_black2"
+                android:textSize="16sp"/>
+
+            <ImageView
+                android:id="@+id/youhuoquan_laba"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@mipmap/icon_notice"/>
+
+            <TextSwitcher
+                android:id="@+id/discount_recommend_coupon_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="全包旗舰店100元优惠券"
+                android:textColor="@color/blue_5d7c96"
+                android:textSize="16sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="right|center_vertical"
+                android:layout_height="40dp">
+
+                <LinearLayout
+                    android:id="@+id/panelMoreCoupon"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_centerVertical="true"
+                    android:paddingRight="@dimen/title_l_r"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="更多"
+                        android:layout_marginLeft="8dp"
+                        android:textColor="#656565"
+                        android:textSize="14sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:background="@mipmap/icon_home_gray_arrow_right"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <!-- 优惠推荐 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_ffffff"
+            android:gravity="center"
+            android:layout_marginTop="6dp"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                >
+
+                <ImageView
+                    android:layout_width="3dp"
+                    android:layout_height="15dp"
+                    android:background="@color/color_d6c07f"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="8dp"
+                    android:text="优惠推荐"
+                    android:textColor="@color/hotel_black2"
+                    android:textSize="16sp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingRight="@dimen/title_l_r"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="更多"
+                        android:textColor="#656565"
+                        android:textSize="14sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:background="@mipmap/icon_home_gray_arrow_right"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

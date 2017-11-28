@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ticket_list_item_bg"
+        android:paddingBottom="7dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="7dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_train_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="G102"
+                android:textColor="@color/gray6"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tv_start_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="08:35"
+                android:textColor="@color/color_4c4c4c"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tv_end_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="10:35"
+                android:textColor="@color/color_4c4c4c"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_timelength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1h55m"
+                android:textColor="@color/gray6"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/tv_start_trainname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="上海虹桥站"
+                android:textColor="@color/color_a0a0a0"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/tv_end_trainname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="北京南站"
+                android:textColor="@color/color_a0a0a0"
+                android:textSize="15sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="right"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/train_rmb"
+                    android:textColor="@color/ticket_red"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/tv_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/ticket_red"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_seattype"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="二等座"
+                android:textColor="@color/color_7c7c7c"
+                android:textSize="10sp"/>
+
+            <TextView
+                android:id="@+id/tv_allowance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="200张"
+                android:textColor="@color/color_7c7c7c"
+                android:textSize="10sp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

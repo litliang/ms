@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    >
+
+    <EditText
+        android:id="@+id/et_guest_name"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:hint="@string/hotel_name_input_notice"
+        android:paddingRight="5dp"
+        android:singleLine="true"
+        android:textColor="@color/color_0a1333"
+        android:textColorHint="@color/color_999999"
+        android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+        android:textSize="15sp"/>
+
+    <include layout="@layout/activity_hotel_order_divider"/>
+</LinearLayout>

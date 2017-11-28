@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/ll_go_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_round_corner_white"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="航班号"
+                android:textColor="#727272"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/et_flight_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:hint="请输入航班号，航班晚点司机免费等待"
+                android:maxLength="6"
+                android:singleLine="true"
+                android:textColorHint="#B1C6C9"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(必填)"
+                android:textColor="#727272"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="3dp"
+            android:background="#ececec"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="是否托运行李"
+                android:textColor="#727272"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:hint="帮助司机合理安排接送时间"
+                android:singleLine="true"
+                android:textColorHint="#B1C6C9"
+                android:textSize="12sp"/>
+
+            <com.yzb.card.king.ui.appwidget.SlideButton
+                android:id="@+id/toggle_load_baggage"
+                android:layout_width="47dp"
+                android:layout_height="27dp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginBottom="9dp"
+            android:layout_marginTop="3dp"
+            android:background="#ececec"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/bg_round_corner_white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="20dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="15dp"
+                android:background="@mipmap/shuttle_arrow_down">
+
+                <ImageView
+                    android:id="@+id/iv_arrow"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="2dp"
+                    android:src="@mipmap/shuttle_main_round_top"/>
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_airport_terminal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/shuttle_tv_terminal"
+                        android:textColor="#727272"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/tv_airport_terminal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/shuttle_select_terminal"
+                        android:textColor="#00B5D3"
+                        android:textColorHint="#C8D6D8"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="3dp"
+                    android:background="#ececec"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_end_place"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_place_txt"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/shuttle_train_chufadi"
+                        android:textColor="#727272"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/tv_place_input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/shuttle_train_chufadihint"
+                        android:textColor="#00B5D3"
+                        android:textColorHint="#C8D6D8"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="3dp"
+                    android:background="#ececec"/>
+            </LinearLayout>
+
+            <com.yzb.card.king.ui.appwidget.SlideButtonVertical
+                android:id="@+id/slide_shuttle_airpoart"
+                android:layout_width="36dp"
+                android:layout_height="72dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="14dp"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_usecar_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="@string/shuttle_tv_time"
+                android:textColor="#727272"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/tv_usecar_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/shuttle_select_time"
+                android:textColor="#00B5D3"
+                android:textColorHint="#C8D6D8"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="3dp"
+            android:background="#ececec"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_search"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/btn_selector"
+        android:text="@string/text_search"
+        android:textColor="#fff"
+        android:textSize="20sp"/>
+
+</LinearLayout>

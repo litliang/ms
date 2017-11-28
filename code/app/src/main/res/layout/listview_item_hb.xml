@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/text_color_white"
+              android:gravity="center_vertical"
+              android:orientation="horizontal"
+              android:paddingBottom="10dp"
+              android:paddingLeft="12dp"
+              android:paddingRight="14dp"
+              android:paddingTop="10dp">
+
+    <TextView
+        android:id="@+id/tv_hbje"
+        android:layout_width="39dp"
+        android:layout_height="43dp"
+        android:background="@mipmap/icon_red_pack_bg"
+        android:gravity="center_horizontal|bottom"
+        android:text=""
+        android:textColor="@color/text_color_white"
+        android:textSize="13sp"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/tv_sytj"
+            style="@style/tv21_style"
+            android:text=""/>
+
+        <TextView
+            android:id="@+id/tv_syqx"
+            style="@style/tv21_style"
+            android:layout_marginTop="3dp"
+            android:text=""
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_ljlq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/btn_ljlq_red_selector"
+        android:text="立即领取"
+        android:textColor="@color/color_status"
+        android:textSize="@dimen/text_size_3"/>
+</LinearLayout>

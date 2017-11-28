@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/panel_search"
+    android:layout_width="0dp"
+    android:layout_height="@dimen/titlebar_center_height"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_weight="1"
+    android:background="@drawable/titlebar_search_et_bg"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="6dp"
+    android:paddingRight="5dp">
+
+    <EditText
+        android:id="@+id/searchTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="11dp"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:hint="@string/address_shurudizhi"
+        android:singleLine="true"
+        android:maxLength="100"
+        android:textColorHint="@color/text_color_5"
+        android:textSize="14sp"
+        android:textColor="#000000"/>
+
+    <ImageView
+        android:id="@+id/deleteImg"
+        android:layout_height="17dp"
+        android:layout_width="17dp"
+        android:layout_marginRight="4dp"
+        android:layout_gravity="center_vertical"
+        android:background="@mipmap/umeng_socialize_x_button" />
+
+</LinearLayout>

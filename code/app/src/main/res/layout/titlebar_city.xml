@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/panel_city"
+    style="@style/horizonal_linear_wrap_style"
+    android:layout_marginLeft="10dp">
+
+    <TextView
+        android:id="@+id/tv_city"
+        style="@style/titlebar_tv1_style"
+        android:text="" />
+
+    <include
+        android:id="@+id/arrow_down_city"
+        layout="@layout/arrow_down" />
+</LinearLayout>

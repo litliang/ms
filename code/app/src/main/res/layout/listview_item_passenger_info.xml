@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yzb.card.king.ui.appwidget.menulistview.ItemMenuView
+    android:id="@+id/root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="94dp"
+    >
+
+    <!--解绑部分-->
+    <LinearLayout
+        android:id="@+id/llUnbind"
+        android:layout_width="69dp"
+        android:layout_height="94dp"
+        android:background="@color/hotel_f5f5f5"
+        android:gravity="center_vertical|right"
+        >
+
+        <ImageView
+            android:id="@+id/tvDelete"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/icon_address_del"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_passenger_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/color_4D4D4D"
+                    android:textSize="15sp"/>
+
+                <LinearLayout
+                    android:id="@+id/panelSetDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    >
+
+                    <ImageView
+                        android:id="@+id/ivDot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/selector_circle_blue"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dp"
+                        android:text="设为默认"
+                        android:textColor="@color/color_456992"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <include layout="@layout/divider_d7d7d7"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="47dp"
+                android:gravity="center_vertical"
+                >
+
+                <TextView
+                    android:id="@+id/tvCertType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/color_8d8d8d"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/tv_passenger_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:textColor="@color/color_4D4D4D"
+                    android:textSize="13sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</com.yzb.card.king.ui.appwidget.menulistview.ItemMenuView>

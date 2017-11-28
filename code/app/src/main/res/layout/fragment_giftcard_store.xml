@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:background="@color/titleRed"
+        android:gravity="top">
+
+        <LinearLayout
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/title_l_r"
+            android:gravity="center"
+            android:onClick="backAction">
+
+            <ImageView
+                android:id="@+id/img_title_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_back_white"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/message_titleName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/message_cardstore"
+            android:textColor="@color/msgwordWhite"
+            android:textSize="@dimen/titlebar_text_size"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+
+            <com.yzb.card.king.ui.appwidget.SlideShow1ItemView
+                android:id="@+id/slideShowView1"
+                android:layout_width="match_parent"
+                android:layout_height="146dp"
+                android:background="@color/white" />
+
+
+            <LinearLayout
+                android:id="@+id/llChannels"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@color/white"
+                android:gravity="center"
+                >
+
+                <!--实体卡-->
+                <LinearLayout
+                    android:id="@+id/panelPhysicalCard"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:src="@mipmap/icon_giftcard_actual_card"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="心意实体卡"
+                        android:textColor="@color/color_091232"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:src="@mipmap/icon_giftcard_dot_line"/>
+
+                <!--心意卡-->
+                <LinearLayout
+                    android:id="@+id/panelWishCard"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:src="@mipmap/icon_giftcard_e_card"
+                        android:id="@+id/imageView7" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="心意e卡"
+                        android:textColor="@color/color_091232"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/color_F5F5F5"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/ivColom1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@mipmap/icon_route_list"/>
+
+                    <TextView
+                        android:id="@+id/colum2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/ivColom1"
+                        android:text="@string/giftcard_shop_spec_card"
+                        android:textColor="@color/color_091232"
+                        android:textSize="14sp"/>
+
+                    <ViewFlipper
+                        android:id="@+id/giftcard_store_viewFlipper"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/colum2"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/colum2"
+                        android:autoStart="true"
+                        android:background="@color/white"
+                        android:flipInterval="3000"
+                        android:gravity="center_vertical"
+                        android:inAnimation="@anim/translate_textswitcher_anim_in"
+                        android:outAnimation="@anim/translate_textswitcher_anim_out"
+                        android:textColor="@color/color_5c7c99"
+                        android:textSize="12sp"/>
+
+                </RelativeLayout>
+
+                <!--礼品卡列表-->
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/giftcard_shop_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="13dp"
+                    android:layout_marginTop="13dp"
+                    android:background="@color/white"
+                    android:cacheColorHint="@color/white"
+                    android:horizontalSpacing="12dp"
+                    android:numColumns="2"
+                    android:scrollbars="none"
+                    android:scrollingCache="false"
+                    android:verticalSpacing="12dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white_ffffff"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/title_l_r"
+        android:background="@color/pay_F0F0F0"
+        >
+
+        <TextView
+            android:id="@+id/tvCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_476b98"
+            android:textSize="14sp"
+            android:text="取消"/>
+
+        <TextView
+            android:id="@+id/tvTitleName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/color_333333"
+            android:textSize="16sp"
+            android:text="请选择入住离店日期"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvLine"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/color_e3e3e3"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="428dp"
+     >
+        <com.henry.calendarview.DayPickerView
+            android:id="@+id/dpv_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:colorCurrentDay="@color/colorAccent"
+            app:colorSelectedDayBackground="@android:color/holo_blue_dark"
+            app:colorSelectedDayText="@color/selected_day_text"
+            app:colorPreviousDayText="#999999"
+            app:colorNormalDayText="#333333"
+            app:colorYearMonthText="#666666"
+            app:colorWeekText="#333333"
+            app:colorBusyDaysBg="@android:color/white"
+            app:colorInValidDaysBg="@android:color/holo_red_dark"
+            app:colorBusyDaysText="#FFFFFF"
+            app:colorInValidDaysText="#FFFFFF"
+            app:textSizeDay="14sp"
+            app:textSizeTag="12sp"
+            app:textSizeYearMonth="16sp"
+            app:textSizeWeek="14sp"
+            app:headerMonthHeight="50dp"
+            app:selectedDayRadius="20dp"
+            app:calendarHeight="320dp"
+            app:enablePreviousDay="false"
+            app:endDateTxtDesc="离店"
+            app:startDateTxtDesc="入住"/>
+
+    </LinearLayout>
+
+</LinearLayout>

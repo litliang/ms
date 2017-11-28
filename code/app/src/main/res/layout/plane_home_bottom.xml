@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:background="#fff"
+              android:paddingBottom="8dp"
+              android:paddingTop="8dp"
+              android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:id="@+id/hbdt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/icon_home_ticket_low_price"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:text="@string/home_ticket_low_price"
+            android:layout_marginTop="6dp"
+            android:textColor="#4d4d4d"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/zj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/icon_home_ticket_hotel"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_ticket_add_hotel"
+            android:textSize="13sp"
+            android:layout_marginTop="6dp"
+            android:textColor="#4d4d4d"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/find_low"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/icon_home_ticket_mul_place"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_mul_price"
+            android:textSize="13sp"
+            android:layout_marginTop="6dp"
+            android:textColor="#4d4d4d"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/icon_home_ticket_company"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_company_lvke"
+            android:layout_marginTop="6dp"
+            android:textSize="13sp"
+            android:textColor="#4d4d4d"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

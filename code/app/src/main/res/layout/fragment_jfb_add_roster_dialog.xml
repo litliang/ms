@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_jfb_round_corner5dp_white_solid"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_jfb_top_round_corner5dp_white_solid"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="11dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/jfb_add_new_name"
+                android:textColor="@color/jfb_6B6B6B"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/iv_close_window"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="11dp"
+                android:background="@mipmap/icon_jfb_round_close"
+                android:scaleType="fitXY" />
+        </RelativeLayout>
+
+        <!--昵称行-->
+        <RelativeLayout
+            android:id="@+id/rlOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:paddingLeft="11dp"
+            android:paddingRight="11dp">
+
+            <TextView
+                android:id="@+id/tv_nickname"
+                style="@style/jfb_add_newname_tv_left"
+                android:text="@string/jfb_nick_name" />
+
+            <EditText
+                android:id="@+id/et_input_nickname"
+                style="@style/jfb_add_newname_tv_right"
+                android:layout_alignBottom="@+id/tv_nickname"
+                android:layout_marginLeft="65dp"
+                android:layout_toRightOf="@+id/tv_nickname"
+                android:hint="@string/jfb_nick_name_hint" />
+
+            <View
+                android:id="@+id/divider0"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/tv_nickname"
+                android:layout_marginTop="5dp"
+                android:background="@color/jfb_d7d7d7" />
+
+            <TextView
+                android:id="@+id/tv_phone"
+                style="@style/jfb_add_newname_tv_left"
+                android:layout_below="@+id/divider0"
+                android:layout_marginTop="10dp"
+                android:text="@string/jfb_phone" />
+
+            <EditText
+                android:id="@+id/et_input_phone"
+                style="@style/jfb_add_newname_tv_right"
+                android:layout_alignBottom="@+id/tv_phone"
+                android:layout_alignLeft="@+id/et_input_nickname"
+                android:layout_toRightOf="@+id/tv_phone"
+                android:hint="@string/jfb_phone_hint"
+                android:maxLength="11"
+                android:inputType="number" />
+
+            <ImageView
+                android:id="@+id/iv_phone_book"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignBottom="@+id/tv_phone"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="7dp"
+                android:background="@mipmap/icon_jfb_phone_book"
+                android:scaleType="fitXY" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/tv_phone"
+                android:layout_marginTop="5dp"
+                android:background="@color/jfb_d7d7d7" />
+
+            <TextView
+                android:id="@+id/tv_relation"
+                style="@style/jfb_add_newname_tv_left"
+                android:layout_below="@+id/divider2"
+                android:layout_marginTop="10dp"
+                android:text="@string/jfb_relation" />
+
+            <TextView
+                android:id="@+id/tv_input_relation"
+                style="@style/jfb_add_newname_tv_right"
+                android:layout_alignBottom="@+id/tv_relation"
+                android:layout_alignLeft="@+id/et_input_nickname"
+                android:layout_toRightOf="@+id/tv_relation"
+                android:hint="@string/jfb_relation_hint"
+                android:text="" />
+
+            <LinearLayout
+                android:id="@+id/panel_arrow_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_relation"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/tv_relation"
+                android:gravity="center"
+                android:paddingLeft="11dp"
+                android:paddingRight="11dp">
+
+                <ImageView
+                    android:layout_width="11dp"
+                    android:layout_height="6dp"
+                    android:background="@mipmap/arrow_small_down"
+                    android:scaleType="fitXY" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/tv_relation"
+                android:layout_marginTop="5dp"
+                android:background="@color/jfb_d7d7d7" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_commit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:background="@drawable/selector_jfb_bottom_round_corner5dp"
+        android:enabled="false"
+        android:gravity="center"
+        android:paddingBottom="9dp"
+        android:paddingTop="9dp"
+        android:text="@string/jfb_commit"
+        android:textStyle="bold"
+        android:textColor="@drawable/jfb_tv_color_gray_red"
+        android:textSize="14sp" />
+</LinearLayout>

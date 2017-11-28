@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:paddingLeft="10dp"
+              android:paddingRight="10dp">
+
+    <LinearLayout
+        android:id="@+id/llTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="13dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:drawableLeft="@mipmap/ionc_arrow_right_gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray7"
+            android:textSize="14sp"/>
+    </LinearLayout>
+
+
+    <com.yzb.card.king.ui.appwidget.NoRollGridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:horizontalSpacing="40dp"
+        android:numColumns="3"
+        android:scrollbars="none"
+        android:verticalSpacing="15dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="7dp">
+
+        <TextView
+            android:id="@+id/tvExpand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/label_expand"
+            android:textColor="@color/gray7"
+            android:textSize="12sp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tvShrink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/label_shrink"
+            android:textColor="@color/gray7"
+            android:textSize="12sp"
+            android:visibility="gone"/>
+    </RelativeLayout>
+</LinearLayout>

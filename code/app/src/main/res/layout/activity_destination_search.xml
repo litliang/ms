@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <!--标题栏-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar_height"
+        android:background="@color/titleRed"
+        >
+
+        <LinearLayout
+            android:id="@+id/panelBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/title_l_r"
+                android:layout_marginRight="@dimen/title_l_r"
+                android:scaleType="fitXY"
+                android:src="@mipmap/icon_back_white"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="选择目的地"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            />
+    </RelativeLayout>
+
+    <!--搜索区域-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/titleRed"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+
+        <LinearLayout
+            android:layout_width="330dp"
+            android:layout_height="39dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shape_bg_corner_solid_white"
+            android:gravity="center"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                >
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@mipmap/icon_search_dark_gray"
+                    android:scaleType="fitCenter"/>
+
+                <EditText
+                    android:id="@+id/etKeywordInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="目的地、主题或关键字"
+                    android:paddingLeft="14dp"
+                    android:singleLine="true"
+                    android:textColor="@color/color_0a1333"
+                    android:textColorHint="@color/color_999999"
+                    android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+                    android:textSize="13sp"/>
+
+                <ImageView
+                    android:id="@+id/iv_clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:src="@mipmap/icon_search_text_close"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvSearch"
+                style="@style/travel_search_txt_style"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_round_corner_right"
+                android:text="搜索"
+                android:textColor="@color/color_4c4746"
+                android:textSize="14sp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            >
+
+            <ListView
+                android:id="@+id/lv_left"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:cacheColorHint="@color/white"
+                android:divider="@drawable/listview_divider_white"
+                android:dividerHeight="3.5dp"
+                android:scrollbars="none"
+                android:scrollingCache="false"/>
+
+            <GridView
+                android:id="@+id/gv_right"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="3"
+                android:background="@color/white"
+                android:cacheColorHint="@color/white"
+                android:horizontalSpacing="4dp"
+                android:numColumns="3"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:scrollbars="none"
+                android:scrollingCache="false"
+                android:verticalSpacing="10dp"/>
+        </LinearLayout>
+
+        <!--第二层-->
+        <LinearLayout
+            android:id="@+id/panelSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.yzb.card.king.ui.travel.activity.view.TravelHistoryRecordView
+                android:id="@+id/historyView"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:visibility="visible"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/pay_F0F0F0"/>
+
+            <!--列表-->
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.yzb.card.king.ui.appwidget.LoadMoreListView
+                    android:id="@+id/searchListView"
+                    style="@style/listview_style"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"/>
+
+            </android.support.v4.widget.SwipeRefreshLayout>
+
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

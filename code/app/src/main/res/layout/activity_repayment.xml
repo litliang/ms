@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f0f0f0"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+                  android:id="@+id/header"
+                  android:layout_width="match_parent"
+                  android:layout_height="@dimen/title_view_height"
+                  android:gravity="center_vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_ffffff"
+            android:paddingRight="@dimen/title_l_r">
+
+            <LinearLayout
+                android:id="@+id/llTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/headerLeftImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/title_l_r"
+                    android:adjustViewBounds="true"
+                    android:background="@mipmap/icon_arrow_back_black"
+                    android:maxHeight="20dp"
+                    android:maxWidth="20dp"
+                    android:scaleType="centerInside"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="还款"
+                android:textColor="#333333"
+                android:textSize="@dimen/titlebar_text_size"
+                />
+
+            <LinearLayout
+                android:id="@+id/llRight"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingRight="@dimen/title_l_r"
+                android:paddingLeft="5dp"
+                >
+
+                <TextView
+                    android:id="@+id/ivRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="管理"
+                    android:textColor="@color/color_333333"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/lineTitel"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="14dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_corner_3"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="11dp">
+
+            <RelativeLayout
+                android:id="@+id/rlRepayBank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+            </RelativeLayout>
+
+            <include layout="@layout/divider_horizontal"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etPayment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="请输入还款金额"
+                    android:textColor="@color/color_4c4c4c"
+                    android:inputType="numberDecimal"
+                    android:textColorHint="@color/user_cccccc"
+                    android:textSize="14sp"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/tvSearchBill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_red_edge_1_corner_2"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="3dp"
+                    android:text="账单查询"
+                    android:textColor="@color/ticket_red"
+                    android:textSize="10sp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+            <include layout="@layout/divider_horizontal"/>
+
+            <Button
+                android:id="@+id/btRepay"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/repayment_button_selector"
+                android:enabled="false"
+                android:text="还款"
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_white_corner_3"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:visibility="gone"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/title_arrow"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="银行服务"
+                    android:textColor="@color/repayment_text_color"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+
+            <android.support.v7.widget.GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="17dp"
+                android:paddingTop="17dp"
+                app:columnCount="3">
+
+                <TextView
+                    android:layout_width="91dp"
+                    android:layout_height="29dp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_gray_edge_2px"
+                    android:text="账单分期"
+                    android:visibility="gone"
+                    android:textColor="@color/wallet_gray"
+                    android:textSize="14sp"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="left"/>
+
+                <TextView
+                    android:background="@drawable/bg_gray_edge"
+                    android:layout_width="91dp"
+                    android:layout_height="29dp"
+                    android:gravity="center"
+                    android:text="单笔分期"
+                    android:visibility="gone"
+                    android:textColor="@color/wallet_gray"
+                    android:textSize="14sp"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/tvOtherRepayment"
+                    android:background="@drawable/bg_gray_edge"
+                    android:layout_width="91dp"
+                    android:layout_height="29dp"
+                    android:gravity="center"
+                    android:text="他人代还"
+                    android:textColor="@color/repayment_text_color"
+                    android:textSize="14sp"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="right"/>
+
+            </android.support.v7.widget.GridLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/bg_white_corner_3"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/title_arrow"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="其他还款"
+                    android:textColor="@color/repayment_text_color"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+
+            <android.support.v7.widget.GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="17dp"
+                app:columnCount="3">
+
+                <TextView
+                    android:id="@+id/tvPayForOther"
+                    android:background="@drawable/bg_gray_edge"
+                    android:layout_width="91dp"
+                    android:layout_height="29dp"
+                    android:gravity="center"
+                    android:text="申请代还"
+                    android:textColor="@color/repayment_text_color"
+                    android:textSize="14sp"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="left" />
+
+                <TextView
+                    android:id="@+id/tvScheduled"
+                    android:background="@drawable/bg_gray_edge"
+                    android:layout_width="91dp"
+                    android:layout_height="29dp"
+                    android:gravity="center"
+                    android:text="预约还款"
+                    android:textColor="@color/repayment_text_color"
+                    android:textSize="14sp"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="center"
+                    android:visibility="gone"
+                    />
+
+                <TextView
+                    android:layout_width="91dp"
+                    android:layout_height="29dp"
+                    android:gravity="center"
+                    android:text="预约还款"
+                    android:textColor="@color/transparent"
+                    android:textSize="14sp"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="right" />
+            </android.support.v7.widget.GridLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

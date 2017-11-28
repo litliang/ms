@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:gravity="top"
+              android:paddingBottom="12dp"
+    >
+
+    <ImageView
+        android:id="@+id/ivHeadPic"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:scaleType="fitCenter"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            >
+
+            <TextView
+                android:id="@+id/tvUname"
+                style="@style/travel_detail_title_style"
+                android:layout_width="wrap_content"
+                android:maxEms="6"
+                android:paddingRight="10dp"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="@color/color_999999"
+                />
+
+            <include
+                layout="@layout/ratingbar_travel"/>
+
+            <TextView
+                android:id="@+id/tvScore"
+                style="@style/travel_detail_text_gray_style"
+                android:layout_marginLeft="5dp"
+                android:text="0.0分"
+                android:textColor="@color/color_666666"
+                android:textSize="13sp"
+                />
+
+            <TextView
+                android:id="@+id/tvDate"
+                style="@style/travel_detail_text_gray_style"
+                android:layout_width="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text=""
+                android:textColor="@color/color_9c9c9c"
+                android:textSize="13sp"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvContent"
+            style="@style/travel_detail_title_style"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:lineSpacingMultiplier="1.2"
+            android:maxLines="4"
+            android:singleLine="false"
+            android:text=""
+            android:textColor="@color/color_4D4D4D"
+            android:textSize="13sp"
+            />
+    </LinearLayout>
+
+</LinearLayout>

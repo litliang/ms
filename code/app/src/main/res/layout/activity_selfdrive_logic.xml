@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        layout="@layout/view_public_head_title_left"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_f4f4f4"
+
+        android:orientation="vertical">
+        <!--自驾租车步骤-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="8dp">
+            <!--第一步骤-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center|right"
+                android:orientation="horizontal">
+
+                <TextView
+
+                   style="@style/tvStepSleftDrive"
+                    android:background="@drawable/icon_round_number_red"
+                    android:text="1"
+                  />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="6dp"
+                    android:text="@string/qr_xc_str"
+                    android:textColor="@color/red_d84043"
+                    android:textSize="11sp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="7dp"
+                    android:background="@mipmap/icon_step_red"/>
+            </LinearLayout>
+            <!--第二步骤-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center|right"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvStepShopSelectTwo"
+                    android:background="@drawable/icon_round_number_red"
+                    android:text="2"
+                    style="@style/tvStepSleftDrive"/>
+
+                <TextView
+                    android:id="@+id/tvStepShopSelectTwoText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="6dp"
+                    android:text="@string/shop_selecte_str"
+                    android:textColor="@color/red_d84043"
+                    android:textSize="11sp"/>
+
+                <ImageView
+                    android:id="@+id/ivStepShopSelectTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="7dp"
+                    android:background="@mipmap/icon_step_red"/>
+            </LinearLayout>
+
+            <!--第三步骤-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center|right"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvStepShopSelectThree"
+                    style="@style/tvStepSleftDrive"
+                    android:background="@drawable/icon_round_number_red"
+                    android:text="3"
+                    />
+
+                <TextView
+                    android:id="@+id/tvStepShopSelectThreeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="6dp"
+                    android:text="@string/bus_selecte_str"
+                    android:textColor="@color/red_d84043"
+                    android:textSize="11sp"/>
+
+                <ImageView
+                    android:id="@+id/ivStepShopSelectThree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="7dp"
+                    android:background="@mipmap/icon_step_red"/>
+            </LinearLayout>
+
+            <!--第四步骤-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center|left"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvStepShopSelectFour"
+                    android:background="@drawable/icon_round_number_red"
+                    android:text="4"
+                    style="@style/tvStepSleftDrive"/>
+
+                <TextView
+                    android:id="@+id/tvStepShopSelectFourText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/write_order_str"
+                    android:textColor="@color/red_d84043"
+                    android:textSize="11sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/flSelfDive"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

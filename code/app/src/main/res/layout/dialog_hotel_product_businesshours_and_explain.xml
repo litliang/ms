@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvBusinessTimeMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/color_333333"
+            android:text="营业时间"/>
+
+        <TextView
+            android:id="@+id/businessHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_12"
+            android:text="07:00至20:00"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/color_666666"/>
+
+        <TextView
+            android:id="@+id/tvExplainMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/color_333333"
+            android:text="相关说明"/>
+
+        <TextView
+            android:id="@+id/tvExplain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_12"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/color_666666"
+            android:lineSpacingExtra="9dp"
+            android:text="1.本店wifi全覆盖 \n2.支持刷卡\n3.停车费收费标准:有停车位\n4.酒吧食品不提供餐前外带\n5.餐毕未吃完可打包"/>
+
+    </LinearLayout>
+
+</LinearLayout>

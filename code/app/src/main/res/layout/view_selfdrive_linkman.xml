@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/shape_rounded_rectangle_white"
+        android:orientation="vertical">
+
+        <!--联系人-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center_vertical"
+            android:paddingBottom="8dp"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:paddingTop="8dp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="@string/shuttle_lianxiren"
+                android:textColor="@color/selfdrive_red_600309"
+                android:textSize="14sp" />
+
+
+            <EditText
+                android:id="@+id/etLinkMan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dip"
+                android:layout_weight="1"     android:singleLine="true"
+                android:background="@color/white_ffffff"
+                android:textColor="@color/selfdrive_red_600309"
+                android:hint="@string/hint_selfdrive_input_your_name"
+                android:textSize="14sp"/>
+
+
+            <ImageView
+                android:id="@+id/ivAddLinkMan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/shuttle_order_people" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="#dbdbdb"/>
+        <!--手机号-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingBottom="8dp"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:paddingTop="8dp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="@string/tv_selfdrive_linkman_number_86"
+                android:textColor="@color/selfdrive_red_600309"
+                android:textSize="14sp" />
+
+
+            <EditText
+                android:id="@+id/etPhonenum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dip"
+                android:layout_weight="1"
+                android:background="@color/white_ffffff"
+                android:textColor="@color/selfdrive_red_600309"
+                android:hint="@string/tv_selfdrive_route_messages"
+                android:inputType="number"
+                android:singleLine="true"
+                android:maxLength="11"
+                android:textSize="14sp"/>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:background="@mipmap/shuttle_order_people" />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="#dbdbdb"/>
+        <!--联系人-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingBottom="8dp"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:paddingTop="8dp">
+
+
+            <TextView
+                android:id="@+id/tvBusAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="@string/tv_selfdrive_send_bus_address"
+                android:textColor="@color/selfdrive_red_600309"
+                android:textSize="14sp" />
+
+
+            <EditText
+                android:id="@+id/etAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dip"
+                android:layout_weight="1"
+                android:background="@color/white_ffffff"
+                android:textColor="@color/selfdrive_red_600309"
+                android:hint="@string/hint_selfdrive_send_bus_address"
+                android:singleLine="true"
+                android:textSize="14sp"/>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:background="@mipmap/shuttle_order_people" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

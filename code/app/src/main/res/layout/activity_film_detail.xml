@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:ratingbar="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/panel_top"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:background="#7491A2">
+
+        <LinearLayout
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingRight="20dp">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="16dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:background="@mipmap/icon_back_white"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_clock"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="18dp"
+            android:layout_toLeftOf="@+id/iv_msg"
+            android:background="@mipmap/icon_time_white"/>
+
+        <ImageView
+            android:id="@+id/iv_msg"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="18dp"
+            android:layout_toLeftOf="@+id/iv_share"
+            android:background="@mipmap/icon_comment_white"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/iv_share"
+            android:layout_width="17dp"
+            android:layout_height="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="11dp"
+            android:background="@mipmap/icon_share_white"/>
+
+    </RelativeLayout>
+
+    <!--底层可滚动区域-->
+    <com.yzb.card.king.ui.appwidget.StickyNavLayout
+        android:id="@+id/stickyNavLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@id/id_stickynavlayout_topview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/text_color_white"
+            android:orientation="vertical">
+
+            <!-- 影片信息 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#7491A2">
+
+                <ImageView
+                    android:id="@+id/film_image"
+                    android:layout_width="101dp"
+                    android:layout_height="152dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginTop="16dp"
+                    android:scaleType="fitXY"/>
+
+                <TextView
+                    android:id="@+id/film_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/film_image"
+                    android:layout_marginLeft="14dp"
+                    android:layout_toRightOf="@+id/film_image"
+                    android:text=""
+                    android:textColor="@android:color/white"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/film_name_en"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/film_name"
+                    android:layout_alignStart="@+id/film_name"
+                    android:layout_below="@+id/film_name"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#EFEFEF"
+                    android:textSize="9dp"/>
+
+                <TextView
+                    android:id="@+id/film_effect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/film_name_en"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toEndOf="@+id/film_name_en"
+                    android:layout_toRightOf="@+id/film_name_en"
+                    android:background="@drawable/style_bg_grey_circle"
+                    android:paddingBottom="1dp"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:paddingTop="1dp"
+                    android:text=""
+                    android:textColor="@android:color/white"
+                    android:textSize="9dp"/>
+
+                <LinearLayout
+                    android:id="@+id/ratingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/film_name_en"
+                    android:layout_alignStart="@+id/film_name_en">
+
+                    <com.yzb.card.king.ui.appwidget.StarBar
+                        android:id="@+id/starBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/film_name_en"
+                        ratingbar:isIndicator="false"
+                        ratingbar:starCount="5"
+                        ratingbar:starDistance="5dp"
+                        ratingbar:starEmpty="@mipmap/star_empty"
+                        ratingbar:starFill="@mipmap/star_full"
+                        ratingbar:starSize="20dp"/>
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/film_vote"
+                    style="@style/tv10_style"
+                    android:layout_alignBottom="@+id/ratingBar"
+                    android:layout_marginLeft="7dp"
+                    android:layout_toEndOf="@+id/ratingBar"
+                    android:layout_toRightOf="@+id/ratingBar"
+                    android:text="0.0分"
+                    android:textColor="#EFEFEF"
+                    android:textSize="9dp"/>
+
+                <TextView
+                    android:id="@+id/film_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/ratingBar"
+                    android:layout_alignStart="@+id/ratingBar"
+                    android:layout_below="@+id/film_vote"
+                    android:layout_marginTop="7dp"
+                    android:text=""
+                    android:textColor="#EFEFEF"
+                    android:textSize="12dp"/>
+
+                <TextView
+                    android:id="@+id/film_production"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/film_type"
+                    android:layout_alignStart="@+id/film_type"
+                    android:layout_below="@+id/film_type"
+                    android:layout_marginTop="7dp"
+                    android:text=""
+                    android:textColor="#EFEFEF"
+                    android:textSize="12dp"/>
+
+                <TextView
+                    android:id="@+id/split_line"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/film_production"
+                    android:layout_alignBottom="@+id/film_production"
+                    android:layout_toEndOf="@+id/film_production"
+                    android:layout_toRightOf="@+id/film_production"
+                    android:text="   |  "
+                    android:textColor="#D6D8D8"
+                    android:textSize="12dp"/>
+
+                <TextView
+                    android:id="@+id/film_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/split_line"
+                    android:layout_alignBottom="@+id/split_line"
+                    android:layout_toEndOf="@+id/split_line"
+                    android:layout_toRightOf="@+id/split_line"
+                    android:text="0分钟"
+                    android:textColor="#EFEFEF"
+                    android:textSize="12dp"/>
+
+                <TextView
+                    android:id="@+id/film_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/film_production"
+                    android:layout_alignStart="@+id/film_production"
+                    android:layout_below="@+id/film_production"
+                    android:layout_marginTop="8dp"
+                    android:text=""
+                    android:textColor="#EFEFEF"
+                    android:textSize="12dp"/>
+
+                <TextView
+                    android:id="@+id/film_place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/film_time"
+                    android:layout_alignBottom="@+id/film_time"
+                    android:layout_alignLeft="@+id/film_effect"
+                    android:layout_alignStart="@+id/film_effect"
+                    android:layout_marginLeft="10dp"
+                    android:text=""
+                    android:textColor="#EFEFEF"
+                    android:textSize="12dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/film_time"
+                    android:layout_below="@+id/film_time"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/panel_sc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/film_collection"
+                            android:layout_width="17dp"
+                            android:layout_height="16dp"
+                            android:background="@mipmap/icon_detail_xk"/>
+
+                        <TextView
+                            android:id="@+id/film_like"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="9dp"
+                            android:text="想看"
+                            android:textColor="@android:color/white"
+                            android:textSize="12dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/panel_pj"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/film_vote_image"
+                            android:layout_width="17dp"
+                            android:layout_height="16dp"
+                            android:layout_marginLeft="28dp"
+                            android:background="@mipmap/icon_detail_pj"/>
+
+                        <TextView
+                            android:id="@+id/file_vote_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:text="评价(0人)"
+                            android:textColor="@android:color/white"
+                            android:textSize="12dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:paddingBottom="14dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="20dp"
+                android:singleLine="false"
+                android:text=""
+                android:textColor="#848484"
+                android:textSize="13dp"/>
+
+            <ImageView
+                android:id="@+id/expand_collapse"
+                android:layout_width="38dp"
+                android:layout_height="10dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@mipmap/icon_detail_more_show"
+                android:clickable="true"
+                android:scaleType="fitXY"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="5dp"
+                android:background="#C9C9C9"/>
+        </LinearLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@id/id_stickynavlayout_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            app:tabBackground="@color/text_color_white"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="#D84043"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="#D84043"
+            app:tabTextAppearance="@style/TabLayoutTextAppearance2"
+            app:tabTextColor="#828282"/>
+
+        <!-- <View
+             android:layout_width="match_parent"
+             android:layout_height="0.5dp"
+             android:background="#C1C1C1" />-->
+
+        <android.support.v4.view.ViewPager
+            android:id="@id/id_stickynavlayout_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.yzb.card.king.ui.appwidget.StickyNavLayout>
+
+</LinearLayout>

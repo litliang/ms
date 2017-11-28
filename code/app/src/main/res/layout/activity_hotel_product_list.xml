@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:rrLv="http://schemas.android.com/apk/res-auto"
+              android:background="@color/white_ffffff"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        layout="@layout/title_headercity_search_date_white_map"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"/>
+
+
+    <include layout="@layout/view_hotel_list_type"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+
+        <cn.lemon.view.RefreshRecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+           />
+
+        <RelativeLayout
+            android:id="@+id/rlMap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/llViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <LinearLayout
+        android:id="@+id/llBottomTab"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_bottom_h"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white_ffffff"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+</LinearLayout>

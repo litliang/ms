@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white_ffffff"
+    android:orientation="vertical">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:stretchColumns="1">
+
+        <TableRow
+            android:id="@+id/trReming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="@dimen/title_l_r">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:text="姓名"
+                android:textColor="@color/color_4D4D4D"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/etXingming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="请输入中文姓名"
+                android:maxLines="1"
+                android:paddingLeft="16dp"
+                android:textColor="@color/color_4D4D4D"
+                android:textColorHint="@color/color_999999"
+                android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+                android:textSize="14sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tbXing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="@dimen/title_l_r">
+
+            <TextView
+                android:id="@+id/tvEngNameValue"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:text="姓 (英文)"
+                android:textColor="@color/color_4D4D4D"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/et_eng_name_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="Family Name,如LI"
+                android:maxLines="1"
+                android:paddingLeft="16dp"
+                android:textColor="@color/color_4D4D4D"
+                android:textColorHint="@color/color_999999"
+                android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+                android:textSize="14sp" />
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/divider_color3" />
+
+        <TableRow
+            android:id="@+id/tbMing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="@dimen/title_l_r">
+
+            <TextView
+                android:id="@+id/tvEngNameValue2"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:text="名 (英文)"
+                android:textColor="@color/color_4D4D4D"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/et_eng_name_value2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="English Name,如MINMIN"
+                android:maxLines="1"
+                android:paddingLeft="16dp"
+                android:textColor="@color/color_4D4D4D"
+                android:textColorHint="@color/color_999999"
+                android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+                android:textSize="14sp" />
+        </TableRow>
+
+
+        <TextView
+            android:id="@+id/tvCerTypeMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_f0f0f0"
+            android:paddingBottom="5dp"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingTop="5dp"
+            android:text="请确认所填写姓名和乘机证件一致"
+            android:textColor="@color/color_999999" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="@dimen/title_l_r">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:clickable="true"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="证件类型"
+                    android:textColor="@color/color_4D4D4D"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_passport_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="openIdentifiPop"
+                android:paddingLeft="16dp"
+                android:text=""
+                android:textColor="@color/color_4D4D4D"
+                android:textColorHint="@color/color_999999"
+                android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/icon_arrow_right_item_gray" />
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/divider_color3" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="@dimen/title_l_r">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:onClick="openIdentifiPop">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="证件号码"
+                    android:textColor="@color/color_4D4D4D"
+                    android:textSize="15sp" />
+
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/et_identification_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="必填"
+                android:paddingLeft="16dp"
+                android:textColor="@color/color_4D4D4D"
+                android:textColorHint="@color/color_999999"
+                android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+                android:textSize="14sp" />
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/divider_color3" />
+    </TableLayout>
+
+</LinearLayout>

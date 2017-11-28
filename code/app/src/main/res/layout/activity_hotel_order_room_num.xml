@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/panelOpenRoomCount"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/hotel_order1_style"
+            android:text="房间数"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/tv_room_count"
+            style="@style/hotel_order1_style"
+            android:layout_width="0dp"
+            android:layout_marginLeft="43dp"
+            android:layout_weight="1"
+            android:text="1间"
+            android:textSize="15sp"/>
+
+        <ImageView
+            android:id="@+id/ivNavaHouseNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_creen_arrow_down"/>
+    </LinearLayout>
+
+    <com.yzb.card.king.ui.appwidget.SpecHeightGridView
+        android:id="@+id/gv_room_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue2"
+        android:cacheColorHint="@color/white"
+        android:horizontalSpacing="10dp"
+        android:listSelector="@null"
+        android:numColumns="5"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:scrollbars="none"
+        android:verticalSpacing="7dp"
+        android:visibility="visible"/>
+</LinearLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/panelOutFullReduction"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!--平台和商家行-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:gravity="center_vertical"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:id="@+id/panelPlatformCoupon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_platform_brown"
+                />
+
+            <TextView
+                style="@style/travel_detail_title_style"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:text="平台"
+                />
+
+            <TextView
+                android:id="@+id/tvPlatformCouponInfo"
+                style="@style/travel_detail_text_gray_style"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text=""
+                android:textSize="14sp"
+                />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/dividerPlatShop"
+            android:layout_width="1dp"
+            android:layout_height="20dp"
+            android:background="@color/color_f0f0f0"
+            />
+
+        <LinearLayout
+            android:id="@+id/panelShopCoupon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:src="@mipmap/icon_shop_green"
+                />
+
+            <TextView
+                style="@style/travel_detail_title_style"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:text="商家"
+                />
+
+            <TextView
+                android:id="@+id/tvShopCouponInfo"
+                style="@style/travel_detail_text_gray_style"
+                android:layout_marginLeft="5dp"
+                android:text=""
+                android:textSize="14sp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <include
+        layout="@layout/travel_detail_divider"/>
+</LinearLayout>

@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/title"
+        style="@style/titlebar_style">
+
+        <LinearLayout
+            android:id="@+id/panel_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="30dp">
+
+            <include layout="@layout/nav_left"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/titlebar_title"
+            style="@style/titlebar_title_style"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="高级搜索"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/set_time"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_below="@+id/title"
+        android:layout_marginLeft="@dimen/title_l_r"
+        android:layout_marginRight="@dimen/title_l_r"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_round_corner_white_gray"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:orientation="horizontal"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:src="@mipmap/icon_cfrq"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="9dp"
+                    android:textColor="@color/color_333333"
+                    android:textSize="14sp"
+                    android:text="出发日期"
+                    />
+
+            </LinearLayout>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:background="#e6e6e6"
+                />
+            <LinearLayout
+                android:id="@+id/earliest"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:layout_weight="1"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tx_bgn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="14sp"
+                    android:textColorHint="@color/travel_cccccc"
+                    android:textColor="@color/color_333333"
+                    android:hint="最早"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_arrow_right_grey_travel"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="#e6e6e6"
+            ></View>
+
+        <LinearLayout
+            android:id="@+id/rl_latest"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tx_end"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="14sp"
+                android:textColor="@color/color_333333"
+                android:textColorHint="@color/travel_cccccc"
+                android:hint="最晚"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:textSize="14sp"
+                android:src="@mipmap/icon_arrow_right_grey_travel"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/personbudget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/set_time"
+        android:layout_alignRight="@+id/set_time"
+        android:layout_below="@+id/set_time"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="单人预算"
+            android:textColor="@color/ship_333333"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/personbudget_unlimited"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="不限"
+            android:gravity="center"
+            android:background="@drawable/bg_round_gray_corner"
+            android:textColor="@color/color_303030"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="元"
+            android:textColor="@color/ship_333333"
+            android:textSize="13sp"/>
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/personbudget_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/personbudget"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="20dp"
+        android:maxHeight="3dp"
+        android:minHeight="3dp"
+        android:progress="0"
+        android:max="55"
+        android:progressDrawable="@drawable/bg_travel_filter_popuwindow_seekbar"
+        android:thumb="@drawable/bg_travel_filter_popuwindow_seekbar_thumb"
+        android:thumbOffset="2dp"/>
+
+    <com.yzb.card.king.ui.appwidget.NoRollGridView
+        android:id="@+id/gridView_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/personbudget_seekbar"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:cacheColorHint="#00000000"
+        android:fadingEdge="none"
+        android:focusable="false"
+        android:gravity="center"
+        android:listSelector="#00000000"
+        android:numColumns="6"
+        android:scrollbars="none" />
+
+
+    <View
+        android:id="@+id/vOne"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/gridView_price"
+        android:layout_marginLeft="@dimen/title_l_r"
+        android:layout_marginRight="@dimen/title_l_r"
+        android:layout_marginTop="16dp"
+        android:background="@color/travel_cccccc"
+        ></View>
+
+
+    <LinearLayout
+        android:id="@+id/traveldays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/set_time"
+        android:layout_alignRight="@+id/set_time"
+        android:layout_below="@+id/vOne"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="出行天数"
+            android:textColor="@color/ship_333333"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/traveldays_unlimited"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:gravity="center"
+            android:layout_marginLeft="11dp"
+            android:text="不限"
+            android:background="@drawable/bg_round_gray_corner"
+            android:textColor="@color/color_303030"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:text="天"
+            android:textColor="@color/ship_333333"
+            android:textSize="13sp"/>
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/personbudget_seekbar_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/traveldays"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="20dp"
+        android:max="80"
+        android:maxHeight="3dp"
+        android:minHeight="3dp"
+        android:progress="0"
+        android:progressDrawable="@drawable/bg_travel_filter_popuwindow_seekbar"
+        android:thumb="@drawable/bg_travel_filter_popuwindow_seekbar_thumb"
+        android:thumbOffset="2dp"/>
+
+    <com.yzb.card.king.ui.appwidget.NoRollGridView
+        android:id="@+id/gridView_days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/personbudget_seekbar_two"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:cacheColorHint="#00000000"
+        android:fadingEdge="none"
+        android:focusable="false"
+        android:gravity="center"
+        android:listSelector="#00000000"
+        android:numColumns="9"
+        android:scrollbars="none" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_black"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_reset"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bg_black_orange"
+                android:text="重置"
+                android:textColor="@color/wordWhite"
+                android:textSize="@dimen/titlebar_text_size"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_seach"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/complete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bg_black_orange"
+                android:text="搜索"
+                android:textColor="@color/wordWhite"
+                android:textSize="@dimen/titlebar_text_size"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

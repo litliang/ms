@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rlTodayHotelRecommend"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="180dp">
+
+        <ImageView
+            android:id="@+id/ivThemeImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            />
+        <TextView
+            android:id="@+id/tvThemeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="让我们一起去度假吧"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:layout_centerInParent="true"
+            android:textColor="#c3c3c3"
+            />
+
+        <TextView
+            android:id="@+id/tvBrownsCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#757575"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="6dp"
+            android:layout_marginRight="3dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:text="浏览次数/66次"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

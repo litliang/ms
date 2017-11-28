@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout style="@style/titlebar_style">
+
+        <LinearLayout
+            android:id="@+id/panel_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="18dp"
+            android:paddingRight="20dp">
+
+            <include layout="@layout/nav_left" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/titlebar_title_style"
+            android:layout_centerInParent="true"
+            android:text="路线规划" />
+    </RelativeLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:fillViewport="false"
+        app:tabBackground="@color/text_color_white"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="#DB3033"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="#D84043"
+        app:tabTextAppearance="@style/TabLayoutTextAppearance2"
+        app:tabTextColor="#666666" />
+
+    <include layout="@layout/listview_divider" />
+
+    <com.yzb.card.king.ui.appwidget.UnScrollViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

@@ -1,0 +1,27 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yzb.card.king.ui.bonus.fragment.RedBagSendFragment">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ListView
+            android:id="@+id/listView"
+            style="@style/listview_style"
+            android:background="@color/transparent"
+            android:divider="@color/transparent"
+            android:dividerHeight="10dp"
+            android:paddingBottom="13dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="13dp"
+            android:scrollbars="none"
+            />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</FrameLayout>

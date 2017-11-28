@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/tvAdult"
+            style="@style/travel_order_title_style"
+            android:text="@string/et"
+            />
+
+        <!--占床单价-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp">
+
+            <TextView
+                style="@style/travel_order_perprice_style"
+                android:text="占床单价:"
+                />
+
+            <TextView
+                android:id="@+id/tvChildBedPrice"
+                style="@style/travel_order_perprice_style2"
+                android:layout_width="0dp"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:text="0"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/childBedCut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_giftcard_minus"/>
+
+                <TextView
+                    android:id="@+id/tvChildBedNum"
+                    style="@style/travel_order_person_num_style"
+                    android:text="0"
+                    />
+
+                <ImageView
+                    android:id="@+id/childBedAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_giftcard_plus"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <include
+            layout="@layout/activity_hotel_order_divider"
+            android:layout_width="102dp"
+            android:layout_height="0.5dp"/>
+
+        <!--不占床单价-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp">
+
+            <TextView
+                style="@style/travel_order_perprice_style"
+                android:text="不占床单价:"
+                />
+
+            <TextView
+                android:id="@+id/childNoBedPrice"
+                style="@style/travel_order_perprice_style2"
+                android:layout_width="0dp"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:text="0"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/childNoBedCut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_giftcard_minus"/>
+
+                <TextView
+                    android:id="@+id/tvChildNoBedNum"
+                    style="@style/travel_order_person_num_style"
+                    android:text="0"
+                    />
+
+                <ImageView
+                    android:id="@+id/childNoBedAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_giftcard_plus"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/activity_hotel_order_divider"/>
+</LinearLayout>

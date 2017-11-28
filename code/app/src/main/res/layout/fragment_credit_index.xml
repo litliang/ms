@@ -1,0 +1,194 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f0f0f0"
+    android:orientation="vertical">
+
+    <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="@dimen/title_view_height"
+                  android:id="@+id/header"
+                  android:gravity="center_vertical"
+        >
+
+        <RelativeLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_ffffff">
+
+            <LinearLayout
+                android:id="@+id/headerLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/title_l_r"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/headerLeftImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:background="@mipmap/icon_bank_linkphone"
+                  />
+
+                <TextView
+                    android:id="@+id/headerLeftText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:textSize="9sp"
+                    android:layout_marginTop="4dp"
+                    android:text="联系银行"
+                    android:textColor="@color/color_333333"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/headerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/credit_card"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/titlebar_text_size"/>
+
+            <LinearLayout
+                android:id="@+id/headerRight"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical|right"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/title_l_r">
+
+
+                <ImageView
+                    android:id="@+id/headerRightImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:background="@mipmap/icon_black_three_heng"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginBottom="3dp"
+        android:background="@color/divider_color2"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/sRL"
+        style="@style/swiperefrsh_style"
+        android:background="@android:color/transparent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/llFinanceLife"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="67dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@drawable/bg_white_corner_3"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/icon_jrsh"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:text="理财"
+                            android:textColor="@color/color_4c4c4c"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="11dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/train_cccccc"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="工资定时攒起来，既攒钱又赚钱>"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="12dp"
+                        android:textColor="@color/gray6"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+
+                <include
+                    layout="@layout/view_assist_function"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:id="@+id/llNoCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="100dp"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@mipmap/hotel_card_icon"
+                        android:gravity="center"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text="需要管理信用卡，就添加呗～"
+                        android:drawablePadding="5dp"
+                        android:textColor="#666666"
+                        android:textSize="14sp"/>
+
+                </LinearLayout>
+
+                <com.yzb.card.king.ui.appwidget.WholeListView
+                    android:id="@+id/listView_credit_index"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/bg_white_corner_3"
+                    android:divider="@color/gray4"
+                    android:dividerHeight="1px"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:scrollbars="none"/>
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+
+    <GridView
+        android:id="@+id/gv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="4"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:scrollbars="none"/>
+
+    <TextView
+        android:id="@+id/tvLine"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/color_e3e3e3"/>
+
+    <TextView
+        android:id="@+id/ivClose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/title_l_r"
+        android:textSize="14sp"
+        android:textColor="@color/text_color_33"
+        android:text="@string/cancel"/>
+
+
+
+</LinearLayout>

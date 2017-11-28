@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/panel_left"
+        style="@style/titlebar_style">
+
+        <LinearLayout
+            android:id="@+id/panel_back1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp">
+
+            <ImageView
+                android:layout_width="@dimen/text_size_10"
+                android:layout_height="@dimen/text_size_4"
+                android:background="@mipmap/icon_back_white"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/titlebar_left_tv"
+                style="@style/titlebar_tv2_style"
+                android:layout_marginLeft="4dp"
+                android:text=""
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <include
+            layout="@layout/titlebar_search_area"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/titlebar_center_height"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/iv_map"
+            style="@style/iv1_style"
+            android:layout_width="25dp"
+            android:layout_height="21dp"
+            android:layout_marginRight="13dp"
+            android:background="@mipmap/icon_nav_map" />
+
+        <ImageView
+            android:id="@+id/iv_menu"
+            style="@style/iv1_style"
+            android:layout_width="@dimen/titlebar_center_height2"
+            android:layout_height="@dimen/titlebar_center_height2"
+            android:layout_marginRight="16dp"
+            android:background="@mipmap/icon_nav_menu" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+               />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

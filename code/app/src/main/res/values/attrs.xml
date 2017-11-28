@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PointView">
+        <attr name="ico1" format="reference"/>
+        <attr name="ico2" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="DiscountView">
+        <attr name="ico" format="reference"/>
+        <attr name="centerText" format="string"/>
+        <attr name="tailText" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="ExpandableLayout">
+        <attr name="el_headerLayout" format="reference"/>
+        <attr name="el_contentLayout" format="reference"/>
+        <attr name="el_duration" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="TagFlowLayout">
+        <attr name="auto_select_effect" format="boolean"></attr>
+        <attr name="max_select" format="integer"></attr>
+        <attr name="gravity" format="string"></attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="ExpandableTextView">
+        <attr name="maxCollapsedLines" format="integer"/>
+        <attr name="etv_MaxLinesOnShrink" format="reference|integer"/>
+        <attr name="etv_EllipsisHint" format="reference|string"/>
+        <!--default is ..-->
+        <attr name="etv_ToExpandHint" format="reference|string"/>
+        <!--"to expand" hint string, default is "Expand"-->
+        <attr name="etv_ToShrinkHint" format="reference|string"/>
+        <!--"to shrink" hint string, default is "Shrink"-->
+        <attr name="etv_GapToExpandHint" format="reference|string"/>
+        <!--gap between "toExpandHint" and "trimmed text"-->
+        <attr name="etv_GapToShrinkHint" format="reference|string"/>
+        <!--gap between "toShrinkHint" and "trimmed text"-->
+        <attr name="etv_EnableToggle" format="reference|boolean"/>
+        <!--if toggle the state when click ExpandTextView-->
+        <attr name="etv_ToExpandHintShow" format="reference|boolean"/>
+        <!--if show "toExpandHint"-->
+        <attr name="etv_ToShrinkHintShow" format="reference|boolean"/>
+        <!--if show "toShrinkHint"-->
+        <attr name="etv_ToExpandHintColor" format="reference|color"/>
+        <!--text color of "toExpandHint"-->
+        <attr name="etv_ToShrinkHintColor" format="reference|color"/>
+        <!--text color of "toShrinkHint"-->
+        <attr name="etv_ToExpandHintColorBgPressed" format="reference|color"/>
+        <!--background color if "toExpandHint" pressed-->
+        <attr name="etv_ToShrinkHintColorBgPressed" format="reference|color"/>
+        <!--background color if "toShrinkHint" pressed-->
+        <attr name="etv_InitState" format="enum"><!--init state, default is shrink-->
+            <enum name="shrink" value="0"/>
+            <enum name="expand" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <attr name="borderRadius" format="dimension"/>
+    <attr name="type">
+        <enum name="circle" value="0"/>
+        <enum name="round" value="1"/>
+    </attr>
+
+    <declare-styleable name="RoundImageView">
+        <attr name="borderRadius"/>
+        <attr name="type"/>
+    </declare-styleable>
+
+    <!--自定义ratingbar属性-->
+    <declare-styleable name="RatingBar">
+        <!--星星间距-->
+        <attr name="starDistance" format="dimension"/>
+        <!--星星大小-->
+        <attr name="starSize" format="dimension"/>
+        <!--星星个数-->
+        <attr name="starCount" format="integer"/>
+        <!--星星空图-->
+        <attr name="starEmpty" format="reference"/>
+        <!--星星满图-->
+        <attr name="starFill" format="reference"/>
+        <!--是否手动绘制-->
+        <attr name="isIndicator" format="boolean"/>
+        <!--宽度与高度的比例-->
+        <attr name="whScale" format="float"/>
+        <!--星星接近正方形-->
+        <attr name="ifSameSquare" format="boolean"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension"/>
+        <attr name="border_color" format="color"/>
+        <attr name="border_overlay" format="boolean"/>
+    </declare-styleable>
+
+
+
+    <style name="Widget.CardContent" parent="android:Widget">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingBottom">24dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+</resources>
+

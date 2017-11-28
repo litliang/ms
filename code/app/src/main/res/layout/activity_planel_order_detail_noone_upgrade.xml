@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/panelNoUpgradle"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:background="@color/white"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/tvTimeDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0000-00-00 周二"
+            android:textColor="@color/color_838383"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tvCityCangdeng"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:singleLine="false"
+            android:text="北京－上海  经济舱"
+            android:textColor="@color/color_838383"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/firstLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/startTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="08:35"
+                android:textColor="@color/color_303030"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:id="@+id/endTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="10:30"
+                android:textColor="@color/color_303030"
+                android:textSize="18sp"
+                />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:src="@mipmap/line_01"/>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/startAirportName"
+                style="@style/plane_order2_style"
+                android:layout_width="match_parent"
+                android:text="上海虹桥机场2号航站楼"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/endAirportName"
+                style="@style/plane_order2_style"
+                android:layout_width="match_parent"
+                android:layout_alignParentBottom="true"
+                android:text="上海虹桥机场2号航站楼"
+                android:textSize="14sp"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp">
+
+            <ImageView
+                android:id="@+id/ivFlightLogo"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                />
+
+            <TextView
+                android:id="@+id/flightInfo"
+                style="@style/plane_order1_style"
+                android:layout_marginLeft="3dp"
+                android:text="春秋航空\nMU5122\n空客320"
+                android:textSize="11sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/listview_divider"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvPassengers"
+            style="@style/plane_order2_style"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:text="乘机人  马云、马化腾"
+            android:textSize="14sp"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

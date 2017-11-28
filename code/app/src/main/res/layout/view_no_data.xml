@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:gravity="center"
+              android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/hotel_card_icon"
+        android:drawablePadding="13dp"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:text="@string/travel_you_no_binded_bank_card"
+        android:textColor="#666666"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:textSize="14sp"/>
+
+</LinearLayout>

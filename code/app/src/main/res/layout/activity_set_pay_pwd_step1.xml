@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"/>
+    <View
+        android:id="@+id/lineTitel"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/setting_F4F4F4"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_jfb_round_corner5dp_white_solid"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/tv_binded_phone_label"
+                    style="@style/setting_modify_binded_phone_tv_left"
+                    android:text="@string/setting_bind_phone" />
+
+                <TextView
+                    android:id="@+id/et_binded_phone"
+                    style="@style/setting_modify_binded_phone_et"
+                    android:layout_alignBottom="@+id/tv_binded_phone_label"
+                    android:layout_marginLeft="26dp"
+                    android:layout_toRightOf="@+id/tv_binded_phone_label"
+                    android:maxLength="11"
+                    android:text="" />
+
+                <include
+                    android:id="@+id/divider2"
+                    layout="@layout/divider_d7d7d7"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/tv_binded_phone_label"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:id="@+id/tv_verify_code_label"
+                    style="@style/setting_modify_binded_phone_tv_left"
+                    android:layout_below="@+id/divider2"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/setting_verify_code" />
+
+                <EditText
+                    android:id="@+id/et_msg_code"
+                    style="@style/setting_modify_binded_phone_et"
+                    android:layout_alignBottom="@+id/tv_verify_code_label"
+                    android:layout_alignLeft="@+id/et_binded_phone"
+                    android:layout_toRightOf="@+id/tv_verify_code_label"
+                    android:hint="@string/setting_input_verify_code_hint2" />
+
+                <TextView
+                    android:id="@+id/tv_get_msg_code"
+                    style="@style/setting_send_verify_code"
+                    android:layout_alignBottom="@+id/tv_verify_code_label"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/setting_send_verify_code" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_safe_verify"
+                style="@style/setting_next_tv"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/setting_safe_verify" />
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

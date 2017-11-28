@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rounded_rectangle_white_10"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_rounded_rectangle_gray_10"
+            android:paddingBottom="7dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="7dp">
+
+            <TextView
+                android:id="@+id/tvCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="center"
+                android:paddingBottom="6dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="6dp"
+                android:text="@string/pickerview_cancel"
+                android:textColor="@color/selfedrive_blue_00B5D3"
+                android:textSize="@dimen/txt_11sp"/>
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/tvSubmit"
+                android:layout_toRightOf="@+id/tvCancel"
+                android:gravity="center"
+                android:text="@string/title_modfy_get_bus_time"
+                android:textColor="@color/black2"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@id/tvSubmit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:paddingBottom="6dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="6dp"
+                android:text="@string/pickerview_submit"
+                android:textColor="@color/selfedrive_blue_00B5D3"
+                android:textSize="@dimen/txt_11sp"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/llTimeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <!--取车时间-->
+            <LinearLayout
+                android:id="@+id/llGetBusTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/selfdrive_gary_dcdcdc"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="7dp"
+                android:paddingTop="7dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_selfdrive_get_time"
+                    android:textColor="@color/black2"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/tvGetBusTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="2016年5月26 08:30"
+                    android:textColor="#666666"
+                    android:textSize="12sp"/>
+
+            </LinearLayout>
+            <!--还车时间-->
+            <LinearLayout
+                android:id="@+id/llBackBusTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="7dp"
+                android:paddingTop="7dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_selfdrive_back_time"
+                    android:textColor="@color/black2"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/tvBackBusTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="2016年5月26 08:30"
+                    android:textColor="#666666"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/timepicker"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dip"
+            android:orientation="horizontal">
+
+            <com.jamgle.pickerviewlib.lib.WheelView
+                android:id="@+id/year"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <com.jamgle.pickerviewlib.lib.WheelView
+                android:id="@+id/month"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1"/>
+
+            <com.jamgle.pickerviewlib.lib.WheelView
+                android:id="@+id/day"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1"/>
+
+            <com.jamgle.pickerviewlib.lib.WheelView
+                android:id="@+id/monthDayWeek"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <com.jamgle.pickerviewlib.lib.WheelView
+                    android:id="@+id/hour"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+
+                <com.jamgle.pickerviewlib.lib.WheelView
+                    android:id="@+id/min"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    />
+
+            </LinearLayout>
+
+            <com.jamgle.pickerviewlib.lib.WheelView
+                android:id="@+id/hourMin"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

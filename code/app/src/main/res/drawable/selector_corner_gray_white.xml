@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/shape_bg_corner_solid_white"
+          android:state_selected="true"></item>
+    <item android:drawable="@drawable/shape_bg_corner_gray_stroke2"></item>
+</selector>

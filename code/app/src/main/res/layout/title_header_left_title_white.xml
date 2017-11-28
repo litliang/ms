@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/title_view_height"
+              android:id="@+id/header"
+              android:gravity="center_vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingRight="@dimen/title_l_r"
+        android:background="@color/white_ffffff">
+
+        <LinearLayout
+            android:id="@+id/llTemp"
+            android:layout_width="@dimen/title_view_height"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/headerLeftImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/title_l_r"
+                android:adjustViewBounds="true"
+                android:maxHeight="20dp"
+                android:maxWidth="20dp"
+                android:onClick="backAction"
+                android:scaleType="centerInside"
+                android:background="@mipmap/icon_arrow_back_black"/>
+
+
+        </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:text="输入商家名称"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/titlebar_text_size"
+                />
+
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/panelMoreDate"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:background="@color/white"
+    >
+
+    <!--背景-->
+    <LinearLayout
+        android:id="@+id/panelBg2"
+        android:layout_width="71dp"
+        android:layout_height="56dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="11dp"
+        android:background="@drawable/shape_bg_corner_gray_stroke"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="6dp">
+
+        <!--日期+状态-->
+        <TextView
+            android:id="@+id/tvDateState2"
+            style="@style/travel_detail_title_style"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:minEms="3"
+            android:text="更多"
+            android:textColor="@color/color_4D4D4D"
+            android:textSize="12sp"/>
+
+        <!--价格-->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:src="@mipmap/icon_more_date"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/panelTop2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/panelBg2"
+        android:layout_alignRight="@+id/panelBg2"
+        android:layout_alignTop="@+id/panelBg2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-7dp"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <View
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@drawable/shape_round_stroke_green"/>
+
+        <!--余票数量-->
+        <TextView
+            style="@style/travel_detail_text_gray_style"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:paddingBottom="1dp"
+            android:paddingLeft="1dp"
+            android:paddingRight="1dp"
+            android:textColor="@color/color_F37079"
+            android:textSize="11sp"/>
+
+        <View
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@drawable/shape_round_stroke_green"/>
+    </LinearLayout>
+
+</RelativeLayout>

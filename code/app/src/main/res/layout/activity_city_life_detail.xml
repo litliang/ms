@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <include
+        android:id="@+id/bottom_divider"
+        layout="@layout/listview_divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_above="@+id/panel_bottom" />
+
+    <LinearLayout
+        android:id="@+id/panel_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/text_color_white">
+
+        <LinearLayout
+            android:id="@+id/panel_dp"
+            style="@style/vertical_linear_wrap_style2"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_dp"
+                style="@style/iv1_style"
+                android:layout_width="26dp"
+                android:layout_height="23dp"
+                android:background="@mipmap/icon_footer_df" />
+
+            <TextView
+                android:id="@+id/tv_dp"
+                style="@style/tv3_style"
+                android:layout_marginTop="4dp"
+                android:text="店铺"
+                android:textColor="@color/text_color_selector2"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/panel_sc"
+            style="@style/vertical_linear_wrap_style2">
+
+            <ImageView
+                android:id="@+id/iv_sc"
+                style="@style/iv1_style"
+                android:layout_width="24dp"
+                android:layout_height="23dp"
+                android:background="@mipmap/icon_footer_sc_gray" />
+
+            <TextView
+                android:id="@+id/tv_sc"
+                style="@style/tv3_style"
+                android:layout_marginTop="4dp"
+                android:text="收藏"
+                android:textColor="@color/text_color_selector2"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/panel_thfk"
+            style="@style/vertical_linear_wrap_style2">
+
+            <ImageView
+                style="@style/iv1_style"
+                android:layout_width="32dp"
+                android:layout_height="23dp"
+                android:background="@mipmap/icon_footer_thfk" />
+
+            <TextView
+                style="@style/tv3_style"
+                android:layout_marginTop="4dp"
+                android:text="特惠付款"
+                android:textColor="@color/text_color_selector2"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

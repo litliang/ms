@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f0f0f0"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/rl_title"
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_search_grey_wallet"/>
+
+                <EditText
+                    android:id="@+id/etSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="19dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="输入收款人或者收款账号"
+                    android:paddingLeft="7dp"
+                    android:textColor="@color/wallet_text_color"
+                    android:textColorHint="#9a9a9a"
+                    android:textSize="15sp"/>
+
+                <ImageView
+                    android:id="@+id/ivClear"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@mipmap/travel_delete"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#cdcdcd"/>
+
+            <LinearLayout
+                android:id="@+id/llContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:id="@+id/llTransfer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/llToHiLife"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/transfer_icon_zhuanzhang"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingLeft="15dp"
+                                android:text="转给 Hi Life账户"
+                                android:textColor="@color/wallet_text_color"
+                                android:textSize="16sp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="转给自己或他人"
+                                android:textColor="#9a9a9a"
+                                android:textSize="13sp"/>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#cdcdcd"/>
+
+                        <LinearLayout
+                            android:id="@+id/llToBankCard"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/transfer_icon_bank"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingLeft="15dp"
+                                android:text="转到银行卡"
+                                android:textColor="@color/wallet_text_color"
+                                android:textSize="16sp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="转给自己或他人"
+                                android:textColor="#9a9a9a"
+                                android:textSize="13sp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/llOtherAccountTranfer"
+                            android:layout_width="match_parent"
+                            android:layout_height="38dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp">
+
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="转入其它账户"
+                                android:textColor="#626262"
+                                android:textSize="15sp"/>
+
+                            <ImageView
+                                android:id="@+id/ivArrowGray"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@mipmap/icon_up_wallet_gray"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llOtherTransferStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#cdcdcd"/>
+
+                            <LinearLayout
+                                android:id="@+id/llWeixinPay"
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="16dp"
+                                android:paddingRight="16dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@mipmap/transfer_icon_weixin"/>
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:paddingLeft="15dp"
+                                    android:text="转到微信账户"
+                                    android:textColor="@color/wallet_text_color"
+                                    android:textSize="16sp"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@mipmap/icon_arrow_right_gray_wallet"/>
+                            </LinearLayout>
+
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#cdcdcd"/>
+
+                            <LinearLayout
+                                android:id="@+id/llZhifubaoPay"
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="16dp"
+                                android:paddingRight="16dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@mipmap/transfer_icon_zhifubao"/>
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:paddingLeft="15dp"
+                                    android:text="转到支付宝账户"
+                                    android:textColor="@color/wallet_text_color"
+                                    android:textSize="16sp"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@mipmap/icon_arrow_right_gray_wallet"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="39dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/hotel_f5f5f5"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="16dp"
+                        android:text="常用收款人"
+                        android:textColor="@color/gray6"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+
+
+                <com.yzb.card.king.ui.appwidget.WholeListView
+                    android:id="@+id/listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:divider="@color/gray4"
+                    android:dividerHeight="1px"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:scrollbars="none"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llMsg"
+                android:layout_width="231dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="142dp"
+                android:background="@drawable/bg_gray_edge_1_corner_2"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@mipmap/select_bank_search"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="无结果......"
+                    android:textColor="@color/user_center_black"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

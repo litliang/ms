@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_f4f4f4"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/svParent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white_ffffff"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:paddingLeft="18dp"
+                android:paddingRight="18dp"
+                android:paddingTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ivBusImage"
+                        android:layout_width="88dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="5dp"
+                        android:src="@mipmap/cart_pic_01" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvCarType"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="经济型"
+                                android:textColor="@color/selfedrive_gray_4C4C4C"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvCardBand"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:text="中华Cross"
+                                android:textSize="13sp"
+                                android:textColor="@color/selfedrive_gray_4C4C4C"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dip"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="租赁公司"
+                                android:textColor="@color/selfdrive_gray_828282"
+                                android:textSize="9sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvCarCompany"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:textColor="@color/selfdrive_gray_828282"
+                                android:textSize="9sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dip"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="供应商"
+                                android:textColor="@color/selfdrive_gray_828282"
+                                android:textSize="9sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvProvider"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:textColor="@color/selfdrive_gray_828282"
+                                android:textSize="9sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#dbdbdb" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white_ffffff"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="18dp"
+                android:paddingRight="18dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/tv_selfdrive_order_money"
+                    android:textColor="@color/selfdrive_gray_828282"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_weight="1"
+                    android:text="¥299"
+                    android:textColor="@color/black2"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/ivPriceDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:background="@mipmap/icon_round_red_card" />
+
+            </LinearLayout>
+
+            <!--联系人信息-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/white_ffffff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
+                    android:paddingTop="8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.2"
+                        android:text="@string/tv_selfdrive_linkman"
+                        android:textColor="@color/selfedrive_gray_3F3F3F"
+                        android:textSize="13sp"/>
+
+                    <EditText
+                        android:id="@+id/etXiadanLinkman"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dip"
+                        android:layout_weight="1"
+                        android:singleLine="true"
+                        android:background="@color/white_ffffff"
+                        android:hint="@string/hint_selfdrive_input_your_name"
+                        android:textSize="13sp" />
+
+                    <ImageView
+                        android:id="@+id/tvAddLinkman"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_round_add" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#dbdbdb" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
+                    android:paddingTop="8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.2"
+                        android:text="@string/tv_selfdrive_linkman_phone"
+                        android:textColor="@color/selfedrive_gray_3F3F3F"
+                        android:textSize="13sp" />
+
+                    <EditText
+                        android:id="@+id/etXiadanPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dip"
+                        android:layout_weight="1"
+                        android:singleLine="true"
+                        android:inputType="number"
+                        android:maxLength="11"
+                        android:background="@color/white_ffffff"
+                        android:hint="@string/hint_selfdrive_input_your_phone"
+                        android:textSize="13sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_round_add"
+                        android:visibility="invisible" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--订单信息-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/white_ffffff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="18dp"
+
+                    android:paddingRight="18dp"
+                    android:paddingTop="8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.2"
+                        android:text="@string/tv_selfdrive_get_city"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvGetBusCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dip"
+                        android:layout_weight="1"
+                        android:textSize="13sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_round_add"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
+                    android:paddingTop="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.2"
+                        android:text="@string/tv_selfdrive_get_time"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvGetButData"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dip"
+                        android:layout_weight="1"
+                        android:textSize="13sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_round_add"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
+                    android:paddingTop="8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.2"
+                        android:text="@string/tv_selfdrive_get_shop"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvGetBusShopName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dip"
+                        android:layout_weight="1"
+                        android:textSize="13sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_round_add"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#dbdbdb" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
+                    android:paddingTop="8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.2"
+                        android:text="@string/tv_selfdrive_back_city"
+                        android:textSize="13sp"/>
+
+                    <TextView
+                        android:id="@+id/tvBackBusCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dip"
+                        android:layout_weight="1"
+                        android:textSize="13sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_round_add"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
+                    android:paddingTop="8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.2"
+                        android:text="@string/tv_selfdrive_back_time"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvBackBusTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dip"
+                        android:layout_weight="1"
+                        android:textSize="13sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_round_add"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:visibility="gone"
+                    android:background="#dbdbdb" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
+                    android:paddingTop="8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4.3"
+                        android:text="@string/tv_selfdrive_back_shop"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvBackBusShopName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dip"
+                        android:layout_weight="1"
+                        android:textSize="13sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_arrow_right_red"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
+                    android:paddingTop="8dp">
+
+                    <ImageView
+                        android:id="@+id/ivGetBus"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:background="@mipmap/icon_check_red_defaul" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dip"
+                        android:layout_weight="1"
+                        android:text="@string/tv_selfdrive_songche"
+                        android:textSize="13sp" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:text="@string/tv_selfdrvie_total"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:text="@string/tv_selfdrive_money_unit"
+                        android:layout_marginLeft="3dp"
+                        android:textColor="@color/red_d84043"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tvGetBusServicePrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="10dp"
+                        android:text="0"
+                        android:textColor="@color/red_d84043"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/ivFareEstimateStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:background="@mipmap/icon_round_red_card" />
+
+                </LinearLayout>
+
+                <include
+                    android:id="@+id/viewSendBusDesc"
+                    layout="@layout/view_selfdrive_linkman"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
+                    android:paddingTop="8dp">
+
+                    <ImageView
+                        android:id="@+id/ivBackBus"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:background="@mipmap/icon_check_red_defaul" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dip"
+                        android:layout_weight="1"
+                        android:text="@string/tv_selfdrive_shouche"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tv_selfdrvie_total"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tv_selfdrive_money_unit"
+                        android:layout_marginLeft="3dp"
+                        android:textColor="@color/red_d84043"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tvBackBusServicePrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:text="0"
+                        android:layout_marginLeft="1dp"
+                        android:textColor="@color/red_d84043"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/ivFareEstimateEnd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_round_red_card" />
+
+                </LinearLayout>
+
+                <include
+                    android:id="@+id/viewBackBusDesc"
+                    layout="@layout/view_selfdrive_linkman"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white_ffffff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/llCancelRule"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_ffffff"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="12dp"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
+                    android:paddingTop="12dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/tv_selfdrive_canel_rule"
+                        android:textSize="14sp" />
+
+
+                    <ImageView
+                        android:id="@+id/ivCancelRule"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_arrow_right_red" />
+
+                </LinearLayout>
+
+                <include
+                    android:id="@+id/viewCancelRule"
+                    layout="@layout/view_cancel_rule_content"
+                    android:visibility="gone" />
+
+                <View
+                    android:id="@+id/viewLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#dbdbdb" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_ffffff"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
+                    android:paddingTop="8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="@string/tv_selfdrive_quxiaopinzheng"
+                        android:textSize="14sp" />
+
+
+                    <ImageView
+                        android:id="@+id/ivOpen"
+                        android:layout_width="53dp"
+                        android:layout_height="33dp"
+                        android:background="@mipmap/icon_check_default_white" />
+                </LinearLayout>
+
+
+                <View
+                    android:id="@+id/lineInvoiceReimbursement"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#dbdbdb" />
+
+                <!--报销凭证-->
+                <include
+                    android:id="@+id/viewInvoiceReimbursement"
+                    layout="@layout/view_invoice_for_reimbursement"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/llGetBusPrompt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_ffffff"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="12dp"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="18dp"
+                    android:paddingTop="12dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/tv_selfdrive_get_tip"
+                        android:textSize="14sp" />
+
+
+                    <ImageView
+                        android:id="@+id/ivPrompt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_arrow_right_red" />
+
+                </LinearLayout>
+
+                <!--取车提示-->
+                <include
+                    android:id="@+id/viewGetBusPrompt"
+                    layout="@layout/view_get_bus_prompt"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#dbdbdb" />
+    <!--价格、距离筛选-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvTotalPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white_ffffff"
+            android:gravity="center"
+            android:paddingBottom="8dip"
+            android:paddingTop="8dip"
+            android:text="¥360"
+            android:textColor="@color/red_d84043"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tvTeHuFuKuan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/red_d84043"
+            android:gravity="center"
+            android:paddingBottom="8dip"
+            android:paddingTop="8dip"
+            android:text="@string/tv_selfdrive_tehuifukuan"
+            android:textColor="@color/white_ffffff"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

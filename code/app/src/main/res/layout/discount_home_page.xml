@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/discount_white"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/viewTitle"
+        layout="@layout/view_title_shop"/>
+
+    <com.yzb.card.king.ui.appwidget.VpSwipeRefreshLayout
+        android:id="@+id/srl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ListView
+            android:id="@+id/homepageList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:headerDividersEnabled="false"
+            android:overScrollMode="never"
+            android:paddingBottom="@dimen/title_l_r"
+            android:scrollbars="none" />
+    </com.yzb.card.king.ui.appwidget.VpSwipeRefreshLayout>
+
+</LinearLayout>

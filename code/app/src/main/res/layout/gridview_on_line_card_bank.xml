@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp">
+        <ImageView
+            android:id="@+id/on_line_card_imageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="5dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp">
+            <TextView
+                android:id="@+id/on_line_card_textView"
+                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@color/bgBlack"
+                android:text="广发银行"/>
+            <TextView
+                android:id="@+id/tvActive"
+                android:layout_marginTop="7dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="刷100返50"
+                android:textSize="11sp"
+                android:textColor="@color/gray6"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/on_line_card_id_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+</LinearLayout>

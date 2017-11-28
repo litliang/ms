@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="top"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rlOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-5dp"
+                android:background="@mipmap/bg_gray_white_shiticard"
+                android:orientation="horizontal"
+                android:layout_below="@+id/ivEntityCardImage"
+                android:paddingLeft="10dp"
+                android:layout_marginRight="17dp"
+                android:layout_marginLeft="17dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/tvGiftName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:gravity="top"
+                    android:text="面额"
+                    android:textColor="@color/color_333333"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="12dp"
+                    android:gravity="top"
+                    android:text="全平台使用"
+                    android:textColor="#456a8f"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+
+            <ImageView
+                android:id="@+id/ivEntityCardImage"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:scaleType="fitXY"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:src="@mipmap/icon_gift_card_gold" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:gravity="top"
+                android:text="面额"
+                android:textColor="#4d4d4d"
+                android:textSize="15sp" />
+
+            <com.yzb.card.king.ui.appwidget.SpecHeightGridView
+                android:id="@+id/amoutGv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:cacheColorHint="@color/white"
+                android:horizontalSpacing="5dp"
+                android:listSelector="@color/white"
+                android:numColumns="5"
+                android:scrollingCache="false" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_bg_corner_gray_stroke"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:text="自定义"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/etInputAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="输入自定义金额"
+            android:inputType="number"
+            android:singleLine="true"
+            android:textColor="@color/color_999999"
+            android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/ivPlusAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="13dp"
+            android:src="@mipmap/icon_giftcard_plus_new" />
+    </LinearLayout>
+
+</LinearLayout>

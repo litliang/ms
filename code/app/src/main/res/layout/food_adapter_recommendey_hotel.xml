@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@color/white_ffffff"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tvHotelName"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="上海希爾頓酒店"
+            android:textColor="#7c7d7a"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvDrDistanceMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#7c7d7a"
+                android:text="@string/food_people_kilometre"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llImageAtlas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/ivOne"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                 />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivTwo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
+                     />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+                <ImageView
+                    android:id="@+id/ivThree"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
+                     />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvCuisine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="粤菜"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textSize="14sp"
+            android:textColor="#7c7d7a"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <ImageView
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/shape_round_red" />
+
+            <TextView
+                android:id="@+id/tvHotelDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="3"
+                android:layout_marginLeft="7dp"
+                android:text="酒店介绍：啊圣诞节法拉盛的风景；爱上的看法；阿什顿飞；暗室逢灯啊圣诞节法拉盛的风景；爱上的看法；阿什顿飞；暗室逢灯"
+                android:textColor="@color/black2"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

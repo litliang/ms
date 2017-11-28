@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_F5F5F5"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/rl_title"
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_F5F5F5"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/panelScanDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_ffffff"
+                    android:paddingLeft="@dimen/title_l_r"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="@dimen/title_l_r"
+                    android:gravity="center_vertical"
+                    >
+                    <TextView
+                        android:id="@+id/tvLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="礼品卡账户余额"
+                        android:textColor="@color/user_center_black"
+                        android:textSize="16sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/giftcardSumAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/tvLabel"
+                        android:layout_marginLeft="10dp"
+                        android:text="¥0.00"
+                        android:layout_centerVertical="true"
+                        android:textColor="#bf9543"
+                        android:textSize="18sp"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="1dp"
+                            android:text="明细"
+                            android:textSize="16sp"
+                            android:textColor="#333333"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/icon_menu_giftcard"/>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:paddingLeft="@dimen/title_l_r"
+                    android:paddingRight="@dimen/title_l_r"
+                    android:background="@color/white_ffffff"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/title_l_r"
+                        android:gravity="center_vertical"
+                        android:paddingTop="@dimen/title_l_r"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/icon_gift_home_arrow_yellow"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="#081634"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="5dp"
+                            android:text="送心意卡"/>
+
+
+                        <LinearLayout
+                            android:id="@+id/discount_card_giftcard_more"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:text="更多"
+                                android:textColor="#656565"
+                                android:textSize="14sp"/>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="4dp"
+                                android:background="@mipmap/icon_home_gray_arrow_right"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <!--礼品卡列表-->
+                    <com.yzb.card.king.ui.appwidget.WholeRecyclerView
+                        android:id="@+id/giftcard_shop_recyclerview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:cacheColorHint="@color/white"
+                        android:numColumns="2"
+                        android:scrollbars="none"
+                        android:scrollingCache="false"
+                       />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#cdcdcd"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/title_l_r"
+                    android:paddingRight="@dimen/title_l_r"
+                    android:background="@color/white_ffffff"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/title_l_r"
+                        android:gravity="center_vertical"
+                        android:paddingTop="@dimen/title_l_r"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/icon_gift_home_arrow_yellow"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="#081634"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="5dp"
+                            android:text="送礼品e卡"/>
+
+
+                        <LinearLayout
+                            android:id="@+id/discount_card_e_giftcard_more"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:text="更多"
+                                android:textColor="#656565"
+                                android:textSize="14sp"/>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="4dp"
+                                android:background="@mipmap/icon_home_gray_arrow_right"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <!--礼品e卡列表-->
+                    <com.yzb.card.king.ui.appwidget.WholeRecyclerView
+                        android:id="@+id/giftcard_egiftcard_shop_recyclerview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:cacheColorHint="@color/white"
+                        android:numColumns="2"
+                        android:scrollbars="none"
+                        android:scrollingCache="false"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/tvSend"
+        style="@style/my_btn_bg_style"
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="17dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        android:text="确认发送"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cccccc"/>
+
+    <com.yzb.card.king.ui.appwidget.SpecHeightGridView
+        android:id="@+id/gvChannels"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_ffffff"
+        android:cacheColorHint="@color/white"
+        android:listSelector="@null"
+        android:numColumns="4"
+        android:scrollbars="none"
+        android:scrollingCache="false"/>
+
+</LinearLayout>

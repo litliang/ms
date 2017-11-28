@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"/>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/hotel_f5f5f5"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/activity_travel_signup_date"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <include layout="@layout/activity_travel_signup_adult"/>
+
+                <include layout="@layout/activity_travel_signup_child"/>
+
+                <include layout="@layout/activity_travel_signup_room"/>
+
+            </LinearLayout>
+
+            <com.yzb.card.king.ui.travel.activity.view.TravelSignGuestContactView
+                android:id="@+id/guestContactView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"/>
+
+            <com.yzb.card.king.ui.travel.activity.view.TravelSignupInvoiceView
+                android:id="@+id/invoiceView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="34dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/activity_travel_signup_bottom"/>
+</LinearLayout>

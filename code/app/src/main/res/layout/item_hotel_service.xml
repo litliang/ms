@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="10dp"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/service_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/bgBlack"
+        android:textSize="14sp"
+        android:text="通用设施"
+        />
+
+    <GridView
+        android:id="@+id/gridView_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/me"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="8dp"
+        android:cacheColorHint="#00000000"
+        android:fadingEdge="none"
+        android:gravity="center"
+        android:listSelector="#00000000"
+        android:numColumns="3"
+        android:scrollbars="none" />
+</LinearLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:background="@color/white_ffffff"
+              android:layout_height="match_parent">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        style="@style/swiperefrsh_style">
+
+        <com.yzb.card.king.ui.appwidget.HeadFootRecyclerView
+            android:id="@+id/listview"
+            style="@style/listview_style"
+            android:background="@color/white_ffffff"
+            android:scrollbars="none" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

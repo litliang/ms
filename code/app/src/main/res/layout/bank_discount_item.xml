@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="3dp"
+        android:background="@drawable/icon_label_yhj"/>
+
+    <TextView
+        android:id="@+id/tvCenterText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="3dp"
+        android:text="@string/hotel_privilege"
+        android:textColor="@color/selector_black_gray"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:id="@+id/tvTailText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/hotel_click_get"
+        android:textColor="@color/selector_black_gray"
+        android:textSize="13sp"/>
+</merge>

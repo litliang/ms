@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_bg_corner_gray_stroke">
+
+    <ImageView
+        android:id="@+id/giftcard_shop_img"
+        android:layout_width="match_parent"
+        android:layout_height="94dp"
+        android:scaleType="fitCenter"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="17dp"
+        android:layout_alignBottom="@id/giftcard_shop_img"
+        android:alpha="0.2"
+        android:background="@drawable/shape_bottom_corner5dp_halftranspant_solid"
+        android:gravity="center"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/giftcard_shop_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/giftcard_shop_img"
+        android:gravity="center"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:text="卡类型"
+        android:textColor="@color/white"
+        android:textSize="10sp"/>
+
+</RelativeLayout>

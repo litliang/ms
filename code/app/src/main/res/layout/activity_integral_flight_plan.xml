@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:fitsSystemWindows="true"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <include
+        layout="@layout/view_public_head_title_left"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#eaeaea"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/shape_rounded_rectangle_red_traveller"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:id="@+id/llParent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_rounded_rectangle_white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="5dp">
+
+                    <TextView
+                        android:id="@+id/tvScale"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:textColor="@color/gray_898989"
+                        android:textSize="@dimen/title_size_14"
+                        />
+
+
+
+                    <RelativeLayout
+                        android:id="@+id/rlArrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/icon_phone_book"
+                            android:visibility="invisible"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:background="@mipmap/icon_arrow_down_gray"/>
+                    </RelativeLayout>
+                </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:background="@drawable/shape_rounded_rectangle_white"
+                   android:layout_marginTop="10dp"
+                   >
+
+                   <ListView
+                       android:id="@+id/lv"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:listSelector="@android:color/transparent"
+                       android:background="@android:color/transparent">
+
+                   </ListView>
+
+               </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/red_d84043"
+            android:text="@string/integral_detail"
+            android:textColor="@color/white_ffffff"
+            android:textSize="@dimen/title_size_16"
+            android:onClick="checkDetail"
+            />
+    </LinearLayout>
+
+</LinearLayout>

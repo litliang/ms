@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white_ffffff"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_f0f0f0"
+        android:padding="@dimen/title_l_r">
+
+        <TextView
+            android:id="@+id/tvCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消"
+            android:textColor="@color/color_666666"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tvConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="确认"
+            android:layout_alignParentRight="true"
+            android:textColor="#436a90"
+            android:textSize="14sp"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvLine"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/color_e3e3e3"/>
+
+
+    <com.yzb.card.king.ui.appwidget.WholeListView
+        android:id="@+id/wvLvData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/color_e3e3e3"
+        android:listSelector="@android:color/transparent">
+    </com.yzb.card.king.ui.appwidget.WholeListView>
+
+</LinearLayout>

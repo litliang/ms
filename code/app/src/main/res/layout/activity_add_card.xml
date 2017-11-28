@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#f0f0f0"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:gravity="center_vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_ffffff"
+            android:paddingRight="@dimen/title_l_r">
+
+            <LinearLayout
+                android:id="@+id/llImageLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/title_l_r"
+                    android:adjustViewBounds="true"
+                    android:background="@mipmap/icon_arrow_back_black"
+                    android:maxHeight="20dp"
+                    android:maxWidth="20dp"
+                    android:scaleType="centerInside"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="输入商家名称"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/titlebar_text_size"
+                />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f0f0f0"
+        android:fitsSystemWindows="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rlContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/title_l_r"
+                >
+
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btNext"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/selector_bg_red_gray_corner_2"
+                android:text="下一步"
+                android:textColor="@color/white"
+                android:textSize="@dimen/button_text_size"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        android:background="#f4f4f5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/page_margin_left_right"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/title_size_14"
+                android:textColor="#989899"
+                android:text="@string/integral_red_bo_total"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/title_size_14"
+                android:textColor="@color/color_status"
+                android:text="@string/tv_selfdrive_money_unit"/>
+            <TextView
+                android:id="@+id/tvIntegralNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/title_size_20"
+                android:textColor="@color/color_status"
+                android:text="500"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/etMoney"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="8dip"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textSize="@dimen/title_size_16"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shape_rounded_rectangle_white"
+                android:hint="@string/hini_input_red_bao_money"/>
+
+            <TextView
+                android:id="@+id/tvConfirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#989899"
+                android:text="@string/integral_zensong"
+                android:paddingTop="8dip"
+                android:paddingBottom="8dp"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:textSize="@dimen/title_size_16"
+                android:background="@drawable/shape_rounded_rectangle_white"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/gv_input_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/setting_E9E9E9"
+        android:cacheColorHint="@android:color/transparent"
+        android:horizontalSpacing="1dp"
+
+        android:numColumns="3"
+        android:scrollbars="none"
+        android:scrollingCache="false"
+        android:verticalSpacing="1dp">
+
+    </GridView>
+</LinearLayout>

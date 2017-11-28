@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"/>
+    <View
+        android:id="@+id/lineTitel"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/setting_F4F4F4"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="14dp">
+
+            <!--顶部部分；-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white_corner_3"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="14dp"
+                        android:minWidth="92dp"
+                        android:text="姓名"
+                        android:textColor="@color/wordBlack"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/etName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="14dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:gravity="bottom"
+                        android:maxLength="25"
+                        android:paddingLeft="30dp"
+                        android:singleLine="true"
+                        android:hint="账户证件持卡人"
+                        android:textColor="@color/wordBlack"
+                        android:textColorHint="#919191"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1.0px"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:background="@color/lineGrey"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <LinearLayout
+                        android:id="@+id/llIdentification"
+                        android:layout_width="wrap_content"
+                        android:paddingLeft="14dp"
+                        android:minWidth="92dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:id="@+id/tvCardName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="身份证"
+                            android:textColor="@color/wordBlack"
+                            android:textSize="16sp" />
+                        <ImageView
+                            android:id="@+id/ivArrow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/icon_arrow_down"/>
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/etCardNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="14dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="请输入证件号码"
+                        android:text=""
+                        android:inputType="number"
+                        android:maxLength="19"
+                        android:paddingLeft="30dp"
+                        android:textColor="@color/wordBlack"
+                        android:textColorHint="#919191"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_white_corner_3"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_below="@id/divider2">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/setting_bind_phone"
+                        android:textColor="@color/setting_3D4245"
+                        android:textSize="16sp"/>
+
+                    <EditText
+                        android:id="@+id/tv_binded_phone"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:maxLength="11"
+                        android:inputType="number"
+                        android:paddingLeft="20dp"
+                        android:background="@null"
+                        android:textColor="@color/setting_919191"
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+                <include layout="@layout/divider_horizontal"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_below="@id/divider2">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_verify_code_label"
+                        android:text="@string/setting_verify_code"
+                        android:textColor="@color/setting_3D4245"
+                        android:textSize="16sp"/>
+
+                    <EditText
+                        android:id="@+id/et_msg_code"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/setting_input_verify_code_hint2"
+                        android:inputType="number"
+                        android:paddingLeft="20dp"
+                        android:background="@null"
+                        android:textColor="@color/setting_919191"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/tv_get_msg_code"
+                        style="@style/setting_send_verify_code"
+                        android:text="@string/setting_send_verify_code"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_safe_verify"
+                style="@style/setting_next_tv"
+                android:layout_marginTop="30dp"
+                android:text="@string/setting_safe_verify"/>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

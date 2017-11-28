@@ -1,0 +1,186 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 第一行 -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/carTypeName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="经济型"
+                android:textSize="@dimen/train_tv_15"
+                android:textColor="@color/train_ffffff"/>
+
+            <TextView
+                style="@style/shuttle_order_style1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="12dp"
+                android:text="锋范 伊兰特等同等级车"/>
+
+            <ImageView
+                android:layout_width="9dp"
+                android:layout_height="12dp"
+                android:layout_gravity="center_vertical"
+                android:background="@mipmap/shuttle_order_people_number"/>
+
+            <TextView
+                android:id="@+id/personNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="x4"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/train_tv_10"
+                android:textColor="@color/train_ffffff"/>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="12dp"
+                android:layout_marginLeft="16dp"
+                android:layout_gravity="center_vertical"
+                android:background="@mipmap/shuttle_order_luggage_number"/>
+
+            <TextView
+                android:id="@+id/luggageNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_gravity="center_vertical"
+                android:text="x2"
+                android:textSize="@dimen/train_tv_10"
+                android:textColor="@color/train_ffffff"/>
+        </LinearLayout>
+        <!-- 第一行 -->
+
+        <!-- 第二、三行 -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="8dp"
+                android:layout_gravity="center_vertical"
+                android:background="@mipmap/shutte_order_line_go"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/startPlace"
+                    style="@style/shuttle_order_style1"
+                    android:layout_marginLeft="12dp"
+                    android:text="上海市浦东新区桃树路661号"/>
+
+                <TextView
+                    android:id="@+id/endPlace"
+                    style="@style/shuttle_order_style1"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="中山公园"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <!-- 第二、三行 -->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/train_ffffff"/>
+
+        <!-- 第四行 -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                style="@style/shuttle_order_style1"
+                android:text="@string/shuttle_yongcheshijian"/>
+
+            <TextView
+                android:id="@+id/startDate"
+                style="@style/shuttle_order_style1"
+                android:text="2016年05月05日 周四 14:16"/>
+        </LinearLayout>
+        <!-- 第四行 -->
+
+        <!-- 第五行 -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                style="@style/shuttle_order_style1"
+                android:text="@string/shuttle_jijiaguize"/>
+
+            <TextView
+                android:id="@+id/feeDetail"
+                style="@style/shuttle_order_style1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="¥12.00起＋¥0.4/分钟＋¥2.4/公里"/>
+
+            <LinearLayout
+                android:id="@+id/llDetail"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/shuttle_xiangqing"
+                    android:textSize="@dimen/train_tv_12"
+                    android:textColor="@color/train_720006"/>
+
+                <ImageView
+                    android:layout_width="6dp"
+                    android:layout_height="11dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@mipmap/shuttle_order_detail_arrow"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <!-- 第五行 -->
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:text="@string/shuttle_introductions"
+            android:textSize="@dimen/train_tv_12"
+            android:textColor="@color/train_ffa9af"/>
+
+    </LinearLayout>
+
+</FrameLayout>

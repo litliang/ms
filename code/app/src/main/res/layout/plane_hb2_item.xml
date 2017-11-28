@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_vertical">
+    <LinearLayout
+        android:id="@+id/llRount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/bh"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/icon_round_number_blue"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="@color/color_436a8e"
+        android:textSize="10sp"/>
+
+    <TextView
+        android:id="@+id/flightDate"
+        style="@style/plane_order1_style"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:text="04-25 周一"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/start_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="上海"
+            android:textColor="#a0a0a0"
+            android:textSize="12sp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/transfer_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:text=""
+                android:textColor="#B38185"
+                android:textSize="8sp"/>
+
+            <View
+                android:id="@+id/center_line"
+                android:layout_width="25dp"
+                android:layout_height="1dp"
+                android:background="#a0a0a0"
+                />
+
+            <TextView
+                android:id="@+id/transfer_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="2dp"
+                android:text=""
+                android:textColor="#B38185"
+                android:textSize="8sp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/end_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="北京"
+            android:textColor="#a0a0a0"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_flightNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center"
+        android:text="MU5122"
+        android:textColor="#a0a0a0"
+        android:textSize="12sp"/>
+
+    <ImageView
+        android:id="@+id/bhImage2"
+        android:layout_width="11dp"
+        android:layout_height="11dp"
+        android:background="@mipmap/icon_all_time"/>
+
+    <TextView
+        android:id="@+id/timeLength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:text="10h10min"
+        android:textColor="#a0a0a0"
+        android:textSize="12sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_discount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="经济舱9.9折 免费提前改期"
+            android:textColor="@color/color_4D4D4D"
+            android:textSize="12sp"/>
+
+        <ImageView
+            android:layout_width="6dp"
+            android:layout_height="12dp"
+            android:layout_marginLeft="6dp"
+            android:background="@mipmap/arrow_right_grey"/>
+    </LinearLayout>
+</LinearLayout>

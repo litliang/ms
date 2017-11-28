@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:background="@mipmap/icon_hotel_biaoqian"
+        android:gravity="center"
+        android:text="银行"
+        android:textColor="#bb9641"
+        android:textSize="8sp"/>
+</LinearLayout>

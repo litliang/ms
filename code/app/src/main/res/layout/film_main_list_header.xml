@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/text_color_white"
+    android:orientation="vertical">
+
+    <com.yzb.card.king.ui.appwidget.SlideShow1ItemView
+        android:id="@+id/slideShowView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/text_color_white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingTop="15dp">
+
+        <LinearLayout
+            android:id="@+id/panel_yp"
+            style="@style/vertical_linear_style_with_weight">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@mipmap/icon_movie_yinpian"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="影片"
+                android:textColor="#919191"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/panel_yy"
+            style="@style/vertical_linear_style_with_weight">
+
+            <ImageView
+                android:layout_width="27dp"
+                android:layout_height="26dp"
+                android:background="@mipmap/icon_movie_yinyuan"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="影院"
+                android:textColor="#919191"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/panel_bd"
+            style="@style/vertical_linear_style_with_weight">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="29dp"
+                android:background="@mipmap/icon_movie_bangdan"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="榜单"
+                android:textColor="#919191"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#B8B8B8" />
+
+    <include
+        layout="@layout/divider_middle_height"
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:background="#E8E8E8" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#d8d8d8" />
+
+    <com.yzb.card.king.ui.appwidget.SlideShow5ItemView
+        android:id="@+id/slideShowView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/panel_dots2"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#B8B8B8" />
+
+    <include
+        layout="@layout/divider_middle_height"
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:background="#E8E8E8" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#d8d8d8" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingBottom="4dp"
+        android:paddingRight="10dp"
+        android:paddingTop="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="5dp"
+                android:layout_height="17dp"
+                android:background="@drawable/bg_cen_red"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                style="@style/tv2_style"
+                android:layout_marginLeft="11dp"
+                android:text="推荐影院"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/panel_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/tv6_style"
+                android:text="更多"
+                android:textColor="#FC7F0B"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="11dp"
+                android:layout_height="3dp"
+                android:background="@mipmap/icon_more_radius_ms"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

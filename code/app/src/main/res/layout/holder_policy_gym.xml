@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/hotel_list_bg"
+              android:orientation="vertical"
+              android:paddingLeft="10dp"
+              android:paddingRight="10dp">
+
+    <LinearLayout
+        android:id="@+id/ll_payType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/hotel_black_text"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/tvLimit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/tvTitle"
+                        android:layout_marginLeft="4dp"
+                        android:layout_toRightOf="@id/tvTitle"
+                        android:textColor="@color/hotel_black_text"
+                        android:lines="1"
+                        android:ellipsize="end"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/tvFastOrder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/tvLimit"
+                        android:layout_marginLeft="9dp"
+                        android:layout_toRightOf="@id/tvLimit"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:text="@string/policy_latest_order"
+                        android:textColor="@color/hotel_black_text"
+                        android:textSize="11sp"/>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvUseLimit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/gym_use_limit"
+                        android:textColor="@color/selfedrive_gray_4C4C4C"
+                        android:textSize="10sp"/>
+                    <TextView
+                        android:id="@+id/tvTimeLimit"
+                        android:layout_marginTop="6dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/gym_time_limit"
+                        android:textColor="@color/selfedrive_gray_4C4C4C"
+                        android:textSize="10sp"/>
+                    <TextView
+                        android:id="@+id/tvUseTime"
+                        android:layout_marginTop="6dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/gym_use_time"
+                        android:textColor="@color/selfedrive_gray_4C4C4C"
+                        android:textSize="10sp"/>
+                </LinearLayout>
+                <include layout="@layout/verical_divier"/>
+                <include layout="@layout/room_discount_layout"/>
+            </LinearLayout>
+        </LinearLayout>
+        <include layout="@layout/hotel_pay_layout"/>
+    </LinearLayout>
+</LinearLayout>

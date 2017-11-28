@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:gravity="center_vertical"
+              android:orientation="horizontal"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTrafficType"
+            style="@style/travel_detail_lineintro_right"
+            android:text=""
+            android:textColor="@color/color_333333"
+            />
+
+        <TextView
+            android:id="@+id/tvTrafficTime"
+            style="@style/travel_detail_lineintro_right"
+            android:text=""
+            android:textSize="11sp"
+            />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/veticalDivider"
+        android:layout_width="0.5dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="@color/color_999999"
+        android:visibility="visible"/>
+
+</LinearLayout>

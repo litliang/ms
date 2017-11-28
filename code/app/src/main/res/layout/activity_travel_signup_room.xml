@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/tvAdult"
+            style="@style/travel_order_title_style"
+            android:text="@string/fj"
+            />
+
+        <!--占床单价-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
+
+            <TextView
+                style="@style/travel_order_perprice_style"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="双人床"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/roomCut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_giftcard_minus"/>
+
+                <TextView
+                    android:id="@+id/tvRoomNum"
+                    style="@style/travel_order_person_num_style"
+                    android:text="0"
+                    />
+
+                <ImageView
+                    android:id="@+id/roomAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_giftcard_plus"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <include
+            layout="@layout/activity_hotel_order_divider"
+            android:layout_width="102dp"
+            android:layout_height="0.5dp"/>
+
+        <!--不占床单价-->
+        <LinearLayout
+            android:id="@+id/panelDiffPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
+
+            <TextView
+                style="@style/travel_order_perprice_style"
+                android:text="拼房差价:"
+                />
+
+            <TextView
+                android:id="@+id/tvDiffPrice"
+                style="@style/travel_order_perprice_style2"
+                android:layout_width="0dp"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:text="¥0"
+                />
+
+            <com.yzb.card.king.ui.appwidget.SlideButton
+                android:id="@+id/shareSlideButton"
+                android:layout_width="40dp"
+                android:layout_height="23dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="105dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginLeft="@dimen/title_l_r"
+    android:layout_marginRight="@dimen/title_l_r"
+    android:background="@drawable/shape_bg_corner_gray_stroke"
+    android:orientation="horizontal"
+    >
+
+    <LinearLayout
+        android:id="@+id/llParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="top"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvProductName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="商务房"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/title_size_16"/>
+
+                <TextView
+                    android:id="@+id/tvHotelName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="商务房"
+                    android:textColor="#999999"
+                    android:textSize="@dimen/title_size_14"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:id="@+id/tvOrderTuikuan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingRight="7dp"
+                        android:paddingLeft="7dp"
+                        android:textSize="12sp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/shap_corner_lightblue"
+                        android:textColor="@color/color_476b98"
+                        android:text="退款"/>
+                    <TextView
+                        android:id="@+id/tvOrderQuxiaoTuikuan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingRight="7dp"
+                        android:paddingLeft="7dp"
+                        android:textSize="12sp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/shap_corner_lightblue"
+                        android:textColor="@color/color_476b98"
+                        android:text="取消退款"/>
+
+                    <TextView
+                        android:id="@+id/tvOrderFunction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingRight="7dp"
+                        android:paddingLeft="7dp"
+                        android:visibility="gone"
+                        android:textSize="12sp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/shap_corner_lightblue"
+                        android:textColor="@color/color_476b98"
+                        android:text="取消订单"/>
+
+                    <TextView
+                        android:id="@+id/tvOrderFanxian"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingRight="7dp"
+                        android:paddingLeft="7dp"
+                        android:textSize="12sp"
+                        android:layout_marginRight="10dp"
+                        android:visibility="gone"
+                        android:background="@drawable/shap_corner_lightblue"
+                        android:textColor="@color/color_476b98"
+                        android:text="申请返现"/>
+
+                    <TextView
+                        android:id="@+id/tvOrderDel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingRight="7dp"
+                        android:paddingLeft="7dp"
+                        android:textSize="12sp"
+                        android:layout_marginRight="10dp"
+                        android:visibility="gone"
+                        android:background="@drawable/shap_corner_lightblue"
+                        android:textColor="@color/color_476b98"
+                        android:text="删除"/>
+
+                    <TextView
+                        android:id="@+id/tvOrderPingjia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingRight="7dp"
+                        android:paddingLeft="7dp"
+                        android:textSize="12sp"
+                        android:layout_marginRight="10dp"
+                        android:visibility="gone"
+                        android:background="@drawable/shap_corner_lightblue"
+                        android:textColor="@color/color_476b98"
+                        android:text="评价"/>
+
+                    <TextView
+                        android:id="@+id/tvOrderPay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingRight="7dp"
+                        android:paddingLeft="7dp"
+                        android:textSize="12sp"
+                        android:visibility="gone"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/shap_corner_lightblue"
+                        android:textColor="@color/color_476b98"
+                        android:text="支付"/>
+
+                    <TextView
+                        android:id="@+id/tvOrderAgain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shap_corner_rich_blue"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingRight="7dp"
+                        android:paddingLeft="7dp"
+                        android:textSize="12sp"
+                        android:text="再次预订"
+                        android:visibility="gone"
+                        android:textColor="@color/white_ffffff"
+                      />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2.4"
+            android:orientation="vertical"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_alignParentRight="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="¥"
+                        android:textColor="#d7bf7f"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/tvOrderAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="4066234"
+                        android:textColor="#d7bf7f"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvOrderStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:text="已离店"
+                    android:textColor="@color/color_666666"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvOrderData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="1dp"
+                android:text="2017-06-20 11:00"
+                android:textColor="#999999"
+                android:textSize="10sp"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

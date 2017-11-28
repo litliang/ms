@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/rl_add_card"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:gravity="center_vertical"
+              android:orientation="horizontal"
+              android:paddingBottom="10dp"
+              android:paddingLeft="15dp"
+              android:paddingRight="15dp"
+              android:paddingTop="10dp">
+
+    <LinearLayout
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="@drawable/shape_oval_gray"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/icon_account_amount_logo"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="14dp"
+        android:layout_weight="1"
+        android:text="@string/credit_add_card"
+        android:textColor="@color/color_333333"
+        android:textSize="15sp"/>
+
+    <include layout="@layout/arrow_right"/>
+</LinearLayout>

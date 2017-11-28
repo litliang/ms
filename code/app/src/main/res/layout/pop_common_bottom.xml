@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <View
+        android:id="@+id/filterBlack"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/transparentPop"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ListView
+            android:id="@+id/lvLeft"
+            style="@style/listview_style"
+            android:layout_width="121dp"
+            android:background="@color/color_F5F5F5"
+            android:divider="@null"
+            android:scrollbars="none"/>
+
+        <LinearLayout
+            android:id="@+id/panelLvRight"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvLabel"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="距离"
+                android:textColor="@color/color_1f8999"
+                android:textSize="15sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/color_1f8999"/>
+
+            <ListView
+                android:id="@+id/lvRight"
+                style="@style/listview_style"
+                android:divider="@null"
+                android:scrollbars="none"/>
+
+        </LinearLayout>
+
+        <!--分类-->
+        <GridView
+            android:id="@+id/gvCategory"
+            style="@style/listview_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:divider="@drawable/listview_divider_white"
+            android:numColumns="4"
+            android:paddingBottom="26dp"
+            android:paddingTop="23dp"
+            android:scrollbars="none"
+            android:verticalSpacing="26dp"/>
+
+        <ListView
+            android:id="@+id/lvSingle"
+            style="@style/listview_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:divider="@drawable/listview_divider_white"
+            android:scrollbars="none"/>
+
+    </LinearLayout>
+
+</LinearLayout>

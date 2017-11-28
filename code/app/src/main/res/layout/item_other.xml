@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_bg_corner_gray_stroke"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/iv_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:scaleType="fitCenter"/>
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text=""
+            android:textSize="13sp"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_edit"
+        android:layout_width="11dp"
+        android:layout_height="11dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@mipmap/travel_delete"
+        android:visibility="invisible"/>
+</RelativeLayout>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/activity_gift_card_use_detail"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/gray"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical"
+              tools:context="com.yzb.card.king.ui.gift.activity.GiftCardUseDetailActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:background="@color/titleRed"
+        android:fitsSystemWindows="true"
+        android:gravity="top">
+
+        <LinearLayout
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/title_l_r"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:onClick="backAction">
+
+            <ImageView
+                android:id="@+id/img_title_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_back_white"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/titleName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/gift_card_user_detail"
+            android:textColor="#fff"
+            android:textSize="16sp"/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/bgWhite"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_all"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/allCount_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="全部"
+                android:textColor="@color/black2"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/allCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(0)"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/black2"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/gray"/>
+
+        <LinearLayout
+            android:id="@+id/ll_received"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/receivedCount_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已领用"
+                android:textColor="@color/black2"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/receivedCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(0)"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/black2"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/gray"/>
+
+        <LinearLayout
+            android:id="@+id/ll_notReceive"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/notReceiveCount_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="未领用"
+                android:textColor="@color/black2"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/notReceiveCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(0)"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/black2"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_iv_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:background="@color/bgWhite">
+
+        <ImageView
+            android:id="@+id/iv_bgxyk"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/icon_giftcard_use_detail"/>
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:paddingLeft="@dimen/title_l_r"
+            android:background="#0b000000"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:textSize="16sp"
+            android:textColor="@color/white_ffffff"
+            />
+    </FrameLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/giftcard_use_detail_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:overScrollMode="never"
+        android:scrollbars="none"/>
+
+
+</LinearLayout>

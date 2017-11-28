@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="2dp">
+
+    <ImageView
+        android:id="@+id/iv_0"
+        style="@style/iv0_style"
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
+
+    <TextView
+        android:id="@+id/tv_yhsm"
+        style="@style/tv4_style"
+        android:layout_marginLeft="8dp"
+        android:text=""
+        android:textSize="13sp" />
+
+    <ImageView
+        android:id="@+id/iv_xian"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginLeft="8dp"
+        android:background="@mipmap/icon_label_xian" />
+</LinearLayout>

@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="15dp">
+
+    <ImageView
+        android:id="@+id/iv_sj"
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        android:scaleType="fitCenter" />
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/tv20_style"
+            android:layout_alignParentTop="true"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tv_fsnumber"
+            style="@style/tv20_style"
+            android:layout_alignBottom="@+id/tv_name"
+            android:layout_alignParentRight="true"
+            android:text="0粉丝" />
+
+        <TextView
+            android:id="@+id/tv_dz"
+            style="@style/tv20_style"
+            android:layout_alignLeft="@+id/tv_name"
+            android:layout_below="@+id/tv_name"
+            android:layout_marginTop="5dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tv_tel"
+            style="@style/tv20_style"
+            android:layout_alignLeft="@+id/tv_name"
+            android:layout_below="@+id/tv_dz"
+            android:layout_marginTop="5dp"
+            android:clickable="true"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tv_yysj"
+            style="@style/tv20_style"
+            android:layout_alignLeft="@+id/tv_name"
+            android:layout_below="@+id/tv_tel"
+            android:layout_marginTop="5dp"
+            android:text="" />
+
+    </RelativeLayout>
+
+</LinearLayout>

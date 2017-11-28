@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/setting_F4F4F4"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical"
+    >
+
+    <include layout="@layout/header"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <com.yzb.card.king.ui.appwidget.VpSwipeRefreshLayout
+            android:id="@+id/swipeRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            >
+
+            <ListView
+                android:id="@+id/listView"
+                style="@style/listview_style"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/transparent"
+                android:divider="@color/transparent"
+                android:dividerHeight="10dp"
+                android:scrollbars="none"/>
+        </com.yzb.card.king.ui.appwidget.VpSwipeRefreshLayout>
+
+        <LinearLayout
+            android:id="@+id/setting_touradd_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="51dp"
+            android:padding="@dimen/title_l_r"
+            android:background="@drawable/discount_mindcard_homepage_shape_white"
+            android:gravity="center"
+            android:visibility="visible"
+            >
+
+            <ImageView
+                android:id="@+id/ticket_head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/icon_tourist_header"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/setting_no_connector"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

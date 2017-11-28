@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/msg_background"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/ll_tab"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white_ffffff"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/singleLine"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingTop="13dp">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="单程"
+                                android:textColor="@drawable/selector_color_blue_black"
+                                android:textSize="17sp"/>
+
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginTop="13dp"
+                                android:background="#436a8e"/>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/roundLine"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingTop="13dp">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="往返"
+                                android:textColor="@drawable/selector_color_blue_black"
+                                android:textSize="17sp"/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginTop="13dp"
+                                android:background="#436a8e"/>
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/divider_color3"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white_ffffff"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:id="@+id/fl_ticket_home_price"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+                        </FrameLayout>
+
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_marginLeft="@dimen/title_l_r"
+                            android:layout_marginRight="@dimen/title_l_r"
+                            android:background="@color/divider_color3"/>
+
+                        <LinearLayout
+                            android:id="@+id/llAirLine"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginLeft="@dimen/title_l_r"
+                            android:layout_marginRight="@dimen/title_l_r"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:id="@+id/rlMonth"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/tvMonth"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="7dp"
+                                    android:text="月份"
+                                    android:textColor="#2D2D2D"
+                                    android:textSize="16sp"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="7dp"
+                                    android:background="@mipmap/icon_arrow_down_gray_item"/>
+
+                            </RelativeLayout>
+
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_marginLeft="@dimen/title_l_r"
+                            android:layout_marginRight="@dimen/title_l_r"
+                            android:background="@color/divider_color3"/>
+
+                        <Button
+                            android:id="@+id/searchTicket"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="14dp"
+                            android:layout_marginLeft="@dimen/title_l_r"
+                            android:layout_marginRight="@dimen/title_l_r"
+                            android:layout_marginTop="14dp"
+                            android:background="@mipmap/bg_search_channel"
+                            android:focusable="true"
+                            android:text="搜 索"
+                            android:textColor="#fff"
+                            android:textSize="20sp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <include
+                    android:id="@+id/bottom_plane"
+                    layout="@layout/plane_home_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    />
+
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+
+</LinearLayout>
+

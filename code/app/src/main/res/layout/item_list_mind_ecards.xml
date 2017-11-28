@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:orientation="vertical"
+              android:paddingLeft="16dp"
+              android:paddingRight="16dp"
+              android:paddingTop="12dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_bg_corner_solid_white">
+
+        <ImageView
+            android:id="@+id/ivCardLogo"
+            android:layout_width="match_parent"
+            android:layout_height="159dp"
+            android:scaleType="fitXY"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:layout_alignBottom="@+id/ivCardLogo"
+            android:background="@drawable/shape_bottom_corner4dp_halftranspant_solid"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="13dp"
+            android:paddingRight="13dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                >
+
+                <ImageView
+                    android:id="@+id/ivXin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/icon_giftcard_heart_white_solid"/>
+
+                <TextView
+                    android:id="@+id/tvNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tvCardName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="卡类型"
+                android:visibility="gone"
+                android:textColor="@color/white"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/tvCardIntro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:paddingLeft="20dp"
+                android:singleLine="true"
+                android:text="卡说明卡说明卡说明"
+                android:textColor="@color/white"
+                android:textSize="15sp"/>
+
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

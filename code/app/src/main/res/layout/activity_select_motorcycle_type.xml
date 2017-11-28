@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        layout="@layout/view_public_head_title_left"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!--总路程与时间预估-->
+    <LinearLayout
+        android:id="@+id/llDistanceAndDuration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ticket_red"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/transport_title_bg"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/transport_special_distance_before"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/tvDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/transport_special_distance_after"
+                android:textColor="@color/white"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/tvDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/transport_special_duration_after"
+                android:textColor="@color/white"
+                android:textSize="15sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ticket_list_bg"
+        >
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/sRL"
+            style="@style/swiperefrsh_style"
+            android:background="@android:color/transparent"
+            >
+
+            <com.yzb.card.king.ui.appwidget.HeadFootRecyclerView
+                android:id="@+id/lvSelfDriveMotocycleType"
+                style="@style/listview_style"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@android:color/transparent"
+                android:divider="@android:color/transparent"
+                android:listSelector="@android:color/transparent"
+                />
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

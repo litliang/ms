@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:orientation="vertical"
+    >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/panelHasEvaluate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingTop="13dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_travel_detail_left"/>
+
+                <TextView
+                    style="@style/travel_detail_title_style"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginRight="7dp"
+                    android:gravity="center"
+                    android:text="评价"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_travel_detail_right"
+                    />
+            </LinearLayout>
+
+            <com.yzb.card.king.ui.appwidget.WholeListView
+                android:id="@+id/evaluateListView"
+                style="@style/listview_style"
+                android:layout_height="wrap_content"
+                android:divider="@null"/>
+
+            <TextView
+                android:id="@+id/tvLookMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shap_corner_yellow"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingTop="5dp"
+                android:text="查看更多"
+                android:textColor="@color/color_b59849"
+                android:textSize="13sp"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/emptyView"
+            style="@style/travel_detail_title_style"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="暂无评价..."
+            android:textStyle="bold"
+            android:visibility="gone">
+
+        </TextView>
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/color_F5F5F5"/>
+</LinearLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_fffffc"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/header"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/icon_bouns_theme"/>
+
+                <com.yzb.card.king.ui.appwidget.SpecHeightGridView
+                    android:id="@+id/gvThemes"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:listSelector="@null"
+                    android:numColumns="2"
+                    android:scrollbars="none"
+                    android:scrollingCache="false"
+                    android:verticalSpacing="15dp"/>
+            </LinearLayout>
+
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/transparent"
+        android:gravity="top|center_horizontal"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        >
+
+        <TextView
+            android:id="@+id/tvPreScan"
+            style="@style/redpacket_theme_bottom_txt"
+            android:background="@drawable/shape_bg_red_stroke"
+            android:text="预览"
+            android:textColor="@color/titleRed"/>
+
+        <TextView
+            android:id="@+id/tvOk"
+            style="@style/redpacket_theme_bottom_txt"
+            android:layout_marginLeft="33dp"
+            android:background="@color/titleRed"
+            android:text="确定"
+            />
+    </LinearLayout>
+</LinearLayout>

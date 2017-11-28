@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="341dp"
+              android:background="@color/pay_F4F4F6"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="27dp"
+            android:gravity="left"
+            android:text="@string/pay_hbze"
+            android:textColor="@color/pay_939393"
+            android:textSize="15sp"
+            android:visibility="visible"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23dp"
+            android:text="@string/rmb"
+            android:textColor="@color/pay_D84043"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tvAllBonusAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:gravity="center"
+            android:text="0.00"
+            android:textColor="@color/pay_D84043"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="7dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etBonusAmount"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_weight="1"
+                android:background="@drawable/style_bg_white_circle_small"
+                android:cursorVisible="true"
+                android:gravity="left|center"
+                android:hint="0.0"
+                android:inputType="numberDecimal"
+                android:paddingLeft="19dp"
+                android:text=""
+                android:textColor="@color/pay_424242"
+                android:textColorHint="@color/pay_D5D5D5"
+                android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+                android:textSize="15sp"/>
+
+            <EditText
+                android:id="@+id/etInputArea"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:textCursorDrawable="@drawable/shape_black_cursor_drawable"/>
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvSubmit"
+            android:layout_width="75dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="7dp"
+            android:background="@drawable/style_bg_white_circle_small"
+            android:gravity="center"
+            android:text="@string/ok"
+            android:textColor="@color/pay_D84043"
+            android:textSize="13sp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tvCancel"
+            android:layout_width="75dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="7dp"
+            android:background="@drawable/style_bg_white_circle_small"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/pay_848487"
+            android:textSize="13sp"/>
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/keyboard_number"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_marginTop="14dp"/>
+
+</LinearLayout>

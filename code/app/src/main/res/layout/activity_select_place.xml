@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar_height"
+        android:background="@color/titleRed">
+
+        <LinearLayout
+            android:id="@+id/headerLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/titlebar_height"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="@dimen/title_l_r"
+            android:layout_centerVertical="true"
+            android:onClick="goBack">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/icon_back_white"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/filter_edit"
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/headerLeft"
+            android:layout_marginTop="5dip"
+            android:background="@drawable/ticket_list_item_bg"
+            android:gravity="center"
+            android:hint="北京/bj/beijing/pek"
+            android:layout_marginRight="30dp"
+            android:padding="3dp"
+            android:textColorHint="@color/ticket_gray3"
+            android:textSize="14sp"
+            android:maxLines="1"
+            android:singleLine="true"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="27dp">
+
+            <TextView
+                android:layout_width="54dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="历史"
+                android:textColor="@color/ticket_red"
+                android:textSize="12dp"/>
+
+            <TextView
+                android:layout_width="3dp"
+                android:layout_height="match_parent"
+                android:background="@mipmap/ticket_shadow_bg"/>
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/ll_history"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#c1c1c1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/select_domestic"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="innerCity"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/select_domestic_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:gravity="center"
+                    android:text="国内"
+                    android:textColor="@color/ticket_red"
+                    android:textSize="12dp"/>
+
+                <TextView
+                    android:id="@+id/select_domestic_textView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/selector_bg_red"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:background="#c1c1c1"/>
+
+            <LinearLayout
+                android:id="@+id/select_abroad"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="foreignCity"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/select_abroad_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:text="国际/港澳台"
+                    android:textColor="@color/ticket_gray1"
+                    android:textSize="12dp"/>
+
+                <TextView
+                    android:id="@+id/select_abroad_textView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/ticket_gray1"
+                    android:enabled="false"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray18">
+
+        <ExpandableListView
+            android:id="@+id/expandableListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:groupIndicator="@null"
+            android:scrollbars="none"/>
+
+        <com.yzb.card.king.ui.appwidget.SideBar
+            android:id="@+id/sidrbar"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+</LinearLayout>

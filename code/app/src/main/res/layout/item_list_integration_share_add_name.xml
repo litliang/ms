@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="13dp"
+    android:paddingLeft="23dp"
+    android:paddingRight="31dp"
+    android:paddingTop="13dp">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:text=""
+        android:textColor="@color/jfb_636363"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_click_give"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/shape_jfb_red_corner5dp_white_solid"
+        android:gravity="center"
+        android:paddingBottom="4dp"
+        android:paddingLeft="9dp"
+        android:paddingRight="9dp"
+        android:paddingTop="4dp"
+        android:text="@string/jfb_click_give"
+        android:textColor="@color/red_d84043"
+        android:textSize="13sp" />
+</RelativeLayout>

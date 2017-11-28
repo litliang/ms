@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.yzb.card.king.ui.appwidget.PeopleWheelView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray4"
+            android:layout_marginTop="46dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray4"
+            android:layout_marginTop="92dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="22dp"
+        android:paddingRight="22dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp">
+        <TextView
+            android:id="@+id/tvCancel"
+            android:layout_width="89dp"
+            android:layout_height="36dp"
+            android:textSize="19sp"
+            android:textColor="@color/gray6"
+            android:text="取消"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/tvEnsure"
+            android:layout_width="89dp"
+            android:layout_height="36dp"
+            android:textSize="19sp"
+            android:textColor="#1f8ba2"
+            android:text="确定"
+            android:gravity="center"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+</LinearLayout>

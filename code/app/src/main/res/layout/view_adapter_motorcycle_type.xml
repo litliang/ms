@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/llParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/shape_rounded_rectangle_white"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivBusImage"
+                android:layout_width="88dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="3dp"
+                android:src="@mipmap/cart_pic_01"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <!--車型 估价  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvCarType"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="经济型"
+                            android:textColor="@color/selfdrive_gray_565656"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tv_selfdrive_assess"
+                            android:textColor="@color/selfdrive_gray_565656"
+                            android:textSize="11sp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="2dp"
+                            android:text="@string/tv_selfdrive_money_unit"
+                            android:textColor="@color/red_d84043"
+                            android:textSize="11sp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/tvCarMoney"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="30"
+                            android:textColor="@color/red_d84043"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="2dp"
+                            android:text="@string/tv_selfdrive_start"
+                            android:textColor="@color/selfdrive_gray_565656"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+
+                            />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ivArrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:background="@mipmap/icon_show_more_down"/>
+                </LinearLayout>
+
+                <!--车况-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvCarPort"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@mipmap/icon_people_number"
+                        android:text="×4"
+                        android:textColor="@color/selefdrive_gray_a2a2a2"
+                        android:textSize="13sp"/>
+
+                    <TextView
+                        android:id="@+id/tvLuggageNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:drawableLeft="@mipmap/icon_luggage_number"
+                        android:text="×2"
+                        android:textColor="@color/selefdrive_gray_a2a2a2"
+                        android:textSize="13sp"/>
+
+                </LinearLayout>
+                <!--车的级别-->
+                <TextView
+                    android:id="@+id/tvSameLevelCar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:text="锋范 伊兰特等同等级车"
+                    android:textColor="@color/selefdrive_gray_8a8a8a"
+                    android:textSize="12sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSameLevel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:visibility="gone">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/selfedrive_gray_e6e6e6"/>
+
+            <com.yzb.card.king.ui.appwidget.WholeRecyclerView
+                android:id="@+id/wvAll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></com.yzb.card.king.ui.appwidget.WholeRecyclerView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

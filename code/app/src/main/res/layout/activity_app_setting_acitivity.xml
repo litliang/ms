@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_f0f0f0"
+    tools:context=".ui.app.activity.AppSettingActivity">
+
+    <include
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"/>
+    <View
+        android:id="@+id/lineTitel"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/white"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:textColor="@color/settings_text_black"
+            android:layout_marginLeft="18dp"
+            android:text="@string/setting_yinxiao"/>
+
+        <com.yzb.card.king.ui.appwidget.SlideButton
+            android:id="@+id/sbVoice"
+            android:layout_width="47dp"
+            android:layout_height="27dp"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="22dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_marginTop="18dp"
+        android:visibility="gone"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_weight="1"
+            android:text="@string/setting_jieshoutongzhi"
+            android:textColor="@color/settings_text_black"
+            android:textSize="15sp" />
+
+        <com.yzb.card.king.ui.appwidget.SlideButton
+            android:id="@+id/sbNotice"
+            android:layout_width="58dp"
+            android:layout_height="27dp"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="22dp" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:visibility="gone"
+        android:background="@color/color_e6e6e6"/>
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:visibility="gone"
+        android:dividerHeight="0dp"
+        android:scrollbars="none" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_white_corner_3"
+        android:orientation="vertical"
+        android:paddingLeft="14dp"
+        android:paddingRight="17dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llPayPasswordSet"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="支付设置"
+                    android:textColor="@color/color_333333"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="11dp"
+                    android:src="@mipmap/icon_arrow_right_gray_middle1"/>
+            </LinearLayout>
+
+            <include layout="@layout/divider_horizontal"/>
+
+            <LinearLayout
+                android:id="@+id/llAppPasswordSetting"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="密码设置"
+                    android:textColor="@color/color_333333"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="11dp"
+                    android:src="@mipmap/icon_arrow_right_gray_middle1"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="@color/white"
+        android:layout_marginTop="18dp"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/tvClearCache"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:textColor="#3c6e99"
+            android:layout_marginLeft="18dp"
+            android:text="@string/setting_qingchuhuancun"/>
+
+        <TextView
+            android:id="@+id/tvCacheSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="22dp"
+            android:textColor="#333333"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,134 @@
+apply plugin: 'com.android.application'
+repositories {
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+    }
+    google()
+}
+android {
+    signingConfigs {
+
+
+        debug {
+            keyAlias 'gqy'
+            keyPassword '123456'
+            storeFile file('E:\\test_keystore123456.jks')
+            storePassword '123456'
+        }
+    }
+
+    compileSdkVersion 23
+    buildToolsVersion '26.0.2'
+    defaultConfig {
+        applicationId "com.yzb.card.king"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.8.2"
+        multiDexEnabled = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+        preDexLibraries = false
+    }
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    //Android Studio AAPT err: libpng error: Not a PNG file
+    aaptOptions {
+        cruncherEnabled = false
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile files('libs/TCardApi.jar')
+    provided fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('libs/mail.jar')
+    compile files('libs/activation.jar')
+    compile files('libs/additionnal.jar')
+    compile files('libs/zxing.jar')
+    compile files('libs/umeng_social_sdk.jar')
+    compile files('libs/mta-sdk-1.6.2.jar')
+    compile files('libs/open_sdk_r5509.jar')
+    compile files('libs/SocialSDK_QQZone_3.jar')
+    compile files('libs/SocialSDK_Sina.jar')
+    compile files('libs/weiboSDKCore_3.1.4.jar')
+    compile files('libs/SocialSDK_tencentWB_1.jar')
+    compile files('libs/SocialSDK_tencentWB_2.jar')
+    compile files('libs/SocialSDK_tencentWB_3.jar')
+    compile files('libs/SocialSDK_WeiXin_1.jar')
+    compile files('libs/SocialSDK_WeiXin_2.jar')
+    compile files('libs/BaiduLBS_Android.jar')
+    compile files('libs/javabase64-1.3.1.jar')
+    compile project(':PickTimeIos')
+    compile files('libs/jpush-android-2.1.3.jar')
+    compile project(':xutils')
+    compile(name: 'wheelview_lib', ext: 'aar')
+    compile(name: 'drag_sort_listview', ext: 'aar')
+    compile(name: 'coverflow_sdk', ext: 'aar')
+    compile(name: 'yzb_wallet_sdk', ext: 'aar')
+    compile(name: 'calendarLibrary-release', ext: 'aar')
+    compile(name: 'RefreshRecyclerView-release', ext: 'aar')
+    compile(name: 'andBase', ext: 'aar')
+    compile(name: 'FlycoTabLayout_Lib', ext: 'aar')
+    compile 'com.jungly:GridPasswordView:0.1'
+    compile 'com.android.support:design:23.4.0'
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+    compile 'com.android.support:recyclerview-v7:23.4.0'
+    compile 'com.android.support:gridlayout-v7:23.4.0'
+    compile 'com.android.support:support-annotations:23.4.0'
+    compile 'com.android.support:cardview-v7:23.4.0'
+    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.ms-square:expandableTextView:0.1.4'
+    compile 'com.umeng.analytics:analytics:latest.integration'
+    androidTestCompile 'junit:junit:4.12'
+    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.jude:rollviewpager:1.4.6'
+    compile 'me.drakeet.materialdialog:library:1.3.1'
+    compile 'com.android.support:palette-v7:23.+'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.android.support:multidex:1.0.0'
+    compile 'com.yahoo.mobile.client.android.util.rangeseekbar:rangeseekbar-library:0.2.0-SNAPSHOT'
+    compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
+
+    //recyclerview分组，顶部浮动
+    compile 'com.timehop.stickyheadersrecyclerview:library:0.4.3@aar'
+
+    compile 'com.zhy:flowlayout-lib:1.0.3'
+
+}

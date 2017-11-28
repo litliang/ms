@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"
+        android:background="@color/titleRed"
+        android:gravity="top">
+
+        <LinearLayout
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/title_l_r"
+            android:onClick="backAction"
+           >
+
+            <ImageView
+                android:id="@+id/img_title_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/icon_back_white"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/red_bag_titleName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="红包"
+            android:textColor="@color/msgwordWhite"
+            android:textSize="@dimen/titlebar_text_size"/>
+
+    </RelativeLayout>
+
+    <include layout="@layout/head_redbag_detail_layout"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/redbag_detail_user_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text=""
+                android:textColor="#333333"
+                android:textSize="14sp"/>
+
+            <View
+                android:layout_width="150dp"
+                android:layout_height="1dp"
+                android:background="@drawable/shape_redbag_line"/>
+
+            <TextView
+                android:id="@+id/redbag_detail_totalmoney_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="0.00"
+                android:textColor="@color/color_4D4D4D"
+                android:textSize="18sp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:text="已存入红包金额"
+                android:textColor="@color/color_999999"
+                android:textSize="12sp"
+                android:visibility="gone"/>
+
+            <View
+                android:layout_width="150dp"
+                android:layout_height="1dp"
+                android:background="@drawable/shape_redbag_line"/>
+
+            <TextView
+                android:id="@+id/redbag_detail_dreamword_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="恭喜发财  大吉大利"
+                android:textColor="#999"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/redbag_detail_allmessage_txt"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/color_F5F5F5"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="0个红包共0元"
+                android:textColor="#999"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/red_bag_detail_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"/>
+
+            <LinearLayout
+                android:id="@+id/panelContinueSend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="100dp"
+                android:layout_marginTop="50dp"
+                android:background="@color/color_F5F5F5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvPromte"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/redbag_goon_info"
+                    android:textColor="@color/wordGreyLight"/>
+
+                <TextView
+                    android:id="@+id/tvContinueSend"
+                    style="@style/my_btn_bg_style"
+                    android:layout_height="38dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="继续发送"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

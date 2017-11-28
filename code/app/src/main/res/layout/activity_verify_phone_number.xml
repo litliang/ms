@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        layout="@layout/title_header_left_title_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"/>
+    <View
+        android:id="@+id/lineTitel"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/setting_F4F4F4"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingBottom="30dp"
+            android:paddingTop="30dp"
+            android:background="@color/white_ffffff">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="本次操作需要短信通知，请输入"
+                android:textColor="#949494"
+                android:textSize="14sp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tvPhoneNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="@color/color_333333"
+                    android:textSize="14sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="收到的短信验证码"
+                android:textColor="#949494"
+                android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--顶部部分；-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_corner_3"
+           android:layout_marginLeft="@dimen/title_l_r"
+            android:layout_marginRight="@dimen/title_l_r"
+            android:layout_marginTop="@dimen/title_l_r"
+            android:gravity="center_vertical"
+            android:padding="@dimen/title_l_r"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_bank_code_label"
+                style="@style/setting_modify_binded_phone_tv_left"
+                android:text="验证码" />
+
+            <EditText
+                android:id="@+id/etPhoneCode"
+                style="@style/setting_modify_binded_phone_et"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:hint="请输入短信验证码"
+                android:maxLength="6"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/tvGetCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/shape_rounded_rectangle_red_ea3336"
+                android:paddingBottom="7dp"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:paddingTop="7dp"
+                android:text="@string/txt_get_yanzhenma"
+                android:textColor="@color/titleRed"
+                android:textSize="11sp"
+                android:textStyle="normal"/>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tvNextStep"
+            style="@style/setting_next_tv"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="@dimen/title_l_r"
+            android:layout_marginRight="@dimen/title_l_r"
+            android:text="下一步"/>
+    </LinearLayout>
+
+</LinearLayout>

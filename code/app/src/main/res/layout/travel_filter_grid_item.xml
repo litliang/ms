@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="3dp"
+        android:textSize="13sp"
+        android:textColor="@color/selector_red_gray"
+        android:gravity="center"
+        android:enabled="false"
+        android:background="@drawable/select_bg_travel_chose"/>
+</LinearLayout>

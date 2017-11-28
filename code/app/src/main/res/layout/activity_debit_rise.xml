@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/color_f0f0f0"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        layout="@layout/title_header_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/color_f0f0f0"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/viewAdd"
+            layout="@layout/view_add_invoice"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1">
+
+            <com.yzb.card.king.ui.appwidget.VpSwipeRefreshLayout
+                android:id="@+id/swipeRefresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.yzb.card.king.ui.appwidget.menulistview.MenuListView
+                    android:id="@+id/listview"
+                    style="@style/listview_style"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:divider="@drawable/bg_transparent"
+                    android:dividerHeight="10dp"
+                    android:scrollbars="none"/>
+
+            </com.yzb.card.king.ui.appwidget.VpSwipeRefreshLayout>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tvGoonAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/white_ffffff"
+            android:background="@color/color_980100"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
+            android:textSize="@dimen/button_text_size"
+            android:text="@string/tv_goon_add"/>
+
+    </LinearLayout>
+
+</LinearLayout>

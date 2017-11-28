@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/bgBlack"
+              android:gravity="center_vertical"
+              android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/rl_xyk"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingBottom="5dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/tab_iv_xyk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/icon_xyk_white"
+            android:scaleType="centerInside"/>
+
+        <TextView
+            android:id="@+id/tab_tv_xyk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tab_iv_xyk"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dp"
+            android:text="信用卡"
+            android:textColor="@drawable/selecor_tv_color_gray_red"
+            android:textSize="11sp"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_jfb"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingBottom="5dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/tab_iv_jfb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/icon_jfb_white"
+            android:scaleType="centerInside"/>
+
+        <TextView
+            android:id="@+id/tab_tv_jfb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tab_iv_jfb"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dp"
+            android:text="金融生活"
+            android:textColor="@drawable/selecor_tv_color_gray_red"
+            android:textSize="11sp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_shyh"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingBottom="5dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/tab_iv_shyh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/icon_shyh_white"
+            android:scaleType="centerInside"/>
+
+        <TextView
+            android:id="@+id/tab_tv_shyh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tab_iv_shyh"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dp"
+            android:text="嗨生活"
+            android:textColor="@drawable/selecor_tv_color_gray_red"
+            android:textSize="11sp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_shfw"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingBottom="5dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/tab_iv_shfw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/icon_wd_white"
+            android:scaleType="centerInside"/>
+
+        <TextView
+            android:id="@+id/tab_tv_shfw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tab_iv_shfw"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dp"
+            android:text="我的"
+            android:textColor="@drawable/selecor_tv_color_gray_red"
+            android:textSize="11sp"/>
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+    >
+
+    <ImageView
+        android:id="@+id/ivTrafficType"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitCenter"
+        />
+
+    <TextView
+        android:id="@+id/tvTime"
+        style="@style/travel_detail_dayroute_listitem_style"
+        android:layout_alignTop="@+id/ivTrafficType"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/ivTrafficType"
+        android:textColor="@color/color_1f8a99"
+        />
+
+    <LinearLayout
+        android:id="@+id/panelContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvTime"
+        android:layout_below="@+id/tvTime"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@+id/ivTrafficType"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvContent"
+            style="@style/travel_detail_dayroute_listitem_style"
+            android:layout_width="wrap_content"
+            android:lineSpacingMultiplier="1.2"
+            android:textSize="13sp"
+            />
+
+        <!--经典的标志-->
+        <TextView
+            android:id="@+id/tvClassic"
+            style="@style/travel_detail_dayroute_listitem_style"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/shape_corner_blue_stroke_small"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="经典"
+            android:textColor="@color/color_1f8a99"
+            android:textSize="10sp"
+            android:visibility="gone"
+            />
+
+    </LinearLayout>
+
+    <com.yzb.card.king.ui.appwidget.SpecHeightGridView
+        android:id="@+id/ivGridView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvTime"
+        android:layout_below="@+id/panelContent"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/ivTrafficType"
+        android:background="@color/white"
+        android:horizontalSpacing="7dp"
+        android:listSelector="@drawable/selector_transport"
+        android:numColumns="2"
+        android:verticalSpacing="8dp"/>
+
+    <TextView
+        android:id="@+id/tvIntervalTime"
+        style="@style/travel_detail_lineintro_right"
+        android:layout_alignLeft="@+id/tvTime"
+        android:layout_below="@+id/ivGridView"
+        android:layout_marginTop="10dp"
+        android:text=""
+        android:textSize="13sp"/>
+</RelativeLayout>

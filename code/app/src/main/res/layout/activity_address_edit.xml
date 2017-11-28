@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include
+        layout="@layout/title_header_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_view_height"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cdcdcd"/>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_F5F5F5"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_bg_corner_gray_stroke"
+                android:orientation="vertical"
+                >
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:stretchColumns="1">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/title_l_r"
+                        android:paddingRight="@dimen/title_l_r"
+                        android:gravity="center_vertical"
+                        >
+
+                        <TextView
+                            style="@style/address_edit_left_style"
+                            android:text="@string/setting_recv_goods_person"
+                            android:textSize="@dimen/sp_15"/>
+
+                        <EditText
+                            android:id="@+id/et_recv_person"
+                            style="@style/address_edit_right_style"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:hint="@string/setting_recv_goods_person_hint"
+                            android:maxLength="12"
+                            android:textSize="@dimen/sp_15"
+                            android:paddingLeft="16dp"
+                            android:singleLine="true"/>
+                    </TableRow>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/divider_color3"/>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/title_l_r"
+                        android:paddingRight="@dimen/title_l_r"
+                        android:gravity="center_vertical"
+                        >
+
+                        <TextView
+                            style="@style/address_edit_left_style"
+                            android:text="@string/txt_phone_number"
+                            android:textSize="@dimen/sp_15"/>
+
+                        <EditText
+                            android:id="@+id/et_phone"
+                            style="@style/address_edit_right_style"
+                            android:layout_width="wrap_content"
+                            android:hint="@string/setting_phone"
+                            android:inputType="number"
+                            android:maxLength="11"
+                            android:textSize="@dimen/sp_15"
+                            android:paddingLeft="16dp"/>
+                    </TableRow>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/divider_color3"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        >
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/title_l_r"
+                            android:paddingRight="@dimen/title_l_r"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="230dp"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                >
+
+                                <TextView
+                                    style="@style/address_edit_left_style"
+                                    android:text="@string/setting_province"
+                                    android:textSize="@dimen/sp_15"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tv_province"
+                                    style="@style/address_edit_right_style"
+                                    android:layout_width="wrap_content"
+                                    android:hint="@string/setting_input_area"
+                                    android:textSize="@dimen/sp_15"
+                                    android:paddingLeft="30dp"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_locate"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical|right"
+                                android:orientation="horizontal"
+                                >
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="6dp"
+                                    android:text="@string/setting_locate"
+                                    android:textColor="@color/color_0a1437"
+                                    android:textSize="14sp"/>
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@mipmap/jiudian_icon_position"/>
+
+
+                            </LinearLayout>
+
+                        </TableRow>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/divider_color3"/>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/title_l_r"
+                        android:paddingRight="@dimen/title_l_r"
+                        >
+
+                        <TextView
+                            style="@style/address_edit_left_style"
+                            android:text="@string/setting_detail_address"
+                            android:textSize="@dimen/sp_15"/>
+
+                        <EditText
+                            android:id="@+id/etDetailAddress"
+                            style="@style/address_edit_right_style"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:hint="@string/setting_detail_address_hint"
+                            android:maxLength="60"
+                            android:textSize="@dimen/sp_15"
+                            android:paddingLeft="16dp"/>
+                    </TableRow>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/divider_color3"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/divider_color3"
+                        android:visibility="gone"/>
+                </TableLayout>
+
+                <!--最后一行-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingLeft="@dimen/title_l_r"
+                    android:paddingRight="@dimen/title_l_r"
+                    android:gravity="center_vertical|right">
+
+                    <TextView
+                        android:id="@+id/tvDelete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_delete"
+                        android:textColor="@color/color_999999"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/tvSave"
+                        style="@style/address_edit_left_style"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/save"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

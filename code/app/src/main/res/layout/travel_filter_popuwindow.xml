@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_white"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/title"
+        style="@style/titlebar_style">
+
+        <LinearLayout
+            android:id="@+id/panel_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:onClick="goBack"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="30dp">
+
+            <include layout="@layout/nav_left"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/titlebar_title"
+            style="@style/titlebar_title_style"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textSize="@dimen/titlebar_text_size"
+            android:text="筛选"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_info"
+        android:layout_below="@+id/title">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.yzb.card.king.ui.appwidget.WholeListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/title_l_r"
+                android:layout_marginRight="@dimen/title_l_r"
+                android:divider="@null"
+                />
+
+            <LinearLayout
+                android:id="@+id/personbudget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/listView"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="@dimen/title_l_r"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="单人预算"
+                    android:textColor="@color/ship_333333"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/personbudget_unlimited"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:layout_marginLeft="11dp"
+                    android:text="不限"
+                    android:background="@drawable/bg_round_gray_corner"
+                    android:textColor="@color/ship_333333"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="元"
+                    android:textColor="@color/ship_333333"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/personbudget_seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_below="@+id/personbudget"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="4dp"
+                android:max="55"
+                android:maxHeight="3dp"
+                android:minHeight="3dp"
+                android:progress="0"
+                android:progressDrawable="@drawable/bg_travel_filter_popuwindow_seekbar"
+                android:thumb="@drawable/bg_travel_filter_popuwindow_seekbar_thumb"
+                android:thumbOffset="2dp"/>
+
+            <com.yzb.card.king.ui.appwidget.NoRollGridView
+                android:id="@+id/gridView_prices"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/personbudget_seekbar"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:cacheColorHint="#00000000"
+                android:layout_marginBottom="10dp"
+                android:fadingEdge="none"
+                android:gravity="center"
+                android:listSelector="#00000000"
+                android:numColumns="6"
+                android:scrollbars="none"/>
+
+
+            <View
+                android:id="@+id/vOne"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/hotel_f5f5f5"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_below="@+id/gridView_prices"
+                ></View>
+            <LinearLayout
+                android:id="@+id/traveldays"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vOne"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="@dimen/title_l_r"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="出行天数"
+                    android:textColor="@color/ship_333333"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/traveldays_unlimited"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:layout_marginLeft="11dp"
+                    android:text="不限"
+                    android:background="@drawable/bg_round_gray_corner"
+                    android:textColor="@color/ship_333333"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="天"
+                    android:textColor="@color/ship_333333"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/personbudget_seekbar_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_below="@+id/traveldays"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="16dp"
+                android:max="80"
+                android:maxHeight="3dp"
+                android:minHeight="3dp"
+                android:progress="0"
+                android:progressDrawable="@drawable/bg_travel_filter_popuwindow_seekbar"
+                android:thumb="@drawable/bg_travel_filter_popuwindow_seekbar_thumb"
+                android:thumbOffset="2dp"/>
+
+            <com.yzb.card.king.ui.appwidget.NoRollGridView
+                android:id="@+id/gridView_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/personbudget_seekbar_day"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginBottom="8dp"
+                android:cacheColorHint="#00000000"
+                android:fadingEdge="none"
+                android:gravity="center"
+                android:listSelector="#00000000"
+                android:numColumns="9"
+                android:scrollbars="none"/>
+        </RelativeLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottom_info"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_black"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_reset_chose"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bg_black_orange"
+                android:text="重置"
+                android:textColor="@color/wordWhite"
+                android:textSize="15sp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_seach_chose"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/complete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bg_black_orange"
+                android:text="完成"
+                android:textColor="@color/wordWhite"
+                android:textSize="15sp"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

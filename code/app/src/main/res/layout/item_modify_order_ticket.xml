@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_bg_corner_gray_stroke"
+    android:orientation="vertical"
+    android:paddingBottom="5dp"
+    android:paddingLeft="13dp"
+    android:paddingRight="13dp"
+    android:paddingTop="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:gravity="top"
+        android:orientation="horizontal"
+        android:paddingBottom="13dp"
+        android:paddingTop="13dp">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_index"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/oval_blue"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/ticket_23C6FB"
+                android:textSize="9sp"/>
+
+            <LinearLayout
+                android:id="@+id/panelCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@+id/tv_index"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/startLline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="出发地"
+                    android:textColor="@color/color_333333"
+                    android:textSize="17sp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/icon_arrow_right_ticket"/>
+
+                <TextView
+                    android:id="@+id/endLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="目的地"
+                    android:textColor="@color/color_333333"
+                    android:textSize="17sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvFlightIntro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/panelCity"
+                android:layout_alignRight="@+id/panelCity"
+                android:layout_below="@+id/panelCity"
+                android:layout_marginTop="10dp"
+                android:lineSpacingMultiplier="1.2"
+                android:text=""
+                android:textColor="@color/color_666666"
+                android:textSize="16sp"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/is_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selected_light_blue"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/panelBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/color_E7E7E7"/>
+
+        <com.yzb.card.king.ui.appwidget.WholeListView
+            android:id="@+id/guestListView"
+            style="@style/listview_style"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:divider="@color/white"
+            />
+
+    </LinearLayout>
+</LinearLayout>

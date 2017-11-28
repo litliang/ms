@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/train_fffdfd"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!-- 头 -->
+    <LinearLayout style="@style/titlebar_style">
+
+        <LinearLayout
+            android:id="@+id/llBack"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img_title_back"
+                android:layout_width="10dp"
+                android:layout_height="16dp"
+                android:src="@mipmap/icon_back_white" />
+
+        </LinearLayout>
+
+        <include
+            layout="@layout/titlebar_search_address"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/titlebar_center_height"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/middleTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/train_ffffff"
+            android:textSize="@dimen/train_tv_21"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/llSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:onClick="back">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:padding="8dp"
+                android:text="@string/address_search"
+                android:textColor="@color/train_ffffff"
+                android:textSize="@dimen/train_tv_14" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <!-- 头 -->
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/srl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.yzb.card.king.ui.appwidget.HeadFootRecyclerView
+            android:id="@+id/addressListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:divider="@null"
+            android:overScrollMode="never"
+            android:scrollbars="none" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

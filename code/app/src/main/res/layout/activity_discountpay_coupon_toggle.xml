@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="10dp"
+              android:background="@color/white"
+              android:orientation="vertical"
+              android:paddingLeft="15dp"
+              android:paddingRight="15dp">
+
+    <LinearLayout
+        android:id="@+id/llStoreDiscount"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/iv_discount_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/icon_discount_shop"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:text="商家优惠"
+            android:textColor="@color/color_333333"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tvStoreDiscountAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1"
+            android:text="-0元"
+            android:textColor="@color/color_c19740"
+            android:textSize="16sp"/>
+
+        <ToggleButton
+            android:id="@+id/toggle_store_coupon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/check_light_blue"
+            android:checked="false"
+            android:textOff=""
+            android:textOn=""/>
+    </LinearLayout>
+
+    <!--银行优惠金额-->
+    <LinearLayout
+        android:id="@+id/llBankDiscount"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:gravity="center_vertical"
+        android:visibility="visible">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_discount_bank"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:text="银行优惠"
+            android:textColor="@color/color_333333"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tvBankDiscountAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1"
+            android:text="-0元"
+            android:textColor="@color/color_c19740"
+            android:textSize="16sp"/>
+
+        <ToggleButton
+            android:id="@+id/toggle_bank_coupon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/check_light_blue"
+            android:checked="false"
+            android:textOff=""
+            android:textOn=""/>
+    </LinearLayout>
+</LinearLayout>

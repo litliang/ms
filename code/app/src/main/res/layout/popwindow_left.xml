@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/pop_bg"
+              android:gravity="right"
+              android:orientation="vertical"
+              android:paddingLeft="45dp">
+
+    <LinearLayout
+        android:id="@+id/llContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_white_corner_3"
+        android:orientation="vertical"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp"
+            android:paddingLeft="15dp">
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="12dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/shap_tittle_icon"/>
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="银行优惠"
+                android:textColor="#333333"
+                android:textSize="13sp"/>
+        </LinearLayout>
+
+        <GridView
+            android:id="@+id/gridView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numColumns="4"
+            android:scrollbars="none"
+            android:verticalSpacing="20dp"/>
+    </LinearLayout>
+
+</LinearLayout>

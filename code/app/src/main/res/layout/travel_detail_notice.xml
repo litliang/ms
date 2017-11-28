@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:orientation="vertical"
+              android:paddingBottom="80dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_travel_detail_left"/>
+
+        <TextView
+            style="@style/travel_detail_title_style"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:gravity="center"
+            android:text="须知"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_travel_detail_right"/>
+
+    </LinearLayout>
+
+    <!--费用包含-->
+    <LinearLayout
+        android:id="@+id/panelFeeForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            style="@style/travel_detail_title_style"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="7dp"
+            android:gravity="center"
+            android:paddingBottom="13dp"
+            android:text="费用包含"
+            android:textSize="13sp"
+            />
+
+        <com.yzb.card.king.ui.appwidget.WholeListView
+            android:id="@+id/feeFormListView"
+            style="@style/listview_style"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/listview_divider_height_25dp"/>
+    </LinearLayout>
+
+    <!--自理费用-->
+    <LinearLayout
+        android:id="@+id/panelSelfCareFee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            style="@style/travel_detail_title_style"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="13dp"
+            android:paddingTop="10dp"
+            android:text="自理费用"
+            android:textSize="13sp"
+            />
+
+        <com.yzb.card.king.ui.appwidget.WholeListView
+            android:id="@+id/selfCareListView"
+            style="@style/listview_style"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/listview_divider_height_25dp"/>
+    </LinearLayout>
+</LinearLayout>

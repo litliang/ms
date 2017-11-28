@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              >
+
+    <LinearLayout
+        android:id="@+id/llTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="13dp"
+        android:paddingTop="13dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_sx"
+            android:textColor="@color/ship_333333"
+            android:textSize="13sp"/>
+    </LinearLayout>
+
+
+    <com.yzb.card.king.ui.appwidget.NoRollGridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:horizontalSpacing="10dp"
+        android:numColumns="4"
+        android:scrollbars="none"
+        android:verticalSpacing="25dp"/>
+
+</LinearLayout>
