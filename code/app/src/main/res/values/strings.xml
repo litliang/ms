@@ -470,7 +470,7 @@
     <string name="ticke_yjf">邮寄费</string>
     <string name="buy_suces">购买成功</string>
     <string name="certification_message">您还没有进行实名认证，可能会影响您的使用！</string>
-    <string name="set_pay_message">您还没有设置支付密码,这会影响您的使用。</string>
+    <string name="set_pay_message">设置您的支付密码,安全愉快的使用Hi生活服务。</string>
     <string name="create_command_suces">已为您生成嗨口令</string>
     <string name="now_send">立即发送></string>
     <string name="now_look">立即查看></string>

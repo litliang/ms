@@ -104,17 +104,32 @@
                 android:textColor="#999"
                 android:textSize="14sp"/>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:background="@color/color_F5F5F5">
             <TextView
                 android:id="@+id/redbag_detail_allmessage_txt"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:background="@color/color_F5F5F5"
                 android:gravity="center_vertical"
                 android:paddingLeft="20dp"
                 android:text="0个红包共0元"
-                android:textColor="#999"
-                android:textSize="16sp"/>
+                android:textColor="#999"/>
+                <TextView android:layout_toRightOf="@+id/redbag_detail_allmessage_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:id="@+id/amouttype"
+                    android:text="等值金额"
+                    android:layout_alignParentRight="true"
 
+                    android:paddingRight="20dp"
+                    android:textColor="#999"
+                    android:gravity="center_vertical|right"
+                    >
+                </TextView>
+            </RelativeLayout>
         </LinearLayout>
 
     </ScrollView>

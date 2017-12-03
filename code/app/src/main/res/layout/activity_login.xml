@@ -303,7 +303,7 @@
                     android:layout_marginTop="12dp"
                     android:orientation="horizontal">
 
-                    <TextView
+                    <TextView android:id="@+id/qq"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableTop="@mipmap/icon_login_qq"
@@ -314,6 +314,7 @@
                         android:text="QQ"/>
 
                     <TextView
+                        android:id="@+id/wx"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableTop="@mipmap/icon_login_weibo"
@@ -325,7 +326,7 @@
                         android:textColor="#939393"
                         android:text="微信"/>
 
-                    <TextView
+                    <TextView android:id="@+id/wb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableTop="@mipmap/icon_login_sina"

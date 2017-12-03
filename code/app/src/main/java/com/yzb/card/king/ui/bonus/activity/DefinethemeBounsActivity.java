@@ -48,7 +48,7 @@ import java.util.List;
  * 描  述：
  */
 @ContentView(R.layout.activity_bouns_define)
-public class DefinethemeBounsActivity extends BaseActivity implements View.OnClickListener,BaseViewLayerInterface {
+public class DefinethemeBounsActivity extends BaseActivity implements View.OnClickListener, BaseViewLayerInterface {
 
     private static final int PHOTO_WITH_CAMERA = 201;
 
@@ -72,11 +72,10 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
 
     private UploadImageImpl uploadImage;
 
-    private String imageUploadCode ;
+    private String imageUploadCode;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         uploadImage = new UploadImageImpl(this);
@@ -88,15 +87,13 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
     }
 
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         super.onDestroy();
         AppUtils.hideSoftShowCursor(this, etBoundThemeName);
         uploadImage = null;
     }
 
-    private void initView()
-    {
+    private void initView() {
         setHeader(R.mipmap.icon_back_white, getString(R.string.define_red_envelope));
 
         findViewById(R.id.headerLeft).setOnClickListener(this);
@@ -109,20 +106,17 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
 
         etBounsWishes.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after)
-            {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count)
-            {
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             }
 
             @Override
-            public void afterTextChanged(Editable s)
-            {
+            public void afterTextChanged(Editable s) {
 
                 String inputString = s.toString();
 
@@ -142,8 +136,7 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
 
     }
 
-    private void initData()
-    {
+    private void initData() {
         Serializable ser = getIntent().getSerializableExtra(ActivityData);
         if (ser != null) {
             themeParam = (BounsThemeParam) ser;
@@ -152,8 +145,7 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case PHOTO_WITH_CAMERA:// 拍照返回；
                 String cameraPath = ImageUtils.getCameraImgPath();
@@ -208,8 +200,7 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
 
 
     @Override
-    public void onClick(View v)
-    {
+    public void onClick(View v) {
         switch (v.getId()) {
 
             case R.id.headerLeft:
@@ -217,13 +208,15 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
                 break;
             case R.id.tvPreScan://预览
 
-                if (checkData())
-                {
+                if (checkData()) {
                     String str1 = etBoundThemeName.getText().toString().trim();
 
                     String str2 = etBounsWishes.getText().toString().trim();
 
-                   Intent detailIntent = new Intent(this, RedBagDetailSendActivity.class);
+                    if (TextUtils.isEmpty(str2)) {
+                        str2 = etBounsWishes.getHint().toString();
+                    }
+                    Intent detailIntent = new Intent(this, RedBagDetailSendActivity.class);
 
                     themeParam.setBlessWord(str2);
 
@@ -231,9 +224,9 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
 
                     themeParam.setThemeName(str1);
 
-                detailIntent.putExtra("themeParam", themeParam);
+                    detailIntent.putExtra("themeParam", themeParam);
 
-                startActivity(detailIntent);
+                    startActivity(detailIntent);
 
                 }
                 break;
@@ -245,6 +238,9 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
 
                     String str2 = etBounsWishes.getText().toString().trim();
 
+                    if (TextUtils.isEmpty(str2)) {
+                        str2 = etBounsWishes.getHint().toString();
+                    }
                     Intent intent = new Intent();
 
                     BounsThemeBean bean = new BounsThemeBean();
@@ -267,8 +263,7 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
         }
     }
 
-    private boolean checkData()
-    {
+    private boolean checkData() {
 
 
         boolean flag = true;
@@ -279,7 +274,7 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
 
         String str2 = etBounsWishes.getText().toString().trim();
 
-       boolean drawableFlag = (boolean) ivBackgroundImage.getTag();
+        boolean drawableFlag = (boolean) ivBackgroundImage.getTag();
 
 
         if (TextUtils.isEmpty(str1)) {
@@ -288,12 +283,14 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
 
             str = R.string.toast_set_define_name;
 
-        } else if (TextUtils.isEmpty(str2)) {
-
-            flag = false;
-
-            str = R.string.toast_set_define_dedark;
-        } else if (!drawableFlag) {
+        }
+//        else if (TextUtils.isEmpty(str2)) {
+//
+//            flag = false;
+//
+//            str = R.string.toast_set_define_dedark;
+//        }
+        else if (!drawableFlag) {
 
             flag = false;
 
@@ -310,13 +307,11 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
     }
 
     @Event(R.id.addBackgroundImage)
-    private void addBackgroundImage(View view)
-    {
+    private void addBackgroundImage(View view) {
 
         SelectImgDialogFragment.getInstance("", "").setCallBack(new IDialogCallBack() {
             @Override
-            public void dialogCallBack(Object... obj)
-            {
+            public void dialogCallBack(Object... obj) {
                 if (obj != null && obj.length > 0) {
                     //0:拍照；1：相册选择；
                     if ("0".equals(String.valueOf(obj[0]))) {
@@ -333,8 +328,7 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
     /**
      * 拍照；
      */
-    private void capture()
-    {
+    private void capture() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         //  拍照后保存图片的绝对路径
         String cameraPath = ImageUtils.setCameraImgPath(this);
@@ -346,8 +340,7 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
     /**
      * 图库选择；
      */
-    private void fromGalley()
-    {
+    private void fromGalley() {
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED) ||
                 !Environment.isExternalStorageRemovable()) {
             Intent intent = new Intent(this, GalleryActivity.class);
@@ -360,13 +353,11 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
     }
 
     @Override
-    public void callSuccessViewLogic(Object o, int type)
-    {
-        imageUploadCode = o+"";
+    public void callSuccessViewLogic(Object o, int type) {
+        imageUploadCode = o + "";
     }
 
     @Override
-    public void callFailedViewLogic(Object o, int type)
-    {
+    public void callFailedViewLogic(Object o, int type) {
     }
 }

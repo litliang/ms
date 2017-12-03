@@ -1,9 +1,12 @@
 package com.yzb.card.king.ui.user;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -87,6 +90,28 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
         tvTitle.setText(R.string.txt_register_str);
 
         authCodeView = new AuthCodeView(tvGetCode);
+        surepassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(!TextUtils.isEmpty(s.toString())){
+
+                        findViewById(R.id.btRegister).setBackgroundResource(R.drawable.login_red_btn);
+                    ((TextView)findViewById(R.id.btRegister)).setTextColor(Color.WHITE);
+
+
+                }
+            }
+        });
     }
 
 
@@ -112,8 +137,10 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
         }
     }
 
-
-    private boolean chechData()
+    private boolean chechData(){
+        return chechData(true);
+    }
+    private boolean chechData(boolean toast)
     {
 
         boolean flag = true;
@@ -175,6 +202,7 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
 
         if (!flag)
         {
+            if(toast)
             ToastUtil.i(this,str);
         }
 

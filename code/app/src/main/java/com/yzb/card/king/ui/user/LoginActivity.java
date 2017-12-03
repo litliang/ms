@@ -10,17 +10,23 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.umeng.socialize.UMAuthListener;
+import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.yzb.card.king.R;
 import com.yzb.card.king.bean.common.FragmentMessageEvent;
 import com.yzb.card.king.sys.AppConstant;
 import com.yzb.card.king.sys.GlobalApp;
+import com.yzb.card.king.ui.app.activity.ResetLoginPwdActivity;
 import com.yzb.card.king.ui.app.activity.VerifyIdentificationActivity;
 import com.yzb.card.king.ui.appwidget.AuthCodeView;
 import com.yzb.card.king.ui.base.BaseActivity;
 import com.yzb.card.king.ui.manage.UserManager;
 import com.yzb.card.king.ui.user.presenter.LoginPresenter;
 import com.yzb.card.king.ui.user.view.LoginView;
+import com.yzb.card.king.util.JsonUtil;
 import com.yzb.card.king.util.ProgressDialogUtil;
 import com.yzb.card.king.util.SMSBroadcastHelper;
 import com.yzb.card.king.util.ToastUtil;
@@ -30,6 +36,8 @@ import org.greenrobot.eventbus.EventBus;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
+
+import java.util.Map;
 
 /**
  * Created by 玉兵 on 2016/6/18.
@@ -180,7 +188,13 @@ public class LoginActivity extends BaseActivity implements LoginView {
                 }
             }
         });
-
+        btnZhLogin.performClick();
+        llForgetPasswordTemp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(),ResetLoginPwdActivity.class));
+            }
+        });
     }
 
 
@@ -262,6 +276,78 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     }
 
+    @Event(R.id.qq)
+    private void qq(final View v)
+    {
+        UMShareAPI.get(this).getPlatformInfo(this, SHARE_MEDIA.QQ, new UMAuthListener(){
+
+            @Override
+            public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
+                Toast.makeText(v.getContext(), JsonUtil.entityToJson(map), Toast.LENGTH_LONG).show();
+                finish();
+            }
+
+            @Override
+            public void onError(SHARE_MEDIA share_media, int i, Throwable throwable) {
+
+            }
+
+            @Override
+            public void onCancel(SHARE_MEDIA share_media, int i) {
+
+            }
+        });
+
+    }
+
+    @Event(R.id.wx)
+    private void wx(final View v)
+    {
+        UMShareAPI.get(this).getPlatformInfo(this, SHARE_MEDIA.WEIXIN, new UMAuthListener(){
+
+            @Override
+            public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
+                Toast.makeText(v.getContext(), JsonUtil.entityToJson(map), Toast.LENGTH_LONG).show();
+                finish();
+            }
+
+            @Override
+            public void onError(SHARE_MEDIA share_media, int i, Throwable throwable) {
+
+            }
+
+            @Override
+            public void onCancel(SHARE_MEDIA share_media, int i) {
+
+            }
+        });
+
+    }
+
+    @Event(R.id.wb)
+    private void wb(final View v)
+    {
+        UMShareAPI.get(this).getPlatformInfo(this, SHARE_MEDIA.SINA, new UMAuthListener(){
+
+            @Override
+            public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
+                Toast.makeText(v.getContext(), JsonUtil.entityToJson(map), Toast.LENGTH_LONG).show();
+                finish();
+            }
+
+            @Override
+            public void onError(SHARE_MEDIA share_media, int i, Throwable throwable) {
+
+            }
+
+            @Override
+            public void onCancel(SHARE_MEDIA share_media, int i) {
+
+            }
+        });
+
+
+    }
     @Event(R.id.tvGetCode)
     private void tvGetCode(View v)
     {
@@ -271,7 +357,6 @@ public class LoginActivity extends BaseActivity implements LoginView {
         authCodeView.sendCodeRequest(str1,"1", "5");
 
     }
-
     @Override
     public String[] loginInfo()
     {

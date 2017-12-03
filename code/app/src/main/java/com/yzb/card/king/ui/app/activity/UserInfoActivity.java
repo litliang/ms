@@ -1,5 +1,6 @@
 package com.yzb.card.king.ui.app.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -10,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -94,7 +96,7 @@ public class UserInfoActivity extends BaseActivity implements
     private View tvLabel;
 
     @ViewInject(R.id.tvNickName)
-    private TextView tvNickName;
+    private EditText tvNickName;
 
     @ViewInject(R.id.tvRegion)
     private TextView tvRegion;
@@ -150,11 +152,13 @@ public class UserInfoActivity extends BaseActivity implements
 
     }
 
+    @SuppressLint("NewApi")
     private void initView()
     {
         contentView = findViewById(R.id.content);
         setTitleNmae("个人主页");
         tvBirthday = (TextView) findViewById(R.id.tvBirthday);
+        tvNickName.setBackground(null);
     }
 
 
@@ -372,6 +376,13 @@ public class UserInfoActivity extends BaseActivity implements
         }
 
         userInfoPresenter.update(param);
+    }
+
+
+    @Override
+    public void finish() {
+        save(null);
+        super.finish();
     }
 
     @NonNull

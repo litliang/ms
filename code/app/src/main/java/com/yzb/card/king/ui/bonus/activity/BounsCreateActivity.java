@@ -480,7 +480,6 @@ public class BounsCreateActivity extends BaseActivity implements View.OnClickLis
     public void onPayFail(String failMsg)
     {
         toastCustom(failMsg);
-        readyGo(this, BounsHomeActivity.class);
     }
 
     /**
@@ -518,6 +517,7 @@ public class BounsCreateActivity extends BaseActivity implements View.OnClickLis
                 case GiftcardBuySucesDialog.WHAT_LOOK://立即查看； 红包明细；
                     Intent detailIntent = new Intent(BounsCreateActivity.this, RedBagDetailSendActivity.class);
                     detailIntent.putExtra("orderId", outBean.getOrderId());
+                    detailIntent.putExtra("typedThemeParam", getBounsThemeParam());
                     startActivity(detailIntent);
                     finish();
                     break;
