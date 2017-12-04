@@ -115,6 +115,10 @@ public class CardConstant {
      * 更新优惠券付款详情
      */
     public static String APP_UPDATECOUPONPAYDETAIL_IF ="UpdateCouponPayDetail";
+    /**
+     * 删除优惠订单
+     */
+    public static String APP_DELETECOUONORDER_IF = "DeleteCouonOrder";
 
     /**
      * 活动抵扣检测接口

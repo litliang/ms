@@ -28,15 +28,12 @@ import com.yzb.card.king.ui.credit.activity.AddBankCardActivity;
 import com.yzb.card.king.ui.credit.activity.AddCanPayCardActivity;
 import com.yzb.card.king.ui.discount.bean.Location;
 import com.yzb.card.king.ui.discount.fragment.AppCouponSucessDialgFragment;
-import com.yzb.card.king.ui.gift.activity.BuyMindPhysCardActivity;
-import com.yzb.card.king.ui.gift.adapter.GiftcardLimitAdapter;
-import com.yzb.card.king.ui.gift.adapter.GiftcardSelectLimitAdapter;
-import com.yzb.card.king.ui.gift.bean.GiftcardLimitBean;
 import com.yzb.card.king.ui.hotel.persenter.GetCouponPersenter;
 import com.yzb.card.king.ui.manage.CitySelectManager;
 import com.yzb.card.king.ui.my.activity.CouponMoreShopsActivity;
 import com.yzb.card.king.ui.my.activity.CouponSearchActivity;
 import com.yzb.card.king.ui.my.activity.CouponsMySelfActivity;
+import com.yzb.card.king.ui.my.activity.VoucherMoreShopsActivity;
 import com.yzb.card.king.ui.my.adapter.CouponInfoAdapter;
 import com.yzb.card.king.ui.my.pop.BuySucesWithOkDialog;
 import com.yzb.card.king.ui.my.presenter.CouponInfoPresenter;
@@ -58,20 +55,18 @@ import com.yzb.wallet.openInterface.AddCardBackListener;
 import com.yzb.wallet.openInterface.PayMethodListener;
 import com.yzb.wallet.openInterface.WalletBackListener;
 
-import org.json.JSONObject;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
-import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
- * Created by 玉兵 on 2017/10/30.
+ * Created by 玉兵 on 2017/12/3.
  */
 @ContentView(R.layout.fragment_coupons_mall)
-public class BoundCenterActivty extends BaseActivity implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener,
+public class VoucherCenterActivity extends BaseActivity implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener,
         LoadMoreListView.OnLoadMoreListener, CouponInfoView, ReceiveYhqView,BaseViewLayerInterface
 {
     private static final int REQ_GET_CITY = 0x001;
@@ -90,6 +85,9 @@ public class BoundCenterActivty extends BaseActivity implements View.OnClickList
     @ViewInject(R.id.tvCity)
     private TextView tvCity;
 
+    @ViewInject(R.id.tvTitleName)
+    private TextView tvTitleName;
+
     @ViewInject(R.id.panelSearch)
     private LinearLayout panelSearch;
 
@@ -101,9 +99,6 @@ public class BoundCenterActivty extends BaseActivity implements View.OnClickList
 
     @ViewInject(R.id.ivRight)
     private ImageView ivRight;
-
-    @ViewInject(R.id.tvTitleName)
-    private TextView tvTitleName;
 
     private String cityId;
 
@@ -165,7 +160,7 @@ public class BoundCenterActivty extends BaseActivity implements View.OnClickList
 
     private void initView()
     {
-        tvTitleName.setText("领用优惠券");
+        tvTitleName.setText("购买代金券");
 
         SwipeRefreshSettings.setAttrbutes(this, swipeRefresh);
 
@@ -186,7 +181,7 @@ public class BoundCenterActivty extends BaseActivity implements View.OnClickList
         panelMore.setOnClickListener(this);
         panelLocation.setOnClickListener(this);
 
-        ivRight.setBackgroundResource(R.mipmap.icon_coupon_new_center);
+        ivRight.setBackgroundResource(R.mipmap.icon_voucher_new_center);
     }
 
     private void initLocation()
@@ -303,33 +298,35 @@ public class BoundCenterActivty extends BaseActivity implements View.OnClickList
     {
         switch (v.getId())
         {
-            case R.id.panelSearch: //我的优惠券；
-
+            case R.id.panelSearch: //搜索；
                 if (isLogin())
                 {
-                    Intent intentE = new Intent(BoundCenterActivty.this, CouponsMySelfActivity.class);
+                    Intent intentE = new Intent(VoucherCenterActivity.this, CouponsMySelfActivity.class);
 
-                    intentE.putExtra("titleName","我的优惠券");
+                    intentE.putExtra("titleName","我的代金券");
 
-                    intentE.putExtra("type",1);
+                    intentE.putExtra("type",2);
 
                     startActivity(intentE);
 
 
                 }else {
 
-                    Intent intentR = new Intent(BoundCenterActivty.this, LoginActivity.class);
+                    Intent intentR = new Intent(VoucherCenterActivity.this, LoginActivity.class);
                     startActivityForResult(intentR, 101);
                 }
-
                 break;
 
             case R.id.panelLocation: //城市；
-                Intent intent = new Intent(BoundCenterActivty.this, SelectPlaceActivity.class);
+
+                Intent intent = new Intent(VoucherCenterActivity.this, SelectPlaceActivity.class);
                 startActivityForResult(intent, REQ_GET_CITY);
+
                 break;
+
             case R.id.panelMore: //更多；
-                Intent moreIntent = new Intent(BoundCenterActivty.this, CouponMoreShopsActivity.class);
+
+                Intent moreIntent = new Intent(VoucherCenterActivity.this, VoucherMoreShopsActivity.class);
                 startActivity(moreIntent);
                 break;
         }
@@ -386,7 +383,7 @@ public class BoundCenterActivty extends BaseActivity implements View.OnClickList
         toastCustom(failMsg);
     }
 
-    private   OrderOutBean  orderOutBean;
+    private OrderOutBean orderOutBean;
 
     @Override
     public void callSuccessViewLogic(Object o, int type) {
@@ -413,7 +410,7 @@ public class BoundCenterActivty extends BaseActivity implements View.OnClickList
     }
 
 
-    private  PayRequestLogic payHandle;
+    private PayRequestLogic payHandle;
 
     private String payType ="1";
 
@@ -441,7 +438,7 @@ public class BoundCenterActivty extends BaseActivity implements View.OnClickList
             public void callBack()
             {
 
-                startActivity(new Intent(BoundCenterActivty.this, AddBankCardActivity.class));
+                startActivity(new Intent(VoucherCenterActivity.this, AddBankCardActivity.class));
             }
         });
         payHandle.payMethodCallBack(new PayMethodListener()
@@ -485,7 +482,7 @@ public class BoundCenterActivty extends BaseActivity implements View.OnClickList
                         claz = AddCanPayCardActivity.class;
 
                     }
-                    Intent intent = new Intent(BoundCenterActivty.this, claz);
+                    Intent intent = new Intent(VoucherCenterActivity.this, claz);
                     intent.putExtra("cardNo",accountInfo.getCardNo());
                     intent.putExtra("name", accountInfo.getName());
                     startActivity(intent);
@@ -501,7 +498,7 @@ public class BoundCenterActivty extends BaseActivity implements View.OnClickList
             public void setError(String RESULT_CODE, String ERROR_MSG)
             {
                 LogUtil.i("付款失败；RESULT_CODE=" + RESULT_CODE + ",ERROR_MSG=" + ERROR_MSG);
-                ToastUtil.i(BoundCenterActivty.this,ERROR_MSG);
+                ToastUtil.i(VoucherCenterActivity.this,ERROR_MSG);
             }
         });
         payHandle.pay(getInputMap(), false);
@@ -543,4 +540,5 @@ public class BoundCenterActivty extends BaseActivity implements View.OnClickList
     }
 
 }
+
 

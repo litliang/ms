@@ -46,6 +46,12 @@ public class CanReceiveCouponRequest extends BaseRequest {
 
     }
 
+    public CanReceiveCouponRequest( long orderId,String serverName)
+    {
+        params.put("orderId", orderId);
+
+    }
+
     public CanReceiveCouponRequest(String orderId, double orderAmount, String orderTime, String payType, String payDetailId) {
 
         serverName = CardConstant.APP_UPDATECOUPONPAYDETAIL_IF;

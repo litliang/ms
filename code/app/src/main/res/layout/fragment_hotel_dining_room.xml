@@ -5,18 +5,19 @@
               android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <com.yzb.card.king.ui.appwidget.asyncexpandablelist.async.AsyncExpandableListView
             android:id="@+id/asyncExpandableCollectionView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-        <include
-            android:id="@+id/viewNoData"
-            layout="@layout/base_null_data_item"
 
-            android:visibility="gone"/>
+        <include
+            android:id="@+id/viewRim"
+            layout="@layout/activity_hotel_product_info_rim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
 </LinearLayout>

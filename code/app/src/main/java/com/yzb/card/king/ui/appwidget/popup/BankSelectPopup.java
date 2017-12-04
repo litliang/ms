@@ -167,7 +167,7 @@ public class BankSelectPopup implements View.OnClickListener, BaseViewLayerInter
 
         getCouponPersenter.sendQueryCoopertiveBankActionRequest(0, Integer.MAX_VALUE);
 
-        if (!UserManager.getInstance().isLogin()) {
+        if (UserManager.getInstance().isLogin()) {
             //发送我的绑卡信息
             loadCardNum();
         }

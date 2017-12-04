@@ -372,7 +372,42 @@
                             android:layout_height="wrap_content"
                             android:background="@mipmap/icon_arrow_right_gray_small_one"/>
                     </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#f6f6f6"/>
 
+                    <LinearLayout
+                        android:id="@+id/tvYouhuiquanMy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minWidth="30dp"
+                            android:src="@mipmap/home_daijinquan_icon"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="6dp"
+                            android:layout_weight="1"
+                            android:text="领用优惠券"
+                            android:textSize="@dimen/sp_15"
+                            android:textColor="@color/my_white_333333"
+                            />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/icon_arrow_right_gray_small_one"/>
+                    </LinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -399,7 +434,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="6dp"
                             android:layout_weight="1"
-                            android:text="@string/my_coupons"
+                            android:text="购买代金券"
                             android:textSize="@dimen/sp_15"
                             android:textColor="@color/my_white_333333"
                            />

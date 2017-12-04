@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.alibaba.fastjson.JSONArray;
 import com.yzb.card.king.R;
@@ -123,6 +124,12 @@ public class HotelGiftCombmFragment extends BaseFragment implements BaseViewLaye
                 initRequest();
             }
         });
+
+        View   viewRim = (LinearLayout) view.findViewById(R.id.viewRim);
+
+        HotelProductRimView hotelProductRimView = new HotelProductRimView(viewRim,getContext());
+
+        hotelProductRimView.setHotelDetailServiceBean(HotelLogicManager.getInstance().getHotelDetailServiceBean());
     }
 
     @Override

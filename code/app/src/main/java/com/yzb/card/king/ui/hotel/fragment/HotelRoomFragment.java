@@ -77,7 +77,6 @@ public class HotelRoomFragment extends BaseFragment implements AsyncExpandableLi
 
     private LinearLayout llHotelInfoScreen;
 
-    private View viewNoData;
     //筛选
     private View viewScreenHotel;
 
@@ -154,6 +153,7 @@ public class HotelRoomFragment extends BaseFragment implements AsyncExpandableLi
          * 请求该酒店的房间信息
          */
         initRequest(true);
+
         initData();
     }
 
@@ -204,8 +204,6 @@ public class HotelRoomFragment extends BaseFragment implements AsyncExpandableLi
         llHotelInfoScreen = (LinearLayout) view.findViewById(R.id.llHotelInfoScreen);
 
         llHotelInfoScreen.removeAllViews();
-
-        viewNoData = view.findViewById(R.id.viewNoData);
 
         String[] screenNameArray = getResources().getStringArray(R.array.hotel_screen_name_array);
 
@@ -398,6 +396,12 @@ public class HotelRoomFragment extends BaseFragment implements AsyncExpandableLi
 
         initRoomInfoView(view);
 
+        View   viewRim = (LinearLayout) view.findViewById(R.id.viewRim);
+
+        HotelProductRimView hotelProductRimView = new HotelProductRimView(viewRim,getContext());
+
+        hotelProductRimView.setHotelDetailServiceBean(HotelLogicManager.getInstance().getHotelDetailServiceBean());
+
     }
 
     private AppCalendarPopup.DataCalendarCallBack calendarDataCallBack = new AppCalendarPopup.DataCalendarCallBack() {
@@ -566,14 +570,6 @@ public class HotelRoomFragment extends BaseFragment implements AsyncExpandableLi
             }
             mAsyncExpandableListView.updateInventory(inventory);
 
-           int v = mAsyncExpandableListView.getVisibility();
-
-            if(v ==View.GONE){
-
-                mAsyncExpandableListView.setVisibility(View.VISIBLE);
-
-                viewNoData.setVisibility(View.GONE);
-            }
 
         } else if (type == HotelServicePersenter.HOTEL_ROOM_COMBO_CODE) {
 
@@ -602,14 +598,8 @@ public class HotelRoomFragment extends BaseFragment implements AsyncExpandableLi
 
             if (HttpConstant.NOINFO.equals(error.getCode())) {
 
-                int v = viewNoData.getVisibility();
-
-                if(v ==View.GONE){
 
                     mAsyncExpandableListView.setVisibility(View.GONE);
-
-                    viewNoData.setVisibility(View.VISIBLE);
-                }
             }else {
 
                 HttpUtil.responseCallBackMessage(error.getCode());

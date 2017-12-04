@@ -6,20 +6,25 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:paddingLeft="@dimen/title_l_r"
         android:paddingBottom="@dimen/title_l_r"
-        android:paddingRight="@dimen/title_l_r"
         android:layout_weight="1"
+        android:orientation="vertical"
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/wvLvData"
             android:layout_width="match_parent"
+            android:paddingLeft="@dimen/title_l_r"
+            android:paddingRight="@dimen/title_l_r"
             android:layout_height="wrap_content"
             android:divider="@color/color_e3e3e3"
             android:listSelector="@android:color/transparent">
         </android.support.v7.widget.RecyclerView>
-
+        <include
+            android:id="@+id/viewRim"
+            layout="@layout/activity_hotel_product_info_rim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
 </LinearLayout>

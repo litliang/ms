@@ -3,6 +3,7 @@ package com.yzb.card.king.bean.hotel;
 import com.yzb.card.king.bean.SearchReusultBean;
 import com.yzb.card.king.bean.SubItemBean;
 import com.yzb.card.king.sys.AppConstant;
+import com.yzb.card.king.util.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ public class HotelProductListParam {
     /**
      * 位置级别(4,5)
      */
-    private int addrLevel=-1;
+    private int addrLevel = -1;
     /**
      * 位置名称
      */
@@ -24,7 +25,7 @@ public class HotelProductListParam {
     /**
      * 位置id
      */
-    private  long addrId;
+    private long addrId;
     /**
      * 搜索位置类型
      */
@@ -40,11 +41,11 @@ public class HotelProductListParam {
     /**
      * 搜索位置经度
      */
-    private  double searchAddrLng;
+    private double searchAddrLng;
     /**
      * 搜索位置纬度
      */
-    private  double searchAddrLat;
+    private double searchAddrLat;
     /**
      * 起始价
      */
@@ -52,15 +53,15 @@ public class HotelProductListParam {
     /**
      * 终止价
      */
-    private String endPrice = Integer.MAX_VALUE+"";
+    private String endPrice = Integer.MAX_VALUE + "";
     /**
      * 星级
      */
-    private String levels="0";
+    private String levels = "0";
     /**
      * 品牌类型
      */
-    private String brandTypes="0";
+    private String brandTypes = "0";
     /**
      * 入住日期(yyyy-MM-dd)
      */
@@ -68,20 +69,19 @@ public class HotelProductListParam {
     /**
      * 离店日期(yyyy-MM-dd)
      */
-    private String  depDate;
+    private String depDate;
     /**
      * 排序
      */
-    private int sort =0 ;
+    private int sort = 0;
     /**
      * 分页起始数
      */
-    private  int pageStart;
+    private int pageStart;
     /**
      * 每页条目数
      */
-    private  int pageSize = AppConstant.MAX_PAGE_NUM;
-
+    private int pageSize = AppConstant.MAX_PAGE_NUM;
     /**
      * 最低评分
      */
@@ -93,7 +93,7 @@ public class HotelProductListParam {
     /**
      * 优惠促销项
      */
-    private  String disTypes;
+    private String disTypes;
     /**
      * 分期状态
      */
@@ -106,19 +106,24 @@ public class HotelProductListParam {
     /**
      * 酒店品牌(酒店列表头部)
      */
-    private  List<SubItemBean> hotelBrandList;
+    private List<SubItemBean> hotelBrandList;
+    /**
+     * 酒店页面筛选功能（酒店列表底部的筛选）
+     */
+    private List<SubItemBean> hotelBaseFilterList;
     /**
      * 酒店位置区域（酒店列表底部的位置区域）
      */
-    private  List<SubItemBean> hotelPositionList;
+    private List<SubItemBean> hotelPositionList;
     /**
      * 酒店关键字搜索（酒店搜索页的选项）
      */
-    private  List<SubItemBean> hotelKeyWordList;
+    private List<SubItemBean> hotelKeyWordList;
+
     /**
-     *  搜索条件
+     * 搜索条件
      */
-    private List<SearchReusultBean>  searchList;
+    private List<SearchReusultBean> searchList;
     /**
      * 门店名称
      */
@@ -128,7 +133,7 @@ public class HotelProductListParam {
      */
     private String effMonth = null;
     /**
-     *  门店适用类型 1唯一门店可用；2多门店通用；
+     * 门店适用类型 1唯一门店可用；2多门店通用；
      */
     private String storeUseType = null;
     /**
@@ -136,13 +141,11 @@ public class HotelProductListParam {
      */
     private int actType;
 
-    public int getAddrLevel()
-    {
+    public int getAddrLevel() {
         return addrLevel;
     }
 
-    public void setAddrLevel(int addrLevel)
-    {
+    public void setAddrLevel(int addrLevel) {
         this.addrLevel = addrLevel;
     }
 
@@ -291,31 +294,45 @@ public class HotelProductListParam {
     }
 
     public List<SubItemBean> getFilterList() {
-        return filterList;
-    }
 
-    public void setFilterList(List<SubItemBean> filterList) {
-
-        if(filterList == null){
+        if (filterList == null) {
 
             filterList = new ArrayList<>();
+
+        }else {
+
+            filterList.clear();
         }
 
-        if(hotelBrandList  != null){
+        if (hotelBrandList != null && hotelBrandList.size() > 0) {
 
             filterList.addAll(hotelBrandList);
         }
 
-        if(hotelPositionList != null){
+        if (hotelPositionList != null && hotelPositionList.size() > 0) {
 
             filterList.addAll(hotelPositionList);
         }
 
-        if(hotelKeyWordList != null){
+        if (hotelKeyWordList != null && hotelKeyWordList.size() > 0) {
 
             filterList.addAll(hotelKeyWordList);
 
         }
+
+        if (hotelBaseFilterList != null && hotelBaseFilterList.size() > 0) {
+
+            filterList.addAll(hotelBaseFilterList);
+
+        }
+
+
+        return filterList;
+    }
+
+
+
+    public void setFilterList(List<SubItemBean> filterList) {
 
         this.filterList = filterList;
     }
@@ -327,18 +344,17 @@ public class HotelProductListParam {
     public void setSearchList(List<SearchReusultBean> searchList) {
         this.searchList = searchList;
     }
+
     /**
      * 床型
      */
     private String roomsTypes;
 
-    public int getActType()
-    {
+    public int getActType() {
         return actType;
     }
 
-    public void setActType(int actType)
-    {
+    public void setActType(int actType) {
         this.actType = actType;
     }
 
@@ -350,53 +366,43 @@ public class HotelProductListParam {
         this.roomsTypes = roomsTypes;
     }
 
-    public int getGiftsType()
-    {
+    public int getGiftsType() {
         return giftsType;
     }
 
-    public void setGiftsType(int giftsType)
-    {
+    public void setGiftsType(int giftsType) {
         this.giftsType = giftsType;
     }
 
-    public int getIndustryId()
-    {
+    public int getIndustryId() {
         return industryId;
     }
 
-    public void setIndustryId(int industryId)
-    {
+    public void setIndustryId(int industryId) {
         this.industryId = industryId;
     }
 
-    public String getStoreName()
-    {
+    public String getStoreName() {
         return storeName;
     }
 
-    public void setStoreName(String storeName)
-    {
+    public void setStoreName(String storeName) {
         this.storeName = storeName;
     }
 
-    public String getEffMonth()
-    {
+    public String getEffMonth() {
         return effMonth;
     }
 
-    public void setEffMonth(String effMonth)
-    {
+    public void setEffMonth(String effMonth) {
         this.effMonth = effMonth;
     }
 
-    public String getStoreUseType()
-    {
+    public String getStoreUseType() {
         return storeUseType;
     }
 
-    public void setStoreUseType(String storeUseType)
-    {
+    public void setStoreUseType(String storeUseType) {
         this.storeUseType = storeUseType;
     }
 
@@ -405,6 +411,9 @@ public class HotelProductListParam {
     }
 
     public void setHotelBrandList(List<SubItemBean> hotelBrandList) {
+
+        clearCacheSubItemData(this.hotelBrandList);//在总集合里面清理之前的数据
+
         this.hotelBrandList = hotelBrandList;
     }
 
@@ -413,6 +422,7 @@ public class HotelProductListParam {
     }
 
     public void setHotelPositionList(List<SubItemBean> hotelPositionList) {
+        clearCacheSubItemData(this.hotelPositionList);//在总集合里面清理之前的数据
         this.hotelPositionList = hotelPositionList;
     }
 
@@ -421,6 +431,54 @@ public class HotelProductListParam {
     }
 
     public void setHotelKeyWordList(List<SubItemBean> hotelKeyWordList) {
+        clearCacheSubItemData(this.hotelKeyWordList);//在总集合里面清理之前的数据
         this.hotelKeyWordList = hotelKeyWordList;
+    }
+    public List<SubItemBean> getHotelBaseFilterList() {
+        if(hotelBaseFilterList == null){
+            hotelBaseFilterList = new ArrayList<SubItemBean>();
+        }
+        return hotelBaseFilterList;
+    }
+
+    public void setHotelBaseFilterList(List<SubItemBean> hotelBaseFilterList) {
+        clearCacheSubItemData(this.hotelBaseFilterList);//在总集合里面清理之前的数据
+        this.hotelBaseFilterList = hotelBaseFilterList;
+    }
+    /**
+     * 清理一个集合数据之前在大集合里面的数据
+     *
+     * @param list
+     */
+    private void clearCacheSubItemData(List<SubItemBean> list) {
+
+        if (list != null && list.size() > 0) {
+            if (filterList != null) {
+
+                for (int i = 0; i < filterList.size(); i++) {
+
+                    SubItemBean targetBean = filterList.get(i);
+
+                    for (SubItemBean bean : list) {
+
+                        if (targetBean.getFilterId().equals(bean.getFilterId()) &&
+                                targetBean.getChildTypeCode().equals(bean.getChildTypeCode()) &&
+                                targetBean.getFilterName().equals(bean.getFilterName()) &&
+                                targetBean.getFilterLat() == bean.getFilterLat() &&
+                                targetBean.getFilterLng() == bean.getFilterLng()) {//检测到相同的数据则先删除
+
+                            filterList.remove(i);
+
+                        }
+
+                    }
+                }
+            }
+
+        }
+        if(filterList != null){
+            LogUtil.e("size2=" + filterList.size());
+        }
+
     }
 }

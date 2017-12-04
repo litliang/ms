@@ -7,6 +7,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.yzb.card.king.R;
@@ -46,6 +48,12 @@ public class HotelFacilityDetail extends BaseActivity {
 
     private MultiTypeAdapter mAdapter;
 
+    @ViewInject(R.id.llTalkPhone)
+    private LinearLayout llTalkPhone;
+
+    @ViewInject(R.id.ivGrayLine)
+    private ImageView ivGrayLine;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -63,7 +71,22 @@ public class HotelFacilityDetail extends BaseActivity {
 
             final Hotel hotelBean = (Hotel) getIntent().getSerializableExtra("hotelData");
 
-            tvHotelPhone.setText("联系电话："+hotelBean.getHotelTel());
+            if(TextUtils.isEmpty(hotelBean.getHotelTel())){
+
+                llTalkPhone.setVisibility(View.GONE);
+
+                ivGrayLine.setVisibility(View.GONE);
+
+            }else {
+
+                tvHotelPhone.setText("联系电话："+hotelBean.getHotelTel());
+
+                llTalkPhone.setVisibility(View.VISIBLE);
+
+                ivGrayLine.setVisibility(View.VISIBLE);
+            }
+
+
 
             StringBuffer sb = new StringBuffer();
 
@@ -139,7 +162,7 @@ public class HotelFacilityDetail extends BaseActivity {
                 }
             });
 
-            findViewById(R.id.llTalkPhone).setOnClickListener(new View.OnClickListener() {
+            llTalkPhone.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v)
                 {

@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/color_F5F5F5"
-                android:fitsSystemWindows="true">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_F5F5F5"
+    android:fitsSystemWindows="true">
 
     <include
         android:id="@+id/rl_title"
         layout="@layout/title_header_left_title_white"
         android:layout_width="match_parent"
         android:layout_height="@dimen/title_view_height"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
     <View
         android:id="@+id/lineTitel"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_below="@+id/rl_title"
-        android:background="#cdcdcd"/>
+        android:background="#cdcdcd" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/lineTitel"
         android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -59,14 +61,14 @@
                         android:ellipsize="end"
                         android:maxLines="1"
                         android:textColor="@color/white_ffffff"
-                        android:textSize="@dimen/title_size_16"/>
+                        android:textSize="@dimen/title_size_16" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:textColor="@color/color_dbe1ea"
-                        android:textSize="@dimen/text_size_12"/>
+                        android:textSize="@dimen/text_size_12" />
 
                 </LinearLayout>
 
@@ -77,14 +79,14 @@
                     android:layout_marginBottom="12dp"
                     android:layout_marginTop="12dp"
                     android:textColor="@color/white_ffffff"
-                    android:textSize="@dimen/title_size_16"/>
+                    android:textSize="@dimen/title_size_16" />
 
                 <TextView
                     android:id="@+id/tvRoomInfoDesc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/color_dbe1ea"
-                    android:textSize="@dimen/text_size_12"/>
+                    android:textSize="@dimen/text_size_12" />
 
             </LinearLayout>
 
@@ -93,10 +95,10 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white_ffffff"
                 android:orientation="vertical"
+                android:paddingBottom="10dp"
                 android:paddingLeft="@dimen/title_l_r"
                 android:paddingRight="@dimen/title_l_r"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp">
+                android:paddingTop="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -107,7 +109,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@mipmap/icon_order_right_blue"/>
+                        android:background="@mipmap/icon_order_right_blue" />
 
                     <TextView
                         android:id="@+id/hotelRoomOrderDesc"
@@ -116,7 +118,7 @@
                         android:layout_marginLeft="7dp"
                         android:text="订单确认后房间将为您整晚保留"
                         android:textColor="#4a719e"
-                        android:textSize="@dimen/sp_14"/>
+                        android:textSize="@dimen/sp_14" />
 
                 </LinearLayout>
 
@@ -126,14 +128,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/text_size_13"
                     android:gravity="center_vertical"
-                    android:visibility="gone"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/ivTwoImage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@mipmap/icon_order_red_free"/>
+                        android:background="@mipmap/icon_order_red_free" />
 
                     <TextView
                         android:id="@+id/tvFreeOrder"
@@ -142,7 +144,7 @@
                         android:layout_marginLeft="7dp"
                         android:text="订单可在2017-05-09 12:00之前免费取消"
                         android:textColor="#990100"
-                        android:textSize="@dimen/sp_14"/>
+                        android:textSize="@dimen/sp_14" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -169,7 +171,7 @@
                         android:layout_weight="1"
                         android:text="房间数"
                         android:textColor="#999999"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -181,7 +183,7 @@
                             android:id="@+id/ivSubstration"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@mipmap/icon_subtraction"/>
+                            android:background="@mipmap/icon_subtraction" />
 
                         <TextView
                             android:id="@+id/tvGuestNum"
@@ -190,20 +192,20 @@
                             android:gravity="center_horizontal"
                             android:text="1"
                             android:textColor="@color/color_333333"
-                            android:textSize="16sp"/>
+                            android:textSize="16sp" />
 
                         <ImageView
                             android:id="@+id/ivAddGuest"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@mipmap/icon_add"/>
+                            android:background="@mipmap/icon_add" />
 
                     </LinearLayout>
 
 
                 </LinearLayout>
 
-                <include layout="@layout/activity_hotel_order_divider"/>
+                <include layout="@layout/activity_hotel_order_divider" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -214,39 +216,39 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:orientation="horizontal"
-                        >
+                        android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_weight="3.5"
                             android:gravity="top"
+                            android:orientation="horizontal"
                             android:paddingBottom="10dp"
-                            android:paddingTop="10dp"
-                            android:orientation="horizontal">
+                            android:paddingTop="10dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="入住人姓名"
                                 android:textColor="#999999"
-                                android:textSize="14sp"/>
+                                android:textSize="14sp" />
 
 
                         </LinearLayout>
 
                         <android.support.v7.widget.GridLayout
                             android:id="@+id/guestGridLayout"
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="40dp"
+                            android:layout_marginLeft="7dp"
                             android:layout_weight="1"
-                            app:columnCount="1"/>
+                            app:columnCount="1" />
 
                     </LinearLayout>
                 </LinearLayout>
 
-                <include layout="@layout/activity_hotel_order_divider"/>
+                <include layout="@layout/activity_hotel_order_divider" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -257,38 +259,44 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_weight="3.5"
                             android:text="联系电话"
                             android:textColor="#999999"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
-
-                        <EditText
-                            android:id="@+id/et_user_phone"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="40dp"
-                            android:layout_weight="1"
-                            android:background="@null"
-                            android:hint="用于接收通知"
-                            android:inputType="number"
-                            android:maxLength="11"
-                            android:textColor="@color/color_0a1333"
-                            android:textColorHint="@color/color_999999"
-                            android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
-                            android:textSize="14sp"/>
-
-                        <ImageView
-                            android:id="@+id/iv_open_contact"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:src="@mipmap/icon_hotel_room_phone"/>
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
+                            <EditText
+                                android:id="@+id/et_user_phone"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:hint="用于接收通知"
+                                android:inputType="number"
+                                android:maxLength="11"
+                                android:textColor="@color/color_0a1333"
+                                android:textColorHint="@color/color_999999"
+                                android:textCursorDrawable="@drawable/shape_black_cursor_drawable"
+                                android:textSize="14sp" />
+
+                            <ImageView
+                                android:id="@+id/iv_open_contact"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/icon_hotel_room_phone" />
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -296,35 +304,35 @@
                     android:id="@+id/llHotelOrderBaoliuTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
+                    android:orientation="vertical">
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="0.5dp"
-                        android:background="#cdcdcd"/>
+                        android:background="#cdcdcd" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
                         android:background="@color/white_ffffff"
-                        android:orientation="horizontal">
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="3.5"
                             android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:layout_height="wrap_content">
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="14sp"
+                                android:text="保留到"
                                 android:textColor="#999999"
-                                android:text="保留到"/>
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
@@ -335,16 +343,16 @@
                             android:layout_marginLeft="7dp"
                             android:layout_marginRight="7dp"
                             android:layout_weight="1"
-                            android:maxLines="1"
                             android:ellipsize="end"
+                            android:maxLines="1"
                             android:text="7:00"
                             android:textColor="@color/color_333333"
-                            android:textSize="16sp"/>
+                            android:textSize="16sp" />
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@mipmap/icon_arrow_right_item_gray"/>
+                            android:background="@mipmap/icon_arrow_right_item_gray" />
 
 
                     </LinearLayout>
@@ -356,41 +364,40 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white_ffffff"
-                android:orientation="vertical"
                 android:layout_marginTop="6dp"
-                >
+                android:background="@color/white_ffffff"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/llBill"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp"
                     android:paddingLeft="@dimen/title_l_r"
                     android:paddingRight="@dimen/title_l_r"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:paddingTop="10dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="3.5"
                         android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:layout_height="wrap_content">
+                        android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
+                            android:text="发票"
                             android:textColor="#999999"
-                            android:text="发票"/>
+                            android:textSize="14sp" />
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="13dp"
-                            android:background="@mipmap/icon_question_mark"/>
+                            android:background="@mipmap/icon_question_mark" />
 
                     </LinearLayout>
 
@@ -401,47 +408,49 @@
                         android:layout_marginLeft="7dp"
                         android:layout_marginRight="7dp"
                         android:layout_weight="1"
-                        android:maxLines="1"
                         android:ellipsize="end"
+                        android:maxLines="1"
                         android:text="不需要发票"
                         android:textColor="@color/color_333333"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@mipmap/icon_arrow_right_item_gray"/>
+                        android:background="@mipmap/icon_arrow_right_item_gray" />
 
                 </LinearLayout>
+
                 <View
                     android:id="@+id/lineFapiao"
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
-                    android:background="#cdcdcd"/>
+                    android:background="#cdcdcd" />
+
                 <LinearLayout
                     android:id="@+id/llPianHao"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp"
                     android:paddingLeft="@dimen/title_l_r"
                     android:paddingRight="@dimen/title_l_r"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:paddingTop="10dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="3.5"
                         android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:layout_height="wrap_content">
+                        android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
+                            android:text="住房偏好"
                             android:textColor="#999999"
-                            android:text="住房偏好"/>
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 
@@ -452,16 +461,16 @@
                         android:layout_marginLeft="7dp"
                         android:layout_marginRight="7dp"
                         android:layout_weight="1"
-                        android:maxLines="1"
                         android:ellipsize="end"
+                        android:maxLines="1"
                         android:text="喜欢安静点，不能太吵"
                         android:textColor="@color/color_333333"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@mipmap/icon_arrow_right_item_gray"/>
+                        android:background="@mipmap/icon_arrow_right_item_gray" />
 
 
                 </LinearLayout>
@@ -475,13 +484,13 @@
                 android:layout_marginTop="6dp"
                 android:background="@color/white"
                 android:focusable="true"
-                android:visibility="gone"
                 android:focusableInTouchMode="true"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
                 android:orientation="vertical"
+                android:paddingBottom="10dp"
                 android:paddingLeft="@dimen/title_l_r"
-                android:paddingRight="@dimen/title_l_r">
+                android:paddingRight="@dimen/title_l_r"
+                android:paddingTop="10dp"
+                android:visibility="gone">
 
 
                 <LinearLayout
@@ -494,16 +503,16 @@
                         android:layout_height="wrap_content"
                         android:text="返现"
                         android:textColor="@color/color_333333"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="1dp"
                         android:layout_marginLeft="3dp"
+                        android:layout_marginRight="1dp"
                         android:text="@string/tv_selfdrive_money_unit"
                         android:textColor="@color/color_d6c07f"
-                        android:textSize="12sp"/>
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/tvReturnCash"
@@ -511,21 +520,21 @@
                         android:layout_height="wrap_content"
                         android:text="20"
                         android:textColor="@color/color_d6c07f"
-                        android:textStyle="bold"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
                     android:layout_marginTop="10dp"
                     android:text="交易完成后可在订单详情页申请返现，金额将返还至账户余额"
-                    android:textColor="#999999"/>
+                    android:textColor="#999999"
+                    android:textSize="12sp" />
 
             </LinearLayout>
-             <!--保险-->
+            <!--保险-->
             <LinearLayout
                 android:id="@+id/panelBxView"
                 android:layout_width="match_parent"
@@ -536,20 +545,21 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="#f0f5f9"
+                    android:orientation="horizontal"
+                    android:paddingBottom="7dp"
                     android:paddingLeft="@dimen/title_l_r"
                     android:paddingRight="@dimen/title_l_r"
-                    android:paddingTop="7dp"
-                    android:paddingBottom="7dp"
-                    android:background="#f0f5f9"
-                    android:orientation="horizontal">
+                    android:paddingTop="7dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:drawableLeft="@mipmap/icon_order_baoxian"
+                        android:drawablePadding="5dp"
                         android:text="保险"
                         android:textColor="#4a719e"
-                        android:textSize="14sp"
-                        android:drawablePadding="5dp"
-                        android:drawableLeft="@mipmap/icon_order_baoxian"/>
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <!-- 保险 -->
@@ -560,10 +570,10 @@
                     android:background="@color/white"
                     android:paddingLeft="@dimen/title_l_r"
                     android:paddingRight="@dimen/title_l_r"
-                    android:scrollbars="none"/>
+                    android:scrollbars="none" />
             </LinearLayout>
             <!--超值加购-->
-            <include layout="@layout/view_overbalance_goods"/>
+            <include layout="@layout/view_overbalance_goods" />
 
             <!-- 服务条款 -->
             <LinearLayout
@@ -583,7 +593,7 @@
                     android:paddingRight="@dimen/title_l_r"
                     android:text="@string/hotel_order_notice2"
                     android:textColor="@color/color_666666"
-                    android:textSize="12dp"/>
+                    android:textSize="12dp" />
 
                 <TextView
                     android:id="@+id/tvNoticeMessage"
@@ -597,12 +607,11 @@
                     android:paddingRight="@dimen/title_l_r"
                     android:text="@string/hotel_order_notice21"
                     android:textColor="@color/color_666666"
-                    android:textSize="12dp"/>
+                    android:textSize="12dp" />
 
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
-    <include layout="@layout/activity_hotel_order_bottom"
-        />
+    <include layout="@layout/activity_hotel_order_bottom" />
 </RelativeLayout>

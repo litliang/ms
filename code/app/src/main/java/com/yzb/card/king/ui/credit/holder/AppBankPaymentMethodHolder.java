@@ -50,11 +50,15 @@ public class AppBankPaymentMethodHolder extends BaseViewHolder<PaymethodAndBankP
 
     private ImageView ivLifeStages;
 
-    private TextView tvYouhui;
+    private  TextView ivLifeStagesTemp;
 
-    private LinearLayout llRight, llOne, llBankLifeStage;
+    private  ImageView ivBankActivityInfo,ivBankLifeStagesfo;
 
-    private TextView tvLifeStageMsg;
+    private TextView tvYouhui, tvYouhuiTemp;
+
+    private LinearLayout llBankActivityTemp,llBankLifeStagesTemp;
+
+    private LinearLayout llRight, llOne, llDoubleRightTemp;
 
     private LinearLayout tvOtherPayMethod;
 
@@ -84,7 +88,15 @@ public class AppBankPaymentMethodHolder extends BaseViewHolder<PaymethodAndBankP
 
         llOne.setTag(data);
 
+        llBankActivityTemp.setTag(data);
+
+        llBankLifeStagesTemp.setTag(data);
+
         tvBankNoMsg.setVisibility(View.VISIBLE);
+
+        llRight.setVisibility(View.VISIBLE);
+
+        llDoubleRightTemp.setVisibility(View.GONE);
 
         String accountType = data.getAccountType();
 
@@ -106,6 +118,7 @@ public class AppBankPaymentMethodHolder extends BaseViewHolder<PaymethodAndBankP
 
                 ivBankImage.setImageResource(data.getAccountLogo());
             }
+
             ivSelected.setBackgroundResource(R.drawable.selector_bank_pay_method_red_right);
 
             ivSelected.setEnabled(data.isSelected());
@@ -122,68 +135,87 @@ public class AppBankPaymentMethodHolder extends BaseViewHolder<PaymethodAndBankP
             //选择的分期信息
             LifeStageDetailBean.StageBean selectedBean = data.getSelectedBean();
 
-            if (selectedBean != null) {
-
-                llBankLifeStage.setVisibility(View.VISIBLE);
-
-                String stageStr = selectedBean.getStage().replace("期", "");
-
-                int stageNumber = Integer.parseInt(stageStr);
-                /**
-                 * 每期费用
-                 */
-                double avgMone = data.getPaymentMoney() / stageNumber;
-
-                tvLifeStageMsg.setText("分期方式：" + Utils.subZeroAndDot(avgMone + "") + "元×" + selectedBean.getStage());
-
-            } else {
-
-                llBankLifeStage.setVisibility(View.GONE);
-
-            }
-
             List<LifeStageDetailBean.StageBean> list = data.getStageList();
-
-            if (list != null && list.size() > 0) {
-
-                ivLifeStages.setVisibility(View.VISIBLE);
-
-            } else {
-
-                ivLifeStages.setVisibility(View.GONE);
-
-            }
 
             BankActivityInfoBean infoBean = data.getBankActInfo();
 
-            if (infoBean != null) {
+            if (list != null && list.size() > 0 && infoBean != null) {
 
-                tvYouhui.setVisibility(View.VISIBLE);
+                llRight.setVisibility(View.GONE);
 
-                tvYouhui.setTextColor(Color.parseColor("#972c1f"));
+                llDoubleRightTemp.setVisibility(View.VISIBLE);
 
-                int actCls = infoBean.getActCls();
+                ivLifeStages.setVisibility(View.GONE);//
 
-                if (actCls == 1) {//满减
+                ivLifeStagesTemp.setVisibility(View.VISIBLE);
 
-                    tvYouhui.setText("满" + Utils.subZeroAndDot(infoBean.getFuuAmount() + "") + "减" + Utils.subZeroAndDot(infoBean.getDisContent() + ""));
+                if(selectedBean != null){
 
-                } else if (actCls == 2) {//折扣
+                    ivLifeStagesTemp.setText("("+selectedBean.getStage()+")");
+                }else {
 
-                    int discontent = infoBean.getDisContent();
+                    ivLifeStagesTemp.setText("");
+                }
 
-                    String disStr = Utils.handNumberToString(Float.parseFloat("" + discontent));
+                bankYouhuiInfo(tvYouhuiTemp, infoBean);
 
-                    tvYouhui.setText("打" + disStr + "折");
 
-                } else if (actCls == 3) {//随机立减
+                    if(data.getActivityType()== 1&& data.isSelected()){//选择了银行活动
 
-                    tvYouhui.setText("随机立减");
+                        ivBankActivityInfo.setEnabled(true);
+
+                        ivBankLifeStagesfo.setEnabled(false);
+
+                    }else  if(data.getActivityType()== 2 &&data.isSelected()){//选择了生活分期
+
+                        ivBankActivityInfo.setEnabled(false);
+
+                        ivBankLifeStagesfo.setEnabled(true);
+                    }else {
+
+                        ivBankActivityInfo.setEnabled(false);
+
+                        ivBankLifeStagesfo.setEnabled(false);
+
+                        data.setActivityType(0);
+
+                        data.setSelectedBean(null);
+
                 }
 
             } else {
 
-                tvYouhui.setText("");
+                llRight.setVisibility(View.VISIBLE);
+
+                llDoubleRightTemp.setVisibility(View.GONE);
+
+                if (list != null && list.size() > 0) {
+
+                    ivLifeStages.setVisibility(View.VISIBLE);
+
+                    data.setActivityType(2);
+
+                } else {
+
+                    ivLifeStages.setVisibility(View.GONE);
+
+                    data.setActivityType(0);
+
+                }
+
+                if(infoBean != null){
+
+                    data.setActivityType(1);
+                }else {
+
+                    data.setActivityType(0);
+                }
+
+                bankYouhuiInfo(tvYouhui, infoBean);
+
+                ivSelected.setBackgroundResource(R.drawable.selector_bank_pay_method_red_right);
+
+                ivSelected.setEnabled(data.isSelected());
             }
 
             tvBankName.setText(data.getBankName());
@@ -197,9 +229,6 @@ public class AppBankPaymentMethodHolder extends BaseViewHolder<PaymethodAndBankP
                 Glide.with(context).load(ServiceDispatcher.getImageUrl(bankLogo)).into(ivBankImage);
             }
 
-            ivSelected.setBackgroundResource(R.drawable.selector_bank_pay_method_red_right);
-
-            ivSelected.setEnabled(data.isSelected());
 
             tvOtherPayMethod.setVisibility(View.GONE);
 
@@ -207,7 +236,9 @@ public class AppBankPaymentMethodHolder extends BaseViewHolder<PaymethodAndBankP
 
             ivLifeStages.setVisibility(View.GONE);
 
-            tvYouhui.setText("");
+            BankActivityInfoBean infoBean = data.getBankActInfo();
+
+            bankYouhuiInfo(tvYouhui, infoBean);
 
             tvBankName.setText(data.getBankName());
 
@@ -308,9 +339,53 @@ public class AppBankPaymentMethodHolder extends BaseViewHolder<PaymethodAndBankP
         }
     }
 
+    private void bankYouhuiInfo(TextView youhuiTv, BankActivityInfoBean infoBean) {
+
+        if (infoBean != null) {
+
+            youhuiTv.setVisibility(View.VISIBLE);
+
+            youhuiTv.setTextColor(Color.parseColor("#972c1f"));
+
+            int actCls = infoBean.getActCls();
+
+            if (actCls == 1) {//满减
+
+                youhuiTv.setText("满" + Utils.subZeroAndDot(infoBean.getFuuAmount() + "") + "减" + Utils.subZeroAndDot(infoBean.getDisContent() + ""));
+
+            } else if (actCls == 2) {//折扣
+
+                int discontent = infoBean.getDisContent();
+
+                String disStr = Utils.handNumberToString(Float.parseFloat("" + discontent));
+
+                youhuiTv.setText("打" + disStr + "折");
+
+            } else if (actCls == 3) {//随机立减
+
+                youhuiTv.setText("随机立减");
+            }
+
+        } else {
+
+            youhuiTv.setText("");
+        }
+
+    }
+
     @Override
     public void onInitializeView() {
         super.onInitializeView();
+
+        ivBankLifeStagesfo = findViewById(R.id.ivBankLifeStagesfo);
+
+        ivBankActivityInfo = findViewById(R.id.ivBankActivityInfo);
+
+        tvYouhuiTemp = findViewById(R.id.tvYouhuiTemp);
+
+        ivLifeStagesTemp = findViewById(R.id.ivLifeStagesTemp);
+
+        llDoubleRightTemp = findViewById(R.id.llDoubleRightTemp);
 
         tvBankName = findViewById(R.id.tvBankName);
 
@@ -328,15 +403,19 @@ public class AppBankPaymentMethodHolder extends BaseViewHolder<PaymethodAndBankP
 
         llRight.setOnClickListener(this);
 
+        llBankActivityTemp = findViewById(R.id.llBankActivityTemp);
+
+        llBankActivityTemp.setOnClickListener(this);
+
+        llBankLifeStagesTemp = findViewById(R.id.llBankLifeStagesTemp);
+
+        llBankLifeStagesTemp.setOnClickListener(this);
+
         llOne = findViewById(R.id.llOne);
 
         llOne.setOnClickListener(this);
 
         tvOtherPayMethod = findViewById(R.id.tvOtherPayMethod);
-
-        llBankLifeStage = findViewById(R.id.llBankLifeStage);
-
-        tvLifeStageMsg = findViewById(R.id.tvLifeStageMsg);
 
         tvOtherPayMethod.setOnClickListener(this);
 
@@ -348,8 +427,7 @@ public class AppBankPaymentMethodHolder extends BaseViewHolder<PaymethodAndBankP
     public void onClick(View v) {
 
         switch (v.getId()) {
-
-            case R.id.llRight:
+            case R.id.llRight://常用选择方式
 
                 Object object1 = v.getTag();
 
@@ -360,67 +438,38 @@ public class AppBankPaymentMethodHolder extends BaseViewHolder<PaymethodAndBankP
 
                 PaymethodAndBankPreStageBean payMethodBean = (PaymethodAndBankPreStageBean) object1;
 
-                //选择支付方式，通知主页面更新数据，刷新页面选择状态
-                if (!"10000".equals(payMethodBean.getAccountType())) {
+                selectedItemObjectData(payMethodBean);
 
-                    int objectIndex = getAdapterPosition();
+                break;
+            case R.id.llBankActivityTemp://银行活动选择（信用卡 活动和分期共同存在）
+                Object object2 = v.getTag();
 
-                    uiHandler.sendEmptyMessage(objectIndex);
+                if (object2 == null) {
 
+                    return;
                 }
-                //红包支付、礼品卡支付、钱包支付、添加新支付、微信支付、信用支付
-                if ("5".equals(payMethodBean.getAccountType()) ||"4".equals(payMethodBean.getAccountType()) ||"1".equals(payMethodBean.getAccountType()) || "10000".equals(payMethodBean.getAccountType()) || "9999".equals(payMethodBean.getAccountType()) || "9998".equals(payMethodBean.getAccountType())) {
 
-                    if (adapterDataCallBack != null) {
+                PaymethodAndBankPreStageBean payMethodBean2 = (PaymethodAndBankPreStageBean) object2;
 
-                        adapterDataCallBack.selectedPayMethod(payMethodBean);
-                    }
+                payMethodBean2.setActivityType(1);
 
-                } else {
+                selectedItemObjectData(payMethodBean2);
+                break;
 
-                    String cardType = payMethodBean.getCardType();
-                    /**
-                     * 检测信息是否有信用卡和分期信息
-                     */
-                    if ("2".equals(cardType)) {
+            case R.id.llBankLifeStagesTemp://银行分期选择（信用卡 活动和分期共同存在）
 
-                        if (payMethodBean.getStageList() != null && payMethodBean.getStageList().size() > 0) {
+                Object object3 = v.getTag();
 
-                            selectedItemIndex = getAdapterPosition();
+                if (object3 == null) {
 
-                            Activity activity = GlobalApp.getInstance().getPublicActivity();
-
-                            if (channelTypePopup == null) {
-
-                                channelTypePopup = new AppPayBankLifeStagePopup(activity, -1, BaseFullPP.ViewPostion.VIEW_BOTTOM);
-
-                                channelTypePopup.setCallBack(dataCallBackChannelType);
-
-                            }
-
-                            channelTypePopup.setPayMethod(payMethodBean);
-
-                            View rootView = activity.getWindow().getDecorView();
-
-                            channelTypePopup.showBottomByViewPP(rootView);
-
-
-                        } else {
-
-                            if (adapterDataCallBack != null) {
-
-                                adapterDataCallBack.selectedPayMethod(payMethodBean);
-                            }
-                        }
-
-                    } else if ("1".equals(cardType)) {//储蓄卡
-
-                        if (adapterDataCallBack != null) {
-
-                            adapterDataCallBack.selectedPayMethod(payMethodBean);
-                        }
-                    }
+                    return;
                 }
+
+                PaymethodAndBankPreStageBean payMethodBean3 = (PaymethodAndBankPreStageBean) object3;
+
+                payMethodBean3.setActivityType(2);
+
+                selectedItemObjectData(payMethodBean3);
 
                 break;
 
@@ -460,6 +509,77 @@ public class AppBankPaymentMethodHolder extends BaseViewHolder<PaymethodAndBankP
         }
     }
 
+    private void selectedItemObjectData(PaymethodAndBankPreStageBean payMethodBean){
+
+        String accountType = payMethodBean.getAccountType();
+
+        //选择支付方式，通知主页面更新数据，刷新页面选择状态
+        if (!"10000".equals(accountType)) {
+
+            int objectIndex = getAdapterPosition();
+
+            uiHandler.sendEmptyMessage(objectIndex);
+
+        }
+        //红包支付、礼品卡支付、钱包支付、添加新支付、微信支付、信用支付、支付宝
+        if ("5".equals(accountType) || "4".equals(accountType) || "1".equals(accountType) || "10000".equals(accountType) || "9999".equals(accountType) || "9998".equals(accountType)|| "9997".equals(accountType)) {
+
+            if (adapterDataCallBack != null) {
+
+                adapterDataCallBack.selectedPayMethod(payMethodBean);
+            }
+
+        } else {
+
+            int activityType = payMethodBean.getActivityType();
+            /**
+             * 检测信息是否有信用卡和分期信息
+             */
+            if ("2".equals(accountType)) {
+
+                boolean hasStageDataFlag  = payMethodBean.getStageList() != null && payMethodBean.getStageList().size() > 0;
+
+                if ((hasStageDataFlag && activityType== 0) || (hasStageDataFlag &&activityType == 2) ) {//检测只有分期信息或者用户选择银行分期支付方式
+
+                    selectedItemIndex = getAdapterPosition();
+
+                    Activity activity = GlobalApp.getInstance().getPublicActivity();
+
+                    if (channelTypePopup == null) {
+
+                        channelTypePopup = new AppPayBankLifeStagePopup(activity, -1, BaseFullPP.ViewPostion.VIEW_BOTTOM);
+
+                        channelTypePopup.setCallBack(dataCallBackChannelType);
+
+                    }
+
+                    channelTypePopup.setPayMethod(payMethodBean);
+
+                    View rootView = activity.getWindow().getDecorView();
+
+                    channelTypePopup.showBottomByViewPP(rootView);
+
+
+                } else {
+
+                    if (adapterDataCallBack != null) {
+
+                        adapterDataCallBack.selectedPayMethod(payMethodBean);
+                    }
+                }
+
+            } else if ("3".equals(accountType)) {//储蓄卡
+
+                if (adapterDataCallBack != null) {
+
+                    adapterDataCallBack.selectedPayMethod(payMethodBean);
+                }
+            }
+        }
+
+
+    }
+
     private AppPayBankLifeStagePopup.BottomDataListCallBack dataCallBackChannelType = new AppPayBankLifeStagePopup.BottomDataListCallBack() {
         @Override
         public void onClickItemDataBack(PaymethodAndBankPreStageBean payMethod, int selectIndex) {
@@ -471,7 +591,7 @@ public class AppBankPaymentMethodHolder extends BaseViewHolder<PaymethodAndBankP
 
             if (adapterDataCallBack != null) {
 
-                adapterDataCallBack.selectedPayMethod(payMethod);
+
 
                 Message message = uiHandler.obtainMessage();
 
@@ -482,6 +602,13 @@ public class AppBankPaymentMethodHolder extends BaseViewHolder<PaymethodAndBankP
                 message.arg2 = selectedItemIndex;//选择支付方式编号
 
                 uiHandler.sendMessage(message);
+
+                if(selectIndex == 0){
+
+                    payMethod.setSelectedBean(null);
+                }
+
+                adapterDataCallBack.selectedPayMethod(payMethod);
 
             }
         }

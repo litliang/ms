@@ -36,6 +36,7 @@ import com.yzb.card.king.ui.other.adapter.CityListAdapter;
 import com.yzb.card.king.ui.other.adapter.DividerDecoration;
 import com.yzb.card.king.ui.other.adapter.SearchCityByKeyAdapter;
 import com.yzb.card.king.util.CommonUtil;
+import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.SharePrefUtil;
 
 import org.xutils.view.annotation.ContentView;
@@ -700,6 +701,8 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
 
                     //存储历史城市
                     String histCityData = SharePrefUtil.getValueFromSp(CivilInternationCityActivity.this,SharePrefUtil.USE_CITY_HISTORY_DATA,null);
+
+                    LogUtil.e("AAAA","-------"+histCityData);
 
                     if(histCityData != null) {
 

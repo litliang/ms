@@ -1,7 +1,9 @@
 package com.yzb.card.king.ui.hotel;
 
 import com.yzb.card.king.bean.hotel.Hotel;
+import com.yzb.card.king.bean.hotel.HotelDetailServiceBean;
 import com.yzb.card.king.bean.hotel.HotelProductListParam;
+import com.yzb.card.king.ui.hotel.fragment.HotelProductRimView;
 
 /**
  * Created by 玉兵 on 2017/7/31.
@@ -29,7 +31,7 @@ public class HotelLogicManager {
     private HotelProductListParam flashSaleHotelParam;
 
     /**
-     *
+     * 酒店信息
      */
     private Hotel hotel;
 
@@ -130,6 +132,8 @@ public class HotelLogicManager {
 
             hotelProductListParam.setHotelBrandList(null);
 
+            hotelProductListParam.setHotelBaseFilterList(null);
+
             hotelProductListParam.setBrandTypes("0");
 
             hotelProductListParam.setLevels("0");
@@ -157,4 +161,13 @@ public class HotelLogicManager {
         flashSaleHotelParam = null;
     }
 
+    private HotelDetailServiceBean hotelDetailServiceBean;
+
+    public void setHotelDetailServiceBean(HotelDetailServiceBean hotelDetailServiceBean) {
+        this.hotelDetailServiceBean = hotelDetailServiceBean;
+    }
+
+    public HotelDetailServiceBean getHotelDetailServiceBean() {
+        return hotelDetailServiceBean;
+    }
 }

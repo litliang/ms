@@ -13,6 +13,7 @@
         android:paddingBottom="14dp"
         android:paddingLeft="15dp"
         android:paddingRight="18dp"
+        android:visibility="gone"
         android:background="@drawable/shape_bg_corner_gray_stroke"
         android:paddingTop="14dp"
         android:orientation="horizontal">
@@ -128,7 +129,7 @@
         android:background="@mipmap/bg_my_gold_coupon"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:visibility="gone"
+
         android:paddingLeft="11dp"
         android:paddingRight="10dp"
         >
@@ -202,7 +203,8 @@
                 />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tvShuoming"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:ellipsize="end"

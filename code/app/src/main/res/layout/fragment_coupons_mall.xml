@@ -48,6 +48,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/tvTitleName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -66,6 +67,8 @@
             android:paddingRight="15dp">
 
             <ImageView
+
+                android:id="@+id/ivRight"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:background="@mipmap/icon_coupon_search"

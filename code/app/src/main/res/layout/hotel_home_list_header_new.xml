@@ -43,12 +43,19 @@
                         android:text="目的地"
                         android:textColor="#969997"
                         android:textSize="11sp"/>
+                    <LinearLayout
+                        android:id="@+id/llMyPostion"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:layout_height="wrap_content">
 
                     <ImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
                         android:layout_alignParentRight="true"
                         android:src="@mipmap/jiudian_icon_position"/>
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -253,6 +260,7 @@
                             android:hint="输入酒店名/地名/地标"
                             android:singleLine="true"
                             android:textColor="#2D2D2D"
+                            android:textStyle="normal"
                             android:textColorHint="@color/text_color_33"
                             android:textSize="15sp"/>
 

@@ -31,6 +31,7 @@ import com.yzb.card.king.ui.app.activity.ia.VerifyResultActivity;
 import com.yzb.card.king.ui.base.BaseFragment;
 import com.yzb.card.king.ui.bonus.activity.BoundCenterActivty;
 import com.yzb.card.king.ui.bonus.activity.BounsHomeActivity;
+import com.yzb.card.king.ui.bonus.activity.VoucherCenterActivity;
 import com.yzb.card.king.ui.credit.activity.RepaymentActivity;
 import com.yzb.card.king.ui.gift.activity.GiftCardHomeActivity;
 import com.yzb.card.king.ui.integral.IntegralHomeActivity;
@@ -270,13 +271,23 @@ public class MyIndexFragment extends BaseFragment {
         });
     }
 
-    //优惠券；
+    //代金券；
     @Event(R.id.tvCoupon)
     private void tvCoupon(View v)
     {
-        Intent moreIntent = new Intent(v.getContext(), BoundCenterActivty.class);
-        startActivity(moreIntent);
+        Intent moreIntent = new Intent(getContext(), VoucherCenterActivity.class);
 
+        startActivity(moreIntent);
+    }
+
+    //优惠券；
+    @Event(R.id.tvYouhuiquanMy)
+    private void tvYouhuiquanMy(View v)
+    {
+
+        Intent moreIntent = new Intent(getContext(), BoundCenterActivty.class);
+
+        startActivity(moreIntent);
     }
 
     //账户明细

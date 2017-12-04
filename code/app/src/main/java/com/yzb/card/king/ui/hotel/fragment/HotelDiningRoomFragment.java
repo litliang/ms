@@ -73,7 +73,6 @@ public class HotelDiningRoomFragment extends BaseFragment implements AsyncExpand
 
     private AsyncExpandableListView<HotelExtraProductBean, ExtraGoodsComboBean> mAsyncExpandableListView;
 
-    private View viewNoData;
 
     private final String tag = getClass().getSimpleName();
 
@@ -106,10 +105,15 @@ public class HotelDiningRoomFragment extends BaseFragment implements AsyncExpand
     private void initView(View view)
     {
 
-        viewNoData = view.findViewById(R.id.viewNoData);
         final Context context = getContext();
         mAsyncExpandableListView = (AsyncExpandableListView) view.findViewById(R.id.asyncExpandableCollectionView);
         mAsyncExpandableListView.setCallbacks(this);
+
+       View viewRim = (LinearLayout) view.findViewById(R.id.viewRim);
+
+        HotelProductRimView hotelProductRimView = new HotelProductRimView(viewRim,getContext());
+
+        hotelProductRimView.setHotelDetailServiceBean(HotelLogicManager.getInstance().getHotelDetailServiceBean());
 
     }
 
@@ -147,12 +151,9 @@ public class HotelDiningRoomFragment extends BaseFragment implements AsyncExpand
 
             int v = mAsyncExpandableListView.getVisibility();
 
-            if(v ==View.GONE){
 
                 mAsyncExpandableListView.setVisibility(View.VISIBLE);
 
-                viewNoData.setVisibility(View.GONE);
-            }
 
         } else if (type == HotelServicePersenter.HOTEL_OTHER_COMBO_CODE) {
 
@@ -176,14 +177,9 @@ public class HotelDiningRoomFragment extends BaseFragment implements AsyncExpand
 
             if (HttpConstant.NOINFO.equals(error.getCode())) {
 
-                int v = viewNoData.getVisibility();
-
-                if(v ==View.GONE){
 
                     mAsyncExpandableListView.setVisibility(View.GONE);
 
-                    viewNoData.setVisibility(View.VISIBLE);
-                }
             }else {
 
                 HttpUtil.responseCallBackMessage(error.getCode());

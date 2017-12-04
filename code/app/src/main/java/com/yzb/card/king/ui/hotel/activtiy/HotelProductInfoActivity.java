@@ -11,29 +11,23 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
 import com.bumptech.glide.Glide;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.yzb.card.king.R;
 import com.yzb.card.king.bean.hotel.Hotel;
 import com.yzb.card.king.bean.hotel.HotelDetailServiceBean;
 import com.yzb.card.king.bean.hotel.HotelProductListParam;
-import com.yzb.card.king.bean.hotel.HotelServiceFacilityBean;
 import com.yzb.card.king.sys.AppConstant;
-import com.yzb.card.king.sys.GlobalVariable;
 import com.yzb.card.king.sys.ServiceDispatcher;
 import com.yzb.card.king.ui.appwidget.WrapContentHeightViewPager;
 import com.yzb.card.king.ui.appwidget.popup.GoLoginDailog;
 import com.yzb.card.king.ui.base.BaseActivity;
 import com.yzb.card.king.ui.base.BaseViewLayerInterface;
-import com.yzb.card.king.ui.discount.bean.Location;
 import com.yzb.card.king.ui.discount.fragment.ShareDialogFragment;
 import com.yzb.card.king.ui.hotel.HoteUtil;
 import com.yzb.card.king.ui.hotel.HotelLogicManager;
@@ -43,13 +37,9 @@ import com.yzb.card.king.ui.hotel.fragment.HotelRoomFragment;
 import com.yzb.card.king.ui.hotel.model.IHotelDetail;
 import com.yzb.card.king.ui.hotel.persenter.HotelDetailPersenter;
 import com.yzb.card.king.ui.manage.UserManager;
-import com.yzb.card.king.ui.my.presenter.CommandPresenter;
-import com.yzb.card.king.ui.my.view.CommandView;
-import com.yzb.card.king.ui.other.activity.NearByMapActivity;
 import com.yzb.card.king.ui.other.activity.PjActivity;
 import com.yzb.card.king.ui.other.activity.RoutePlanActivity;
 import com.yzb.card.king.util.AppBarStateChangeListener;
-import com.yzb.card.king.util.CommonUtil;
 import com.yzb.card.king.util.ToastUtil;
 import com.yzb.card.king.util.UiUtils;
 
@@ -57,9 +47,7 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 类  名：酒店产品详情
@@ -80,8 +68,6 @@ public class HotelProductInfoActivity extends BaseActivity implements BaseViewLa
     private MyPagerAdapter mAdapter;
     private String[] mTitles;
 
-    @ViewInject(R.id.llHotelFacility)
-    private LinearLayout llHotelFacility;
 
     @ViewInject(R.id.tvHotelName)
     private TextView tvHotelName;
@@ -109,12 +95,10 @@ public class HotelProductInfoActivity extends BaseActivity implements BaseViewLa
 
     @ViewInject(R.id.llPingjia)
     private LinearLayout llPingjia;
-    //周边服务
-    private TextView transportion, foodTv, amusement, landscape, gouwu, jiud;
+
+    private ImageView ivFav;
 
     private Hotel hotel = null;
-
-    private    HotelDetailServiceBean hotelDetailServiceBean;
 
     private ShareDialogFragment shareDialogFragment;
 
@@ -195,44 +179,13 @@ public class HotelProductInfoActivity extends BaseActivity implements BaseViewLa
     {
         showPDialog("正在请求数据……");
 
-        HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
 
         hotelServerGoodsView = new HotelDetailPersenter(this);
-
-        hotelServerGoodsView.getHotelDetail(hotelId + "", productListParam.getArrDate());
 
         hotelServerGoodsView.sendSelectHotelServiceInfoRequest(hotelId + "");
 
     }
 
-    private void initNearByView()
-    {
-        transportion = (TextView) findViewById(R.id.transportion);
-
-        transportion.setOnClickListener(this);
-
-        foodTv = (TextView) findViewById(R.id.food_tv);
-
-        foodTv.setOnClickListener(this);
-
-        amusement = (TextView) findViewById(R.id.amusement);
-
-        amusement.setOnClickListener(this);
-
-        landscape = (TextView) findViewById(R.id.landscape);
-
-        landscape.setOnClickListener(this);
-
-        gouwu = (TextView) findViewById(R.id.gouwu);
-
-        gouwu.setOnClickListener(this);
-
-        jiud = (TextView) findViewById(R.id.jiud);
-
-        jiud.setOnClickListener(this);
-    }
-
-    private ImageView ivFav;
 
     private void initView()
     {
@@ -243,43 +196,13 @@ public class HotelProductInfoActivity extends BaseActivity implements BaseViewLa
         ivFav = (ImageView) findViewById(R.id.ivFav);
         ivFav.setOnClickListener(this);
 
-        findViewById(R.id.tvHotelFacility).setOnClickListener(this);
-
         findViewById(R.id.llHotelMap).setOnClickListener(this);
 
         llPingjia.setOnClickListener(this);
 
-        initNearByView();
     }
 
-    private void initFacilityView(List<HotelServiceFacilityBean> specialServiceList)
-    {
 
-        int size = specialServiceList.size();
-
-        for (int a = 0; a < size; a++) {
-
-            HotelServiceFacilityBean bean = specialServiceList.get(a);
-
-            View childFacilityView = LayoutInflater.from(this).inflate(R.layout.view_facility_info, null);
-
-            TextView tvFacName = (TextView) childFacilityView.findViewById(R.id.tvFacName);
-
-            ImageView ivFacility = (ImageView) childFacilityView.findViewById(R.id.ivFacility);
-
-            if (!TextUtils.isEmpty(bean.getItemPhoto())) {
-                Glide.with(this).load(ServiceDispatcher.getImageUrl(bean.getItemPhoto())).into(ivFacility);
-            }
-
-            tvFacName.setText(bean.getItemName());
-
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 1);
-
-            llHotelFacility.addView(childFacilityView, lp);
-
-        }
-
-    }
 
     private void hotelServerGoodsView(List<Hotel.GoodsType> goodsTypeList)
     {
@@ -389,53 +312,8 @@ public class HotelProductInfoActivity extends BaseActivity implements BaseViewLa
                 }
 
                 break;
-            case R.id.transportion:// 周边交通
-                if (hotel != null)
-                    toAround(0);
-                break;
-            case R.id.food_tv:// 周边餐饮
-                if (hotel != null)
-                    toAround(1);
-                break;
-            case R.id.amusement:// 周边娱乐
-                if (hotel != null)
-                    toAround(2);
-                break;
-            case R.id.gouwu:// 周边景点
-                if (hotel != null)
-                    toAround(4);
-                break;
-            case R.id.jiud:// 周边景点
-                if (hotel != null)
-                    toAround(5);
-                break;
-            case R.id.tvHotelFacility://酒店设施详情
 
-                if (hotel == null ) {
 
-                    ToastUtil.i(this, "无酒店数据");
-
-                    return;
-                }
-
-                if (hotelDetailServiceBean == null ) {
-
-                    ToastUtil.i(this, "无酒店服务设施数据");
-
-                    return;
-                }
-
-                Intent intent = new Intent(HotelProductInfoActivity.this, HotelFacilityDetail.class); //hotel
-
-                hotel.setBaseServiceList(hotelDetailServiceBean.getBaseServiceList());
-
-                hotel.setSpecialServiceList(hotelDetailServiceBean.getSpecialServiceList());
-
-                intent.putExtra("hotelData", hotel);
-
-                startActivity(intent);
-
-                break;
             case R.id.ivFav://收藏
                 if (hotel == null) {
 
@@ -473,7 +351,6 @@ public class HotelProductInfoActivity extends BaseActivity implements BaseViewLa
                     shareDialogFragment.show(getSupportFragmentManager(), "");
                 }
 
-                //  generateCommand();
 
                 break;
             case R.id.llPingjia://评价
@@ -498,27 +375,6 @@ public class HotelProductInfoActivity extends BaseActivity implements BaseViewLa
     }
 
 
-    private void toAround(int flag)
-    {
-
-        if (hotel.getAddrMap().getLat() == 0 || hotel.getAddrMap().getLng() == 0 || hotel.getAddrMap().getAddress() == null || hotel.getHotelName() == null) {
-            ToastUtil.i(this, "无法进入地图");
-            return;
-        }
-
-        Intent intent1 = new Intent(this, NearByMapActivity.class);
-        intent1.putExtra(NearByMapActivity.CATEGORY, flag); //交通，餐饮，娱乐，景点，购物，酒店        //依次传入：0,1,2,3,4,5
-        Location location = new Location();
-        location.latitude = hotel.getAddrMap().getLat();
-        location.longitude = hotel.getAddrMap().getLng();
-        location.streetNumber = hotel.getAddrMap().getAddress();
-        location.msg = hotel.getHotelName();
-
-        intent1.putExtra(NearByMapActivity.LOCATION, location);
-
-        startActivity(intent1);
-
-    }
 
     @Override
     public void callSuccessViewLogic(Object o, int type)
@@ -542,12 +398,15 @@ public class HotelProductInfoActivity extends BaseActivity implements BaseViewLa
 
             if (o instanceof HotelDetailServiceBean) {
 
-                 hotelDetailServiceBean = (HotelDetailServiceBean) o;
+                HotelDetailServiceBean   hotelDetailServiceBean = (HotelDetailServiceBean) o;
 
-                List<HotelServiceFacilityBean> specialServiceList = hotelDetailServiceBean.getSpecialServiceList();
+                HotelLogicManager.getInstance().setHotelDetailServiceBean(hotelDetailServiceBean);
 
-                initFacilityView(specialServiceList);
+                showPDialog("正在请求数据……");
+                //发送酒店详情请求
+                HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
 
+                hotelServerGoodsView.getHotelDetail(hotelId + "", productListParam.getArrDate());
             }
 
 

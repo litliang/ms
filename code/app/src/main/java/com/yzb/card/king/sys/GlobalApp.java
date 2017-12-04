@@ -494,8 +494,6 @@ public class GlobalApp extends Application {
             }
             mLocationClient.stop();
 
-            LogUtil.e("----------------end1--------size="+onCityChangeListeners.size());
-
             if (onCityChangeListeners.size() > 0) {
 
                 for (OnCityChangeListener listener : onCityChangeListeners) {

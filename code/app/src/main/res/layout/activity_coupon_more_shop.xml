@@ -127,24 +127,6 @@
         android:background="@color/bgBlack"
         android:gravity="center_vertical">
 
-        <LinearLayout
-            android:id="@+id/panelNoUse"
-            style="@style/coupon_search_bottom_panel"
-            >
-
-            <ImageView
-                android:id="@+id/ivTabNoUse"
-                style="@style/coupon_search_bottom_iv"
-                android:src="@drawable/selector_coupon_use"
-                />
-
-            <TextView
-                android:id="@+id/tvTabNoUse"
-                style="@style/coupon_search_bottom_tv"
-                android:text="分类"
-                />
-
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/panelSort"

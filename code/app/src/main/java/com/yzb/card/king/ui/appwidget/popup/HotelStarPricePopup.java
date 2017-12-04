@@ -80,6 +80,35 @@ public class HotelStarPricePopup implements View.OnClickListener{
 
         baseBottomFullPP.addChildView(view);
 
+
+        initView(view);
+
+    }
+    /**
+     * @param activity
+     */
+    public HotelStarPricePopup(Activity activity , BaseFullPP.ViewPostion postion)
+    {
+
+        this.activity = activity;
+
+        AppBaseDataBean bean = GlobalApp.getInstance().getAppBaseDataBean();
+
+        baseBottomFullPP = new BaseFullPP(activity, postion);
+
+
+        View view = LayoutInflater.from(this.activity).inflate(R.layout.view_hotel_start_price_selector_pp, null);
+
+
+        baseBottomFullPP.addChildView(view);
+
+
+        initView(view);
+
+    }
+
+    private void initView(View view){
+
         baseBottomFullPP.setListener(new BaseFullPP.PpOndismisssListener() {
             @Override
             public void onClickListenerDismiss()
@@ -90,7 +119,7 @@ public class HotelStarPricePopup implements View.OnClickListener{
                     callBack.onConfirm(ppAdapter.getSelectorDataList(),currentBarMix,currentBarMax);
                 }
 
-}
+            }
         });
 
 
@@ -153,7 +182,6 @@ public class HotelStarPricePopup implements View.OnClickListener{
         view.findViewById(R.id.tvClear).setOnClickListener(this);
 
         view.findViewById(R.id.tvConfirm).setOnClickListener(this);
-
 
     }
 
@@ -399,6 +427,10 @@ public class HotelStarPricePopup implements View.OnClickListener{
 
     }
 
+    public void showFull(View view){
+
+        baseBottomFullPP.show(view);
+    }
 
 
     public void showBottomByViewPP(View rootView)

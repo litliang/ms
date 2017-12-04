@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_red_send_and_rec"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:fitsSystemWindows="true"
-    android:background="@color/color_f0f0f0"
-    tools:context="com.yzb.card.king.ui.bonus.activity.RedSendAndRecActivity">
-
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
     <include
         android:id="@+id/rl_title"
         layout="@layout/title_header_left_title_white"
@@ -23,10 +17,9 @@
         android:layout_height="0.5dp"
         android:background="#cdcdcd"/>
 
-    <FrameLayout
-        android:id="@+id/flOne"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
-
+        android:orientation="vertical"
+        android:padding="@dimen/title_l_r"></LinearLayout>
 </LinearLayout>

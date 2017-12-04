@@ -32,6 +32,8 @@ public class GetCouponPersenter implements DataCallBack{
 
     public static final int ACTIVITYDEDUCTIONINFO_CODE = 80009;//活动抵扣查询
 
+    public static final int DELETECOUONORDER_CODE = 80010;//删除优惠订单
+
     private BaseViewLayerInterface baseViewLayerInterface;
 
     private GetCouponModel getCouponModel;
@@ -145,6 +147,16 @@ public class GetCouponPersenter implements DataCallBack{
 
         getCouponModel.updateCouponPayDetailAction( orderId,  orderAmount,  orderTime,  payType,  payDetailId,UPDATECOUPONPAYDETAIL_CODE);
     }
+
+    /**
+     * 删除优惠券订单请求
+     * @param orderId
+     */
+    public void delteCouponOrderRequest(long orderId){
+
+        getCouponModel.delOrderInfoAction(orderId,DELETECOUONORDER_CODE);
+    }
+
     @Override
     public void requestSuccess(Object o, int type)
     {

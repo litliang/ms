@@ -1,6 +1,7 @@
 package com.yzb.card.king.ui.my.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
@@ -22,6 +23,7 @@ import com.yzb.card.king.sys.ServiceDispatcher;
 import com.yzb.card.king.ui.appwidget.StarBar;
 import com.yzb.card.king.ui.appwidget.popup.GoLoginDailog;
 import com.yzb.card.king.ui.base.BaseListAdapter;
+import com.yzb.card.king.ui.bonus.activity.UseInstructionsActivity;
 import com.yzb.card.king.ui.manage.UserManager;
 import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.Utils;
@@ -72,13 +74,10 @@ public class CouponInfoAdapter extends BaseListAdapter<CouponInfoBean> {
         }
         final CouponInfoBean bean = getItem(position);
 
-//        if (currentCouponType == 2) {
-
         holder.llYouhuiquan.setVisibility(View.VISIBLE);
 
         holder.llGoldCoupone.setVisibility(View.GONE);
 
-        //
         x.image().bind(holder.ivLogo, ServiceDispatcher.getImageUrl(bean.getStoreImageUrl()), options);
 
         holder.tvShopName.setText(bean.getStoreName());
@@ -113,6 +112,14 @@ public class CouponInfoAdapter extends BaseListAdapter<CouponInfoBean> {
                     + "元抵扣" + Utils.subZeroAndDot(bean.getFullAmount()+"" )+ "元");
 
             holder.tvAmount.setText("¥" + Utils.subZeroAndDot(bean.getCutAmount() + ""));
+
+            holder.tvShuoming.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    context.startActivity(new Intent(context,UseInstructionsActivity.class));
+                }
+            });
 
         }
 
@@ -219,74 +226,6 @@ public class CouponInfoAdapter extends BaseListAdapter<CouponInfoBean> {
                 );
             }
         }
-//        } else if (currentCouponType == 1) {
-//
-//            holder.llYouhuiquan.setVisibility(View.GONE);
-//            holder.llGoldCoupone.setVisibility(View.VISIBLE);
-//
-//            holder.tvShopNameOne.setText(bean.getCouponName());
-//
-//            holder.tvGoldDateOne.setText(bean.getStartDate()+"至"+bean.getEndDate());
-//
-//            int couponType = bean.getCouponType();
-//
-//            if (couponType == 1) {
-//
-//                holder.tvFullCutOne.setText("满" + Utils.subZeroAndDot(bean.getFullAmount() + ""));
-//
-//                String priceStr = "¥" + Utils.subZeroAndDot(bean.getCutAmount() + "");
-//
-//                SpannableString msp = new SpannableString(priceStr);
-//
-//                msp.setSpan(new RelativeSizeSpan(0.8f), 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//
-//                holder.tvAmountOne.setText(msp);
-//
-//            } else if (couponType == 2) {
-//
-//                float cutAmount = bean.getCutAmount();
-//
-//                String zhekouStr = Utils.handNumberToString(cutAmount);
-//
-//                holder.tvFullCutOne.setText("满" + Utils.subZeroAndDot(bean.getFullAmount() + ""));
-//
-//                holder.tvAmountOne.setText(zhekouStr + "折");
-//            }
-//
-//
-//            int receiveStatus = bean.getReceiveStatus();
-//
-//            if (receiveStatus == 1) {
-//
-//                holder.tvGetOne.setText("已领取");
-//
-//                holder.tvGetOne.setTextColor(Color.parseColor("#d8d8d8"));
-//
-//                holder.tvGetOne.setBackgroundResource(R.drawable.style_btn_gray_circle);
-//
-//            } else if (receiveStatus == 0) {
-//
-//                holder.tvGetOne.setText("未领取");
-//
-//                holder.tvGetOne.setTextColor(Color.parseColor("#ffffff"));
-//
-//                holder.tvGetOne.setBackgroundResource(R.drawable.style_btn_blue_deep_circle);
-//
-//                holder.tvGetOne.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        if (handler != null) {
-//                            Message msg = handler.obtainMessage(WHAT_GET);
-//                            msg.arg1 = position;
-//                            handler.sendMessage(msg);
-//                        }
-//                    }
-//                });
-//
-//            }
-//
-//
-//        }
 
         return convertView;
     }
@@ -342,6 +281,9 @@ public class CouponInfoAdapter extends BaseListAdapter<CouponInfoBean> {
 
         @ViewInject(R.id.tvGoldDateOne)
         public TextView tvGoldDateOne;
+
+        @ViewInject(R.id.tvShuoming)
+        public  TextView tvShuoming;
 
         public View root;
 

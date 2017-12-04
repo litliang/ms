@@ -354,6 +354,7 @@ public class GetCouponFragment extends Fragment implements View.OnClickListener,
                 startActivity(new Intent(getContext(), AddBankCardActivity.class));
             }
         });
+
         payHandle.payMethodCallBack(new PayMethodListener()
         {
             @Override
@@ -364,6 +365,7 @@ public class GetCouponFragment extends Fragment implements View.OnClickListener,
                 payDetailId = map.get("payDetailId");
             }
         });
+
         payHandle.setCallBack(new WalletBackListener()
         {
             @Override
@@ -410,7 +412,6 @@ public class GetCouponFragment extends Fragment implements View.OnClickListener,
             @Override
             public void setError(String RESULT_CODE, String ERROR_MSG)
             {
-                LogUtil.i("付款失败；RESULT_CODE=" + RESULT_CODE + ",ERROR_MSG=" + ERROR_MSG);
                 ToastUtil.i(getContext(),ERROR_MSG);
             }
         });
