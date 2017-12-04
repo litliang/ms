@@ -86,6 +86,8 @@
                     android:textSize="@dimen/sp_15"/>
 
                 <EditText
+                    android:layout_marginLeft="20dip"
+                    android:paddingLeft="10dp"
                     android:id="@+id/tvNickName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -194,9 +196,11 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dip">
 
                     <LinearLayout
+
                         android:id="@+id/llMan"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -305,11 +309,13 @@
                 android:textSize="@dimen/sp_15"/>
 
             <TextView
+                android:layout_marginLeft="20dip"
+android:text="111"
                 android:id="@+id/tvRegion"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingLeft="21dp"
+                android:paddingLeft="31dp"
                 android:textColor="@color/user_center_black"
                 android:textSize="@dimen/sp_15"/>
 

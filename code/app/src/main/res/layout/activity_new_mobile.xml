@@ -61,6 +61,7 @@
                     android:background="@color/white"
                     android:inputType="phone"
                     android:paddingLeft="10dp"
+                    android:maxLength="11"
                     android:textColor="@color/user_center_black"
                     android:textSize="14sp"/>
             </LinearLayout>

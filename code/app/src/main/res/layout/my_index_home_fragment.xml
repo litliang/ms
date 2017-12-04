@@ -159,7 +159,7 @@
                 android:background="@color/white_ffffff"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="@dimen/title_l_r"
+                android:padding="22dp"
                 android:visibility="gone"
                 >
 

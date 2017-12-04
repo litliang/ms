@@ -26,6 +26,7 @@ import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.Config;
 import com.umeng.socialize.PlatformConfig;
+import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.utils.Log;
 import com.yzb.card.king.R;
 import com.yzb.card.king.bean.AppBaseDataBean;
@@ -151,7 +152,6 @@ public class GlobalApp extends Application {
         x.Ext.init(this);
         x.Ext.setDebug(true);
         instance = this;
-
     }
 
     public void initApp(){
@@ -573,6 +573,7 @@ public class GlobalApp extends Application {
      */
     private void umengShareConfig()
     {
+        UMShareAPI.get(this);
         //微信,朋友圈；
         PlatformConfig.setWeixin(AppConstant.weixin_id, AppConstant.weixin_secret);
         PlatformConfig.setQQZone(AppConstant.qq_id, AppConstant.qq_secret);

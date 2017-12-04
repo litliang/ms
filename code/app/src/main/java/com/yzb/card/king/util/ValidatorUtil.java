@@ -177,7 +177,7 @@ public class ValidatorUtil {
      */
     public static boolean isMobile(String mobile)
     {
-        return Pattern.matches(REGEX_MOBILE, mobile);
+        return Pattern.matches(REGEX_MOBILE, mobile)&&mobile!=null&&mobile.length()<=11;
     }
 
     /**
