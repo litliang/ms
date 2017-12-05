@@ -38,4 +38,5 @@ public class MindECardsModel extends BaseModelImpl
             loadListener.onListenSuccess(event_tag, beans);
         }
     }
+
 }

@@ -1456,7 +1456,7 @@
     <string name="ticket_more_bank">更多银行 >></string>
     <string name="title_activity_near_by_map">NearByMapActivity</string>
     <string name="title_activity_search">SearchActivity</string>
-    <string name="empty"/>
+    <string name="empty" />
     <string name="room_area">建筑面积%1$s</string>
     <string name="room_floor">楼层%1$s</string>
     <string name="room_name_bed">%1$s（%2$s）</string>

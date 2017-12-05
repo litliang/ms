@@ -225,7 +225,7 @@ public class BounsCreateActivity extends BaseActivity implements View.OnClickLis
                 intent.putExtra("bounsParam", getBounsThemeParam());
 
                 startActivityForResult(intent, REQ_GET_THEME);
-
+                DefinethemeBounsActivity.bless =etBounsWishes.getText().toString();
                 break;
             case R.id.panelRandom:  //随机金额
 

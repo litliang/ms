@@ -29,6 +29,7 @@ import com.yzb.card.king.util.AppUtils;
 import com.yzb.card.king.util.CommonUtil;
 import com.yzb.card.king.util.ImageUtils;
 import com.yzb.card.king.util.LogUtil;
+import com.yzb.card.king.util.ScaleImageActivity;
 import com.yzb.card.king.util.ToastUtil;
 import com.yzb.card.king.util.imageselect.GalleryActivity;
 import com.yzb.card.king.util.photoutils.BitmapUtil;
@@ -142,8 +143,12 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
             themeParam = (BounsThemeParam) ser;
         }
         ivBackgroundImage.setTag(false);
+        if(DefinethemeBounsActivity.bless!=null){
+            etBounsWishes.setText(DefinethemeBounsActivity.bless);
+        }
     }
 
+    String previewPath;
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
@@ -169,6 +174,8 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
 
                     uploadImage.upLoadImage(bitmap);
 
+                    previewPath = cameraPath;
+
                 } else {
                     toastCustom(R.string.get_img_error);
                 }
@@ -193,12 +200,14 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
                     ivBackgroundImage.setTag(true);
 
                     uploadImage.upLoadImage(newBitmap);
+
+                    previewPath = itemImage;
                 }
                 break;
         }
     }
 
-
+public static String bless = "";
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -207,27 +216,14 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
                 finish();
                 break;
             case R.id.tvPreScan://预览
-
-                if (checkData()) {
-                    String str1 = etBoundThemeName.getText().toString().trim();
-
-                    String str2 = etBounsWishes.getText().toString().trim();
-
-                    if (TextUtils.isEmpty(str2)) {
-                        str2 = etBounsWishes.getHint().toString();
-                    }
-                    Intent detailIntent = new Intent(this, RedBagDetailSendActivity.class);
-
-                    themeParam.setBlessWord(str2);
-
-                    themeParam.setReceiveImageCode(imageUploadCode);
-
-                    themeParam.setThemeName(str1);
-
-                    detailIntent.putExtra("themeParam", themeParam);
-
-                    startActivity(detailIntent);
-
+                if(previewPath==null){
+                    ToastUtil.i(v.getContext(),"背景缺失，请选择后预览");
+                }else {
+                    Intent intent = new Intent();
+                    intent.setAction(android.content.Intent.ACTION_VIEW);
+                    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    intent.setDataAndType(Uri.parse(previewPath), "image/*");
+                    startActivity(intent);
                 }
                 break;
             case R.id.tvOk:
@@ -250,7 +246,7 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
                     bean.setBlessWord(str2);
 
                     bean.setOpenImageCode(imageUploadCode);
-
+                    bean.setCloseImageCode(imageUploadCode);
                     intent.putExtra("data", bean);
 
                     setResult(1001, intent);

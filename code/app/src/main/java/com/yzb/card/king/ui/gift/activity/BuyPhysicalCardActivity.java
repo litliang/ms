@@ -170,7 +170,7 @@ public class BuyPhysicalCardActivity extends BaseActivity implements
         swipeRefresh.setRefreshing(false);
         eCardsLv.onLoadMoreComplete();
         //toastCustom(failMsg);
-        adapter.clearAll();
+
     }
 
     @Override

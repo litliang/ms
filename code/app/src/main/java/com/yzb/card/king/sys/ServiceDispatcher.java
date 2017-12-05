@@ -15,6 +15,7 @@ public class ServiceDispatcher {
 
    // public final static String base_url_api = "http://116.228.184.117:8080/";
    public final static String base_url_api = "http://116.228.184.115:8080/";
+
 //    public final static String base_url_api = "http://10.0.100.91:8080/";
     public final static String url_api = base_url_api + "card/api/api/";
 

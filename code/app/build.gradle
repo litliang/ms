@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 apply plugin: 'com.android.application'
 repositories {
     maven {
@@ -9,7 +11,7 @@ android {
     signingConfigs {
 
 
-        debug{
+        debug {
             keyAlias 'gqy'
             keyPassword '123456'
             storeFile file('test_keystore123456.jks')
@@ -17,15 +19,22 @@ android {
         }
     }
 
+    String name = "1.0.0." + new SimpleDateFormat("MMdd").format(new Date());
+
+    Integer code = Calendar.getInstance(Locale.CHINA).get(Calendar.DAY_OF_YEAR);
+
     compileSdkVersion 23
     buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.yzb.card.king"
-        minSdkVersion 15
+        minSdkVersion 17
         targetSdkVersion 22
-        versionCode 1
-        versionName "1.8.2"
+        versionCode code
+        versionName name
         multiDexEnabled = true
+        renderscriptTargetApi 22
+        renderscriptSupportModeEnabled true
+
     }
     buildTypes {
         release {
@@ -39,7 +48,7 @@ android {
             signingConfig signingConfigs.debug
             debuggable true
             ndk {
-                abiFilters 'armeabi-v7a', 'x86','x86_64'
+                abiFilters 'armeabi-v7a', 'x86', 'x86_64'
 // 'armeabi-v7a',armeabi' 'armeabi-v7a', 'arm64-v8a', 'x86',  'mips', 'mips64'
             }
         }
@@ -143,4 +152,5 @@ dependencies {
 
     compile 'com.zhy:flowlayout-lib:1.0.3'
 
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }

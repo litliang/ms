@@ -184,7 +184,6 @@ public class BuyMindECardActivity extends BaseActivity implements
         eCardsLv.onLoadMoreComplete();
         //toastCustom(failMsg);
 
-        adapter.clearAll();
 
     }
 

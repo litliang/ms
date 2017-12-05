@@ -18,6 +18,7 @@ public class MindECardsPresenter implements BaseMultiLoadListener
 {
     private MindECardsModel model;
     private MindECardsView view;
+    private boolean event_tag;
 
     public MindECardsPresenter(MindECardsView view)
     {
@@ -25,8 +26,10 @@ public class MindECardsPresenter implements BaseMultiLoadListener
         model = new MindECardsModel(this);
     }
 
+
     public void loadData(boolean event_tag, Map<String, Object> paramMap)
     {
+        this.event_tag = event_tag;
         model.loadData(event_tag, paramMap);
     }
 
