@@ -401,7 +401,7 @@ public class OrderManageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 if (isShowAgaineSend) {
                     holder.tvAgainSend.setVisibility(View.GONE);
                 } else {
-                    if (giftcardInfo.getCategory() == 2) {
+                    if (giftcardInfo!=null&&giftcardInfo.getCategory() == 2) {
                         holder.tvAgainSend.setVisibility(View.VISIBLE);
                     } else {
                         holder.tvAgainSend.setVisibility(View.GONE);
@@ -1163,7 +1163,7 @@ public class OrderManageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     @Override
     public int getItemCount()
     {
-        return mData == null || mData.size() == 0 ? 1 : mData.size();
+        return mData == null || mData.size() == 0 ? 0 : mData.size();
     }
 
     public void clearData()

@@ -143,12 +143,13 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
             themeParam = (BounsThemeParam) ser;
         }
         ivBackgroundImage.setTag(false);
-        if(DefinethemeBounsActivity.bless!=null){
+        if (DefinethemeBounsActivity.bless != null) {
             etBounsWishes.setText(DefinethemeBounsActivity.bless);
         }
     }
 
     String previewPath;
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
@@ -207,7 +208,8 @@ public class DefinethemeBounsActivity extends BaseActivity implements View.OnCli
         }
     }
 
-public static String bless = "";
+    public static String bless = "";
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -216,9 +218,9 @@ public static String bless = "";
                 finish();
                 break;
             case R.id.tvPreScan://预览
-                if(previewPath==null){
-                    ToastUtil.i(v.getContext(),"背景缺失，请选择后预览");
-                }else {
+                if (previewPath == null) {
+                    ToastUtil.i(v.getContext(), "背景缺失，请选择后预览");
+                } else {
                     Intent intent = new Intent();
                     intent.setAction(android.content.Intent.ACTION_VIEW);
                     intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -249,8 +251,15 @@ public static String bless = "";
                     bean.setCloseImageCode(imageUploadCode);
                     intent.putExtra("data", bean);
 
-                    setResult(1001, intent);
-                    finish();
+                    if (getCallingActivity().getClassName().contains(BounsCreateActivity.class.getSimpleName())) {
+                        setResult(1001, intent);
+                        finish();
+
+                    } else if (getCallingActivity().getClassName().contains(BounsThemeActivity.class.getSimpleName())) {
+                        startActivity(new Intent(getBaseContext(), BounsCreateActivity.class).putExtra("backThemeData", bean).putExtra("isFromCustomTheme",true));
+
+                        finish();
+                    }
                 }
 
                 break;
