@@ -164,6 +164,8 @@ public class BuyPhysicalCardActivity extends BaseActivity implements
         adapter.appendALL(list);
     }
 
+
+
     @Override
     public void onGetMindECardsFail(String failMsg)
     {

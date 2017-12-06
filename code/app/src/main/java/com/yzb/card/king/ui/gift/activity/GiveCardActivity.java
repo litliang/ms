@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayout;
 import android.support.v7.widget.LinearLayoutManager;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,8 +93,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     private TextView tvNum;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         defaultFlag = true;
         super.onCreate(savedInstanceState);
         giveCardPresenter = new GiveCardPresenter(this);
@@ -100,8 +101,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         initView();
     }
 
-    private void recvIntentData()
-    {
+    private void recvIntentData() {
         recordIds = getIntent().getStringExtra("recordIds");
 
         pageType = getIntent().getIntExtra("pageType", 0);
@@ -118,8 +118,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
 
     }
 
-    private void initView()
-    {
+    private void initView() {
         findViewById(R.id.headerLeft).setOnClickListener(this);
 
         inflater = LayoutInflater.from(this);
@@ -155,8 +154,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.tvSend).setOnClickListener(this);
     }
 
-    private void initContactData()
-    {
+    private void initContactData() {
         isDialogShowing();
         Map<String, Object> args = new HashMap<>();
         args.put("sessionId", AppConstant.sessionId);
@@ -168,12 +166,11 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         favorPayeePresenter.loadData(true, args);
     }
 
-    private void initRedEnvelepo(View redEnvelepoView)
-    {
+    private void initRedEnvelepo(View redEnvelepoView) {
         WholeRecyclerView addPayeeWv = (WholeRecyclerView) redEnvelepoView.findViewById(R.id.addPayeeWv);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true);
         addPayeeWv.setLayoutManager(linearLayoutManager);
-        adapter = new AddContactAdapter(this,listener);
+        adapter = new AddContactAdapter(this, listener);
         addPayeeWv.setAdapter(adapter);
 
 
@@ -192,26 +189,41 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         tvNum = (TextView) redEnvelepoView.findViewById(R.id.tvNum);
 
         tvNum.setText("已选择 0");
+        etPhoneAccount.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.length() == 11) {
+                    addAccount(s.toString());
+                }
+            }
+        });
     }
 
     private PayeeAdapter.PayeeAdapterOnChecked checkedList = new PayeeAdapter.PayeeAdapterOnChecked() {
         @Override
-        public void checkedChanged()
-        {
+        public void checkedChanged() {
             calculateNumber();
         }
     };
 
     private AddContactAdapter.CurrentClickListener listener = new AddContactAdapter.CurrentClickListener() {
         @Override
-        public void delAction()
-        {
+        public void delAction() {
             calculateNumber();
         }
     };
 
-    private void calculateNumber()
-    {
+    private void calculateNumber() {
 
         int sizeA = adapter.getList().size();
 
@@ -225,8 +237,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     /**
      * 添加item；
      */
-    private void addItemToGrid()
-    {
+    private void addItemToGrid() {
 
 
         final View item = inflater.inflate(R.layout.item_gv_give_giftcard, null);
@@ -235,8 +246,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         TextView tvDelete = (TextView) item.findViewById(R.id.tvDelete);
         ivMobile.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 clickItemTag = String.valueOf(item.getTag());
 
                 LogUtil.i("点击的clickItemTag=" + clickItemTag);
@@ -247,8 +257,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         });
         tvDelete.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 if (gridLayout != null) {
                     gridLayout.removeView(item);
                     totalNum = totalNum - 1;
@@ -262,8 +271,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode != Activity.RESULT_OK || data == null) return;
         switch (requestCode) {
             case REQ_GET_MOBILE: //获取手机号；
@@ -298,12 +306,10 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     }
 
 
-
     /**
      * 填充特定位置的输入框；
      */
-    private void initSpecEditInput(FavorPayee payee)
-    {
+    private void initSpecEditInput(FavorPayee payee) {
         if (payee != null) {
             for (int i = 0; i < gridLayout.getChildCount(); i++) {
                 View view = gridLayout.getChildAt(i);
@@ -318,8 +324,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     }
 
     @Override
-    public void onClick(View v)
-    {
+    public void onClick(View v) {
         switch (v.getId()) {
             case R.id.panelAdd:
                 addItemToGrid();
@@ -328,21 +333,21 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
                 finish();
                 break;
             case R.id.tvSend: //发送；
-                if (  pageType == TYPE_GIFTCARD) {
+                if (pageType == TYPE_GIFTCARD) {
 
-                    if(TextUtils.isEmpty(recordIds)){
-                        ToastUtil.i(this,"请选择收款人");
+                    if (TextUtils.isEmpty(recordIds)) {
+                        ToastUtil.i(this, "请选择收款人");
 
                         return;
                     }
 
-                    if(isInputRight()){
+                    if (isInputRight()) {
                         exeSend();
                     }
 
-                }else  if(pageType==TYPE_BOUNS){
-                    if(TextUtils.isEmpty(recordIds)){
-                        ToastUtil.i(this,"请选择收款人");
+                } else if (pageType == TYPE_BOUNS) {
+                    if (TextUtils.isEmpty(recordIds)) {
+                        ToastUtil.i(this, "请选择收款人");
                         return;
                     }
 
@@ -356,14 +361,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.tvAddAccount://添加账户
 
-                String etPhoneAccountStr = etPhoneAccount.getText().toString();
-
-                if (chechData(etPhoneAccountStr)) {
-
-                    showPDialog("正在加载……");
-                    giveCardPresenter.checkAccoutRequest(etPhoneAccountStr);
-
-                }
+//                addAccount(etPhoneAccount.getText().toString());
 
                 break;
             default:
@@ -371,13 +369,22 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         }
     }
 
+    private void addAccount(String etPhoneAccountStr) {
+        if (chechData(etPhoneAccountStr)) {
+
+            showPDialog("正在加载……");
+            giveCardPresenter.checkAccoutRequest(etPhoneAccountStr);
+
+        }
+    }
+
     /**
      * 检查手机号
+     *
      * @param etPhoneAccountStr
      * @return
      */
-    private boolean chechData(String etPhoneAccountStr)
-    {
+    private boolean chechData(String etPhoneAccountStr) {
         boolean flag = true;
 
         int str = 0;
@@ -406,8 +413,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     /**
      * 发送
      */
-    private void exeSend()
-    {
+    private void exeSend() {
         showPDialog(R.string.setting_committing);
         Map<String, Object> args = new HashMap<>();
 
@@ -428,8 +434,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     /**
      * 获取不为空的输入框内容 多个以逗号分割；
      */
-    public String getNoEmptyPhones()
-    {
+    public String getNoEmptyPhones() {
         StringBuilder sb = new StringBuilder();
         int childCount = gridLayout.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -447,8 +452,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     /**
      * 获取接收方信息
      */
-    public String getReceivingAccount()
-    {
+    public String getReceivingAccount() {
         List<FavorPayee> checkedList = adapter.getList();
 
         checkedList.addAll(payeeWvadapter.getCheckList());
@@ -473,8 +477,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
      *
      * @param erroPhones
      */
-    private void markErrorPhones(String erroPhones)
-    {
+    private void markErrorPhones(String erroPhones) {
         int childCount = gridLayout.getChildCount();
         for (int i = 0; i < childCount; i++) {
             EditText etMobile = (EditText) gridLayout.getChildAt(i).findViewById(R.id.etMobile);
@@ -483,8 +486,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         }
     }
 
-    private boolean isInputRight()
-    {
+    private boolean isInputRight() {
         int childCount = gridLayout.getChildCount();
         boolean allEmpty = true;
         //检查空值；
@@ -511,8 +513,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
 
 
     @Override
-    public void callSuccessViewLogic(Object o, int type)
-    {
+    public void callSuccessViewLogic(Object o, int type) {
         if (type == 1) {
             closePDialog();
             toastCustom(R.string.send_suc);
@@ -523,18 +524,18 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
 
             etPhoneAccount.setText("");
 
-           List<FavorPayee> listPayee =   JSON.parseArray(o+"", FavorPayee.class);
+            List<FavorPayee> listPayee = JSON.parseArray(o + "", FavorPayee.class);
 
-            if(listPayee != null && listPayee.size() >0){
+            if (listPayee != null && listPayee.size() > 0) {
 
                 FavorPayee tempPay = listPayee.get(0);
 
                 adapter.addOneNewData(tempPay);
 
                 calculateNumber();
-            }else{
+            } else {
 
-                ToastUtil.i(this,R.string.account_no_registered);
+                ToastUtil.i(this, R.string.account_no_registered);
             }
 
 
@@ -543,8 +544,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     }
 
     @Override
-    public void callFailedViewLogic(Object o, int type)
-    {
+    public void callFailedViewLogic(Object o, int type) {
         if (type == 1) {
 
             closePDialog();
@@ -560,21 +560,19 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
             }
         } else if (type == 2) {
 
-            ToastUtil.i(this,R.string.account_no_registered);
+            ToastUtil.i(this, R.string.account_no_registered);
         }
     }
 
     @Override
-    public void onGetFavorPayeeSuc(boolean event_tag, List<FavorPayee> list)
-    {
+    public void onGetFavorPayeeSuc(boolean event_tag, List<FavorPayee> list) {
         closePDialog();
 
         payeeWvadapter.addNewDataList(list);
     }
 
     @Override
-    public void onGetFavorPayeeFail(String failMsg)
-    {
+    public void onGetFavorPayeeFail(String failMsg) {
         closePDialog();
     }
 }

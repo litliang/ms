@@ -81,14 +81,12 @@
                     </LinearLayout>
 
 
-                    <TextView
+                    <ImageView android:src="@mipmap/portrait"
                         android:id="@+id/tvAddAccount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/title_l_r"
-                        android:text="@string/send_add"
-                        android:textColor="#999999"
-                        android:textSize="@dimen/title_size_16"/>
+                        />
 
                 </LinearLayout>
 

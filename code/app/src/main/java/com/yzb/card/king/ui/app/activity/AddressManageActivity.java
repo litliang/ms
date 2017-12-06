@@ -96,6 +96,15 @@ public class AddressManageActivity extends BaseActivity implements View.OnClickL
 
     }
 
+
+    @Override
+    public void finish() {
+        if(listview.getAdapter().getCount()==0){
+            setResult(1003);
+        }
+        super.finish();
+    }
+
     @Override
     protected void onResume()
     {
