@@ -148,6 +148,7 @@ public class RedBagDetailSendActivity extends BaseActivity implements RedBagDeta
             recycler.addItemDecoration(new DecorationUtil(2));
             recycler.setAdapter(adapter);
             adapter.setOnMyItemClickListener(this);
+            adapter.notifyDataSetChanged();
         }
 
     }
@@ -278,12 +279,12 @@ public class RedBagDetailSendActivity extends BaseActivity implements RedBagDeta
             num = listBean.getTotalQuantity()+"";
             sum = listBean.getOrderAmount()+"";
             themeParam = (BounsThemeParam) getIntent().getSerializableExtra("typedThemeParam");
-            amouttype.setText(!themeParam.isRandom()?"等值金额":"随机金额");
-
-            builder.append("红包总额：" + (sum = (TextUtils.isEmpty(themeParam.getBounsAmount()) ? "0" : themeParam.getBounsAmount())) + "元"
-                    + "       " + "发送人数：" + num + "人");
+            if(themeParam!=null) {
+                amouttype.setText(!themeParam.isRandom() ? "等值金额" : "随机金额");
+            }
+            builder.append("红包总额：" + (orderAcount ) + "元"
+                    + "       " + "发送人数：" + listBean.getReceiveList().size() + "人");
             allMessage.setText(builder.toString());
-            amouttype.setText(!themeParam.isRandom()?"等值金额":"随机金额");
             receiveList = listBean.getReceiveList();
 
             for (int i = 0; i < receiveList.size(); i++) {

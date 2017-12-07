@@ -1,5 +1,7 @@
 package com.yzb.card.king.ui.gift.bean;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 
 /**
@@ -8,7 +10,7 @@ import java.io.Serializable;
  * @author:gengqiyun
  * @date: 2017/2/17
  */
-public class FavorPayee implements Serializable
+public class FavorPayee implements Serializable,Comparable<FavorPayee>
 {
     private String photoUrl;
 
@@ -56,5 +58,10 @@ public class FavorPayee implements Serializable
     public void setTradeAccount(String tradeAccount)
     {
         this.tradeAccount = tradeAccount;
+    }
+
+    @Override
+    public int compareTo(@NonNull FavorPayee another) {
+        return tradeAccount.equals(another.getTradeAccount())?0:1;
     }
 }

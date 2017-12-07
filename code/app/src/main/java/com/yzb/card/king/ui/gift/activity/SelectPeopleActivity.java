@@ -10,7 +10,6 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,19 +17,17 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.yzb.card.king.R;
+import com.yzb.card.king.sys.AppConstant;
+import com.yzb.card.king.sys.CardConstant;
 import com.yzb.card.king.ui.appwidget.WholeRecyclerView;
-import com.yzb.card.king.ui.bonus.activity.RedBagDetailSendActivity;
+import com.yzb.card.king.ui.base.BaseActivity;
+import com.yzb.card.king.ui.base.BaseViewLayerInterface;
 import com.yzb.card.king.ui.bonus.view.FavorPayeeView;
 import com.yzb.card.king.ui.gift.adapter.AddContactAdapter;
 import com.yzb.card.king.ui.gift.adapter.PayeeAdapter;
 import com.yzb.card.king.ui.gift.bean.FavorPayee;
-import com.yzb.card.king.sys.AppConstant;
-import com.yzb.card.king.sys.CardConstant;
-import com.yzb.card.king.ui.base.BaseActivity;
-import com.yzb.card.king.ui.base.BaseViewLayerInterface;
 import com.yzb.card.king.ui.gift.presenter.FavorPayeePresenter;
 import com.yzb.card.king.ui.gift.presenter.GiveCardPresenter;
-import com.yzb.card.king.ui.my.bean.Payee;
 import com.yzb.card.king.util.AppUtils;
 import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.RegexUtil;
@@ -38,7 +35,6 @@ import com.yzb.card.king.util.ToastUtil;
 import com.yzb.card.king.util.ValidatorUtil;
 
 import org.xutils.view.annotation.ContentView;
-import org.xutils.view.annotation.ViewInject;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -52,7 +48,7 @@ import java.util.Map;
  * @date: 2016/12/20
  */
 @ContentView(R.layout.activity_give_card)
-public class GiveCardActivity extends BaseActivity implements View.OnClickListener, BaseViewLayerInterface, FavorPayeeView {
+public class SelectPeopleActivity extends BaseActivity implements View.OnClickListener, BaseViewLayerInterface, FavorPayeeView {
 
     private static final int REQ_GET_MOBILE = 0x001;
 
@@ -146,20 +142,12 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
             //初始化红包发送试图
             initRedEnvelepo(redEnvelepoView);
 
-            redEnvelepoView.findViewById(R.id.tvAddAccount).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), SelectPeopleActivity.class);
-                    intent.putExtra("recordIds", getIntent().getStringExtra("recordIds"));
-                    intent.putExtra("pageType", GiveCardActivity.TYPE_BOUNS);
-                    intent.putExtra("totalNum", getIntent().getStringExtra("totalNum"));
-                    startActivityForResult(intent, 1002);
-                }
-            });
             llParentContent.addView(redEnvelepoView, lp);
 
             initContactData();
-
+            redEnvelepoView.findViewById(R.id.title).setVisibility(View.GONE);
+            redEnvelepoView.findViewById(R.id.search).setVisibility(View.GONE);
+            redEnvelepoView.findViewById(R.id.addPayeeWv).setVisibility(View.GONE);
         }
         setHeader(R.mipmap.icon_back_white, title);
         findViewById(R.id.tvSend).setOnClickListener(this);
@@ -218,7 +206,6 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
                 }
             }
         });
-        redEnvelepoView.findViewById(R.id.oftenuse).setVisibility(View.GONE);
     }
 
     private PayeeAdapter.PayeeAdapterOnChecked checkedList = new PayeeAdapter.PayeeAdapterOnChecked() {
@@ -262,7 +249,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
                 clickItemTag = String.valueOf(item.getTag());
 
                 LogUtil.i("点击的clickItemTag=" + clickItemTag);
-                Intent intent = new Intent(GiveCardActivity.this, FavorPayeeActivity.class);
+                Intent intent = new Intent(SelectPeopleActivity.this, FavorPayeeActivity.class);
                 intent.putExtra("sourceActivity", "sourceActivity");
                 startActivityForResult(intent, REQ_GET_MOBILE);
             }
@@ -285,14 +272,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode != Activity.RESULT_OK || data == null) return;
-
         switch (requestCode) {
-            case 1002:
-                List list = (List) data.getSerializableExtra("data");
-                payeeWvadapter.addNewDataList(list);
-                payeeWvadapter.notifyDataSetChanged();
-                calculateNumber();
-                break;
             case REQ_GET_MOBILE: //获取手机号；
                 Serializable obj = data.getSerializableExtra("payeeData");
                 if (obj != null) {
@@ -433,21 +413,23 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
      * 发送
      */
     private void exeSend() {
-        showPDialog(R.string.setting_committing);
-        Map<String, Object> args = new HashMap<>();
-
-        if (pageType == TYPE_GIFTCARD) {
-            args.put("sessionId", AppConstant.sessionId);
-            args.put("orderId", recordIds); //订单id
-            args.put("receiveIds", getNoEmptyPhones());//接收方ids,多个使用英文逗号分割
-            args.put("serviceName", CardConstant.card_sendmindcard);
-        } else if (pageType == TYPE_BOUNS) {
-            args.put("orderId", recordIds); //订单id
-            args.put("sendPlatform", 1); //订单id
-            args.put("receiveIds", getReceivingAccount());//接收方ids,多个使用英文逗号分割
-            args.put("serviceName", CardConstant.card_sendbonus);
-        }
-        giveCardPresenter.loadData(args);
+        setResult(-1,new Intent().putExtra("data", (Serializable) payeeWvadapter.getCheckList()));
+        finish();
+//        showPDialog(R.string.setting_committing);
+//        Map<String, Object> args = new HashMap<>();
+//
+//        if (pageType == TYPE_GIFTCARD) {
+//            args.put("sessionId", AppConstant.sessionId);
+//            args.put("orderId", recordIds); //订单id
+//            args.put("receiveIds", getNoEmptyPhones());//接收方ids,多个使用英文逗号分割
+//            args.put("serviceName", CardConstant.card_sendmindcard);
+//        } else if (pageType == TYPE_BOUNS) {
+//            args.put("orderId", recordIds); //订单id
+//            args.put("sendPlatform", 1); //订单id
+//            args.put("receiveIds", getReceivingAccount());//接收方ids,多个使用英文逗号分割
+//            args.put("serviceName", CardConstant.card_sendbonus);
+//        }
+//        giveCardPresenter.loadData(args);
     }
 
     /**
@@ -549,7 +531,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
 
                 FavorPayee tempPay = listPayee.get(0);
 
-                payeeWvadapter.addNewData(tempPay);
+                adapter.addOneNewData(tempPay);
 
                 calculateNumber();
             } else {
@@ -587,7 +569,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     public void onGetFavorPayeeSuc(boolean event_tag, List<FavorPayee> list) {
         closePDialog();
 
-//        payeeWvadapter.addNewDataList(list);
+        payeeWvadapter.addNewDataList(list);
     }
 
     @Override

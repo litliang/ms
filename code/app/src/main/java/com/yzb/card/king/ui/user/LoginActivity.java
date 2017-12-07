@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.bean.SHARE_MEDIA;
@@ -279,7 +280,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
     @Event(R.id.qq)
     private void qq(final View v)
     {
-        UMShareAPI.get(this).getPlatformInfo(this, SHARE_MEDIA.QQ, new UMAuthListener(){
+        UMShareAPI.get(this).doOauthVerify(this, SHARE_MEDIA.QQ, new UMAuthListener(){
 
             @Override
             public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
@@ -303,30 +304,37 @@ public class LoginActivity extends BaseActivity implements LoginView {
     @Event(R.id.wx)
     private void wx(final View v)
     {
-        UMShareAPI.get(this).getPlatformInfo(this, SHARE_MEDIA.WEIXIN, new UMAuthListener(){
-
-            @Override
-            public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
-                Toast.makeText(v.getContext(), JsonUtil.entityToJson(map), Toast.LENGTH_LONG).show();
-                finish();
-            }
-
-            @Override
-            public void onError(SHARE_MEDIA share_media, int i, Throwable throwable) {
-
-            }
-
-            @Override
-            public void onCancel(SHARE_MEDIA share_media, int i) {
-
-            }
-        });
+//
+//        JShareInterface.authorize(platform, new AuthListener() {
+//            @Override
+//            public void onComplete(PlatformConfig.Platform platform, int i, BaseResponseInfo data) {
+//
+//                UMShareAPI.get(this).getPlatformInfo(this, SHARE_MEDIA.WEIXIN, new UMAuthListener(){
+//
+//            @Override
+//            public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
+//                Toast.makeText(v.getContext(), JsonUtil.entityToJson(map), Toast.LENGTH_LONG).show();
+//                finish();
+//            }
+//
+//            @Override
+//            public void onError(SHARE_MEDIA share_media, int i, Throwable throwable) {
+//
+//            }
+//
+//            @Override
+//            public void onCancel(SHARE_MEDIA share_media, int i) {
+//
+//            }
+//        });
 
     }
 
     @Event(R.id.wb)
     private void wb(final View v)
     {
+
+
         UMShareAPI.get(this).getPlatformInfo(this, SHARE_MEDIA.SINA, new UMAuthListener(){
 
             @Override
@@ -384,6 +392,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == 1001) {
             finish();

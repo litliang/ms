@@ -19,9 +19,9 @@ android {
         }
     }
 
-    String name = "1.0.0." + new SimpleDateFormat("MMdd").format(new Date());
+    String name = "1.0.0." + new SimpleDateFormat("yyMMdd").format(new Date());
 
-    Integer code = Calendar.getInstance(Locale.CHINA).get(Calendar.DAY_OF_YEAR);
+    Integer code = Integer.parseInt(new SimpleDateFormat("yyMMdd").format(new Date())+"");
 
     compileSdkVersion 23
     buildToolsVersion '26.0.2'
@@ -145,12 +145,12 @@ dependencies {
     compile 'com.android.support:multidex:1.0.0'
     compile 'com.yahoo.mobile.client.android.util.rangeseekbar:rangeseekbar-library:0.2.0-SNAPSHOT'
     compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
-
-//    compile 'com.google.code.gson:gson:2.6.2'
+    //    compile 'com.google.code.gson:gson:2.6.2'
     //recyclerview分组，顶部浮动
     compile 'com.timehop.stickyheadersrecyclerview:library:0.4.3@aar'
-
     compile 'com.zhy:flowlayout-lib:1.0.3'
-
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile files('libs/SocialSDK_Sina_Full.jar')
+
+
 }

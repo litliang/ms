@@ -17,9 +17,17 @@
         android:paddingRight="16dp"
         android:paddingTop="5dp"
         >
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:foreground="@mipmap/yhborder"
+            android:padding="5dip">
+
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="0.2dip"
             app:cardElevation="0dp"
             app:cardCornerRadius="5dp">
         <RelativeLayout
@@ -67,6 +75,7 @@
             </LinearLayout>
         </RelativeLayout>
         </android.support.v7.widget.CardView>
+        </FrameLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
+import android.support.multidex.MultiDexApplication;
 import android.text.TextUtils;
 import android.widget.ImageView;
 
@@ -46,12 +47,14 @@ import com.yzb.card.king.util.Utils;
 import org.xutils.image.ImageOptions;
 import org.xutils.x;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 
 import cn.jpush.android.api.BasicPushNotificationBuilder;
@@ -62,7 +65,7 @@ import cn.jpush.android.data.JPushLocalNotification;
 /**
  * Created by gengqiyun on 2016/4/13.
  */
-public class GlobalApp extends Application {
+public class GlobalApp extends MultiDexApplication {
 
     public static boolean updateFlag = false; //是否取消过更新；
 
@@ -103,7 +106,6 @@ public class GlobalApp extends Application {
     private ImageOptions imageOptionsLogo;
 
     private ImageOptions imageOptionsFitXY;
-
     public static GlobalApp getInstance()
     {
         return instance;
@@ -148,6 +150,7 @@ public class GlobalApp extends Application {
     {
         super.onCreate();
         this.context = getApplicationContext();
+
         //配置xUtil jar包
         x.Ext.init(this);
         x.Ext.setDebug(true);

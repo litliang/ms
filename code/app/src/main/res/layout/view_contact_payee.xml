@@ -45,7 +45,9 @@
                 android:text="18298019026"/>
         </LinearLayout>
 
-
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
         <ToggleButton
             android:id="@+id/ivChecked"
@@ -55,7 +57,12 @@
             android:checked="false"
             android:textOff=""
             android:textOn=""/>
-
+    <ImageView android:id="@+id/rm"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:src="@mipmap/rm"
+        android:visibility="gone"/>
+</RelativeLayout>
     </LinearLayout>
 
 </LinearLayout>
