@@ -434,15 +434,15 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
             if (selectIndex == 0) {//全部银行
 
-                productListParam.setStageBankIds(bankSelectPopup.getAllBankIds());
+                productListParam.setStageBankIds(lifeStageSelectPopup.getAllBankIds());
 
             } else if (selectIndex == 1) {//我的银行
 
-                productListParam.setStageBankIds(bankSelectPopup.getMyBankIds());
+                productListParam.setStageBankIds(lifeStageSelectPopup.getMyBankIds());
 
             } else if (selectIndex > 1) {//其它银行
 
-                List<PaymethodAndBankPreStageBean> bankList = bankSelectPopup.getTotalList();
+                List<PaymethodAndBankPreStageBean> bankList = lifeStageSelectPopup.getTotalList();
 
                 if (bankList != null) {
 

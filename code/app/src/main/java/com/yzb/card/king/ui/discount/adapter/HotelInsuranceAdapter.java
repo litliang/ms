@@ -63,6 +63,7 @@ public class HotelInsuranceAdapter extends BaseRecyAdapter<Insurance>
             //初始化状态；
             viewHolder.slideButton.setToggleState(insurance.isSelected ?
                     SlideButton.ToggleState.open : SlideButton.ToggleState.close);
+            viewHolder.slideButton.setEnable(false);
             if(insurance.isSelected){
 
                 viewHolder.llBaoxianInfo.setVisibility(View.VISIBLE);
