@@ -514,25 +514,26 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
             HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
 
-            List<SubItemBean> hotelBrandList =  productListParam.getHotelBrandList();
-
             int size = selectedBean.size();
+
 
             if (size == 0) {
 
                 defineTopView.setTabCheckStatus(false);
 
-                hotelBrandList.addAll(null);
+                productListParam.setHotelBrandList(null);
 
             } else {
 
                 defineTopView.setTabCheckStatus(true);
 
-                hotelBrandList.addAll(selectedBean);
+                productListParam.setHotelBrandList(selectedBean);
+
 
             }
 
             mRecyclerView.showSwipeRefresh();
+
             getData(true);
         }
     };
@@ -546,6 +547,8 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
         for (int i = 0; i < 4; i++) {
 
             DefindTabView defindTabView = new DefindTabView(this, tabOnClick);
+
+            defindTabView.setPpflag(true);
 
             int[] textColor = new int[]{R.color.text_color_14, R.color.color_980100};
 
@@ -569,6 +572,7 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                 defindTabView.setViewData(R.string.tab_sorting, drawable3);
             }
             defindTabView.addTabToLL(llBottomTab, i);
+
             defindTabViewList.add(defindTabView);
         }
     }
@@ -633,6 +637,10 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
             if (nameValue != -1) {
 
+                DefindTabView oneDefindTabView = defindTabViewList.get(3);
+
+                oneDefindTabView.setSelectedTabStatus(true);
+
                 HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
 
                 productListParam.setSort(nameValue);
@@ -680,7 +688,14 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                 break;
             case R.id.tvSearch:
 
-                readyGo(HotelProductListActivity.this, HotelSearchActivity.class);
+                Intent intent = new Intent(HotelProductListActivity.this, HotelSearchActivity.class);
+
+                List<SubItemBean> hotelKeyWordList  =  HotelLogicManager.getInstance().getHotelProductListParam().getHotelKeyWordList();
+
+                if (hotelKeyWordList != null && hotelKeyWordList.size() == 1) {
+                    intent.putExtra("transmitData", hotelKeyWordList.get(0));
+                }
+                startActivityForResult(intent, 1000);
 
                 break;
 
@@ -696,10 +711,15 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                 // 初始化地图；
                 if (mapFragment == null) {
+
                     mapFragment = HotelMapModelFragment.newInstance();
+
                     FragmentManager manager = getSupportFragmentManager();
+
                     FragmentTransaction transaction = manager.beginTransaction();
+
                     transaction.replace(R.id.rlMap, mapFragment);
+
                     transaction.commit();
                 }
 
@@ -741,6 +761,7 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
         public void onSelectorStartEndDate(Date startDate, Date endDate) {
 
             tvStartDate.setText("住 " + DateUtil.date2String(startDate, DateUtil.DATE_FORMAT_DATE_DAY2));
+
             tvEndDate.setText("离 " + DateUtil.date2String(endDate, DateUtil.DATE_FORMAT_DATE_DAY2));
             //设置日期
             HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
@@ -763,7 +784,13 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
             int size = selectedList.size();
 
+            boolean oneFlag = false;
+
+            boolean oneFlagTemp = false;
+
             if (size > 0) {
+
+                oneFlag = true;
 
                 StringBuffer sbLevels = new StringBuffer();
 
@@ -816,24 +843,35 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
             } else {
 
+                oneFlag = false;
+
                 productListParam.setLevels(0 + "");
 
                 productListParam.setBrandTypes(0 + "");
             }
 
+            productListParam.setBgnPrice(minValue + "");
 
             if (maxValue == 1001) {
-
-                productListParam.setBgnPrice(minValue + "");
 
                 productListParam.setEndPrice(Integer.MAX_VALUE + "");
 
             } else {
 
-                productListParam.setBgnPrice(minValue + "");
-
                 productListParam.setEndPrice(maxValue + "");
             }
+
+            if(maxValue == 1001 && minValue== 0 ){
+
+                oneFlagTemp = false;
+            }else {
+
+                oneFlagTemp = true;
+            }
+
+            DefindTabView oneDefindTabView = defindTabViewList.get(1);
+
+            oneDefindTabView.setSelectedTabStatus(oneFlag||oneFlagTemp);
 
             mRecyclerView.showSwipeRefresh();
 
@@ -844,6 +882,7 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         if (requestCode == 1000) {
 
             if (resultCode == 1001 && data != null) {//获取用户选择的筛选页的条件
@@ -854,19 +893,22 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                 int size = catalogueTypeBean.getChildList().size();
 
+                DefindTabView oneDefindTabView = defindTabViewList.get(0);
+
                 if (size > 0) {
+
+                    oneDefindTabView.setSelectedTabStatus(true);
+
                     //设置评分 优惠促销 等筛选信息
                     HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
 
-                    List<SubItemBean>  tempList = productListParam.getFilterList();
-
-                    if(tempList == null){
-
-                        tempList = new ArrayList<>();
-
-                    }
+                    List<SubItemBean>  tempList = productListParam.getHotelBaseFilterList();
 
                     StringBuffer youhuiSb = new StringBuffer();
+
+                    boolean flag = false;
+
+                    boolean hotelBaseFilterFlag = false;
 
                     for (SubItemBean bean : selectedData) {
 
@@ -875,7 +917,7 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                         if (localDataCode == 1) {//评分
                             //设置评分查询参数
                             productListParam.setMinVote(bean.getFilterId());
-
+                            flag = true;
 
                         } else if (localDataCode == 2) {//优惠促销
 
@@ -883,9 +925,21 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                         } else {
 
+                            hotelBaseFilterFlag = true;
+
                             tempList.add(bean);
                         }
 
+                    }
+
+                    if(!flag){
+
+                        productListParam.setMinVote(null);
+                    }
+
+                    if(!hotelBaseFilterFlag){
+
+                        productListParam.setHotelBaseFilterList(null);
                     }
 
                     String disTypesStr = youhuiSb.toString();
@@ -893,9 +947,26 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                     if (disTypesStr.length() > 0) {
                         //设置筛选查询参数
                         productListParam.setDisTypes(disTypesStr.substring(0, disTypesStr.length() - 1));
+                    }else {
+
+                        productListParam.setDisTypes(null);
                     }
 
-                    productListParam.setFilterList(tempList);
+                    mRecyclerView.showSwipeRefresh();
+
+                    getData(true);
+
+                }else {
+
+                    oneDefindTabView.setSelectedTabStatus(false);
+
+                    HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
+
+                    productListParam.setHotelBaseFilterList(null);
+
+                    productListParam.setDisTypes(null);
+
+                    productListParam.setMinVote(null);
 
                     mRecyclerView.showSwipeRefresh();
 
@@ -926,6 +997,19 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                         productListParam.setHotelPositionList(list);
 
+                        DefindTabView oneDefindTabView = defindTabViewList.get(2);
+
+                        int size = list.size();
+
+                        if(size>0){
+
+                            oneDefindTabView.setSelectedTabStatus(true);
+
+                        }else {
+
+                            oneDefindTabView.setSelectedTabStatus(false);
+                        }
+
 
                     } else if (transmitData instanceof SubItemBean.ChildSubItemBean) {
 
@@ -954,6 +1038,20 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                         productListParam.setHotelPositionList(list);
 
+                        DefindTabView oneDefindTabView = defindTabViewList.get(2);
+
+                        int size = list.size();
+
+                        if(size>0){
+
+                            oneDefindTabView.setSelectedTabStatus(true);
+
+                        }else {
+
+                            oneDefindTabView.setSelectedTabStatus(false);
+                        }
+
+
                     }
 
                     mRecyclerView.showSwipeRefresh();
@@ -970,6 +1068,8 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                 productListParam.setSearchAddrLat(positionLatitude);
 
                 productListParam.setSearchAddrLng(positionLongitude);
+
+                productListParam.setSearchAddrType(0);
 
                 productListParam.setAddrName(cityName);
 
@@ -992,6 +1092,9 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                         if(hotelKeyWordList == null){
 
                             hotelKeyWordList = new ArrayList<SubItemBean>();
+                        }else {
+
+                            hotelKeyWordList.clear();
                         }
 
                         hotelKeyWordList.add(subItemBean);
@@ -1005,7 +1108,7 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                     HotelLogicManager.getInstance().getHotelProductListParam().setHotelKeyWordList(null);
                 }
-
+                getData(true);
             } else if (resultCode == 1041) {//搜索关键字
 
                 if (data != null) {
@@ -1014,12 +1117,12 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                     if (searchReusultBean != null) {
 
-
                         List<SearchReusultBean> searchReusultBeanList = new ArrayList<>();
 
                         searchReusultBeanList.add(searchReusultBean);
 
                         HotelLogicManager.getInstance().getHotelProductListParam().setSearchList(searchReusultBeanList);
+
                     } else {
 
                         HotelLogicManager.getInstance().getHotelProductListParam().setSearchList(null);
@@ -1029,6 +1132,8 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                     HotelLogicManager.getInstance().getHotelProductListParam().setSearchList(null);
                 }
+
+                getData(true);
             }
 
         }

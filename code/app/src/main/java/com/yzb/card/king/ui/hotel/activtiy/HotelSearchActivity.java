@@ -254,7 +254,7 @@ public class HotelSearchActivity extends BaseActivity implements View.OnClickLis
 
                     String totalStr = JSON.toJSONString(listData);
 
-                    SharePrefUtil.saveToSp(this, SharePrefUtil.USE_CITY_HISTORY_DATA, totalStr);
+                    SharePrefUtil.saveToSp(this, SharePrefUtil.HOTEL_SEARCH_RESULT_DATA, totalStr);
 
                 }
 
@@ -375,7 +375,7 @@ public class HotelSearchActivity extends BaseActivity implements View.OnClickLis
 
             case R.id.tvClearData://清空数据
 
-                SharePrefUtil.saveToSp(this, SharePrefUtil.USE_CITY_HISTORY_DATA, "");
+                SharePrefUtil.saveToSp(this, SharePrefUtil.HOTEL_SEARCH_RESULT_DATA, "");
 
                 subItemAdapter.clearData();
 

@@ -6,6 +6,7 @@ import com.yzb.card.king.http.DataCallBack;
 import com.yzb.card.king.http.HttpCallBackData;
 import com.yzb.card.king.http.common.CanReceiveCouponRequest;
 import com.yzb.card.king.http.hotel.HotelRoomsPolicysPriceRequest;
+import com.yzb.card.king.sys.CardConstant;
 
 /**
  * 类  名：
@@ -418,5 +419,47 @@ public class GetCouponModel {
 
             }
         });
+    }
+
+    /**
+     * 删除代金券订单
+     * @param orderId
+     * @param type
+     */
+    public  void delOrderInfoAction(long orderId, final int type){
+
+        CanReceiveCouponRequest request =   new CanReceiveCouponRequest(orderId, CardConstant.APP_DELETECOUONORDER_IF);
+
+        request.sendRequest(new HttpCallBackData() {
+            @Override
+            public void onStart() {
+
+            }
+
+            @Override
+            public void onSuccess(Object o) {
+
+                dataCallBack.requestSuccess(o,type);
+
+            }
+
+            @Override
+            public void onFailed(Object o) {
+
+                dataCallBack.requestFailedDataCall(o,type);
+
+            }
+
+            @Override
+            public void onCancelled(Object o) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+
     }
 }

@@ -68,9 +68,17 @@ public class DistrictTwoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         checkTIhreeColumnFlag(childList);
 
         this.list.clear();
+
         this.list.addAll(childList);
+
         twoCurrentIndex = 0;
+
         notifyDataSetChanged();
+    }
+
+
+    public void setTwoCurrentIndex(int twoCurrentIndex) {
+        this.twoCurrentIndex = twoCurrentIndex;
     }
 
     /**
@@ -160,6 +168,12 @@ public class DistrictTwoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 bean.setDefault(false);
             }
 
+//            if(bean.isDefault()){
+//
+//                twoCurrentIndex = position;
+//
+//            }
+
             tvItemName.setEnabled(bean.isDefault());
 
             if(ifThirdColumnFlag){
@@ -196,8 +210,11 @@ public class DistrictTwoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 @Override
                 public void onClick(View v)
                 {
+
                     int index = (int) v.getTag();
+
                     SubItemBean bean =  list.get(index);
+
                     boolean flag = bean.isDefault();
 
                     if(flag){

@@ -71,6 +71,8 @@ public class PaymethodAndBankPreStageBean implements Serializable{
      */
     private String defaultStatus;
     private boolean selected =false;
+    //信用卡的银行活动和分期活动同时存在，此字段用来标记选择项目--- 0 表示 没有选择；1表示选择银行活动；2标识选择分期活动
+    private int activityType = 0;
     /**
      * 持卡人
      */
@@ -178,6 +180,14 @@ public class PaymethodAndBankPreStageBean implements Serializable{
     public void setBankId(long bankId)
     {
         this.bankId = bankId;
+    }
+
+    public int getActivityType() {
+        return activityType;
+    }
+
+    public void setActivityType(int activityType) {
+        this.activityType = activityType;
     }
 
     public long getReservedMobile()
@@ -430,5 +440,15 @@ public class PaymethodAndBankPreStageBean implements Serializable{
     public void setSelectedBean(LifeStageDetailBean.StageBean selectedBean)
     {
         this.selectedBean = selectedBean;
+    }
+
+    /**
+     * 信用卡支付时，银行优惠和分期活动同时存在，检测是否选择了银行的分期活动
+     * @return
+     */
+    public boolean ifSelectedBankStage(){
+
+
+        return "2".equals( getAccountType()) && 2== getActivityType();
     }
 }

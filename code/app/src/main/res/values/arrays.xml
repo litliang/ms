@@ -615,12 +615,12 @@
         <item>3分以上</item>
     </string-array>
 
-    <integer-array name="hotel_grade_value_array">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
+    <string-array name="hotel_grade_value_array">
+        <item>4.5</item>
         <item>4</item>
-    </integer-array>
+        <item>3.5</item>
+        <item>3</item>
+    </string-array>
 
 
     <string-array name="hotel_validity_name_array">

@@ -4,6 +4,7 @@ import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
+import com.yzb.card.king.bean.SubItemBean;
 import com.yzb.card.king.bean.hotel.HotelParam;
 import com.yzb.card.king.bean.hotel.HotelProductListParam;
 import com.yzb.card.king.http.BaseRequest;
@@ -11,8 +12,10 @@ import com.yzb.card.king.http.HttpCallBackData;
 import com.yzb.card.king.sys.AppConstant;
 import com.yzb.card.king.sys.CardConstant;
 import com.yzb.card.king.util.DateUtil;
+import com.yzb.card.king.util.LogUtil;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -46,17 +49,29 @@ public class HotelProductListRequest extends BaseRequest {
         param.put("sort", hotelParam.getSort());
         param.put("pageStart", hotelParam.getPageStart());
         param.put("pageSize", hotelParam.getPageSize());
-        param.put("minVote", hotelParam.getMinVote());
+
+        if(!TextUtils.isEmpty( hotelParam.getMinVote())){
+            param.put("minVote", hotelParam.getMinVote());
+        }
+
+
         if (!TextUtils.isEmpty(hotelParam.getBankIds())) {
             param.put("bankIds", hotelParam.getBankIds());
         }
 
-        param.put("disTypes", hotelParam.getDisTypes());
+        if(!TextUtils.isEmpty( hotelParam.getDisTypes())){
+            param.put("disTypes", hotelParam.getDisTypes());
+        }
+
         if (!TextUtils.isEmpty(hotelParam.getStageBankIds())) {
             param.put("stageBankIds", hotelParam.getStageBankIds());
         }
-        if (hotelParam.getFilterList() != null && hotelParam.getFilterList().size() > 0) {
-            param.put("filterList", JSON.toJSONString(hotelParam.getFilterList()));
+
+        List<SubItemBean> filterList = hotelParam.getFilterList();
+        if ( filterList!= null && filterList.size() > 0) {
+
+            LogUtil.e("size --end---="+filterList.size() );
+            param.put("filterList", JSON.toJSONString(filterList));
         }
 
         if (hotelParam.getSearchList() != null && hotelParam.getSearchList().size() > 0) {
@@ -85,11 +100,19 @@ public class HotelProductListRequest extends BaseRequest {
         param.put("sort", 3);//地图模式下，默认距离优先
         param.put("pageStart", hotelParam.getPageStart());
         param.put("pageSize", hotelParam.getPageSize());
-        param.put("minVote", hotelParam.getMinVote());
+
+        if(!TextUtils.isEmpty( hotelParam.getMinVote())){
+            param.put("minVote", hotelParam.getMinVote());
+        }
+
         if (!TextUtils.isEmpty(hotelParam.getBankIds())) {
             param.put("bankIds", hotelParam.getBankIds());
         }
-        param.put("disTypes", hotelParam.getDisTypes());
+
+        if(!TextUtils.isEmpty( hotelParam.getDisTypes())) {
+            param.put("disTypes", hotelParam.getDisTypes());
+        }
+
         if (!TextUtils.isEmpty(hotelParam.getStageBankIds())) {
             param.put("stageBankIds", hotelParam.getStageBankIds());
         }

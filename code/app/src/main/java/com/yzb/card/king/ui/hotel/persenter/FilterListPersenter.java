@@ -63,7 +63,7 @@ public class FilterListPersenter implements DataCallBack {
     }
 
     /**
-     * 优惠券列表附近筛选信息
+     * 列表附近筛选信息
      * @param addrId
      */
     public void sendCouponFilterData(String addrId)

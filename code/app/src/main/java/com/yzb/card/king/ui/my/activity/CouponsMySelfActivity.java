@@ -22,24 +22,14 @@ import org.xutils.view.annotation.ViewInject;
  * Created by 玉兵 on 2017/10/29.
  */
 @ContentView(R.layout.activity_my_coupons)
-public class CouponsMySelfActivity extends BaseActivity implements View.OnClickListener{
+public class CouponsMySelfActivity extends BaseActivity  {
 
-
-    @ViewInject(R.id.tvDaijinquan)
-    private TextView tvDaijinquan;
-
-    @ViewInject(R.id.tvYouhuiquan)
-    private TextView tvYouhuiquan;
-
-    @ViewInject(R.id.ivOne)
-    private ImageView ivOne;
-
-    @ViewInject(R.id.ivTwo)
-    private ImageView ivTwo;
 
     private YouhuiquanFragment youhuiquanFragment;
 
     private DaijinquanFragment daijinquanFragment;
+
+    private int type = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,13 +47,14 @@ public class CouponsMySelfActivity extends BaseActivity implements View.OnClickL
 
         daijinquanFragment = DaijinquanFragment.getInstance("daijinquan");
 
-        FragmentManager manager = getFragmentManager();
+        if (type == 1) {
 
-        FragmentTransaction transation = manager.beginTransaction();
+            sendYouhuiquanClick();
 
-        transation.replace(R.id.flOne, youhuiquanFragment);
+        } else if (type == 2) {
 
-        transation.commit();
+            receiveDaijinquanClick();
+        }
     }
 
 
@@ -85,49 +76,18 @@ public class CouponsMySelfActivity extends BaseActivity implements View.OnClickL
 
     private void initView() {
 
-        setTitleNmae("我的券包");
+        if (getIntent().hasExtra("titleName")) {
 
-        tvDaijinquan.setOnClickListener(this);
+            setTitleNmae(getIntent().getStringExtra("titleName"));
 
-        tvYouhuiquan.setOnClickListener(this);
+            type = getIntent().getIntExtra("type", 1);
 
-        tvYouhuiquan.setTextColor(getResources().getColor(R.color.color_970105));
-        tvDaijinquan.setTextColor(getResources().getColor(R.color.color_2a2a2a));
-        ivOne.setBackgroundColor(getResources().getColor(R.color.color_970105));
-        ivTwo.setBackgroundColor(getResources().getColor(R.color.white));
+        } else {
 
-    }
-
-    @Override
-    public void onClick(View v) {
-
-        switch (v.getId()){
-
-            case R.id.tvYouhuiquan:
-
-                tvYouhuiquan.setTextColor(getResources().getColor(R.color.color_970105));
-                tvDaijinquan.setTextColor(getResources().getColor(R.color.color_2a2a2a));
-                ivOne.setBackgroundColor(getResources().getColor(R.color.color_970105));
-                ivTwo.setBackgroundColor(getResources().getColor(R.color.white));
-
-                sendYouhuiquanClick();
-                break;
-
-            case R.id.tvDaijinquan:
-
-                tvDaijinquan.setTextColor(getResources().getColor(R.color.color_970105));
-
-                tvYouhuiquan.setTextColor(getResources().getColor(R.color.color_2a2a2a));
-
-                ivTwo.setBackgroundColor(getResources().getColor(R.color.color_970105));
-
-                ivOne.setBackgroundColor(getResources().getColor(R.color.white));
-
-                receiveDaijinquanClick();
-
-                break;
-
-
+            setTitleNmae("我的券包");
         }
+
+
     }
+
 }

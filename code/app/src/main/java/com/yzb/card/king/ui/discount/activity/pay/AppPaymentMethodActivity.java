@@ -719,6 +719,8 @@ public class AppPaymentMethodActivity extends BaseActivity implements View.OnCli
             } else {
 
                 selectPayMethod = payMethod;
+
+                LogUtil.e("AAAA="+payMethod.getAccountType());
                 /**
                  * 计算出选择支付方式的满额减、随机立减
                  */
@@ -728,26 +730,34 @@ public class AppPaymentMethodActivity extends BaseActivity implements View.OnCli
 
                 if (infoBean != null) {
 
-                    int actCls = infoBean.getActCls();
+                  if( payMethod.ifSelectedBankStage()){ //信用卡支付时，银行优惠和分期活动同时存在，检测是否选择了银行的分期活动
 
-                    if (actCls == 1) {//满减
+                      favMoney = 0;
 
-                        if (payMethod.getPaymentMoney() >= infoBean.getFuuAmount()) {
+                  }else {
 
-                            favMoney = infoBean.getDisContent();
-                        }
+                      int actCls = infoBean.getActCls();
 
-                    } else if (actCls == 2) {//折扣
+                      if (actCls == 1) {//满减
+
+                          if (payMethod.getPaymentMoney() >= infoBean.getFuuAmount()) {
+
+                              favMoney = infoBean.getDisContent();
+                          }
+
+                      } else if (actCls == 2) {//折扣
+
+                          double discountRate = Double.valueOf("0." + infoBean.getDisContent());
+
+                          favMoney = discountRate * payMethod.getPaymentMoney();
+
+                      } else if (actCls == 3) {//随机立减
+
+                          favMoney = 0;
+                      }
+                  }
 
 
-                        double discountRate = Double.valueOf("0." + infoBean.getDisContent());
-
-                        favMoney = discountRate * payMethod.getPaymentMoney();
-
-                    } else if (actCls == 3) {//随机立减
-
-                        favMoney = 0;
-                    }
 
                 } else {
 

@@ -1,6 +1,7 @@
 package com.yzb.card.king.ui.my.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
@@ -12,10 +13,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yzb.card.king.R;
+import com.yzb.card.king.bean.hotel.HotelProductListParam;
 import com.yzb.card.king.bean.my.CouponInfoBean;
 import com.yzb.card.king.sys.ServiceDispatcher;
 import com.yzb.card.king.ui.appwidget.StarBar;
 import com.yzb.card.king.ui.base.BaseListAdapter;
+import com.yzb.card.king.ui.hotel.HotelLogicManager;
+import com.yzb.card.king.ui.hotel.activtiy.HotelProductInfoActivity;
+import com.yzb.card.king.util.DateUtil;
 import com.yzb.card.king.util.Utils;
 import com.yzb.card.king.util.XImageOptionUtil;
 
@@ -23,6 +28,8 @@ import org.xutils.common.util.DensityUtil;
 import org.xutils.image.ImageOptions;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
+
+import java.util.Date;
 
 /**
  * Created by 玉兵 on 2017/10/29.
@@ -32,6 +39,8 @@ public class MyYouhuiquanCouponeAdapter extends BaseListAdapter<CouponInfoBean>
 {
 
     private ImageOptions options;
+
+
 
     public MyYouhuiquanCouponeAdapter(Context context)
     {
@@ -45,7 +54,7 @@ public class MyYouhuiquanCouponeAdapter extends BaseListAdapter<CouponInfoBean>
         MyViewHolder holder;
         if (convertView == null)
         {
-            convertView = mInflater.inflate(R.layout.item_coupon_shop, parent, false);
+            convertView = mInflater.inflate(R.layout.item_coupon_app_goods, parent, false);
             holder = new MyViewHolder(convertView);
             convertView.setTag(holder);
         } else
@@ -79,24 +88,19 @@ public class MyYouhuiquanCouponeAdapter extends BaseListAdapter<CouponInfoBean>
 
             holder.tvAmount.setText(zhekouStr+"折");
 
-        }else  if(couponType == 3){
-
-            holder.tvFullCut.setText("抵");
-
-            holder.tvAmount.setText("¥" + Utils.subZeroAndDot(bean.getCutAmount() + ""));
         }
 
-        if(bean.getCouponHot()  == 0){
+        if(bean.getHot()  == 0){
 
             holder.starBar.setVisibility(View.GONE);
 
         }else {
 
-            holder.starBar.setStarMarkAndSore(bean.getCouponHot() / 2);
+            holder.starBar.setStarMarkAndSore(bean.getHot() / 2);
             holder.starBar.setVisibility(View.VISIBLE);
         }
 
-        holder.tvScore.setText(bean.getCouponHot() + "分");
+        holder.tvScore.setText(bean.getHot() + "分");
 
 
         holder.tvShopAddress.setText(bean.getDistrictName());
@@ -123,6 +127,33 @@ public class MyYouhuiquanCouponeAdapter extends BaseListAdapter<CouponInfoBean>
 
             holder.tvAmount.setBackgroundResource(R.mipmap.icon_coupon_bg2);
 
+            holder.tvGet.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                  if(bean.getReceiveStatus()== 3){
+
+                      //其它产品订单
+                      Date startDate = new Date();
+                      Date endDate = DateUtil.addDay(startDate, 1);
+
+                      String startDateStr = DateUtil.date2String(startDate, DateUtil.DATE_FORMAT_DATE);
+                      String endDateStr = DateUtil.date2String(endDate, DateUtil.DATE_FORMAT_DATE);
+                      //设置查看酒店详情参数
+                      HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
+                      productListParam.setArrDate(startDateStr);
+                      productListParam.setDepDate(endDateStr);
+
+                      //目前只处理酒店的优惠券
+                      long storeId = bean.getStoreId();
+                      Intent intent = new Intent(mContext, HotelProductInfoActivity.class);
+                      intent.putExtra("hotelId", storeId + "");
+                      mContext.startActivity(intent);
+
+                  }
+                }
+            });
+
         }else if(receiveStatus == 5){
 
             holder.tvGet.setText( "已过期");
@@ -145,7 +176,7 @@ public class MyYouhuiquanCouponeAdapter extends BaseListAdapter<CouponInfoBean>
         {
             for (int i = 0; i < mList.size(); i++)
             {
-                if (yhqId.equals(mList.get(i).getCouponId() + ""))
+                if (yhqId.equals(mList.get(i).getActId() + ""))
                 {
                     return mList.get(i);
                 }

@@ -285,8 +285,8 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
                 productListParam.setFilterList(null);
             }
 
-
             mRecyclerView.showSwipeRefresh();
+
             getData(true);
         }
     };

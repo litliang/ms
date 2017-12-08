@@ -1808,6 +1808,41 @@
             android:configChanges="fontScale|orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeWhite.NoActionBar"/>
+
+        <!-- 我的-代金券 使用说明 -->
+        <activity
+            android:name=".ui.bonus.activity.UseInstructionsActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeWhite.NoActionBar"/>
+
+        <!-- 我的-代金券 搜索 -->
+        <activity
+            android:name=".ui.bonus.activity.VoucherCenterActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeWhite.NoActionBar"/>
+
+        <!-- 我的-代金券 更多 -->
+        <activity
+            android:name=".ui.my.activity.VoucherMoreShopsActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeWhite.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+
+                <data
+                    android:host="com.yzb.card.king"
+                    android:pathPrefix="/openwith"
+                    android:scheme="cardking"/>
+            </intent-filter>
+        </activity>
         <!-- 我的-优惠券 搜索 -->
         <activity
             android:name=".ui.bonus.activity.BoundCenterActivty"

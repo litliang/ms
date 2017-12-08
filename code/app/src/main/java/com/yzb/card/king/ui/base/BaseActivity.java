@@ -103,8 +103,6 @@ public class BaseActivity extends AppCompatActivity
      */
     public void reSetCityInfo(){
 
-
-
         positionedCity = GlobalApp.getPositionedCity();
 
         selectedCity = GlobalApp.getSelectedCity();

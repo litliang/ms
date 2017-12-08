@@ -1,6 +1,7 @@
 package com.yzb.card.king.ui.my.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
@@ -22,6 +23,7 @@ import com.yzb.card.king.sys.ServiceDispatcher;
 import com.yzb.card.king.ui.appwidget.StarBar;
 import com.yzb.card.king.ui.appwidget.popup.GoLoginDailog;
 import com.yzb.card.king.ui.base.BaseListAdapter;
+import com.yzb.card.king.ui.bonus.activity.UseInstructionsActivity;
 import com.yzb.card.king.ui.manage.UserManager;
 import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.Utils;
@@ -33,7 +35,7 @@ import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 /**
- * 类  名：
+ * 类  名：优惠券适配器
  * 作  者：Li Yubing
  * 日  期：2017/10/20
  * 描  述：
@@ -44,7 +46,6 @@ public class CouponInfoAdapter extends BaseListAdapter<CouponInfoBean> {
     public static final int WHAT_BUY = 0x002;
     private Handler handler;
     private ImageOptions options;
-    private int currentCouponType = 2;
 
     private Context context;
 
@@ -54,17 +55,12 @@ public class CouponInfoAdapter extends BaseListAdapter<CouponInfoBean> {
         options = XImageOptionUtil.getRoundImageOption(DensityUtil.dip2px(5), ImageView.ScaleType.FIT_XY);
     }
 
-    public void setCouponType(int currentCouponType) {
-
-        this.currentCouponType = currentCouponType;
-
-    }
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         MyViewHolder holder;
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.item_coupon_shop, parent, false);
+            convertView = mInflater.inflate(R.layout.item_coupon_app_goods, parent, false);
             holder = new MyViewHolder(convertView);
             convertView.setTag(holder);
         } else {
@@ -72,13 +68,7 @@ public class CouponInfoAdapter extends BaseListAdapter<CouponInfoBean> {
         }
         final CouponInfoBean bean = getItem(position);
 
-//        if (currentCouponType == 2) {
 
-        holder.llYouhuiquan.setVisibility(View.VISIBLE);
-
-        holder.llGoldCoupone.setVisibility(View.GONE);
-
-        //
         x.image().bind(holder.ivLogo, ServiceDispatcher.getImageUrl(bean.getStoreImageUrl()), options);
 
         holder.tvShopName.setText(bean.getStoreName());
@@ -105,28 +95,19 @@ public class CouponInfoAdapter extends BaseListAdapter<CouponInfoBean> {
             holder.tvAmount.setText(zhekouStr + "折");
 
 
-
-        } else if (couponType == 3) {//抵扣券
-
-
-            holder.tvFullCut.setText( Utils.subZeroAndDot(bean.getCutAmount() +"")
-                    + "元抵扣" + Utils.subZeroAndDot(bean.getFullAmount()+"" )+ "元");
-
-            holder.tvAmount.setText("¥" + Utils.subZeroAndDot(bean.getCutAmount() + ""));
-
         }
 
-        if (bean.getCouponHot() == 0) {
+        if (bean.getHot() == 0) {
 
             holder.starBar.setVisibility(View.GONE);
 
         } else {
 
-            holder.starBar.setStarMarkAndSore(bean.getCouponHot() / 2);
+            holder.starBar.setStarMarkAndSore(bean.getHot() / 2);
             holder.starBar.setVisibility(View.VISIBLE);
         }
 
-        holder.tvScore.setText(bean.getCouponHot() + "分");
+        holder.tvScore.setText(bean.getHot() + "分");
 
 
         holder.tvShopAddress.setText(bean.getDistrictName());
@@ -141,152 +122,40 @@ public class CouponInfoAdapter extends BaseListAdapter<CouponInfoBean> {
 
             holder.tvGet.setTextColor(Color.parseColor("#d8d8d8"));
 
-            if (couponType == 3) {//抵扣券
-
-                holder.tvGet.setText("已购买");
-
-            } else {
-
-                holder.tvGet.setText("已领取");
-            }
-
+            holder.tvGet.setText("已领取");
 
         } else if (receiveStatus == 0) {//未领取
 
-            if (couponType == 3) {//抵扣券
+            holder.tvGet.setTextColor(context.getResources().getColor(R.color.color_a10000));
 
-                holder.tvGet.setTextColor(context.getResources().getColor(R.color.color_d6c07f));
+            holder.tvAmount.setBackgroundResource(R.mipmap.icon_coupon_bg2);
 
-                holder.tvGet.setBackgroundResource(R.drawable.style_btn_yellow_circle);
+            holder.tvGet.setBackgroundResource(R.drawable.style_btn_red_circle);
 
-                holder.tvAmount.setBackgroundResource(R.mipmap.icon_coupon_bg3);
+            holder.tvGet.setText("立即领取");
 
-                holder.tvGet.setText("立即购买");
+            holder.tvGet.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
 
-                holder.tvGet.setOnClickListener(new View.OnClickListener() {
-                                                    @Override
-                                                    public void onClick(View v) {
+                                                    //检测是否登录
+                                                    if (UserManager.getInstance().isLogin()) {
 
-                                                        //检测是否登录
-                                                        if (UserManager.getInstance().isLogin()) {
-
-                                                            if (handler != null) {
-                                                                Message msg = handler.obtainMessage(WHAT_BUY);
-                                                                msg.arg1 = position;
-                                                                handler.sendMessage(msg);
-                                                            }
-
-                                                        } else {
-                                                            new GoLoginDailog(context).create().show();
+                                                        if (handler != null) {
+                                                            Message msg = handler.obtainMessage(WHAT_GET);
+                                                            msg.arg1 = position;
+                                                            handler.sendMessage(msg);
                                                         }
 
+                                                    } else {
+                                                        new GoLoginDailog(context).create().show();
                                                     }
+
                                                 }
+                                            }
 
-                );
-            } else {
-
-
-                holder.tvGet.setTextColor(context.getResources().getColor(R.color.color_a10000));
-
-                holder.tvAmount.setBackgroundResource(R.mipmap.icon_coupon_bg2);
-
-                holder.tvGet.setBackgroundResource(R.drawable.style_btn_red_circle);
-
-
-                holder.tvGet.setText("立即领取");
-
-                holder.tvGet.setOnClickListener(new View.OnClickListener() {
-                                                    @Override
-                                                    public void onClick(View v) {
-
-                                                        //检测是否登录
-                                                        if (UserManager.getInstance().isLogin()) {
-
-                                                            if (handler != null) {
-                                                                Message msg = handler.obtainMessage(WHAT_GET);
-                                                                msg.arg1 = position;
-                                                                handler.sendMessage(msg);
-                                                            }
-
-                                                        } else {
-                                                            new GoLoginDailog(context).create().show();
-                                                        }
-
-                                                    }
-                                                }
-
-                );
-            }
+            );
         }
-//        } else if (currentCouponType == 1) {
-//
-//            holder.llYouhuiquan.setVisibility(View.GONE);
-//            holder.llGoldCoupone.setVisibility(View.VISIBLE);
-//
-//            holder.tvShopNameOne.setText(bean.getCouponName());
-//
-//            holder.tvGoldDateOne.setText(bean.getStartDate()+"至"+bean.getEndDate());
-//
-//            int couponType = bean.getCouponType();
-//
-//            if (couponType == 1) {
-//
-//                holder.tvFullCutOne.setText("满" + Utils.subZeroAndDot(bean.getFullAmount() + ""));
-//
-//                String priceStr = "¥" + Utils.subZeroAndDot(bean.getCutAmount() + "");
-//
-//                SpannableString msp = new SpannableString(priceStr);
-//
-//                msp.setSpan(new RelativeSizeSpan(0.8f), 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//
-//                holder.tvAmountOne.setText(msp);
-//
-//            } else if (couponType == 2) {
-//
-//                float cutAmount = bean.getCutAmount();
-//
-//                String zhekouStr = Utils.handNumberToString(cutAmount);
-//
-//                holder.tvFullCutOne.setText("满" + Utils.subZeroAndDot(bean.getFullAmount() + ""));
-//
-//                holder.tvAmountOne.setText(zhekouStr + "折");
-//            }
-//
-//
-//            int receiveStatus = bean.getReceiveStatus();
-//
-//            if (receiveStatus == 1) {
-//
-//                holder.tvGetOne.setText("已领取");
-//
-//                holder.tvGetOne.setTextColor(Color.parseColor("#d8d8d8"));
-//
-//                holder.tvGetOne.setBackgroundResource(R.drawable.style_btn_gray_circle);
-//
-//            } else if (receiveStatus == 0) {
-//
-//                holder.tvGetOne.setText("未领取");
-//
-//                holder.tvGetOne.setTextColor(Color.parseColor("#ffffff"));
-//
-//                holder.tvGetOne.setBackgroundResource(R.drawable.style_btn_blue_deep_circle);
-//
-//                holder.tvGetOne.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        if (handler != null) {
-//                            Message msg = handler.obtainMessage(WHAT_GET);
-//                            msg.arg1 = position;
-//                            handler.sendMessage(msg);
-//                        }
-//                    }
-//                });
-//
-//            }
-//
-//
-//        }
 
         return convertView;
     }
@@ -298,7 +167,7 @@ public class CouponInfoAdapter extends BaseListAdapter<CouponInfoBean> {
     public CouponInfoBean getItemById(String yhqId) {
         if (!TextUtils.isEmpty(yhqId)) {
             for (int i = 0; i < mList.size(); i++) {
-                if (yhqId.equals(mList.get(i).getCouponId() + "")) {
+                if (yhqId.equals(mList.get(i).getActId() + "")) {
                     return mList.get(i);
                 }
             }
@@ -307,8 +176,6 @@ public class CouponInfoAdapter extends BaseListAdapter<CouponInfoBean> {
     }
 
     private class MyViewHolder extends RecyclerView.ViewHolder {
-        @ViewInject(R.id.llYouhuiquan)
-        private LinearLayout llYouhuiquan;
         @ViewInject(R.id.ivLogo)
         public ImageView ivLogo;
         @ViewInject(R.id.tvShopName)
@@ -326,22 +193,6 @@ public class CouponInfoAdapter extends BaseListAdapter<CouponInfoBean> {
         @ViewInject(R.id.starBar)
         public StarBar starBar;
 
-        @ViewInject(R.id.llGoldCoupone)
-        public LinearLayout llGoldCoupone;
-        @ViewInject(R.id.tvShopNameOne)
-        public TextView tvShopNameOne;
-
-        @ViewInject(R.id.tvFullCutOne)
-        public TextView tvFullCutOne;
-
-        @ViewInject(R.id.tvAmountOne)
-        public TextView tvAmountOne;
-
-        @ViewInject(R.id.tvGetOne)
-        public TextView tvGetOne;
-
-        @ViewInject(R.id.tvGoldDateOne)
-        public TextView tvGoldDateOne;
 
         public View root;
 

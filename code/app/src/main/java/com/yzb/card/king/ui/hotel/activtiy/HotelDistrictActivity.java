@@ -10,8 +10,10 @@ import com.alibaba.fastjson.JSONArray;
 import com.yzb.card.king.R;
 import com.yzb.card.king.bean.CatalogueTypeBean;
 import com.yzb.card.king.bean.SubItemBean;
+import com.yzb.card.king.bean.hotel.HotelProductListParam;
 import com.yzb.card.king.ui.base.BaseActivity;
 import com.yzb.card.king.ui.base.BaseViewLayerInterface;
+import com.yzb.card.king.ui.hotel.HotelLogicManager;
 import com.yzb.card.king.ui.hotel.adapter.DistrictAdapterDataCallBack;
 import com.yzb.card.king.ui.hotel.adapter.DistrictOneAdapter;
 import com.yzb.card.king.ui.hotel.adapter.DistrictThreeAdapter;
@@ -48,8 +50,7 @@ public class HotelDistrictActivity extends BaseActivity implements View.OnClickL
     private DistrictThreeAdapter threeAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setTitleNmae(R.string.hotel_postion_district);
@@ -64,8 +65,7 @@ public class HotelDistrictActivity extends BaseActivity implements View.OnClickL
     /**
      * 初始观察者请求
      */
-    private void initRequest()
-    {
+    private void initRequest() {
 
         FilterListPersenter persenter = new FilterListPersenter(this);
 
@@ -75,8 +75,7 @@ public class HotelDistrictActivity extends BaseActivity implements View.OnClickL
     }
 
 
-    private void initView()
-    {
+    private void initView() {
 
         findViewById(R.id.tvClear).setOnClickListener(this);
 
@@ -109,8 +108,7 @@ public class HotelDistrictActivity extends BaseActivity implements View.OnClickL
     }
 
     @Override
-    public void onClick(View v)
-    {
+    public void onClick(View v) {
         switch (v.getId()) {
 
             case R.id.tvClear://清空
@@ -160,14 +158,76 @@ public class HotelDistrictActivity extends BaseActivity implements View.OnClickL
     }
 
     @Override
-    public void callSuccessViewLogic(Object o, int type)
-    {
+    public void callSuccessViewLogic(Object o, int type) {
 
         dimissPdialog();
 
         if (type == -1) {
 
             List<CatalogueTypeBean> catalogueTypeBeanList = JSONArray.parseArray(o + "", CatalogueTypeBean.class);
+
+//            HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
+//
+//            List<SubItemBean> hotelPositionList = productListParam.getHotelPositionList();
+//            /**
+//             * 检测是否有选中的数据
+//             */
+//            if (hotelPositionList != null && hotelPositionList.size() == 1) {
+//
+//                SubItemBean targetBean = hotelPositionList.get(0);
+//
+//                for (CatalogueTypeBean parentBean : catalogueTypeBeanList) {
+//
+//                    List<SubItemBean> childList = parentBean.getChildList();
+//
+//                    if (childList != null) {
+//
+//                        int twoSize = childList.size();
+//
+//
+//                        for (int i = 0; i < twoSize ; i++) {
+//
+//                            SubItemBean bean = childList.get(i);
+//
+//                            if (targetBean.getChildTypeCode().equals(bean.getChildTypeCode()) &&
+//                                    targetBean.getFilterId().equals(bean.getFilterId()) &&
+//                                    targetBean.getFilterName().equals(bean.getFilterName()) &&
+//                                    targetBean.getFilterLng() == bean.getFilterLng() &&
+//                                    targetBean.getFilterLat() == bean.getFilterLat()) {
+//
+//                                twoAdapter.setTwoCurrentIndex(i);
+//
+//
+//                                break;
+//                            } else {
+//
+//                                List<SubItemBean.ChildSubItemBean> childSubItemBeans = bean.getChildList();
+//
+//                                if (childSubItemBeans != null && childSubItemBeans.size() > 0) {
+//
+//                                    for (SubItemBean.ChildSubItemBean childSubItemBean : childSubItemBeans) {
+//
+//                                        if (targetBean.getChildTypeCode().equals(childSubItemBean.getChildTypeCode()) &&
+//                                                targetBean.getFilterId().equals(childSubItemBean.getFilterId()) &&
+//                                                targetBean.getFilterName().equals(childSubItemBean.getFilterName()) &&
+//                                                targetBean.getFilterLng() == childSubItemBean.getFilterLng() &&
+//                                                targetBean.getFilterLat() == childSubItemBean.getFilterLat()) {
+//
+//                                            bean.setDefault(true);
+//
+//                                            break;
+//                                        }
+//                                    }
+//                                }
+//                            }
+//
+//                        }
+//                    }
+//
+//                }
+//
+//
+//            }
 
             oneAdapter.addNewDataList(catalogueTypeBeanList);
 
@@ -178,15 +238,13 @@ public class HotelDistrictActivity extends BaseActivity implements View.OnClickL
     }
 
     @Override
-    public void callFailedViewLogic(Object o, int type)
-    {
+    public void callFailedViewLogic(Object o, int type) {
         dimissPdialog();
     }
 
     private DistrictAdapterDataCallBack districtAdapterDataCallBack = new DistrictAdapterDataCallBack() {
         @Override
-        public void onClickItemData(Object o)
-        {
+        public void onClickItemData(Object o) {
 
             if (o instanceof SubItemBean) {
 
@@ -215,8 +273,7 @@ public class HotelDistrictActivity extends BaseActivity implements View.OnClickL
     /**
      * 重新加載第二列和第三列視圖和數據
      */
-    private void loadOtherColumnDataView()
-    {
+    private void loadOtherColumnDataView() {
 
         List<SubItemBean> childList = oneAdapter.getCurrentObjectChildList();
 
@@ -233,7 +290,9 @@ public class HotelDistrictActivity extends BaseActivity implements View.OnClickL
                 threeAdapter.addNewChildList(threeList);
 
             } else {
+
                 threeAdapter.clearDataList();
+
                 rvThree.setVisibility(View.GONE);
             }
 

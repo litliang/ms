@@ -79,16 +79,12 @@ import java.util.Map;
 @ContentView(R.layout.activity_coupon_more_shop)
 public class CouponMoreShopsActivity extends BaseActivity implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener,
         LoadMoreListView.OnLoadMoreListener, CouponShopsView, ReceiveYhqView, BaseViewLayerInterface {
+
     private static final int REQ_GET_PLACE = 0x001;
     @ViewInject(R.id.swipeRefresh)
     private SwipeRefreshLayout swipeRefresh;
     @ViewInject(R.id.listView)
     private LoadMoreListView listView;
-
-    @ViewInject(R.id.tvTabNoUse)
-    private TextView tvTabNoUse;
-    @ViewInject(R.id.ivTabNoUse)
-    private ImageView ivTabNoUse;
 
     @ViewInject(R.id.tvTabSort)
     private TextView tvTabSort;
@@ -106,30 +102,40 @@ public class CouponMoreShopsActivity extends BaseActivity implements View.OnClic
     private ImageView ivTabCoupon;
 
     @ViewInject(R.id.ivRight)
-    private ImageView  ivRight;
+    private ImageView ivRight;
 
     private CouponInfoAdapter adapter;
+
     private TextView tvCity;
+
     private String cityId;
+
     private CouponShopsPresenter shopsPresenter;
+
     private String industryId = "0";
+
     private String lng;
+
     private String lat;
+
     private String sort = "2";
-    private String actStatus = "2"; //1代金券；2优惠券；
-    private String storeName=null;
+
+    private String actStatus = "2"; //2优惠券；
+
+    private String storeName = null;
 
     private SubItemBean selectedSubItemBean = null;
 
     private CommonBottomPop bottomPop;
+
     private View panelBottom;
+
     private ReceiveYhqPresenter receiveYhqPresenter;
+
     private FilterListPersenter filterListPersenter;
 
-    private GetCouponPersenter getCouponPersenter;
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         defaultFlag = true;
         super.onCreate(savedInstanceState);
         shopsPresenter = new CouponShopsPresenter(this);
@@ -138,30 +144,34 @@ public class CouponMoreShopsActivity extends BaseActivity implements View.OnClic
 
         filterListPersenter = new FilterListPersenter(this);
 
-        getCouponPersenter = new GetCouponPersenter(this);
         recvIntentData();
         initView();
         initData();
     }
 
-    private void recvIntentData()
-    {
+    private void recvIntentData() {
+
         Intent intent = getIntent();
+
         Serializable ser = intent.getSerializableExtra("paramData");
+
         if (ser != null) {
+
             SearchResultBean srb = (SearchResultBean) ser;
+
             storeName = srb.getStoreName();
 
         } else {
+
             if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+
                 initData();
             }
         }
     }
 
     @Override
-    protected void onNewIntent(Intent intent)
-    {
+    protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
         recvIntentData();
@@ -170,8 +180,7 @@ public class CouponMoreShopsActivity extends BaseActivity implements View.OnClic
         initData();
     }
 
-    private void initView()
-    {
+    private void initView() {
         findViewById(R.id.ivBack).setOnClickListener(this);
 
         tvCity = (TextView) findViewById(R.id.tvCity);
@@ -199,64 +208,59 @@ public class CouponMoreShopsActivity extends BaseActivity implements View.OnClic
         findViewById(R.id.panelSearch).setOnClickListener(this);
         findViewById(R.id.panelLocation).setOnClickListener(this);
 
-        findViewById(R.id.panelNoUse).setOnClickListener(this);
         findViewById(R.id.panelSort).setOnClickListener(this);
         findViewById(R.id.panelNearby).setOnClickListener(this);
         findViewById(R.id.panelShopCoupon).setOnClickListener(this);
-
+        ivRight.setBackgroundResource(R.mipmap.icon_coupon_new_center);
         ivRight.setOnClickListener(this);
 
-        selectTabByIndex(2);
+        selectTabByIndex(1);
     }
 
     private int clickIndex = -1;
 
     private Handler handler = new Handler(new Handler.Callback() {
         @Override
-        public boolean handleMessage(Message msg)
-        {
+        public boolean handleMessage(Message msg) {
             switch (msg.what) {
 
-                case CouponInfoAdapter.WHAT_BUY:
-                    CouponInfoBean shopBeano= adapter.getItem(msg.arg1);
-                    exeBuy(shopBeano.getCouponId(),shopBeano.getCutAmount());
-                    break;
+
                 case CouponShopsAdapter.WHAT_GET:
                     CouponInfoBean shopBean = adapter.getItem(msg.arg1);
-                    exeGet(shopBean.getCouponId());
+                    exeGet(shopBean.getActId());
                     break;
                 case CommonBottomPop.WHAT_SINGLE: //未使用或智能排序；
 
                     SubItemBean filterBean = (SubItemBean) msg.obj;
 
-                    if (clickIndex == 1) //未使用；
-                    {
-                        actStatus = filterBean.getFilterId();
-                        //   tvTabNoUse.setText(filterBean.getObjName());
-                        selectTabByIndex(1);
-
-                    } else if (clickIndex == 2){
+                    if (clickIndex == 1) {
                         //排序
-
-                        selectTabByIndex(2);
+                        selectTabByIndex(1);
 
                         sort = filterBean.getFilterId();
                     }
-
                     initData();
+
                     break;
                 case CommonBottomPop.WHAT_NEAR: //附近；
-                    selectTabByIndex(3);
+
+                    selectTabByIndex(2);
+
                     SubItemBean nearbyBean = (SubItemBean) msg.obj;
 
                     selectedSubItemBean = nearbyBean;
 
                     initData();
+
                     break;
                 case CommonBottomPop.WHAT_CATEGORY: //频道；
-                    selectTabByIndex(4);
+
+                    selectTabByIndex(3);
+
                     ChildTypeBean typeBean = (ChildTypeBean) msg.obj;
+
                     industryId = typeBean.id;
+
                     //全部；
                     if ("0000".equals(industryId)) {
                         industryId = "0";
@@ -268,74 +272,56 @@ public class CouponMoreShopsActivity extends BaseActivity implements View.OnClic
         }
     });
 
-    private float cutAmount = 0;
-    /**
-     * 购买优惠券；
-     */
-    private void exeBuy(long actId, float cutAmount)
-    {
-
-        this.cutAmount = cutAmount;
-
-        ProgressDialogUtil.getInstance().showProgressDialog(this,false);
-
-        getCouponPersenter.sendCreateCouponOrderRequest(actId,cutAmount);
-    }
-
-
 
     /**
      * 领取优惠券；
      */
-    private void exeGet(long actId)
-    {
+    private void exeGet(long actId) {
+
         Map<String, Object> params = new HashMap<>();
+
         params.put("actId", actId + "");
-       // params.put("orderId", actId + "");
+
         params.put("serviceName", CardConstant.card_app_receivecoupon);
+
         receiveYhqPresenter.loadData(params);
     }
 
-    private void initData()
-    {
+    private void initData() {
+
         handler.postDelayed(new Runnable() {
             @Override
-            public void run()
-            {
+            public void run() {
+
                 swipeRefresh.setRefreshing(true);
+
                 onRefresh();
+
             }
         }, 100);
     }
 
     @Override
-    public void onRefresh()
-    {
+    public void onRefresh() {
         loadCouponList(true);
     }
 
     @Override
-    public void onLoadMore()
-    {
+    public void onLoadMore() {
         loadCouponList(false);
     }
 
     /**
      * 查询商家列表；
      */
-    private void loadCouponList(boolean isRefresh)
-    {
-        if (isRefresh) {
+    private void loadCouponList(boolean isRefresh) {
 
-            adapter.setCouponType(Integer.parseInt(actStatus));
+        if (isRefresh) {
 
             adapter.clearAll();
         }
 
-
         Map<String, Object> args = new HashMap<>();//actStatus
-
-        args.put("couponType", actStatus);
 
         args.put("cityId", cityId);
 
@@ -343,11 +329,12 @@ public class CouponMoreShopsActivity extends BaseActivity implements View.OnClic
 
         args.put("lat", lat);
 
-        if(!"0".equals(industryId)){
+        if (!"0".equals(industryId)) {
+
             args.put("industryId", industryId);
         }
 
-        if(!TextUtils.isEmpty(storeName)){
+        if (!TextUtils.isEmpty(storeName)) {
             args.put("storeName", storeName);
         }
 
@@ -370,45 +357,51 @@ public class CouponMoreShopsActivity extends BaseActivity implements View.OnClic
     }
 
     @Override
-    public void onClick(View v)
-    {
+    public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ivBack:
                 finish();
                 break;
             case R.id.panelSearch: //优惠券搜索；
-                readyGo(this, CouponSearchActivity.class);
+
+                Intent intentOne = new Intent(this,CouponSearchActivity.class);
+
+                intentOne.putExtra("youhuiType",1);
+
+                startActivityForResult(intentOne,1000);
+
                 break;
             case R.id.panelLocation: //城市；
                 Intent intent = new Intent(this, SelectPlaceActivity.class);
                 startActivityForResult(intent, REQ_GET_PLACE);
                 break;
-            case R.id.panelNoUse://分类；
-                clickIndex = 1;
-                showBottomPop(1);
-                break;
             case R.id.panelSort://排序；
-                clickIndex= 2;
-                showBottomPop(2);
+                clickIndex = 1;
+                showBottomPop(clickIndex);
                 break;
             case R.id.panelNearby://附近；
-                clickIndex=3;
-                showBottomPop(3);
+                clickIndex = 2;
+                showBottomPop(clickIndex);
                 break;
             case R.id.panelShopCoupon://商家优惠；
-                clickIndex = 4;
-                showBottomPop(4);
+                clickIndex = 3;
+                showBottomPop(clickIndex);
                 break;
             case R.id.ivRight://电子
 
-                if (isLogin())
-                {
-                    startActivity(new Intent(CouponMoreShopsActivity.this, CouponsMySelfActivity.class));
+                if (isLogin()) {
+                    Intent intentE = new Intent(CouponMoreShopsActivity.this, CouponsMySelfActivity.class);
 
+                    intentE.putExtra("titleName", "我的优惠券");
 
-                }else {
+                    intentE.putExtra("type", 1);
+
+                    startActivity(intentE);
+
+                } else {
 
                     Intent intentR = new Intent(CouponMoreShopsActivity.this, LoginActivity.class);
+
                     startActivityForResult(intentR, 101);
                 }
 
@@ -418,22 +411,18 @@ public class CouponMoreShopsActivity extends BaseActivity implements View.OnClic
         }
     }
 
-    private void selectTabByIndex(int index)
-    {
+    private void selectTabByIndex(int index) {
         switch (index) {
+
             case 1:
-                ivTabNoUse.setSelected(true);
-                tvTabNoUse.setSelected(true);
-                break;
-            case 2:
                 ivTabSort.setSelected(true);
                 tvTabSort.setSelected(true);
                 break;
-            case 3:
+            case 2:
                 ivTabNearby.setSelected(true);
                 tvTabNearby.setSelected(true);
                 break;
-            case 4:
+            case 3:
                 ivTabCoupon.setSelected(true);
                 tvTabCoupon.setSelected(true);
                 break;
@@ -445,53 +434,35 @@ public class CouponMoreShopsActivity extends BaseActivity implements View.OnClic
      *
      * @param index 2,3,4
      */
-    private void showBottomPop(int index)
-    {
+    private void showBottomPop(int index) {
+
         if (bottomPop == null) {
+
             bottomPop = new CommonBottomPop(this);
+
             bottomPop.setHeight(Utils.getDisplayHeight(this) - panelBottom.getMeasuredHeight());
+
             bottomPop.setDataHandler(handler);
+
         }
+
         bottomPop.dismiss();
 
         switch (index) {
+
             case 1:
-               //  bottomPop.setSelectItemId(actStatus);
-                List<SubItemBean> oneTList = DataUtil.getCouponUseCondition();
-
-                for(SubItemBean sb :oneTList){
-
-                    String filterId =   sb.getFilterId();
-
-                    if(actStatus.equals(filterId)){
-
-                        sb.setDefault(true);
-
-                    }else {
-
-                        sb.setDefault(false);
-
-                    }
-
-                }
-                bottomPop.setType(CommonBottomPop.TYPE_ONE);
-                bottomPop.setOneData(oneTList);
-                bottomPop.showAtLocation(getWindow().getDecorView(), Gravity.TOP, 0, 0);
-                break;
-            case 2:
-               // bottomPop.setSelectItemId(sort);
-
+                // bottomPop.setSelectItemId(sort);
                 List<SubItemBean> oneList = DataUtil.getCouponSorts2();
 
-                for(SubItemBean sb :oneList){
+                for (SubItemBean sb : oneList) {
 
-                   String filterId =   sb.getFilterId();
+                    String filterId = sb.getFilterId();
 
-                    if(sort.equals(filterId)){
+                    if (sort.equals(filterId)) {
 
                         sb.setDefault(true);
 
-                    }else {
+                    } else {
 
                         sb.setDefault(false);
 
@@ -500,38 +471,59 @@ public class CouponMoreShopsActivity extends BaseActivity implements View.OnClic
                 }
 
                 bottomPop.setType(CommonBottomPop.TYPE_ONE);
+
                 bottomPop.setOneData(oneList);
+
                 bottomPop.showAtLocation(getWindow().getDecorView(), Gravity.TOP, 0, 0);
+
                 break;
-            case 3:
+            case 2:
                 if (bottomPop.getNearbyList() != null && bottomPop.getNearbyList().size() > 0) {
+
                     bottomPop.setType(CommonBottomPop.TYPE_TWO);
+
                     bottomPop.initTwoData();
+
                     bottomPop.showAtLocation(getWindow().getDecorView(), Gravity.TOP, 0, 0);
+
                 } else {
+
                     getNearbyData();
                 }
                 break;
-            case 4:
+
+            case 3:
+
                 bottomPop.setType(CommonBottomPop.TYPE_CATEGORY);
+
                 bottomPop.initCategoryData();
+
                 bottomPop.showAtLocation(getWindow().getDecorView(), Gravity.TOP, 0, 0);
+
+                break;
+            default:
                 break;
         }
     }
 
     @Override
-    protected void onResume()
-    {
+    protected void onResume() {
         super.onResume();
 
         if (CitySelectManager.getInstance().getPlace() != null) {
+
             CitySelectManager csm = CitySelectManager.getInstance();
+
             IPlace city = csm.getPlace();
+
             if (city != null) {
+
                 cityId = csm.getPlaceId();
+
                 tvCity.setText(csm.getPlaceName());
+
                 loadCouponList(true);
+
                 csm.clearData();
             }
         }
@@ -540,15 +532,13 @@ public class CouponMoreShopsActivity extends BaseActivity implements View.OnClic
     /**
      * 获取附近筛选条件；
      */
-    private void getNearbyData()
-    {
+    private void getNearbyData() {
 
         filterListPersenter.sendCouponFilterData(cityId);
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (data == null || resultCode != Activity.RESULT_OK) {
             return;
         }
@@ -559,10 +549,12 @@ public class CouponMoreShopsActivity extends BaseActivity implements View.OnClic
     }
 
     @Override
-    public void onGetCouponShopsSuc(boolean event_tag, List<CouponInfoBean> list)
-    {
+    public void onGetCouponShopsSuc(boolean event_tag, List<CouponInfoBean> list) {
+
         swipeRefresh.setRefreshing(false);
+
         listView.onLoadMoreComplete();
+
         if (event_tag) {
             adapter.clearAll();
         }
@@ -570,52 +562,46 @@ public class CouponMoreShopsActivity extends BaseActivity implements View.OnClic
     }
 
     @Override
-    public void onGetCouponShopsFail(String failMsg)
-    {
+    public void onGetCouponShopsFail(String failMsg) {
+
         swipeRefresh.setRefreshing(false);
+
         listView.onLoadMoreComplete();
+
         toastCustom(failMsg);
     }
 
     @Override
-    public void onReceiveYhqSucess(String yhqId)
-    {
+    public void onReceiveYhqSucess(String yhqId) {
         CouponInfoBean shopBean = adapter.getItemById(yhqId);
         if (shopBean != null) {
-            AppCouponSucessDialgFragment.getInstance(shopBean.getCutAmount() + "",actStatus,
-                    shopBean.getCouponType()+"").show(getSupportFragmentManager(), "");
+            AppCouponSucessDialgFragment.getInstance(shopBean.getCutAmount() + "", actStatus,
+                    shopBean.getCouponType() + "").show(getSupportFragmentManager(), "");
         }
         loadCouponList(true);
     }
 
     @Override
-    public void onReceiveYhqFail(String failMsg)
-    {
+    public void onReceiveYhqFail(String failMsg) {
         toastCustom(failMsg);
     }
 
-    private  OrderOutBean orderOutBean;
+   // private OrderOutBean orderOutBean;
 
     @Override
-    public void callSuccessViewLogic(Object o, int type)
-    {
+    public void callSuccessViewLogic(Object o, int type) {
         if (type == -1) {
             List<CatalogueTypeBean> catalogueTypeBeanList = JSONArray.parseArray(o + "", CatalogueTypeBean.class);
 
             bottomPop.setType(CommonBottomPop.TYPE_TWO);
+
             bottomPop.setNearbyBean(catalogueTypeBeanList);
+
             bottomPop.initTwoData();
+
             bottomPop.showAtLocation(getWindow().getDecorView(), Gravity.TOP, 0, 0);
 
-        }else    if(type == GetCouponPersenter.CREATECOUPONORDER_CODE){
-
-            ProgressDialogUtil.getInstance().closeProgressDialog();
-
-            orderOutBean = com.alibaba.fastjson.JSONObject.parseObject(o+"",OrderOutBean.class);
-
-            startBuy();
-
-        }else  if(type == GetCouponPersenter.UPDATECOUPONPAYDETAIL_CODE){//更新数据
+        } else if (type == GetCouponPersenter.UPDATECOUPONPAYDETAIL_CODE) {//更新数据
 
             initData();
 
@@ -623,146 +609,13 @@ public class CouponMoreShopsActivity extends BaseActivity implements View.OnClic
     }
 
     @Override
-    public void callFailedViewLogic(Object o, int type)
-    {
+    public void callFailedViewLogic(Object o, int type) {
         if (type == -1) {
             toastCustom("暂无信息");
-        }else {
+        } else {
 
             ProgressDialogUtil.getInstance().closeProgressDialog();
         }
-    }
-
-    private PayRequestLogic payHandle;
-
-    private String payType ="1";
-
-    private String payDetailId ="";
-    /**
-     * 付款；
-     */
-    private void startBuy(  )
-    {
-        payHandle = new PayRequestLogic(this);
-        // 显示/隐藏 红包账户
-        payHandle.showEnvelopPay(false);
-        // 显示/隐藏 礼品卡账户
-        payHandle.showGiftPay(false);
-        // 显示/隐藏 现金账户
-        payHandle.showBalancePay(true);
-        // 显示/隐藏 信用卡 默认隐藏
-        payHandle.showCreditCard(false);
-        // 显示/隐藏 借记卡 默认隐藏
-        payHandle.showDebitCard(true);
-        //添加卡；
-        payHandle.setAddCardCallBack(new AddCardBackListener()
-        {
-            @Override
-            public void callBack()
-            {
-
-                startActivity(new Intent(CouponMoreShopsActivity.this, AddBankCardActivity.class));
-            }
-        });
-        payHandle.payMethodCallBack(new PayMethodListener()
-        {
-            @Override
-            public void callBack(Map<String, String> map)
-            {
-                LogUtil.e("选择付款方式返回数据=" + JSON.toJSONString(map));
-                payType = map.get("payType");
-                payDetailId = map.get("payDetailId");
-            }
-        });
-        payHandle.setCallBack(new WalletBackListener()
-        {
-            @Override
-            public void setSuccess(String RESULT_CODE)
-            {
-                onPaySucess();
-            }
-
-            @Override
-            public void setSuccess(Map<String, String> resultMap, String RESULT_CODE)
-            {
-
-                if(RESULT_CODE.equals( com.yzb.wallet.util.WalletConstant.PAY_TYPE_OFF)){// 支付卡信息不全
-
-                    String str = JSON.toJSONString(resultMap);
-
-                    PayMethod accountInfo = JSON.parseObject(str , PayMethod.class);
-
-                    int cardType = accountInfo.getCardType();
-
-                    Class claz = null;
-
-                    if(cardType==1){// 储蓄卡
-
-                        claz = AddBankCardActivity.class;
-
-                    }else if(cardType ==2){//信用卡
-
-                        claz = AddCanPayCardActivity.class;
-
-                    }
-                    Intent intent = new Intent(CouponMoreShopsActivity.this, claz);
-                    intent.putExtra("cardNo",accountInfo.getCardNo());
-                    intent.putExtra("name", accountInfo.getName());
-                    startActivity(intent);
-
-                }else{
-
-                    onPaySucess();
-
-                }
-            }
-
-            @Override
-            public void setError(String RESULT_CODE, String ERROR_MSG)
-            {
-                LogUtil.i("付款失败；RESULT_CODE=" + RESULT_CODE + ",ERROR_MSG=" + ERROR_MSG);
-                ToastUtil.i(CouponMoreShopsActivity.this,ERROR_MSG);
-            }
-        });
-
-        payHandle.pay(getInputMap(), false);
-    }
-
-    private Map<String, String> getInputMap(  )
-    {
-        Map<String, String> params = new HashMap<>();
-
-        params.put("mobile", getUserBean().getAmountAccount());
-
-        params.put("orderNo", orderOutBean.getOrderNo());
-
-        params.put("orderTime", DateUtil.formatOrderTime(orderOutBean.getOrderTime()));
-
-        String st = String.format("%.2f", cutAmount);
-
-        params.put("amount",st ); //订单金额；
-
-        params.put("leftTime", AppConstant.leftTime); //超时时间
-
-        params.put("goodsName", "折扣券"); //商品名称
-
-        params.put("transIp", AppUtils.getLocalIpAddress(GlobalApp.getInstance().getContext()));//交易IP
-
-        params.put("notifyUrl", orderOutBean.getNotifyUrl());
-
-        params.put("merchantNo", WalletConstant.MERCHANT_NO);//商户号
-
-        params.put("sign", AppConstant.sign);//签名
-
-        return params;
-    }
-
-    public void onPaySucess()
-    {
-        BuySucesWithOkDialog.getInstance().show(getSupportFragmentManager(), "");
-
-        getCouponPersenter.updateCouponPayDetailRequest(orderOutBean.getOrderId(),orderOutBean.getOrderAmount(),orderOutBean.getOrderTime(),payType,payDetailId);
-
     }
 
 }

@@ -3,6 +3,7 @@ package com.yzb.card.king.ui.credit.adapter;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.ViewGroup;
 
 import com.yzb.card.king.bean.common.LifeStageDetailBean;
@@ -74,7 +75,7 @@ public class AppBankPaymentAdapter extends RecyclerAdapter<PaymethodAndBankPreSt
 
                 int arg1 = msg.arg1;//选择分期对象
 
-                if (arg1 != 0) {//表示不分期
+                if (arg1 != 0) {//表示有分期信息
 
                     int index = arg1 - 1;//分期数据,从支付方式分期信息中获选中的分期信息，而“不分期”是本地造的标识数据,因此减一
 
@@ -107,6 +108,10 @@ public class AppBankPaymentAdapter extends RecyclerAdapter<PaymethodAndBankPreSt
                     }
 
                     notifyDataSetChanged();
+                }else {
+
+                    notifyDataSetChanged();
+
                 }
 
             }

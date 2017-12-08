@@ -69,7 +69,7 @@
             android:textSize="14sp"
             android:layout_marginLeft="@dimen/title_l_r"
             android:textColor="@color/color_666666"
-            android:text="代金券"/>
+            android:text="券"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/wvLvData"

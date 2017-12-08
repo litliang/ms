@@ -22,70 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:background="#cdcdcd"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:background="@color/white_ffffff"
-        >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            >
-
-            <TextView
-                android:id="@+id/tvYouhuiquan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:text="优惠券"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:textColor="@drawable/selector_text_red_white"
-                android:textSize="16sp" />
-            <ImageView
-                android:id="@+id/ivOne"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="10dp"
-                android:background="#d8c07d"/>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/tvDaijinquan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="代金券"
-                android:textColor="@drawable/selector_text_red_white"
-                android:textSize="16sp" />
-
-            <ImageView
-                android:id="@+id/ivTwo"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="10dp"
-                android:background="#d8c07d"/>
-
-        </LinearLayout>
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/divider_color2"/>
     <FrameLayout
         android:id="@+id/flOne"
         android:layout_width="match_parent"
