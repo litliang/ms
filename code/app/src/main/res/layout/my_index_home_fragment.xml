@@ -159,7 +159,7 @@
                 android:background="@color/white_ffffff"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="22dp"
+                android:padding="@dimen/title_l_r"
                 android:visibility="gone"
                 >
 
@@ -651,7 +651,7 @@
                     </LinearLayout>
 
 
-                    <LinearLayout android:visibility="gone"
+                    <LinearLayout
                         android:id="@+id/llFav"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

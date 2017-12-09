@@ -31,7 +31,7 @@ import java.util.Map;
 
 
 /**
- * 优惠券搜索；
+ * 优惠券、代金券搜索；
  *
  * @author gengqiyun
  * @date 2017/1/12
@@ -41,22 +41,31 @@ public class CouponSearchActivity extends BaseActivity implements View.OnClickLi
 {
     @ViewInject(R.id.etKeywordInput)
     private EditText etKeywordInput;
+
     @ViewInject(R.id.listView)
     private LoadMoreListView listView;
+
     @ViewInject(R.id.historyView)
     private TravelHistoryRecordView historyView;
+
     @ViewInject(R.id.ivClear)
     private View ivClear;
+
     private List<String> historyList; //历史记录；
 
     private SearchListAdapter searchAdapter;
     private SwipeRefreshLayout srl;
     private SearchListPresenter searchListPresenter;
 
+    private int type = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        type = getIntent().getIntExtra("youhuiType",1);
+
         assignViews();
         searchListPresenter = new SearchListPresenter(this);
         readHistoryFromLocal();
@@ -107,9 +116,20 @@ public class CouponSearchActivity extends BaseActivity implements View.OnClickLi
         @Override
         public void callBack(SearchResultBean bean)
         {
-            Intent intent = new Intent(CouponSearchActivity.this, CouponMoreShopsActivity.class);
-            intent.putExtra("paramData", bean);
-            startActivity(intent);
+
+            if(type == 1){
+
+                Intent intent = new Intent(CouponSearchActivity.this, CouponMoreShopsActivity.class);
+                intent.putExtra("paramData", bean);
+                startActivity(intent);
+
+            }else if(type == 2){
+
+                Intent intent = new Intent(CouponSearchActivity.this, VoucherMoreShopsActivity.class);
+                intent.putExtra("paramData", bean);
+                startActivity(intent);
+            }
+
         }
     };
 
@@ -121,11 +141,26 @@ public class CouponSearchActivity extends BaseActivity implements View.OnClickLi
     private void searchInput(boolean event_tag)
     {
         Map<String, Object> params = new HashMap<>();
+
         params.put("cityId", isEmpty(selectedCity.cityId) ? positionedCity.cityId : selectedCity.cityId);
+
         params.put("searchName", etKeywordInput.getText().toString().trim());//搜索内容
+
         params.put("pageStart", event_tag ? "0" : searchAdapter.getCount() + "");//请求开始位置
+
         params.put("pageSize", "20");
-        params.put("serviceName", CardConstant.card_app_searchcoupon);
+
+        if(type == 1){
+
+            params.put("serviceName", CardConstant.card_app_searchcoupon);
+
+        }else if(type == 2){
+
+            params.put("serviceName", CardConstant.card_app_cashcouponkeywordssearch);
+        }
+
+
+
         searchListPresenter.loadData(event_tag, params);
     }
 
@@ -135,7 +170,6 @@ public class CouponSearchActivity extends BaseActivity implements View.OnClickLi
     private void readHistoryFromLocal()
     {
         String searchJson = SharePrefUtil.getValueFromSp(this, SharePrefUtil.SEARCH_COUPON, "[]");
-        LogUtil.i("本地历史记录searchJson=" + searchJson);
         historyList = JSON.parseArray(searchJson, String.class);
         historyView.setData(historyList);
         historyView.setVisibility(historyList == null || historyList.size() == 0 ? View.GONE : View.VISIBLE);

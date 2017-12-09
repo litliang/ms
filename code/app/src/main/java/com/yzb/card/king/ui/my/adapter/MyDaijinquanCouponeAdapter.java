@@ -1,6 +1,7 @@
 package com.yzb.card.king.ui.my.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import com.yzb.card.king.R;
 import com.yzb.card.king.bean.my.CouponInfoBean;
 import com.yzb.card.king.ui.base.BaseListAdapter;
+import com.yzb.card.king.ui.bonus.activity.UseInstructionsActivity;
 import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.Utils;
 
@@ -26,6 +28,7 @@ import org.xutils.x;
  */
 
 public class MyDaijinquanCouponeAdapter extends BaseListAdapter<CouponInfoBean> {
+
 
 
     public MyDaijinquanCouponeAdapter(Context context) {
@@ -51,74 +54,30 @@ public class MyDaijinquanCouponeAdapter extends BaseListAdapter<CouponInfoBean> 
             holder = (MyViewHolder) convertView.getTag();
 
         }
-         CouponInfoBean bean = getItem(position);
+       final  CouponInfoBean bean = getItem(position);
         //
-        LogUtil.e("bean.getCouponName()="+bean.getCouponName());
-        holder.tvShopName.setText(bean.getCouponName());
+        holder.tvShopName.setText(bean.getActName());
 
-        holder.tvGoldDate.setText(bean.getStartDate()+"至"+bean.getEndDate());
+        holder.tvGoldDate.setText(bean.getStartDate() + "至" + bean.getEndDate());
 
-        int couponType = bean.getCouponType();
-        LogUtil.e("couponType="+couponType);
-        if (couponType == 1) {
 
-            String priceStr = "¥" + Utils.subZeroAndDot(bean.getCutAmount() + "");
+        holder.tvAmount.setTextColor(Color.parseColor("#8e8e8e"));
 
-            SpannableString msp = new SpannableString(priceStr);
+        holder.tvAmount.setText("抵");
 
-            msp.setSpan(new RelativeSizeSpan(0.8f), 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        holder.tvFullCut.setTextColor(Color.parseColor("#d7c181"));
 
-            holder.tvAmount.setText(msp);
+        holder.tvFullCut.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
 
-            holder.tvAmount.setTextSize(TypedValue.COMPLEX_UNIT_SP,16);
+        holder.tvAmount.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13);
 
-            holder.tvFullCut.setTextSize(TypedValue.COMPLEX_UNIT_SP,13);
+        String priceStr = "¥" + Utils.subZeroAndDot(bean.getCutAmount() + "");
 
-            holder.tvFullCut.setText("满" + Utils.subZeroAndDot(bean.getFullAmount() + ""));
+        SpannableString msp = new SpannableString(priceStr);
 
-            holder.tvAmount.setTextColor(Color.parseColor("#970000"));
+        msp.setSpan(new RelativeSizeSpan(0.8f), 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-            holder.tvFullCut.setTextColor(Color.parseColor("#8e8e8e"));
-
-        } else if (couponType == 2) {
-
-            float cutAmount = bean.getCutAmount();
-
-            String zhekouStr = Utils.handNumberToString(cutAmount);
-
-            holder.tvFullCut.setText("满" + Utils.subZeroAndDot(bean.getFullAmount() + ""));
-
-            holder.tvAmount.setText(zhekouStr + "折");
-
-            holder.tvAmount.setTextSize(TypedValue.COMPLEX_UNIT_SP,16);
-
-            holder.tvFullCut.setTextSize(TypedValue.COMPLEX_UNIT_SP,13);
-
-            holder.tvAmount.setTextColor(Color.parseColor("#970000"));
-
-            holder.tvFullCut.setTextColor(Color.parseColor("#8e8e8e"));
-
-        }else if (couponType == 3) {//抵扣
-
-            holder.tvAmount.setTextColor(Color.parseColor("#8e8e8e"));
-
-            holder.tvAmount.setText("抵");
-
-            holder.tvFullCut.setTextColor(Color.parseColor("#d7c181"));
-
-            holder.tvFullCut.setTextSize(TypedValue.COMPLEX_UNIT_SP,16);
-
-            holder.tvAmount.setTextSize(TypedValue.COMPLEX_UNIT_SP,13);
-
-            String priceStr = "¥" + Utils.subZeroAndDot(bean.getCutAmount() + "");
-
-            SpannableString msp = new SpannableString(priceStr);
-
-            msp.setSpan(new RelativeSizeSpan(0.8f), 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-            holder.tvFullCut.setText(msp);
-        }
-
+        holder.tvFullCut.setText(msp);
 
         int receiveStatus = bean.getReceiveStatus();
 
@@ -147,6 +106,21 @@ public class MyDaijinquanCouponeAdapter extends BaseListAdapter<CouponInfoBean> 
             holder.tvGet.setBackgroundResource(R.drawable.style_btn_gray_deep_circle);
         }
 
+        holder.tvShuoming.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String useRuleStr =   bean.getUseRule();
+
+                Intent intent = new Intent(mContext, UseInstructionsActivity.class);
+
+                intent.putExtra("useRule",useRuleStr);
+
+                mContext.startActivity(intent);
+            }
+        });
+
+
         return convertView;
     }
 
@@ -168,6 +142,9 @@ public class MyDaijinquanCouponeAdapter extends BaseListAdapter<CouponInfoBean> 
         @ViewInject(R.id.tvGoldDate)
         public TextView tvGoldDate;
 
+        @ViewInject(R.id.tvShuoming)
+        public TextView tvShuoming;
+
         public View root;
 
         public MyViewHolder(View itemView) {
@@ -176,7 +153,7 @@ public class MyDaijinquanCouponeAdapter extends BaseListAdapter<CouponInfoBean> 
 
             this.root = itemView;
 
-           x.view().inject(this, itemView);
+            x.view().inject(this, itemView);
 
         }
     }

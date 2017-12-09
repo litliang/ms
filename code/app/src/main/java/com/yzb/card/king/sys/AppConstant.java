@@ -232,6 +232,7 @@ public class AppConstant
     public static final String DISCOUNT_HOMEPAGER = "DISCOUNT_HOMEPAGE"; //商户优惠首页轮播图code
     public static final String PLANE_HOMEPAGE = "PLANE_HOMEPAGE"; //机票首页轮播图code
     public static final String COUPON_SHOPS = "COUPON_SHOP"; //优惠券商城轮播图code
+    public static final String CASH_COUPON_SHOP = "CASH_COUPON_SHOP ";//代金券轮播图
 
     public static final String GIFTCARD_SHOP_HOMEPAGE = "GIFTCARD_HOME"; //礼品卡商城首页轮播图code
     public static final String TRAVEL_HOMEPAGE = "TRAVEL_HOMEPAGE"; //旅游首页轮播图code
@@ -286,6 +287,12 @@ public class AppConstant
      * 优惠券产品列表 轮播图id；
      */
     public static final int coupons_id = 131;
+
+    /**
+     * 代金券产品列表 轮播图id；
+     */
+    public static final int coupons_voucher_id = 1030;
+
 
     /**
      * 积分兑换内容标识信息

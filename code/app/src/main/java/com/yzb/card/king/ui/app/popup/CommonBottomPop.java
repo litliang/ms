@@ -31,6 +31,7 @@ import com.yzb.card.king.ui.other.task.CustomerChannelListTask;
 import com.yzb.card.king.ui.travel.adapter.CouponFiltLAdapter;
 import com.yzb.card.king.ui.travel.adapter.CouponFiltRAdapter;
 import com.yzb.card.king.util.CommonUtil;
+import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.SharePrefUtil;
 
 import java.util.ArrayList;
@@ -85,27 +86,39 @@ public class CommonBottomPop extends PopupWindow implements View.OnClickListener
     private void initView()
     {
         View v = LayoutInflater.from(context).inflate(R.layout.pop_common_bottom, null);
+
         setContentView(v);
 
         setWidth(LinearLayout.LayoutParams.MATCH_PARENT);
+
         setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
 
         setOutsideTouchable(true);
+
         setAnimationStyle(R.style.popupwindow_animation_style);
+
         setFocusable(true);
+
         setBackgroundDrawable(new ColorDrawable(0));
+
         setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
         oneList = new ArrayList<>();
+
         nearbyList = new ArrayList<>();
 
         tvLabel = (TextView) v.findViewById(R.id.tvLabel);
+
         mLvLeft = (ListView) v.findViewById(R.id.lvLeft);
+
         mLvRight = (ListView) v.findViewById(R.id.lvRight);
+
         panelLvRight = v.findViewById(R.id.panelLvRight);
 
         mGvCategory = (GridView) v.findViewById(R.id.gvCategory);
+
         mLvSingle = (ListView) v.findViewById(R.id.lvSingle);
+
         mLvSingle.setDivider(divider);
 
         v.findViewById(R.id.filterBlack).setOnClickListener(this);
@@ -127,6 +140,15 @@ public class CommonBottomPop extends PopupWindow implements View.OnClickListener
         super.showAtLocation(parent, gravity, x, y);
     }
 
+    private int parentIndex = 0;
+
+    private int childrenIndex = -1;
+
+    private int selectedParentIndex = -1;
+
+    private int selectedChildrenIndex = -1;
+
+
     /**
      * 2列时初始化左侧的；
      */
@@ -139,9 +161,17 @@ public class CommonBottomPop extends PopupWindow implements View.OnClickListener
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
 
+                if(position == selectedParentIndex){
+
+                    childrenIndex = selectedChildrenIndex;
+
+                }else {
+
+                    childrenIndex = -1;
+                }
+
                 parentIndex = position;
 
-                childrenIndex = -1;
 
                 CatalogueTypeBean catalogueTypeBean = nearbyList.get(position);
 
@@ -176,14 +206,29 @@ public class CommonBottomPop extends PopupWindow implements View.OnClickListener
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
 
-                childrenIndex = position;
+                if(parentIndex == selectedParentIndex && position == selectedChildrenIndex){//
+
+                    childrenIndex = selectedChildrenIndex;
+
+                }else {
+
+                    childrenIndex = position;
+
+                    selectedChildrenIndex = position;
+
+                }
+
+                selectedParentIndex = parentIndex;
+
 
                 dismiss();
 
-
                 if (dataHandler != null) {
+
                     Message msg = dataHandler.obtainMessage(WHAT_NEAR);
+
                     msg.obj = oneList.get(position);
+
                     dataHandler.sendMessage(msg);
                 }
             }
@@ -195,9 +240,9 @@ public class CommonBottomPop extends PopupWindow implements View.OnClickListener
         }
 
         if(childrenIndex != -1){
+
             oneList.get(childrenIndex).setDefault(true);
         }
-
 
         rightAdapter.clearAll();
 
@@ -210,18 +255,24 @@ public class CommonBottomPop extends PopupWindow implements View.OnClickListener
     private void initSingleView()
     {
         rightAdapter = new CouponFiltRAdapter(context);
+
         mLvSingle.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
+
                 dismiss();
+
                 sendMsg(WHAT_SINGLE, oneList.get(position));
+
             }
         });
-        mLvSingle.setAdapter(rightAdapter);
-        rightAdapter.clearAll();
-        rightAdapter.appendALL(oneList);
 
+        mLvSingle.setAdapter(rightAdapter);
+
+        rightAdapter.clearAll();
+
+        rightAdapter.appendALL(oneList);
 
     }
 
@@ -269,19 +320,28 @@ public class CommonBottomPop extends PopupWindow implements View.OnClickListener
         initSingleView();
     }
 
-    private int parentIndex = 0;
-
-    private int childrenIndex = 0;
 
     /**
      * 初始化two；
      */
     public void initTwoData()
     {
+
+        if(selectedParentIndex >= 0){
+
+            parentIndex = selectedParentIndex;
+
+            childrenIndex = selectedChildrenIndex;
+
+        }
+
+
         initLeftView();
 
         leftAdapter.clearAll();
+
         leftAdapter.appendALL(nearbyList);
+
         leftAdapter.setSelectedEntity(nearbyList.get(parentIndex));
 
         oneList = nearbyList.get(parentIndex).getChildList();
@@ -298,14 +358,19 @@ public class CommonBottomPop extends PopupWindow implements View.OnClickListener
             @Override
             public void callBack(List<ChildTypeBean> displayChannelList, List<ChildTypeBean> hideChannelList)
             {
+
                 if (displayChannelList != null) {
+
                     displayChannelList.addAll(hideChannelList);
 
                     String localJson = SharePrefUtil.getValueFromSp(GlobalApp.getInstance(), AppConstant.sp_childtypelist_home, "[]");
+
                     List<ChildTypeBean> localLists = JSON.parseArray(localJson, ChildTypeBean.class);
+
                     childTypeBeans = CommonUtil.filterList(localLists, displayChannelList);
 
                     childTypeBeans.add(new ChildTypeBean("0000", "全部"));
+
                     initCategoryView();
                 }
             }
@@ -313,21 +378,29 @@ public class CommonBottomPop extends PopupWindow implements View.OnClickListener
         Map<String, Object> param = new HashMap<String, Object>();
 
         param.put("parentId", AppConstant.discount_type_parentid);
+
         param.put("category", AppConstant.discount_channel_category);
+
         task.setParamData(param);
+
         task.sendRequest(null);
     }
 
     private void initCategoryView()
     {
         if (childTypeBeans != null && childTypeBeans.size() > 0) {
+
             channelAdapter = new LbtGvAdapter(childTypeBeans);
+
             channelAdapter.setCallBack(new LbtGvAdapter.IGvItemClickCallBack() {
                 @Override
                 public void callBack(ChildTypeBean typeBean)
                 {
+
                     dismiss();
+
                     sendMsg(WHAT_CATEGORY, typeBean);
+
                 }
             });
             mGvCategory.setAdapter(channelAdapter);
@@ -337,8 +410,11 @@ public class CommonBottomPop extends PopupWindow implements View.OnClickListener
     public void initCategoryData()
     {
         if (childTypeBeans != null && childTypeBeans.size() > 0) {
+
             initCategoryView();
+
         } else {
+
             getUserChannel();
         }
     }
@@ -350,7 +426,6 @@ public class CommonBottomPop extends PopupWindow implements View.OnClickListener
 
     public void setNearbyBean(List<CatalogueTypeBean> catalogueTypeBeanList)
     {
-
         this.nearbyList = catalogueTypeBeanList;
     }
 

@@ -295,7 +295,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode != Activity.RESULT_OK || data == null) return;
+        if (data == null) return;
 
         switch (requestCode) {
             case 1002:

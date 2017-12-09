@@ -6,6 +6,7 @@ import com.yzb.card.king.bean.my.CouponsHomeBean;
 import com.yzb.card.king.ui.base.BaseMultiLoadListener;
 import com.yzb.card.king.ui.my.model.CouponRecommendModel;
 import com.yzb.card.king.ui.my.model.CouponShopsModel;
+import com.yzb.card.king.ui.my.model.VoucherShopsModel;
 import com.yzb.card.king.ui.my.view.CouponShopsView;
 
 import java.util.List;
@@ -21,17 +22,26 @@ public class CouponShopsPresenter implements BaseMultiLoadListener
 {
     private CouponShopsModel model;
 
+    private VoucherShopsModel voucherShopsModel;
+
     private CouponShopsView view;
 
     public CouponShopsPresenter(CouponShopsView view)
     {
         this.view = view;
         model = new CouponShopsModel(this);
+        voucherShopsModel = new VoucherShopsModel(this);
     }
 
     public void loadData(boolean event_tag, Map<String, Object> paramMap)
     {
         model.loadData(event_tag, paramMap);
+    }
+
+
+    public void loadVoucherData(boolean event_tag, Map<String, Object> paramMap)
+    {
+        voucherShopsModel.loadData(event_tag, paramMap);
     }
 
 

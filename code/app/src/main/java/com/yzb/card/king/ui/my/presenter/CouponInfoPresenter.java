@@ -3,6 +3,7 @@ package com.yzb.card.king.ui.my.presenter;
 import com.yzb.card.king.bean.my.CouponInfoBean;
 import com.yzb.card.king.ui.base.BaseMultiLoadListener;
 import com.yzb.card.king.ui.my.model.CouponRecommendModel;
+import com.yzb.card.king.ui.my.model.VoucherRecommendModel;
 import com.yzb.card.king.ui.my.view.CouponInfoView;
 
 import java.util.List;
@@ -19,6 +20,8 @@ public class CouponInfoPresenter implements BaseMultiLoadListener
 
     private CouponRecommendModel couponRecommendModel;
 
+    private VoucherRecommendModel voucherRecommendModel;
+
     private CouponInfoView view;
 
     public CouponInfoPresenter(CouponInfoView view)
@@ -26,11 +29,13 @@ public class CouponInfoPresenter implements BaseMultiLoadListener
         this.view = view;
 
         couponRecommendModel = new CouponRecommendModel(this);
+
+        voucherRecommendModel = new VoucherRecommendModel(this);
     }
 
 
     /**
-     * 发送推荐优惠券请求
+     * 发送优惠券推荐请求
      * @param event_tag
      * @param paramMap
      */
@@ -38,6 +43,17 @@ public class CouponInfoPresenter implements BaseMultiLoadListener
 
         couponRecommendModel.loadData(event_tag, paramMap);
     }
+
+    /**
+     * 发送代金卷荐请求
+     * @param event_tag
+     * @param paramMap
+     */
+    public void requestVoucherCoponRequest(boolean event_tag, Map<String, Object> paramMap){
+
+        voucherRecommendModel.loadData(event_tag, paramMap);
+    }
+
 
     @Override
     public void onListenSuccess(boolean event_tag, Object data)

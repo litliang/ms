@@ -22,7 +22,6 @@ import com.yzb.card.king.bean.hotel.SearchResultBean;
 import com.yzb.card.king.bean.my.CouponInfoBean;
 import com.yzb.card.king.bean.ticket.OrderOutBean;
 import com.yzb.card.king.sys.AppConstant;
-import com.yzb.card.king.sys.CardConstant;
 import com.yzb.card.king.sys.GlobalApp;
 import com.yzb.card.king.sys.WalletConstant;
 import com.yzb.card.king.ui.app.popup.CommonBottomPop;
@@ -32,20 +31,17 @@ import com.yzb.card.king.ui.base.BaseViewLayerInterface;
 import com.yzb.card.king.ui.credit.activity.AddBankCardActivity;
 import com.yzb.card.king.ui.credit.activity.AddCanPayCardActivity;
 import com.yzb.card.king.ui.discount.bean.ChildTypeBean;
-import com.yzb.card.king.ui.discount.fragment.AppCouponSucessDialgFragment;
 import com.yzb.card.king.ui.hotel.persenter.FilterListPersenter;
 import com.yzb.card.king.ui.hotel.persenter.GetCouponPersenter;
 import com.yzb.card.king.ui.manage.CitySelectManager;
 import com.yzb.card.king.ui.my.adapter.CouponInfoAdapter;
-import com.yzb.card.king.ui.my.adapter.CouponShopsAdapter;
+import com.yzb.card.king.ui.my.adapter.VoucherInfoAdapter;
 import com.yzb.card.king.ui.my.model.DataUtil;
 import com.yzb.card.king.ui.my.pop.BuySucesWithOkDialog;
 import com.yzb.card.king.ui.my.presenter.CouponShopsPresenter;
 import com.yzb.card.king.ui.my.view.CouponShopsView;
 import com.yzb.card.king.ui.other.activity.SelectPlaceActivity;
 import com.yzb.card.king.ui.other.bean.IPlace;
-import com.yzb.card.king.ui.ticket.presenter.ReceiveYhqPresenter;
-import com.yzb.card.king.ui.ticket.view.ReceiveYhqView;
 import com.yzb.card.king.ui.user.LoginActivity;
 import com.yzb.card.king.util.AppUtils;
 import com.yzb.card.king.util.DateUtil;
@@ -56,6 +52,7 @@ import com.yzb.card.king.util.ToastUtil;
 import com.yzb.card.king.util.Utils;
 import com.yzb.wallet.logic.pay.PayRequestLogic;
 import com.yzb.wallet.openInterface.AddCardBackListener;
+import com.yzb.wallet.openInterface.BackListener;
 import com.yzb.wallet.openInterface.PayMethodListener;
 import com.yzb.wallet.openInterface.WalletBackListener;
 
@@ -74,7 +71,7 @@ import java.util.Map;
  */
 @ContentView(R.layout.activity_coupon_more_shop)
 public class VoucherMoreShopsActivity extends BaseActivity implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener,
-        LoadMoreListView.OnLoadMoreListener, CouponShopsView, ReceiveYhqView, BaseViewLayerInterface {
+        LoadMoreListView.OnLoadMoreListener, CouponShopsView, BaseViewLayerInterface {
 
     private static final int REQ_GET_PLACE = 0x001;
     @ViewInject(R.id.swipeRefresh)
@@ -100,22 +97,27 @@ public class VoucherMoreShopsActivity extends BaseActivity implements View.OnCli
     @ViewInject(R.id.ivRight)
     private ImageView  ivRight;
 
-    private CouponInfoAdapter adapter;
+    private VoucherInfoAdapter adapter;
+
     private TextView tvCity;
+
     private String cityId;
+
     private CouponShopsPresenter shopsPresenter;
+
     private String industryId = "0";
     private String lng;
     private String lat;
     private String sort = "2";
-    private String actStatus = "1"; //1代金券
     private String storeName=null;
 
     private SubItemBean selectedSubItemBean = null;
 
     private CommonBottomPop bottomPop;
+
     private View panelBottom;
-    private ReceiveYhqPresenter receiveYhqPresenter;
+
+
     private FilterListPersenter filterListPersenter;
 
     private GetCouponPersenter getCouponPersenter;
@@ -126,13 +128,14 @@ public class VoucherMoreShopsActivity extends BaseActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         shopsPresenter = new CouponShopsPresenter(this);
 
-        receiveYhqPresenter = new ReceiveYhqPresenter(this);
-
         filterListPersenter = new FilterListPersenter(this);
 
         getCouponPersenter = new GetCouponPersenter(this);
+
         recvIntentData();
+
         initView();
+
         initData();
     }
 
@@ -155,8 +158,11 @@ public class VoucherMoreShopsActivity extends BaseActivity implements View.OnCli
     protected void onNewIntent(Intent intent)
     {
         super.onNewIntent(intent);
+
         setIntent(intent);
+
         recvIntentData();
+
         adapter.clearAll();
 
         initData();
@@ -172,30 +178,41 @@ public class VoucherMoreShopsActivity extends BaseActivity implements View.OnCli
 
 
         lng = positionedCity.getLongitude() + "";
+
         lat = positionedCity.getLatitude() + "";
 
         cityId = !isEmpty(selectedCity.getCityId()) ? selectedCity.getCityId() : positionedCity.getCityId();
 
         SwipeRefreshSettings.setAttrbutes(this, swipeRefresh);
+
         swipeRefresh.setOnRefreshListener(this);
 
         listView.setFocusable(false);
+
         listView.setCanLoadMore(true);
+
         listView.setOnLoadMoreListener(this);
 
-        adapter = new CouponInfoAdapter(this);
+        adapter = new VoucherInfoAdapter(this);
+
         adapter.setHandler(handler);
+
         listView.setAdapter(adapter);
 
         panelBottom = findViewById(R.id.panelBottom);
+
         findViewById(R.id.panelSearch).setOnClickListener(this);
+
         findViewById(R.id.panelLocation).setOnClickListener(this);
 
         findViewById(R.id.panelSort).setOnClickListener(this);
+
         findViewById(R.id.panelNearby).setOnClickListener(this);
+
         findViewById(R.id.panelShopCoupon).setOnClickListener(this);
 
         ivRight.setBackgroundResource(R.mipmap.icon_voucher_new_center);
+
         ivRight.setOnClickListener(this);
 
         selectTabByIndex(1);
@@ -211,11 +228,7 @@ public class VoucherMoreShopsActivity extends BaseActivity implements View.OnCli
 
                 case CouponInfoAdapter.WHAT_BUY:
                     CouponInfoBean shopBeano= adapter.getItem(msg.arg1);
-                    exeBuy(shopBeano.getCouponId(),shopBeano.getCutAmount());
-                    break;
-                case CouponShopsAdapter.WHAT_GET:
-                    CouponInfoBean shopBean = adapter.getItem(msg.arg1);
-                    exeGet(shopBean.getCouponId());
+                    exeBuy(shopBeano.getActId(),shopBeano.getCutAmount());
                     break;
                 case CommonBottomPop.WHAT_SINGLE: //未使用或智能排序；
 
@@ -270,17 +283,6 @@ public class VoucherMoreShopsActivity extends BaseActivity implements View.OnCli
 
 
 
-    /**
-     * 领取优惠券；
-     */
-    private void exeGet(long actId)
-    {
-        Map<String, Object> params = new HashMap<>();
-        params.put("actId", actId + "");
-        // params.put("orderId", actId + "");
-        params.put("serviceName", CardConstant.card_app_receivecoupon);
-        receiveYhqPresenter.loadData(params);
-    }
 
     private void initData()
     {
@@ -312,8 +314,6 @@ public class VoucherMoreShopsActivity extends BaseActivity implements View.OnCli
     private void loadCouponList(boolean isRefresh)
     {
         if (isRefresh) {
-
-            adapter.setCouponType(Integer.parseInt(actStatus));
 
             adapter.clearAll();
         }
@@ -349,7 +349,7 @@ public class VoucherMoreShopsActivity extends BaseActivity implements View.OnCli
 
         args.put("pageSize", "20");
 
-        shopsPresenter.loadData(isRefresh, args);
+        shopsPresenter.loadVoucherData(isRefresh, args);
     }
 
     @Override
@@ -359,8 +359,13 @@ public class VoucherMoreShopsActivity extends BaseActivity implements View.OnCli
             case R.id.ivBack:
                 finish();
                 break;
-            case R.id.panelSearch: //优惠券搜索；
-                readyGo(this, CouponSearchActivity.class);
+            case R.id.panelSearch: //代金券搜索；
+
+                Intent intentOne = new Intent(this,CouponSearchActivity.class);
+
+                intentOne.putExtra("youhuiType",2);
+
+                startActivityForResult(intentOne,1000);
                 break;
             case R.id.panelLocation: //城市；
                 Intent intent = new Intent(this, SelectPlaceActivity.class);
@@ -538,22 +543,7 @@ public class VoucherMoreShopsActivity extends BaseActivity implements View.OnCli
         toastCustom(failMsg);
     }
 
-    @Override
-    public void onReceiveYhqSucess(String yhqId)
-    {
-        CouponInfoBean shopBean = adapter.getItemById(yhqId);
-        if (shopBean != null) {
-            AppCouponSucessDialgFragment.getInstance(shopBean.getCutAmount() + "",actStatus,
-                    shopBean.getCouponType()+"").show(getSupportFragmentManager(), "");
-        }
-        loadCouponList(true);
-    }
 
-    @Override
-    public void onReceiveYhqFail(String failMsg)
-    {
-        toastCustom(failMsg);
-    }
 
     private OrderOutBean orderOutBean;
 
@@ -615,6 +605,19 @@ public class VoucherMoreShopsActivity extends BaseActivity implements View.OnCli
         payHandle.showCreditCard(false);
         // 显示/隐藏 借记卡 默认隐藏
         payHandle.showDebitCard(true);
+
+        payHandle.setBack(new BackListener(){
+
+            @Override
+            public void callBack(Map<String, String> map) {
+
+                if("0001".equals( map.get("code"))){
+
+                    getCouponPersenter.delteCouponOrderRequest(Long.parseLong(orderOutBean.getOrderId()));
+                }
+
+            }
+        });
         //添加卡；
         payHandle.setAddCardCallBack(new AddCardBackListener()
         {

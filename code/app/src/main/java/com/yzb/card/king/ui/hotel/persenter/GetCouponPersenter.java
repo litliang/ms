@@ -126,7 +126,7 @@ public class GetCouponPersenter implements DataCallBack{
     }
 
     /**
-     * 发送创建优惠券请求
+     * 发送创建代金券订单券请求
      * @param actId
      * @param orderAmount
      */
@@ -136,7 +136,7 @@ public class GetCouponPersenter implements DataCallBack{
     }
 
     /**
-     * 发送更新优惠券订单详情请求
+     * 发送更新代金券订单详情请求
      * @param orderId
      * @param orderAmount
      * @param orderTime

@@ -76,7 +76,7 @@ public class PayeeAdapter extends RecyclerView.Adapter implements View.OnClickLi
                         return lhs.getTradeAccount().compareTo(rhs.getTradeAccount());
                     }
                 });
-        if (hasindex == -1) {
+        if (hasindex <= -1) {
             list.setChecked(true);
             this.list.add(list);
 

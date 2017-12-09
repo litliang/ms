@@ -48,6 +48,8 @@ public class CanReceiveCouponRequest extends BaseRequest {
 
     public CanReceiveCouponRequest( long orderId,String serverName)
     {
+
+        this.serverName = serverName;
         params.put("orderId", orderId);
 
     }

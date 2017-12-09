@@ -106,10 +106,15 @@ public class DiscountIndexFragment extends BaseFragment implements View.OnClickL
     private static List<CouponBean> couponBeans = new ArrayList<>();
 
     private SlideShow8ItemView2 show8ItemView;
+
     private String typeParentId = AppConstant.discount_type_parentid;
+
     private SlideShow1ItemView show1ItemView;
+
     private String cityId;
+
     private String cityName;
+
     private UpdateAppManager updateManager;
 
     private View headerView;
@@ -482,7 +487,6 @@ public class DiscountIndexFragment extends BaseFragment implements View.OnClickL
         }
     }
 
-
     private Handler uiHandler = new Handler() {
         @Override
         public void handleMessage(Message msg)
@@ -596,6 +600,8 @@ public class DiscountIndexFragment extends BaseFragment implements View.OnClickL
         TextView textView = new TextView(DiscountIndexFragment.this.getActivity());
         textView.setTextColor(getResources().getColor(R.color.blue_5d7c96));
         textView.setTextSize(16);
+        textView.setSingleLine(true);
+
         if (couponBeans != null && couponBeans.size() > 0) {
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -657,7 +663,9 @@ public class DiscountIndexFragment extends BaseFragment implements View.OnClickL
         lastVersionNoInt = StringToInt(lastVersionNo);
 
         if (lastVersionNoInt > versionInt) {
+
             updateManager = new UpdateAppManager(getContext());
+
             updateManager.showNoticeDialog(tip, downLoadUrl, limitVersionNoInt, versionInt);
         }
     }

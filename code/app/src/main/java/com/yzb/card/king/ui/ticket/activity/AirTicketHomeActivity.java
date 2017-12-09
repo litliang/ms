@@ -13,7 +13,6 @@ import com.yzb.card.king.R;
 import com.yzb.card.king.bean.order.OrderBean;
 import com.yzb.card.king.sys.AppConstant;
 import com.yzb.card.king.sys.AppFactory;
-import com.yzb.card.king.sys.GlobalApp;
 import com.yzb.card.king.sys.GlobalVariable;
 import com.yzb.card.king.ui.appwidget.DefindTabView;
 import com.yzb.card.king.ui.appwidget.popup.BaseFullPP;

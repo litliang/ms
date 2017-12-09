@@ -68,12 +68,13 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 优惠券推荐首页
  * Created by 玉兵 on 2017/10/30.
  */
 @ContentView(R.layout.fragment_coupons_mall)
 public class BoundCenterActivty extends BaseActivity implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener,
-        LoadMoreListView.OnLoadMoreListener, CouponInfoView, ReceiveYhqView,BaseViewLayerInterface
-{
+        LoadMoreListView.OnLoadMoreListener, CouponInfoView, ReceiveYhqView, BaseViewLayerInterface {
+
     private static final int REQ_GET_CITY = 0x001;
 
     @ViewInject(R.id.swipeRefresh)
@@ -111,39 +112,28 @@ public class BoundCenterActivty extends BaseActivity implements View.OnClickList
 
     private ReceiveYhqPresenter receiveYhqPresenter;
 
-    private GetCouponPersenter getCouponPersenter;
-
-    private String industryId = "0";
-    private String lng;
-    private String lat;
-    private String sort = "3";//1最近领取；2最近到期；3：离我最近，4：人气最高
     protected Location positionedCity, selectedCity;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         defaultFlag = true;
         super.onCreate(savedInstanceState);
         shopsPresenter = new CouponInfoPresenter(this);
         receiveYhqPresenter = new ReceiveYhqPresenter(this);
-        getCouponPersenter = new GetCouponPersenter(this);
         initLocation();
         initView();
         initData();
     }
 
     @Override
-    public void onResume()
-    {
+    public void onResume() {
         super.onResume();
 
-        if (CitySelectManager.getInstance().getPlace() != null)
-        {
+        if (CitySelectManager.getInstance().getPlace() != null) {
             CitySelectManager csm = CitySelectManager.getInstance();
             IPlace city = csm.getPlace();
 
-            if (city != null)
-            {
+            if (city != null) {
                 cityName = csm.getPlaceName();
                 cityId = csm.getPlaceId();
                 tvCity.setText(cityName);
@@ -156,15 +146,13 @@ public class BoundCenterActivty extends BaseActivity implements View.OnClickList
     }
 
     @Override
-    public void onStop()
-    {
+    public void onStop() {
         super.onStop();
         GlobalApp.backFlag = false;
     }
 
 
-    private void initView()
-    {
+    private void initView() {
         tvTitleName.setText("领用优惠券");
 
         SwipeRefreshSettings.setAttrbutes(this, swipeRefresh);
@@ -174,48 +162,49 @@ public class BoundCenterActivty extends BaseActivity implements View.OnClickList
         tvCity.setText(!Utils.isEmpty(selectedCity.getCityName()) ? selectedCity.getCityName() : positionedCity.getCityName());
 
         listView.setCanLoadMore(true);
+
         listView.setOnLoadMoreListener(this);
+
         adapter = new CouponInfoAdapter(this);
+
         adapter.setHandler(handler);
+
         listView.setAdapter(adapter);
 
         slideView.setDuration(2000);
+
         slideView.setImageScaleType(ImageView.ScaleType.FIT_XY);
 
         panelSearch.setOnClickListener(this);
+
         panelMore.setOnClickListener(this);
+
         panelLocation.setOnClickListener(this);
 
         ivRight.setBackgroundResource(R.mipmap.icon_coupon_new_center);
     }
 
-    private void initLocation()
-    {
-        positionedCity = GlobalApp.getPositionedCity();
-        selectedCity = GlobalApp.getSelectedCity();
+    private void initLocation() {
 
-        lng = positionedCity.getLongitude() + "";
-        lat = positionedCity.getLatitude() + "";
+        positionedCity = GlobalApp.getPositionedCity();
+
+        selectedCity = GlobalApp.getSelectedCity();
 
         cityId = !Utils.isEmpty(selectedCity.getCityId()) ? selectedCity.getCityId() : positionedCity.getCityId();
     }
 
-    private Handler handler = new Handler(new Handler.Callback()
-    {
+    private Handler handler = new Handler(new Handler.Callback() {
         @Override
-        public boolean handleMessage(Message msg)
-        {
-            switch (msg.what)
-            {
+        public boolean handleMessage(Message msg) {
+            switch (msg.what) {
                 case CouponInfoAdapter.WHAT_GET:
                     CouponInfoBean shopBean = adapter.getItem(msg.arg1);
-                    exeGet(shopBean.getCouponId());
+                    exeGet(shopBean.getActId());
                     break;
 
-                case CouponInfoAdapter.WHAT_BUY:
-                    CouponInfoBean shopBeano= adapter.getItem(msg.arg1);
-                    exeBuy(shopBeano.getCouponId(),shopBeano.getCutAmount());
+                default:
                     break;
+
             }
             return false;
         }
@@ -224,67 +213,44 @@ public class BoundCenterActivty extends BaseActivity implements View.OnClickList
     /**
      * 领取优惠券；
      */
-    private void exeGet(long actId)
-    {
+    private void exeGet(long actId) {
         Map<String, Object> params = new HashMap<>();
         params.put("actId", actId + "");
         params.put("serviceName", CardConstant.card_app_receivecoupon);
         receiveYhqPresenter.loadData(params);
     }
 
-    private float cutAmount = 0;
-    /**
-     * 购买优惠券；
-     */
-    private void exeBuy(long actId, float cutAmount)
-    {
 
-        this.cutAmount = cutAmount;
-
-        ProgressDialogUtil.getInstance().showProgressDialog(this,false);
-
-        getCouponPersenter.sendCreateCouponOrderRequest(actId,cutAmount);
-    }
-
-
-    private void initData()
-    {
-        handler.postDelayed(new Runnable()
-        {
+    private void initData() {
+        handler.postDelayed(new Runnable() {
             @Override
-            public void run()
-            {
+            public void run() {
                 swipeRefresh.setRefreshing(true);
                 loadData(true);
             }
         }, 100);
     }
 
-    public void loadData(boolean isRefresh)
-    {
+    public void loadData(boolean isRefresh) {
         slideView.setParam(AppConstant.COUPON_SHOPS, cityId, AppConstant.coupons_id + "");
         loadCouponList(isRefresh);
     }
 
     @Override
-    public void onRefresh()
-    {
+    public void onRefresh() {
         loadData(true);
     }
 
     @Override
-    public void onLoadMore()
-    {
+    public void onLoadMore() {
         loadCouponList(false);
     }
 
     /**
      * 查询商家列表；
      */
-    private void loadCouponList(boolean isRefresh)
-    {
-        if (isRefresh)
-        {
+    private void loadCouponList(boolean isRefresh) {
+        if (isRefresh) {
             adapter.clearAll();
         }
         Map<String, Object> args = new HashMap<>();
@@ -299,24 +265,21 @@ public class BoundCenterActivty extends BaseActivity implements View.OnClickList
     }
 
     @Override
-    public void onClick(View v)
-    {
-        switch (v.getId())
-        {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.panelSearch: //我的优惠券；
 
-                if (isLogin())
-                {
+                if (isLogin()) {
+
                     Intent intentE = new Intent(BoundCenterActivty.this, CouponsMySelfActivity.class);
 
-                    intentE.putExtra("titleName","我的优惠券");
+                    intentE.putExtra("titleName", "我的优惠券");
 
-                    intentE.putExtra("type",1);
+                    intentE.putExtra("type", 1);
 
                     startActivity(intentE);
 
-
-                }else {
+                } else {
 
                     Intent intentR = new Intent(BoundCenterActivty.this, LoginActivity.class);
                     startActivityForResult(intentR, 101);
@@ -336,14 +299,11 @@ public class BoundCenterActivty extends BaseActivity implements View.OnClickList
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        if (data == null || resultCode != Activity.RESULT_OK)
-        {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (data == null || resultCode != Activity.RESULT_OK) {
             return;
         }
-        switch (requestCode)
-        {
+        switch (requestCode) {
             case REQ_GET_CITY:
 
                 break;
@@ -351,55 +311,49 @@ public class BoundCenterActivty extends BaseActivity implements View.OnClickList
     }
 
     @Override
-    public void onGetCouponSuc(boolean event_tag, List<CouponInfoBean> list)
-    {
+    public void onGetCouponSuc(boolean event_tag, List<CouponInfoBean> list) {
         swipeRefresh.setRefreshing(false);
-        if (event_tag)
-        {
+        if (event_tag) {
             adapter.clearAll();
         }
         adapter.appendALL(list);
     }
 
     @Override
-    public void onGetCouponFail(String failMsg)
-    {
+    public void onGetCouponFail(String failMsg) {
         swipeRefresh.setRefreshing(false);
         toastCustom(failMsg);
     }
 
     @Override
-    public void onReceiveYhqSucess(String yhqId)
-    {
+    public void onReceiveYhqSucess(String yhqId) {
         CouponInfoBean shopBean = adapter.getItemById(yhqId);
-        if (shopBean != null)
-        {
-            AppCouponSucessDialgFragment.getInstance(shopBean.getCutAmount() + "","2",
-                    shopBean.getCouponType()+"").show(getSupportFragmentManager(), "");
+        if (shopBean != null) {
+            AppCouponSucessDialgFragment.getInstance(shopBean.getCutAmount() + "", "2",
+                    shopBean.getCouponType() + "").show(getSupportFragmentManager(), "");
         }
         loadCouponList(true);
     }
 
     @Override
-    public void onReceiveYhqFail(String failMsg)
-    {
+    public void onReceiveYhqFail(String failMsg) {
         toastCustom(failMsg);
     }
 
-    private   OrderOutBean  orderOutBean;
+    private OrderOutBean orderOutBean;
 
     @Override
     public void callSuccessViewLogic(Object o, int type) {
 
-        if(type == GetCouponPersenter.CREATECOUPONORDER_CODE){
+        if (type == GetCouponPersenter.CREATECOUPONORDER_CODE) {
 
             ProgressDialogUtil.getInstance().closeProgressDialog();
 
-            orderOutBean = com.alibaba.fastjson.JSONObject.parseObject(o+"",OrderOutBean.class);
+            orderOutBean = com.alibaba.fastjson.JSONObject.parseObject(o + "", OrderOutBean.class);
 
-            startBuy();
+//            startBuy();
 
-        }else  if(type == GetCouponPersenter.UPDATECOUPONPAYDETAIL_CODE){//更新数据
+        } else if (type == GetCouponPersenter.UPDATECOUPONPAYDETAIL_CODE) {//更新数据
 
             initData();
 
@@ -410,136 +364,6 @@ public class BoundCenterActivty extends BaseActivity implements View.OnClickList
     @Override
     public void callFailedViewLogic(Object o, int type) {
         ProgressDialogUtil.getInstance().closeProgressDialog();
-    }
-
-
-    private  PayRequestLogic payHandle;
-
-    private String payType ="1";
-
-    private String payDetailId ="";
-    /**
-     * 付款；
-     */
-    private void startBuy(  )
-    {
-        payHandle = new PayRequestLogic(this);
-        // 显示/隐藏 红包账户
-        payHandle.showEnvelopPay(false);
-        // 显示/隐藏 礼品卡账户
-        payHandle.showGiftPay(false);
-        // 显示/隐藏 现金账户
-        payHandle.showBalancePay(true);
-        // 显示/隐藏 信用卡 默认隐藏
-        payHandle.showCreditCard(false);
-        // 显示/隐藏 借记卡 默认隐藏
-        payHandle.showDebitCard(true);
-        //添加卡；
-        payHandle.setAddCardCallBack(new AddCardBackListener()
-        {
-            @Override
-            public void callBack()
-            {
-
-                startActivity(new Intent(BoundCenterActivty.this, AddBankCardActivity.class));
-            }
-        });
-        payHandle.payMethodCallBack(new PayMethodListener()
-        {
-            @Override
-            public void callBack(Map<String, String> map)
-            {
-                LogUtil.e("选择付款方式返回数据=" + JSON.toJSONString(map));
-                payType = map.get("payType");
-                payDetailId = map.get("payDetailId");
-            }
-        });
-        payHandle.setCallBack(new WalletBackListener()
-        {
-            @Override
-            public void setSuccess(String RESULT_CODE)
-            {
-                onPaySucess();
-            }
-
-            @Override
-            public void setSuccess(Map<String, String> resultMap, String RESULT_CODE)
-            {
-
-                if(RESULT_CODE.equals( com.yzb.wallet.util.WalletConstant.PAY_TYPE_OFF)){// 支付卡信息不全
-
-                    String str = JSON.toJSONString(resultMap);
-
-                    PayMethod accountInfo = JSON.parseObject(str , PayMethod.class);
-
-                    int cardType = accountInfo.getCardType();
-
-                    Class claz = null;
-
-                    if(cardType==1){// 储蓄卡
-
-                        claz = AddBankCardActivity.class;
-
-                    }else if(cardType ==2){//信用卡
-
-                        claz = AddCanPayCardActivity.class;
-
-                    }
-                    Intent intent = new Intent(BoundCenterActivty.this, claz);
-                    intent.putExtra("cardNo",accountInfo.getCardNo());
-                    intent.putExtra("name", accountInfo.getName());
-                    startActivity(intent);
-
-                }else{
-
-                    onPaySucess();
-
-                }
-            }
-
-            @Override
-            public void setError(String RESULT_CODE, String ERROR_MSG)
-            {
-                LogUtil.i("付款失败；RESULT_CODE=" + RESULT_CODE + ",ERROR_MSG=" + ERROR_MSG);
-                ToastUtil.i(BoundCenterActivty.this,ERROR_MSG);
-            }
-        });
-        payHandle.pay(getInputMap(), false);
-    }
-
-    private Map<String, String> getInputMap(  )
-    {
-        Map<String, String> params = new HashMap<>();
-        params.put("mobile", getUserBean().getAmountAccount());
-        params.put("orderNo", orderOutBean.getOrderNo());
-        params.put("orderTime", DateUtil.formatOrderTime(orderOutBean.getOrderTime()));
-
-        String st = String.format("%.2f", cutAmount);
-
-        params.put("amount",st ); //订单金额；
-
-        params.put("leftTime", AppConstant.leftTime); //超时时间
-
-        params.put("goodsName", "折扣券"); //商品名称
-
-        params.put("transIp", AppUtils.getLocalIpAddress(GlobalApp.getInstance().getContext()));//交易IP
-
-        params.put("notifyUrl", orderOutBean.getNotifyUrl());
-
-        params.put("merchantNo", WalletConstant.MERCHANT_NO);//商户号
-
-        params.put("sign", AppConstant.sign);//签名
-
-        return params;
-    }
-
-
-    public void onPaySucess()
-    {
-        BuySucesWithOkDialog.getInstance().show(getSupportFragmentManager(), "");
-
-        getCouponPersenter.updateCouponPayDetailRequest(orderOutBean.getOrderId(),orderOutBean.getOrderAmount(),orderOutBean.getOrderTime(),payType,payDetailId);
-
     }
 
 }

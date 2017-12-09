@@ -118,61 +118,6 @@ public class GetCouponFragment extends Fragment implements View.OnClickListener,
 
         if(bundle.containsKey("localData")){
 
-            ProgressDialogUtil.getInstance().closeProgressDialog();
-
-            List<BaseCouponBean> list = new ArrayList<BaseCouponBean>();
-
-            BaseCouponBean oneBean = new BaseCouponBean();
-
-            oneBean.setIssuePlatform("1");
-
-            oneBean.setEndDate("2017-11-24");
-
-            oneBean.setCouponType("1");
-
-            oneBean.setActId(1);
-
-            oneBean.setCutValue(20);
-
-            oneBean.setActDesc("合作协议");
-
-            oneBean.setActName("代金券1");
-
-            oneBean.setStartDate("2017-08-15");
-
-            oneBean.setFullAmount(0);
-
-            oneBean.setRecieveStatus("0");
-
-            list.add(oneBean);
-
-            BaseCouponBean twoBean = new BaseCouponBean();
-
-            twoBean.setIssuePlatform("1");
-
-            twoBean.setEndDate("2017-11-24");
-
-            twoBean.setCouponType("2");
-
-            twoBean.setCutValue(30);
-
-            twoBean.setActId(2);
-
-            twoBean.setActDesc("合作协议");
-
-            twoBean.setActName("代金券2");
-
-            twoBean.setStartDate("2017-08-15");
-
-            twoBean.setFullAmount(300);
-
-            twoBean.setRecieveStatus("1");
-
-            list.add(twoBean);
-
-            mAdapter.clear();
-
-            mAdapter.addAll( list);
 
         }else {
 

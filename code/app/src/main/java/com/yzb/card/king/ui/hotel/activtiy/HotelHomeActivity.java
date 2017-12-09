@@ -316,7 +316,7 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
         tvStartWeek = (TextView) headerView.findViewById(R.id.tv_start_week);
 
         tvEndTime = (TextView) headerView.findViewById(R.id.tv_endTime);
-        
+
         tvEndWeek = (TextView) headerView.findViewById(R.id.tv_end_week);
 
         headerView.findViewById(R.id.ll_location).setOnClickListener(this);
@@ -505,9 +505,9 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
                     sb.append(bean.getStartName());
 
-                    if(size-1== i){
+                    if (size - 1 == i) {
 
-                    }else {
+                    } else {
                         sb.append(",");
                     }
 
@@ -517,7 +517,7 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
                         sbBrandTypes.append(bean.getStartValue() + ",");
 
-                        if(size == 1){
+                        if (size == 1) {
 
                             sbLevels.append("0");
                         }
@@ -526,7 +526,7 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
                         sbLevels.append(bean.getStartValue() + ",");
 
-                        if(size == 1){
+                        if (size == 1) {
 
                             sbBrandTypes.append("0");
                         }
@@ -536,7 +536,7 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
                         sbLevels.append(bean.getStartValue() + ",");
 
-                        if(size == 1){
+                        if (size == 1) {
 
                             sbBrandTypes.append("0");
                         }
@@ -586,12 +586,18 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
             }
 
-            tvLevel.setText(sb.toString());
+            if ("不限,¥0-1000+".equals(sb.toString())) {
+                tvLevel.setText("");
+                ivClearStarPrice.setVisibility(View.INVISIBLE);
+            } else {
+                if (ivClearStarPrice.getVisibility() == View.INVISIBLE) {
 
-            if (ivClearStarPrice.getVisibility() == View.INVISIBLE) {
+                    ivClearStarPrice.setVisibility(View.VISIBLE);
+                }
+                tvLevel.setText(sb.toString());
 
-                ivClearStarPrice.setVisibility(View.VISIBLE);
             }
+
         }
     };
 
@@ -796,32 +802,32 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
                         ivClear.setVisibility(View.VISIBLE);
 
-                        List<SubItemBean> hotelKeyWordList  =  HotelLogicManager.getInstance().getHotelProductListParam().getHotelKeyWordList();
+                        List<SubItemBean> hotelKeyWordList = HotelLogicManager.getInstance().getHotelProductListParam().getHotelKeyWordList();
 
-                        if(hotelKeyWordList == null){
+                        if (hotelKeyWordList == null) {
 
                             hotelKeyWordList = new ArrayList<SubItemBean>();
-                        }else {
+                        } else {
                             hotelKeyWordList.clear();
                         }
 
                         hotelKeyWordList.add(subItemBean);
 
                         HotelLogicManager.getInstance().getHotelProductListParam().setHotelKeyWordList(hotelKeyWordList);
-                    }else {
+                    } else {
 
                         HotelLogicManager.getInstance().getHotelProductListParam().setHotelKeyWordList(null);
                     }
-                }else {
+                } else {
 
                     HotelLogicManager.getInstance().getHotelProductListParam().setHotelKeyWordList(null);
                 }
 
-            } else if(resultCode == 1041){//搜索关键字
+            } else if (resultCode == 1041) {//搜索关键字
 
                 if (data != null) {
 
-                    SearchReusultBean   searchReusultBean = (SearchReusultBean) data.getSerializableExtra("selectoSubItemBean");
+                    SearchReusultBean searchReusultBean = (SearchReusultBean) data.getSerializableExtra("selectoSubItemBean");
 
                     if (searchReusultBean != null) {
 
@@ -852,7 +858,7 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
                         HotelLogicManager.getInstance().getHotelProductListParam().setSearchList(null);
                     }
 
-                }else {
+                } else {
 
                     HotelLogicManager.getInstance().getHotelProductListParam().setSearchList(null);
                 }

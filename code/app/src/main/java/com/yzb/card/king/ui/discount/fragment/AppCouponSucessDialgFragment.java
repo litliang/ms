@@ -12,7 +12,11 @@ import android.widget.TextView;
 
 import com.yzb.card.king.R;
 import com.yzb.card.king.ui.base.BaseDialogFragment;
+import com.yzb.card.king.ui.bonus.activity.BoundCenterActivty;
+import com.yzb.card.king.ui.bonus.activity.VoucherCenterActivity;
+import com.yzb.card.king.ui.manage.UserManager;
 import com.yzb.card.king.ui.my.activity.CouponMoreShopsActivity;
+import com.yzb.card.king.ui.my.activity.CouponsMySelfActivity;
 import com.yzb.card.king.ui.user.LoginActivity;
 import com.yzb.card.king.util.Utils;
 
@@ -136,8 +140,38 @@ public class AppCouponSucessDialgFragment extends BaseDialogFragment implements 
         this.dismiss();
 
         if(v.getId() ==R.id. tvChakan){
-            Intent intentR = new Intent(getContext(), LoginActivity.class);
-            startActivity(intentR);
+
+            if (UserManager.getInstance().isLogin()) {//
+
+                if("3".equals(couponType)){//代金券
+
+                    Intent intentE = new Intent(getContext(), CouponsMySelfActivity.class);
+
+                    intentE.putExtra("titleName","我的代金券");
+
+                    intentE.putExtra("type",2);
+
+                    startActivity(intentE);
+
+
+                }else {//优惠券
+
+                    Intent intentE = new Intent(getContext(), CouponsMySelfActivity.class);
+
+                    intentE.putExtra("titleName", "我的优惠券");
+
+                    intentE.putExtra("type", 1);
+
+                    startActivity(intentE);
+                }
+
+
+            }else {
+
+                Intent intentR = new Intent(getContext(), LoginActivity.class);
+
+                startActivity(intentR);
+            }
 
         }
     }

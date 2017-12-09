@@ -3,15 +3,15 @@ package com.yzb.card.king.bean.my;
 import java.io.Serializable;
 
 /**
- * 类  名：优惠券
+ * 类  名：优惠券、代金券解析类
  * 作  者：Li Yubing
  * 日  期：2017/10/20
  * 描  述：
  */
 public class CouponInfoBean implements Serializable{
 
-    //优惠券id
-    private long couponId;
+    //券id
+    private long actId;
     //门店id
     private long storeId;
     //门店名称
@@ -21,7 +21,7 @@ public class CouponInfoBean implements Serializable{
     //门店所在区县
     private String districtName;
     //热度
-    private  float couponHot;
+    private  float hot;
     //优惠类型	1满减券；2折扣券；3抵扣券；
     private int couponType;
     //满额	 0不限
@@ -36,15 +36,25 @@ public class CouponInfoBean implements Serializable{
     private String startDate;
     //优惠券使用截至日期
     private String endDate;
+     //代金券名称
+    private String actName;
 
-    public long getCouponId()
-    {
-        return couponId;
+    private String useRule;
+
+    public String getUseRule() {
+        return useRule;
     }
 
-    public void setCouponId(long couponId)
-    {
-        this.couponId = couponId;
+    public void setUseRule(String useRule) {
+        this.useRule = useRule;
+    }
+
+    public long getActId() {
+        return actId;
+    }
+
+    public void setActId(long actId) {
+        this.actId = actId;
     }
 
     public long getStoreId()
@@ -87,14 +97,12 @@ public class CouponInfoBean implements Serializable{
         this.districtName = districtName;
     }
 
-    public float getCouponHot()
-    {
-        return couponHot;
+    public float getHot() {
+        return hot;
     }
 
-    public void setCouponHot(float couponHot)
-    {
-        this.couponHot = couponHot;
+    public void setHot(float hot) {
+        this.hot = hot;
     }
 
     public int getCouponType()
@@ -159,5 +167,13 @@ public class CouponInfoBean implements Serializable{
 
     public void setEndDate(String endDate) {
         this.endDate = endDate;
+    }
+
+    public String getActName() {
+        return actName;
+    }
+
+    public void setActName(String actName) {
+        this.actName = actName;
     }
 }

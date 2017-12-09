@@ -208,7 +208,7 @@ public class CouponsMallFragment extends BaseFragment implements View.OnClickLis
             {
                 case CouponInfoAdapter.WHAT_GET:
                     CouponInfoBean shopBean = adapter.getItem(msg.arg1);
-                    exeGet(shopBean.getCouponId());
+                    exeGet(shopBean.getActId());
                     break;
             }
             return false;

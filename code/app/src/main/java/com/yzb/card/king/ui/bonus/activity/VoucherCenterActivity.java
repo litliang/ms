@@ -17,7 +17,6 @@ import com.yzb.card.king.bean.common.PayMethod;
 import com.yzb.card.king.bean.my.CouponInfoBean;
 import com.yzb.card.king.bean.ticket.OrderOutBean;
 import com.yzb.card.king.sys.AppConstant;
-import com.yzb.card.king.sys.CardConstant;
 import com.yzb.card.king.sys.GlobalApp;
 import com.yzb.card.king.sys.WalletConstant;
 import com.yzb.card.king.ui.appwidget.LoadMoreListView;
@@ -27,21 +26,17 @@ import com.yzb.card.king.ui.base.BaseViewLayerInterface;
 import com.yzb.card.king.ui.credit.activity.AddBankCardActivity;
 import com.yzb.card.king.ui.credit.activity.AddCanPayCardActivity;
 import com.yzb.card.king.ui.discount.bean.Location;
-import com.yzb.card.king.ui.discount.fragment.AppCouponSucessDialgFragment;
 import com.yzb.card.king.ui.hotel.persenter.GetCouponPersenter;
 import com.yzb.card.king.ui.manage.CitySelectManager;
-import com.yzb.card.king.ui.my.activity.CouponMoreShopsActivity;
-import com.yzb.card.king.ui.my.activity.CouponSearchActivity;
 import com.yzb.card.king.ui.my.activity.CouponsMySelfActivity;
 import com.yzb.card.king.ui.my.activity.VoucherMoreShopsActivity;
 import com.yzb.card.king.ui.my.adapter.CouponInfoAdapter;
+import com.yzb.card.king.ui.my.adapter.VoucherInfoAdapter;
 import com.yzb.card.king.ui.my.pop.BuySucesWithOkDialog;
 import com.yzb.card.king.ui.my.presenter.CouponInfoPresenter;
 import com.yzb.card.king.ui.my.view.CouponInfoView;
 import com.yzb.card.king.ui.other.activity.SelectPlaceActivity;
 import com.yzb.card.king.ui.other.bean.IPlace;
-import com.yzb.card.king.ui.ticket.presenter.ReceiveYhqPresenter;
-import com.yzb.card.king.ui.ticket.view.ReceiveYhqView;
 import com.yzb.card.king.ui.user.LoginActivity;
 import com.yzb.card.king.util.AppUtils;
 import com.yzb.card.king.util.DateUtil;
@@ -52,6 +47,7 @@ import com.yzb.card.king.util.ToastUtil;
 import com.yzb.card.king.util.Utils;
 import com.yzb.wallet.logic.pay.PayRequestLogic;
 import com.yzb.wallet.openInterface.AddCardBackListener;
+import com.yzb.wallet.openInterface.BackListener;
 import com.yzb.wallet.openInterface.PayMethodListener;
 import com.yzb.wallet.openInterface.WalletBackListener;
 
@@ -67,7 +63,7 @@ import java.util.Map;
  */
 @ContentView(R.layout.fragment_coupons_mall)
 public class VoucherCenterActivity extends BaseActivity implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener,
-        LoadMoreListView.OnLoadMoreListener, CouponInfoView, ReceiveYhqView,BaseViewLayerInterface
+        LoadMoreListView.OnLoadMoreListener, CouponInfoView,BaseViewLayerInterface
 {
     private static final int REQ_GET_CITY = 0x001;
 
@@ -80,7 +76,7 @@ public class VoucherCenterActivity extends BaseActivity implements View.OnClickL
     @ViewInject(R.id.slideView)
     private SlideShow1ItemView slideView;
 
-    private CouponInfoAdapter adapter;
+    private VoucherInfoAdapter adapter;
 
     @ViewInject(R.id.tvCity)
     private TextView tvCity;
@@ -104,14 +100,8 @@ public class VoucherCenterActivity extends BaseActivity implements View.OnClickL
 
     private CouponInfoPresenter shopsPresenter;
 
-    private ReceiveYhqPresenter receiveYhqPresenter;
-
     private GetCouponPersenter getCouponPersenter;
 
-    private String industryId = "0";
-    private String lng;
-    private String lat;
-    private String sort = "3";//1最近领取；2最近到期；3：离我最近，4：人气最高
     protected Location positionedCity, selectedCity;
 
     @Override
@@ -120,7 +110,6 @@ public class VoucherCenterActivity extends BaseActivity implements View.OnClickL
         defaultFlag = true;
         super.onCreate(savedInstanceState);
         shopsPresenter = new CouponInfoPresenter(this);
-        receiveYhqPresenter = new ReceiveYhqPresenter(this);
         getCouponPersenter = new GetCouponPersenter(this);
         initLocation();
         initView();
@@ -169,16 +158,23 @@ public class VoucherCenterActivity extends BaseActivity implements View.OnClickL
         tvCity.setText(!Utils.isEmpty(selectedCity.getCityName()) ? selectedCity.getCityName() : positionedCity.getCityName());
 
         listView.setCanLoadMore(true);
+
         listView.setOnLoadMoreListener(this);
-        adapter = new CouponInfoAdapter(this);
+
+        adapter = new VoucherInfoAdapter(this);
+
         adapter.setHandler(handler);
+
         listView.setAdapter(adapter);
 
         slideView.setDuration(2000);
+
         slideView.setImageScaleType(ImageView.ScaleType.FIT_XY);
 
         panelSearch.setOnClickListener(this);
+
         panelMore.setOnClickListener(this);
+
         panelLocation.setOnClickListener(this);
 
         ivRight.setBackgroundResource(R.mipmap.icon_voucher_new_center);
@@ -188,9 +184,6 @@ public class VoucherCenterActivity extends BaseActivity implements View.OnClickL
     {
         positionedCity = GlobalApp.getPositionedCity();
         selectedCity = GlobalApp.getSelectedCity();
-
-        lng = positionedCity.getLongitude() + "";
-        lat = positionedCity.getLatitude() + "";
 
         cityId = !Utils.isEmpty(selectedCity.getCityId()) ? selectedCity.getCityId() : positionedCity.getCityId();
     }
@@ -202,30 +195,17 @@ public class VoucherCenterActivity extends BaseActivity implements View.OnClickL
         {
             switch (msg.what)
             {
-                case CouponInfoAdapter.WHAT_GET:
-                    CouponInfoBean shopBean = adapter.getItem(msg.arg1);
-                    exeGet(shopBean.getCouponId());
-                    break;
 
                 case CouponInfoAdapter.WHAT_BUY:
                     CouponInfoBean shopBeano= adapter.getItem(msg.arg1);
-                    exeBuy(shopBeano.getCouponId(),shopBeano.getCutAmount());
+                    exeBuy(shopBeano.getActId(),shopBeano.getCutAmount());
                     break;
             }
             return false;
         }
     });
 
-    /**
-     * 领取优惠券；
-     */
-    private void exeGet(long actId)
-    {
-        Map<String, Object> params = new HashMap<>();
-        params.put("actId", actId + "");
-        params.put("serviceName", CardConstant.card_app_receivecoupon);
-        receiveYhqPresenter.loadData(params);
-    }
+
 
     private float cutAmount = 0;
     /**
@@ -249,15 +229,19 @@ public class VoucherCenterActivity extends BaseActivity implements View.OnClickL
             @Override
             public void run()
             {
+
                 swipeRefresh.setRefreshing(true);
+
                 loadData(true);
+
             }
         }, 100);
     }
 
     public void loadData(boolean isRefresh)
     {
-        slideView.setParam(AppConstant.COUPON_SHOPS, cityId, AppConstant.coupons_id + "");
+        slideView.setParam(AppConstant.CASH_COUPON_SHOP, cityId, AppConstant.coupons_voucher_id + "");
+
         loadCouponList(isRefresh);
     }
 
@@ -290,7 +274,7 @@ public class VoucherCenterActivity extends BaseActivity implements View.OnClickL
 
         args.put("pageSize", "20");
 
-        shopsPresenter.requestRecommendCoponRequest(isRefresh, args);
+        shopsPresenter.requestVoucherCoponRequest(isRefresh, args);
     }
 
     @Override
@@ -365,23 +349,6 @@ public class VoucherCenterActivity extends BaseActivity implements View.OnClickL
         toastCustom(failMsg);
     }
 
-    @Override
-    public void onReceiveYhqSucess(String yhqId)
-    {
-        CouponInfoBean shopBean = adapter.getItemById(yhqId);
-        if (shopBean != null)
-        {
-            AppCouponSucessDialgFragment.getInstance(shopBean.getCutAmount() + "","2",
-                    shopBean.getCouponType()+"").show(getSupportFragmentManager(), "");
-        }
-        loadCouponList(true);
-    }
-
-    @Override
-    public void onReceiveYhqFail(String failMsg)
-    {
-        toastCustom(failMsg);
-    }
 
     private OrderOutBean orderOutBean;
 
@@ -409,7 +376,6 @@ public class VoucherCenterActivity extends BaseActivity implements View.OnClickL
         ProgressDialogUtil.getInstance().closeProgressDialog();
     }
 
-
     private PayRequestLogic payHandle;
 
     private String payType ="1";
@@ -431,6 +397,20 @@ public class VoucherCenterActivity extends BaseActivity implements View.OnClickL
         payHandle.showCreditCard(false);
         // 显示/隐藏 借记卡 默认隐藏
         payHandle.showDebitCard(true);
+
+        payHandle.setBack(new BackListener(){
+
+            @Override
+            public void callBack(Map<String, String> map) {
+
+               if("0001".equals( map.get("code"))){
+
+                   getCouponPersenter.delteCouponOrderRequest(Long.parseLong(orderOutBean.getOrderId()));
+               }
+
+            }
+        });
+
         //添加卡；
         payHandle.setAddCardCallBack(new AddCardBackListener()
         {

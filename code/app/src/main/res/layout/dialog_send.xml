@@ -6,6 +6,7 @@
     android:gravity="center"
     android:orientation="vertical">
     <TextView
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="提示"
@@ -34,10 +35,13 @@
     </LinearLayout>
 <View android:layout_marginTop="20dp" android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/gray3"/>
     <LinearLayout
+
         android:id="@+id/llButton"
-        android:layout_width="144dp"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        >
         <TextView
             android:id="@+id/tvNegative"
             android:layout_width="wrap_content"

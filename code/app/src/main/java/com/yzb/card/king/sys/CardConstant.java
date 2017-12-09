@@ -103,22 +103,22 @@ public class CardConstant {
      */
     public static String APP_CANRECEIVECOUPON_LIST = "CanReceiveCouponList";
     /**
-     * 创建优惠券订单
+     * 创建代金券订单
      */
-    public static String APP_CREATECOUPONORDER_IF ="CreateCouponOrder";
+    public static String APP_CREATECOUPONORDER_IF ="CreateCashCouponOrder";
     /**
      * 活动抵扣查询
      */
     public static String APP_ACTIVITYDEDUCTIONINFO_IF ="ActivityDeductionInfo";
 
     /**
-     * 更新优惠券付款详情
+     * 更新代金券付款详情
      */
-    public static String APP_UPDATECOUPONPAYDETAIL_IF ="UpdateCouponPayDetail";
+    public static String APP_UPDATECOUPONPAYDETAIL_IF ="UpdateCashCouponPayDetail";
     /**
-     * 删除优惠订单
+     * 删除代金券订单
      */
-    public static String APP_DELETECOUONORDER_IF = "DeleteCouonOrder";
+    public static String APP_DELETECOUONORDER_IF = "DeleteCashCouponOrder";
 
     /**
      * 活动抵扣检测接口
@@ -640,7 +640,7 @@ public class CardConstant {
     /**
      * 查询未领取红包列表
      */
-    public static String card_queryreceivebonus = "QueryUnReceiveBonus";
+    public static String card_queryreceivebonus = "QueryReceiveBonus";
     /**
      * 领取优惠券
      */
@@ -694,9 +694,17 @@ public class CardConstant {
      */
     public static String query_all_coupon = "QueryAllCoupon";
     /**
+     * 查询代金券列表
+     */
+    public static String QUERY_ALL_CASHCOUPON = "QueryAllCashCoupon";
+    /**
      * 查询优惠券推荐列表
      */
     public static String QUERY_RECOMMOND_URL ="QueryCouponRecommend";
+    /**
+     * 查询代金券推荐列表
+     */
+    public static String QUERY_CASHCOUPONRECOMMEND_URL ="QueryCashCouponRecommend";
     /**
      * 查询个人账单信息
      */
@@ -770,6 +778,8 @@ public class CardConstant {
     public static String card_app_queryhotnameinfo = "QueryHotNameInfo";
     //搜索优惠券
     public static String card_app_searchcoupon = "CouponKeywordsSearch";
+    //搜索代金券
+    public static String card_app_cashcouponkeywordssearch ="CashCouponKeywordsSearch";
     //获取酒店详情里的服务信息
     public static String HOTEL_QUERY_DETAIL = "QueryHotelDetail";
     //酒店列表；
