@@ -1,6 +1,8 @@
 package com.yzb.card.king.ui.gift.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayout;
@@ -32,6 +34,7 @@ import com.yzb.card.king.ui.gift.presenter.FavorPayeePresenter;
 import com.yzb.card.king.ui.gift.presenter.GiveCardPresenter;
 import com.yzb.card.king.ui.my.bean.Payee;
 import com.yzb.card.king.util.AppUtils;
+import com.yzb.card.king.util.DialogUtil;
 import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.RegexUtil;
 import com.yzb.card.king.util.ToastUtil;
@@ -130,15 +133,17 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         if (pageType == TYPE_GIFTCARD) {
             title = "送礼品卡";
 
-            View giftView = inflater.inflate(R.layout.activity_view_send_gift, null);
-            giftView.findViewById(R.id.panelAdd).setOnClickListener(this);
-            llParentContent.addView(giftView, lp);
-            gridLayout = (GridLayout) giftView.findViewById(R.id.gridLayout);
-            gridLayout.removeAllViews();
-            addItemToGrid();
+//            View giftView = inflater.inflate(R.layout.activity_view_send_gift, null);
+//            giftView.findViewById(R.id.panelAdd).setOnClickListener(this);
+//            llParentContent.addView(giftView, lp);
+//            gridLayout = (GridLayout) giftView.findViewById(R.id.gridLayout);
+//            gridLayout.removeAllViews();
+//            addItemToGrid();
         } else if (pageType == TYPE_BOUNS) {
             title = "选择联系人";//
 
+
+        }
             favorPayeePresenter = new FavorPayeePresenter(this);
 
             View redEnvelepoView = inflater.inflate(R.layout.activity_view_send_red_envelepo, null);
@@ -159,8 +164,6 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
             llParentContent.addView(redEnvelepoView, lp);
 
             initContactData();
-
-        }
         setHeader(R.mipmap.icon_back_white, title);
         findViewById(R.id.tvSend).setOnClickListener(this);
     }
@@ -189,6 +192,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         LinearLayoutManager payeeWvM = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true);
         payeeWv.setLayoutManager(payeeWvM);
         payeeWvadapter = new PayeeAdapter(this, checkedList);
+        payeeWvadapter.setDel(true);
         payeeWv.setAdapter(payeeWvadapter);
 
         redEnvelepoView.findViewById(R.id.llAddContact).setOnClickListener(this);
@@ -360,7 +364,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
                         return;
                     }
 
-                    if (isInputRight()) {
+                    if (checkCount()) {
                         exeSend();
                     }
 
@@ -370,7 +374,9 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
                         return;
                     }
 
-                    exeSend();
+                    if (checkCount()) {
+                        exeSend();
+                    }
                 }
                 break;
             case R.id.llAddContact://调用联系人
@@ -386,6 +392,10 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
             default:
                 break;
         }
+    }
+
+    private boolean checkCount() {
+        return payeeWvadapter.getList().size()<=getIntent().getIntExtra("totalNum",1);
     }
 
     private void addAccount(String etPhoneAccountStr) {
@@ -433,21 +443,40 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
      * 发送
      */
     private void exeSend() {
-        showPDialog(R.string.setting_committing);
-        Map<String, Object> args = new HashMap<>();
+        View view = LayoutInflater.from(this).inflate(R.layout.dialog_send,null);
+        final Dialog dialog= new AlertDialog.Builder(this).setCancelable(true).setView(view).create();
+        view.findViewById(R.id.tvNegative).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+                dialog.dismiss();
+            }
+        });
+        view.findViewById(R.id.tvPositive).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPDialog(R.string.setting_committing);
+                Map<String, Object> args = new HashMap<>();
 
-        if (pageType == TYPE_GIFTCARD) {
-            args.put("sessionId", AppConstant.sessionId);
-            args.put("orderId", recordIds); //订单id
-            args.put("receiveIds", getNoEmptyPhones());//接收方ids,多个使用英文逗号分割
-            args.put("serviceName", CardConstant.card_sendmindcard);
-        } else if (pageType == TYPE_BOUNS) {
-            args.put("orderId", recordIds); //订单id
-            args.put("sendPlatform", 1); //订单id
-            args.put("receiveIds", getReceivingAccount());//接收方ids,多个使用英文逗号分割
-            args.put("serviceName", CardConstant.card_sendbonus);
-        }
-        giveCardPresenter.loadData(args);
+                if (pageType == TYPE_GIFTCARD) {
+                    args.put("sessionId", AppConstant.sessionId);
+                    args.put("orderId", recordIds); //订单id
+                    args.put("receiveIds", getNoEmptyPhones());//接收方ids,多个使用英文逗号分割
+                    args.put("serviceName", CardConstant.card_sendmindcard);
+                } else if (pageType == TYPE_BOUNS) {
+                    args.put("orderId", recordIds); //订单id
+                    args.put("sendPlatform", 1); //订单id
+                    args.put("receiveIds", getReceivingAccount());//接收方ids,多个使用英文逗号分割
+                    args.put("serviceName", CardConstant.card_sendbonus);
+                }
+                giveCardPresenter.loadData(args);
+                dialog.cancel();
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+
+
     }
 
     /**

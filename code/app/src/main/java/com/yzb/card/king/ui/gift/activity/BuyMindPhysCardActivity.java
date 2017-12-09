@@ -335,6 +335,7 @@ public class BuyMindPhysCardActivity extends BaseActivity implements View.OnClic
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == 1003) {
+
             addressBean = null;
             postFeeBean = null;
             panelAddress.setVisibility(View.GONE);
@@ -343,7 +344,29 @@ public class BuyMindPhysCardActivity extends BaseActivity implements View.OnClic
             llEmailMoney.setVisibility(View.GONE);
             getDefaultAddress();
             return;
+        }else if(resultCode==1005){
+            if(addressBean!=null){
+
+            }else{
+                Serializable addressObj = data.getSerializableExtra("addressBeanTemp");
+                if (addressObj != null) {
+                    addressBean = (GoodsAddressBean) addressObj;
+                    initAddressView();
+                    loadPostageFee(addressBean.getCityId());
+
+                    panelAddress.setVisibility(View.VISIBLE);
+
+                    lineAddress.setVisibility(View.VISIBLE);
+                } else {
+
+                    panelAddress.setVisibility(View.GONE);
+
+                    lineAddress.setVisibility(View.GONE);
+                }
+            }
+            return;
         }
+
         if (data == null) {
             return;
         }

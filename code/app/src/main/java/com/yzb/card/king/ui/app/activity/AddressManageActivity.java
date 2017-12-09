@@ -32,8 +32,7 @@ import java.util.Map;
  * 收货地址管理；
  */
 public class AddressManageActivity extends BaseActivity implements View.OnClickListener,
-        SwipeRefreshLayout.OnRefreshListener, AddressListView, AppBaseView
-{
+        SwipeRefreshLayout.OnRefreshListener, AddressListView, AppBaseView {
     private static final int REQ_CODE_ADD_ADDRESS = 0x001;
     private MenuListView listview;
     private RecvAddressListAdapter adapter;
@@ -50,8 +49,7 @@ public class AddressManageActivity extends BaseActivity implements View.OnClickL
     private LinearLayout viewAdd;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         defaultFlag = true;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address_manage);
@@ -60,16 +58,14 @@ public class AddressManageActivity extends BaseActivity implements View.OnClickL
         assignViews();
     }
 
-    private void assignViews()
-    {
+    private void assignViews() {
         setHeader(R.mipmap.icon_arrow_back_black, "邮寄地址");
         findViewById(R.id.headerLeft).setOnClickListener(this);
 
-        TextView tvFunctionName  = (TextView) findViewById(R.id.tvFunctionName);
+        TextView tvFunctionName = (TextView) findViewById(R.id.tvFunctionName);
         tvFunctionName.setText("新增地址");
 
-        if (getIntent().hasExtra("flag"))
-        {
+        if (getIntent().hasExtra("flag")) {
             currentFlag = getIntent().getIntExtra("flag", MODEY_ADDRESS_DATA);
         }
         swipeRefresh = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
@@ -99,50 +95,52 @@ public class AddressManageActivity extends BaseActivity implements View.OnClickL
 
     @Override
     public void finish() {
-        if(listview.getAdapter().getCount()==0){
+        if (listview.getAdapter().getCount() == 0) {
             setResult(1003);
         }
         super.finish();
     }
 
     @Override
-    protected void onResume()
-    {
+    protected void onResume() {
         super.onResume();
         onRefresh();
     }
-
-    private Handler dataHandler = new Handler(new Handler.Callback()
-    {
+    int resultcode;
+    private Handler dataHandler = new Handler(new Handler.Callback() {
         @Override
-        public boolean handleMessage(Message msg)
-        {
-            switch (msg.what)
-            {
+        public boolean handleMessage(Message msg) {
+            switch (msg.what) {
                 case RecvAddressListAdapter.UPDATE_GOOD_ADDRESS_EVENT: // 设置默认收货地址；
                     updateDefaultGoodsAddress(msg.arg1);
+                    GoodsAddressBean temp1 = adapter.getItem(msg.arg1);
+                    Intent intentTemp1 = new Intent();
+                    intentTemp1.putExtra("addressBeanTemp", temp1);
+                    resultcode = 1005;
+                    setResult(1005, intentTemp1);
                     break;
                 case RecvAddressListAdapter.ITEM_CLICK_EVENT: // item 点击；
-                    if (currentFlag == GET_ADDRESS_DATA)
-                    {
+                    if (currentFlag == GET_ADDRESS_DATA) {
                         GoodsAddressBean temp = adapter.getItem(msg.arg1);
                         Intent intentTemp = new Intent();
                         intentTemp.putExtra("addressBeanTemp", temp);
                         setResult(1002, intentTemp);
                         finish();
-                    } else
-                    {
+                    } else {
                         Intent intent = new Intent(AddressManageActivity.this, AddressEditActivity.class);
                         intent.putExtra(AddressEditActivity.ARG_DATA_BEAN, adapter.getItem(msg.arg1));
                         startActivityForResult(intent, REQ_CODE_ADD_ADDRESS);
                     }
                     break;
                 case RecvAddressListAdapter.DEL_SUC_EVENT: //adapter删除成功；
-                 //   addImg.setVisibility(adapter.getCount() == 0 ? View.VISIBLE : View.GONE);
-
+                    //   addImg.setVisibility(adapter.getCount() == 0 ? View.VISIBLE : View.GONE);
+//                    GoodsAddressBean temp = (GoodsAddressBean) msg.obj;
+//                    Intent intentTemp = new Intent();
+//                    intentTemp.putExtra("addressBeanTemp", temp);
+//                    setResult(1003, intentTemp);
                     int arg = msg.arg1;
 
-                    if(arg==0){
+                    if (arg == 0) {
 
                         viewAdd.setVisibility(View.VISIBLE);
 
@@ -156,15 +154,13 @@ public class AddressManageActivity extends BaseActivity implements View.OnClickL
     });
 
     @Override
-    public void onViewCallBackSucess(Object data)
-    {
+    public void onViewCallBackSucess(Object data) {
         toastCustom(R.string.app_set_success);
         adapter.updateDefaultById(intentGoodsAddressIndex);
     }
 
     @Override
-    public void onViewCallBackFail(String failMsg)
-    {
+    public void onViewCallBackFail(String failMsg) {
         toastCustom(failMsg);
     }
 
@@ -175,8 +171,7 @@ public class AddressManageActivity extends BaseActivity implements View.OnClickL
      *
      * @param position 点击的收货地址的下标；
      */
-    private void updateDefaultGoodsAddress(final int position)
-    {
+    private void updateDefaultGoodsAddress(final int position) {
         this.intentGoodsAddressIndex = position;
         Map<String, Object> param = new HashMap<>();
         param.put("serviceName", CardConstant.setting_customeraddressupdate);
@@ -186,13 +181,10 @@ public class AddressManageActivity extends BaseActivity implements View.OnClickL
     }
 
     @Override
-    public void onRefresh()
-    {
-        loadDataHandler.postDelayed(new Runnable()
-        {
+    public void onRefresh() {
+        loadDataHandler.postDelayed(new Runnable() {
             @Override
-            public void run()
-            {
+            public void run() {
                 swipeRefresh.setRefreshing(true);
                 loadPassengerList();
             }
@@ -200,41 +192,35 @@ public class AddressManageActivity extends BaseActivity implements View.OnClickL
     }
 
     @Override
-    public void onLoadAddressListSucess(boolean event_flag, Object data)
-    {
+    public void onLoadAddressListSucess(boolean event_flag, Object data) {
         swipeRefresh.setRefreshing(false);
-        if (data != null)
-        {
+        if (data != null) {
             refreshAdapter((List<GoodsAddressBean>) data);
 
             viewAdd.setVisibility(View.GONE);
 
             tvGoonAdd.setVisibility(View.VISIBLE);
-        }else{
+        } else {
 
         }
     }
 
     @Override
-    public void onLoadAddressListFail(String failMsg)
-    {
+    public void onLoadAddressListFail(String failMsg) {
         swipeRefresh.setRefreshing(false);
-      //  addImg.setVisibility(adapter.getCount() == 0 ? View.VISIBLE : View.GONE);
+        //  addImg.setVisibility(adapter.getCount() == 0 ? View.VISIBLE : View.GONE);
     }
 
     /**
      * 收货地址列表
      */
-    private void loadPassengerList()
-    {
+    private void loadPassengerList() {
         Map<String, Object> param = new HashMap<>();
         addressListPresenter.loadData(true, param);
     }
 
-    private void refreshAdapter(List<GoodsAddressBean> data)
-    {
-        if (data != null && data.size() > 0)
-        {
+    private void refreshAdapter(List<GoodsAddressBean> data) {
+        if (data != null && data.size() > 0) {
             adapter.clear();
             adapter.appendDataList(data);
         }
@@ -242,10 +228,8 @@ public class AddressManageActivity extends BaseActivity implements View.OnClickL
     }
 
     @Override
-    public void onClick(View v)
-    {
-        switch (v.getId())
-        {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.headerLeft:
                 finish();
                 break;
@@ -257,24 +241,20 @@ public class AddressManageActivity extends BaseActivity implements View.OnClickL
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        if (resultCode != Activity.RESULT_OK)
-        {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode != Activity.RESULT_OK) {
             return;
         }
-        switch (requestCode)
-        {
+        switch (requestCode) {
             case REQ_CODE_ADD_ADDRESS://新增地址返回；
                 String id = data.getStringExtra("id");
                 //删除操作；
-                if (!isEmpty(id))
-                {
+                if (!isEmpty(id)) {
                     adapter.deleteById(id);
 
                     int count = adapter.getCount();
 
-                    if(count ==0){
+                    if (count == 0) {
 
                         viewAdd.setVisibility(View.VISIBLE);
 
@@ -282,8 +262,7 @@ public class AddressManageActivity extends BaseActivity implements View.OnClickL
                     }
 
 
-                } else
-                {
+                } else {
                     onRefresh();
                 }
                 break;

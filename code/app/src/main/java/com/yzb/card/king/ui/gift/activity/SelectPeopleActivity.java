@@ -3,6 +3,9 @@ package com.yzb.card.king.ui.gift.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.support.v7.widget.GridLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.Editable;
@@ -28,6 +31,7 @@ import com.yzb.card.king.ui.gift.adapter.PayeeAdapter;
 import com.yzb.card.king.ui.gift.bean.FavorPayee;
 import com.yzb.card.king.ui.gift.presenter.FavorPayeePresenter;
 import com.yzb.card.king.ui.gift.presenter.GiveCardPresenter;
+import com.yzb.card.king.ui.my.bean.Payee;
 import com.yzb.card.king.util.AppUtils;
 import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.RegexUtil;
@@ -37,6 +41,7 @@ import com.yzb.card.king.util.ValidatorUtil;
 import org.xutils.view.annotation.ContentView;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -133,11 +138,11 @@ public class SelectPeopleActivity extends BaseActivity implements View.OnClickLi
             gridLayout.removeAllViews();
             addItemToGrid();
         } else if (pageType == TYPE_BOUNS) {
-            title = "选择联系人";//
+            title = "选择常用联系人";//
 
             favorPayeePresenter = new FavorPayeePresenter(this);
 
-            View redEnvelepoView = inflater.inflate(R.layout.activity_view_send_red_envelepo, null);
+            View redEnvelepoView = inflater.inflate(R.layout.activity_view_selectpeople, null);
 
             //初始化红包发送试图
             initRedEnvelepo(redEnvelepoView);
@@ -146,11 +151,17 @@ public class SelectPeopleActivity extends BaseActivity implements View.OnClickLi
 
             initContactData();
             redEnvelepoView.findViewById(R.id.title).setVisibility(View.GONE);
-            redEnvelepoView.findViewById(R.id.search).setVisibility(View.GONE);
             redEnvelepoView.findViewById(R.id.addPayeeWv).setVisibility(View.GONE);
         }
         setHeader(R.mipmap.icon_back_white, title);
         findViewById(R.id.tvSend).setOnClickListener(this);
+        findViewById(R.id.clear).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                etPhoneAccount.setText("");
+            }
+        });
+        calculateNumber();
     }
 
     private void initContactData() {
@@ -177,6 +188,7 @@ public class SelectPeopleActivity extends BaseActivity implements View.OnClickLi
         LinearLayoutManager payeeWvM = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true);
         payeeWv.setLayoutManager(payeeWvM);
         payeeWvadapter = new PayeeAdapter(this, checkedList);
+
         payeeWv.setAdapter(payeeWvadapter);
 
         redEnvelepoView.findViewById(R.id.llAddContact).setOnClickListener(this);
@@ -200,10 +212,36 @@ public class SelectPeopleActivity extends BaseActivity implements View.OnClickLi
             }
 
             @Override
-            public void afterTextChanged(Editable s) {
-                if (s.length() == 11) {
-                    addAccount(s.toString());
-                }
+            public void afterTextChanged(final Editable s) {
+
+                    payeeWvadapter.getList().clear();
+                    payeeWvadapter.notifyDataSetChanged();
+
+                new Thread() {
+                    @Override
+                    public void run() {
+                        super.run();
+                        if (list.size() > 0) {
+
+                            for (FavorPayee p : list) {
+                                if (p.getTradeAccount().toLowerCase().contains(s.toString().toLowerCase()) || p.getCreditName().toLowerCase().contains(s.toString().toLowerCase())) {
+                                    payeeWvadapter.addNewData(p, false);
+                                }
+                            }
+
+                        } else {
+                            payeeWvadapter.getList().clear();
+                        }
+                        new Handler(Looper.getMainLooper()) {
+                            @Override
+                            public void handleMessage(Message msg) {
+                                super.handleMessage(msg);
+                                payeeWvadapter.notifyDataSetChanged();
+                                calculateNumber();
+                            }
+                        }.sendEmptyMessage(0);
+                    }
+                }.start();
             }
         });
     }
@@ -413,7 +451,7 @@ public class SelectPeopleActivity extends BaseActivity implements View.OnClickLi
      * 发送
      */
     private void exeSend() {
-        setResult(-1,new Intent().putExtra("data", (Serializable) payeeWvadapter.getCheckList()));
+        setResult(-1, new Intent().putExtra("data", (Serializable) payeeWvadapter.getCheckList()));
         finish();
 //        showPDialog(R.string.setting_committing);
 //        Map<String, Object> args = new HashMap<>();
@@ -565,11 +603,14 @@ public class SelectPeopleActivity extends BaseActivity implements View.OnClickLi
         }
     }
 
+    List<FavorPayee> list = new ArrayList<FavorPayee>();
+
     @Override
     public void onGetFavorPayeeSuc(boolean event_tag, List<FavorPayee> list) {
         closePDialog();
-
+        this.list.addAll(list);
         payeeWvadapter.addNewDataList(list);
+        calculateNumber();
     }
 
     @Override

@@ -155,7 +155,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
                 if(!TextUtils.isEmpty(regiestPhoneNumber)){
                     etMoble.setText(regiestPhoneNumber);
                 }
-
+                findViewById(R.id.llForgetPassword).setVisibility(View.INVISIBLE);
             }
         });
         //账号登录
@@ -187,6 +187,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
                 if(!TextUtils.isEmpty(regiestPhoneNumber)){
                     etMoble.setText(regiestPhoneNumber);
                 }
+                findViewById(R.id.llForgetPassword).setVisibility(View.VISIBLE);
             }
         });
         btnZhLogin.performClick();

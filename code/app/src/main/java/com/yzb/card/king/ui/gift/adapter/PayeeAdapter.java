@@ -50,6 +50,10 @@ public class PayeeAdapter extends RecyclerView.Adapter implements View.OnClickLi
         this.del = del;
     }
 
+    public List<FavorPayee> getList() {
+        return list;
+    }
+
     public void addNewDataList(List<FavorPayee> list) {
 
 //        this.list.clear();
@@ -60,6 +64,9 @@ public class PayeeAdapter extends RecyclerView.Adapter implements View.OnClickLi
     }
 
     public void addNewData(FavorPayee list) {
+        addNewData(list,true);
+    }
+    public void addNewData(FavorPayee list,boolean changed) {
 
 //        this.list.clear();
         int hasindex =
@@ -70,9 +77,11 @@ public class PayeeAdapter extends RecyclerView.Adapter implements View.OnClickLi
                     }
                 });
         if (hasindex == -1) {
+            list.setChecked(true);
             this.list.add(list);
 
         }
+        if(changed)
         notifyDataSetChanged();
     }
 
@@ -89,6 +98,7 @@ public class PayeeAdapter extends RecyclerView.Adapter implements View.OnClickLi
 
         return temp;
     }
+
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

@@ -48,13 +48,16 @@
                         android:paddingLeft="8dp"
                         android:paddingRight="12dp"
                         android:paddingTop="8dp">
-
+                        <ImageView android:id="@+id/logo"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:background="@mipmap/fdj"
+                            android:layout_marginRight="20dp"/>
                         <EditText
                             android:id="@+id/etPhoneAccount"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:inputType="number"
                             android:background="@android:color/transparent"
                             android:maxLength="11"
                             android:hint="请输入对方账户"
@@ -71,12 +74,13 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="8dp"
                                 android:layout_marginRight="8dp"
-                                android:background="@color/bg_focus"/>
+                                android:background="@color/bg_focus"
+                                android:visibility="gone"/>
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@mipmap/icon_add_account_blue_phone"/>
+                            <ImageView android:id="@+id/clear"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:background="@mipmap/clear"/>
                         </LinearLayout>
                     </LinearLayout>
 
@@ -86,6 +90,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/title_l_r"
+                        android:visibility="gone"
                         />
 
                 </LinearLayout>
@@ -142,14 +147,13 @@
             android:layout_centerVertical="true"
             android:text="已选择"
             android:textColor="@color/white_ffffff"
-            android:textSize="@dimen/title_size_14"
-            android:visibility="invisible"/>
+            android:textSize="@dimen/title_size_14"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="发送"
+            android:text="@string/setting_ok"
             android:textColor="@color/white_ffffff"
             android:textSize="@dimen/title_size_20"/>
 

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="提示"
+        android:textColor="@color/wordBlackLight"
+        android:textSize="18sp"
+        android:layout_marginBottom="20dp"/>
+    <LinearLayout
+        android:id="@+id/llMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_switch"
+            android:layout_margin="5dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请确认是否发送?"
+            android:textColor="@color/gray6"
+            android:textSize="18sp"/>
+    </LinearLayout>
+<View android:layout_marginTop="20dp" android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/gray3"/>
+    <LinearLayout
+        android:id="@+id/llButton"
+        android:layout_width="144dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp">
+        <TextView
+            android:id="@+id/tvNegative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消发送"
+            android:textColor="@color/color_436a8e"
+            android:textSize="16sp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/tvPositive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="确认发送"
+            android:textColor="@color/color_436a8e"
+            android:textSize="16sp"/>
+    </LinearLayout>
+</LinearLayout>

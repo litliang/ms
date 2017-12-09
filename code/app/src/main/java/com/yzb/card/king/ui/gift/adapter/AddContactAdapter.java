@@ -35,9 +35,6 @@ public class AddContactAdapter extends RecyclerView.Adapter {
 
     private CurrentClickListener listener;
 
-
-
-
     public AddContactAdapter(Context mContext, CurrentClickListener listener)
     {
         this.mContext = mContext;
