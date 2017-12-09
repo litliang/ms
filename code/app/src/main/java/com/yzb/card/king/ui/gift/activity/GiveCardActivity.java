@@ -166,6 +166,13 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
             initContactData();
         setHeader(R.mipmap.icon_back_white, title);
         findViewById(R.id.tvSend).setOnClickListener(this);
+        findViewById(R.id.clear).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((EditText)findViewById(R.id.etPhoneAccount)).setText("");
+            }
+        });
+
     }
 
     private void initContactData() {
@@ -195,7 +202,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         payeeWvadapter.setDel(true);
         payeeWv.setAdapter(payeeWvadapter);
 
-        redEnvelepoView.findViewById(R.id.llAddContact).setOnClickListener(this);
+//        redEnvelepoView.findViewById(R.id.llAddContact).setOnClickListener(this);
 
         redEnvelepoView.findViewById(R.id.tvAddAccount).setOnClickListener(this);
 
