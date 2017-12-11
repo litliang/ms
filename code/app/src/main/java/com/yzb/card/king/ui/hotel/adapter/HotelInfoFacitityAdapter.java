@@ -61,9 +61,12 @@ public class HotelInfoFacitityAdapter extends BaseAdapter {
         if(roomServiceList != null){
 
             return roomServiceList.size();
-        }else {
+        }else if(itemNamesArray!= null) {
 
           return   itemNamesArray.length;
+        }else {
+
+            return 0;
         }
 
     }
@@ -72,10 +75,15 @@ public class HotelInfoFacitityAdapter extends BaseAdapter {
     public Object getItem(int position)
     {
         if(roomServiceList != null) {
+
             return roomServiceList.get(position);
-        }else {
+
+        }else if(itemNamesArray!= null) {
 
            return itemNamesArray[position];
+        }else {
+
+            return 0;
         }
     }
 
