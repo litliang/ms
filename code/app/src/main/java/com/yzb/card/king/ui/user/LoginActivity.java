@@ -79,11 +79,10 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     private LoginPresenter loginPresenter;
 
-    private   String regiestPhoneNumber = null;
+    private String regiestPhoneNumber = null;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         initView();
@@ -97,8 +96,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
      *
      * @param v
      */
-    public void backAction(View v)
-    {
+    public void backAction(View v) {
 
         if (GlobalApp.backFlag) {
 
@@ -115,20 +113,18 @@ public class LoginActivity extends BaseActivity implements LoginView {
         finish();
     }
 
-    private void initView()
-    {
+    private void initView() {
 
         tvTitle.setText(R.string.txt_login_str);
         btnPhone.setSelected(true);
         btnZhLogin.setSelected(false);
-       // llForgetPasswordTemp.setVisibility(View.INVISIBLE);
+        // llForgetPasswordTemp.setVisibility(View.INVISIBLE);
         authCodeView = new AuthCodeView(tvGetCode);
         SMSBroadcastHelper.registerBroadcast(etYanzhenMa);
         //手机登陆
         btnPhone.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 etMoble.setText("");
                 etYanzhenMa.setText("");
 
@@ -149,20 +145,20 @@ public class LoginActivity extends BaseActivity implements LoginView {
                 etYanzhenMa.setInputType(InputType.TYPE_CLASS_NUMBER);
                 etYanzhenMa.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4)});//设置长度
 
-             //   llForgetPasswordTemp.setVisibility(View.INVISIBLE);
+                //   llForgetPasswordTemp.setVisibility(View.INVISIBLE);
 
                 //特殊处理
-                if(!TextUtils.isEmpty(regiestPhoneNumber)){
+                if (!TextUtils.isEmpty(regiestPhoneNumber)) {
                     etMoble.setText(regiestPhoneNumber);
                 }
                 findViewById(R.id.llForgetPassword).setVisibility(View.INVISIBLE);
+                findViewById(R.id.btRegister).setVisibility(View.INVISIBLE);
             }
         });
         //账号登录
         btnZhLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 etMoble.setText("");
                 etYanzhenMa.setText("");
                 btnPhone.setSelected(false);
@@ -181,28 +177,28 @@ public class LoginActivity extends BaseActivity implements LoginView {
                 //密码  数字不可见
                 etYanzhenMa.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 etYanzhenMa.setFilters(new InputFilter[]{new InputFilter.LengthFilter(Integer.MAX_VALUE)});//设置长度
-             //   llForgetPasswordTemp.setVisibility(View.VISIBLE);
+                //   llForgetPasswordTemp.setVisibility(View.VISIBLE);
 
                 //特殊处理
-                if(!TextUtils.isEmpty(regiestPhoneNumber)){
+                if (!TextUtils.isEmpty(regiestPhoneNumber)) {
                     etMoble.setText(regiestPhoneNumber);
                 }
                 findViewById(R.id.llForgetPassword).setVisibility(View.VISIBLE);
+                findViewById(R.id.btRegister).setVisibility(View.VISIBLE);
             }
         });
         btnZhLogin.performClick();
         llForgetPasswordTemp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(v.getContext(),ResetLoginPwdActivity.class));
+                startActivity(new Intent(v.getContext(), ResetLoginPwdActivity.class));
             }
         });
     }
 
 
     @Event(R.id.btRegister)
-    private void btRegisterAction(View v)
-    {
+    private void btRegisterAction(View v) {
 
         Intent in = new Intent(this, RegisterActivity.class);
 
@@ -212,8 +208,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
     }
 
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         super.onDestroy();
 
         loginPresenter = null;
@@ -223,8 +218,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
 
     @Event(R.id.btLogin)
-    private void btLogin(View v)
-    {
+    private void btLogin(View v) {
 
         if (loginFlag) {//手机登录
 
@@ -246,8 +240,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)
-    {
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
 
             if (GlobalApp.backFlag) {
@@ -269,9 +262,8 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     }
 
-    @Event(R.id.llForgetPassword)
-    private void llForgetPassword(View v)
-    {
+    @Event(R.id.forgetpwd)
+    private void llForgetPassword(View v) {
         Intent intent = new Intent(this, VerifyIdentificationActivity.class);
 
         startActivity(intent);
@@ -279,9 +271,8 @@ public class LoginActivity extends BaseActivity implements LoginView {
     }
 
     @Event(R.id.qq)
-    private void qq(final View v)
-    {
-        UMShareAPI.get(this).doOauthVerify(this, SHARE_MEDIA.QQ, new UMAuthListener(){
+    private void qq(final View v) {
+        UMShareAPI.get(this).doOauthVerify(this, SHARE_MEDIA.QQ, new UMAuthListener() {
 
             @Override
             public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
@@ -303,8 +294,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
     }
 
     @Event(R.id.wx)
-    private void wx(final View v)
-    {
+    private void wx(final View v) {
 //
 //        JShareInterface.authorize(platform, new AuthListener() {
 //            @Override
@@ -332,11 +322,10 @@ public class LoginActivity extends BaseActivity implements LoginView {
     }
 
     @Event(R.id.wb)
-    private void wb(final View v)
-    {
+    private void wb(final View v) {
 
 
-        UMShareAPI.get(this).getPlatformInfo(this, SHARE_MEDIA.SINA, new UMAuthListener(){
+        UMShareAPI.get(this).getPlatformInfo(this, SHARE_MEDIA.SINA, new UMAuthListener() {
 
             @Override
             public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
@@ -357,18 +346,18 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
 
     }
+
     @Event(R.id.tvGetCode)
-    private void tvGetCode(View v)
-    {
+    private void tvGetCode(View v) {
 
         String str1 = etMoble.getText().toString().trim();
 
-        authCodeView.sendCodeRequest(str1,"1", "5");
+        authCodeView.sendCodeRequest(str1, "1", "5");
 
     }
+
     @Override
-    public String[] loginInfo()
-    {
+    public String[] loginInfo() {
 
         String loginAccountStr = etMoble.getText().toString().trim();
 
@@ -380,8 +369,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
     }
 
     @Override
-    public void loginCallBack()
-    {
+    public void loginCallBack() {
         UserManager.getInstance().update();
         setResult(AppConstant.LOGIN_ACCESS);
         finish();
@@ -390,8 +378,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
 
@@ -399,11 +386,11 @@ public class LoginActivity extends BaseActivity implements LoginView {
             finish();
         }
 
-        if(requestCode == 1000){
+        if (requestCode == 1000) {
 
-            if(resultCode == 1019 && data != null){
+            if (resultCode == 1019 && data != null) {
 
-                 regiestPhoneNumber = data.getStringExtra("newAccountData");
+                regiestPhoneNumber = data.getStringExtra("newAccountData");
 
                 etMoble.setText(regiestPhoneNumber);
 
@@ -418,8 +405,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
      *
      * @return
      */
-    private boolean chechData()
-    {
+    private boolean chechData() {
 
         boolean flag = true;
 
@@ -442,7 +428,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
                 flag = false;
 
                 str = R.string.hint_yanzhengma;
-            } else if (!str1.equals("17638101821")&&!ValidatorUtil.isMobile(str1)) {
+            } else if (!str1.equals("17638101821") && !ValidatorUtil.isMobile(str1)) {
 
                 flag = false;
 
@@ -464,8 +450,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
                 str = R.string.hint_mima;
 
-            }else if (!ValidatorUtil.isZcPassword(str2))
-            {
+            } else if (!ValidatorUtil.isZcPassword(str2)) {
                 flag = false;
 
                 str = R.string.toast_password_isSure;
@@ -475,7 +460,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
         }
 
         if (!flag) {
-            ToastUtil.i(this,str);
+            ToastUtil.i(this, str);
         }
 
         return flag;

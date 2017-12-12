@@ -10,7 +10,9 @@ import com.yzb.card.king.R;
 import com.yzb.card.king.ui.base.BaseActivity;
 import com.yzb.card.king.ui.manage.UserManager;
 import com.yzb.card.king.ui.other.controller.ValidCodeController;
+import com.yzb.card.king.util.ToastUtil;
 import com.yzb.card.king.util.UiUtils;
+import com.yzb.card.king.util.ValidatorUtil;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
@@ -68,6 +70,14 @@ public class UpdateMobileActivity extends BaseActivity
     @Event(R.id.btNext)
     private void next(View v)
     {
+        if (!ValidatorUtil.isMobile(etPhone.getText().toString()))
+        {
+
+
+            ToastUtil.i(this,R.string.toast_chech_your_phone_number);
+            return;
+
+        }
         codeController.validCode(getValidCode(), new ValidCodeController.OnSuccessListener()
         {
             @Override

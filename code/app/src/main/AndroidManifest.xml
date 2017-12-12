@@ -92,7 +92,7 @@
         android:required="true"/>
 
     <uses-permission android:name="android.permission.NFC"/>
-
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
 
     <application
         android:name=".sys.GlobalApp"
@@ -103,6 +103,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:replace="android:icon,android:label">
+        <meta-data
+            android:name="ver"
+            android:value="117"/>
         <meta-data
             android:name="android.nfc.disable_beam_default"
             android:value="true"/>
@@ -1709,7 +1712,12 @@
             android:name=".ui.gift.activity.BuyPhysicalCardActivity"
             android:configChanges="fontScale|orientation|keyboardHidden"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeWhite.NoActionBar"/>
+            android:theme="@style/AppThemeWhite.NoActionBar"/><activity
+        android:name=".ui.gift.activity.SelectPeopleActivity"
+        android:configChanges="fontScale|orientation|keyboardHidden"
+        android:screenOrientation="portrait"
+        android:theme="@style/AppThemeWhite.NoActionBar"
+        android:windowSoftInputMode="stateHidden"/>
         <!-- 我的-送礼品卡 -->
         <activity
             android:name=".ui.gift.activity.GiveCardActivity"
@@ -1967,7 +1975,6 @@
         <activity android:name=".ui.my.activity.SelectCreditActivity"/>
         <activity android:name=".ui.credit.activity.AddNoPayCardActivity"/>
         <activity android:name=".ui.my.activity.TransSuccActivity"/>
-
     </application>
 
 </manifest>

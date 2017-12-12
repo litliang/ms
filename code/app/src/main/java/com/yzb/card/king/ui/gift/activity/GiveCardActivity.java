@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.yzb.card.king.R;
@@ -144,32 +145,32 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
 
 
         }
-            favorPayeePresenter = new FavorPayeePresenter(this);
+        favorPayeePresenter = new FavorPayeePresenter(this);
 
-            View redEnvelepoView = inflater.inflate(R.layout.activity_view_send_red_envelepo, null);
+        View redEnvelepoView = inflater.inflate(R.layout.activity_view_send_red_envelepo, null);
 
-            //初始化红包发送试图
-            initRedEnvelepo(redEnvelepoView);
+        //初始化红包发送试图
+        initRedEnvelepo(redEnvelepoView);
 
-            redEnvelepoView.findViewById(R.id.tvAddAccount).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), SelectPeopleActivity.class);
-                    intent.putExtra("recordIds", getIntent().getStringExtra("recordIds"));
-                    intent.putExtra("pageType", GiveCardActivity.TYPE_BOUNS);
-                    intent.putExtra("totalNum", getIntent().getStringExtra("totalNum"));
-                    startActivityForResult(intent, 1002);
-                }
-            });
-            llParentContent.addView(redEnvelepoView, lp);
+        redEnvelepoView.findViewById(R.id.tvAddAccount).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), SelectPeopleActivity.class);
+                intent.putExtra("recordIds", getIntent().getStringExtra("recordIds"));
+                intent.putExtra("pageType", GiveCardActivity.TYPE_BOUNS);
+                intent.putExtra("totalNum", getIntent().getStringExtra("totalNum"));
+                startActivityForResult(intent, 1002);
+            }
+        });
+        llParentContent.addView(redEnvelepoView, lp);
 
-            initContactData();
+        initContactData();
         setHeader(R.mipmap.icon_back_white, title);
         findViewById(R.id.tvSend).setOnClickListener(this);
         findViewById(R.id.clear).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((EditText)findViewById(R.id.etPhoneAccount)).setText("");
+                ((EditText) findViewById(R.id.etPhoneAccount)).setText("");
             }
         });
 
@@ -370,9 +371,12 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
 
                         return;
                     }
-
-                    if (checkCount()) {
+                    if (payeeWvadapter.getList().size() == 0) {
+                        Toast.makeText(this, "没有选择发送人哦", Toast.LENGTH_SHORT).show();
+                    } else if (checkCount()) {
                         exeSend();
+                    } else {
+                        Toast.makeText(this, "不能超" + getIntent().getIntExtra("totalNum", 1) + "人哦~", Toast.LENGTH_SHORT).show();
                     }
 
                 } else if (pageType == TYPE_BOUNS) {
@@ -381,8 +385,12 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
                         return;
                     }
 
-                    if (checkCount()) {
+                    if (payeeWvadapter.getList().size() == 0) {
+                        Toast.makeText(this, "没有选择发送人哦", Toast.LENGTH_SHORT).show();
+                    } else if (checkCount()) {
                         exeSend();
+                    } else {
+                        Toast.makeText(this, "不能超" + getIntent().getIntExtra("totalNum", 1) + "人哦~", Toast.LENGTH_SHORT).show();
                     }
                 }
                 break;
@@ -402,7 +410,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     }
 
     private boolean checkCount() {
-        return payeeWvadapter.getList().size()<=getIntent().getIntExtra("totalNum",1);
+        return payeeWvadapter.getList().size() <= getIntent().getIntExtra("totalNum", 1);
     }
 
     private void addAccount(String etPhoneAccountStr) {
@@ -450,8 +458,8 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
      * 发送
      */
     private void exeSend() {
-        View view = LayoutInflater.from(this).inflate(R.layout.dialog_send,null);
-        final Dialog dialog= new AlertDialog.Builder(this).setCancelable(true).setView(view).create();
+        View view = LayoutInflater.from(this).inflate(R.layout.dialog_send, null);
+        final Dialog dialog = new AlertDialog.Builder(this).setCancelable(true).setView(view).create();
         view.findViewById(R.id.tvNegative).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

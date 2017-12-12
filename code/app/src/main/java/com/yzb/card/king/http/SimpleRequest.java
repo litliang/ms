@@ -22,6 +22,7 @@ public class SimpleRequest<T> extends BaseRequest
     {
     }
 
+
     public SimpleRequest(String serverName)
     {
         this.serverName = serverName;
@@ -29,6 +30,7 @@ public class SimpleRequest<T> extends BaseRequest
 
     public SimpleRequest(String serverName, Map<String, Object> param, Listener listener)
     {
+
         this.serverName = serverName;
         this.param = param;
         this.listener = listener;

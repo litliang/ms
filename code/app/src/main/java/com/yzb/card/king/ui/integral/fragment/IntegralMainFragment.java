@@ -8,6 +8,7 @@ import android.view.View;
 import com.yzb.card.king.R;
 import com.yzb.card.king.bean.my.NationalCountryBean;
 import com.yzb.card.king.sys.AppConstant;
+import com.yzb.card.king.sys.ServiceDispatcher;
 import com.yzb.card.king.ui.TestActivity;
 import com.yzb.card.king.ui.app.activity.HotelBillActivity;
 import com.yzb.card.king.ui.appwidget.SlideShow1ItemView;
@@ -61,7 +62,7 @@ public class IntegralMainFragment extends BaseFragment {
 
         }
 
-        String oneUrl = "http://116.228.184.117/index/index/index?sessionId=" + sessionId + "&identification=" +  AppConstant.UUID+"&cityId="+cityId;
+        String oneUrl = "http://116.228.184."+ ServiceDispatcher.ver+"/index/index/index?sessionId=" + sessionId + "&identification=" +  AppConstant.UUID+"&cityId="+cityId;
         Bundle bundle = new Bundle();
         bundle.putString("url", oneUrl); //
         bundle.putString("titleName", "房抵快贷");
@@ -85,7 +86,7 @@ public class IntegralMainFragment extends BaseFragment {
 
         }
 
-        String oneUrl = "http://116.228.184.117/index/credit_loan/index?sessionId=" + sessionId+ "&identification=" + AppConstant.UUID+"&cityId="+cityId;
+        String oneUrl = "http://116.228.184."+ ServiceDispatcher.ver+"/index/credit_loan/index?sessionId=" + sessionId+ "&identification=" + AppConstant.UUID+"&cityId="+cityId;
         Bundle bundle = new Bundle();
         bundle.putString("url", oneUrl); //
         bundle.putString("titleName", "超级信用贷");

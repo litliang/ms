@@ -24,41 +24,36 @@ import org.xutils.x;
  * @author:gengqiyun
  * @date: 2016/12/21
  */
-public class BounsThemeAdapter extends BaseListAdapter<BounsThemeBean>
-{
+public class BounsThemeAdapter extends BaseListAdapter<BounsThemeBean> {
     private ImageOptions imageOptions;
 
     private Handler bounsThemeHandler;
 
-    public BounsThemeAdapter(Context context,Handler bounsThemeHandler)
-    {
+    public BounsThemeAdapter(Context context, Handler bounsThemeHandler) {
         super(context);
         imageOptions = XImageOptionUtil.getRoundImageOption(DensityUtil.dip2px(10), ImageView.ScaleType.FIT_XY);
         this.bounsThemeHandler = bounsThemeHandler;
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent)
-    {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        if (convertView == null)
-        {
+        if (convertView == null) {
             convertView = mInflater.inflate(R.layout.item_bouns_theme, parent, false);
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
-        } else
-        {
+        } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
         final BounsThemeBean bean = getItem(position);
 
-        if(bean == null){
+        if (bean == null) {
 
             holder.panelIv.setBackgroundResource(R.mipmap.bg_defined_red_packet);
             holder.tv.setText(R.string.define_red_envelope);
 
-        }else{
+        } else {
 
             holder.panelIv.setBackgroundResource(bean.isSelect() ? R.drawable.shape_solid_white_red_stroke
                     : R.drawable.bg_transparent);
@@ -70,17 +65,16 @@ public class BounsThemeAdapter extends BaseListAdapter<BounsThemeBean>
             holder.tv.setText(bean.getThemeName());
         }
 
-        holder.root.setOnClickListener(new View.OnClickListener()
-        {
+        holder.root.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                if(bean==null){
+            public void onClick(View v) {
+                if (bean == null) {
 
                     bounsThemeHandler.sendEmptyMessage(0);
 
-                }else {
+                } else {
                     singleSelectItem(bean);
+                    bounsThemeHandler.sendEmptyMessage(1);
                 }
             }
         });
@@ -92,37 +86,34 @@ public class BounsThemeAdapter extends BaseListAdapter<BounsThemeBean>
     /**
      * 单选item；
      */
-    private void singleSelectItem(BounsThemeBean bean)
-    {
+    private void singleSelectItem(BounsThemeBean bean) {
 
-        for (int i = 0; i < mList.size(); i++)
-        {
+        for (int i = 0; i < mList.size(); i++) {
             BounsThemeBean bounsThemeBean = mList.get(i);
-            if(bounsThemeBean != null){
+            if (bounsThemeBean != null) {
                 bounsThemeBean.setIsSelect(false);
             }
 
         }
-        bean.setIsSelect(true);
+        if (bean != null) {
+            bean.setIsSelect(true);
+        }
         notifyDataSetChanged();
     }
 
     /**
      * 获取选中的item;
      */
-    public BounsThemeBean getSelectItem()
-    {
-        for (int i = 0; i < mList.size(); i++)
-        {
+    public BounsThemeBean getSelectItem() {
+        for (int i = 0; i < mList.size(); i++) {
             BounsThemeBean bounsThemeBean = mList.get(i);
 
-            if(bounsThemeBean != null){
+            if (bounsThemeBean != null) {
 
-                if (bounsThemeBean.isSelect())
-                {
+                if (bounsThemeBean.isSelect()) {
                     return mList.get(i);
                 }
-            }else{
+            } else {
                 break;
             }
 
@@ -135,16 +126,12 @@ public class BounsThemeAdapter extends BaseListAdapter<BounsThemeBean>
      *
      * @param themeId
      */
-    public void selectItem(String themeId)
-    {
-        if (!isEmpty(themeId))
-        {
-            for (int i = 0; i < mList.size(); i++)
-            {
+    public void selectItem(String themeId) {
+        if (!isEmpty(themeId)) {
+            for (int i = 0; i < mList.size(); i++) {
                 BounsThemeBean bounsThemeBean = mList.get(i);
-                if( bounsThemeBean != null){
-                    if (themeId.equals(bounsThemeBean.getThemeId()))
-                    {
+                if (bounsThemeBean != null) {
+                    if (themeId.equals(bounsThemeBean.getThemeId())) {
                         mList.get(i).setIsSelect(true);
                         break;
                     }
@@ -153,8 +140,7 @@ public class BounsThemeAdapter extends BaseListAdapter<BounsThemeBean>
         }
     }
 
-    public class ViewHolder
-    {
+    public class ViewHolder {
         @ViewInject(R.id.panelIv)
         public View panelIv;
         @ViewInject(R.id.iv)
@@ -163,8 +149,7 @@ public class BounsThemeAdapter extends BaseListAdapter<BounsThemeBean>
         public TextView tv;
         public View root;
 
-        public ViewHolder(View root)
-        {
+        public ViewHolder(View root) {
             this.root = root;
             x.view().inject(this, root);
         }

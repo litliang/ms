@@ -226,11 +226,11 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
                         android:background="@mipmap/discount_header_bg_right"/>
 
-                    <TextView
+                    <TextView android:id="@+id/forgetpwd"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"

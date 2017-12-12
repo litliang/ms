@@ -1,5 +1,7 @@
 package com.yzb.card.king.ui.home;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,8 +17,10 @@ import com.yzb.card.king.bean.common.FragmentMessageEvent;
 import com.yzb.card.king.sys.AppConstant;
 import com.yzb.card.king.sys.AppFactory;
 import com.yzb.card.king.sys.GlobalVariable;
+import com.yzb.card.king.sys.ServiceDispatcher;
 import com.yzb.card.king.ui.appwidget.popup.RedBagPopup;
 import com.yzb.card.king.ui.base.BaseActivity;
+import com.yzb.card.king.ui.base.BaseModelImpl;
 import com.yzb.card.king.ui.gift.activity.GiftCardHomeActivity;
 import com.yzb.card.king.ui.my.MyIndexFragment;
 import com.yzb.card.king.ui.my.activity.CouponsHomeActivity;
@@ -24,6 +28,9 @@ import com.yzb.card.king.ui.my.presenter.NationalCountryPresenter;
 import com.yzb.card.king.ui.user.LoginActivity;
 import com.yzb.card.king.ui.user.presenter.LoginPresenter;
 import com.yzb.card.king.util.LogUtil;
+import com.yzb.card.king.util.SharedPreferencesUtils;
+import com.yzb.card.king.util.StorageUtil;
+import com.yzb.card.king.util.ToastUtil;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -32,6 +39,7 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 
+import java.io.IOException;
 import java.util.List;
 
 
@@ -41,8 +49,7 @@ import java.util.List;
  * Date  : 2016/6/16.
  */
 @ContentView(R.layout.tab_home_page_new)
-public class AppHomeActivity extends BaseActivity
-{
+public class AppHomeActivity extends BaseActivity {
     private List<Fragment> fragments;
 
     @ViewInject(R.id.tab_iv_xyk)
@@ -79,10 +86,10 @@ public class AppHomeActivity extends BaseActivity
     private FragmentMessageEvent currentEvent;
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        GlobalVariable.industryId =1003;
+        GlobalVariable.industryId = 1003;
+//        ServiceDispatcher.toastVer();
         initView();
         updateBottomStyleByIndex(2, true);
         replaceFragment(2);
@@ -95,10 +102,53 @@ public class AppHomeActivity extends BaseActivity
         nPresenter.sendRequest("2");
         //注册事件
         EventBus.getDefault().register(this);
+        findViewById(R.id.rl_shfw).setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                BaseModelImpl.toast = !BaseModelImpl.toast;
+                if (BaseModelImpl.toast) {
+                    ToastUtil.i(v.getContext(), "调试已开启");
+                    ServiceDispatcher.toastVer();
+                } else {
+                    ToastUtil.i(v.getContext(), "调试未开启");
+                }
+
+                return false;
+            }
+        });
+        findViewById(R.id.rl_xyk).setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                ServiceDispatcher.change(v.getContext(), "");
+                String ver = (String) new StorageUtil(StorageUtil.testpath).getKeyedV("ver");
+                ToastUtil.i(v.getContext(), "切换为" + ver+", 请重启");
+                clearAppUserData(v.getContext().getPackageName());
+                ActivityManager manager = (ActivityManager) v.getContext().getSystemService(Context.ACTIVITY_SERVICE);
+                manager.restartPackage(v.getContext().getPackageName());
+                return false;
+            }
+            public  Process clearAppUserData(String packageName) {
+                Process p = execRuntimeProcess("pm clear " + packageName);
+                if (p == null) {
+                } else {
+                }
+                return p;
+            }
+            public  Process execRuntimeProcess(String commond) {
+                Process p = null;
+                try {
+                    p = Runtime.getRuntime().exec(commond);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return p;
+            }
+        }
+    );
     }
 
-    private void initView()
-    {
+    private void initView() {
         contentView = getWindow().getDecorView();
 
         fragments = AppFactory.getHomeTabFragmentList();
@@ -107,8 +157,7 @@ public class AppHomeActivity extends BaseActivity
 
     //信用卡
     @Event(R.id.rl_xyk)
-    private void rlXykAction(View v)
-    {
+    private void rlXykAction(View v) {
         setRedBagState(v.getId());
         updateBottomStyleByIndex(0, true);
         replaceFragment(0);
@@ -116,8 +165,7 @@ public class AppHomeActivity extends BaseActivity
 
     //积分包
     @Event(R.id.rl_jfb)
-    private void rlJfbAction(View v)
-    {
+    private void rlJfbAction(View v) {
         setRedBagState(v.getId());
         updateBottomStyleByIndex(1, true);
         replaceFragment(1);
@@ -125,8 +173,7 @@ public class AppHomeActivity extends BaseActivity
 
     //商户优惠
     @Event(R.id.rl_shyh)
-    private void rlShyhAction(View v)
-    {
+    private void rlShyhAction(View v) {
         setRedBagState(v.getId());
         updateBottomStyleByIndex(2, true);
         replaceFragment(2);
@@ -135,15 +182,12 @@ public class AppHomeActivity extends BaseActivity
 
     //我的
     @Event(R.id.rl_shfw)
-    private void rlShfwAction(View v)
-    {
-        if (isLogin())
-        {
+    private void rlShfwAction(View v) {
+        if (isLogin()) {
             setRedBagState(v.getId());
             updateBottomStyleByIndex(3, true);
             replaceFragment(3);
-        } else
-        {
+        } else {
 
             Intent intent = new Intent(AppHomeActivity.this, LoginActivity.class);
             startActivityForResult(intent, 101);
@@ -152,8 +196,7 @@ public class AppHomeActivity extends BaseActivity
     }
 
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         BMapManager.destroy();
         //取消注册事件
         EventBus.getDefault().unregister(this);
@@ -162,18 +205,15 @@ public class AppHomeActivity extends BaseActivity
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
-    public void mainEventThread(FragmentMessageEvent event)
-    {
+    public void mainEventThread(FragmentMessageEvent event) {
         this.currentEvent = event;
         fragmentIndex = event.getFragmentIndex();
 
         boolean flag = false;
         int id = -1;
-        if (fragmentIndex == 2 || fragmentIndex == 3)
-        {
+        if (fragmentIndex == 2 || fragmentIndex == 3) {
             flag = true;
-            if (fragmentIndex == 2)
-            {
+            if (fragmentIndex == 2) {
                 id = R.id.rl_shyh;
             }
         }
@@ -221,19 +261,14 @@ public class AppHomeActivity extends BaseActivity
 //        return super.onKeyUp(keyCode, event);
 //    }
 
-    private void setRedBagState(int id)
-    {
-        if (id == R.id.rl_shyh)
-        {//显示
-            if (redBagPopup == null)
-            {
+    private void setRedBagState(int id) {
+        if (id == R.id.rl_shyh) {//显示
+            if (redBagPopup == null) {
                 redBagPopup = new RedBagPopup(AppHomeActivity.this, contentView, this);
             }
             redBagPopup.showAtLocation(contentView, Gravity.RIGHT, 0, 0);
-        } else
-        {//隐藏
-            if (redBagPopup != null && redBagPopup.isShowing())
-            {
+        } else {//隐藏
+            if (redBagPopup != null && redBagPopup.isShowing()) {
                 redBagPopup.dismiss();
             }
         }
@@ -244,10 +279,8 @@ public class AppHomeActivity extends BaseActivity
      *
      * @param index
      */
-    private void setCurrentPage(int index)
-    {
-        switch (index)
-        {
+    private void setCurrentPage(int index) {
+        switch (index) {
             case 0:
                 setRedBagState(R.id.rl_xyk);
                 updateBottomStyleByIndex(0, true);
@@ -264,13 +297,11 @@ public class AppHomeActivity extends BaseActivity
                 replaceFragment(2);
                 break;
             case 3:
-                if (isLogin())
-                {
+                if (isLogin()) {
                     setRedBagState(R.id.rl_shfw);
                     updateBottomStyleByIndex(3, true);
                     replaceFragment(3);
-                } else
-                {
+                } else {
 
                     Intent intent = new Intent(AppHomeActivity.this, LoginActivity.class);
                     startActivityForResult(intent, 101);
@@ -284,15 +315,12 @@ public class AppHomeActivity extends BaseActivity
      *
      * @param index
      */
-    private void updateBottomStyleByIndex(int index, boolean closedFlag)
-    {
+    private void updateBottomStyleByIndex(int index, boolean closedFlag) {
         clearAllActiveIvTv();
 
-        if (closedFlag)
-        {
+        if (closedFlag) {
 
-            switch (index)
-            {
+            switch (index) {
                 case 0:
                     tabIvXyk.setBackgroundResource(R.mipmap.icon_xyk_yellow);
                     tabTvXyk.setSelected(true);
@@ -314,8 +342,7 @@ public class AppHomeActivity extends BaseActivity
         }
     }
 
-    private void clearAllActiveIvTv()
-    {
+    private void clearAllActiveIvTv() {
         tabIvXyk.setBackgroundResource(R.mipmap.icon_xyk_white);
         tabIvJfb.setBackgroundResource(R.mipmap.icon_jfb_white);
         tabIvShyh.setBackgroundResource(R.mipmap.icon_shyh_white);
@@ -333,10 +360,8 @@ public class AppHomeActivity extends BaseActivity
      *
      * @param index
      */
-    private void replaceFragment(int index)
-    {
-        if (index >= 0 && index < fragments.size())
-        {
+    private void replaceFragment(int index) {
+        if (index >= 0 && index < fragments.size()) {
 
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
@@ -351,55 +376,45 @@ public class AppHomeActivity extends BaseActivity
 
 
     // 恢复Activity实例的状态；
-    public void onRestoreInstanceState(Bundle paramBundle)
-    {
+    public void onRestoreInstanceState(Bundle paramBundle) {
         this.index = paramBundle.getInt("index");
         replaceFragment(index);
         super.onRestoreInstanceState(paramBundle);
     }
 
-    public void onSaveInstanceState(Bundle paramBundle)
-    {
+    public void onSaveInstanceState(Bundle paramBundle) {
         paramBundle.putInt("index", this.index);
         super.onSaveInstanceState(paramBundle);
     }
 
     @Override
-    protected void onNewIntent(Intent intent)
-    {
+    protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         // 来自于美食首页的跳转；
         int pagetype = intent.getIntExtra("pagetype_from_msmain", -1);
-        if (pagetype >= 0 && pagetype <= 3)
-        {
+        if (pagetype >= 0 && pagetype <= 3) {
             setCurrentPage(pagetype);
         }
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (resultCode)
-        {
+        switch (resultCode) {
             case AppConstant.LOGIN_ACCESS:
-                if (isLogin())
-                {
+                if (isLogin()) {
 
-                    if (currentIndex == 3)
-                    {//刷新页面
+                    if (currentIndex == 3) {//刷新页面
                         MyIndexFragment fragment = (MyIndexFragment) fragments.get(3);
 
                         fragment.initData();
-                    } else
-                    {
+                    } else {
                         setRedBagState(1);
                         updateBottomStyleByIndex(3, true);
                         replaceFragment(3);
                     }
 
-                    if (isLogin())
-                    {
+                    if (isLogin()) {
                         setRedBagState(1);
                         updateBottomStyleByIndex(3, true);
                         replaceFragment(3);
@@ -411,8 +426,7 @@ public class AppHomeActivity extends BaseActivity
 
 
     @Override
-    public void onAttachedToWindow()
-    {
+    public void onAttachedToWindow() {
         super.onAttachedToWindow();
         setRedBagState(R.id.rl_shyh);
     }

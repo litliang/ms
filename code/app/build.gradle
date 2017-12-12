@@ -8,9 +8,9 @@ repositories {
     google()
 }
 android {
+
+
     signingConfigs {
-
-
         debug {
             keyAlias 'gqy'
             keyPassword '123456'
@@ -32,23 +32,55 @@ android {
         versionCode code
         versionName name
         multiDexEnabled = true
-        renderscriptTargetApi 22
-        renderscriptSupportModeEnabled true
-
+        manifestPlaceholders = [ver: "117"]
+//        outputFile = new File(
+//                                outputFile.parent,
+//                                "app-${variant.buildType.name}-${variant.productFlavors[0].name}-${variant.versionName}-115.apk".toLowerCase())
     }
+
+
     buildTypes {
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
+            manifestPlaceholders = [ver: "117"]
+
+//            applicationVariants.all { variant ->
+//                variant.outputs.each { output ->
+//                    def outputFile = output.outputFile
+//                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                        // 输出apk名称为boohee_v1.0_2015-01-15_wandoujia.apk
+//                        def fileName = "app-${defaultConfig.versionName}-${variant.productFlavors[1].name}.apk"
+//                        output.outputFile = new File(outputFile.parent, fileName)
+//                    }
+//                }
+//            }
+            productFlavors {
+//                "115"{
+////                    output ->
+////                        output.outputFile = new File(
+////                                output.outputFile.parent,
+////                                "app-${variant.buildType.name}-${variant.productFlavors[0].name}-${variant.versionName}-115.apk".toLowerCase())
+//                    manifestPlaceholders = [ver: "115"]
+//                }
+                "prd"{
+//                    output ->
+//                        output.outputFile = new File(
+//                                output.outputFile.parent,
+//                                "app-${variant.buildType.name}-${variant.productFlavors[1].name}-${variant.versionName}-115.apk".toLowerCase())
+                    manifestPlaceholders = [ver: "117"]
+                }
+            }
             minifyEnabled false
             zipAlignEnabled true
             shrinkResources false
             signingConfig signingConfigs.debug
             debuggable true
             ndk {
-                abiFilters 'armeabi-v7a', 'x86', 'x86_64'
+                abiFilters 'armeabi-v7a', 'x86_64'
 // 'armeabi-v7a',armeabi' 'armeabi-v7a', 'arm64-v8a', 'x86',  'mips', 'mips64'
             }
         }
