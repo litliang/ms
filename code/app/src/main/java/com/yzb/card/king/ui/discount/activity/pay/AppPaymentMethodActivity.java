@@ -458,19 +458,7 @@ public class AppPaymentMethodActivity extends BaseActivity implements View.OnCli
 
             sendActivityDedutionRequest(activityDeductionStyleParam);
 
-        } else if (activityCouponParam.getBonusAmount() != 0) {
-
-            sendActivityDedutionRequest(activityDeductionStyleParam);
-
-        } else if (activityCouponParam.getGiftcardAmount() != 0) {
-
-            sendActivityDedutionRequest(activityDeductionStyleParam);
-
-        } else if (activityCouponParam.getGiftcardAmount() != 0) {
-
-            sendActivityDedutionRequest(activityDeductionStyleParam);
-
-        } else if (activityDeductionStyleParam.getPayDetailId() != null && activityDeductionStyleParam.getPayDetailId().length() > 0) {
+        }  else if (activityDeductionStyleParam.getPayDetailId() != null && activityDeductionStyleParam.getPayDetailId().length() > 0) {
 
             sendActivityDedutionRequest(activityDeductionStyleParam);
 

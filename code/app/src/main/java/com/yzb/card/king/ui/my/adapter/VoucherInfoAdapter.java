@@ -106,6 +106,7 @@ public class VoucherInfoAdapter extends BaseListAdapter<CouponInfoBean> {
 
             holder.tvGetOne.setText("已购买");
 
+            holder.tvGetOne.setOnClickListener(null);
 
         } else if (receiveStatus == 0) {//未领取
 

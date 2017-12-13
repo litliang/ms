@@ -19,6 +19,7 @@ import org.xutils.x;
 
 import java.io.File;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -272,7 +273,9 @@ public class NationalCountryPresenter implements DataCallBack {
     public List<NationalCountryBean>  dimSearchTotalCity(String searchKey){
 
         DbManager db = x.getDb(daoConfig);
+
         WhereBuilder b = WhereBuilder.b();
+
 
         b.or("cityName", "like","%"+ searchKey+"%");//条件
 
@@ -280,12 +283,29 @@ public class NationalCountryPresenter implements DataCallBack {
 
         b.or("firstSpell", "like", "%"+searchKey+"%");//条件
 
+
+
         try {
             List<NationalCountryBean> lists = db.selector(NationalCountryBean.class).where(b).findAll();
 
             if(lists!= null){
 
-                return lists;
+                List<NationalCountryBean> totalDataList = new ArrayList<>();
+
+                for(NationalCountryBean bean :lists){
+
+                   int cityLevel = bean.getCityLevel();
+
+                   if(cityLevel>3 && cityLevel<6){
+
+                       totalDataList.add(bean);
+                   }
+
+                }
+
+                lists = null;
+
+                return totalDataList;
 
             }else {
 

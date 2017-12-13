@@ -25,6 +25,8 @@ public class UserPaySelectTicketAdapter  extends RecyclerAdapter<BaseCouponBean>
 
     private  double orderMoney;
 
+    private int issuePlatform;
+
     public UserPaySelectTicketAdapter(Context context)
     {
         super(context);
@@ -43,11 +45,15 @@ public class UserPaySelectTicketAdapter  extends RecyclerAdapter<BaseCouponBean>
     @Override
     public BaseViewHolder<BaseCouponBean> onCreateBaseViewHolder(ViewGroup viewGroup, int i)
     {
-        return new UserPaySelectTicketHolder(viewGroup,handler,actionId,orderMoney);
+        return new UserPaySelectTicketHolder(viewGroup,handler,actionId,orderMoney,issuePlatform);
     }
 
     public void setActionId(long actionId)
     {
         this.actionId = actionId;
+    }
+
+    public void setIssuePlatform(int issuePlatform) {
+        this.issuePlatform = issuePlatform;
     }
 }

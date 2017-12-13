@@ -25,6 +25,7 @@ import com.yzb.card.king.ui.base.BaseActivity;
 import com.yzb.card.king.ui.base.BaseViewLayerInterface;
 import com.yzb.card.king.ui.hotel.persenter.GetCouponPersenter;
 import com.yzb.card.king.ui.my.presenter.AccountInfoPresenter;
+import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.ToastUtil;
 import com.yzb.card.king.util.Utils;
 
@@ -66,6 +67,12 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
     @ViewInject(R.id.llRedDaijinQuan)
     private LinearLayout llRedDaijinQuan;
 
+    @ViewInject(R.id.tvConponeOneMsg)
+    private TextView tvConponeOneMsg;
+
+    @ViewInject(R.id.tvConponeTwoMsg)
+    private TextView tvConponeTwoMsg;
+
     private TextView tvTotalAmount, tvGoodsName, tvPrice;
 
     private String goodName;
@@ -75,7 +82,6 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
      * 用戶持有的代金券数量
      */
     private int ticketNumber = 0;
-
     /**
      * 用戶持有的优惠券数量
      */
@@ -91,17 +97,20 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         initView();
 
         initData();
     }
-    private void initView()
-    {
+
+    private void initView() {
         setTitleNmae("特惠付款");
+
+        tvConponeOneMsg.setVisibility(View.GONE);
+
+        tvConponeTwoMsg.setVisibility(View.GONE);
 
         findViewById(R.id.tv_commit).setOnClickListener(this);
 
@@ -116,8 +125,7 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
         tvPrice = (TextView) findViewById(R.id.tvPrice);
     }
 
-    private void initData()
-    {
+    private void initData() {
         persenter = new GetCouponPersenter(this);
 
         if (getIntent().hasExtra("goodName") && getIntent().hasExtra("orderData")) {
@@ -153,8 +161,7 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
     /**
      * 计算实际付款总金额
      */
-    private void calPayMoney()
-    {
+    private void calPayMoney() {
         double total = bean.getOrderAmount();
         //计算代金券或优惠券抵扣金额
         double daijinMoney = 0;
@@ -166,11 +173,11 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
         }
 
         //可抵扣的红包和抵扣券总额
-        double totalDikouMoeny = daijinMoney ;
+        double totalDikouMoeny = daijinMoney;
 
         if (totalDikouMoeny <= total) {
 
-            tvTotalAmount.setText( Utils.subZeroAndDot((total - totalDikouMoeny)+""));
+            tvTotalAmount.setText(Utils.subZeroAndDot((total - totalDikouMoeny) + ""));
 
             activityCouponParam.setOrderAmount(totalDikouMoeny);
 
@@ -193,8 +200,7 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
     /**
      * 计算代金券/优惠券可抵扣的金额
      */
-    private double calDeductionMoneyByTicket()
-    {
+    private double calDeductionMoneyByTicket() {
 
         double dMoney = Double.parseDouble(tvPrice.getText().toString());
 
@@ -207,24 +213,24 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
 
         if (dMoney >= fullAmount || fullAmount == 0) {
 
-            //计算代金券可抵消多少钱
+            //计算优惠券可抵消多少钱
             String couponType = baseCouponBean.getCouponType();
 
             if ("1".equals(couponType)) {//满减
 
-                int a = baseCouponBean.getCutValue();
+                int a = baseCouponBean.getCutAmount();
 
                 return a;
 
             } else if ("2".equals(couponType)) {
 
-                double a = Double.parseDouble("0." + baseCouponBean.getCutValue());
+                double a = Double.parseDouble("0." + baseCouponBean.getCutAmount());
 
                 return a * dMoney;
 
             } else {
 
-                return 0;
+                return baseCouponBean.getCutValue();
             }
 
         } else {
@@ -235,8 +241,7 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
 
 
     @Override
-    public void onClick(View v)
-    {
+    public void onClick(View v) {
 
         switch (v.getId()) {
 
@@ -272,16 +277,16 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
 
                     intent.putExtra("goldTicketParam", goldTicketParam);
 
-                    if(selectedCouponCode == 7778){
+                    if (selectedCouponCode == 7778) {
 
                         intent.putExtra("selectActId", selectActId);
 
-                    }else if(selectedCouponCode == 7779){
+                    } else if (selectedCouponCode == 7779) {
 
                         intent.putExtra("selectActId", -1);
                     }
 
-                    intent.putExtra("titleName","选择代金券");
+                    intent.putExtra("titleName", "选择代金券");
 
                     intent.putExtra("issuePlatform", 1);
 
@@ -305,16 +310,16 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
                     intent.putExtra("goldTicketParam", goldTicketParam);
 
 
-                    if(selectedCouponCode == 7778){
+                    if (selectedCouponCode == 7778) {
 
                         intent.putExtra("selectActId", -1);
 
-                    }else if(selectedCouponCode == 7779){
+                    } else if (selectedCouponCode == 7779) {
 
                         intent.putExtra("selectActId", selectActId);
                     }
 
-                    intent.putExtra("titleName","选择优惠券");
+                    intent.putExtra("titleName", "选择优惠券");
 
                     intent.putExtra("issuePlatform", 2);
 
@@ -338,8 +343,7 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
     private long selectActId = -1;
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 1000) {
@@ -348,7 +352,7 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
 
                 finish();
 
-            } else if (resultCode == 7778 ||resultCode == 7779) {//代金券或优惠券
+            } else if (resultCode == 7778 || resultCode == 7779) {//代金券或优惠券
 
 
                 if (data != null) {
@@ -367,22 +371,26 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
 
                     selectedCouponCode = resultCode;
 
-                    if(resultCode == 7778){
+                    if (resultCode == 7778) {
 
-                        tvRedTicketNum.setText(redRicketNumber);
+                        tvRedTicketNum.setText(redRicketNumber + "");
 
                         tvTwoMsg.setVisibility(View.VISIBLE);
 
-                    }else if(resultCode == 7779){
+                        tvConponeTwoMsg.setVisibility(View.GONE);
 
-                        tvTicketNum.setText(ticketNumber);
+                    } else if (resultCode == 7779) {
+
+
+                        tvTicketNum.setText(ticketNumber + "");
 
                         tvOneMsg.setVisibility(View.VISIBLE);
-                    }
 
+                        tvConponeOneMsg.setVisibility(View.GONE);
+                    }
                 } else {
 
-                    if(resultCode == selectedCouponCode){//选择的券和当前的券类型一样则替换
+                    if (resultCode == selectedCouponCode) {//选择的券和当前的券类型一样则替换
 
 
                         baseCouponBean = null;
@@ -398,15 +406,33 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
 
                         activityCouponParam.setOrderAmount(0);
 
+                        calPayMoney();
+                    }
+
+
+                    if (resultCode == 7778) {
+
+
                         tvTicketNum.setText(ticketNumber + "");
 
-                        calPayMoney();
+                        tvOneMsg.setVisibility(View.VISIBLE);
+
+                        tvConponeOneMsg.setVisibility(View.GONE);
+
+                    } else if (resultCode == 7779) {
+
+                        tvRedTicketNum.setText(redRicketNumber + "");
+
+                        tvTwoMsg.setVisibility(View.VISIBLE);
+
+                        tvConponeTwoMsg.setVisibility(View.GONE);
                     }
                 }
             }
         }
     }
-   //记录选择券的code码
+
+    //记录选择券的code码
     private int selectedCouponCode = 0;
 
     /**
@@ -414,8 +440,7 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
      *
      * @param activityCouponParam
      */
-    private void checkYouhuiData(ActivityCouponParam activityCouponParam)
-    {
+    private void checkYouhuiData(ActivityCouponParam activityCouponParam) {
 
         double couponAmout = 0;
 
@@ -424,8 +449,8 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
             couponAmout = activityCouponParam.getCouponAmount();
         }
 
-        //出去代金券后的实付金额
-        double paymentMoney = bean.getOrderAmount() - couponAmout ;
+        //去除优惠金额后的实付金额
+        double paymentMoney = bean.getOrderAmount() - couponAmout;
 
         this.activityCouponParam.setOrderAmount(paymentMoney);
 
@@ -437,20 +462,19 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
 
 
     @Override
-    public void callSuccessViewLogic(Object o, int type)
-    {
+    public void callSuccessViewLogic(Object o, int type) {
 
         if (GetCouponPersenter.ACTIVITYDEDUCTIONINFO_CODE == type) {
 
             UseShopCouponNumBean baseCouponBeans = JSON.parseObject(o + "", UseShopCouponNumBean.class);
 
-            ticketNumber = baseCouponBeans.getCashCouponQuantity() ;
+            ticketNumber = baseCouponBeans.getCashCouponQuantity();
 
             tvTicketNum.setText(ticketNumber + "");
 
-            redRicketNumber =  baseCouponBeans.getCouponQuantity();
+            redRicketNumber = baseCouponBeans.getCouponQuantity();
 
-            tvRedTicketNum.setText(redRicketNumber+"");
+            tvRedTicketNum.setText(redRicketNumber + "");
 
         } else if (GetCouponPersenter.ACTIVITYDEDUCTIONCHECK_CODE == type) {
 
@@ -464,35 +488,58 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
             //抵扣的代金券金額
             double tickeMoeny = calDeductionMoneyByTicket();
 
-            if(selectedCouponCode == 7778){//代金券
+            if (selectedCouponCode == 7778) {//代金券
 
                 if (tickeMoeny != 0) {
 
-                    tvTicketNum.setText("-¥" + Utils.subZeroAndDot(tickeMoeny+""));
+                    tvTicketNum.setText("¥" + Utils.subZeroAndDot(tickeMoeny + ""));
 
                     tvOneMsg.setVisibility(View.GONE);
+
+                    tvConponeOneMsg.setVisibility(View.VISIBLE);
+
+                    tvConponeOneMsg.setText(baseCouponBean.getActName());
+
+                    tvConponeTwoMsg.setVisibility(View.GONE);
 
                 } else {
 
                     tvTicketNum.setText(ticketNumber + "");
 
                     tvOneMsg.setVisibility(View.VISIBLE);
+
+                    tvConponeTwoMsg.setVisibility(View.GONE);
+
+                    tvConponeOneMsg.setVisibility(View.GONE);
+
+
                 }
 
-            }else if(selectedCouponCode == 7779){//优惠券
+            } else if (selectedCouponCode == 7779) {//优惠券
 
 
                 if (tickeMoeny != 0) {
 
-                    tvRedTicketNum.setText("-¥" + Utils.subZeroAndDot(tickeMoeny+""));
+                    tvRedTicketNum.setText("¥" + Utils.subZeroAndDot(tickeMoeny + ""));
 
                     tvTwoMsg.setVisibility(View.GONE);
+
+
+                    tvConponeTwoMsg.setVisibility(View.VISIBLE);
+
+                    tvConponeTwoMsg.setText(baseCouponBean.getActName());
+
+                    tvConponeOneMsg.setVisibility(View.GONE);
 
                 } else {
 
                     tvRedTicketNum.setText(ticketNumber + "");
 
                     tvTwoMsg.setVisibility(View.VISIBLE);
+
+                    tvConponeTwoMsg.setVisibility(View.GONE);
+
+                    tvConponeOneMsg.setVisibility(View.GONE);
                 }
             }
 
@@ -506,15 +553,14 @@ public class AppPreferentialPaymentActivity extends BaseActivity implements View
     }
 
     @Override
-    public void callFailedViewLogic(Object o, int type)
-    {
+    public void callFailedViewLogic(Object o, int type) {
         dimissPdialog();
 
         if (GetCouponPersenter.ACTIVITYDEDUCTIONINFO_CODE == type) {
 
             tvTicketNum.setText(ticketNumber + "");
 
-            tvRedTicketNum.setText(redRicketNumber+"");
+            tvRedTicketNum.setText(redRicketNumber + "");
 
         } else if (GetCouponPersenter.ACTIVITYDEDUCTIONCHECK_CODE == type) {
 

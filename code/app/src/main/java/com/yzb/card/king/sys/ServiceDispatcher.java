@@ -13,9 +13,9 @@ import java.util.Map;
 public class ServiceDispatcher {
 
 
-   // public final static String base_url_api = "http://116.228.184.117:8080/";
-   public final static String base_url_api = "http://116.228.184.115:8080/";
-//    public final static String base_url_api = "http://10.0.100.91:8080/";
+    //  public final static String base_url_api = "http://116.228.184.117:8080/";
+    public final static String base_url_api = "http://116.228.184.115:8080/";
+    //    public final static String base_url_api = "http://10.0.100.91:8080/";
     public final static String url_api = base_url_api + "card/api/api/";
 
     public final static String url_refund_rule = base_url_api + "card/api/refundRule"; //机票退改签规则url；
@@ -51,8 +51,7 @@ public class ServiceDispatcher {
      * @param context
      * @return
      */
-    public static boolean isNetworkConnected(Context context)
-    {
+    public static boolean isNetworkConnected(Context context) {
         boolean result = false;
         if (context != null) {
             ConnectivityManager mConnectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -68,8 +67,7 @@ public class ServiceDispatcher {
      * @param imageCode
      * @return
      */
-    public static String getImageUrl(String imageCode)
-    {
+    public static String getImageUrl(String imageCode) {
         if (ValidatorUtil.isUrl(imageCode)) {
             return imageCode;
         } else {
