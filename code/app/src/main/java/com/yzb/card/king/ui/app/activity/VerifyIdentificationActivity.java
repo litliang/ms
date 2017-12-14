@@ -33,8 +33,7 @@ import java.util.Map;
  * 验证身份证件；
  */
 public class VerifyIdentificationActivity extends BaseActivity implements View.OnClickListener,
-        OnItemClickListener<CertType>
-{
+        OnItemClickListener<CertType> {
     private EditText etName;
     private EditText etIdNumber;
     private EditText etBindedPhone;
@@ -49,8 +48,7 @@ public class VerifyIdentificationActivity extends BaseActivity implements View.O
     private String source;//上个Activity
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         defaultFlag = true;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_identification);
@@ -60,21 +58,18 @@ public class VerifyIdentificationActivity extends BaseActivity implements View.O
         initData();
     }
 
-    private void getIntentData()
-    {
+    private void getIntentData() {
         source = getIntent().getStringExtra("source");
     }
 
-    private void initData()
-    {
+    private void initData() {
         identificationsPopup = new IdentificationsPopup(this);
         certType = identificationsPopup.getDefaultValue();
 
         codeController = new ValidCodeController(ValidCodeController.VALID_MOBILE);
     }
 
-    private void assignViews()
-    {
+    private void assignViews() {
         setTitleNmae(getHeader());
 
         etName = (EditText) findViewById(R.id.etName);
@@ -85,8 +80,7 @@ public class VerifyIdentificationActivity extends BaseActivity implements View.O
         etBindedPhone = (EditText) findViewById(R.id.tv_binded_phone);
 
         UserBean userBean = UserManager.getInstance().getUserBean();
-        if (userBean != null && !TextUtils.isEmpty(userBean.getAccount()))
-        {
+        if (userBean != null && !TextUtils.isEmpty(userBean.getAccount())) {
             etBindedPhone.setText(userBean.getAccount());
         }
         etMsgCode = (EditText) findViewById(R.id.et_msg_code);
@@ -99,26 +93,20 @@ public class VerifyIdentificationActivity extends BaseActivity implements View.O
         tvGetCode.setOnClickListener(this);
     }
 
-    private String getHeader()
-    {
-        if ("ResetPayPwdActivity".equals(source))
-        {
+    private String getHeader() {
+        if ("ResetPayPwdActivity".equals(source)) {
             return getString(R.string.setting_reset_pay_pwd);
-        } else
-        {
+        } else {
             return getString(R.string.setting_reset_login_pwd);
         }
     }
 
     @Override
-    public void onClick(View v)
-    {
-        switch (v.getId())
-        {
+    public void onClick(View v) {
+        switch (v.getId()) {
 
             case R.id.tv_get_msg_code: // 获取验证码；
-                if (isInputRight())
-                {
+                if (isInputRight()) {
                     safeVerify();
                 }
                 break;
@@ -132,42 +120,33 @@ public class VerifyIdentificationActivity extends BaseActivity implements View.O
         }
     }
 
-    private void validMsgCode()
-    {
-        if (validCode())
-        {
-            codeController.validCode(getCode(), new ValidCodeController.OnSuccessListener()
-            {
+    private void validMsgCode() {
+        if (validCode()) {
+            codeController.validCode(getCode(), new ValidCodeController.OnSuccessListener() {
                 @Override
-                public void onSuccess(Map<String, String> result)
-                {
+                public void onSuccess(Map<String, String> result) {
                     nextActivity();
                 }
 
                 @Override
-                public void onFail()
-                {
+                public void onFail() {
                     UiUtils.shortToast("验证码错误！");
                 }
             });
         }
     }
 
-    private void nextActivity()
-    {
-        if ("ResetPayPwdActivity".equals(source))
-        {
+    private void nextActivity() {
+        if ("ResetPayPwdActivity".equals(source)) {
             readyGo(VerifyIdentificationActivity.this, ResetNewPayPwdActivity.class);
-        } else
-        {
+        } else {
             Intent it = new Intent(VerifyIdentificationActivity.this, ResetLoginPwdActivity.class);
             it.putExtra("userPhone", etBindedPhone.getText().toString().trim());
             startActivity(it);
         }
     }
 
-    private String getCode()
-    {
+    private String getCode() {
         return etMsgCode.getText().toString().trim();
     }
 
@@ -177,10 +156,12 @@ public class VerifyIdentificationActivity extends BaseActivity implements View.O
      * 2, 成功后再验证手机号码；
      */
 
-    private void safeVerify()
-    {
+    private void safeVerify() {
         showPDialog("");
-
+        getVerifyCode();
+        if (true) {
+            return;
+        }
         final String name = etName.getText().toString().trim();
         final String idNumber = etIdNumber.getText().toString().trim();
 
@@ -191,27 +172,22 @@ public class VerifyIdentificationActivity extends BaseActivity implements View.O
         params.put("certNo", idNumber);//证件号码
         params.put("provingMobile", etBindedPhone.getText().toString().trim());
 
-        SimpleRequest<String> request = new SimpleRequest<String>(CardConstant.setting_provingcustomerinfo)
-        {
+        SimpleRequest<String> request = new SimpleRequest<String>(CardConstant.setting_provingcustomerinfo) {
             @Override
-            protected String parseData(String data)
-            {
+            protected String parseData(String data) {
                 return data;
             }
         };
         request.setParam(params);
-        request.sendRequestNew(new BaseCallBack<String>()
-        {
+        request.sendRequestNew(new BaseCallBack<String>() {
             @Override
-            public void onSuccess(String data)
-            {
+            public void onSuccess(String data) {
                 closePDialog();
-                getVerifyCode();
+
             }
 
             @Override
-            public void onFail(Error error)
-            {
+            public void onFail(Error error) {
                 closePDialog();
                 UiUtils.shortToast("身份信息验证失败");
             }
@@ -222,37 +198,31 @@ public class VerifyIdentificationActivity extends BaseActivity implements View.O
     /**
      * 获取验证码；
      */
-    private void getVerifyCode()
-    {
+    private void getVerifyCode() {
         String etPhone = etBindedPhone.getText().toString().trim();
         codeController.getCode(etPhone);
         codeController.startTask(tvGetCode);
     }
 
-    private boolean isInputRight()
-    {
+    private boolean isInputRight() {
         String name = etName.getText().toString().trim();
-        if (TextUtils.isEmpty(name))
-        {
-            toastCustom("请输入姓名");
-            return false;
-        }
-        String idNumber = etIdNumber.getText().toString().trim();
-        if (TextUtils.isEmpty(idNumber))
-        {
-            toastCustom("请输入证件号码");
-            return false;
-        }
+//        if (TextUtils.isEmpty(name)) {
+//            toastCustom("请输入姓名");
+//            return false;
+//        }
+//        String idNumber = etIdNumber.getText().toString().trim();
+//        if (TextUtils.isEmpty(idNumber)) {
+//            toastCustom("请输入证件号码");
+//            return false;
+//        }
 
         String bindedPhone = etBindedPhone.getText().toString().trim();
-        if (TextUtils.isEmpty(bindedPhone))
-        {
+        if (TextUtils.isEmpty(bindedPhone)) {
             toastCustom(R.string.setting_phone_not_empty);
             return false;
         }
 
-        if (!(bindedPhone.contains("*") ? (bindedPhone.length() == 11) : RegexUtil.validPhoneNum(bindedPhone)))
-        {
+        if (!(bindedPhone.contains("*") ? (bindedPhone.length() == 11) : RegexUtil.validPhoneNum(bindedPhone))) {
             toastCustom(R.string.toast_chech_your_phone_number);
             return false;
         }
@@ -260,11 +230,9 @@ public class VerifyIdentificationActivity extends BaseActivity implements View.O
         return true;
     }
 
-    private boolean validCode()
-    {
+    private boolean validCode() {
         String msgCode = etMsgCode.getText().toString().trim();
-        if (TextUtils.isEmpty(msgCode))
-        {
+        if (TextUtils.isEmpty(msgCode)) {
             toastCustom("请输入验证码");
             return false;
         }
@@ -272,20 +240,17 @@ public class VerifyIdentificationActivity extends BaseActivity implements View.O
     }
 
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         super.onDestroy();
         SMSBroadcastHelper.unRegisterBroadcast();
     }
 
     @Override
-    public void onItemClick(CertType data)
-    {
+    public void onItemClick(CertType data) {
         setCertType(data);
     }
 
-    public void setCertType(CertType certType)
-    {
+    public void setCertType(CertType certType) {
         this.certType = certType;
         tvCardName.setText(certType.getName());
     }

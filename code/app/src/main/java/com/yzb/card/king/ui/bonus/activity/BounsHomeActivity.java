@@ -115,6 +115,19 @@ public class BounsHomeActivity extends BaseActivity implements  BounsThemeView, 
         gvChannels.setAdapter(channelAdapger);
 
         channelAdapger.appendALL(getBounsHomeChannels());
+
+        findViewById(R.id.more).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), BounsThemeActivity.class);
+
+                intent.putExtra(BounsThemeActivity.INTENT_FLAG, getClass().getName());
+
+//                intent.putExtra("bounsParam", getBounsThemeParam());
+
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

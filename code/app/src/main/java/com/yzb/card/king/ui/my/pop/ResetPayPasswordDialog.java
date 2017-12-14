@@ -71,6 +71,7 @@ public class ResetPayPasswordDialog extends BaseDialogFragment implements View.O
         WindowManager.LayoutParams wl = window.getAttributes();
         wl.y = DensityUtil.dip2px(103); //距离顶部的距离；
         window.setAttributes(wl);
+        dialog.setTitle("手机支付密码");
         return dialog;
     }
 

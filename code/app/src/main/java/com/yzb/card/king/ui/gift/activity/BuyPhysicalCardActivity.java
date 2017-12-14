@@ -164,13 +164,15 @@ public class BuyPhysicalCardActivity extends BaseActivity implements
         adapter.appendALL(list);
     }
 
+
+
     @Override
     public void onGetMindECardsFail(String failMsg)
     {
         swipeRefresh.setRefreshing(false);
         eCardsLv.onLoadMoreComplete();
         //toastCustom(failMsg);
-        adapter.clearAll();
+
     }
 
     @Override

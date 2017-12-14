@@ -1,0 +1,3 @@
+[submodule "code/imagescale"]
+	path = code/imagescale
+	url = https://github.com/LinJZong/AndroidProject.git

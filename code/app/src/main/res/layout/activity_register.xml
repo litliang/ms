@@ -53,6 +53,7 @@
                         android:id="@+id/etPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:paddingLeft="27.5dip"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
                         android:background="@null"
@@ -110,7 +111,7 @@
                         android:textColor="@color/color_333333"
                         android:textSize="@dimen/title_size_16"/>
 
-                    <EditText
+                    <EditText android:paddingLeft="27.5dip"
                         android:id="@+id/etYanzhenMa"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -182,7 +183,7 @@
                         android:textSize="@dimen/title_size_16"
                         android:id="@+id/textView21"/>
 
-                    <EditText
+                    <EditText android:paddingLeft="27.5dip"
                         android:id="@+id/etMima"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

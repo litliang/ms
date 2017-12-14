@@ -133,6 +133,7 @@ public class BounsCreateActivity extends BaseActivity implements View.OnClickLis
         {
             loadGeneralTheme();
         }
+
     }
 
     private void recvIntentBean()
@@ -169,6 +170,9 @@ public class BounsCreateActivity extends BaseActivity implements View.OnClickLis
         {
             etBounsWishes.setText(themeBean.getBlessWord());
             tvBounsTheme.setText(themeBean.getThemeName());
+        }
+        if(getIntent().getBooleanExtra("isFromCustomTheme",false)){
+            recvTheme(getIntent());
         }
     }
 
@@ -225,7 +229,7 @@ public class BounsCreateActivity extends BaseActivity implements View.OnClickLis
                 intent.putExtra("bounsParam", getBounsThemeParam());
 
                 startActivityForResult(intent, REQ_GET_THEME);
-
+                DefinethemeBounsActivity.bless =etBounsWishes.getText().toString();
                 break;
             case R.id.panelRandom:  //随机金额
 
@@ -327,20 +331,7 @@ public class BounsCreateActivity extends BaseActivity implements View.OnClickLis
         switch (requestCode)
         {
             case REQ_GET_THEME: //红包主题返回；
-                Serializable bounsObj = data.getSerializableExtra("backThemeData");
-                if (bounsObj != null && bounsObj instanceof BounsThemeBean)
-                {
-                    BounsThemeBean themeBeanLocal = (BounsThemeBean) bounsObj;
-
-                    String oldWish = etBounsWishes.getText().toString().trim();
-                    //内容不等，为新输入内容；
-                    if (isEmpty(oldWish) || oldWish.equals(themeBean.getBlessWord()))
-                    {
-                        etBounsWishes.setText(themeBeanLocal.getBlessWord());
-                    }
-                    tvBounsTheme.setText(themeBeanLocal.getThemeName());
-                    themeBean = themeBeanLocal;
-                }
+                recvTheme(data);
                 break;
             case REQ_ADD_BANK_CARD:
                 if (payHandle != null)
@@ -349,6 +340,23 @@ public class BounsCreateActivity extends BaseActivity implements View.OnClickLis
                 }
                 break;
 
+        }
+    }
+
+    private void recvTheme(Intent data) {
+        Serializable bounsObj = data.getSerializableExtra("backThemeData");
+        if (bounsObj != null && bounsObj instanceof BounsThemeBean)
+        {
+            BounsThemeBean themeBeanLocal = (BounsThemeBean) bounsObj;
+
+            String oldWish = etBounsWishes.getText().toString().trim();
+            //内容不等，为新输入内容；
+            if (isEmpty(oldWish) || oldWish.equals(themeBean.getBlessWord()))
+            {
+                etBounsWishes.setText(themeBeanLocal.getBlessWord());
+            }
+            tvBounsTheme.setText(themeBeanLocal.getThemeName());
+            themeBean = themeBeanLocal;
         }
     }
 
@@ -480,7 +488,6 @@ public class BounsCreateActivity extends BaseActivity implements View.OnClickLis
     public void onPayFail(String failMsg)
     {
         toastCustom(failMsg);
-        readyGo(this, BounsHomeActivity.class);
     }
 
     /**
@@ -518,6 +525,7 @@ public class BounsCreateActivity extends BaseActivity implements View.OnClickLis
                 case GiftcardBuySucesDialog.WHAT_LOOK://立即查看； 红包明细；
                     Intent detailIntent = new Intent(BounsCreateActivity.this, RedBagDetailSendActivity.class);
                     detailIntent.putExtra("orderId", outBean.getOrderId());
+                    detailIntent.putExtra("typedThemeParam", getBounsThemeParam());
                     startActivity(detailIntent);
                     finish();
                     break;

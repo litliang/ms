@@ -1,11 +1,15 @@
 package com.yzb.card.king.ui.gift.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayout;
 import android.support.v7.widget.LinearLayoutManager;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +17,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.yzb.card.king.R;
 import com.yzb.card.king.ui.appwidget.WholeRecyclerView;
+import com.yzb.card.king.ui.bonus.activity.RedBagDetailSendActivity;
 import com.yzb.card.king.ui.bonus.view.FavorPayeeView;
 import com.yzb.card.king.ui.gift.adapter.AddContactAdapter;
 import com.yzb.card.king.ui.gift.adapter.PayeeAdapter;
@@ -29,6 +35,7 @@ import com.yzb.card.king.ui.gift.presenter.FavorPayeePresenter;
 import com.yzb.card.king.ui.gift.presenter.GiveCardPresenter;
 import com.yzb.card.king.ui.my.bean.Payee;
 import com.yzb.card.king.util.AppUtils;
+import com.yzb.card.king.util.DialogUtil;
 import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.RegexUtil;
 import com.yzb.card.king.util.ToastUtil;
@@ -91,8 +98,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     private TextView tvNum;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         defaultFlag = true;
         super.onCreate(savedInstanceState);
         giveCardPresenter = new GiveCardPresenter(this);
@@ -100,8 +106,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         initView();
     }
 
-    private void recvIntentData()
-    {
+    private void recvIntentData() {
         recordIds = getIntent().getStringExtra("recordIds");
 
         pageType = getIntent().getIntExtra("pageType", 0);
@@ -118,8 +123,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
 
     }
 
-    private void initView()
-    {
+    private void initView() {
         findViewById(R.id.headerLeft).setOnClickListener(this);
 
         inflater = LayoutInflater.from(this);
@@ -130,33 +134,49 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         if (pageType == TYPE_GIFTCARD) {
             title = "送礼品卡";
 
-            View giftView = inflater.inflate(R.layout.activity_view_send_gift, null);
-            giftView.findViewById(R.id.panelAdd).setOnClickListener(this);
-            llParentContent.addView(giftView, lp);
-            gridLayout = (GridLayout) giftView.findViewById(R.id.gridLayout);
-            gridLayout.removeAllViews();
-            addItemToGrid();
+//            View giftView = inflater.inflate(R.layout.activity_view_send_gift, null);
+//            giftView.findViewById(R.id.panelAdd).setOnClickListener(this);
+//            llParentContent.addView(giftView, lp);
+//            gridLayout = (GridLayout) giftView.findViewById(R.id.gridLayout);
+//            gridLayout.removeAllViews();
+//            addItemToGrid();
         } else if (pageType == TYPE_BOUNS) {
             title = "选择联系人";//
 
-            favorPayeePresenter = new FavorPayeePresenter(this);
-
-            View redEnvelepoView = inflater.inflate(R.layout.activity_view_send_red_envelepo, null);
-
-            //初始化红包发送试图
-            initRedEnvelepo(redEnvelepoView);
-
-            llParentContent.addView(redEnvelepoView, lp);
-
-            initContactData();
 
         }
+        favorPayeePresenter = new FavorPayeePresenter(this);
+
+        View redEnvelepoView = inflater.inflate(R.layout.activity_view_send_red_envelepo, null);
+
+        //初始化红包发送试图
+        initRedEnvelepo(redEnvelepoView);
+
+        redEnvelepoView.findViewById(R.id.tvAddAccount).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), SelectPeopleActivity.class);
+                intent.putExtra("recordIds", getIntent().getStringExtra("recordIds"));
+                intent.putExtra("pageType", GiveCardActivity.TYPE_BOUNS);
+                intent.putExtra("totalNum", getIntent().getStringExtra("totalNum"));
+                startActivityForResult(intent, 1002);
+            }
+        });
+        llParentContent.addView(redEnvelepoView, lp);
+
+        initContactData();
         setHeader(R.mipmap.icon_back_white, title);
         findViewById(R.id.tvSend).setOnClickListener(this);
+        findViewById(R.id.clear).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((EditText) findViewById(R.id.etPhoneAccount)).setText("");
+            }
+        });
+
     }
 
-    private void initContactData()
-    {
+    private void initContactData() {
         isDialogShowing();
         Map<String, Object> args = new HashMap<>();
         args.put("sessionId", AppConstant.sessionId);
@@ -168,12 +188,11 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         favorPayeePresenter.loadData(true, args);
     }
 
-    private void initRedEnvelepo(View redEnvelepoView)
-    {
+    private void initRedEnvelepo(View redEnvelepoView) {
         WholeRecyclerView addPayeeWv = (WholeRecyclerView) redEnvelepoView.findViewById(R.id.addPayeeWv);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true);
         addPayeeWv.setLayoutManager(linearLayoutManager);
-        adapter = new AddContactAdapter(this,listener);
+        adapter = new AddContactAdapter(this, listener);
         addPayeeWv.setAdapter(adapter);
 
 
@@ -181,9 +200,10 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         LinearLayoutManager payeeWvM = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true);
         payeeWv.setLayoutManager(payeeWvM);
         payeeWvadapter = new PayeeAdapter(this, checkedList);
+        payeeWvadapter.setDel(true);
         payeeWv.setAdapter(payeeWvadapter);
 
-        redEnvelepoView.findViewById(R.id.llAddContact).setOnClickListener(this);
+//        redEnvelepoView.findViewById(R.id.llAddContact).setOnClickListener(this);
 
         redEnvelepoView.findViewById(R.id.tvAddAccount).setOnClickListener(this);
 
@@ -192,26 +212,42 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         tvNum = (TextView) redEnvelepoView.findViewById(R.id.tvNum);
 
         tvNum.setText("已选择 0");
+        etPhoneAccount.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.length() == 11) {
+                    addAccount(s.toString());
+                }
+            }
+        });
+        redEnvelepoView.findViewById(R.id.oftenuse).setVisibility(View.GONE);
     }
 
     private PayeeAdapter.PayeeAdapterOnChecked checkedList = new PayeeAdapter.PayeeAdapterOnChecked() {
         @Override
-        public void checkedChanged()
-        {
+        public void checkedChanged() {
             calculateNumber();
         }
     };
 
     private AddContactAdapter.CurrentClickListener listener = new AddContactAdapter.CurrentClickListener() {
         @Override
-        public void delAction()
-        {
+        public void delAction() {
             calculateNumber();
         }
     };
 
-    private void calculateNumber()
-    {
+    private void calculateNumber() {
 
         int sizeA = adapter.getList().size();
 
@@ -225,8 +261,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     /**
      * 添加item；
      */
-    private void addItemToGrid()
-    {
+    private void addItemToGrid() {
 
 
         final View item = inflater.inflate(R.layout.item_gv_give_giftcard, null);
@@ -235,8 +270,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         TextView tvDelete = (TextView) item.findViewById(R.id.tvDelete);
         ivMobile.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 clickItemTag = String.valueOf(item.getTag());
 
                 LogUtil.i("点击的clickItemTag=" + clickItemTag);
@@ -247,8 +281,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         });
         tvDelete.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 if (gridLayout != null) {
                     gridLayout.removeView(item);
                     totalNum = totalNum - 1;
@@ -262,10 +295,16 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        if (resultCode != Activity.RESULT_OK || data == null) return;
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (data == null) return;
+
         switch (requestCode) {
+            case 1002:
+                List list = (List) data.getSerializableExtra("data");
+                payeeWvadapter.addNewDataList(list);
+                payeeWvadapter.notifyDataSetChanged();
+                calculateNumber();
+                break;
             case REQ_GET_MOBILE: //获取手机号；
                 Serializable obj = data.getSerializableExtra("payeeData");
                 if (obj != null) {
@@ -298,12 +337,10 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     }
 
 
-
     /**
      * 填充特定位置的输入框；
      */
-    private void initSpecEditInput(FavorPayee payee)
-    {
+    private void initSpecEditInput(FavorPayee payee) {
         if (payee != null) {
             for (int i = 0; i < gridLayout.getChildCount(); i++) {
                 View view = gridLayout.getChildAt(i);
@@ -318,8 +355,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     }
 
     @Override
-    public void onClick(View v)
-    {
+    public void onClick(View v) {
         switch (v.getId()) {
             case R.id.panelAdd:
                 addItemToGrid();
@@ -328,25 +364,34 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
                 finish();
                 break;
             case R.id.tvSend: //发送；
-                if (  pageType == TYPE_GIFTCARD) {
+                if (pageType == TYPE_GIFTCARD) {
 
-                    if(TextUtils.isEmpty(recordIds)){
-                        ToastUtil.i(this,"请选择收款人");
+                    if (TextUtils.isEmpty(recordIds)) {
+                        ToastUtil.i(this, "请选择收款人");
 
                         return;
                     }
-
-                    if(isInputRight()){
+                    if (payeeWvadapter.getList().size() == 0) {
+                        Toast.makeText(this, "没有选择发送人哦", Toast.LENGTH_SHORT).show();
+                    } else if (checkCount()) {
                         exeSend();
+                    } else {
+                        Toast.makeText(this, "不能超" + getIntent().getIntExtra("totalNum", 1) + "人哦~", Toast.LENGTH_SHORT).show();
                     }
 
-                }else  if(pageType==TYPE_BOUNS){
-                    if(TextUtils.isEmpty(recordIds)){
-                        ToastUtil.i(this,"请选择收款人");
+                } else if (pageType == TYPE_BOUNS) {
+                    if (TextUtils.isEmpty(recordIds)) {
+                        ToastUtil.i(this, "请选择收款人");
                         return;
                     }
 
-                    exeSend();
+                    if (payeeWvadapter.getList().size() == 0) {
+                        Toast.makeText(this, "没有选择发送人哦", Toast.LENGTH_SHORT).show();
+                    } else if (checkCount()) {
+                        exeSend();
+                    } else {
+                        Toast.makeText(this, "不能超" + getIntent().getIntExtra("totalNum", 1) + "人哦~", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 break;
             case R.id.llAddContact://调用联系人
@@ -356,14 +401,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.tvAddAccount://添加账户
 
-                String etPhoneAccountStr = etPhoneAccount.getText().toString();
-
-                if (chechData(etPhoneAccountStr)) {
-
-                    showPDialog("正在加载……");
-                    giveCardPresenter.checkAccoutRequest(etPhoneAccountStr);
-
-                }
+//                addAccount(etPhoneAccount.getText().toString());
 
                 break;
             default:
@@ -371,13 +409,26 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         }
     }
 
+    private boolean checkCount() {
+        return payeeWvadapter.getList().size() <= getIntent().getIntExtra("totalNum", 1);
+    }
+
+    private void addAccount(String etPhoneAccountStr) {
+        if (chechData(etPhoneAccountStr)) {
+
+            showPDialog("正在加载……");
+            giveCardPresenter.checkAccoutRequest(etPhoneAccountStr);
+
+        }
+    }
+
     /**
      * 检查手机号
+     *
      * @param etPhoneAccountStr
      * @return
      */
-    private boolean chechData(String etPhoneAccountStr)
-    {
+    private boolean chechData(String etPhoneAccountStr) {
         boolean flag = true;
 
         int str = 0;
@@ -406,30 +457,47 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     /**
      * 发送
      */
-    private void exeSend()
-    {
-        showPDialog(R.string.setting_committing);
-        Map<String, Object> args = new HashMap<>();
+    private void exeSend() {
+        View view = LayoutInflater.from(this).inflate(R.layout.dialog_send, null);
+        final Dialog dialog = new AlertDialog.Builder(this).setCancelable(true).setView(view).create();
+        view.findViewById(R.id.tvNegative).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+                dialog.dismiss();
+            }
+        });
+        view.findViewById(R.id.tvPositive).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPDialog(R.string.setting_committing);
+                Map<String, Object> args = new HashMap<>();
 
-        if (pageType == TYPE_GIFTCARD) {
-            args.put("sessionId", AppConstant.sessionId);
-            args.put("orderId", recordIds); //订单id
-            args.put("receiveIds", getNoEmptyPhones());//接收方ids,多个使用英文逗号分割
-            args.put("serviceName", CardConstant.card_sendmindcard);
-        } else if (pageType == TYPE_BOUNS) {
-            args.put("orderId", recordIds); //订单id
-            args.put("sendPlatform", 1); //订单id
-            args.put("receiveIds", getReceivingAccount());//接收方ids,多个使用英文逗号分割
-            args.put("serviceName", CardConstant.card_sendbonus);
-        }
-        giveCardPresenter.loadData(args);
+                if (pageType == TYPE_GIFTCARD) {
+                    args.put("sessionId", AppConstant.sessionId);
+                    args.put("orderId", recordIds); //订单id
+                    args.put("receiveIds", getNoEmptyPhones());//接收方ids,多个使用英文逗号分割
+                    args.put("serviceName", CardConstant.card_sendmindcard);
+                } else if (pageType == TYPE_BOUNS) {
+                    args.put("orderId", recordIds); //订单id
+                    args.put("sendPlatform", 1); //订单id
+                    args.put("receiveIds", getReceivingAccount());//接收方ids,多个使用英文逗号分割
+                    args.put("serviceName", CardConstant.card_sendbonus);
+                }
+                giveCardPresenter.loadData(args);
+                dialog.cancel();
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+
+
     }
 
     /**
      * 获取不为空的输入框内容 多个以逗号分割；
      */
-    public String getNoEmptyPhones()
-    {
+    public String getNoEmptyPhones() {
         StringBuilder sb = new StringBuilder();
         int childCount = gridLayout.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -447,8 +515,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     /**
      * 获取接收方信息
      */
-    public String getReceivingAccount()
-    {
+    public String getReceivingAccount() {
         List<FavorPayee> checkedList = adapter.getList();
 
         checkedList.addAll(payeeWvadapter.getCheckList());
@@ -473,8 +540,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
      *
      * @param erroPhones
      */
-    private void markErrorPhones(String erroPhones)
-    {
+    private void markErrorPhones(String erroPhones) {
         int childCount = gridLayout.getChildCount();
         for (int i = 0; i < childCount; i++) {
             EditText etMobile = (EditText) gridLayout.getChildAt(i).findViewById(R.id.etMobile);
@@ -483,8 +549,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         }
     }
 
-    private boolean isInputRight()
-    {
+    private boolean isInputRight() {
         int childCount = gridLayout.getChildCount();
         boolean allEmpty = true;
         //检查空值；
@@ -511,8 +576,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
 
 
     @Override
-    public void callSuccessViewLogic(Object o, int type)
-    {
+    public void callSuccessViewLogic(Object o, int type) {
         if (type == 1) {
             closePDialog();
             toastCustom(R.string.send_suc);
@@ -523,18 +587,18 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
 
             etPhoneAccount.setText("");
 
-           List<FavorPayee> listPayee =   JSON.parseArray(o+"", FavorPayee.class);
+            List<FavorPayee> listPayee = JSON.parseArray(o + "", FavorPayee.class);
 
-            if(listPayee != null && listPayee.size() >0){
+            if (listPayee != null && listPayee.size() > 0) {
 
                 FavorPayee tempPay = listPayee.get(0);
 
-                adapter.addOneNewData(tempPay);
+                payeeWvadapter.addNewData(tempPay);
 
                 calculateNumber();
-            }else{
+            } else {
 
-                ToastUtil.i(this,R.string.account_no_registered);
+                ToastUtil.i(this, R.string.account_no_registered);
             }
 
 
@@ -543,8 +607,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
     }
 
     @Override
-    public void callFailedViewLogic(Object o, int type)
-    {
+    public void callFailedViewLogic(Object o, int type) {
         if (type == 1) {
 
             closePDialog();
@@ -560,21 +623,19 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
             }
         } else if (type == 2) {
 
-            ToastUtil.i(this,R.string.account_no_registered);
+            ToastUtil.i(this, R.string.account_no_registered);
         }
     }
 
     @Override
-    public void onGetFavorPayeeSuc(boolean event_tag, List<FavorPayee> list)
-    {
+    public void onGetFavorPayeeSuc(boolean event_tag, List<FavorPayee> list) {
         closePDialog();
 
-        payeeWvadapter.addNewDataList(list);
+//        payeeWvadapter.addNewDataList(list);
     }
 
     @Override
-    public void onGetFavorPayeeFail(String failMsg)
-    {
+    public void onGetFavorPayeeFail(String failMsg) {
         closePDialog();
     }
 }

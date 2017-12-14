@@ -237,6 +237,15 @@
                             android:layout_marginLeft="5dp"
                             android:text="欢乐送"
                             android:textSize="15sp"/>
+                        <TextView
+                            android:id="@+id/more"
+                            android:layout_gravity="right"
+                            android:gravity="right"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="更多"
+                            android:paddingRight="13.8dip"
+                            />
                     </LinearLayout>
 
                     <com.yzb.card.king.ui.appwidget.SpecHeightGridView

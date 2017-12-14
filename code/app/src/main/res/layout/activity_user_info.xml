@@ -85,13 +85,16 @@
                     android:textColor="@color/user_center_black"
                     android:textSize="@dimen/sp_15"/>
 
-                <TextView
+                <EditText
+                    android:layout_marginLeft="20dip"
+                    android:paddingLeft="10dp"
                     android:id="@+id/tvNickName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="@color/user_center_gray"
-                    android:textSize="@dimen/sp_15"/>
+                    android:textSize="@dimen/sp_15"
+                    android:background="@android:color/transparent"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -193,7 +196,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dip">
 
                     <LinearLayout
                         android:id="@+id/llMan"
@@ -304,11 +308,13 @@
                 android:textSize="@dimen/sp_15"/>
 
             <TextView
+                android:layout_marginLeft="20dip"
+
                 android:id="@+id/tvRegion"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingLeft="21dp"
+                android:paddingLeft="31dp"
                 android:textColor="@color/user_center_black"
                 android:textSize="@dimen/sp_15"/>
 
@@ -329,6 +335,7 @@
             android:background="@drawable/bg_red_corner_2"
             android:text="保存"
             android:textColor="@color/white"
+            android:visibility="gone"
             android:textSize="@dimen/button_text_size"/>
     </LinearLayout>
 </LinearLayout>

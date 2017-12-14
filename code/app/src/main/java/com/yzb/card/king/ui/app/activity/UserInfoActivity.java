@@ -1,5 +1,6 @@
 package com.yzb.card.king.ui.app.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -10,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -76,7 +78,7 @@ public class UserInfoActivity extends BaseActivity implements
     private boolean man;
 
     @ViewInject(R.id.tvMan)
-    private View tvMan;
+    private TextView tvMan;
 
     @ViewInject(R.id.vMan)
     private View vMan;
@@ -94,7 +96,7 @@ public class UserInfoActivity extends BaseActivity implements
     private View tvLabel;
 
     @ViewInject(R.id.tvNickName)
-    private TextView tvNickName;
+    private EditText tvNickName;
 
     @ViewInject(R.id.tvRegion)
     private TextView tvRegion;
@@ -119,8 +121,7 @@ public class UserInfoActivity extends BaseActivity implements
     private ImageOptions imageOptions;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         defaultFlag = true;
         super.onCreate(savedInstanceState);
         imageOptions = new ImageOptions.Builder()
@@ -145,26 +146,28 @@ public class UserInfoActivity extends BaseActivity implements
         initData();
     }
 
-    private void initListener()
-    {
+    private void initListener() {
 
     }
 
-    private void initView()
-    {
+    @SuppressLint("NewApi")
+    private void initView() {
         contentView = findViewById(R.id.content);
         setTitleNmae("个人主页");
         tvBirthday = (TextView) findViewById(R.id.tvBirthday);
+        tvNickName.setBackground(null);
     }
 
 
-    private void initData()
-    {
+    private void initData() {
         userManager = UserManager.getInstance();
         userBean = userManager.getUserBean();
         initPicController();
         setName();
-        tvNickName.setText(userBean.getNickName());
+        if (userBean.getNickName().equals("未设置昵称")) {
+            tvNickName.setHint(userBean.getNickName());
+        } else
+            tvNickName.setText(userBean.getNickName());
         initPhoto();
         initSex();
         initBirthday();
@@ -176,8 +179,7 @@ public class UserInfoActivity extends BaseActivity implements
 
         llEmail.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 Intent intent = new Intent(UserInfoActivity.this, BindEmailActivity.class);
                 intent.putExtra("email", userBean.getEmail());
                 startActivityForResult(intent, REQ_UPDATE_EMAIL);
@@ -185,40 +187,34 @@ public class UserInfoActivity extends BaseActivity implements
         });
     }
 
-    private void initPhoto()
-    {
+    private void initPhoto() {
         x.image().bind(ivPhoto, ServiceDispatcher.getImageUrl(userBean.getPic()), imageOptions);
     }
 
-    private void initSex()
-    {
+    private void initSex() {
         selectSex("1".equals(UserManager.getInstance().getUserBean().getSex()));
     }
 
-    private void initBirthday()
-    {
+    private void initBirthday() {
         tvBirthday.setText(DateUtil.date2String(userBean.getBirthday(), "yyyy年MM月dd日"));
     }
 
-    private void initPicController()
-    {
+    private void initPicController() {
         picController = new SelectPicController(this);
         picController.setOnGetPicListener(new SelectPicController.OnGetPicListener() {
             @Override
-            public void onGetPic(Bitmap bitmap)
-            {
+            public void onGetPic(Bitmap bitmap) {
                 getPicPopup.dismiss();
                 uploadImages(bitmap);
             }
         });
     }
 
-    private void setRegion()
-    {
+    private void setRegion() {
         AddrInfoBean info = userBean.getAddrInfo();
         if (info != null) {
 
-            if(!TextUtils.isEmpty(info.getCountryName())){
+            if (!TextUtils.isEmpty(info.getCountryName())) {
 
                 StringBuilder sb = new StringBuilder();
                 sb.append(info.getCountryName());
@@ -228,61 +224,57 @@ public class UserInfoActivity extends BaseActivity implements
                 sb.append(info.getRegionName());
 
                 tvRegion.setText(sb.toString());
-            }else {
+            } else {
 
                 tvRegion.setText("请选择地区");
             }
 
-        }else {
+        } else {
 
             tvRegion.setText("请选择地区");
         }
     }
 
-    private void setName()
-    {
+    private void setName() {
         String name = userBean.getAuthenticationInfo().getRealName();
         if (TextUtils.isEmpty(name)) {
             tvLabel.setVisibility(View.VISIBLE);
         } else {
+
             tvLabel.setVisibility(View.GONE);
             tvName.setText(name);
+
         }
     }
 
     @Event(R.id.llName)
-    private void llName(View view)
-    {
+    private void llName(View view) {
         goNext(new BaseFragment.OnIDValid() {
             @Override
-            public void onValid()
-            {
+            public void onValid() {
             }
         });
 
     }
 
-    private void goNext(BaseFragment.OnIDValid valid)
-    {
+    private void goNext(BaseFragment.OnIDValid valid) {
         if (valid == null) return;
         if (UserBean.AuthenticationStatus_SUCCESS.equals(getValidStatus())) {
             valid.onValid();
-        }  else {
+        } else {
             //进入实名认证流程
             startActivityForResult(new Intent(this, ExamineIaActivity.class), VerifyResultActivity.RESULT_REQUEST_CODE);
         }
     }
 
     @Event(R.id.llMan)
-    private void selectMan(View view)
-    {
+    private void selectMan(View view) {
         if (hasValid()) return;
         selectSex(true);
     }
 
     @Event(R.id.llWomen)
-    private void selectWomen(View view)
-    {
+    private void selectWomen(View view) {
         if (hasValid()) return;
         selectSex(false);
     }
@@ -292,27 +284,26 @@ public class UserInfoActivity extends BaseActivity implements
      *
      * @param man
      */
-    private void selectSex(boolean man)
-    {
+    private void selectSex(boolean man) {
         this.man = man;
+        tvWomen.setVisibility(View.GONE);
         if (man) {
-            tvMan.setEnabled(true);
+            tvMan.setEnabled(false);
             tvWomen.setEnabled(false);
         } else {
+            tvMan.setText("女");
             tvMan.setEnabled(false);
             tvWomen.setEnabled(true);
         }
     }
 
     @Event(R.id.headerLeft)
-    private void back(View view)
-    {
+    private void back(View view) {
         finish();
     }
 
     @Event(R.id.llPhoto)
-    private void setPhoto(View v)
-    {
+    private void setPhoto(View v) {
         if (getPicPopup == null) {
             getPicPopup = new GetPicPopup(this);
         }
@@ -321,25 +312,22 @@ public class UserInfoActivity extends BaseActivity implements
     }
 
     @Event(R.id.llNickName)
-    private void setNickName(View view)
-    {
-        if (updateNameDialog == null) {
-            updateNameDialog = new UpdateNameDialog();
-            updateNameDialog.setNickName(userBean.getNickName());
-            updateNameDialog.setListener(new OnItemClickListener<String>() {
-                @Override
-                public void onItemClick(String data)
-                {
-                    tvNickName.setText(data);
-                }
-            });
-        }
-        updateNameDialog.show(getSupportFragmentManager(), "nickName");
+    private void setNickName(View view) {
+//        if (updateNameDialog == null) {
+//            updateNameDialog = new UpdateNameDialog();
+//            updateNameDialog.setNickName(userBean.getNickName());
+//            updateNameDialog.setListener(new OnItemClickListener<String>() {
+//                @Override
+//                public void onItemClick(String data) {
+//                    tvNickName.setText(data);
+//                }
+//            });
+//        }
+//        updateNameDialog.show(getSupportFragmentManager(), "nickName");
     }
 
     @Event(R.id.llBirthday)
-    private void setBirthday(View view)
-    {
+    private void setBirthday(View view) {
         if (hasValid()) return;
         if (pvTime == null) {
             initTimePicker();
@@ -347,14 +335,12 @@ public class UserInfoActivity extends BaseActivity implements
         pvTime.show();
     }
 
-    private boolean hasValid()
-    {
+    private boolean hasValid() {
         return UserManager.HAS_VALID.equals(UserManager.getInstance().getStatus());
     }
 
     @Event(R.id.btSave)
-    private void save(View v)
-    {
+    private void save(View v) {
         Map<String, Object> param = new HashMap<>();
         param.put("nickName", tvNickName.getText().toString());
         param.put("sex", man ? "1" : "2");
@@ -374,14 +360,19 @@ public class UserInfoActivity extends BaseActivity implements
         userInfoPresenter.update(param);
     }
 
+
+    @Override
+    public void finish() {
+        save(null);
+        super.finish();
+    }
+
     @NonNull
-    private String getBirthday()
-    {
+    private String getBirthday() {
         return tvBirthday.getText().toString().replace("年", "-").replace("月", "-").replace("日", "");
     }
 
-    private void initTimePicker()
-    {
+    private void initTimePicker() {
         pvTime = new TimePickerView(this, TimePickerView.Type.YEAR_MONTH_DAY);
         pvTime.setTime(new Date());
         pvTime.setCyclic(false);
@@ -390,22 +381,19 @@ public class UserInfoActivity extends BaseActivity implements
         pvTime.setOnTimeSelectListener(new TimePickerView.OnTimeSelectListener() {
 
             @Override
-            public void onTimeSelect(Date date)
-            {
+            public void onTimeSelect(Date date) {
                 tvBirthday.setText(DateUtil.date2String(date, "yyyy年MM月dd日"));
             }
 
             @Override
-            public void onCancel()
-            {
+            public void onCancel() {
 
             }
         });
     }
 
 
-    private boolean isDirectCity(String name)
-    {
+    private boolean isDirectCity(String name) {
         String[] city = UiUtils.getStringArray(R.array.direct_city);
         for (int i = 0; i < city.length; i++) {
             if (city[i].equals(name)) return true;
@@ -414,16 +402,14 @@ public class UserInfoActivity extends BaseActivity implements
     }
 
     @Event(R.id.llAddress)
-    private void setAddress(View view)
-    {
+    private void setAddress(View view) {
 
         if (countryPick == null) {
             countryPick = new SelectCountryPick(this, CountryCityWheelView.Type.ALL);
             countryPick.setCancelable(true);
             countryPick.setListener(new SelectCountryPick.SelectedData() {
                 @Override
-                public void getSelectedData(List<NationalCountryBean> data)
-                {
+                public void getSelectedData(List<NationalCountryBean> data) {
                     LogUtil.e(JSON.toJSONString(data));
                     if (data != null) {
                         country = data.get(0);
@@ -438,14 +424,12 @@ public class UserInfoActivity extends BaseActivity implements
     }
 
 
-    private void getDataList()
-    {
+    private void getDataList() {
         presenter.getUserInfo();
     }
 
     @Override
-    public void onClick(View v)
-    {
+    public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tvCamera:
                 picController.getPicFormCamera();
@@ -460,8 +444,7 @@ public class UserInfoActivity extends BaseActivity implements
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         picController.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case REQ_UPDATE_EMAIL:
@@ -490,32 +473,27 @@ public class UserInfoActivity extends BaseActivity implements
         }
     }
 
-    private void refresh()
-    {
+    private void refresh() {
         getDataList();
     }
 
-    private void getConsume()
-    {
+    private void getConsume() {
         presenter.getConsume(this);
     }
 
-    private void uploadImages(Bitmap bitmap)
-    {
+    private void uploadImages(Bitmap bitmap) {
         ivPhoto.setImageDrawable(new BitmapDrawable(bitmap));
         presenter.uploadImage(bitmap);
     }
 
     @Override
-    public void callSuccessViewLogic(Object o, int type)
-    {
+    public void callSuccessViewLogic(Object o, int type) {
         setResult(RESULT_OK);
         finish();
     }
 
     @Override
-    public void callFailedViewLogic(Object o, int type)
-    {
+    public void callFailedViewLogic(Object o, int type) {
         UiUtils.shortToast(o + "");
     }
 }

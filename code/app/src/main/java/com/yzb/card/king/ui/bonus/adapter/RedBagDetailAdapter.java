@@ -39,8 +39,7 @@ public class RedBagDetailAdapter extends RecyclerView.Adapter<RedBagDetailAdapte
 
     private int theBestIndex = 0;
 
-    public RedBagDetailAdapter(Context context, List<RedBagRecOrSendBean.ReceiveListBean> list)
-    {
+    public RedBagDetailAdapter(Context context, List<RedBagRecOrSendBean.ReceiveListBean> list) {
 
         this.context = context;
 
@@ -68,8 +67,7 @@ public class RedBagDetailAdapter extends RecyclerView.Adapter<RedBagDetailAdapte
      *
      * @return
      */
-    private int calBestObjectIndex()
-    {
+    private int calBestObjectIndex() {
 
         int tempIndex = 0;
 
@@ -82,8 +80,11 @@ public class RedBagDetailAdapter extends RecyclerView.Adapter<RedBagDetailAdapte
             double beanAmount = bean.getReceiveAmount();
 
             String beanReceiveTime = bean.getReceiveTime();
+            Long beanReceiveTimeLong = 0L;
+            if (beanReceiveTime == null) {
 
-            long beanReceiveTimeLong = Utils.toTimestamp(beanReceiveTime, 1);
+            } else
+                beanReceiveTimeLong = Utils.toTimestamp(beanReceiveTime, 1);
 
             for (int i = 0; i < size; i++) {
 
@@ -92,8 +93,11 @@ public class RedBagDetailAdapter extends RecyclerView.Adapter<RedBagDetailAdapte
                 double temp = tempBean.getReceiveAmount();
 
                 String tempReceiveTime = tempBean.getReceiveTime();
+                Long tempReceiveTimeLong = 0L;
+                if (tempReceiveTime == null) {
 
-                long tempReceiveTimeLong = Utils.toTimestamp(tempReceiveTime, 1);
+                } else
+                    tempReceiveTimeLong = Utils.toTimestamp(tempReceiveTime, 1);
 
                 if (temp > beanAmount) {//计算出最佳价格
 
@@ -126,15 +130,13 @@ public class RedBagDetailAdapter extends RecyclerView.Adapter<RedBagDetailAdapte
         return tempIndex;
     }
 
-    public void setStatuFlag(boolean statuFlag)
-    {
+    public void setStatuFlag(boolean statuFlag) {
 
         this.statuFlag = statuFlag;
     }
 
     @Override
-    public RedBagDetailAdapter.RedBagSendViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
-    {
+    public RedBagDetailAdapter.RedBagSendViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_redbag_detail, parent, false);
         RedBagSendViewHolder holder = new RedBagSendViewHolder(view);
         view.setOnClickListener(this);
@@ -142,22 +144,26 @@ public class RedBagDetailAdapter extends RecyclerView.Adapter<RedBagDetailAdapte
     }
 
     @Override
-    public void onBindViewHolder(RedBagSendViewHolder holder, int position)
-    {
+    public void onBindViewHolder(RedBagSendViewHolder holder, int position) {
         //时间服务器得到的是long 后面会转化为String
         String tradeTime = list.get(position).getReceiveTime();
+        if (tradeTime != null) {
 
-        String[] split = tradeTime.split(" ");
 
-        String time = split[1];
+            String[] split = tradeTime.split(" ");
 
-        String[] split2 = time.split(":");
+            String time = split[1];
 
+            String[] split2 = time.split(":");
+
+            holder.item_date.setText(split[0] + "  " + split2[0] + ":" + split2[1] + "");//还有time服务器一直没有
+        } else {
+            holder.item_date.setText("");//还有time服务器一直没有
+        }
         holder.item_money.setText(list.get(position).getReceiveAmount() + "元");
 
         holder.item_name.setText(list.get(position).getReceivePerson());
 
-        holder.item_date.setText(split[0] + "  " + split2[0] + ":" + split2[1] + "");//还有time服务器一直没有
 
         x.image().bind(holder.item_icon, ServiceDispatcher.getImageUrl(list.get(position).getReceivePicUrl()), imageOptions);
 
@@ -179,8 +185,7 @@ public class RedBagDetailAdapter extends RecyclerView.Adapter<RedBagDetailAdapte
     }
 
     @Override
-    public int getItemCount()
-    {
+    public int getItemCount() {
 
         return list.size();
     }
@@ -188,29 +193,25 @@ public class RedBagDetailAdapter extends RecyclerView.Adapter<RedBagDetailAdapte
     RecyclerView recyclerView;
 
     @Override
-    public void onAttachedToRecyclerView(RecyclerView recyclerView)
-    {
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
         this.recyclerView = recyclerView;
     }
 
     @Override
-    public void onDetachedFromRecyclerView(RecyclerView recyclerView)
-    {
+    public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
         super.onDetachedFromRecyclerView(recyclerView);
         this.recyclerView = null;
     }
 
     private OnMyItemClickListener listener;
 
-    public void setOnMyItemClickListener(OnMyItemClickListener listener)
-    {
+    public void setOnMyItemClickListener(OnMyItemClickListener listener) {
         this.listener = listener;
     }
 
     @Override
-    public void onClick(View v)
-    {
+    public void onClick(View v) {
         if (recyclerView != null && listener != null) {
             //取得位置
             int position = recyclerView.getChildAdapterPosition(v);
@@ -229,8 +230,7 @@ public class RedBagDetailAdapter extends RecyclerView.Adapter<RedBagDetailAdapte
         private ImageView item_icon, item_zuijia_img;
         private TextView item_time, item_money, item_zuijia, item_date, item_name;
 
-        public RedBagSendViewHolder(View itemView)
-        {
+        public RedBagSendViewHolder(View itemView) {
             super(itemView);
             item_icon = (ImageView) itemView.findViewById(R.id.item_icon);
             item_date = (TextView) itemView.findViewById(R.id.item_date);

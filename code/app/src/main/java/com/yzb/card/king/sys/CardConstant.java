@@ -644,7 +644,7 @@ public class CardConstant {
     /**
      * 查询未领取红包列表
      */
-    public static String card_queryreceivebonus = "QueryReceiveBonus";
+    public static String card_queryreceivebonus = "QueryUnReceiveBonus";
     /**
      * 领取优惠券
      */

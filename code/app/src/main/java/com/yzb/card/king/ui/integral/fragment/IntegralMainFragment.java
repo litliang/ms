@@ -8,6 +8,7 @@ import android.view.View;
 import com.yzb.card.king.R;
 import com.yzb.card.king.bean.my.NationalCountryBean;
 import com.yzb.card.king.sys.AppConstant;
+import com.yzb.card.king.sys.ServiceDispatcher;
 import com.yzb.card.king.ui.TestActivity;
 import com.yzb.card.king.ui.app.activity.HotelBillActivity;
 import com.yzb.card.king.ui.appwidget.SlideShow1ItemView;

@@ -116,7 +116,7 @@
         </RelativeLayout>
         <!-- 礼品卡 end -->
         <!-- 优惠推荐 -->
-        <LinearLayout
+        <LinearLayout android:id="@+id/discountbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"

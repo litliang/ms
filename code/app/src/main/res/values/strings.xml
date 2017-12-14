@@ -470,7 +470,7 @@
     <string name="ticke_yjf">邮寄费</string>
     <string name="buy_suces">购买成功</string>
     <string name="certification_message">您还没有进行实名认证，可能会影响您的使用！</string>
-    <string name="set_pay_message">您还没有设置支付密码,这会影响您的使用。</string>
+    <string name="set_pay_message">设置您的支付密码,安全愉快的使用Hi生活服务。</string>
     <string name="create_command_suces">已为您生成嗨口令</string>
     <string name="now_send">立即发送></string>
     <string name="now_look">立即查看></string>
@@ -1217,7 +1217,7 @@
     <string name="my_no_pay">未支付</string>
     <string name="my_payed">已支付</string>
     <string name="my_tuikuan">已退款</string>
-    <string name="my_all_order">全部订单</string>
+    <string name="my_all_order">订单服务</string>
     <string name="my_order">我的订单</string>
     <string name="my_wallet">钱包</string>
     <string name="my_gift_card">送礼品卡</string>
@@ -1456,7 +1456,7 @@
     <string name="ticket_more_bank">更多银行 >></string>
     <string name="title_activity_near_by_map">NearByMapActivity</string>
     <string name="title_activity_search">SearchActivity</string>
-    <string name="empty"/>
+    <string name="empty" />
     <string name="room_area">建筑面积%1$s</string>
     <string name="room_floor">楼层%1$s</string>
     <string name="room_name_bed">%1$s（%2$s）</string>

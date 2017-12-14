@@ -66,7 +66,7 @@ public class HotelInfoFacitityAdapter extends BaseAdapter {
           return   itemNamesArray.length;
         }else {
 
-            return 0;
+          return   itemNamesArray==null?0:itemNamesArray.length;
         }
 
     }

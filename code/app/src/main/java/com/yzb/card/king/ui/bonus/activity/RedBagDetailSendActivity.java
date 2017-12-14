@@ -48,8 +48,7 @@ import java.util.Map;
  * 描 述：红包明细详情
  */
 
-public class RedBagDetailSendActivity extends BaseActivity implements RedBagDetailAdapter.OnMyItemClickListener, View.OnClickListener, BaseViewLayerInterface, CommandView
-{
+public class RedBagDetailSendActivity extends BaseActivity implements RedBagDetailAdapter.OnMyItemClickListener, View.OnClickListener, BaseViewLayerInterface, CommandView {
     private RecyclerView recycler;
     private RedBagDetailAdapter adapter;
     private RedBagRecOrSendPresenter presenter;
@@ -60,6 +59,7 @@ public class RedBagDetailSendActivity extends BaseActivity implements RedBagDeta
     private TextView userName;
     private TextView hopeWord;
     private TextView allMessage;
+    private TextView amouttype;
     private TextView recAcount;
     private TextView red_bag_titleName;
     private TextView tvPromte;
@@ -70,12 +70,12 @@ public class RedBagDetailSendActivity extends BaseActivity implements RedBagDeta
     private ImageOptions imageOptions;
     private String themeName;
     private CommandPresenter commandPresenter;
-    private  int surplusNum;//剩余数量
+    private int surplusNum;//剩余数量
+    private String isequal = "true";
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_redbag_send_detail);
@@ -88,59 +88,59 @@ public class RedBagDetailSendActivity extends BaseActivity implements RedBagDeta
 
         presenter = new RedBagRecOrSendPresenter(this);
         //预览；
-        if (themeParam != null)
-        {
+        if (themeParam != null) {
             initViewContent();
-        } else
-        {
+        } else {
             initPresent();
         }
     }
 
+    String sum;
+    String num;
 
     /**
      * gengqiyun 2017.2.6
      */
-    private void initViewContent()
-    {
+    private void initViewContent() {
+        setTitleNmae(themeParam.getBlessWord());
         x.image().bind(userImg, getUserBean().getPic(),
                 XImageOptionUtil.getRoundImageOption(DensityUtil.dip2px(30), ImageView.ScaleType.FIT_CENTER));//发送方图片
-
-        x.image().bind(thumbImg, ServiceDispatcher.getImageUrl(themeParam.getOpenImageCode()));
-
+        if(themeParam.getOpenImageCode()!=null) {
+            x.image().bind(thumbImg, ServiceDispatcher.getImageUrl(themeParam.getOpenImageCode()));
+        }
         userName.setText(themeParam.getBounsSender() + "的红包");
         red_bag_titleName.setText(themeParam.getThemeName());
         hopeWord.setText(themeParam.getBlessWord());
         recAcount.setVisibility(View.GONE);
-        if (themeParam.isRandom())
-        {
-            allMessage.setText((TextUtils.isEmpty(themeParam.getBounsNum()) ? "0" : themeParam.getBounsNum()) +
-                    "个红包共" + (TextUtils.isEmpty(themeParam.getBounsAmount()) ? "0" : themeParam.getBounsAmount()) + "元");
-        } else
-        {
-            allMessage.setText((TextUtils.isEmpty(themeParam.getBounsNum()) ? "0" : themeParam.getBounsNum()) +
-                    "个红包共" + (TextUtils.isEmpty(themeParam.getBounsAmount()) ? "0" : themeParam.getBounsAmount()) + "元");
+            num = (TextUtils.isEmpty(themeParam.getBounsNum()) ? "0" : themeParam.getBounsNum());
+            sum = (TextUtils.isEmpty(themeParam.getBounsAmount()) ? "0" : themeParam.getBounsAmount());
+        amouttype.setText(isequal.equals("true")?"等值金额":"随机金额");
+        if (themeParam.isRandom()) {
+            allMessage.setText(
+                    "红包总额：" + (sum = (TextUtils.isEmpty(themeParam.getBounsAmount()) ? "0" : themeParam.getBounsAmount())) + "元"
+                            + "       " + "发送人数：" + num + "人");
+        } else {
+            allMessage.setText(
+                    "红包总额：" + (sum = (TextUtils.isEmpty(themeParam.getBounsAmount()) ? "0" : themeParam.getBounsAmount())) + "元"
+                            + "       " + "发送人数：" + num + "人");
         }
     }
 
-    private void recvIntentData()
-    {
+    private void recvIntentData() {
         Intent intent = getIntent();
         orderId = intent.getExtras().getString("orderId");
         themeName = intent.getExtras().getString("themeName");
 
         Serializable ser = intent.getSerializableExtra("themeParam");
-        if (ser != null)
-        {
+        if (ser != null) {
             themeParam = (BounsThemeParam) ser;
         }
+
     }
 
-    private void initData(boolean flag)
-    {
+    private void initData(boolean flag) {
 
-        if (receiveList != null)
-        {
+        if (receiveList != null) {
             adapter = new RedBagDetailAdapter(this, receiveList);
             adapter.setStatuFlag(flag);
             LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -148,12 +148,12 @@ public class RedBagDetailSendActivity extends BaseActivity implements RedBagDeta
             recycler.addItemDecoration(new DecorationUtil(2));
             recycler.setAdapter(adapter);
             adapter.setOnMyItemClickListener(this);
+            adapter.notifyDataSetChanged();
         }
 
     }
 
-    private void initView()
-    {
+    private void initView() {
         recycler = (RecyclerView) findViewById(R.id.red_bag_detail_recyclerview);
         userImg = (ImageView) findViewById(R.id.redbag_detail_usercicle_img);
         thumbImg = (ImageView) findViewById(R.id.thumbImg);
@@ -165,17 +165,15 @@ public class RedBagDetailSendActivity extends BaseActivity implements RedBagDeta
         tvPromte = (TextView) findViewById(R.id.tvPromte);
         red_bag_titleName = (TextView) findViewById(R.id.red_bag_titleName);
         red_bag_titleName.setText(themeName);
-
+        amouttype= (TextView) findViewById(R.id.amouttype);
         findViewById(R.id.tvContinueSend).setOnClickListener(this);
 
         goOn = findViewById(R.id.panelContinueSend);
         goOn.setVisibility(View.GONE);
 
-        recycler.setOnTouchListener(new View.OnTouchListener()
-        {
+        recycler.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event)
-            {
+            public boolean onTouch(View v, MotionEvent event) {
                 recycler.getParent().requestDisallowInterceptTouchEvent(true);
                 return false;
             }
@@ -183,11 +181,11 @@ public class RedBagDetailSendActivity extends BaseActivity implements RedBagDeta
         imageOptions = new ImageOptions.Builder()
                 //  .setSize(org.xutils.common.util.DensityUtil.dip2px(30), org.xutils.common.util.DensityUtil.dip2px(30))
                 .setRadius(org.xutils.common.util.DensityUtil.dip2px(360))
-                        // 如果ImageView的大小不是定义为wrap_content, 不要crop.
+                // 如果ImageView的大小不是定义为wrap_content, 不要crop.
                 .setCrop(true) // 很多时候设置了合适的scaleType也不需要它.
                 .setUseMemCache(true)
-                        // 加载中或错误图片的ScaleType
-                        //.setPlaceholderScaleType(ImageView.ScaleType.MATRIX)
+                // 加载中或错误图片的ScaleType
+                //.setPlaceholderScaleType(ImageView.ScaleType.MATRIX)
                 .setImageScaleType(ImageView.ScaleType.CENTER_CROP)
                 .setLoadingDrawableId(R.mipmap.icon_nav_user)
                 .setFailureDrawableId(R.mipmap.icon_nav_user)
@@ -195,24 +193,20 @@ public class RedBagDetailSendActivity extends BaseActivity implements RedBagDeta
                 .build();
     }
 
-    private void initPresent()
-    {
+    private void initPresent() {
         Map<String, Object> param = new HashMap<>();
         param.put("orderId", orderId);
         presenter.getRedBagDetailTotalData(param, CardConstant.REC_OR_SEND_DETAIL, 1);
     }
 
     @Override
-    public void OnMyItemClick(RecyclerView parent, View view, int position, List<RedBagRecOrSendBean.ReceiveListBean> data)
-    {
+    public void OnMyItemClick(RecyclerView parent, View view, int position, List<RedBagRecOrSendBean.ReceiveListBean> data) {
 
     }
 
     @Override
-    public void onClick(View v)
-    {
-        switch (v.getId())
-        {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.tvContinueSend: //继续发送；
                 generateCommand();
                 break;
@@ -222,8 +216,7 @@ public class RedBagDetailSendActivity extends BaseActivity implements RedBagDeta
     /**
      * 生成口令；
      */
-    private void generateCommand()
-    {
+    private void generateCommand() {
         showPDialog(R.string.loading);
         Map<String, Object> args = new HashMap<>();
         args.put("codeType", AppConstant.command_type_bouns);
@@ -234,13 +227,10 @@ public class RedBagDetailSendActivity extends BaseActivity implements RedBagDeta
         commandPresenter.loadData(args);
     }
 
-    private Handler dataHandler = new Handler(new Handler.Callback()
-    {
+    private Handler dataHandler = new Handler(new Handler.Callback() {
         @Override
-        public boolean handleMessage(Message msg)
-        {
-            switch (msg.what)
-            {
+        public boolean handleMessage(Message msg) {
+            switch (msg.what) {
                 case SendGiftCardDialog.WHAT_SHARE_PLATFORM: //分享-嗨生活；
                     Intent intent = new Intent(RedBagDetailSendActivity.this, GiveCardActivity.class);
                     intent.putExtra("recordIds", orderId);
@@ -254,8 +244,7 @@ public class RedBagDetailSendActivity extends BaseActivity implements RedBagDeta
     });
 
     @Override
-    public void onGetCommandSuc(String commandAndUrl)
-    {
+    public void onGetCommandSuc(String commandAndUrl) {
         closePDialog();
         SendGiftCardDialog.getInstance()
                 .setHandler(dataHandler).setFragmentManager(getSupportFragmentManager()).setCommandAndUrl(
@@ -263,20 +252,17 @@ public class RedBagDetailSendActivity extends BaseActivity implements RedBagDeta
     }
 
     @Override
-    public void onGetCommandFail(String failMsg)
-    {
+    public void onGetCommandFail(String failMsg) {
         closePDialog();
         toastCustom(failMsg);
     }
 
     @Override
-    public void callSuccessViewLogic(Object o, int type)
-    {
-        if (type == 1)
-        {
+    public void callSuccessViewLogic(Object o, int type) {
+        if (type == 1) {
             listBean = JSON.parseObject(String.valueOf(o), RedBagRecOrSendBean.class);
             orderNo = listBean.getOrderNo();
-
+            red_bag_titleName.setText(listBean.getBlessWord());
             userName.setText(listBean.getIssuePerson() + "的红包");
             //String path = listBean.getIssueImageCode() +"";//图片加载 userImg
             x.image().bind(userImg, ServiceDispatcher.getImageUrl(listBean.getIssuePersonPhoto() + ""), imageOptions);//获取背景图片
@@ -289,14 +275,20 @@ public class RedBagDetailSendActivity extends BaseActivity implements RedBagDeta
             surplusNum = totalQuantity - receiveQuantity;
 
             StringBuilder builder = new StringBuilder();
-            builder.append(totalQuantity + "个红包共").append(orderAcount + "元");
+
+            num = listBean.getTotalQuantity()+"";
+            sum = listBean.getOrderAmount()+"";
+            themeParam = (BounsThemeParam) getIntent().getSerializableExtra("typedThemeParam");
+            if(themeParam!=null) {
+                amouttype.setText(!themeParam.isRandom() ? "等值金额" : "随机金额");
+            }
+            builder.append("红包总额：" + (orderAcount ) + "元"
+                    + "       " + "发送人数：" + listBean.getReceiveList().size() + "人");
             allMessage.setText(builder.toString());
             receiveList = listBean.getReceiveList();
 
-            for (int i = 0; i < receiveList.size(); i++)
-            {
-                if (receiveList.get(i).getReceivePerson().equals(listBean.getIssuePerson()))
-                {
+            for (int i = 0; i < receiveList.size(); i++) {
+                if (receiveList.get(i).getReceivePerson().equals(listBean.getIssuePerson())) {
                     recAcount.setText(receiveList.get(i).getReceiveAmount() + "");
                     break;
                 }
@@ -307,9 +299,9 @@ public class RedBagDetailSendActivity extends BaseActivity implements RedBagDeta
             goOn.setVisibility(flag ? View.GONE : View.VISIBLE);
 
             //
-            if(flag){
+            if (flag) {
                 tvPromte.setVisibility(View.GONE);
-            }else{
+            } else {
                 tvPromte.setVisibility(View.VISIBLE);
             }
 
@@ -318,8 +310,7 @@ public class RedBagDetailSendActivity extends BaseActivity implements RedBagDeta
     }
 
     @Override
-    public void callFailedViewLogic(Object o, int type)
-    {
+    public void callFailedViewLogic(Object o, int type) {
 
     }
 }

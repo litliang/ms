@@ -16,4 +16,5 @@ public class WXEntryActivity extends WXCallbackActivity {
 		super.onActivityResult(requestCode, resultCode, data);
 		UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
 	}
+
 }

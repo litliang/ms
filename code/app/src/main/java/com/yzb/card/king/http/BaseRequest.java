@@ -3,9 +3,12 @@ package com.yzb.card.king.http;
 import com.alibaba.fastjson.JSON;
 import com.yzb.card.king.sys.AppConstant;
 import com.yzb.card.king.sys.ServiceDispatcher;
+import com.yzb.card.king.ui.base.BaseModelImpl;
 import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.encryption.RsaUtil;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
@@ -27,14 +30,14 @@ import java.util.TreeMap;
 public abstract class BaseRequest {
 
     //上传图片的服务器地址
-    public final String upload_image_url = ServiceDispatcher.url_image+"saveImage";
+    public final String upload_image_url = ServiceDispatcher.url_image + "saveImage";
 
     //app开发服务器
     public final String url_api = ServiceDispatcher.url_api;
     //app测试服务器
     //public final static String url_api = "http://116.228.184.116/card/api/api/";
     //java开发服务器
-    // public final static String url_api_1 = "http://192.168.100.97:80801/card/api/api/";
+    // public final static String url_api_1 = "http://192.168.100.97:80821/card/api/api/";
     private String serviceName = "";
 
     private String charName = "ISO-8859-1";
@@ -59,8 +62,7 @@ public abstract class BaseRequest {
      * @param dataMap        接口的请求参数
      * @return
      */
-    public Map<String, String> setParams(String sessionId, String serviceName, String identification, Map<String, Object> dataMap)
-    {
+    public Map<String, String> setParams(String sessionId, String serviceName, String identification, Map<String, Object> dataMap) {
         this.serviceName = serviceName;
         Map<String, String> parameters = new HashMap<String, String>();
         parameters.put("sessionId", sessionId);
@@ -74,7 +76,7 @@ public abstract class BaseRequest {
                 LogUtil.e("AAAA", "--b--明文--" + adb);
 
 
-                byte[] abb = RsaUtil.encryptByPublicKey(adb.getBytes(charName),publicKey);
+                byte[] abb = RsaUtil.encryptByPublicKey(adb.getBytes(charName), publicKey);
 
                 LogUtil.e("AAAA", "---b--密文--size=" + abb.length);
 
@@ -107,24 +109,22 @@ public abstract class BaseRequest {
         return parameters;
     }
 
-    public void isIfSaveSessionId(boolean ifSaveSessionId)
-    {
+    public void isIfSaveSessionId(boolean ifSaveSessionId) {
 
         this.ifSaveSessionId = ifSaveSessionId;
     }
 
-    public void setIfEncryption(boolean ifEncryption)
-    {
+    public void setIfEncryption(boolean ifEncryption) {
         this.ifEncryption = ifEncryption;
     }
 
     protected Listener listener;
 
 
-
     public static abstract class Listener {
-        public void onSuccess(String data)
-        {
+
+
+        public void onSuccess(String data) {
 
         }
 
@@ -134,24 +134,23 @@ public abstract class BaseRequest {
          * @param data
          * @param resultCode 结果码；
          */
-        public void onSuccess(String data, String resultCode)
-        {
+        public void onSuccess(String data, String resultCode) {
 
         }
 
-        public void onResult(String result)
-        {
+        public void onResult(String result) {
 
         }
 
-        public void onFail(String failMsg)
-        {
+        public void onFail(String failMsg) {
 
         }
 
-        public void onFail(String failMsg, String resultCode)
-        {
+        public void onFail(String failMsg, String resultCode) {
 
+        }
+
+        public void onToast(String success, Map<String, String> parameterMap, String data) {
         }
     }
 
@@ -159,8 +158,7 @@ public abstract class BaseRequest {
     /**
      * 获取超时时间；
      */
-    protected int getConnectTimeOut()
-    {
+    protected int getConnectTimeOut() {
         return 20 * 1000;
     }
 
@@ -170,8 +168,7 @@ public abstract class BaseRequest {
      * @param parameterMap
      * @param callBack
      */
-    public void sendPostRequest(Map<String, String> parameterMap, final HttpCallBackData callBack)
-    {
+    public void sendPostRequest(final Map<String, String> parameterMap, final HttpCallBackData callBack) {
         if (callBack != null) {
             callBack.onStart();
         }
@@ -194,15 +191,23 @@ public abstract class BaseRequest {
             }
 
             if (listener != null) {
+                listener.onToast("参数错误:", parameterMap, "");
                 listener.onFail(null);
                 listener.onFail(null, null);
             }
         }
-
+        final long time = System.currentTimeMillis();
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
-            public void onSuccess(String s)
-            {
+            public void onSuccess(String s) {
+                JSONObject jo = null;
+                try {
+                    jo = new JSONObject(s);
+                    BaseModelImpl.toastcost(jo.getString("code").equals("0000") ? "成功:" : "失敗", parameterMap.get("serviceName"), parameterMap, s, time);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 LogUtil.e("------服务器数据-----" + serviceName + "---------" + s);
 
                 Map<String, String> onSuccessData = JSON.parseObject(s, Map.class);
@@ -210,10 +215,11 @@ public abstract class BaseRequest {
                 if (onSuccessData != null && HttpConstant.SUCCESSCODE.equals(onSuccessData.get(HttpConstant.SERVER_CODE))) {
 
                     if (listener != null) {
+
                         listener.onResult(s);
                     }
 
-                    LogUtil.e("CCCC",serviceName+"-------------"+ifSaveSessionId);
+                    LogUtil.e("CCCC", serviceName + "-------------" + ifSaveSessionId);
                     if (onSuccessData.containsKey(HttpConstant.SERVER_SESSIONID) && ifSaveSessionId) {
                         //对每次请求的session进行保存处理
                         AppConstant.handleSessionId(onSuccessData.get(HttpConstant.SERVER_SESSIONID) + "");
@@ -231,11 +237,11 @@ public abstract class BaseRequest {
 
                             try {
 
-                             byte[]  bbbb =    RsaUtil.decryptByPrivateKey(data.getBytes(charName),privateKey);
+                                byte[] bbbb = RsaUtil.decryptByPrivateKey(data.getBytes(charName), privateKey);
 
-                                data = new String(bbbb,"UTF-8");
+                                data = new String(bbbb, "UTF-8");
 
-                                LogUtil.e("AAA","---1--明文-"+data);
+                                LogUtil.e("AAA", "---1--明文-" + data);
 
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -264,6 +270,7 @@ public abstract class BaseRequest {
                             }
 
                             if (listener != null) {
+
                                 listener.onSuccess(data);
                                 listener.onSuccess(data, onSuccessData.get(HttpConstant.SERVER_CODE) + "");
                                 listener.onResult(s);
@@ -313,8 +320,7 @@ public abstract class BaseRequest {
             }
 
             @Override
-            public void onError(Throwable throwable, boolean b)
-            {
+            public void onError(Throwable throwable, boolean b) {
                 LogUtil.e("onError:" + throwable.getMessage());
                 if (callBack != null) {
                     callBack.onFailed(null);
@@ -327,16 +333,14 @@ public abstract class BaseRequest {
             }
 
             @Override
-            public void onCancelled(CancelledException e)
-            {
+            public void onCancelled(CancelledException e) {
                 if (callBack != null) {
                     callBack.onCancelled(e);
                 }
             }
 
             @Override
-            public void onFinished()
-            {
+            public void onFinished() {
                 if (callBack != null) {
                     callBack.onFinished();
                 }
@@ -351,8 +355,7 @@ public abstract class BaseRequest {
      *
      * @param parameterMap
      */
-    public void sendUploadImageRequest(Map<String, String> parameterMap, final HttpCallBackData callBack)
-    {
+    public void sendUploadImageRequest(Map<String, String> parameterMap, final HttpCallBackData callBack) {
 
         RequestParams params = new RequestParams(upload_image_url);
 
@@ -371,35 +374,32 @@ public abstract class BaseRequest {
 
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
-            public void onSuccess(String s)
-            {
-                LogUtil.e("UUUU","-------onSuccess-------="+s);
-                if(callBack != null){
+            public void onSuccess(String s) {
+                LogUtil.e("UUUU", "-------onSuccess-------=" + s);
+                if (callBack != null) {
 
-                    callBack.onSuccess( JSON.parseObject(s, Map.class));
+                    callBack.onSuccess(JSON.parseObject(s, Map.class));
                 }
             }
 
             @Override
-            public void onError(Throwable throwable, boolean b)
-            {
-                if(callBack != null){
+            public void onError(Throwable throwable, boolean b) {
+                if (callBack != null) {
 
                     callBack.onFailed(null);
                 }
             }
 
             @Override
-            public void onCancelled(CancelledException e)
-            {
-                if(callBack != null){
+            public void onCancelled(CancelledException e) {
+                if (callBack != null) {
                     callBack.onCancelled(null);
                 }
             }
+
             @Override
-            public void onFinished()
-            {
-                if(callBack != null){
+            public void onFinished() {
+                if (callBack != null) {
                     callBack.onFinished();
                 }
             }
@@ -412,8 +412,7 @@ public abstract class BaseRequest {
      *
      * @param params
      */
-    private void setParamsHeader(RequestParams params)
-    {
+    private void setParamsHeader(RequestParams params) {
         params.setHeader("Accept", "application/json");
         params.setHeader("Content-type", "application/json;charset=UTF-8");
         params.setHeader("Accept-Encoding", "gzip, deflate");
@@ -425,8 +424,7 @@ public abstract class BaseRequest {
      * @param serverData
      * @return
      */
-    public TreeMap<String, String> sortData(String serverData)
-    {
+    public TreeMap<String, String> sortData(String serverData) {
 
         Map<String, String> dataMap = JSON.parseObject(serverData, Map.class);
 
@@ -445,8 +443,7 @@ public abstract class BaseRequest {
     }
 
 
-    public String getMD5(String info)
-    {
+    public String getMD5(String info) {
         try {
             MessageDigest md5 = MessageDigest.getInstance("MD5");
             md5.update(info.getBytes("UTF-8"));

@@ -61,6 +61,7 @@
                     android:background="@color/white"
                     android:inputType="phone"
                     android:paddingLeft="10dp"
+                    android:maxLength="11"
                     android:textColor="@color/user_center_black"
                     android:textSize="14sp"/>
             </LinearLayout>
@@ -100,7 +101,8 @@
                         android:inputType="number"
                         android:paddingLeft="10dp"
                         android:textColor="@color/user_center_black"
-                        android:textSize="@dimen/sp_15"/>
+                        android:textSize="@dimen/sp_15"
+                        android:maxLength="4"/>
 
                     <TextView
                         android:id="@+id/tvGetCode"

@@ -56,6 +56,7 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -106,8 +107,7 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
     private AccountInfoPresenter accountInfoP;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         EventBus.getDefault().register(this);
@@ -120,18 +120,16 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
         initData();
     }
 
-    private void recvIntentData()
-    {
+    private void recvIntentData() {
         productId = getIntent().getStringExtra("productId");
         blessWord = getIntent().getStringExtra("blessWord");
         imageCode = getIntent().getStringExtra("imageCode");
     }
 
-    private void initView()
-    {
-        if( getIntent().hasExtra("titleName")){
+    private void initView() {
+        if (getIntent().hasExtra("titleName")) {
             setTitleNmae(getIntent().getStringExtra("titleName"));
-        }else {
+        } else {
             setTitleNmae("送礼品e卡");
         }
 
@@ -147,32 +145,37 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
 
         etSumAmount.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after)
-            {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count)
-            {
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             }
 
             @Override
-            public void afterTextChanged(Editable s)
-            {
+            public void afterTextChanged(Editable s) {
+                if (s.toString().equals("")) {
+                    tvTotalAmount.setText("0.00");
+                } else if(s.toString().endsWith(".")){
+                    tvTotalAmount.setText(s.toString().replaceAll(".",""));
+                } else {
 
-                float amountTxt = Float.parseFloat( s.toString());
-                tvTotalAmount.setText("¥" + String.format("%.2f", amountTxt));
+                    Double amountTxt = Double.parseDouble(s.toString());
+                    tvTotalAmount.setText("¥" + new BigDecimal(amountTxt).setScale(2,BigDecimal.ROUND_UP).doubleValue());
+                    ;
+                }
             }
         });
 
-        findViewById(R.id.panelScanDetail).setOnClickListener(this);
+        findViewById(R.id.panelScanDetail).
+
+                setOnClickListener(this);
     }
 
 
-    private void initData()
-    {
+    private void initData() {
         x.image().bind(ivThumb, ServiceDispatcher.getImageUrl(imageCode));
         etCardMsg.setText(blessWord);
 
@@ -182,8 +185,7 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
     /**
      * 获取账户信息；
      */
-    private void loadAccountInfo()
-    {
+    private void loadAccountInfo() {
         Map<String, Object> args = new HashMap<>();
         args.put("amountAccount", getUserBean().getAmountAccount());
         args.put("giftcardStatus", "1"); //查询礼品卡余额
@@ -193,18 +195,15 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
     /**
      * 更新礼品卡总金额；
      */
-    private void updateTotalAmount(float amount)
-    {
+    private void updateTotalAmount(float amount) {
         SpannableString ss = new SpannableString("¥" + String.format("%.2f", amount));
         //  ss.setSpan(new AbsoluteSizeSpan(DensityUtil.dip2px(10)), 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         giftcardSumAmount.setText(ss);
     }
 
 
-
     @Override
-    public void onClick(View v)
-    {
+    public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ivEdit: //编辑；
                 etCardMsg.setEnabled(true);
@@ -226,8 +225,7 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
                 if (isInputRight()) {
                     checkUserValid(new OnIDValid() {
                         @Override
-                        public void onValid()
-                        {
+                        public void onValid() {
                             exeBuy();
                         }
                     });
@@ -243,8 +241,7 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
 
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void mainEventThread(Message msg)
-    {
+    public void mainEventThread(Message msg) {
         LogUtil.i("收到消息了");
         if (msg.what == WHAT_CLOSE) {
             finish();
@@ -252,8 +249,7 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
     }
 
     @Override
-    protected void onResume()
-    {
+    protected void onResume() {
         super.onResume();
         loadAccountInfo();
     }
@@ -261,8 +257,7 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
     /**
      * 购买心意卡；
      */
-    private void exeBuy()
-    {
+    private void exeBuy() {
         showPDialog(R.string.setting_committing);
 
         buyCardPresenter.setEcardOrderInterfaceParameters(productId, etSumAmount.getText().toString().trim(), ivCryptonym.isSelected(), etCardMsg.getText().toString().trim());
@@ -270,8 +265,7 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
 
     private Handler dataHandler = new Handler(new Handler.Callback() {
         @Override
-        public boolean handleMessage(Message msg)
-        {
+        public boolean handleMessage(Message msg) {
             switch (msg.what) {
                 case GiftcardBuySucesDialog.WHAT_SEND: //立即发送；
                     generateCommand();
@@ -299,8 +293,7 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
     /**
      * 生成口令；
      */
-    private void generateCommand()
-    {
+    private void generateCommand() {
         showPDialog(R.string.loading);
         Map<String, Object> args = new HashMap<>();
         args.put("codeType", AppConstant.command_type_giftcard);
@@ -311,8 +304,7 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
     /**
      * 购买成功；
      */
-    private void showBuySucesdDialog()
-    {
+    private void showBuySucesdDialog() {
         updatePayDetail();
         GiftcardBuySucesDialog.getInstance().setDataHandler(dataHandler).show(getSupportFragmentManager(), "");
     }
@@ -320,8 +312,7 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
     /**
      * 更新付款详情；
      */
-    private void updatePayDetail()
-    {
+    private void updatePayDetail() {
         Map<String, Object> argsMap = new HashMap<>();
         argsMap.put("account", getUserBean().getAccount());
         argsMap.put("transIp", AppUtils.getLocalIpAddress(GlobalApp.getInstance().getContext()));//交易IP
@@ -337,8 +328,7 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
         recordModel.loadData(true, argsMap);
     }
 
-    private void startBuy()
-    {
+    private void startBuy() {
         payHandle = new PayRequestLogic(this);
         // 显示/隐藏 红包账户
         payHandle.showEnvelopPay(false);
@@ -351,16 +341,14 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
         //添加卡；
         payHandle.setAddCardCallBack(new AddCardBackListener() {
             @Override
-            public void callBack()
-            {
+            public void callBack() {
                 startActivityForResult(new Intent(GiftCardGiveMindActivity.this, AddBankCardActivity.class), REQ_ADD_BANK_CARD);
             }
         });
 
         payHandle.payMethodCallBack(new PayMethodListener() {
             @Override
-            public void callBack(Map<String, String> map)
-            {
+            public void callBack(Map<String, String> map) {
                 LogUtil.i("选择付款方式返回数据=" + JSON.toJSONString(map));
                 payType = map.get("payType");
                 payDetailId = map.get("payDetailId");
@@ -369,14 +357,12 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
 
         payHandle.setCallBack(new WalletBackListener() {
             @Override
-            public void setSuccess(String RESULT_CODE)
-            {
+            public void setSuccess(String RESULT_CODE) {
                 onPaySucess();
             }
 
             @Override
-            public void setSuccess(Map<String, String> resultMap, String RESULT_CODE)
-            {
+            public void setSuccess(Map<String, String> resultMap, String RESULT_CODE) {
                 LogUtil.i("=返回结果=>code" + RESULT_CODE + "返回数据=>" + resultMap);
 
                 if (RESULT_CODE.equals(com.yzb.wallet.util.WalletConstant.PAY_TYPE_OFF)) {// 支付卡信息不全
@@ -411,8 +397,7 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
             }
 
             @Override
-            public void setError(String RESULT_CODE, String ERROR_MSG)
-            {
+            public void setError(String RESULT_CODE, String ERROR_MSG) {
                 LogUtil.i("付款失败；RESULT_CODE=" + RESULT_CODE + ",ERROR_MSG=" + ERROR_MSG);
                 onPayFail(ERROR_MSG);
             }
@@ -420,8 +405,7 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
         payHandle.pay(getInputMap(), false);
     }
 
-    private Map<String, String> getInputMap()
-    {
+    private Map<String, String> getInputMap() {
         Map<String, String> params = new HashMap<>();
         params.put("mobile", UserManager.getInstance().getUserBean().getAmountAccount());
         params.put("orderNo", outBean.getOrderNo());
@@ -439,8 +423,7 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
         return params;
     }
 
-    private boolean isInputRight()
-    {
+    private boolean isInputRight() {
         if (isEmpty(etCardMsg.getText().toString().trim())) {
             toastCustom("请输入祝福语");
             return false;
@@ -467,8 +450,7 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (data == null) {
             return;
@@ -483,34 +465,29 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
     }
 
     @Override
-    public void onBuyMindECardSuc(OrderOutBean outBean)
-    {
+    public void onBuyMindECardSuc(OrderOutBean outBean) {
         this.outBean = outBean;
         closePDialog();
         startBuy();
     }
 
     @Override
-    public void onBuyMindECardFail(String failMsg)
-    {
+    public void onBuyMindECardFail(String failMsg) {
         closePDialog();
         toastCustom(failMsg);
     }
 
-    public void onPaySucess()
-    {
+    public void onPaySucess() {
         LogUtil.i("======特惠付款成功");
         showBuySucesdDialog();
     }
 
-    public void onPayFail(String failMsg)
-    {
+    public void onPayFail(String failMsg) {
         toastCustom(failMsg);
     }
 
     @Override
-    public void onGetCommandSuc(String commandAndUrl)
-    {
+    public void onGetCommandSuc(String commandAndUrl) {
         closePDialog();
         SendGiftCardDialog.getInstance()
                 .setHandler(dataHandler).setFragmentManager(getSupportFragmentManager()).setCommandAndUrl(
@@ -518,30 +495,26 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
     }
 
     @Override
-    public void onGetCommandFail(String failMsg)
-    {
+    public void onGetCommandFail(String failMsg) {
         closePDialog();
         toastCustom(failMsg);
     }
 
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
 
     @Override
-    public void callSuccessViewLogic(Object o, int type)
-    {
+    public void callSuccessViewLogic(Object o, int type) {
         AccountInfoBean accountInfoBean = (AccountInfoBean) o;
 
         updateTotalAmount(accountInfoBean.getGiftcardBalance());
     }
 
     @Override
-    public void callFailedViewLogic(Object o, int type)
-    {
+    public void callFailedViewLogic(Object o, int type) {
         ToastUtil.i(this, "" + o);
     }
 }

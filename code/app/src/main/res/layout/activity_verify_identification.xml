@@ -31,7 +31,7 @@
             android:paddingTop="14dp">
 
             <!--顶部部分；-->
-            <LinearLayout
+            <LinearLayout android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_white_corner_3"
@@ -138,7 +138,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/setting_bind_phone"
+                        android:text="@string/txt_phone_number"
                         android:textColor="@color/setting_3D4245"
                         android:textSize="16sp"/>
 

@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 apply plugin: 'com.android.application'
 repositories {
     maven {
@@ -6,31 +8,65 @@ repositories {
     google()
 }
 android {
+
+
     signingConfigs {
-
-
         debug {
             keyAlias 'gqy'
             keyPassword '123456'
-            storeFile file('E:\\test_keystore123456.jks')
+            storeFile file('test_keystore123456.jks')
             storePassword '123456'
         }
     }
+
+    String name = "1.0.0." + new SimpleDateFormat("yyMMdd").format(new Date());
+
+    Integer code = Integer.parseInt(new SimpleDateFormat("yyMMdd").format(new Date())+"");
 
     compileSdkVersion 23
     buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.yzb.card.king"
-        minSdkVersion 15
+        minSdkVersion 17
         targetSdkVersion 22
-        versionCode 1
-        versionName "1.0.0.171208"
+        versionCode code
+        versionName name
         multiDexEnabled = true
+        manifestPlaceholders = [ver: "117"]
+//        outputFile = new File(
+//                                outputFile.parent,
+//                                "app-${variant.buildType.name}-${variant.productFlavors[0].name}-${variant.versionName}-115.apk".toLowerCase())
     }
+
+
     buildTypes {
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            manifestPlaceholders = [ver: "117"]
+
+//            applicationVariants.all { variant ->
+//                variant.outputs.each { output ->
+//                    def outputFile = output.outputFile
+//                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                        // 输出apk名称为boohee_v1.0_2015-01-15_wandoujia.apk
+//                        def fileName = "app-${defaultConfig.versionName}-${variant.productFlavors[1].name}.apk"
+//                        output.outputFile = new File(outputFile.parent, fileName)
+//                    }
+//                }
+//            }
+            minifyEnabled false
+            zipAlignEnabled true
+            shrinkResources false
+            signingConfig signingConfigs.debug
+            debuggable true
+            ndk {
+                abiFilters 'armeabi-v7a', 'x86_64'
+// 'armeabi-v7a',armeabi' 'armeabi-v7a', 'arm64-v8a', 'x86',  'mips', 'mips64'
+            }
         }
     }
     compileOptions {
@@ -125,10 +161,12 @@ dependencies {
     compile 'com.android.support:multidex:1.0.0'
     compile 'com.yahoo.mobile.client.android.util.rangeseekbar:rangeseekbar-library:0.2.0-SNAPSHOT'
     compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
-
+    //    compile 'com.google.code.gson:gson:2.6.2'
     //recyclerview分组，顶部浮动
     compile 'com.timehop.stickyheadersrecyclerview:library:0.4.3@aar'
-
     compile 'com.zhy:flowlayout-lib:1.0.3'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile files('libs/SocialSDK_Sina_Full.jar')
+
 
 }

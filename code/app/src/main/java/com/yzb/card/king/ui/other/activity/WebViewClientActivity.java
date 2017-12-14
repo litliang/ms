@@ -3,6 +3,8 @@ package com.yzb.card.king.ui.other.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
@@ -99,6 +101,7 @@ public class WebViewClientActivity extends BaseActivity implements AppBaseView {
         webView = (WebView) findViewById(R.id.webView);
         WebViewSettings.setting(webView, null);
         WebSettings settings = webView.getSettings();
+
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView view, int newProgress)
@@ -116,10 +119,30 @@ public class WebViewClientActivity extends BaseActivity implements AppBaseView {
             }
 
         });
+        settings.setSupportZoom(true);
+        settings.setBuiltInZoomControls(true);
         settings.setJavaScriptEnabled(true);
+        settings.setUseWideViewPort(true);
+        settings.setLoadWithOverviewMode(true);
+        settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
 
-
-
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        int mDensity = metrics.densityDpi;
+        Log.d("maomao", "densityDpi = " + mDensity);
+        if (mDensity == 240) {
+            settings.setDefaultZoom(WebSettings.ZoomDensity.FAR);
+        } else if (mDensity == 160) {
+            settings.setDefaultZoom(WebSettings.ZoomDensity.MEDIUM);
+        } else if(mDensity == 120) {
+            settings.setDefaultZoom(WebSettings.ZoomDensity.CLOSE);
+        }else if(mDensity == DisplayMetrics.DENSITY_XHIGH){
+            settings.setDefaultZoom(WebSettings.ZoomDensity.FAR);
+        }else if (mDensity == DisplayMetrics.DENSITY_TV){
+            settings.setDefaultZoom(WebSettings.ZoomDensity.FAR);
+        }else{
+            settings.setDefaultZoom(WebSettings.ZoomDensity.MEDIUM);
+        }
     }
 
     public void getData()

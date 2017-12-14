@@ -82,7 +82,7 @@ public class DiscountGitfCardAdapter extends RecyclerView.Adapter<DiscountGitfCa
 
         GiftCardBean bean =  giftCardBeanLists.get(position);
        // x.image().bind(holder.imageView, ServiceDispatcher.getImageUrl(bean.getImageCode()));
-        Glide.with(context).load(ServiceDispatcher.getImageUrl(bean.getImageCode())).into(holder.imageView);
+        Glide.with(context).load(ServiceDispatcher.getImageUrl(bean.getImageCode())).thumbnail(0.5f).into(holder.imageView);
 
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override

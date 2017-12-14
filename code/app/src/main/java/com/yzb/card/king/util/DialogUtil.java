@@ -81,6 +81,7 @@ public class DialogUtil
     {
         if (dialog != null && dialog.isShowing())
         {
+
             dialog.dismiss();
         }
     }

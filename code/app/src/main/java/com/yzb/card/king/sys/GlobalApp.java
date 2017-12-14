@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
+import android.support.multidex.MultiDexApplication;
 import android.text.TextUtils;
 import android.widget.ImageView;
 
@@ -26,6 +27,7 @@ import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.Config;
 import com.umeng.socialize.PlatformConfig;
+import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.utils.Log;
 import com.yzb.card.king.R;
 import com.yzb.card.king.bean.AppBaseDataBean;
@@ -38,6 +40,7 @@ import com.yzb.card.king.util.CommonUtil;
 import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.ProgressDialogUtil;
 import com.yzb.card.king.util.SharePrefUtil;
+import com.yzb.card.king.util.StorageUtil;
 import com.yzb.card.king.util.ToastUtil;
 import com.yzb.card.king.util.UiUtils;
 import com.yzb.card.king.util.Utils;
@@ -45,12 +48,14 @@ import com.yzb.card.king.util.Utils;
 import org.xutils.image.ImageOptions;
 import org.xutils.x;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 
 import cn.jpush.android.api.BasicPushNotificationBuilder;
@@ -61,7 +66,7 @@ import cn.jpush.android.data.JPushLocalNotification;
 /**
  * Created by gengqiyun on 2016/4/13.
  */
-public class GlobalApp extends Application {
+public class GlobalApp extends MultiDexApplication {
 
     public static boolean updateFlag = false; //是否取消过更新；
 
@@ -103,8 +108,7 @@ public class GlobalApp extends Application {
 
     private ImageOptions imageOptionsFitXY;
 
-    public static GlobalApp getInstance()
-    {
+    public static GlobalApp getInstance() {
         return instance;
     }
 
@@ -115,13 +119,11 @@ public class GlobalApp extends Application {
 
     private Activity publicActivity;
 
-    public Activity getPublicActivity()
-    {
+    public Activity getPublicActivity() {
         return publicActivity;
     }
 
-    public void setPublicActivity(Activity publicActivity)
-    {
+    public void setPublicActivity(Activity publicActivity) {
         this.publicActivity = publicActivity;
     }
 
@@ -130,31 +132,29 @@ public class GlobalApp extends Application {
      *
      * @return
      */
-    public static LatLng getCurLocation()
-    {
+    public static LatLng getCurLocation() {
         return new LatLng(mCity.latitude, mCity.longitude);
     }
 
     @Override
-    protected void attachBaseContext(Context base)
-    {
+    protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
     }
 
     @Override
-    public void onCreate()
-    {
+    public void onCreate() {
         super.onCreate();
+        StorageUtil.init(this);
         this.context = getApplicationContext();
+        ServiceDispatcher.init(this);
         //配置xUtil jar包
         x.Ext.init(this);
         x.Ext.setDebug(true);
         instance = this;
-
     }
 
-    public void initApp(){
+    public void initApp() {
 
         baiduLBSConfig();
         umengShareConfig();
@@ -178,21 +178,18 @@ public class GlobalApp extends Application {
 
     }
 
-    public ImageOptions getImageOptionsFitXY()
-    {
+    public ImageOptions getImageOptionsFitXY() {
         return imageOptionsFitXY;
     }
 
-    public ImageOptions getImageOptionsLogo()
-    {
+    public ImageOptions getImageOptionsLogo() {
         return imageOptionsLogo;
     }
 
     /**
      * 友盟统计配置
      */
-    private void umengCountConfig()
-    {
+    private void umengCountConfig() {
         // 开发者模式可打开，打包前需要关闭；
         MobclickAgent.setDebugMode(true);
 
@@ -210,8 +207,7 @@ public class GlobalApp extends Application {
     /**
      * 极光推送配置；
      */
-    private void jPushConfig()
-    {
+    private void jPushConfig() {
         // 开发者模式可打开，打包前需要关闭；
         JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
@@ -229,8 +225,7 @@ public class GlobalApp extends Application {
         tags.add("5");
         JPushInterface.setTags(this, tags, new TagAliasCallback() {
             @Override
-            public void gotResult(int i, String s, Set<String> set)
-            {
+            public void gotResult(int i, String s, Set<String> set) {
             }
         });
         JPushInterface.setAliasAndTags(this, "11111111", tags);
@@ -266,8 +261,7 @@ public class GlobalApp extends Application {
     public List<Map<String, Object>> jpushData = new ArrayList<>();
     public static List<Map<String, String>> regIdList = new ArrayList<>();
 
-    private void baiduLBSConfig()
-    {
+    private void baiduLBSConfig() {
         SDKInitializer.initialize(this);
         mCity = new Location();
         selectedCity = new Location();
@@ -278,13 +272,13 @@ public class GlobalApp extends Application {
         mLocationClient.start();
 
         //检查本地记录的最近一次使用的城市信息
-        String historyJsonObject =  SharePrefUtil.getValueFromSp(context,SharePrefUtil.CURRENT_HISTORY,null);
+        String historyJsonObject = SharePrefUtil.getValueFromSp(context, SharePrefUtil.CURRENT_HISTORY, null);
 
-        if(historyJsonObject != null){
+        if (historyJsonObject != null) {
 
-            Location historyLocation = JSONObject.parseObject(historyJsonObject,Location.class);
+            Location historyLocation = JSONObject.parseObject(historyJsonObject, Location.class);
 
-            if(historyLocation != null){
+            if (historyLocation != null) {
 
                 mCity = historyLocation;
 
@@ -297,8 +291,7 @@ public class GlobalApp extends Application {
     /**
      * 请重新定位
      */
-    public void toReposition()
-    {
+    public void toReposition() {
         mCity.msg = getString(R.string.is_located);
         mLocationClient.start();
     }
@@ -309,8 +302,7 @@ public class GlobalApp extends Application {
      */
     public static class MyGeneralListener implements MKGeneralListener {
         @Override
-        public void onGetPermissionState(int iError)
-        {
+        public void onGetPermissionState(int iError) {
             // 非零值表示key验证未通过
             if (iError != 0) {
                 // 授权Key错误：
@@ -322,8 +314,7 @@ public class GlobalApp extends Application {
     /**
      * 开始定位；
      */
-    public void startLocate()
-    {
+    public void startLocate() {
         if (mLocationClient == null) {
             baiduLBSConfig();
         } else {
@@ -331,8 +322,7 @@ public class GlobalApp extends Application {
         }
     }
 
-    private LocationClientOption getOption()
-    {
+    private LocationClientOption getOption() {
         LocationClientOption option = new LocationClientOption();
         option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);//可选，默认高精度，设置定位模式，高精度，低功耗，仅设备
         //option.setCoorType("gcj02");//可选，默认gcj02，设置返回的定位结果坐标系，
@@ -352,13 +342,11 @@ public class GlobalApp extends Application {
     /**
      * 地址-->经纬度；
      */
-    public void updateLngLatByCity(final Location city)
-    {
+    public void updateLngLatByCity(final Location city) {
         mSearch = GeoCoder.newInstance();
         mSearch.setOnGetGeoCodeResultListener(new OnGetGeoCoderResultListener() {
             @Override
-            public void onGetGeoCodeResult(GeoCodeResult geoCodeResult)
-            {
+            public void onGetGeoCodeResult(GeoCodeResult geoCodeResult) {
                 if (geoCodeResult == null || geoCodeResult.error != SearchResult.ERRORNO.NO_ERROR) {
                     //没有检索到结果
                     city.longitude = 0;
@@ -373,8 +361,7 @@ public class GlobalApp extends Application {
             }
 
             @Override
-            public void onGetReverseGeoCodeResult(ReverseGeoCodeResult reverseGeoCodeResult)
-            {
+            public void onGetReverseGeoCodeResult(ReverseGeoCodeResult reverseGeoCodeResult) {
 
             }
         });
@@ -387,20 +374,17 @@ public class GlobalApp extends Application {
         }
     }
 
-    public Context getContext()
-    {
+    public Context getContext() {
         return context;
     }
 
-    public void setSelectedCity(String cityId, String cityName)
-    {
+    public void setSelectedCity(String cityId, String cityName) {
         selectedCity.cityName = cityName;
         selectedCity.cityId = cityId;
         updateLngLatByCity(selectedCity);
     }
 
-    public void setSelectedCity(Location selectedCity)
-    {
+    public void setSelectedCity(Location selectedCity) {
         GlobalApp.selectedCity = selectedCity;
     }
 
@@ -409,8 +393,7 @@ public class GlobalApp extends Application {
      *
      * @return
      */
-    public Location nationalContryBeanToLocation(NationalCountryBean bean)
-    {
+    public Location nationalContryBeanToLocation(NationalCountryBean bean) {
 
         Location location = new Location();
 
@@ -432,9 +415,10 @@ public class GlobalApp extends Application {
 
     /**
      * 转地理信息对象
+     *
      * @return
      */
-    public  NationalCountryBean locationToNationalCountryBean(Location location){
+    public NationalCountryBean locationToNationalCountryBean(Location location) {
 
         NationalCountryBean bean = new NationalCountryBean();
 
@@ -444,36 +428,32 @@ public class GlobalApp extends Application {
 
         bean.setCityLevel(location.cityLevel);
 
-        bean.setLat(location.latitude+"");
+        bean.setLat(location.latitude + "");
 
-        bean.setLng(location.longitude+"");
+        bean.setLng(location.longitude + "");
 
-        return  bean;
+        return bean;
     }
 
 
-    public static Location getSelectedCity()
-    {
+    public static Location getSelectedCity() {
         return selectedCity;
     }
 
-    public static Location getThreeFourCityPostionCity()
-    {
+    public static Location getThreeFourCityPostionCity() {
 
         return threeFourCityPostionCity;
     }
 
 
-    public static Location getPositionedCity()
-    {
+    public static Location getPositionedCity() {
         return mCity;
     }
 
     private class MyLocationListener implements BDLocationListener {
 
         @Override
-        public void onReceiveLocation(final BDLocation bdLocation)
-        {
+        public void onReceiveLocation(final BDLocation bdLocation) {
             if (bdLocation.getCountry() != null)//定位成功
             {
                 mCity.longitude = bdLocation.getLongitude();
@@ -508,8 +488,7 @@ public class GlobalApp extends Application {
     /**
      * 根据城市名查询城市信息
      */
-    public void queryCityInfoByCityName()
-    {
+    public void queryCityInfoByCityName() {
         NationalCountryPresenter presenter = new NationalCountryPresenter();
 
         NationalCountryBean nationalCountryBean = presenter.selectOneDataByCityNameFromDb(mCity.cityName);
@@ -518,15 +497,15 @@ public class GlobalApp extends Application {
             mCity.provinceId = nationalCountryBean.getParentId() + "";
             mCity.cityName = nationalCountryBean.getCityName();
             mCity.cityLevel = nationalCountryBean.getCityLevel();
-            LogUtil.e(nationalCountryBean.getCityId()+"----1----"+nationalCountryBean.getCityLevel());
-        }else {
+            LogUtil.e(nationalCountryBean.getCityId() + "----1----" + nationalCountryBean.getCityLevel());
+        } else {
         }
 
 //        NationalCountryBean nationalCountryBeanTemp = presenter.selectOneDataByNameFromDb(mCity.cityName);
 //
 //        if(nationalCountryBeanTemp != null){
 
-            threeFourCityPostionCity = new Location(mCity);
+        threeFourCityPostionCity = new Location(mCity);
 //
 //            threeFourCityPostionCity.setCityId(nationalCountryBeanTemp.getCityId()+"");
 //
@@ -551,8 +530,7 @@ public class GlobalApp extends Application {
      * @param cityName
      * @return
      */
-    private String chechCityLastChar(String cityName)
-    {
+    private String chechCityLastChar(String cityName) {
 
         int length = cityName.length();
 
@@ -569,8 +547,8 @@ public class GlobalApp extends Application {
     /**
      * 友盟分享；
      */
-    private void umengShareConfig()
-    {
+    private void umengShareConfig() {
+        UMShareAPI.get(this);
         //微信,朋友圈；
         PlatformConfig.setWeixin(AppConstant.weixin_id, AppConstant.weixin_secret);
         PlatformConfig.setQQZone(AppConstant.qq_id, AppConstant.qq_secret);
@@ -592,8 +570,7 @@ public class GlobalApp extends Application {
 
     private List<OnCityChangeListener> onCityChangeListeners = new LinkedList<>();
 
-    public void setOnCityChangeListeners(OnCityChangeListener listener)
-    {
+    public void setOnCityChangeListeners(OnCityChangeListener listener) {
         onCityChangeListeners.add(listener);
     }
 
@@ -602,24 +579,20 @@ public class GlobalApp extends Application {
         void onCityChange(Location city);
     }
 
-    public void removeListener(OnCityChangeListener listener)
-    {
+    public void removeListener(OnCityChangeListener listener) {
         onCityChangeListeners.remove(listener);
     }
 
-    public AppBaseDataBean getAppBaseDataBean()
-    {
+    public AppBaseDataBean getAppBaseDataBean() {
         return appBaseDataBean;
     }
 
-    public void setAppBaseDataBean(AppBaseDataBean appBaseDataBean)
-    {
+    public void setAppBaseDataBean(AppBaseDataBean appBaseDataBean) {
         this.appBaseDataBean = appBaseDataBean;
     }
 
     @Override
-    public void onTerminate()
-    {
+    public void onTerminate() {
         super.onTerminate();
 
         //清理旅游缓存数据
