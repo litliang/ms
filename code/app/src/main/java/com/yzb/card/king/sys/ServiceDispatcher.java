@@ -91,8 +91,6 @@ public class ServiceDispatcher {
     //    public  static String base_url_api = "http://10.0.100.91:8082/";
     public static String url_api = base_url_api + "card/api/api/";
 
->>>>>>> dbc6783bd8242c403748511c6ae74aa1ab00e69d
-
     public static String url_refund_rule = base_url_api + "card/api/refundRule"; //机票退改签规则url；
 
     /**
