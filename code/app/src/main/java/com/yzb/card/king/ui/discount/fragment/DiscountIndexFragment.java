@@ -186,9 +186,11 @@ public class DiscountIndexFragment extends BaseFragment implements View.OnClickL
         textSwitcher.setOutAnimation(AnimationUtils.loadAnimation(getActivity(),
                 R.anim.translate_discount_recommend_textswitcher_anim_out));
 
+
         discount_card_more = (LinearLayout) headerView.findViewById(R.id.discount_card_more);
 
         discount_card_more.setOnClickListener(this);
+        headerView.findViewById(R.id.discountbar).setOnClickListener(this);
 
         headerView.findViewById(R.id.panelMoreCoupon).setOnClickListener(this);
 

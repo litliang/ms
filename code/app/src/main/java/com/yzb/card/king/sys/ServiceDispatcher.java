@@ -24,9 +24,9 @@ import static com.tencent.open.utils.Global.getPackageName;
 public class ServiceDispatcher {
 
 
-    public final static String base_url_api_115 = "http://116.228.184.117:8080/";
-    public final static String base_url_api_117 = "http://116.228.184.117:8080/";
-    public static String base_url_api = "http://116.228.184.000:8080/";
+    public final static String base_url_api_115 = "http://116.228.184.117:8082/";
+    public final static String base_url_api_117 = "http://116.228.184.117:8082/";
+    public static String base_url_api = "http://116.228.184.000:8082/";
 
     public static String ver;
 
@@ -87,7 +87,7 @@ public class ServiceDispatcher {
         base_update_path = base_url_api + "mail/";
     }
 
-    //    public  static String base_url_api = "http://10.0.100.91:8080/";
+    //    public  static String base_url_api = "http://10.0.100.91:8082/";
     public static String url_api = base_url_api + "card/api/api/";
 
 

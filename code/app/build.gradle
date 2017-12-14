@@ -58,22 +58,6 @@ android {
 //                    }
 //                }
 //            }
-            productFlavors {
-//                "115"{
-////                    output ->
-////                        output.outputFile = new File(
-////                                output.outputFile.parent,
-////                                "app-${variant.buildType.name}-${variant.productFlavors[0].name}-${variant.versionName}-115.apk".toLowerCase())
-//                    manifestPlaceholders = [ver: "115"]
-//                }
-                "prd"{
-//                    output ->
-//                        output.outputFile = new File(
-//                                output.outputFile.parent,
-//                                "app-${variant.buildType.name}-${variant.productFlavors[1].name}-${variant.versionName}-115.apk".toLowerCase())
-                    manifestPlaceholders = [ver: "117"]
-                }
-            }
             minifyEnabled false
             zipAlignEnabled true
             shrinkResources false

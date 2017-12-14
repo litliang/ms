@@ -37,7 +37,7 @@ public abstract class BaseRequest {
     //app测试服务器
     //public final static String url_api = "http://116.228.184.116/card/api/api/";
     //java开发服务器
-    // public final static String url_api_1 = "http://192.168.100.97:80801/card/api/api/";
+    // public final static String url_api_1 = "http://192.168.100.97:80821/card/api/api/";
     private String serviceName = "";
 
     private String charName = "ISO-8859-1";

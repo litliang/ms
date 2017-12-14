@@ -18,7 +18,7 @@
         <EditText
             android:id="@+id/et"
             android:layout_width="match_parent"
-            android:hint="http://172.16.15.220:8080/ecologic/app.userLogin!appUserLogin.sh"
+            android:hint="http://172.16.15.220:8082/ecologic/app.userLogin!appUserLogin.sh"
             android:layout_height="wrap_content" />
 
 
