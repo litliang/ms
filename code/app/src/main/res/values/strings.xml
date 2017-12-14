@@ -1217,7 +1217,7 @@
     <string name="my_no_pay">未支付</string>
     <string name="my_payed">已支付</string>
     <string name="my_tuikuan">已退款</string>
-    <string name="my_all_order">全部订单</string>
+    <string name="my_all_order">订单服务</string>
     <string name="my_order">我的订单</string>
     <string name="my_wallet">钱包</string>
     <string name="my_gift_card">送礼品卡</string>

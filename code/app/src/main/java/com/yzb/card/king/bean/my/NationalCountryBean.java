@@ -1,5 +1,7 @@
 package com.yzb.card.king.bean.my;
 
+import android.text.TextUtils;
+
 import org.xutils.db.annotation.Column;
 import org.xutils.db.annotation.Table;
 
@@ -151,7 +153,7 @@ public class NationalCountryBean implements Serializable{
 
     public String getLng()
     {
-        return lng;
+        return TextUtils.isEmpty(lng)?"0":lng;
     }
 
     public void setLng(String lng)
@@ -161,7 +163,7 @@ public class NationalCountryBean implements Serializable{
 
     public String getLat()
     {
-        return lat;
+        return TextUtils.isEmpty(lat)?"0":lat;
     }
 
     public void setLat(String lat)
