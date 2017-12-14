@@ -477,8 +477,8 @@
 
     <integer-array name="today_leftroom_sort_value_array">
         <item>0</item>
-        <item>1</item>
         <item>2</item>
+        <item>1</item>
         <item>3</item>
     </integer-array>
 
