@@ -62,7 +62,7 @@ public class IntegralMainFragment extends BaseFragment {
 
         }
 
-        String oneUrl = "http://116.228.184."+ ServiceDispatcher.ver+"/index/index/index?sessionId=" + sessionId + "&identification=" +  AppConstant.UUID+"&cityId="+cityId;
+        String oneUrl = "http://116.228.184.115/index/index/index?sessionId=" + sessionId + "&identification=" +  AppConstant.UUID+"&cityId="+cityId;
         Bundle bundle = new Bundle();
         bundle.putString("url", oneUrl); //
         bundle.putString("titleName", "房抵快贷");

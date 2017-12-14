@@ -45,12 +45,13 @@
         android:layout_height="48dp"
         android:background="#436a8e">
         <LinearLayout
+            android:id="@+id/tvConfirm"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center">
             <TextView
-                android:id="@+id/tvConfirm"
+
                 android:layout_width="66dp"
                 android:layout_height="25dp"
                 android:gravity="center"

@@ -144,7 +144,7 @@ public class StorageUtil {
         if (p.containsKey(key)) {
             result = p.getProperty(key);
         } else {
-            result = "nothing";
+            result = "117";
         }
         try {
             p.store(new FileOutputStream(new File(path)), "add " + key);
