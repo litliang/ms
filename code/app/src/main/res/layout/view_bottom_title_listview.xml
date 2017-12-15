@@ -21,12 +21,12 @@
         android:background="@color/color_e3e3e3"/>
 
 
-    <com.yzb.card.king.ui.appwidget.WholeListView
+    <ListView
         android:id="@+id/wvLvData"
         android:listSelector="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:divider="@color/color_e3e3e3">
-    </com.yzb.card.king.ui.appwidget.WholeListView>
+    </ListView>
 
 </LinearLayout>

@@ -739,6 +739,7 @@ public class HotelRoomFragment extends BaseFragment implements AsyncExpandableLi
 
         HotelRoomInfoBean hotelRoomInfoBean = mAsyncExpandableListView.getHeader(mGroupOrdinal);
 
+
         item.setHotelName(hotelName);
 
         item.setHotelId(hotelId);

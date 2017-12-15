@@ -284,7 +284,6 @@ public class MyIndexFragment extends BaseFragment {
     @Event(R.id.tvYouhuiquanMy)
     private void tvYouhuiquanMy(View v)
     {
-
         Intent moreIntent = new Intent(getContext(), BoundCenterActivty.class);
 
         startActivity(moreIntent);

@@ -44,11 +44,15 @@ public class BaseCouponBean implements Serializable{
      */
     private String endDate;
     /**
-     * 满额  0不限
+     * 满额  0不限;抵扣金额
      */
     private int fullAmount;
     /**
      * 减内容(满减时为减额；折扣时为折扣率)
+     */
+    private int cutAmount;
+    /**
+     * 购买金额
      */
     private  int cutValue;
     /**
@@ -149,6 +153,14 @@ public class BaseCouponBean implements Serializable{
     public int getCutValue()
     {
         return cutValue;
+    }
+
+    public int getCutAmount() {
+        return cutAmount;
+    }
+
+    public void setCutAmount(int cutAmount) {
+        this.cutAmount = cutAmount;
     }
 
     public void setCutValue(int cutValue)

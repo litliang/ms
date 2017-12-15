@@ -34,7 +34,7 @@ public class GetCouponModel {
      */
     public void sendGetCouponListAction(long issuePlatform,long industryId,long shopId,long storeId,long goodsId,final int type){
 
-        CanReceiveCouponRequest request =   new CanReceiveCouponRequest( issuePlatform, industryId, shopId, storeId, goodsId);
+        CanReceiveCouponRequest request =   new CanReceiveCouponRequest( industryId, shopId, storeId, goodsId);
 
         request.sendRequest(new HttpCallBackData() {
             @Override
@@ -78,9 +78,9 @@ public class GetCouponModel {
      */
     public void sendCanUseCouponListAction(int issuePlatform,int industryId,long shopId,long storeId,long goodsId,final int type){
 
-        CanReceiveCouponRequest request =   new CanReceiveCouponRequest( issuePlatform, industryId, shopId, storeId, goodsId);
+        CanReceiveCouponRequest request =   new CanReceiveCouponRequest( industryId, shopId, storeId, goodsId);
 
-        request.setCanUseCouponListUrl();
+        request.setCanUseCouponListUrl(issuePlatform);
 
         request.sendRequest(new HttpCallBackData() {
             @Override

@@ -124,6 +124,8 @@ public class CouponInfoAdapter extends BaseListAdapter<CouponInfoBean> {
 
             holder.tvGet.setText("已领取");
 
+            holder.tvGet.setOnClickListener(null);
+
         } else if (receiveStatus == 0) {//未领取
 
             holder.tvGet.setTextColor(context.getResources().getColor(R.color.color_a10000));

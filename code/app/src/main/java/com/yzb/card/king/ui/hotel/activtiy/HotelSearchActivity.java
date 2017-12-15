@@ -77,7 +77,7 @@ public class HotelSearchActivity extends BaseActivity implements View.OnClickLis
 
         if (getIntent().hasExtra("transmitData")) {
 
-            subItemBean = (SubItemBean) getIntent().getSerializableExtra("transmitData");
+         //   subItemBean = (SubItemBean) getIntent().getSerializableExtra("transmitData");
         }
 
         initView();

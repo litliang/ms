@@ -60,6 +60,7 @@ public class HotelRoomInfoFragment extends Fragment implements View.OnClickListe
 
         gvFactivity = (SpecHeightGridView) view.findViewById(R.id.gvFactivity);
 
+
         List<HotelRoomInfoBean.RoomService>  roomServiceList =  hotelRoomComboInfoBean.getRoomInfo().getBaseServiceList();
 
         HotelInfoFacitityAdapter hotelFacitityAdapter = new HotelInfoFacitityAdapter(inflater,roomServiceList);

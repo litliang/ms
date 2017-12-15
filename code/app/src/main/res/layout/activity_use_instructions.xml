@@ -52,7 +52,7 @@
                 android:textColor="@color/color_333333"
                 android:layout_marginLeft="4dp"
                 android:textSize="15sp"
-                android:text="使用说明使明使用说明"/>
+                android:text=""/>
 
         </LinearLayout>
 

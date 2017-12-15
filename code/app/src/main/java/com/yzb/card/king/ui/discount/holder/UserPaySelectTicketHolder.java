@@ -49,8 +49,9 @@ public class UserPaySelectTicketHolder extends BaseViewHolder<BaseCouponBean> im
 
     private long selectorActId = -1;
 
-    public UserPaySelectTicketHolder(ViewGroup parent, Handler handler, long actionId,double orderMoney)
-    {
+    private int issuePlatform;//1:代金券；2：优惠券
+
+    public UserPaySelectTicketHolder(ViewGroup parent, Handler handler, long actionId, double orderMoney, int issuePlatform) {
         super(parent, R.layout.view_item_user_payment_select_ticker);
 
         context = parent.getContext();
@@ -59,13 +60,14 @@ public class UserPaySelectTicketHolder extends BaseViewHolder<BaseCouponBean> im
 
         this.orderMoney = orderMoney;
 
+        this.issuePlatform = issuePlatform;
+
         selectorActId = actionId;
     }
 
 
     @Override
-    public void setData(BaseCouponBean data)
-    {
+    public void setData(BaseCouponBean data) {
 
 
         if (selectorActId == data.getActId()) {
@@ -83,47 +85,52 @@ public class UserPaySelectTicketHolder extends BaseViewHolder<BaseCouponBean> im
 
         String type = data.getCouponType();
 
-        if ("1".equals(type)) {//1满减券
+        if (issuePlatform == 2) {
 
-            tvPrice.setText(Utils.subZeroAndDot(data.getCutValue() + ""));
+            if ("1".equals(type)) {//1满减券
 
-            tvUnite.setVisibility(View.VISIBLE);
+                tvPrice.setText(Utils.subZeroAndDot(data.getCutAmount() + ""));
 
-            StringBuffer sb = new StringBuffer();
+                tvUnite.setVisibility(View.VISIBLE);
 
-            if (data.getFullAmount() == 0) {
+                StringBuffer sb = new StringBuffer();
 
-                sb.append("不限");
+                if (data.getFullAmount() == 0) {
 
-            } else {
-                sb.append("满").append(data.getFullAmount());
+                    sb.append("不限");
+
+                } else {
+                    sb.append("满").append(data.getFullAmount());
+                }
+
+                tvCondition.setText(sb.toString());
+
+            } else if ("2".equals(type)) {//2折扣券
+
+                tvUnite.setVisibility(View.GONE);
+
+                String zhekouStr = Utils.handNumberToString(data.getCutAmount());
+
+                tvPrice.setText(zhekouStr + "折");
+
+                StringBuffer sb = new StringBuffer();
+
+                if (data.getFullAmount() == 0) {
+
+                    sb.append("不限");
+
+                } else {
+                    sb.append("满").append(data.getFullAmount());
+                }
+
+                tvCondition.setText(sb.toString());
+
             }
 
-            tvCondition.setText(sb.toString());
+        } else if (issuePlatform == 1) {
 
-        } else if ("2".equals(type)) {//2折扣券
 
-            tvUnite.setVisibility(View.GONE);
-
-            String zhekouStr = Utils.handNumberToString(data.getCutValue());
-
-            tvPrice.setText(zhekouStr + "折");
-
-            StringBuffer sb = new StringBuffer();
-
-            if (data.getFullAmount() == 0) {
-
-                sb.append("不限");
-
-            } else {
-                sb.append("满").append(data.getFullAmount());
-            }
-
-            tvCondition.setText(sb.toString());
-
-        }else if("3".equals(type)){//抵扣券；
-
-            tvPrice.setText(data.getCutValue() + "");
+            tvPrice.setText(data.getCutAmount() + "");
 
             tvUnite.setVisibility(View.VISIBLE);
 
@@ -131,14 +138,14 @@ public class UserPaySelectTicketHolder extends BaseViewHolder<BaseCouponBean> im
 
             tvCondition.setText("抵扣");
 
+
         }
 
 
     }
 
     @Override
-    public void onInitializeView()
-    {
+    public void onInitializeView() {
         super.onInitializeView();
 
         tvPrice = findViewById(R.id.tvPrice);
@@ -160,8 +167,7 @@ public class UserPaySelectTicketHolder extends BaseViewHolder<BaseCouponBean> im
     }
 
     @Override
-    public void onClick(View v)
-    {
+    public void onClick(View v) {
         switch (v.getId()) {
 
             case R.id.llParent:
@@ -171,18 +177,18 @@ public class UserPaySelectTicketHolder extends BaseViewHolder<BaseCouponBean> im
 
                     BaseCouponBean baseCouponBean = (BaseCouponBean) v.getTag();
 
-                    double fullAmount =   baseCouponBean.getFullAmount();
+                    double fullAmount = baseCouponBean.getFullAmount();
 
-                    if(orderMoney >= fullAmount){
+                    if (orderMoney >= fullAmount) {
 
                         Message message = handler.obtainMessage();
 
                         message.obj = baseCouponBean;
 
                         handler.sendMessage(message);
-                    }else {
+                    } else {
 
-                        ToastUtil.i(context,"不满足条件，无法使用此优惠券");
+                        ToastUtil.i(context, "不满足条件，无法使用此优惠券");
                     }
 
 

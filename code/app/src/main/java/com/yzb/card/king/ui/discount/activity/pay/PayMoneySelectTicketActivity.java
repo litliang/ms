@@ -17,6 +17,7 @@ import com.yzb.card.king.ui.base.BaseActivity;
 import com.yzb.card.king.ui.base.BaseViewLayerInterface;
 import com.yzb.card.king.ui.discount.adapter.UserPaySelectTicketAdapter;
 import com.yzb.card.king.ui.hotel.persenter.GetCouponPersenter;
+import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.ProgressDialogUtil;
 
 import org.xutils.view.annotation.ContentView;
@@ -43,7 +44,7 @@ public class PayMoneySelectTicketActivity  extends BaseActivity implements BaseV
 
     private   long selectActId = -1;
 
-    private   int issuePlatform;
+    private   int issuePlatform;//1：代金券；2：优惠券
 
     private double orderMoney = 0;
 
@@ -65,8 +66,6 @@ public class PayMoneySelectTicketActivity  extends BaseActivity implements BaseV
             selectActId = getIntent().getLongExtra("selectActId",-1);
 
 
-            orderMoney = getIntent().getDoubleExtra("orderMoney",0);
-
             if(selectActId ==-1){
 
                 tvFuctionGet.setVisibility(View.VISIBLE);
@@ -79,6 +78,9 @@ public class PayMoneySelectTicketActivity  extends BaseActivity implements BaseV
 
             tvFuctionGet.setVisibility(View.VISIBLE);
         }
+
+
+        orderMoney = getIntent().getDoubleExtra("orderMoney",0);
 
         mAdapter.setActionId(selectActId);
 
@@ -101,6 +103,8 @@ public class PayMoneySelectTicketActivity  extends BaseActivity implements BaseV
        }
 
         mAdapter = new UserPaySelectTicketAdapter(this);
+
+        mAdapter.setIssuePlatform(issuePlatform);
 
         mAdapter.setHandler(dataHandler);
 
