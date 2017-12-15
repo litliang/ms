@@ -166,7 +166,6 @@ dependencies {
     compile 'com.timehop.stickyheadersrecyclerview:library:0.4.3@aar'
     compile 'com.zhy:flowlayout-lib:1.0.3'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile files('libs/SocialSDK_Sina_Full.jar')
 
 
 }
