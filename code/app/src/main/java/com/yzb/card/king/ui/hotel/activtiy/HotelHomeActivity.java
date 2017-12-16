@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.TextPaint;
 import android.view.LayoutInflater;
@@ -171,26 +172,18 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
                 persenter.sendHotelThemeRequest();
             }
         });
-//
-//        swipeRefresh.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-//            @Override
-//            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-//
-//               // boolean isSignificantDelta = Math.abs(scrollY) > mScrollThreshold;
-//
-//                LogUtil.e("AAAAA","Math.abs(scrollY)===>"+Math.abs(scrollY));
-//
-//            }
-//
-//
-//        });
-//
-//        lvHomeHotelpage.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-//            @Override
-//            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-//
-//            }
-//        });
+
+        lvHomeHotelpage.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+            }
+        });
 
         adapter.setOnItemClickListener(new HotelTodayRecommendedAdapter.OnItemClickListener() {
             @Override
