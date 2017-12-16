@@ -33,10 +33,14 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/rlHotelHomeTitle"
         android:layout_width="match_parent"
         android:background="@android:color/transparent"
         android:layout_marginTop="22dp"
-        android:padding="@dimen/title_l_r"
+        android:paddingLeft="@dimen/title_l_r"
+        android:paddingRight="@dimen/title_l_r"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:layout_height="wrap_content">
         <ImageView
             android:layout_width="43dp"
