@@ -78,6 +78,7 @@ public class ServiceDispatcher {
     public static void reset(String ver) {
 
         base_url_api = base_url_api.replaceAll("000", ver);
+
         com.yzb.wallet.sys.ServiceDispatcher.app_url_api  = "http://116.228.184."+ver+":8082/app/api/api/";
         url_api = base_url_api + "card/api/api/";
         url_refund_rule = base_url_api + "card/api/refundRule";

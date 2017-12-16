@@ -97,7 +97,7 @@ public class MyConcernAdapter extends RecyclerView.Adapter {
             x.image().bind(myViewHolder.hbLog, ServiceDispatcher.getImageUrl(flightDynamicsBean.getShopLogo()));
             myViewHolder.tv_flightNumber.setText("- "+flightDynamicsBean.getFlightNum()+" -");
           //  LogUtil.e("AAAAAA",flightDynamicsBean.getFlightNum()+"-------"+flightDynamicsBean.getAexpected()+"---"+flightDynamicsBean.getDexpected());
-          myViewHolder.seTime.setText(Utils.getHourSpace(flightDynamicsBean.getAexpected(),flightDynamicsBean.getDexpected(),5));
+          myViewHolder.seTime.setText(Utils.getHourSpace(flightDynamicsBean.getDepTime(),flightDynamicsBean.getArrTime(),3));
 
 
         }

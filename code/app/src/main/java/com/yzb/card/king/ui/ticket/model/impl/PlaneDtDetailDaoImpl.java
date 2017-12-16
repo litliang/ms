@@ -22,32 +22,26 @@ import java.util.Map;
 public class PlaneDtDetailDaoImpl implements IPlaneDtDetail {
     private DataCallBack dataCallBack;
 
-    public PlaneDtDetailDaoImpl(DataCallBack dataCallBack)
-    {
+    public PlaneDtDetailDaoImpl(DataCallBack dataCallBack) {
         this.dataCallBack = dataCallBack;
     }
 
     @Override
-    public void conCern(Map<String, Object> map)
-    {
+    public void conCern(Map<String, Object> map) {
         new SimpleRequest(CardConstant.card_app_followModify, map).sendRequest(new HttpCallBackData() {
             @Override
-            public void onStart()
-            {
+            public void onStart() {
 
             }
 
             @Override
-            public void onSuccess(Object o)
-            {
+            public void onSuccess(Object o) {
                 dataCallBack.requestSuccess(o, IPlaneDtDetail.CONCERN_CODE);
             }
 
             @Override
-            public void onFailed(Object o)
-            {
-                if (o != null && o instanceof Map)
-                {
+            public void onFailed(Object o) {
+                if (o != null && o instanceof Map) {
 
                     Map<String, String> onSuccessData = (Map<String, String>) o;
 
@@ -58,52 +52,49 @@ public class PlaneDtDetailDaoImpl implements IPlaneDtDetail {
             }
 
             @Override
-            public void onCancelled(Object o)
-            {
+            public void onCancelled(Object o) {
 
             }
 
             @Override
-            public void onFinished()
-            {
+            public void onFinished() {
 
             }
         });
     }
+    //FollowQuery
+    //0 = {HashMap$HashMapEntry@6725} "date" -> "2017-12-16"
+    //1 = {HashMap$HashMapEntry@6726} "name" -> "OS8002"
 
+    //    0 = {HashMap$HashMapEntry@6736} "error" -> "null"
+    //            1 = {HashMap$HashMapEntry@6737} "code" -> "9999"
     @Override
-    public void getDateInfo(Map<String, Object> map)
-    {
+    public void getDateInfo(Map<String, Object> map) {
         new SimpleRequest(CardConstant.card_app_plane_followQuery, map).sendRequest(new HttpCallBackData() {
             @Override
-            public void onStart()
-            {
+            public void onStart() {
 
             }
 
             @Override
-            public void onSuccess(Object o)
-            {
-                FlightDynamicsBean result = JSON.parseObject(String.valueOf(o),FlightDynamicsBean.class);
+            public void onSuccess(Object o) {
+                FlightDynamicsBean result = JSON.parseObject(String.valueOf(o), FlightDynamicsBean.class);
                 dataCallBack.requestSuccess(result, IPlaneDtDetail.SELECT_INFO);
 
             }
 
             @Override
-            public void onFailed(Object o)
-            {
+            public void onFailed(Object o) {
                 dataCallBack.requestFailedDataCall(o, IPlaneDtDetail.SELECT_INFO);
             }
 
             @Override
-            public void onCancelled(Object o)
-            {
+            public void onCancelled(Object o) {
 
             }
 
             @Override
-            public void onFinished()
-            {
+            public void onFinished() {
 
             }
         });

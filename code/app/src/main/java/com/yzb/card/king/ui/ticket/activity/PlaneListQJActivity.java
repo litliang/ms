@@ -62,8 +62,8 @@ public class PlaneListQJActivity extends BaseActivity implements SwipeRefreshLay
         sRl.setOnRefreshListener(this);
         presenter = new PlaneListQjPresenter(this);
         getIntentInfo();
-        getData();
         init();
+        getData();
     }
 
     /**
@@ -245,6 +245,21 @@ public class PlaneListQJActivity extends BaseActivity implements SwipeRefreshLay
     @Override
     public void callSuccessViewLogic(Object o, int type)
     {
+//        Aexpected = "09:42:00"
+//        Airline = "奥地利航空"
+//        AirlineCode = null
+//        ArrCity = "北京首都"
+//        ArrCode = "PEK"
+//        ArrTerminal = "T3"
+//        ArrTime = "10:10"
+//        DepCity = "上海虹桥"
+//        DepCode = "SHA"
+//        DepTerminal = "T2"
+//        DepTime = "07:45"
+//        Dexpected = "07:57:00"
+//        FlightDate = "2017-12-16"
+//        FlightNum = "OS8002"
+//        OnTimeRate = "90%"
         sRl.setRefreshing(false);
         if (type == IPlaneListQj.GET_LIST_INFO)
         {

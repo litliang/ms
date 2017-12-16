@@ -122,7 +122,7 @@ public class AppHomeActivity extends BaseActivity {
             public boolean onLongClick(View v) {
                 ServiceDispatcher.change(v.getContext(), "");
                 String ver = (String) new StorageUtil(StorageUtil.testpath).getKeyedV("ver");
-                ToastUtil.i(v.getContext(), "切换为" + ver+", 请重启");
+                ToastUtil.i(v.getContext(), "切换为" + com.yzb.wallet.sys.ServiceDispatcher.app_url_api+", 请重启");
                 clearAppUserData(v.getContext().getPackageName());
                 ActivityManager manager = (ActivityManager) v.getContext().getSystemService(Context.ACTIVITY_SERVICE);
                 manager.restartPackage(v.getContext().getPackageName());
