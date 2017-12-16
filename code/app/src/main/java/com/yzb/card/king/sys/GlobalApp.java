@@ -140,6 +140,7 @@ public class GlobalApp extends MultiDexApplication {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
+
     }
 
     @Override
