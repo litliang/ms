@@ -80,7 +80,6 @@ public class HeadFootRecyclerView extends android.support.v7.widget.RecyclerView
 
         this.context = (Activity) context;
 
-
     }
 
     public HeadFootRecyclerView(Context context, @Nullable AttributeSet attrs)
@@ -133,10 +132,13 @@ public class HeadFootRecyclerView extends android.support.v7.widget.RecyclerView
         {
             super.onLoadNextPage(view);
             LoadingFooter.State state = RecyclerViewStateUtils.getFooterViewState(HeadFootRecyclerView.this);
+
+            LogUtil.e("AAAAA","----------state="+state);
             if (state == LoadingFooter.State.Loading) {
                 Log.d("@Cundong", "the state is Loading, just wait..");
                 return;
             }
+
 
             /**
              * 当新加载数据数量小于，则loadMoreEnable=true

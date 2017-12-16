@@ -49,6 +49,7 @@ import com.yzb.card.king.ui.other.activity.CivilInternationCityActivity;
 import com.yzb.card.king.ui.ticket.activity.AirTicketHomeActivity;
 import com.yzb.card.king.util.AppUtils;
 import com.yzb.card.king.util.DateUtil;
+import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.SharePrefUtil;
 import com.yzb.card.king.util.SwipeRefreshSettings;
 
@@ -167,6 +168,26 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
                 persenter.sendHotelThemeRequest();
             }
         });
+//
+//        swipeRefresh.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+//            @Override
+//            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+//
+//               // boolean isSignificantDelta = Math.abs(scrollY) > mScrollThreshold;
+//
+//                LogUtil.e("AAAAA","Math.abs(scrollY)===>"+Math.abs(scrollY));
+//
+//            }
+//
+//
+//        });
+//
+//        lvHomeHotelpage.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+//            @Override
+//            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+//
+//            }
+//        });
 
         adapter.setOnItemClickListener(new HotelTodayRecommendedAdapter.OnItemClickListener() {
             @Override
