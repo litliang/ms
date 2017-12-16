@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.Html;
@@ -16,7 +15,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
@@ -36,7 +34,6 @@ import com.yzb.card.king.ui.appwidget.SlideShow1ItemView;
 import com.yzb.card.king.ui.appwidget.headfootrecyclerview.RecyclerViewUtils;
 import com.yzb.card.king.ui.appwidget.popup.AppCalendarPopup;
 import com.yzb.card.king.ui.appwidget.popup.BaseFullPP;
-import com.yzb.card.king.ui.appwidget.popup.ChannelPopWindow;
 import com.yzb.card.king.ui.appwidget.popup.ChannelTypePopup;
 import com.yzb.card.king.ui.appwidget.popup.HotelStarPricePopup;
 import com.yzb.card.king.ui.base.BaseActivity;
@@ -54,7 +51,6 @@ import com.yzb.card.king.util.AppUtils;
 import com.yzb.card.king.util.DateUtil;
 import com.yzb.card.king.util.SharePrefUtil;
 import com.yzb.card.king.util.SwipeRefreshSettings;
-import com.yzb.card.king.util.ToastUtil;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
@@ -81,9 +77,6 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
     //底部控件
     @ViewInject(R.id.llBottomTab)
     private LinearLayout llBottomTab;
-
-    @ViewInject(R.id.rlHotelHomeTitle)
-    private RelativeLayout rlHotelHomeTitle;
 
     private HotelTodayRecommendedAdapter adapter;
 
@@ -607,87 +600,25 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
         }
     };
-    private  ChannelPopWindow channelPopWindow;
+
     //app频道选择方法
     public void onMenuAction(View v) {
 
-//        if (channelTypePopup == null) {
-//
-//            channelTypePopup = new ChannelTypePopup(this, -1, BaseFullPP.ViewPostion.VIEW_BOTTOM);
-//
-//            channelTypePopup.setSelectIndex(selectedIndex);
-//
-//            channelTypePopup.setCallBack(dataCallBackChannelType);
-//
-//        }
-//
-//        View rootView = getWindow().getDecorView();
-//
-//        channelTypePopup.showBottomByViewPP(rootView);
+        if (channelTypePopup == null) {
 
-        if(channelPopWindow == null){
+            channelTypePopup = new ChannelTypePopup(this, -1, BaseFullPP.ViewPostion.VIEW_BOTTOM);
 
-            channelPopWindow = new ChannelPopWindow(channelChangeHandler, this);
+            channelTypePopup.setSelectIndex(selectedIndex);
+
+            channelTypePopup.setCallBack(dataCallBackChannelType);
 
         }
 
-        channelPopWindow.showAsDropDown(rlHotelHomeTitle, channelPopWindow.getWidth(), 0);
+        View rootView = getWindow().getDecorView();
+
+        channelTypePopup.showBottomByViewPP(rootView);
     }
-    private Handler channelChangeHandler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
 
-
-            int what = msg.what;
-
-            if(what == 0){//
-
-                ChildTypeBean  bean = (ChildTypeBean) msg.obj;
-
-                int  pagetypet = AppFactory.channelIdToFragmentIndex(bean.id);
-
-                if(pagetypet != -1){
-
-                    GlobalVariable.industryId = Integer.parseInt(bean.id);
-
-                    if(pagetypet == 2){//酒店
-
-
-
-                    }
-                    else if(pagetypet == 1){//机票
-
-                        startActivity(new Intent(HotelHomeActivity.this, AirTicketHomeActivity.class));
-
-                        finish();
-                    }
-                    else{//旅游
-                        String typeId = AppConstant.travel_id;
-
-                        int index = AppFactory.channelIdToFragmentIndex(typeId);
-
-                        GlobalVariable.industryId = Integer.parseInt(typeId);
-
-                        Intent intent = new Intent();
-
-                        intent.setClass(HotelHomeActivity.this, ChannelMainActivity.class);
-
-                        intent.putExtra("pagetype", index);
-
-                        intent.putExtra("data", bean);
-
-                        startActivity(intent);
-
-                        finish();
-                    }
-
-                }else{
-                    ToastUtil.i(HotelHomeActivity.this,"敬请期待");
-                }
-            }
-        }
-    };
     /**
      * app频道选择回调数据
      */
