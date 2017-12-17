@@ -9,7 +9,7 @@
         android:id="@+id/wvBrand"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/title_l_r"
+        android:layout_marginLeft="9dp"
         android:layout_marginRight="40dp"
         android:listSelector="@android:color/transparent">
     </com.yzb.card.king.ui.appwidget.WholeRecyclerView>

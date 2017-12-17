@@ -3,8 +3,6 @@ package com.yzb.card.king.ui.hotel.activtiy;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
@@ -17,23 +15,18 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import com.yzb.card.king.R;
 import com.yzb.card.king.bean.BankActivityInfoBean;
 import com.yzb.card.king.bean.CatalogueTypeBean;
 import com.yzb.card.king.bean.SearchReusultBean;
 import com.yzb.card.king.bean.SubItemBean;
-import com.yzb.card.king.bean.common.Error;
 import com.yzb.card.king.bean.common.PaymethodAndBankPreStageBean;
-import com.yzb.card.king.bean.hotel.HotelBean;
 import com.yzb.card.king.bean.hotel.HotelLevelBean;
 import com.yzb.card.king.bean.hotel.HotelProductListParam;
 import com.yzb.card.king.bean.hotel.HotelProductObjectBean;
 import com.yzb.card.king.bean.hotel.PromotionTypeBean;
-import com.yzb.card.king.bean.my.NationalCountryBean;
 import com.yzb.card.king.http.HttpConstant;
 import com.yzb.card.king.sys.AppConstant;
-import com.yzb.card.king.sys.GlobalApp;
 import com.yzb.card.king.ui.appwidget.DefindTabView;
 import com.yzb.card.king.ui.appwidget.DefineTopView;
 import com.yzb.card.king.ui.appwidget.popup.AppCalendarPopup;
@@ -45,7 +38,6 @@ import com.yzb.card.king.ui.appwidget.popup.HotelStarPricePopup;
 import com.yzb.card.king.ui.appwidget.popup.ProductPromotionTypePopup;
 import com.yzb.card.king.ui.base.BaseActivity;
 import com.yzb.card.king.ui.base.BaseViewLayerInterface;
-import com.yzb.card.king.ui.discount.bean.Location;
 import com.yzb.card.king.ui.hotel.HotelLogicManager;
 import com.yzb.card.king.ui.hotel.adapter.HotelProductItemAdapter;
 import com.yzb.card.king.ui.hotel.persenter.GetCouponPersenter;
@@ -55,8 +47,6 @@ import com.yzb.card.king.ui.other.activity.CivilInternationCityActivity;
 import com.yzb.card.king.ui.other.fragment.HotelMapModelFragment;
 import com.yzb.card.king.util.CommonUtil;
 import com.yzb.card.king.util.DateUtil;
-import com.yzb.card.king.util.LogUtil;
-import com.yzb.card.king.util.ToastUtil;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
@@ -186,23 +176,34 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                 }
                 //添加Header
                 final TextView textView = new TextView(this);
+
                 textView.setLayoutParams(new LinearLayoutCompat.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, CommonUtil.dip2px(this, 25)));
+
                 textView.setBackgroundColor(Color.parseColor("#f0f5f9"));
+
                 textView.setTextColor(Color.parseColor("#44698f"));
+
                 textView.setTextSize(12);
+
                 textView.setGravity(Gravity.CENTER);
+
                 textView.setText(proBank);
+
                 mAdapter.setHeader(textView);
             }
         }
         mRecyclerView = (RefreshRecyclerView) findViewById(R.id.recycler_view);
+
         mRecyclerView.setSwipeRefreshColors(0xFF437845, 0xFFE44F98, 0xFF2FAC21);
+
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 1));
+
         mRecyclerView.setAdapter(mAdapter);
+
         mRecyclerView.setRefreshAction(new Action() {
             @Override
             public void onAction() {
-                LogUtil.e("ABCDEF", "--------setRefreshAction------------");
+
                 getData(true);
             }
         });
@@ -211,7 +212,6 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
             @Override
             public void onAction() {
 
-                LogUtil.e("ABCDEF", "--------setLoadMoreAction------------");
                 getData(false);
 
             }
@@ -226,7 +226,6 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
         });
 
     }
-
 
     public void getData(final boolean isRefresh) {
 
@@ -313,7 +312,11 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                     bankSelectPopup.setSelectIndex(selectedBankIndex);
 
                     bankSelectPopup.setCallBack(bankFreCallBankBack);
+                }else {
+
+                    bankSelectPopup.showSelectedData();
                 }
+
 
                 bankSelectPopup.showPP(llTop);
 
@@ -327,6 +330,10 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                     lifeStageSelectPopup.setSelectIndex(selectedLifeStageIndex);
 
                     lifeStageSelectPopup.setCallBack(lifeStageCallBack);
+
+                }else {
+
+                    lifeStageSelectPopup.showSelectedData();
                 }
 
                 lifeStageSelectPopup.showPP(llTop);
@@ -338,11 +345,17 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                     productPromotionTypePopup = new ProductPromotionTypePopup(HotelProductListActivity.this, -1);
 
                     productPromotionTypePopup.setCallBack(callBackPtp);
+                }else {
+
+                    productPromotionTypePopup.showSelectedData();
                 }
 
                 HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
+
                 Date startDate = DateUtil.string2Date(productListParam.getArrDate(), DateUtil.DATE_FORMAT_DATE);
+
                 productPromotionTypePopup.setTypeDataByDate(startDate);
+
                 productPromotionTypePopup.showPP(llTop);
 
             } else if (index == 3) {//酒店品牌
@@ -353,6 +366,9 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                     hotelBrandPopup.setCallBack(entryCallBack);
 
+                }else {
+
+                    hotelBrandPopup.showSelectedData();
                 }
                 hotelBrandPopup.showPP(llTop);
             }
@@ -596,6 +612,9 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                     hotelStarPricePopup.setViewDataCallBack(ppViewDataCallBack);
 
+                }else {
+
+                    hotelStarPricePopup.showSelectedData();
                 }
 
                 hotelStarPricePopup.showPP(llBottomTab);

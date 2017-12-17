@@ -241,5 +241,21 @@ public class Location implements Serializable
     {
         return new LatLng(latitude, longitude);
     }
+
+
+    public String addressInfoStr(){
+
+        int index =  cityName.indexOf(province);
+
+        if(index == -1){
+
+            return province+cityName+district+street;
+        }else {
+
+            return cityName+district+street;
+        }
+
+
+    }
 }
 

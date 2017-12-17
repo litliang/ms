@@ -93,8 +93,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
     private HotCityPresenter hotCityPresenterTemp;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         initView();
@@ -104,8 +103,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
         hvSearchResult.setVisibility(View.GONE);
     }
 
-    private void initView()
-    {
+    private void initView() {
 
         findViewById(R.id.tvCancel).setOnClickListener(this);
 
@@ -131,16 +129,14 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
 
         sidrbar.setOnLetterTouchListener(new SideBar.OnLetterTouchListener() {
             @Override
-            public void onLetterTouch(String letter, int position)
-            {
+            public void onLetterTouch(String letter, int position) {
                 if (letters.containsKey(letter)) {
                     recyclerView.scrollToPosition(letters.get(letter));
                 }
             }
 
             @Override
-            public void onActionUp()
-            {
+            public void onActionUp() {
             }
         });
 
@@ -161,20 +157,17 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
 
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after)
-            {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count)
-            {
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             }
 
             @Override
-            public void afterTextChanged(Editable s)
-            {
+            public void afterTextChanged(Editable s) {
 
                 String keyStr = etSearch.getText().toString();
 
@@ -193,7 +186,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
                                 llCity.setVisibility(View.GONE);
                             }
                             //加载搜索到的数据
-                            initSearchResult(  searchTotalSearchList );
+                            initSearchResult(searchTotalSearchList);
 
                         } else {
                             if (llCity.getVisibility() == View.GONE) {
@@ -220,14 +213,13 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
         });
     }
 
-    private  SearchCityByKeyAdapter hotelSearchResultAdapter;
+    private SearchCityByKeyAdapter hotelSearchResultAdapter;
 
-    private void initSearchResult(List<NationalCountryBean> searchTotalSearchList)
-    {
+    private void initSearchResult(List<NationalCountryBean> searchTotalSearchList) {
 
-        if(hotelSearchResultAdapter == null){
+        if (hotelSearchResultAdapter == null) {
 
-            hotelSearchResultAdapter = new SearchCityByKeyAdapter(CivilInternationCityActivity.this,searchTotalSearchList);
+            hotelSearchResultAdapter = new SearchCityByKeyAdapter(CivilInternationCityActivity.this, searchTotalSearchList);
 
             hvSearchResult.setLayoutManager(new GridLayoutManager(this, 1));
 
@@ -235,23 +227,21 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
 
             hvSearchResult.setAdapter(hotelSearchResultAdapter);
 
-        }else {
+        } else {
 
             hotelSearchResultAdapter.addNewList(searchTotalSearchList);
         }
 
     }
 
-    private  SearchCityByKeyAdapter.CityDataCallBack dataCallBack = new SearchCityByKeyAdapter.CityDataCallBack() {
+    private SearchCityByKeyAdapter.CityDataCallBack dataCallBack = new SearchCityByKeyAdapter.CityDataCallBack() {
         @Override
-        public void selectedCityItem(NationalCountryBean bean)
-        {
+        public void selectedCityItem(NationalCountryBean bean) {
             bundleDataFinsh(bean);
         }
     };
 
-    private void initData()
-    {
+    private void initData() {
 
         hotCityPresenterTemp = new HotCityPresenter(null);
 
@@ -262,8 +252,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
 
     }
 
-    private void loadCityToView(List<NationalCountryBean> civilDataList, int type)
-    {
+    private void loadCityToView(List<NationalCountryBean> civilDataList, int type) {
 
         letters.clear();
         //快捷导航索引
@@ -395,8 +384,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
     }
 
     @Override
-    public void onClick(View v)
-    {
+    public void onClick(View v) {
         switch (v.getId()) {
             case R.id.select_domestic:
                 selectDomestic();
@@ -415,8 +403,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
     /**
      * 选择国内
      */
-    private void selectDomestic()
-    {
+    private void selectDomestic() {
         select_domestic_textView.setTextColor(getResources().getColor(R.color.color_436a8e));
 
         select_domestic_textView1.setBackgroundColor(getResources().getColor(R.color.color_436a8e));
@@ -435,8 +422,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
     /**
      * 选择国外
      */
-    private void selectAbroad()
-    {
+    private void selectAbroad() {
         select_abroad_textView.setTextColor(getResources().getColor(R.color.color_436a8e));
 
         select_abroad_textView1.setBackgroundColor(getResources().getColor(R.color.color_436a8e));
@@ -447,7 +433,6 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
 
         List<NationalCountryBean> internationDataList = nationCountryPresenter.selectIfForeignCountryData(true);
 
-
         loadCityToView(internationDataList, 2);
     }
 
@@ -457,8 +442,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
 
 
         @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
-        {
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
             if (viewType == -1000) {
 
@@ -485,8 +469,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
         }
 
         @Override
-        public int getItemViewType(int position)
-        {
+        public int getItemViewType(int position) {
             NationalCountryBean bean = getItem(position);
 
             if (bean.get_id() < 0) {
@@ -500,8 +483,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
         }
 
         @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position)
-        {
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
             if (holder instanceof CityNameViewHold) {//城市名
 
@@ -530,8 +512,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
         }
 
         @Override
-        public long getHeaderId(int position)
-        {
+        public long getHeaderId(int position) {
             NationalCountryBean bean = getItem(position);
 
             int id = bean.get_id();
@@ -548,8 +529,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
         }
 
         @Override
-        public RecyclerView.ViewHolder onCreateHeaderViewHolder(ViewGroup parent)
-        {
+        public RecyclerView.ViewHolder onCreateHeaderViewHolder(ViewGroup parent) {
 
             View view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.view_city_parent_item, parent, false);
@@ -558,8 +538,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
         }
 
         @Override
-        public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder, int position)
-        {
+        public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder, int position) {
             TextView textView = (TextView) holder.itemView;
             textView.setText(getItem(position).getFirstLetter());
         }
@@ -568,8 +547,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
 
             private TextView tvUserAddress, tvCityName;
 
-            public CityUserPlaceViewHold(View itemView)
-            {
+            public CityUserPlaceViewHold(View itemView) {
                 super(itemView);
 
                 tvCityName = (TextView) itemView.findViewById(R.id.tvCityName);
@@ -577,8 +555,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
                 tvUserAddress = (TextView) itemView.findViewById(R.id.tvUserAddress);
             }
 
-            public void initData()
-            {
+            public void initData() {
                 //重新开启定位功能
                 GlobalApp.getInstance().setOnCityChangeListeners(onCityChangeListener);
 
@@ -588,31 +565,47 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
 
             private GlobalApp.OnCityChangeListener onCityChangeListener = new GlobalApp.OnCityChangeListener() {
                 @Override
-                public void onCityChange(Location city)
-                {
+                public void onCityChange(Location city) {
 
                     GlobalApp.getInstance().removeListener(onCityChangeListener);
 
-                    tvUserAddress.setText("当前位置：" + city.province + city.cityName + city.district + city.street);
+
+                    tvUserAddress.setText("当前位置：" + city.addressInfoStr());
 
                     tvCityName.setText("当前城市：" + city.cityName);
 
-                    itemView.setTag(city);
+                    tvCityName.setTag(city);
 
-                    itemView.setOnClickListener(new View.OnClickListener() {
+                    tvUserAddress.setTag(city);
+
+                    tvCityName.setOnClickListener(new View.OnClickListener() {
                         @Override
-                        public void onClick(View v)
-                        {
+                        public void onClick(View v) {
+
                             Location location = (Location) v.getTag();
 
                             hotCityPresenterTemp.sendCityStatisticsRequest(location.getCityId(), GlobalVariable.industryId + "");
 
                             GlobalApp.getInstance().setSelectedCity(location);
 
-                            //转换对象
-                           // saveToPre( GlobalApp.getInstance().locationToNationalCountryBean(location));
-
                             setResult(CIVIINTERNATION_RESULTCODE);
+
+                            finish();
+
+                        }
+                    });
+
+                    tvUserAddress.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            Location location = (Location) v.getTag();
+
+                            hotCityPresenterTemp.sendCityStatisticsRequest(location.getCityId(), GlobalVariable.industryId + "");
+
+                            GlobalApp.getInstance().setSelectedCity(location);
+
+                            setResult(5002);
 
                             finish();
 
@@ -624,14 +617,12 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
 
         class CityNameViewHold extends RecyclerView.ViewHolder {
 
-            public CityNameViewHold(View itemView)
-            {
+            public CityNameViewHold(View itemView) {
                 super(itemView);
 
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v)
-                    {
+                    public void onClick(View v) {
                         Object o = v.getTag();
 
                         if (o != null) {
@@ -655,8 +646,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
 
             private List<NationalCountryBean> list;
 
-            public CityHistoryViewHold(View itemView)
-            {
+            public CityHistoryViewHold(View itemView) {
                 super(itemView);
 
                 wvBrand = (WholeRecyclerView) itemView.findViewById(R.id.wvBrand);
@@ -675,8 +665,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
 
                 subItemAdapter.setItemDataCallBack(new SingleConditionAdapter.ItemDataCallBack() {
                     @Override
-                    public void onSelectorItem(int subItemBean)
-                    {
+                    public void onSelectorItem(int subItemBean) {
 
                         if (list != null) {
 
@@ -692,31 +681,29 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
 
             }
 
-            public void initData(NationalCountryBean bean)
-            {
+            public void initData(NationalCountryBean bean) {
 
                 int id = bean.get_id();
                 List<String> brandBeanList = new ArrayList<>();
                 if (id == -1001) {//历史数据
 
                     //存储历史城市
-                    String histCityData = SharePrefUtil.getValueFromSp(CivilInternationCityActivity.this,SharePrefUtil.USE_CITY_HISTORY_DATA,null);
+                    String histCityData = SharePrefUtil.getValueFromSp(CivilInternationCityActivity.this, SharePrefUtil.USE_CITY_HISTORY_DATA, null);
 
-                    LogUtil.e("AAAA","-------"+histCityData);
-
-                    if(histCityData != null) {
+                    if (histCityData != null) {
 
                         List<NationalCountryBean> listData = JSONArray.parseArray(histCityData, NationalCountryBean.class);
 
                         list = listData;
 
-                        for(NationalCountryBean cityBean :listData){
+                        for (NationalCountryBean cityBean : listData) {
 
                             brandBeanList.add(cityBean.getCityName());
                         }
                     }
 
                     subItemAdapter.addNewList(brandBeanList, -1);
+
                 } else if (id == -1002) {//热门城市数据
                     //发送数据请求
                     HotCityPresenter hotCityPresenter = new HotCityPresenter(hotCityBVI);
@@ -728,8 +715,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
 
             BaseViewLayerInterface hotCityBVI = new BaseViewLayerInterface() {
                 @Override
-                public void callSuccessViewLogic(Object o, int type)
-                {
+                public void callSuccessViewLogic(Object o, int type) {
                     list = JSON.parseArray(o + "", NationalCountryBean.class);
 
 
@@ -748,8 +734,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
                 }
 
                 @Override
-                public void callFailedViewLogic(Object o, int type)
-                {
+                public void callFailedViewLogic(Object o, int type) {
 
                 }
             };
@@ -763,8 +748,7 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
      *
      * @param bean
      */
-    public void bundleDataFinsh(NationalCountryBean bean)
-    {
+    public void bundleDataFinsh(NationalCountryBean bean) {
 
         saveToPre(bean);
 
@@ -779,27 +763,27 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
 
     }
 
-    private  int maxNumber = 4;
+    private int maxNumber = 4;
 
-    private void saveToPre(NationalCountryBean bean){
+    private void saveToPre(NationalCountryBean bean) {
 
         //存储历史城市
-        String histCityData = SharePrefUtil.getValueFromSp(this,SharePrefUtil.USE_CITY_HISTORY_DATA,null);
+        String histCityData = SharePrefUtil.getValueFromSp(this, SharePrefUtil.USE_CITY_HISTORY_DATA, null);
 
-        if(histCityData != null){
+        if (histCityData != null) {
 
-            List<NationalCountryBean>  listData = JSONArray.parseArray(histCityData,NationalCountryBean.class);
+            List<NationalCountryBean> listData = JSONArray.parseArray(histCityData, NationalCountryBean.class);
 
             int size = listData.size();
 
-            if(size>0){
+            if (size > 0) {
 
                 //检查是否已经存在该城市
                 boolean ifExit = true;
 
-                for(NationalCountryBean beanTemp :listData){
+                for (NationalCountryBean beanTemp : listData) {
 
-                    if(bean.getCityName().equals(beanTemp.getCityName()) && bean.getCityRuby().equals(beanTemp.getCityRuby())&& bean.getCityId() == beanTemp.getCityId()){
+                    if (bean.getCityName().equals(beanTemp.getCityName()) && bean.getCityRuby().equals(beanTemp.getCityRuby()) && bean.getCityId() == beanTemp.getCityId()) {
 
                         ifExit = false;
 
@@ -808,38 +792,37 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
 
                 }
 
-                if(ifExit){
+                if (ifExit) {
 
-                    if(size == maxNumber){//移除最后一笔数据
+                    if (size == maxNumber) {//移除最后一笔数据
 
-                        listData.remove(maxNumber-1);
+                        listData.remove(maxNumber - 1);
 
                     }
 
-                    listData.add(0,bean);
+                    listData.add(0, bean);
 
-                    String totalStr =  JSON.toJSONString(listData);
+                    String totalStr = JSON.toJSONString(listData);
 
-                    SharePrefUtil.saveToSp(this,SharePrefUtil.USE_CITY_HISTORY_DATA,totalStr);
+                    SharePrefUtil.saveToSp(this, SharePrefUtil.USE_CITY_HISTORY_DATA, totalStr);
 
                 }
 
 
-
-            }else {
+            } else {
 
                 listData.add(bean);
             }
 
-        }else {
+        } else {
 
-            List<NationalCountryBean>  listData = new ArrayList<NationalCountryBean>();
+            List<NationalCountryBean> listData = new ArrayList<NationalCountryBean>();
 
             listData.add(bean);
 
-            String totalStr =  JSON.toJSONString(listData);
+            String totalStr = JSON.toJSONString(listData);
 
-            SharePrefUtil.saveToSp(this,SharePrefUtil.USE_CITY_HISTORY_DATA,totalStr);
+            SharePrefUtil.saveToSp(this, SharePrefUtil.USE_CITY_HISTORY_DATA, totalStr);
         }
 
     }

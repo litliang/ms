@@ -39,14 +39,15 @@ public class ProductPromotionTypePopup implements View.OnClickListener {
 
     private ProductPromotionTypePopup.DataListCallBack callBack;
 
-    private  boolean ifTodayShuaiFang = false;
+    private boolean ifTodayShuaiFang = false;
+
+    private List<PromotionTypeBean> selectedList;
 
     /**
      * @param activity
      * @param defineHeight 自定义子视图的高度
      */
-    public ProductPromotionTypePopup(Activity activity, int defineHeight)
-    {
+    public ProductPromotionTypePopup(Activity activity, int defineHeight) {
 
         this.activity = activity;
 
@@ -69,16 +70,6 @@ public class ProductPromotionTypePopup implements View.OnClickListener {
 
         baseBottomFullPP.addChildView(view);
 
-        baseBottomFullPP.setListener(new BaseFullPP.PpOndismisssListener() {
-            @Override
-            public void onClickListenerDismiss()
-            {
-                if(callBack!=null){
-
-                    callBack.onConfirm(getSelectoredDataList());
-                }
-            }
-        });
 
         wvLvData = (ListView) view.findViewById(R.id.wvLvData);
 
@@ -104,14 +95,7 @@ public class ProductPromotionTypePopup implements View.OnClickListener {
 
         wvLvData.setAdapter(ppAdapter);
 
-        wvLvData.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-            {
 
-
-            }
-        });
     }
 
     /**
@@ -119,8 +103,7 @@ public class ProductPromotionTypePopup implements View.OnClickListener {
      *
      * @param startDate
      */
-    public void setTypeDataByDate(Date startDate)
-    {
+    public void setTypeDataByDate(Date startDate) {
 
         Date nowDate = new Date();
 
@@ -132,7 +115,7 @@ public class ProductPromotionTypePopup implements View.OnClickListener {
 
         int[] nameValueArray = activity.getResources().getIntArray(R.array.promotion_type_value_array);
 
-        if(startDateStr.equals(nowDateStr) && !ifTodayShuaiFang){//如果入住日期是当前日期，则需要今日甩房
+        if (startDateStr.equals(nowDateStr) && !ifTodayShuaiFang) {//如果入住日期是当前日期，则需要今日甩房
 
             PromotionTypeBean bedTypeBean = new PromotionTypeBean();
 
@@ -140,11 +123,11 @@ public class ProductPromotionTypePopup implements View.OnClickListener {
 
             bedTypeBean.setTypeValue(nameValueArray[0]);
 
-            bedTypeBeenList.add(0,bedTypeBean);
+            bedTypeBeenList.add(0, bedTypeBean);
 
             ifTodayShuaiFang = true;
 
-        }else if(!startDateStr.equals(nowDateStr) && ifTodayShuaiFang){
+        } else if (!startDateStr.equals(nowDateStr) && ifTodayShuaiFang) {
 
             ifTodayShuaiFang = false;
 
@@ -155,13 +138,11 @@ public class ProductPromotionTypePopup implements View.OnClickListener {
 
     }
 
-    public void setCallBack(ProductPromotionTypePopup.DataListCallBack callBack)
-    {
+    public void setCallBack(ProductPromotionTypePopup.DataListCallBack callBack) {
         this.callBack = callBack;
     }
 
-    private void clearSelectorData()
-    {
+    private void clearSelectorData() {
 
         for (PromotionTypeBean bedTypeBean : bedTypeBeenList) {
 
@@ -171,8 +152,7 @@ public class ProductPromotionTypePopup implements View.OnClickListener {
         ppAdapter.notifyDataSetChanged();
     }
 
-    private List<PromotionTypeBean> getSelectoredDataList()
-    {
+    private List<PromotionTypeBean> getSelectoredDataList() {
 
         List<PromotionTypeBean> list = new ArrayList<>();
 
@@ -190,15 +170,13 @@ public class ProductPromotionTypePopup implements View.OnClickListener {
         return list;
     }
 
-    public void showPP(View rootView)
-    {
+    public void showPP(View rootView) {
 
         baseBottomFullPP.showBottomAsView(rootView);
     }
 
     @Override
-    public void onClick(View v)
-    {
+    public void onClick(View v) {
         switch (v.getId()) {
 
             case R.id.tvClear://清理
@@ -212,7 +190,9 @@ public class ProductPromotionTypePopup implements View.OnClickListener {
 
                     baseBottomFullPP.dismiss();
 
-                    callBack.onConfirm(getSelectoredDataList());
+                    selectedList = getSelectoredDataList();
+
+                    callBack.onConfirm(selectedList);
                 }
 
                 break;
@@ -222,31 +202,59 @@ public class ProductPromotionTypePopup implements View.OnClickListener {
         }
     }
 
+    /**
+     * 选择的城市信息
+     */
+    public void showSelectedData() {
+
+        if (selectedList != null && selectedList.size() > 0) {
+
+
+            for (PromotionTypeBean total : bedTypeBeenList) {
+
+                int type = total.getTypeValue();
+
+                for (PromotionTypeBean bean : selectedList) {
+
+                    if (type == bean.getTypeValue()) {
+
+                        total.setSelectedFlag(true);
+
+                        break;
+
+                    } else {
+
+                        total.setSelectedFlag(false);
+                    }
+
+                }
+
+            }
+
+            ppAdapter.notifyDataSetChanged();
+        }
+    }
+
 
     private class CurrentPpAdapter extends BaseAdapter {
 
-
         @Override
-        public int getCount()
-        {
+        public int getCount() {
             return bedTypeBeenList.size();
         }
 
         @Override
-        public Object getItem(int position)
-        {
+        public Object getItem(int position) {
             return bedTypeBeenList.get(position);
         }
 
         @Override
-        public long getItemId(int position)
-        {
+        public long getItemId(int position) {
             return 0;
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent)
-        {
+        public View getView(int position, View convertView, ViewGroup parent) {
             ProductPromotionTypePopup.CurrentPpAdapter.ViewHold viewHold;
 
             if (convertView == null) {
@@ -295,8 +303,7 @@ public class ProductPromotionTypePopup implements View.OnClickListener {
 
             View vLine;
 
-            public ViewHold(View convertView)
-            {
+            public ViewHold(View convertView) {
 
                 ivChecked = (ImageView) convertView.findViewById(R.id.ivChecked);
 
@@ -310,8 +317,7 @@ public class ProductPromotionTypePopup implements View.OnClickListener {
 
                 llParent.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v)
-                    {
+                    public void onClick(View v) {
                         int index = (int) v.getTag();
 
                         PromotionTypeBean bedTypeBean = (PromotionTypeBean) getItem(index);

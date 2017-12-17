@@ -64,7 +64,7 @@
                             android:maxLines="1"
                             android:text="上海爱尚居酒店"
                             android:textColor="@color/color_333333"
-                            android:textSize="13sp"/>
+                            android:textSize="15sp"/>
 
                         <TextView
                             android:id="@+id/tvBackMoney"
@@ -75,14 +75,14 @@
                             android:padding="3dp"
                             android:text="返"
                             android:textColor="@color/white_ffffff"
-                            android:textSize="8sp"/>
+                            android:textSize="10sp"/>
                     </LinearLayout>
 
                     <ImageView
                         android:id="@+id/ivLifeStages"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right"
+                        android:layout_gravity="right|center_vertical"
                         android:background="@mipmap/icon_bg_life_stages"/>
 
                 </LinearLayout>
@@ -90,8 +90,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-
+                    android:layout_marginTop="3dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -108,7 +107,7 @@
                         android:layout_marginLeft="2dp"
                         android:text="分"
                         android:textColor="@color/color_d6c07f"
-                        android:textSize="9sp"/>
+                        android:textSize="10sp"/>
 
                     <TextView
                         android:id="@+id/tvHoteVoteMessage"
@@ -117,7 +116,7 @@
                         android:layout_marginLeft="4dp"
                         android:text="很好"
                         android:textColor="@color/color_d6c07f"
-                        android:textSize="13sp"/>
+                        android:textSize="14sp"/>
 
                     <TextView
                         android:id="@+id/tvHotelType"
@@ -126,7 +125,7 @@
                         android:layout_marginLeft="4dp"
                         android:text="经济型"
                         android:textColor="@color/color_999999"
-                        android:textSize="13sp"/>
+                        android:textSize="14sp"/>
 
                 </LinearLayout>
 
@@ -134,7 +133,7 @@
                     android:id="@+id/tvHotelCityDistance"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="3dp"
                     android:text="距离市中心20km"
                     android:textColor="@color/color_999999"
                     android:textSize="11sp"/>
@@ -142,7 +141,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="3dp"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -160,7 +159,7 @@
                             android:text="银行优惠"
                             android:layout_marginRight="4dp"
                             android:textColor="@color/white_ffffff"
-                            android:textSize="8sp"/>
+                            android:textSize="10sp"/>
 
                         <TextView
                             android:id="@+id/tvQuan"
@@ -171,7 +170,7 @@
                             android:padding="3dp"
                             android:text="券"
                             android:textColor="@color/color_476b98"
-                            android:textSize="8sp"/>
+                            android:textSize="10sp"/>
 
                         <TextView
                             android:id="@+id/tvQiang"
@@ -182,7 +181,7 @@
                             android:padding="3dp"
                             android:text="抢"
                             android:textColor="@color/color_476b98"
-                            android:textSize="8sp"/>
+                            android:textSize="10sp"/>
 
                         <TextView
                             android:id="@+id/tvKaquanyi"
@@ -192,7 +191,7 @@
                             android:padding="3dp"
                             android:text="卡权益"
                             android:textColor="@color/color_476b98"
-                            android:textSize="8sp"/>
+                            android:textSize="10sp"/>
                     </LinearLayout>
 
                     <TextView
@@ -203,7 +202,7 @@
                         android:padding="3dp"
                         android:text="今日甩房"
                         android:textColor="@color/white_ffffff"
-                        android:textSize="8sp"/>
+                        android:textSize="10sp"/>
 
                 </LinearLayout>
 
@@ -211,7 +210,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="3dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -245,14 +244,14 @@
                             android:layout_height="wrap_content"
                             android:text="280"
                             android:textColor="@color/color_d6c07f"
-                            android:textSize="16sp"/>
+                            android:textSize="17sp"/>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="起"
                             android:textColor="@color/color_999999"
-                            android:textSize="9sp"/>
+                        android:textSize="10sp"/>
                     </LinearLayout>
 
                 </LinearLayout>

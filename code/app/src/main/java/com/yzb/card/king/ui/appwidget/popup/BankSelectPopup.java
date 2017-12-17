@@ -110,16 +110,17 @@ public class BankSelectPopup implements View.OnClickListener, BaseViewLayerInter
 
         baseBottomFullPP.addChildView(view);
 
-        baseBottomFullPP.setListener(new BaseFullPP.PpOndismisssListener() {
-            @Override
-            public void onClickListenerDismiss()
-            {
-                onSelectedItemObjectAndDismiss(ppAdapter.getSelectIndex());
-            }
-        });
+//        baseBottomFullPP.setListener(new BaseFullPP.PpOndismisssListener() {
+//            @Override
+//            public void onClickListenerDismiss()
+//            {
+//                onSelectedItemObjectAndDismiss(ppAdapter.getSelectIndex());
+//            }
+//        });
 
 
         if (tyleFlag) {
+
 
         } else {
 
@@ -251,6 +252,8 @@ public class BankSelectPopup implements View.OnClickListener, BaseViewLayerInter
         return totalList;
     }
 
+    private int selectedIndex = -1;
+
     @Override
     public void onClick(View v)
     {
@@ -262,7 +265,11 @@ public class BankSelectPopup implements View.OnClickListener, BaseViewLayerInter
 
                 break;
             case R.id.tvConfirm://确定
-                onSelectedItemObjectAndDismiss(ppAdapter.getSelectIndex());
+
+                selectedIndex = ppAdapter.getSelectIndex();
+
+                onSelectedItemObjectAndDismiss(selectedIndex);
+
                 break;
             default:
                 break;
@@ -351,6 +358,14 @@ public class BankSelectPopup implements View.OnClickListener, BaseViewLayerInter
     public void callFailedViewLogic(Object o, int type)
     {
 
+    }
+
+    /**
+     * 展示已经选择过的选项
+     */
+    public void showSelectedData() {
+
+        ppAdapter.setSelectedIndex(selectedIndex);
     }
 
 

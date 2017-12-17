@@ -133,7 +133,6 @@ public class HeadFootRecyclerView extends android.support.v7.widget.RecyclerView
             super.onLoadNextPage(view);
             LoadingFooter.State state = RecyclerViewStateUtils.getFooterViewState(HeadFootRecyclerView.this);
 
-            LogUtil.e("AAAAA","----------state="+state);
             if (state == LoadingFooter.State.Loading) {
                 Log.d("@Cundong", "the state is Loading, just wait..");
                 return;

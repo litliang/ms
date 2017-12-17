@@ -279,9 +279,10 @@ public class NationalCountryPresenter implements DataCallBack {
 
         b.or("cityName", "like","%"+ searchKey+"%");//条件
 
-        b.or("cityRuby", "like", "%"+searchKey+"%");//条件
+       // b.or("cityRuby", "like", "%"+searchKey+"%");//条件
 
-        b.or("firstSpell", "like", "%"+searchKey+"%");//条件
+       b.or("firstSpell", "like", "%"+searchKey+"%");//条件
+       // b.or("firstSpell", "=", searchKey);//条件
 
 
 

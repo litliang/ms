@@ -105,6 +105,8 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
     private AddCount addCount;
 
+    private boolean specialFlag = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         colorStatusResId = android.R.color.transparent;
@@ -177,11 +179,24 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
+
+                boolean flag = !recyclerView.canScrollVertically(-1);
+
+                if(flag){
+
+                    rlHotelHomeTitle.setVisibility(View.VISIBLE);
+
+                }else {
+
+                    rlHotelHomeTitle.setVisibility(View.INVISIBLE);
+                }
             }
 
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
+
+
             }
         });
 
@@ -201,6 +216,7 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
         initBottom();
 
     }
+
 
     private void initHeadData() {
 
@@ -413,6 +429,9 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
                     hotelStarPricePopup.setViewDataCallBack(ppViewDataCallBack);
 
+                }else {
+
+                    hotelStarPricePopup.showSelectedData();
                 }
 
                 hotelStarPricePopup.showFull(getWindow().getDecorView());
@@ -822,28 +841,36 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
             GlobalApp.getInstance().removeListener(onCityChangeListener);
 
-            tv_destination.setText(city.province + city.cityName + city.district + city.street);
-
-            GlobalApp.getInstance().setSelectedCity(city);
-
-            cityId = city.getCityId() + "";
-
-            initShow1ItemView();
+            reSetUseAddress(city);
 
             closePDialog();
-            //重新设置经纬度信息和类型
-            reSetCityInfo();
 
-            HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
-
-            productListParam.setSearchAddrLat(positionLatitude);
-
-            productListParam.setSearchAddrLng(positionLongitude);
-
-            productListParam.setSearchAddrType(1);//0市中心；1我的位置；
 
         }
     };
+
+    private void reSetUseAddress(Location city){
+
+        tv_destination.setText(city.addressInfoStr());
+
+        GlobalApp.getInstance().setSelectedCity(city);
+
+        cityId = city.getCityId() + "";
+
+        initShow1ItemView();
+
+        //重新设置经纬度信息和类型
+        reSetCityInfo();
+
+        HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
+
+        productListParam.setSearchAddrLat(positionLatitude);
+
+        productListParam.setSearchAddrLng(positionLongitude);
+
+        productListParam.setSearchAddrType(1);//0市中心；1我的位置；
+
+    }
 
     @Override
     protected void onRestart() {
@@ -853,11 +880,13 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
         reSetCityInfo();
 
-        if (cityName != null && !cityName.equals(cityNameStr)) {
+        if (cityName != null && !cityName.equals(cityNameStr)&&specialFlag) {
 
             tv_destination.setText(cityName);
 
             initShow1ItemView();
+
+            specialFlag = true;
         }
     }
 
@@ -963,6 +992,15 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
                 tv_destination.setText(cityName);
 
                 initShow1ItemView();
+
+            }else if(resultCode == 5002){//城市搜索页面--当前城市
+
+                specialFlag = false;
+
+                Location   city =   GlobalApp.getSelectedCity();
+
+                reSetUseAddress(city);
+
             }
         }
     }

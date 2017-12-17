@@ -185,17 +185,20 @@ public class CatalogueTypeAdapter extends RecyclerView.Adapter<RecyclerView.View
             myPPadapter.setMutualList(brandTypeBean.isMutualList());
 
             RecyclerView.LayoutManager layoutManager = wvBrand.getLayoutManager();
+
             if(flag){
 
                 if(layoutManager==null){
-                wvBrand.addItemDecoration(new DecorationUtil( CommonUtil.dip2px(activity,7)));
+
+                  wvBrand.addItemDecoration(new DecorationUtil( CommonUtil.dip2px(activity,7)));
 
                 }
             }
 
+            if(layoutManager==null ){
 
-            if(layoutManager==null){
                 wvBrand.setLayoutManager(new GridLayoutManager(activity, rowNum));
+
             }
 
             wvBrand.setAdapter(myPPadapter);
