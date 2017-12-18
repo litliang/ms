@@ -22,6 +22,7 @@ import com.yzb.card.king.ui.appwidget.popup.GoLoginDailog;
 import com.yzb.card.king.ui.hotel.activtiy.HotelRoomOrderActivity;
 import com.yzb.card.king.ui.hotel.fragment.BankFavorableFragment;
 import com.yzb.card.king.ui.hotel.fragment.BankLifeStageFragment;
+import com.yzb.card.king.ui.hotel.fragment.GetCashCouponFragment;
 import com.yzb.card.king.ui.hotel.fragment.HotelRoomFragment;
 import com.yzb.card.king.ui.hotel.fragment.HotelRoomInfoFragment;
 import com.yzb.card.king.ui.hotel.fragment.ServiceFacitityFragment;
@@ -223,6 +224,35 @@ public class HotelProductRoomInfoFragmentDialog extends DialogFragment implement
         }
 
         @Override
+        public void getCashCouponAction() {
+            FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+
+            GetCashCouponFragment twoFragment = new GetCashCouponFragment();
+
+            Bundle bundle = new Bundle();
+            //发放平台
+            int issuePlatform = 0;
+            //行业id
+            int industryId =  GlobalVariable.industryId;
+
+            bundle.putInt("issuePlatform",issuePlatform);
+
+            bundle.putInt("industryId",industryId);
+
+            bundle.putLong("shopId",hotelRoomComboInfoBean.getShopId());
+
+            bundle.putLong("storeId",hotelRoomComboInfoBean.getHotelId());
+
+            bundle.putLong("goodsId",hotelRoomComboInfoBean.getRoomInfo().getRoomsId());
+
+            twoFragment.setArguments(bundle);
+
+            twoFragment.setDataCall(hotelDialogInterface);
+
+            fragmentTransaction.replace(R.id.contentll, twoFragment).commit();
+        }
+
+        @Override
         public void hotelLifeStageAction()
         {
             BankLifeStageFragment twoFragment = new BankLifeStageFragment();
@@ -329,9 +359,13 @@ public class HotelProductRoomInfoFragmentDialog extends DialogFragment implement
         public void hotelServiceFacitity();
 
         /**
-         * 领券中心
+         * 优惠券
          */
         public void getCouponAction();
+        /**
+         * 代金券
+         */
+        public void getCashCouponAction();
         /**
          * 生活分期
          */

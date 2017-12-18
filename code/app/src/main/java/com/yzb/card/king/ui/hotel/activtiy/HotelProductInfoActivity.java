@@ -40,6 +40,7 @@ import com.yzb.card.king.ui.manage.UserManager;
 import com.yzb.card.king.ui.other.activity.PjActivity;
 import com.yzb.card.king.ui.other.activity.RoutePlanActivity;
 import com.yzb.card.king.util.AppBarStateChangeListener;
+import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.ToastUtil;
 import com.yzb.card.king.util.UiUtils;
 
@@ -178,7 +179,6 @@ public class HotelProductInfoActivity extends BaseActivity implements BaseViewLa
     private void initRequest()
     {
         showPDialog("正在请求数据……");
-
 
         hotelServerGoodsView = new HotelDetailPersenter(this);
 
@@ -420,9 +420,13 @@ public class HotelProductInfoActivity extends BaseActivity implements BaseViewLa
 
                 //酒店收藏状态
                 if (hotel.isCollectionStatus()) {
+
                     ivFav.setBackgroundResource(R.mipmap.icon_hotel_faved);
+
                 } else {
+
                     ivFav.setBackgroundResource(R.mipmap.icon_hotel_fav);
+
                 }
 
                 tvHotelName.setText(hotel.getHotelName());
@@ -435,10 +439,29 @@ public class HotelProductInfoActivity extends BaseActivity implements BaseViewLa
 
                 if (!TextUtils.isEmpty(reDate)) {
 
-                    reDate = "   " + reDate + "装修";
+                    reDate =  reDate + "装修";
+
+                }else {
+
+                    if(!TextUtils.isEmpty(hotel.getOpeningDate())){
+
+                        reDate =  hotel.getOpeningDate() + "开业";
+                    }else {
+
+                        reDate="";
+                    }
+
                 }
 
-                tvHotelLevelDate.setText(hotel.getLevelDesc() + reDate);
+                if(TextUtils.isEmpty(hotel.getLevelDesc())){
+
+                }else {
+
+                    reDate = hotel.getLevelDesc() +"  "+ reDate;
+                }
+                LogUtil.e("AAAAA","reDate===>"+reDate);
+
+                tvHotelLevelDate.setText( reDate);
 
                 tvHotelImageNumber.setText(hotel.getPhotoQuantity() + "张");
 

@@ -392,9 +392,9 @@ public class VoucherCenterActivity extends BaseActivity implements View.OnClickL
         // 显示/隐藏 礼品卡账户
         payHandle.showGiftPay(false);
         // 显示/隐藏 现金账户
-        payHandle.showBalancePay(true);
+        payHandle.showBalancePay(false);
         // 显示/隐藏 信用卡 默认隐藏
-        payHandle.showCreditCard(false);
+        payHandle.showCreditCard(true);
         // 显示/隐藏 借记卡 默认隐藏
         payHandle.showDebitCard(true);
 

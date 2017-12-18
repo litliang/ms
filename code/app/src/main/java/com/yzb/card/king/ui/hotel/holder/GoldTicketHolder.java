@@ -17,7 +17,7 @@ import com.yzb.card.king.util.Utils;
 import cn.lemon.view.adapter.BaseViewHolder;
 
 /**
- * 类  名：代金券视图控制类
+ * 类  名：酒店--优惠券
  * 作  者：Li Yubing
  * 日  期：2017/8/9
  * 描  述：
@@ -129,30 +129,6 @@ public class GoldTicketHolder extends BaseViewHolder<BaseCouponBean> implements 
             } else if ("0".equals(recieveStatus)) {
 
                 tvFuctionGet.setText("立即领取");
-
-                tvFuctionGet.setBackgroundResource(R.drawable.bg_round_corner_red);
-
-            }
-
-        }else if("3".equals(type)){//抵扣券；
-
-            tvPrice.setText( Utils.subZeroAndDot(data.getFullAmount() +""));
-
-            tvUnite.setVisibility(View.VISIBLE);
-
-            tvPrice.setTextSize(TypedValue.COMPLEX_UNIT_SP,15);
-
-            tvCondition.setText("抵扣");
-
-            if ("1".equals(recieveStatus)) {
-
-                tvFuctionGet.setText("已购买");
-
-                tvFuctionGet.setBackgroundResource(R.drawable.bg_round_corner_gray);
-
-            } else if ("0".equals(recieveStatus)) {
-
-                tvFuctionGet.setText("立即购买");
 
                 tvFuctionGet.setBackgroundResource(R.drawable.bg_round_corner_red);
 

@@ -138,10 +138,10 @@ public class BankSelectPopup implements View.OnClickListener, BaseViewLayerInter
 
         nameArray = activity.getResources().getStringArray(R.array.user_bank_info_name_array);
 
-        if (!UserManager.getInstance().isLogin()) {
+      //  if (!UserManager.getInstance().isLogin()) {
 
             nameArray = Utils.changeToStringArrayRemoveTotalStr(nameArray,nameArray[1]);
-        }
+     //   }
 
         wvLvData.setAdapter(ppAdapter);
 
@@ -168,10 +168,10 @@ public class BankSelectPopup implements View.OnClickListener, BaseViewLayerInter
 
         getCouponPersenter.sendQueryCoopertiveBankActionRequest(0, Integer.MAX_VALUE);
 
-        if (UserManager.getInstance().isLogin()) {
-            //发送我的绑卡信息
-            loadCardNum();
-        }
+//        if (UserManager.getInstance().isLogin()) {
+//            //发送我的绑卡信息
+//            loadCardNum();
+//        }
 
     }
 

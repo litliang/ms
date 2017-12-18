@@ -8,9 +8,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yzb.card.king.R;
+import com.yzb.card.king.bean.hotel.HotelProductListParam;
 import com.yzb.card.king.ui.base.BaseActivity;
 import com.yzb.card.king.ui.bonus.fragment.RedBagReceiverFragment;
 import com.yzb.card.king.ui.bonus.fragment.RedBagSendFragment;
+import com.yzb.card.king.ui.hotel.HotelLogicManager;
 import com.yzb.card.king.ui.my.fragment.DaijinquanFragment;
 import com.yzb.card.king.ui.my.fragment.YouhuiquanFragment;
 
@@ -52,6 +54,16 @@ public class CouponsMySelfActivity extends BaseActivity  {
             sendYouhuiquanClick();
 
         } else if (type == 2) {
+
+            HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
+
+            productListParam.setSearchAddrLat(positionLatitude);
+
+            productListParam.setSearchAddrLng(positionLongitude);
+
+            productListParam.setAddrName(cityName);
+
+            productListParam.setSearchAddrType(0);
 
             receiveDaijinquanClick();
         }

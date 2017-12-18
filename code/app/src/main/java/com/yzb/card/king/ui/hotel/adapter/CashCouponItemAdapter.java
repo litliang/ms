@@ -1,27 +1,26 @@
 package com.yzb.card.king.ui.hotel.adapter;
 
-
 import android.content.Context;
 import android.os.Handler;
 import android.view.ViewGroup;
 
 import com.yzb.card.king.bean.common.BaseCouponBean;
+import com.yzb.card.king.ui.hotel.holder.CashCouponItemHolder;
 import com.yzb.card.king.ui.hotel.holder.GoldTicketHolder;
 
 import cn.lemon.view.adapter.BaseViewHolder;
 import cn.lemon.view.adapter.RecyclerAdapter;
 
 /**
- * 类  名：优惠券
- * 作  者：Li Yubing
- * 日  期：2017/8/23
- * 描  述：
+ * 代金券
+ * Created by 玉兵 on 2017/12/18.
  */
-public class AppCouponItemAdapter extends RecyclerAdapter<BaseCouponBean> {
+
+public class CashCouponItemAdapter extends RecyclerAdapter<BaseCouponBean> {
 
     private Handler handler;
 
-    public AppCouponItemAdapter(Context context)
+    public CashCouponItemAdapter(Context context)
     {
         super(context);
     }
@@ -35,7 +34,7 @@ public class AppCouponItemAdapter extends RecyclerAdapter<BaseCouponBean> {
     @Override
     public BaseViewHolder<BaseCouponBean> onCreateBaseViewHolder(ViewGroup viewGroup, int i)
     {
-        return new GoldTicketHolder(viewGroup,handler);
+        return new CashCouponItemHolder(viewGroup,handler);
     }
 
 

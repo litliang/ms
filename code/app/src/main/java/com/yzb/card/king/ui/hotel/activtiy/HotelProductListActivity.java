@@ -25,6 +25,7 @@ import com.yzb.card.king.bean.hotel.HotelLevelBean;
 import com.yzb.card.king.bean.hotel.HotelProductListParam;
 import com.yzb.card.king.bean.hotel.HotelProductObjectBean;
 import com.yzb.card.king.bean.hotel.PromotionTypeBean;
+import com.yzb.card.king.bean.my.CouponInfoBean;
 import com.yzb.card.king.http.HttpConstant;
 import com.yzb.card.king.sys.AppConstant;
 import com.yzb.card.king.ui.appwidget.DefindTabView;
@@ -43,6 +44,7 @@ import com.yzb.card.king.ui.hotel.adapter.HotelProductItemAdapter;
 import com.yzb.card.king.ui.hotel.persenter.GetCouponPersenter;
 import com.yzb.card.king.ui.hotel.persenter.HotelBankActivityPersenter;
 import com.yzb.card.king.ui.hotel.persenter.HotelProductListPresenter;
+import com.yzb.card.king.ui.manage.UserManager;
 import com.yzb.card.king.ui.other.activity.CivilInternationCityActivity;
 import com.yzb.card.king.ui.other.fragment.HotelMapModelFragment;
 import com.yzb.card.king.util.CommonUtil;
@@ -126,10 +128,11 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
     //地图模式
     private HotelMapModelFragment mapFragment;
 
+    private boolean bankFlag = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
         defaultFlag = true;
         hotelProductListPresenter = new HotelProductListPresenter(this);
@@ -190,8 +193,49 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                 textView.setText(proBank);
 
                 mAdapter.setHeader(textView);
+
+                //禁止银行优惠和生活分期选择
+
+                bankFlag = false;
+
+                DefineTopView oneDefineTopView = defineTopViewList.get(1);
+
+                oneDefineTopView.setUiColor();
+
+                DefineTopView twoDefineTopView = defineTopViewList.get(2);
+
+                twoDefineTopView.setUiColor();
             }
+
         }
+
+        //检测是否有代金券
+        if (getIntent().hasExtra("CouponInfo")) {
+
+            CouponInfoBean bean = (CouponInfoBean) getIntent().getSerializableExtra("CouponInfo");
+            //添加Header
+            final TextView textView = new TextView(this);
+
+            textView.setLayoutParams(new LinearLayoutCompat.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, CommonUtil.dip2px(this, 25)));
+
+            textView.setBackgroundColor(Color.parseColor("#f0f5f9"));
+
+            textView.setTextColor(Color.parseColor("#44698f"));
+
+            textView.setTextSize(12);
+
+            textView.setGravity(Gravity.CENTER);
+
+            textView.setText(bean.getActName());
+
+            mAdapter.setHeader(textView);
+            //设置查询使用代金券
+            HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
+
+            productListParam.setCashCouponId(bean.getActId() + "");
+
+        }
+
         mRecyclerView = (RefreshRecyclerView) findViewById(R.id.recycler_view);
 
         mRecyclerView.setSwipeRefreshColors(0xFF437845, 0xFFE44F98, 0xFF2FAC21);
@@ -305,38 +349,44 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
             if (index == 1) {//银行优惠
 
-                if (bankSelectPopup == null) {
+                if (bankFlag) {
 
-                    bankSelectPopup = new BankSelectPopup(HotelProductListActivity.this, -1, true);
+                    if (bankSelectPopup == null) {
 
-                    bankSelectPopup.setSelectIndex(selectedBankIndex);
+                        bankSelectPopup = new BankSelectPopup(HotelProductListActivity.this, -1, true);
 
-                    bankSelectPopup.setCallBack(bankFreCallBankBack);
-                }else {
+                        bankSelectPopup.setSelectIndex(selectedBankIndex);
 
-                    bankSelectPopup.showSelectedData();
+                        bankSelectPopup.setCallBack(bankFreCallBankBack);
+                    } else {
+
+                        bankSelectPopup.showSelectedData();
+                    }
+
+
+                    bankSelectPopup.showPP(llTop);
                 }
-
-
-                bankSelectPopup.showPP(llTop);
-
 
             } else if (index == 2) {//生活分期
 
-                if (lifeStageSelectPopup == null) {
+                if (bankFlag) {
 
-                    lifeStageSelectPopup = new BankSelectPopup(HotelProductListActivity.this, -1, true);
+                    if (lifeStageSelectPopup == null) {
 
-                    lifeStageSelectPopup.setSelectIndex(selectedLifeStageIndex);
+                        lifeStageSelectPopup = new BankSelectPopup(HotelProductListActivity.this, -1, true);
 
-                    lifeStageSelectPopup.setCallBack(lifeStageCallBack);
+                        lifeStageSelectPopup.setSelectIndex(selectedLifeStageIndex);
 
-                }else {
+                        lifeStageSelectPopup.setCallBack(lifeStageCallBack);
 
-                    lifeStageSelectPopup.showSelectedData();
+                    } else {
+
+                        lifeStageSelectPopup.showSelectedData();
+                    }
+
+                    lifeStageSelectPopup.showPP(llTop);
+
                 }
-
-                lifeStageSelectPopup.showPP(llTop);
 
             } else if (index == 0) {//优惠促销
 
@@ -345,7 +395,7 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                     productPromotionTypePopup = new ProductPromotionTypePopup(HotelProductListActivity.this, -1);
 
                     productPromotionTypePopup.setCallBack(callBackPtp);
-                }else {
+                } else {
 
                     productPromotionTypePopup.showSelectedData();
                 }
@@ -366,7 +416,7 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                     hotelBrandPopup.setCallBack(entryCallBack);
 
-                }else {
+                } else {
 
                     hotelBrandPopup.showSelectedData();
                 }
@@ -391,6 +441,7 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
             } else {
 
                 defineTopView.setTabName(name);
+
                 defineTopView.setTabCheckStatus(true);
             }
             HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
@@ -399,17 +450,40 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                 productListParam.setBankIds(bankSelectPopup.getAllBankIds());
 
-            } else if (selectIndex == 1) {//我的银行
-
-                productListParam.setBankIds(bankSelectPopup.getMyBankIds());
-
-            } else if (selectIndex > 1) {//其它银行
+            }
+//            else if (selectIndex == 1) {//我的银行
+//
+//                if(UserManager.getInstance().isLogin()){
+//
+//                    productListParam.setBankIds(bankSelectPopup.getMyBankIds());
+//                }else {
+//
+//                    List<PaymethodAndBankPreStageBean> bankList = bankSelectPopup.getTotalList();
+//
+//                    if (bankList != null) {
+//
+//                        PaymethodAndBankPreStageBean bean = bankList.get(selectIndex - 1);
+//
+//                        productListParam.setBankIds(bean.getBankId() + "");
+//
+//                    }
+//                }
+//
+//            }
+            else if (selectIndex >= 1) {//其它银行
 
                 List<PaymethodAndBankPreStageBean> bankList = bankSelectPopup.getTotalList();
 
                 if (bankList != null) {
 
-                    PaymethodAndBankPreStageBean bean = bankList.get(selectIndex - 2);
+                    int numnber = 1;
+
+//                    if(UserManager.getInstance().isLogin()){
+//
+//                        numnber = 2;
+//                    }
+
+                    PaymethodAndBankPreStageBean bean = bankList.get(selectIndex - numnber);
 
                     productListParam.setBankIds(bean.getBankId() + "");
 
@@ -419,7 +493,6 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                 productListParam.setBankIds(null);
             }
-
 
             mRecyclerView.showSwipeRefresh();
 
@@ -443,6 +516,7 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
             } else {
 
                 defineTopView.setTabName(name);
+
                 defineTopView.setTabCheckStatus(true);
             }
 
@@ -452,17 +526,40 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                 productListParam.setStageBankIds(lifeStageSelectPopup.getAllBankIds());
 
-            } else if (selectIndex == 1) {//我的银行
-
-                productListParam.setStageBankIds(lifeStageSelectPopup.getMyBankIds());
-
-            } else if (selectIndex > 1) {//其它银行
+            }
+//            else if (selectIndex == 1) {//我的银行
+//
+//                if(UserManager.getInstance().isLogin()){
+//
+//                    productListParam.setStageBankIds(lifeStageSelectPopup.getMyBankIds());
+//                }else {
+//
+//                    List<PaymethodAndBankPreStageBean> bankList = lifeStageSelectPopup.getTotalList();
+//
+//                    if (bankList != null) {
+//
+//                        PaymethodAndBankPreStageBean bean = bankList.get(selectIndex - 1);
+//
+//                        productListParam.setStageBankIds(bean.getBankId() + "");
+//
+//                    }
+//                }
+//
+//            }
+            else if (selectIndex >= 1) {//其它银行
 
                 List<PaymethodAndBankPreStageBean> bankList = lifeStageSelectPopup.getTotalList();
 
                 if (bankList != null) {
 
-                    PaymethodAndBankPreStageBean bean = bankList.get(selectIndex - 2);
+                    int numnber = 1;
+
+//                    if(UserManager.getInstance().isLogin()){
+//
+//                        numnber = 2;
+//                    }
+
+                    PaymethodAndBankPreStageBean bean = bankList.get(selectIndex - numnber);
 
                     productListParam.setStageBankIds(bean.getBankId() + "");
 
@@ -545,7 +642,6 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                 productListParam.setHotelBrandList(selectedBean);
 
-
             }
 
             mRecyclerView.showSwipeRefresh();
@@ -612,7 +708,7 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                     hotelStarPricePopup.setViewDataCallBack(ppViewDataCallBack);
 
-                }else {
+                } else {
 
                     hotelStarPricePopup.showSelectedData();
                 }
@@ -709,7 +805,7 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                 Intent intent = new Intent(HotelProductListActivity.this, HotelSearchActivity.class);
 
-                List<SubItemBean> hotelKeyWordList  =  HotelLogicManager.getInstance().getHotelProductListParam().getHotelKeyWordList();
+                List<SubItemBean> hotelKeyWordList = HotelLogicManager.getInstance().getHotelProductListParam().getHotelKeyWordList();
 
                 if (hotelKeyWordList != null && hotelKeyWordList.size() == 1) {
                     intent.putExtra("transmitData", hotelKeyWordList.get(0));
@@ -880,17 +976,17 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                 productListParam.setEndPrice(maxValue + "");
             }
 
-            if(maxValue == 1001 && minValue== 0 ){
+            if (maxValue == 1001 && minValue == 0) {
 
                 oneFlagTemp = false;
-            }else {
+            } else {
 
                 oneFlagTemp = true;
             }
 
             DefindTabView oneDefindTabView = defindTabViewList.get(1);
 
-            oneDefindTabView.setSelectedTabStatus(oneFlag||oneFlagTemp);
+            oneDefindTabView.setSelectedTabStatus(oneFlag || oneFlagTemp);
 
             mRecyclerView.showSwipeRefresh();
 
@@ -921,7 +1017,7 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                     //设置评分 优惠促销 等筛选信息
                     HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
 
-                    List<SubItemBean>  tempList = productListParam.getHotelBaseFilterList();
+                    List<SubItemBean> tempList = productListParam.getHotelBaseFilterList();
 
                     StringBuffer youhuiSb = new StringBuffer();
 
@@ -951,12 +1047,12 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                     }
 
-                    if(!flag){
+                    if (!flag) {
 
                         productListParam.setMinVote(null);
                     }
 
-                    if(!hotelBaseFilterFlag){
+                    if (!hotelBaseFilterFlag) {
 
                         productListParam.setHotelBaseFilterList(null);
                     }
@@ -966,7 +1062,7 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                     if (disTypesStr.length() > 0) {
                         //设置筛选查询参数
                         productListParam.setDisTypes(disTypesStr.substring(0, disTypesStr.length() - 1));
-                    }else {
+                    } else {
 
                         productListParam.setDisTypes(null);
                     }
@@ -975,7 +1071,7 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                     getData(true);
 
-                }else {
+                } else {
 
                     oneDefindTabView.setSelectedTabStatus(false);
 
@@ -1005,11 +1101,13 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                         SubItemBean bean = (SubItemBean) transmitData;
 
-                        List<SubItemBean>  list =   productListParam.getHotelPositionList();
+                        List<SubItemBean> list = productListParam.getHotelPositionList();
 
-                        if(list == null){
+                        if (list == null) {
 
                             list = new ArrayList<SubItemBean>();
+                        } else {
+                            list.clear();
                         }
 
                         list.add(bean);
@@ -1020,11 +1118,11 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                         int size = list.size();
 
-                        if(size>0){
+                        if (size > 0) {
 
                             oneDefindTabView.setSelectedTabStatus(true);
 
-                        }else {
+                        } else {
 
                             oneDefindTabView.setSelectedTabStatus(false);
                         }
@@ -1046,11 +1144,13 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                         bean.setFilterLng(childSubItemBean.getFilterLng());
 
-                        List<SubItemBean>  list =   productListParam.getHotelPositionList();
+                        List<SubItemBean> list = productListParam.getHotelPositionList();
 
-                        if(list == null){
+                        if (list == null) {
 
                             list = new ArrayList<SubItemBean>();
+                        } else {
+                            list.clear();
                         }
 
                         list.add(bean);
@@ -1061,11 +1161,11 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                         int size = list.size();
 
-                        if(size>0){
+                        if (size > 0) {
 
                             oneDefindTabView.setSelectedTabStatus(true);
 
-                        }else {
+                        } else {
 
                             oneDefindTabView.setSelectedTabStatus(false);
                         }
@@ -1106,12 +1206,12 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                     if (subItemBean != null) {
 
-                        List<SubItemBean> hotelKeyWordList  =  HotelLogicManager.getInstance().getHotelProductListParam().getHotelKeyWordList();
+                        List<SubItemBean> hotelKeyWordList = HotelLogicManager.getInstance().getHotelProductListParam().getHotelKeyWordList();
 
-                        if(hotelKeyWordList == null){
+                        if (hotelKeyWordList == null) {
 
                             hotelKeyWordList = new ArrayList<SubItemBean>();
-                        }else {
+                        } else {
 
                             hotelKeyWordList.clear();
                         }

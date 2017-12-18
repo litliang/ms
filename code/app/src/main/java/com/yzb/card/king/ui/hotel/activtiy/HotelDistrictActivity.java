@@ -114,6 +114,7 @@ public class HotelDistrictActivity extends BaseActivity implements View.OnClickL
             case R.id.tvClear://清空
 
                 if (oneAdapter.getItemCount() > 0) {
+
                     oneAdapter.setCurrentIndex(0);
 
                     oneAdapter.notifyDataSetChanged();

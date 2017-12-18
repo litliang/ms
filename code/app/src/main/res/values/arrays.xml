@@ -700,8 +700,8 @@
         <item>大床</item>
         <item>圆床</item>
         <item>水床</item>
-        <item>单床/双床</item>
-        <item>大床/单床</item>
+        <item>双床/大床</item>
+        <item>单床/大床</item>
     </string-array>
     <integer-array  name="hotel_all_screen_bed_value_array">
         <item>1</item>

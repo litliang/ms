@@ -49,7 +49,7 @@ import java.util.Map;
 import cn.lemon.view.adapter.MultiTypeAdapter;
 
 /**
- * 类  名：领券碎片
+ * 类  名：优惠券
  * 作  者：Li Yubing
  * 日  期：2017/8/8
  * 描  述：
@@ -85,7 +85,7 @@ public class GetCouponFragment extends Fragment implements View.OnClickListener,
 
         TextView tvTitle = (TextView) view.findViewById(R.id.tvTitle);
 
-        tvTitle.setText("领券");
+        tvTitle.setText("领取优惠券");
 
         view.findViewById(R.id.llTemp).setOnClickListener(this);
 
@@ -180,35 +180,14 @@ public class GetCouponFragment extends Fragment implements View.OnClickListener,
 
               baseCouponBean = (BaseCouponBean) msg.obj;
 
-         String  couponeType =   baseCouponBean.getCouponType();
 
-         if("3".equals(couponeType)){//折扣券，需要购买
-
-             exeBuy(baseCouponBean.getActId(),baseCouponBean.getCutValue());
-
-         }else {
              long actId = baseCouponBean.getActId();
 
              persenter.sendReceiveCouponRequest(actId);
-         }
 
         }
     };
 
-    private float cutAmount = 0;
-    /**
-     * 购买优惠券；
-     */
-    private void exeBuy(long actId, float cutAmount)
-    {
-        this.cutAmount = cutAmount;
-
-        ProgressDialogUtil.getInstance().showProgressDialog(getContext(),false);
-
-        persenter.sendCreateCouponOrderRequest(actId,cutAmount);
-    }
-
-    private  OrderOutBean orderOutBean;
 
     @Override
     public void callSuccessViewLogic(Object o, int type)
@@ -233,18 +212,6 @@ public class GetCouponFragment extends Fragment implements View.OnClickListener,
                 mAdapter.notifyDataSetChanged();
             }
 
-        }else    if(type == GetCouponPersenter.CREATECOUPONORDER_CODE){
-
-            ProgressDialogUtil.getInstance().closeProgressDialog();
-
-            orderOutBean = com.alibaba.fastjson.JSONObject.parseObject(o+"",OrderOutBean.class);
-
-            startBuy();
-
-        }else  if(type == GetCouponPersenter.UPDATECOUPONPAYDETAIL_CODE){//更新数据
-
-            initRequest();
-
         }
 
     }
@@ -267,138 +234,5 @@ public class GetCouponFragment extends Fragment implements View.OnClickListener,
         this.ticketDetailDataCall = ticketDetailDataCall;
     }
 
-
-    private PayRequestLogic payHandle;
-
-    private String payType ="1";
-
-    private String payDetailId ="";
-    /**
-     * 付款；
-     */
-    private void startBuy(  )
-    {
-        payHandle = new PayRequestLogic(getActivity());
-        // 显示/隐藏 红包账户
-        payHandle.showEnvelopPay(false);
-        // 显示/隐藏 礼品卡账户
-        payHandle.showGiftPay(false);
-        // 显示/隐藏 现金账户
-        payHandle.showBalancePay(true);
-        // 显示/隐藏 信用卡 默认隐藏
-        payHandle.showCreditCard(false);
-        // 显示/隐藏 借记卡 默认隐藏
-        payHandle.showDebitCard(true);
-        //添加卡；
-        payHandle.setAddCardCallBack(new AddCardBackListener()
-        {
-            @Override
-            public void callBack()
-            {
-
-                startActivity(new Intent(getContext(), AddBankCardActivity.class));
-            }
-        });
-
-        payHandle.payMethodCallBack(new PayMethodListener()
-        {
-            @Override
-            public void callBack(Map<String, String> map)
-            {
-                LogUtil.e("选择付款方式返回数据=" + JSON.toJSONString(map));
-                payType = map.get("payType");
-                payDetailId = map.get("payDetailId");
-            }
-        });
-
-        payHandle.setCallBack(new WalletBackListener()
-        {
-            @Override
-            public void setSuccess(String RESULT_CODE)
-            {
-                onPaySucess();
-            }
-
-            @Override
-            public void setSuccess(Map<String, String> resultMap, String RESULT_CODE)
-            {
-
-                if(RESULT_CODE.equals( com.yzb.wallet.util.WalletConstant.PAY_TYPE_OFF)){// 支付卡信息不全
-
-                    String str = JSON.toJSONString(resultMap);
-
-                    PayMethod accountInfo = JSON.parseObject(str , PayMethod.class);
-
-                    int cardType = accountInfo.getCardType();
-
-                    Class claz = null;
-
-                    if(cardType==1){// 储蓄卡
-
-                        claz = AddBankCardActivity.class;
-
-                    }else if(cardType ==2){//信用卡
-
-                        claz = AddCanPayCardActivity.class;
-
-                    }
-                    Intent intent = new Intent(getContext(), claz);
-                    intent.putExtra("cardNo",accountInfo.getCardNo());
-                    intent.putExtra("name", accountInfo.getName());
-                    startActivity(intent);
-
-                }else{
-
-                    onPaySucess();
-
-                }
-            }
-
-            @Override
-            public void setError(String RESULT_CODE, String ERROR_MSG)
-            {
-                ToastUtil.i(getContext(),ERROR_MSG);
-            }
-        });
-
-        payHandle.pay(getInputMap(), false);
-    }
-
-    private Map<String, String> getInputMap(  )
-    {
-        Map<String, String> params = new HashMap<>();
-
-        params.put("mobile", UserManager.getInstance().getUserBean().getAmountAccount());
-
-        params.put("orderNo", orderOutBean.getOrderNo());
-
-        params.put("orderTime", DateUtil.formatOrderTime(orderOutBean.getOrderTime()));
-
-        String st = String.format("%.2f", cutAmount);
-
-        params.put("amount",st ); //订单金额；
-
-        params.put("leftTime", AppConstant.leftTime); //超时时间
-
-        params.put("goodsName", "折扣券"); //商品名称
-
-        params.put("transIp", AppUtils.getLocalIpAddress(GlobalApp.getInstance().getContext()));//交易IP
-
-        params.put("notifyUrl", orderOutBean.getNotifyUrl());
-
-        params.put("merchantNo", WalletConstant.MERCHANT_NO);//商户号
-
-        params.put("sign", AppConstant.sign);//签名
-
-        return params;
-    }
-
-    public void onPaySucess()
-    {
-        BuySucesWithOkDialog.getInstance().show(getFragmentManager(), "");
-
-        persenter.updateCouponPayDetailRequest(orderOutBean.getOrderId(),orderOutBean.getOrderAmount(),orderOutBean.getOrderTime(),payType,payDetailId);
-
-    }
 
 }

@@ -66,7 +66,6 @@ public class HotelServicePersenter implements DataCallBack {
         hotelProductService.hotelOtherGoodsRequestAction(param,HOTEL_OTHER_GOODS_CODE);
     }
 
-
     /**
      * 酒店其它产品套餐请求
      * @param param
