@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="返回" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="手机号"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/mobile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="15902115117"
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="支付方式"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/accountType"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="1"
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="验证码"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/validCode"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text=""
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="银行卡关联码"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/sortCode"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text=""
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="付款方式名称"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp"
+            android:id="@+id/textView" />
+
+        <EditText
+            android:id="@+id/payMethodName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="现金账户"
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="订单号"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/orderNo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text=""
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="订单时间"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/orderTime"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text=""
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="订单金额"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/amount"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="10"
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="超时时间"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/leftTime"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="20"
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="商品名称"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/goodsName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="东航航空"
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="交易IP"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/transIp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="192.168.100.110"
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="2"
+            android:gravity="center|left"
+            android:text="支付结果信息通知url"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/notifyUrl"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="35dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="http://116.228.184.116/card/api/walletUpdateOrders/389"
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="商户号"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/merchantNo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="35dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="141023000000000290"
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="签名"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/sign"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="35dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="18856066230"
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/payBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="付款" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="code:"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/code"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text=""
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="错误信息:"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/error"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="3"
+            android:gravity="center|left"
+            android:text=""
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="输出结果:"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/data"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="6"
+            android:paddingLeft="10dp"
+            android:text=""
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

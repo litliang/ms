@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="返回" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="订单金额"
+            android:textColor="@color/wordGrey"
+            android:textSize="13dp" />
+
+        <EditText
+            android:id="@+id/amount"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="1"
+            android:textColor="@color/wordBlack"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="订单号"
+            android:textColor="@color/wordGrey"
+            android:textSize="13dp" />
+
+        <EditText
+            android:id="@+id/orderNo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="9920170216101102"
+            android:textColor="@color/wordBlack"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="商品名称"
+            android:textColor="@color/wordGrey"
+            android:textSize="13dp" />
+
+        <EditText
+            android:id="@+id/goodsName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="信用卡还款"
+            android:textColor="@color/wordBlack"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="3"
+            android:gravity="center|left"
+            android:text="付款方手机号"
+            android:textColor="@color/wordGrey"
+            android:textSize="13dp" />
+
+        <EditText
+            android:id="@+id/debitMobile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="44dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="13901835463"
+            android:textColor="@color/wordBlack"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="2"
+            android:gravity="center|left"
+            android:text="付款方式"
+            android:textColor="@color/wordGrey"
+            android:textSize="13dp" />
+
+        <EditText
+            android:id="@+id/debitType"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="44dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text=""
+            android:textColor="@color/wordBlack"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="2"
+            android:gravity="left|center"
+            android:text="付款银行关联码"
+            android:textColor="@color/wordGrey"
+            android:textSize="13dp" />
+
+        <EditText
+            android:id="@+id/debitSortCode"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/wordBlack"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="3"
+            android:gravity="center|left"
+            android:text="收款方手机号"
+            android:textColor="@color/wordGrey"
+            android:textSize="13dp" />
+
+        <EditText
+            android:id="@+id/creditMobile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="44dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="13901835463"
+            android:textColor="@color/wordBlack"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="2"
+            android:gravity="center|left"
+            android:text="收款方式"
+            android:textColor="@color/wordGrey"
+            android:textSize="13dp" />
+
+        <EditText
+            android:id="@+id/creditType"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="44dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="0"
+            android:textColor="@color/wordBlack"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="3"
+            android:gravity="center|left"
+            android:text="收款方持卡人姓名"
+            android:textColor="@color/wordGrey"
+            android:textSize="13dp" />
+
+        <EditText
+            android:id="@+id/creditCardName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="44dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="刘菊婷"
+            android:textColor="@color/wordBlack"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="2"
+            android:gravity="center|left"
+            android:text="收款方卡号"
+            android:textColor="@color/wordGrey"
+            android:textSize="13dp" />
+
+        <EditText
+            android:id="@+id/creditCardNo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="44dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="377187113600449"
+            android:textColor="@color/wordBlack"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="left|center"
+            android:text="交易IP"
+            android:textColor="@color/wordGrey"
+            android:textSize="13dp" />
+
+        <EditText
+            android:id="@+id/transIp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="44dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="10.0.0.1"
+            android:textColor="@color/wordBlack"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="商户号"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/merchantNo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="35dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="141023000000000290"
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="签名"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/sign"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="35dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="1"
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/rechargeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="转账" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="code:"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/code"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text=""
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="错误信息:"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/error"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="3"
+            android:gravity="center|left"
+            android:text=""
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

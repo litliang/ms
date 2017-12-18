@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="返回" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="用户id"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/customerId"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="35dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="1429930284734"
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="银行名称"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/bankName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="35dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="交通银行"
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="银行id"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/bankId"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="35dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="3"
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="卡号"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/fullNo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="35dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="6222620250006666666"
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="卡名"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/reservedMobile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="35dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="18326613249"
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="姓名"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="35dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="李斯"
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="证件号码"
+            android:textColor="@color/wordGrey"
+            android:textSize="10dp" />
+
+        <EditText
+            android:id="@+id/certNo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="35dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="370112199109188011"
+            android:textColor="@color/wordBlack"
+            android:textSize="11dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bindDebitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="绑定借记卡" />
+
+    <Button
+        android:id="@+id/bindCreditBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="绑定信用卡" />
+
+    <Button
+        android:id="@+id/relieveBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="解绑银行卡" />
+
+</LinearLayout>

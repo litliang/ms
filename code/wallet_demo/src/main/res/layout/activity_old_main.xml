@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/rechargeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="充值" />
+
+        <Button
+            android:id="@+id/settleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="提现" />
+
+        <Button
+            android:id="@+id/authorizePay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="授权支付" />
+
+        <Button
+            android:id="@+id/codeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="支付码" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/ordinaryPayWithoutMethod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="普通支付(无支付方式)" />
+
+        <Button
+            android:id="@+id/ordinaryPayWithMethod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="普通支付(有支付方式)" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/creditBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="银行还款" />
+
+        <Button
+            android:id="@+id/pointBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="积分付款" />
+
+        <Button
+            android:id="@+id/payBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="付款操作" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/chosePayMethod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择支付方式" />
+
+        <Button
+            android:id="@+id/customerBankCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="银行卡处理" />
+
+        <Button
+            android:id="@+id/orderBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="订单处理" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/accountBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="账户系统" />
+
+        <Button
+            android:id="@+id/payPwdBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="支付密码" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/chargeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="收款操作" />
+
+    </LinearLayout>
+
+</LinearLayout>

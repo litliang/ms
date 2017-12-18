@@ -136,7 +136,6 @@ dependencies {
     compile(name: 'wheelview_lib', ext: 'aar')
     compile(name: 'drag_sort_listview', ext: 'aar')
     compile(name: 'coverflow_sdk', ext: 'aar')
-    compile(name: 'yzb_wallet_sdk', ext: 'aar')
     compile(name: 'calendarLibrary-release', ext: 'aar')
     compile(name: 'RefreshRecyclerView-release', ext: 'aar')
     compile(name: 'andBase', ext: 'aar')
@@ -166,6 +165,5 @@ dependencies {
     compile 'com.timehop.stickyheadersrecyclerview:library:0.4.3@aar'
     compile 'com.zhy:flowlayout-lib:1.0.3'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-
-
+    compile project(':yzb_wallet')
 }

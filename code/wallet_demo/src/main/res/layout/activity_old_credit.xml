@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="返回" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="金额"
+            android:textColor="@color/wordGrey"
+            android:textSize="13dp" />
+
+        <EditText
+            android:id="@+id/amount"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="44dp"
+            android:layout_weight="3"
+            android:maxLength="10"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:text="14"
+            android:textColor="@color/wordBlack"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="摘要"
+            android:textColor="@color/wordGrey"
+            android:textSize="13dp" />
+
+        <EditText
+            android:id="@+id/summary"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="44dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:maxLength="20"
+            android:text="普通支付(无支付方式)"
+            android:textColor="@color/wordBlack"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/chosePayMethod"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="6dp"
+        android:background="@drawable/bank_card_shape"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="付款方式"
+            android:textColor="@android:color/black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/accountType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/customerBankId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/bankName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center|right"
+            android:text="账户余额"
+            android:textColor="@color/wordBlack"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="15dp"
+            android:layout_marginRight="14dp"
+            android:src="@drawable/icon_arrow_right_card" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="sessionId"
+            android:textColor="@color/wordGrey"
+            android:textSize="13dp" />
+
+        <EditText
+            android:id="@+id/sessionId"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="44dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="42896282221762663891453882110841"
+            android:textColor="@color/wordBlack"
+            android:textSize="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="UUID"
+            android:textColor="@color/wordGrey"
+            android:textSize="13dp" />
+
+        <EditText
+            android:id="@+id/UUID"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="44dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/wordBlack"
+            android:textSize="10dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/ordinaryBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="银行还款" />
+
+</LinearLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:background="@drawable/style_pay_pwd_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/payPwdMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:text="设置6位数字支付密码"
+            android:textColor="@color/wordBlack"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:background="@color/grey2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.yzb.wallet.gridpasswordview.GridPasswordView
+            android:id="@+id/payPwd"
+            android:layout_width="241dp"
+            android:layout_height="39dp"
+            app:passwordLength="6"
+            app:passwordTransformation="*"
+            app:passwordType="numberPassword"
+            app:textColor="@color/wordBlack"
+            app:textSize="25sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/cancelBtn"
+            android:layout_width="101dp"
+            android:layout_height="30dp"
+            android:background="@drawable/style_btn_cancel"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/grey7"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/positiveBtn"
+            android:layout_width="101dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/style_btn_positive_light"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@color/white"
+            android:enabled="false"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

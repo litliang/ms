@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/payAllLinear"
+        android:layout_width="match_parent"
+        android:layout_height="366dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <!-- 标题 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/grey4"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/pwdBack"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="left|center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:adjustViewBounds="true"
+                    android:maxHeight="15dp"
+                    android:maxWidth="15dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/pay_icon_toback" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:gravity="center"
+                    android:text="输入密码"
+                    android:textColor="@color/black8"
+                    android:textSize="16dp"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/pwdCancel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="right|center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="24dp"
+                    android:adjustViewBounds="true"
+                    android:maxHeight="15dp"
+                    android:maxWidth="15dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/pay_icon_cancel" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- 加载页面 -->
+        <LinearLayout
+            android:id="@+id/waiting"
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.yzb.wallet.loading.AVLoadingIndicatorView
+                android:id="@+id/avi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/AVLoadingIndicatorView.MaxLarge"
+                app:indicatorColor="@color/bgBlack"
+                />
+
+            <TextView
+                android:id="@+id/waitingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="加载中,请稍后......"
+                android:textColor="@color/grey7"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+        <!-- 密码输入 -->
+        <LinearLayout
+            android:id="@+id/payPwdLinear"
+            android:layout_width="match_parent"
+            android:layout_height="87dp"
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:layout_marginTop="25dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <com.yzb.wallet.gridpasswordview.GridPasswordView
+                    android:id="@+id/inputPwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp"
+                    android:inputType="number"
+                    app:passwordLength="6"
+                    app:passwordTransformation="*"
+                    app:passwordType="numberPassword"
+                    app:textColor="@color/black7"
+                    app:textSize="25sp" />
+
+                <EditText
+                    android:id="@+id/shadowText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/payPwdForget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="忘记密码"
+                android:textColor="@color/yellow"
+                android:textSize="14dp"
+                android:layout_marginTop="9dp"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <!-- 支付键盘 -->
+        <include layout="@layout/wallet_keyboard"
+            android:visibility="visible"/>
+
+    </LinearLayout>
+</LinearLayout>
