@@ -106,6 +106,7 @@ public class AppHomeActivity extends BaseActivity {
             @Override
             public boolean onLongClick(View v) {
                 BaseModelImpl.toast = !BaseModelImpl.toast;
+                com.yzb.wallet.logic.comm.ToastUtil.toast = BaseModelImpl.toast;
                 if (BaseModelImpl.toast) {
                     ToastUtil.i(v.getContext(), "调试已开启");
                     ServiceDispatcher.toastVer();

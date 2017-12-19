@@ -53,8 +53,7 @@ public class DefindTabView implements View.OnClickListener {
      */
     private boolean ppflag = false;
 
-    public DefindTabView(Context context, OnClickAction clickAction)
-    {
+    public DefindTabView(Context context, OnClickAction clickAction) {
 
         this.context = context;
 
@@ -74,18 +73,26 @@ public class DefindTabView implements View.OnClickListener {
 
     }
 
-    public void setTextColor(int[] textColor){
+    public void setTextColor(int[] textColor) {
         this.textColor = textColor;
     }
 
-    public void setPpflag(boolean ppflag)
-    {
+    public void setPpflag(boolean ppflag) {
         this.ppflag = ppflag;
     }
 
-    public void setDrawable(int[] drawable)
-    {
+    public void setDrawable(int[] drawable) {
         this.drawable = drawable;
+    }
+
+    public boolean enable = true;
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
 
     /**
@@ -94,8 +101,7 @@ public class DefindTabView implements View.OnClickListener {
      * @param ll
      * @param index
      */
-    public void addTabToLL(LinearLayout ll, int index)
-    {
+    public void addTabToLL(LinearLayout ll, int index) {
 
         ivBottom.setBackgroundResource(drawable[0]);
 
@@ -111,8 +117,7 @@ public class DefindTabView implements View.OnClickListener {
 
     }
 
-    public View getTabView()
-    {
+    public View getTabView() {
 
         return tabView;
     }
@@ -123,8 +128,7 @@ public class DefindTabView implements View.OnClickListener {
      * @param stringName
      * @param drawable
      */
-    public void setViewData(int stringName, int[] drawable)
-    {
+    public void setViewData(int stringName, int[] drawable) {
 
         setDrawable(drawable);
 
@@ -136,22 +140,21 @@ public class DefindTabView implements View.OnClickListener {
     /**
      * 设置选中状态
      */
-    public  void setSelectedTabStatus(boolean flag){
+    public void setSelectedTabStatus(boolean flag) {
 
 
-        if(flag){
+        if (flag) {
             uiHandler.sendEmptyMessage(1);
-        }else{
+        } else {
             uiHandler.sendEmptyMessage(0);
         }
 
 
     }
 
-    private Handler uiHandler = new Handler(){
+    private Handler uiHandler = new Handler() {
         @Override
-        public void handleMessage(Message msg)
-        {
+        public void handleMessage(Message msg) {
             super.handleMessage(msg);
 
             ivBottom.setBackgroundResource(drawable[msg.what]);
@@ -161,18 +164,17 @@ public class DefindTabView implements View.OnClickListener {
     };
 
     @Override
-    public void onClick(View v)
-    {
+    public void onClick(View v) {
         if (ppflag) {
 
-            if(defaultStatusFlag){
+            if (defaultStatusFlag) {
 
                 defaultStatusFlag = false;
-            }else{
+            } else {
                 defaultStatusFlag = true;
             }
 
-            clickAction.onTabClickItem((int) v.getTag(), tvBottom,defaultStatusFlag);
+            clickAction.onTabClickItem((int) v.getTag(), tvBottom, defaultStatusFlag);
 
 
         } else {
@@ -183,9 +185,10 @@ public class DefindTabView implements View.OnClickListener {
                 defaultStatusFlag = false;
 
                 ivBottom.setBackgroundResource(drawable[1]);
+                if (isEnable()) {
 
-                tvBottom.setTextColor(context.getResources().getColor(textColor[1]));
-
+                    tvBottom.setTextColor(context.getResources().getColor(textColor[1]));
+                }
 
 
             } else {
@@ -194,16 +197,20 @@ public class DefindTabView implements View.OnClickListener {
 
                 ivBottom.setBackgroundResource(drawable[0]);
 
-                tvBottom.setTextColor(context.getResources().getColor(textColor[0]));
+                if (isEnable()) {
+
+                    tvBottom.setTextColor(context.getResources().getColor(textColor[0]));
+
+                }
             }
 
-            clickAction.onTabClickItem((int) v.getTag(), tvBottom,defaultStatusFlag);
+            clickAction.onTabClickItem((int) v.getTag(), tvBottom, defaultStatusFlag);
         }
     }
 
     public interface OnClickAction {
 
-        void onTabClickItem(int index, TextView textView,boolean selectedStatus);
+        void onTabClickItem(int index, TextView textView, boolean selectedStatus);
 
     }
 }

@@ -17,6 +17,16 @@ import java.util.Map;
  */
 public class BasePay {
 
+    public Activity aty;
+
+    public Activity getAty() {
+        return aty;
+    }
+
+    public void setAty(Activity aty) {
+        this.aty = aty;
+    }
+
     protected WalletBackListener wbListener;
     protected ForgetPwdBackListener forgetPwdListener;
     protected AddCardBackListener addCardBackListener;

@@ -38,7 +38,7 @@ public class NumberWheelView {
 
         wvYinger = (WheelView) numberView.findViewById(R.id.wvYinger);
 
-        wvChengren.setAdapter(new NumericWheelAdapter(0, 9));
+        wvChengren.setAdapter(new NumericWheelAdapter(1, 9));
         wvChengren.setCurrentItem(1);//设置第二位
         wvChengren.setCyclic(false);
 
@@ -116,7 +116,7 @@ public class NumberWheelView {
     public void setCurrentIndex(int crAdult, int etChilDren, int yebaBy)
     {
 
-        wvChengren.setCurrentItem(crAdult);
+        wvChengren.setCurrentItem(crAdult-1);
 
         wvErtong.setCurrentItem(etChilDren);
 
