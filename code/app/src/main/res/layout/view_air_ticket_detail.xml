@@ -64,6 +64,7 @@
                 android:text="输入商家名称"
                 android:textColor="@color/color_999999"
                 android:textSize="@dimen/title_size_16"
+                android:visibility="invisible"
                 />
 
         </RelativeLayout>

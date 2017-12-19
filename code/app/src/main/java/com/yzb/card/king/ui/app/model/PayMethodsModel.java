@@ -113,6 +113,7 @@ public class PayMethodsModel
                 }
             }
         });
+        payHandle.setAty(context);
         payHandle.payMethod(paramMap);
     }
 }

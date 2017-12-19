@@ -7,7 +7,6 @@ import com.yzb.card.king.http.BaseRequest;
 import com.yzb.card.king.http.SimpleRequest;
 import com.yzb.card.king.sys.GlobalApp;
 import com.yzb.card.king.util.JsonUtil;
-import com.yzb.card.king.util.LogUtil;
 
 import java.util.Map;
 

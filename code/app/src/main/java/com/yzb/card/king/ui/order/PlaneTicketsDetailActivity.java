@@ -143,7 +143,7 @@ public class PlaneTicketsDetailActivity extends BaseActivity implements View.OnC
 
                     Intent intent = new Intent(this, EndorseTicketInfoActivity.class);
 
-                    intent.putExtra("ticketOrderDetBean",ticketOrderDetBean);
+                    intent.putExtra("ticketOrderDetBean", ticketOrderDetBean);
 
                     startActivity(intent);
                 }
@@ -261,7 +261,9 @@ public class PlaneTicketsDetailActivity extends BaseActivity implements View.OnC
         orderStatus = detailBean.getOrderStatus();
 
         tvTicketStatus.setText(OrderUtils.getOrderStatus(orderStatus));
-
+        if (tvTicketStatus.getText().toString().equals("待支付")) {
+            findViewById(R.id.tuigaiqian).setVisibility(View.GONE);
+        }
         tvOrderAmount.setText(orderAmount);
 
         refreshViewData();
@@ -272,11 +274,11 @@ public class PlaneTicketsDetailActivity extends BaseActivity implements View.OnC
     private void refreshViewData() {
         if (detailBean != null) {
 
-            if(orderStatus == OrderBean.ORDER_STATUS_NO_PAY){
+            if (orderStatus == OrderBean.ORDER_STATUS_NO_PAY) {
 
                 tvPayMoney.setVisibility(View.GONE);
 
-            }else {
+            } else {
 
                 tvPayMoney.setVisibility(View.GONE);
             }

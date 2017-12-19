@@ -84,7 +84,7 @@ public class MyConcernAdapter extends RecyclerView.Adapter {
 
             PlaneStarEndBean flightDynamicsBean = planeStarEndBeen.get(position);
 
-            myViewHolder.hbName.setText(flightDynamicsBean.getAirline() + flightDynamicsBean.getFlightNum());
+            myViewHolder.hbName.setText(flightDynamicsBean.getAirline());
 
             myViewHolder.starTime.setText(flightDynamicsBean.getDepTime());
             myViewHolder.endTime.setText(flightDynamicsBean.getArrTime());

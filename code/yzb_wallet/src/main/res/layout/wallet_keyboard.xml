@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+    <!-- 支付键盘 -->
+    <TableLayout
+        android:id="@+id/keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="215dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:visibility="visible">
+
+        <TableRow android:gravity="center">
+
+            <ImageView
+                android:id="@+id/key01"
+                android:layout_width="0dp"
+                android:layout_height="53dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_01" />
+
+            <ImageView
+                android:id="@+id/key02"
+                android:layout_width="0dp"
+                android:layout_height="53dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_02" />
+
+            <ImageView
+                android:id="@+id/key03"
+                android:layout_width="0dp"
+                android:layout_height="53dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_03" />
+
+        </TableRow>
+
+        <TableRow android:gravity="center">
+
+            <ImageView
+                android:id="@+id/key04"
+                android:layout_width="0dp"
+                android:layout_height="53dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_04" />
+
+            <ImageView
+                android:id="@+id/key05"
+                android:layout_width="0dp"
+                android:layout_height="53dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_05" />
+
+            <ImageView
+                android:id="@+id/key06"
+                android:layout_width="0dp"
+                android:layout_height="53dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_06" />
+        </TableRow>
+
+        <TableRow android:gravity="center">
+
+            <ImageView
+                android:id="@+id/key07"
+                android:layout_width="0dp"
+                android:layout_height="53dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_07" />
+
+            <ImageView
+                android:id="@+id/key08"
+                android:layout_width="0dp"
+                android:layout_height="53dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_08" />
+
+            <ImageView
+                android:id="@+id/key09"
+                android:layout_width="0dp"
+                android:layout_height="53dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_09" />
+        </TableRow>
+
+        <TableRow android:gravity="center">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="53dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_blank_grey"
+                android:id="@+id/imageView" />
+
+            <ImageView
+                android:id="@+id/key00"
+                android:layout_width="0dp"
+                android:layout_height="53dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_number_00" />
+
+            <ImageView
+                android:id="@+id/keydel"
+                android:layout_width="0dp"
+                android:layout_height="53dp"
+                android:layout_weight="1"
+                android:src="@drawable/key_del" />
+        </TableRow>
+
+    </TableLayout>
+
+</LinearLayout>

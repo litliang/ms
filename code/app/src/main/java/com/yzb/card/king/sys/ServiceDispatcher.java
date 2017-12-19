@@ -78,8 +78,11 @@ public class ServiceDispatcher {
     public static void reset(String ver) {
 
         base_url_api = base_url_api.replaceAll("000", ver);
+        if (ver.equals("115")) {
+            com.yzb.wallet.sys.ServiceDispatcher.app_url_api = "http://116.228.184." + "116" + ":8080/app/api/api/";
+        } else
+            com.yzb.wallet.sys.ServiceDispatcher.app_url_api = "http://116.228.184." + ver + ":8082/app/api/api/";
 
-        com.yzb.wallet.sys.ServiceDispatcher.app_url_api  = "http://116.228.184."+ver+":8082/app/api/api/";
         url_api = base_url_api + "card/api/api/";
         url_refund_rule = base_url_api + "card/api/refundRule";
         url_passenger_invite = ServiceDispatcher.base_url_api + "card/api/customerGuestCreateH5";

@@ -57,8 +57,9 @@ public class SelectNumberPick extends BasePickerView implements View.OnClickList
             case R.id.tv_ok:
 
                 List<Integer> str = numberWheelView.getSelectedInfo();
-
                 int a = str.get(0);
+                str.set(0,a+1);
+                a+=1;
                 int b = str.get(1);
                 int c = str.get(2);
 
@@ -66,12 +67,15 @@ public class SelectNumberPick extends BasePickerView implements View.OnClickList
                     ToastUtil.i(context, R.string.ticket_cr_et_chose);
                     return;
                 }
-
-                if ((a < b / 2 + c) ) {
+                int aa = b/2+(b%2>0?1:0);
+                if (a*2<b||a<c||a-aa<c) {
                     ToastUtil.i(context, R.string.ticket_cr_et_chose);
                     return;
                 }
-
+                if ((a + b + c>9) ) {
+                    ToastUtil.i(context, R.string.ticket_cr_et_most);
+                    return;
+                }
                 if (dataLister != null) {
                     dataLister.getSelectedData(str);
                 }

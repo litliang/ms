@@ -87,6 +87,16 @@ public class GlobalApp extends MultiDexApplication {
     private static GlobalApp instance;
 
     private GeoCoder mSearch; // 地理编码检索；
+    private boolean walletDebug;
+
+    public boolean isWalletDebug() {
+        return walletDebug;
+    }
+
+    public void setWalletDebug(boolean walletDebug) {
+        this.walletDebug = walletDebug;
+    }
+
     /**
      * 特殊标记字段
      */
