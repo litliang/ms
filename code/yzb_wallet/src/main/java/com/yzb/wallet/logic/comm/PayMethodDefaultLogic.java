@@ -2,6 +2,9 @@ package com.yzb.wallet.logic.comm;
 
 import android.app.Activity;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 
 import com.alibaba.fastjson.JSON;
 import com.yzb.wallet.openInterface.BasePay;
@@ -54,44 +57,46 @@ public class PayMethodDefaultLogic extends BasePay {
     /**
      * 显示现金账号
      */
-    public void showBalancePay(Boolean showBalancePay){
+    public void showBalancePay(Boolean showBalancePay) {
         this.showBalancePay = showBalancePay;
     }
 
     /**
      * 显示红包账号
      */
-    public void showEnvelopPay(Boolean showEnvelopPay){
+    public void showEnvelopPay(Boolean showEnvelopPay) {
         this.showEnvelopPay = showEnvelopPay;
     }
 
     /**
      * 显示礼品卡账号
      */
-    public void showGiftPay(Boolean showGiftPay){
+    public void showGiftPay(Boolean showGiftPay) {
         this.showGiftPay = showGiftPay;
     }
 
     /**
      * 显示积分账号
      */
-    public void showIntegralPay(Boolean showIntegralPay){
+    public void showIntegralPay(Boolean showIntegralPay) {
         this.showIntegralPay = showIntegralPay;
     }
 
     /**
      * 显示借记卡
      */
-    public void showDebitCard(Boolean showDebitCard){
+    public void showDebitCard(Boolean showDebitCard) {
         this.showDebitCard = showDebitCard;
     }
 
     /**
      * 显示信用卡
      */
-    public void showCreditCard(Boolean showCreditCard){
+    public void showCreditCard(Boolean showCreditCard) {
         this.showCreditCard = showCreditCard;
     }
+
+    Map map;
 
     /**
      * 获取全部付款方式
@@ -124,18 +129,22 @@ public class PayMethodDefaultLogic extends BasePay {
                 cardParams.put("sign", params.get("sign"));
                 cardParams.put("signType", params.get("signType"));
 
-                if(showDebitCard)
+                if (showDebitCard)
                     cardParams.put("cardType", WalletConstant.DEBIT_CARD);
-                else if(showCreditCard)
+                else if (showCreditCard)
                     cardParams.put("cardType", WalletConstant.CREDIT_CARD);
 
-                if(showDebitCard && showCreditCard)
+                if (showDebitCard && showCreditCard)
                     cardParams.put("cardType", "");
 
                 cardParams.put("limitDay", "1");
 
+
                 // 获取银行卡列表
-                Map<String, String> bankCardResult = ServiceDispatcher.callApp(activity, ServiceDispatcher.setParams(CardConstant.app_card_list, JSON.toJSONString(cardParams)));
+                map = ServiceDispatcher.setParams(CardConstant.app_card_list, JSON.toJSONString(cardParams));
+
+                final Map<String, String> bankCardResult = ServiceDispatcher.callApp(activity, map);
+
                 if (null == bankCardResult || bankCardResult.isEmpty()) {
                     result.put("code", WalletConstant.CODE_FAIL);
                     return result;
@@ -204,15 +213,15 @@ public class PayMethodDefaultLogic extends BasePay {
                 map.put("limitMonth", "");
                 map.put("logo", "");
                 // 判断是否显示账号
-                if(showBalancePay && WalletConstant.PAY_BALANCE.equals(accountType))
+                if (showBalancePay && WalletConstant.PAY_BALANCE.equals(accountType))
                     payMethodList.add(map);
-                if(showEnvelopPay && WalletConstant.PAY_RED_ENVELOP.equals(accountType))
+                if (showEnvelopPay && WalletConstant.PAY_RED_ENVELOP.equals(accountType))
                     payMethodList.add(map);
-                if(showGiftPay && WalletConstant.PAY_GIFT_CARD.equals(accountType))
+                if (showGiftPay && WalletConstant.PAY_GIFT_CARD.equals(accountType))
                     payMethodList.add(map);
-                if(showIntegralPay && (WalletConstant.PAY_INTEGRAL_PT.equals(accountType) || WalletConstant.PAY_INTEGRAL_SJ.equals(accountType)))
+                if (showIntegralPay && (WalletConstant.PAY_INTEGRAL_PT.equals(accountType) || WalletConstant.PAY_INTEGRAL_SJ.equals(accountType)))
                     payMethodList.add(map);
-                if(WalletConstant.PAY_CREDIT.equals(accountType))
+                if (WalletConstant.PAY_CREDIT.equals(accountType))
                     payMethodList.add(map);
             }
         }

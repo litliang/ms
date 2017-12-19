@@ -16,104 +16,87 @@ import com.yzb.card.king.util.ToastUtil;
 /**
  * Created by gengqiyun on 2016/4/20.
  */
-public class BaseFragment extends Fragment
-{
+public class BaseFragment extends Fragment {
     protected String cityId;
 
     protected int cityLevel;
 
     @Override
-    public void onAttach(Context context)
-    {
+    public void onAttach(Context context) {
         super.onAttach(context);
-        cityId = GlobalApp.getSelectedCity().cityId;
-        cityLevel= GlobalApp.getSelectedCity().cityLevel;
+        if (GlobalApp.getSelectedCity() != null) {
+            cityId = GlobalApp.getSelectedCity().cityId;
+            cityLevel = GlobalApp.getSelectedCity().cityLevel;
+        }
     }
 
-    protected void toastCustom(String text)
-    {
-        ToastUtil.i(getActivity(),   text);
+    protected void toastCustom(String text) {
+        ToastUtil.i(getActivity(), text);
     }
 
-    protected void toastCustom(int resId)
-    {
-        ToastUtil.i(getActivity(),   getString(resId));
+    protected void toastCustom(int resId) {
+        ToastUtil.i(getActivity(), getString(resId));
     }
 
-    protected String getCityId(Context context)
-    {
+    protected String getCityId(Context context) {
         return GlobalApp.getSelectedCity().cityId;
     }
 
-    protected void readyGo(Activity context, Class claz)
-    {
+    protected void readyGo(Activity context, Class claz) {
         Intent intent = new Intent(context, claz);
         context.startActivity(intent);
     }
 
-    protected void readyGoForResult(Activity context, Class claz, int reqCode)
-    {
+    protected void readyGoForResult(Activity context, Class claz, int reqCode) {
         Intent intent = new Intent(context, claz);
         startActivityForResult(intent, reqCode);
     }
 
-    protected void readyGoWithBundle(Activity context, Class claz, Bundle bundle)
-    {
+    protected void readyGoWithBundle(Activity context, Class claz, Bundle bundle) {
         Intent intent = new Intent(context, claz);
-        if (bundle != null)
-        {
+        if (bundle != null) {
             intent.putExtra(AppConstant.INTENT_BUNDLE, bundle);
         }
         context.startActivity(intent);
     }
 
-    protected void readyGoWithBundleForResult(Activity context, Class claz, Bundle bundle, int reqCode)
-    {
+    protected void readyGoWithBundleForResult(Activity context, Class claz, Bundle bundle, int reqCode) {
         Intent intent = new Intent(context, claz);
-        if (bundle != null)
-        {
+        if (bundle != null) {
             intent.putExtra(AppConstant.INTENT_BUNDLE, bundle);
         }
         context.startActivityForResult(intent, reqCode);
     }
 
     @Override
-    public void onDetach()
-    {
+    public void onDetach() {
         cancelReqByTag();
         super.onDetach();
     }
 
-    protected boolean isEmpty(String input)
-    {
+    protected boolean isEmpty(String input) {
         if (input == null || "".equals(input))
             return true;
-        for (int i = 0; i < input.length(); i++)
-        {
+        for (int i = 0; i < input.length(); i++) {
             char c = input.charAt(i);
-            if (c != ' ' && c != '\t' && c != '\r' && c != '\n')
-            {
+            if (c != ' ' && c != '\t' && c != '\r' && c != '\n') {
                 return false;
             }
         }
         return false;
     }
 
-    public void log(String msg)
-    {
+    public void log(String msg) {
         LogUtil.i(msg);
     }
 
     /**
      * 此处取消网络请求；
      */
-    protected void cancelReqByTag()
-    {
+    protected void cancelReqByTag() {
         String[] reqTagList = getReqTagList();
-        if (reqTagList != null && reqTagList.length > 0)
-        {
-            for (String req_tag : reqTagList)
-            {
+        if (reqTagList != null && reqTagList.length > 0) {
+            for (String req_tag : reqTagList) {
 //                HttpProxy.cancelSpecificRequest(getActivity(), req_tag);
             }
 //            LogUtil.i("取消的tag-list=====>" + Arrays.toString(reqTagList));
@@ -124,8 +107,7 @@ public class BaseFragment extends Fragment
     /**
      * 关闭进度对话框；
      */
-    public void closePDialog()
-    {
+    public void closePDialog() {
         ProgressDialogUtil.getInstance().closeProgressDialog();
     }
 
@@ -134,8 +116,7 @@ public class BaseFragment extends Fragment
      *
      * @param msg 消息提示；
      */
-    public void showPDialog(String msg)
-    {
+    public void showPDialog(String msg) {
         ProgressDialogUtil.getInstance().showProgressDialogMsg(msg, getActivity(), false);
     }
 
@@ -144,8 +125,7 @@ public class BaseFragment extends Fragment
      *
      * @param msgResId 消息提示；
      */
-    public void showPDialog(int msgResId)
-    {
+    public void showPDialog(int msgResId) {
         ProgressDialogUtil.getInstance().showProgressDialogMsg(getString(msgResId), getActivity(), false);
     }
 
@@ -154,8 +134,7 @@ public class BaseFragment extends Fragment
      *
      * @return
      */
-    protected String[] getReqTagList()
-    {
+    protected String[] getReqTagList() {
         return null;
     }
 }

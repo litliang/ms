@@ -47,7 +47,7 @@ import java.util.Map;
 public class TicketFilterPopup extends PopupWindow
 {
     private View mRoot;
-    private TextView tvConfirm;
+    private View tvConfirm;
     private TextView headerTitle;
     private ImageView headerLeftImage;
     private View headerLeft;
@@ -72,7 +72,7 @@ public class TicketFilterPopup extends PopupWindow
         headerLeft = mRoot.findViewById(R.id.llTemp);
         headerLeftImage = (ImageView) mRoot.findViewById(R.id.headerLeftImage);
         headerTitle = (TextView) mRoot.findViewById(R.id.tvTitle);
-        tvConfirm = (TextView) mRoot.findViewById(R.id.tvConfirm);
+        tvConfirm =  mRoot.findViewById(R.id.tvConfirm);
 
         wvLvData = (RecyclerView) mRoot.findViewById(R.id.wvLvData);
 

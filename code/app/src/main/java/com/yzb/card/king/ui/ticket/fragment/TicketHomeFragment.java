@@ -385,10 +385,10 @@ public class TicketHomeFragment extends BaseFragment implements View.OnClickList
             selectNumberPick.setOnDataCallBackList(new SelectNumberPick.SelectedData() {
                 @Override
                 public void getSelectedData(List<Integer> data) {
-                    adult.setText(data.get(0) + "");
+                    adult.setText((data.get(0)) + "");
                     chilDren.setText(data.get(1) + "");
                     baBy.setText(data.get(2) + "");
-                    flightManager.setAdultNum(data.get(0));
+                    flightManager.setAdultNum((data.get(0)));
                     flightManager.setChildrenNum(data.get(1));
                     flightManager.setBabyNum(data.get(2));
                 }

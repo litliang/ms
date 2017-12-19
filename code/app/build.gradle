@@ -64,8 +64,8 @@ android {
             signingConfig signingConfigs.debug
             debuggable true
             ndk {
-                abiFilters 'armeabi-v7a', 'x86'
-// 'armeabi-v7a',armeabi' 'armeabi-v7a', 'arm64-v8a', 'x86',  'mips', 'mips64'
+                abiFilters 'armeabi-v7a', 'x86-64','x86'
+// 'armeabi-v7a',armeabi' 'armeabi-v7a', 'arm64-v8a',   'mips', 'mips64'
             }
         }
     }
@@ -138,7 +138,7 @@ dependencies {
     compile(name: 'coverflow_sdk', ext: 'aar')
     compile(name: 'calendarLibrary-release', ext: 'aar')
     compile(name: 'RefreshRecyclerView-release', ext: 'aar')
-    compile(name: 'andBase', ext: 'aar')
+
     compile(name: 'FlycoTabLayout_Lib', ext: 'aar')
     compile 'com.jungly:GridPasswordView:0.1'
     compile 'com.android.support:design:23.4.0'
@@ -166,4 +166,5 @@ dependencies {
     compile 'com.zhy:flowlayout-lib:1.0.3'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile project(':yzb_wallet')
+    compile(name: 'andBase', ext: 'aar')
 }

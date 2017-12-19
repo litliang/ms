@@ -145,7 +145,7 @@ public class SelectCardActivity extends BaseActivity implements DataCallBack
             payHandle.showCreditCard(showCredit());
 
             payHandle.payMethod(params);
-
+            payHandle.setAty(this);
             payHandle.setCallBack(new WalletBackListener()
             {
                 @Override

@@ -487,6 +487,7 @@
     <string name="multine_toast">最多只能添加4程</string>
     <string name="ticket_erye_ydxz">婴儿儿童预定须知</string>
     <string name="ticket_cr_et_chose">一名成人只能携带2名儿童或一个婴儿</string>
+    <string name="ticket_cr_et_most">一个订单最多添加9位乘机人</string>
     <string name="toast_at_less_one_city">多程至少有一个国际城市</string>
     <string name="ticket_please_ws_info">请完善多程信息</string>
     <string name="toast_has_been_set">已重置</string>

@@ -1,8 +1,14 @@
 package com.yzb.wallet.sys;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+
+import com.yzb.wallet.logic.comm.ToastUtil;
 
 import java.io.InputStream;
 import java.util.HashMap;
@@ -57,16 +63,25 @@ public class ServiceDispatcher {
         return result;
     }
 
-    public static Map<String, String> callApp(Context context, Map<String, String> parameters) {
+    public static Map<String, String> callApp(final Context context, final Map<String, String> parameters) {
         Map<String, String> result = new HashMap<String, String>();
         if (!isNetworkConnected(context)) {
             result.put("code", "9999");
             result.put("error", "网络异常");
             return result;
         }
+        final long start = System.currentTimeMillis();
 
         try {
             result = HttpClientUtil.requestByPost(app_url_api, parameters, Map.class);
+            final Map<String, String> finalResult = result;
+            new Handler(Looper.getMainLooper()) {
+                @Override
+                public void handleMessage(Message msg) {
+                    super.handleMessage(msg);
+                    ToastUtil.toastcost((Activity) context,"", ServiceDispatcher.app_url_api, parameters, finalResult == null ? "" : finalResult.toString(), start);
+                }
+            }.sendEmptyMessage(0);
             if (null == result || result.isEmpty()) {
                 result = new HashMap<String, String>();
                 result.put("code", "9999");

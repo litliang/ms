@@ -42,7 +42,7 @@ import java.util.List;
  * 描  述：
  */
 @ContentView(R.layout.activity_air_ticket_home)
-public class AirTicketHomeActivity extends BaseActivity implements View.OnClickListener{
+public class AirTicketHomeActivity extends BaseActivity implements View.OnClickListener {
 
     @ViewInject(R.id.titleTab)
     private SegmentTabLayout titleTab;
@@ -53,22 +53,20 @@ public class AirTicketHomeActivity extends BaseActivity implements View.OnClickL
 
     private String[] mTitleTab = {"商务机票", "低价机票"};
 
-    private  ArrayList<Fragment>  pagerList = new ArrayList<>();
+    private ArrayList<Fragment> pagerList = new ArrayList<>();
 
     private ChannelTypePopup channelTypePopup;
 
     private int selectedIndex = 1;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         GlobalVariable.industryId = Integer.parseInt(AppConstant.ticket_id);
         initView();
     }
 
-    private void initView()
-    {
+    private void initView() {
 
         initTopTitleView();
 
@@ -77,8 +75,7 @@ public class AirTicketHomeActivity extends BaseActivity implements View.OnClickL
         initBottom();
     }
 
-    private void initBoyView()
-    {
+    private void initBoyView() {
         pagerList.clear();
         //商务机票
         pagerList.add(TicketHomeFragment.newInstance());
@@ -89,8 +86,7 @@ public class AirTicketHomeActivity extends BaseActivity implements View.OnClickL
 
     }
 
-    private void initTopTitleView()
-    {
+    private void initTopTitleView() {
 
         titleTab.setTabData(mTitleTab);
 
@@ -98,21 +94,19 @@ public class AirTicketHomeActivity extends BaseActivity implements View.OnClickL
     }
 
 
-      public TicketHomeFragment getTicketHomeFragment()
-    {
-        return (TicketHomeFragment)pagerList.get(0);
+    public TicketHomeFragment getTicketHomeFragment() {
+        return (TicketHomeFragment) pagerList.get(0);
     }
 
-    public LowPriceTicketFragment getLowPriceTicketFragment()
-    {
-        return (LowPriceTicketFragment)pagerList.get(1);
+    public LowPriceTicketFragment getLowPriceTicketFragment() {
+        return (LowPriceTicketFragment) pagerList.get(1);
     }
 
 
     private List<DefindTabView> defindTabViewList = new ArrayList<DefindTabView>();
+
     //初始化底部
-    private void initBottom()
-    {
+    private void initBottom() {
 
         for (int i = 0; i < 4; i++) {
 
@@ -128,12 +122,14 @@ public class AirTicketHomeActivity extends BaseActivity implements View.OnClickL
                 defindTabView.setViewData(R.string.home_ticket_tab_one, drawable0);
 
             } else if (i == 1) {
-                int[] drawable1 = new int[]{R.mipmap.icon_tab_home_ticket_bottom_two, R.mipmap.icon_tab_home_ticket_bottom_two_yellow};
+                defindTabView.setEnable(false);
+                int[] drawable1 = new int[]{R.mipmap.icon_tab_home_ticket_bottom_two, R.mipmap.icon_tab_home_ticket_bottom_two};//icon_tab_home_ticket_bottom_two_yellow
                 defindTabView.setViewData(R.string.home_ticket_tab_two, drawable1);
 
             } else if (i == 2) {//出发时间
-                int[] drawable2 = new int[]{R.mipmap.icon_tab_home_ticket_bottom_three, R.mipmap.icon_tab_home_ticket_bottom_three_yellow};
+                int[] drawable2 = new int[]{R.mipmap.icon_tab_home_ticket_bottom_three, R.mipmap.icon_tab_home_ticket_bottom_three};//icon_tab_home_ticket_bottom_three_yellow
                 defindTabView.setViewData(R.string.home_ticket_tab_three, drawable2);
+                defindTabView.setEnable(false);
             } else if (i == 3) {//排序
                 int[] drawable3 = new int[]{R.mipmap.icon_tab_home_ticket_bottom_four, R.mipmap.icon_tab_home_ticket_bottom_four_yellow};
                 defindTabView.setViewData(R.string.home_ticket_tab_four, drawable3);
@@ -148,8 +144,7 @@ public class AirTicketHomeActivity extends BaseActivity implements View.OnClickL
      */
     private DefindTabView.OnClickAction tabOnClick = new DefindTabView.OnClickAction() {
         @Override
-        public void onTabClickItem(int index, TextView textView, boolean selectedStatus)
-        {
+        public void onTabClickItem(int index, TextView textView, boolean selectedStatus) {
 
             if (index == 0) {//航班动态
 
@@ -158,11 +153,11 @@ public class AirTicketHomeActivity extends BaseActivity implements View.OnClickL
 
             } else if (index == 1) {//值机选座
 
-                ToastUtil.i(AirTicketHomeActivity.this,"敬请期待");
+                ToastUtil.i(AirTicketHomeActivity.this, "敬请期待");
 
             } else if (index == 2) {//常旅客卡
 
-                ToastUtil.i(AirTicketHomeActivity.this,"敬请期待");
+                ToastUtil.i(AirTicketHomeActivity.this, "敬请期待");
 
             } else if (index == 3) {//订单管理
 
@@ -180,9 +175,8 @@ public class AirTicketHomeActivity extends BaseActivity implements View.OnClickL
     };
 
     @Override
-    public void onClick(View v)
-    {
-        switch (v.getId()){
+    public void onClick(View v) {
+        switch (v.getId()) {
 
             case R.id.llRight:
 
@@ -213,16 +207,15 @@ public class AirTicketHomeActivity extends BaseActivity implements View.OnClickL
      */
     private ChannelTypePopup.BottomDataListCallBack dataCallBackChannelType = new ChannelTypePopup.BottomDataListCallBack() {
         @Override
-        public void onClickItemDataBack(String name, int nameValue, int selectIndex)
-        {
+        public void onClickItemDataBack(String name, int nameValue, int selectIndex) {
 
-            if(selectIndex == 0){//酒店
+            if (selectIndex == 0) {//酒店
 
                 readyGo(AirTicketHomeActivity.this, HotelHomeActivity.class);
 
                 finish();
 
-            }else if(selectIndex == 2){//旅游
+            } else if (selectIndex == 2) {//旅游
 
                 String childTypeJson = SharePrefUtil.getValueFromSp(AirTicketHomeActivity.this,
                         AppConstant.sp_childtypelist_home, "[]");
@@ -233,11 +226,9 @@ public class AirTicketHomeActivity extends BaseActivity implements View.OnClickL
 
                 String typeId = AppConstant.travel_id;
 
-                for (ChildTypeBean bean : childTypeBeans)
-                {
+                for (ChildTypeBean bean : childTypeBeans) {
 
-                    if (bean.id.equals(typeId))
-                    {
+                    if (bean.id.equals(typeId)) {
 
                         selectedBean = bean;
 

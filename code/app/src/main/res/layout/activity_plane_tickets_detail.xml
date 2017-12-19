@@ -42,7 +42,8 @@
         android:paddingRight="8dp"
         android:paddingBottom="@dimen/title_l_r"
         android:paddingTop="@dimen/title_l_r"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/tuigaiqian">
 
         <TextView
             android:id="@+id/tvGaiqian"
