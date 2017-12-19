@@ -12,6 +12,7 @@ import com.yzb.card.king.R;
 import com.yzb.card.king.bean.common.BaseCouponBean;
 import com.yzb.card.king.ui.appwidget.popup.GoLoginDailog;
 import com.yzb.card.king.ui.manage.UserManager;
+import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.Utils;
 
 import cn.lemon.view.adapter.BaseViewHolder;
@@ -40,7 +41,7 @@ public class CashCouponItemHolder extends BaseViewHolder<BaseCouponBean> impleme
     private Handler handler;
 
     public CashCouponItemHolder(ViewGroup parent, Handler handler) {
-        super(parent, R.layout.view_item_gold_ticker);
+        super(parent, R.layout.view_item_cash_coupon_ticker);
 
         context = parent.getContext();
 
@@ -51,7 +52,7 @@ public class CashCouponItemHolder extends BaseViewHolder<BaseCouponBean> impleme
     @Override
     public void setData(BaseCouponBean data) {
 
-        String recieveStatus = data.getRecieveStatus();
+        String recieveStatus = data.getReceiveStatus();
 
         tvFuctionGet.setTag(data);
 
@@ -109,12 +110,13 @@ public class CashCouponItemHolder extends BaseViewHolder<BaseCouponBean> impleme
 
             case R.id.tvFuctionGet:
 
+                LogUtil.e("XYY","------------tvFuctionGet------------");
                 //检查是否登录
                 if (UserManager.getInstance().isLogin()) {
 
                     BaseCouponBean baseCouponBean = (BaseCouponBean) v.getTag();
 
-                    String recieveStatus = baseCouponBean.getRecieveStatus();
+                    String recieveStatus = baseCouponBean.getReceiveStatus();
 
                     if ("0".equals(recieveStatus)) {
 

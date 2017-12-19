@@ -103,6 +103,10 @@ public class CardConstant {
      */
     public static String APP_CANRECEIVECOUPON_LIST = "CanReceiveCouponList";
     /**
+     * 可购买代金券列表
+     */
+    public static String APP_CanBuyCashCoupon_List = "CanBuyCashCouponList";
+    /**
      * 可使用代金券列表
      */
     public static String APP_CANUSECASHCOUPONLIST_LIST = "CanUseCashCouponList";

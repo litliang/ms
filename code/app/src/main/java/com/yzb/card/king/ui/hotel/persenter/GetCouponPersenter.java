@@ -34,6 +34,8 @@ public class GetCouponPersenter implements DataCallBack{
 
     public static final int DELETECOUONORDER_CODE = 80010;//删除优惠订单
 
+    public static final int CANBUYCASHCOUPONLIST_CODE = 80011;//可购买代金券列表
+
     private BaseViewLayerInterface baseViewLayerInterface;
 
     private GetCouponModel getCouponModel;
@@ -58,10 +60,21 @@ public class GetCouponPersenter implements DataCallBack{
 
         getCouponModel.sendGetCouponListAction(issuePlatform, industryId, shopId, storeId, goodsId,GETCOUPONLIST_CODE);
     }
+    /**
+     * 发送可购买代金券列表
+     * @param issuePlatform
+     * @param industryId
+     * @param shopId
+     * @param storeId
+     * @param goodsId
+     */
+    public void sendCanBuyCashCouponListRequest(int issuePlatform,int industryId,long shopId,long storeId,long goodsId){
 
+        getCouponModel.sendCanBuyCashCouponListAction(issuePlatform, industryId, shopId, storeId, goodsId,CANBUYCASHCOUPONLIST_CODE);
+    }
     /**
      * 发送可使用优惠券列表请求
-     * @param issuePlatform
+     * @param issuePlatform  1：代金券；2：优惠券
      * @param industryId
      * @param shopId
      * @param storeId

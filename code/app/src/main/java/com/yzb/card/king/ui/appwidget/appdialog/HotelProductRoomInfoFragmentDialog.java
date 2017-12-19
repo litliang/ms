@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ import com.yzb.card.king.ui.hotel.fragment.HotelRoomInfoFragment;
 import com.yzb.card.king.ui.hotel.fragment.ServiceFacitityFragment;
 import com.yzb.card.king.ui.hotel.fragment.GetCouponFragment;
 import com.yzb.card.king.ui.manage.UserManager;
+import com.yzb.card.king.util.LogUtil;
 
 /**
  * 类  名：酒店房间信息dialog
@@ -63,7 +65,6 @@ public class HotelProductRoomInfoFragmentDialog extends DialogFragment implement
         Bundle bundle =   getArguments();
 
          hotelRoomComboInfoBean = (HotelRoomComboInfoBean) bundle.get("data");
-
         //
         TextView tvPayTypeMsg = (TextView) view.findViewById(R.id.tvPayTypeMsg);
 

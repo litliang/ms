@@ -72,7 +72,6 @@ public class GetCouponFragment extends Fragment implements View.OnClickListener,
     {
         persenter = new GetCouponPersenter(this);
 
-
         View view = inflater.inflate(R.layout.view_get_coupon_center,null);
 
         initView(view);
@@ -136,8 +135,6 @@ public class GetCouponFragment extends Fragment implements View.OnClickListener,
             persenter.sendGetCouponListRequest(issuePlatform,industryId,shopId,storeId,goodsId);
         }
 
-
-
     }
 
     @Override
@@ -180,7 +177,6 @@ public class GetCouponFragment extends Fragment implements View.OnClickListener,
 
               baseCouponBean = (BaseCouponBean) msg.obj;
 
-
              long actId = baseCouponBean.getActId();
 
              persenter.sendReceiveCouponRequest(actId);
@@ -195,6 +191,7 @@ public class GetCouponFragment extends Fragment implements View.OnClickListener,
         ProgressDialogUtil.getInstance().closeProgressDialog();
 
         if(GetCouponPersenter.GETCOUPONLIST_CODE == type){
+
             List<BaseCouponBean> list = JSON.parseArray(o+"",BaseCouponBean.class);
 
             mAdapter.clear();
@@ -207,7 +204,7 @@ public class GetCouponFragment extends Fragment implements View.OnClickListener,
 
             if(baseCouponBean != null){
 
-                baseCouponBean.setRecieveStatus("1");
+                baseCouponBean.setReceiveStatus("1");
 
                 mAdapter.notifyDataSetChanged();
             }

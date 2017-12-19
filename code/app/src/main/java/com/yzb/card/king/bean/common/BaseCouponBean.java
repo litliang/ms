@@ -58,7 +58,7 @@ public class BaseCouponBean implements Serializable{
     /**
      * 领取状态 (1已领取；0未领取)
      */
-    private String recieveStatus;
+    private String receiveStatus;
 
     public long getActId()
     {
@@ -168,13 +168,11 @@ public class BaseCouponBean implements Serializable{
         this.cutValue = cutValue;
     }
 
-    public String getRecieveStatus()
-    {
-        return recieveStatus;
+    public String getReceiveStatus() {
+        return receiveStatus;
     }
 
-    public void setRecieveStatus(String recieveStatus)
-    {
-        this.recieveStatus = recieveStatus;
+    public void setReceiveStatus(String receiveStatus) {
+        this.receiveStatus = receiveStatus;
     }
 }

@@ -126,7 +126,7 @@ public class GetCashCouponFragment extends Fragment implements View.OnClickListe
 
             long goodsId = bundle.getLong("goodsId");
 
-            persenter.sendGetCouponListRequest(issuePlatform, industryId, shopId, storeId, goodsId);
+            persenter.sendCanBuyCashCouponListRequest(issuePlatform, industryId, shopId, storeId, goodsId);
         }
 
 
@@ -169,8 +169,7 @@ public class GetCashCouponFragment extends Fragment implements View.OnClickListe
 
             baseCouponBean = (BaseCouponBean) msg.obj;
 
-
-            exeBuy(baseCouponBean.getActId(), baseCouponBean.getCutValue());
+            exeBuy(baseCouponBean.getActId(), baseCouponBean.getCutAmount());
 
 
         }
@@ -195,7 +194,7 @@ public class GetCashCouponFragment extends Fragment implements View.OnClickListe
     public void callSuccessViewLogic(Object o, int type) {
         ProgressDialogUtil.getInstance().closeProgressDialog();
 
-        if (GetCouponPersenter.GETCOUPONLIST_CODE == type) {
+        if (GetCouponPersenter.CANBUYCASHCOUPONLIST_CODE == type) {
             List<BaseCouponBean> list = JSON.parseArray(o + "", BaseCouponBean.class);
 
             mAdapter.clear();
@@ -365,6 +364,7 @@ public class GetCashCouponFragment extends Fragment implements View.OnClickListe
     }
 
     public void onPaySucess() {
+
         BuySucesWithOkDialog.getInstance().show(getFragmentManager(), "");
 
         persenter.updateCouponPayDetailRequest(orderOutBean.getOrderId(), orderOutBean.getOrderAmount(), orderOutBean.getOrderTime(), payType, payDetailId);

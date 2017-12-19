@@ -245,14 +245,16 @@ public class Location implements Serializable
 
     public String addressInfoStr(){
 
-        int index =  cityName.indexOf(province);
+        int index =  province.indexOf(cityName);
+
 
         if(index == -1){
 
             return province+cityName+district+street;
+
         }else {
 
-            return cityName+district+street;
+            return province+district+street;
         }
 
 

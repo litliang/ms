@@ -26,24 +26,6 @@ public class CanReceiveCouponRequest extends BaseRequest {
 
     Map<String, Object> params = new HashMap<>();
 
-    /**
-     *   我的优惠券和代金券   构造器
-     * @param issuePlatform
-     * @param industryId
-     * @param shopId
-     * @param storeId
-     * @param goodsId
-     */
-    public CanReceiveCouponRequest(long issuePlatform, long industryId, long shopId, long storeId, long goodsId)
-    {
-
-
-        params.put("industryId", industryId);
-        params.put("shopId", shopId);
-        params.put("storeId", storeId);
-        params.put("goodsId", goodsId);
-
-    }
 
 
     public CanReceiveCouponRequest( long industryId, long shopId, long storeId, long goodsId)
@@ -173,14 +155,24 @@ public class CanReceiveCouponRequest extends BaseRequest {
     }
 
     /**
+     * 设置可购买代金券列表
+     */
+    public void setGoodsCouponUrl(){
+
+        serverName = CardConstant.APP_CanBuyCashCoupon_List;
+    }
+    /**
      * 设置可使用优惠券列表url
      */
     public void setCanUseCouponListUrl(long issuePlatform)
     {
 
         if(issuePlatform == 1){//代金券
+
             serverName = CardConstant.APP_CANUSECASHCOUPONLIST_LIST;
+
         }else if(issuePlatform == 2){//优惠券
+
             serverName = CardConstant.card_app_canusecouponlist;
         }
     }

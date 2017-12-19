@@ -60,7 +60,6 @@ public class HotelRoomInfoFragment extends Fragment implements View.OnClickListe
 
         gvFactivity = (SpecHeightGridView) view.findViewById(R.id.gvFactivity);
 
-
         List<HotelRoomInfoBean.RoomService>  roomServiceList =  hotelRoomComboInfoBean.getRoomInfo().getBaseServiceList();
 
         HotelInfoFacitityAdapter hotelFacitityAdapter = new HotelInfoFacitityAdapter(inflater,roomServiceList);
@@ -215,6 +214,9 @@ public class HotelRoomInfoFragment extends Fragment implements View.OnClickListe
                 break;
 
             case R.id.llGetCashCoupon://代金券
+                if (dataCall != null)
+                    dataCall.getCashCouponAction();
+
 
                 break;
             case R.id.llLifeStage:

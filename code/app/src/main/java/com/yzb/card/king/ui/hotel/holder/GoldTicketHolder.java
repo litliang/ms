@@ -3,6 +3,7 @@ package com.yzb.card.king.ui.hotel.holder;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import com.yzb.card.king.R;
 import com.yzb.card.king.bean.common.BaseCouponBean;
 import com.yzb.card.king.ui.appwidget.popup.GoLoginDailog;
 import com.yzb.card.king.ui.manage.UserManager;
+import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.Utils;
 
 import cn.lemon.view.adapter.BaseViewHolder;
@@ -54,11 +56,19 @@ public class GoldTicketHolder extends BaseViewHolder<BaseCouponBean> implements 
     public void setData(BaseCouponBean data)
     {
 
-        String recieveStatus = data.getRecieveStatus();
+        String recieveStatus = data.getReceiveStatus();
 
         tvFuctionGet.setTag(data);
 
-        tvCouponDesc.setText("【" + data.getActName() + "】" + data.getActDesc());
+        String desc = "【" + data.getActName() + "】";
+
+        if(!TextUtils.isEmpty(data.getActDesc())){
+
+            desc = desc+data.getActDesc();
+
+        }
+
+        tvCouponDesc.setText(desc);
 
         tvCouponData.setText(data.getStartDate() + "至" + data.getEndDate());
 
@@ -171,7 +181,7 @@ public class GoldTicketHolder extends BaseViewHolder<BaseCouponBean> implements 
 
                     BaseCouponBean  baseCouponBean = (BaseCouponBean) v.getTag();
 
-                    String recieveStatus = baseCouponBean.getRecieveStatus();
+                    String recieveStatus = baseCouponBean.getReceiveStatus();
 
                     if ("0".equals(recieveStatus)) {
 
