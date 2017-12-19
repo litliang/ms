@@ -27,6 +27,7 @@ import com.yzb.card.king.ui.appwidget.popup.GoLoginDailog;
 import com.yzb.card.king.ui.hotel.activtiy.HotelOtherProductOrderActivity;
 import com.yzb.card.king.ui.hotel.fragment.BankFavorableFragment;
 import com.yzb.card.king.ui.hotel.fragment.BankLifeStageFragment;
+import com.yzb.card.king.ui.hotel.fragment.GetCashCouponFragment;
 import com.yzb.card.king.ui.hotel.fragment.GetCouponFragment;
 import com.yzb.card.king.ui.hotel.fragment.HotelDiningRoomFragment;
 import com.yzb.card.king.ui.hotel.fragment.HotelOtherProductInfoIntroFragment;
@@ -184,6 +185,35 @@ public class HotelOtherProductInfoIntroFragmentDialog extends DialogFragment imp
 
             GetCouponFragment twoFragment = new GetCouponFragment();
 
+
+            Bundle bundle = new Bundle();
+            //发放平台
+            int issuePlatform = 0;
+            //行业id
+            int industryId =  GlobalVariable.industryId;
+
+            bundle.putInt("issuePlatform",issuePlatform);
+
+            bundle.putInt("industryId",industryId);
+
+            bundle.putLong("shopId",item.getShopId());
+
+            bundle.putLong("storeId",item.getHotelId());
+
+            bundle.putLong("goodsId",item.getPolicysId());
+
+            twoFragment.setArguments(bundle);
+
+            twoFragment.setDataCall(hotelDialogInterface);
+
+            fragmentTransaction.replace(R.id.contentll, twoFragment).commit();
+        }
+
+        @Override
+        public void getCashCouponAction() {
+            FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+
+            GetCashCouponFragment twoFragment = new GetCashCouponFragment();
 
             Bundle bundle = new Bundle();
             //发放平台
