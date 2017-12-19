@@ -20,6 +20,7 @@ import com.yzb.card.king.ui.base.BaseListAdapter;
 import com.yzb.card.king.ui.bonus.activity.UseInstructionsActivity;
 import com.yzb.card.king.ui.hotel.HotelLogicManager;
 import com.yzb.card.king.ui.hotel.activtiy.HotelProductListActivity;
+import com.yzb.card.king.util.AppUtils;
 import com.yzb.card.king.util.DateUtil;
 import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.Utils;
@@ -99,34 +100,46 @@ public class MyDaijinquanCouponeAdapter extends BaseListAdapter<CouponInfoBean> 
         } else if (receiveStatus == 3) {
 
             holder.tvGet.setText("立即使用");
-
             holder.tvGet.setTextColor(Color.parseColor("#ffffff"));
+            //检测是否在有效期间内容
+            boolean e = AppUtils.checkStartEndDate(bean.getStartDate(),bean.getEndDate());
 
-            holder.tvGet.setBackgroundResource(R.drawable.style_btn_blue_deep_circle);
+            if(e){
 
-            holder.tvGet.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+                holder.tvGet.setBackgroundResource(R.drawable.style_btn_blue_deep_circle);
 
-                    Date startDate = new Date();
+                holder.tvGet.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
 
-                    Date endDate = DateUtil.addDay(startDate, 1);
+                        Date startDate = new Date();
 
-                    //设置日期
-                    HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
+                        Date endDate = DateUtil.addDay(startDate, 1);
 
-                    productListParam.setArrDate(DateUtil.date2String(startDate, DateUtil.DATE_FORMAT_DATE));
+                        //设置日期
+                        HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
 
-                    productListParam.setDepDate(DateUtil.date2String(endDate, DateUtil.DATE_FORMAT_DATE));
+                        productListParam.setArrDate(DateUtil.date2String(startDate, DateUtil.DATE_FORMAT_DATE));
 
-                    Intent intent = new Intent(mContext, HotelProductListActivity.class);
+                        productListParam.setDepDate(DateUtil.date2String(endDate, DateUtil.DATE_FORMAT_DATE));
 
-                    intent.putExtra("CouponInfo",bean);
+                        Intent intent = new Intent(mContext, HotelProductListActivity.class);
 
-                    mContext.startActivity(intent);
+                        intent.putExtra("CouponInfo",bean);
 
-                }
-            });
+                        mContext.startActivity(intent);
+
+                    }
+                });
+
+            }else {
+
+                holder.tvGet.setBackgroundResource(R.drawable.style_btn_gray_deep_circle);
+
+                holder.tvGet.setOnClickListener(null);
+
+            }
+
 
         } else if (receiveStatus == 5) {
 

@@ -93,7 +93,7 @@ public class ProductCardLifeStagesHolder extends BaseViewHolder<BankActivityInfo
 
                     HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
 
-                    productListParam.setBankIds(data.getBankId()+"");
+                    productListParam.setStageBankIds(data.getBankId()+"");
 
                     Intent intent = new Intent(context, HotelProductListActivity.class);
 

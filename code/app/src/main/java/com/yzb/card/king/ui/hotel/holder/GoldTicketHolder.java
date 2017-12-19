@@ -76,7 +76,7 @@ public class GoldTicketHolder extends BaseViewHolder<BaseCouponBean> implements 
 
         if ("1".equals(type)) {//1满减券
 
-            tvPrice.setText( Utils.subZeroAndDot(data.getCutValue() + ""));
+            tvPrice.setText( Utils.subZeroAndDot(data.getCutAmount() + ""));
 
             tvUnite.setVisibility(View.VISIBLE);
 
@@ -110,7 +110,7 @@ public class GoldTicketHolder extends BaseViewHolder<BaseCouponBean> implements 
 
         } else if ("2".equals(type)) {//2折扣券
 
-            String zhekouStr = Utils.handNumberToString(data.getCutValue());
+            String zhekouStr = Utils.handNumberToString(data.getCutAmount());
 
             tvUnite.setVisibility(View.GONE);
 

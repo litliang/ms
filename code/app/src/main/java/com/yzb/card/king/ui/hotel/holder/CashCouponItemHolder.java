@@ -28,13 +28,13 @@ public class CashCouponItemHolder extends BaseViewHolder<BaseCouponBean> impleme
 
     private TextView tvPrice;
 
+    private TextView tvFullPrice;
+
     private TextView tvFuctionGet;
 
     private TextView tvCondition;
 
     private TextView tvCouponData;
-
-    private TextView tvUnite;
 
     private TextView tvCouponDesc;
 
@@ -56,17 +56,19 @@ public class CashCouponItemHolder extends BaseViewHolder<BaseCouponBean> impleme
 
         tvFuctionGet.setTag(data);
 
-        tvCouponDesc.setText("【" + data.getActName() + "】" + data.getActDesc());
+        tvCouponDesc.setText( data.getActName());
 
         tvCouponData.setText(data.getStartDate() + "至" + data.getEndDate());
 
-        tvPrice.setText(Utils.subZeroAndDot(data.getFullAmount() + ""));
-
-        tvUnite.setVisibility(View.VISIBLE);
+        tvPrice.setText(Utils.subZeroAndDot(data.getCutAmount() + ""));
 
         tvPrice.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
 
-        tvCondition.setText("抵扣");
+        tvFullPrice.setText(Utils.subZeroAndDot(data.getFullAmount() + ""));
+
+        tvFullPrice.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
+
+        tvCondition.setText("抵");
 
         if ("1".equals(recieveStatus)) {
 
@@ -78,7 +80,7 @@ public class CashCouponItemHolder extends BaseViewHolder<BaseCouponBean> impleme
 
             tvFuctionGet.setText("立即购买");
 
-            tvFuctionGet.setBackgroundResource(R.drawable.bg_round_corner_red);
+            tvFuctionGet.setBackgroundResource(R.drawable.bg_round_corner_blue416b90);
 
         }
 
@@ -96,9 +98,9 @@ public class CashCouponItemHolder extends BaseViewHolder<BaseCouponBean> impleme
 
         tvCouponData = findViewById(R.id.tvCouponData);
 
-        tvUnite = findViewById(R.id.tvUnite);
-
         tvCouponDesc = findViewById(R.id.tvCouponDesc);
+
+        tvFullPrice = findViewById(R.id.tvFullPrice);
 
         tvFuctionGet.setOnClickListener(this);
 
@@ -110,7 +112,6 @@ public class CashCouponItemHolder extends BaseViewHolder<BaseCouponBean> impleme
 
             case R.id.tvFuctionGet:
 
-                LogUtil.e("XYY","------------tvFuctionGet------------");
                 //检查是否登录
                 if (UserManager.getInstance().isLogin()) {
 

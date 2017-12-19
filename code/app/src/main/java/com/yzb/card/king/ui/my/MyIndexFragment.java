@@ -123,12 +123,14 @@ public class MyIndexFragment extends BaseFragment {
             x.image().bind(ivUserHead, ServiceDispatcher.getImageUrl(userBean.getPic()),
                     imageOptions);
 
-         //   Glide.with(this).load(ServiceDispatcher.getImageUrl(userBean.getPic())).transform(new GlideRoundTransform(getContext(),10)).into(ivUserHead);
-
             if("2016122218433216121167".equals(userBean.getUserImage())){
+
                 ivUserHeadTemp.setVisibility(View.VISIBLE);
+
             }else {
+
                 ivUserHeadTemp.setVisibility(View.GONE);
+
             }
 
 
