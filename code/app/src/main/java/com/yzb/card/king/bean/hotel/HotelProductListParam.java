@@ -449,14 +449,19 @@ public class HotelProductListParam {
         this.hotelKeyWordList = hotelKeyWordList;
     }
     public List<SubItemBean> getHotelBaseFilterList() {
+
         if(hotelBaseFilterList == null){
+
             hotelBaseFilterList = new ArrayList<SubItemBean>();
         }
+
         return hotelBaseFilterList;
     }
 
     public void setHotelBaseFilterList(List<SubItemBean> hotelBaseFilterList) {
+
         clearCacheSubItemData(this.hotelBaseFilterList);//在总集合里面清理之前的数据
+
         this.hotelBaseFilterList = hotelBaseFilterList;
     }
     /**

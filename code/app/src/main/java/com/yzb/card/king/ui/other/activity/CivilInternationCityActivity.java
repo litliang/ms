@@ -569,7 +569,6 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
 
                     GlobalApp.getInstance().removeListener(onCityChangeListener);
 
-
                     tvUserAddress.setText("当前位置：" + city.addressInfoStr());
 
                     tvCityName.setText("当前城市：" + city.cityName);
@@ -602,8 +601,6 @@ public class CivilInternationCityActivity extends BaseActivity implements View.O
                             Location location = (Location) v.getTag();
 
                             hotCityPresenterTemp.sendCityStatisticsRequest(location.getCityId(), GlobalVariable.industryId + "");
-
-                            GlobalApp.getInstance().setSelectedCity(location);
 
                             setResult(5002);
 

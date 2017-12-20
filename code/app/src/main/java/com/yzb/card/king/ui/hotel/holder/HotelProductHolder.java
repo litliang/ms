@@ -53,7 +53,6 @@ public class HotelProductHolder extends BaseViewHolder<HotelProductObjectBean> i
     {
         super.setData(data);
 
-
         tvHotelName.setText(data.getHotelName());
 
         FavInfoBean pre = data.getDisMap();

@@ -77,16 +77,12 @@ public class GlobalApp extends MultiDexApplication {
     private static Location mCity;//定位城市
 
     private static Location selectedCity = null;//手动选择的城市
-    /**
-     * 查询处三级或者四级城市定位信息资料，如上海、天津使用三级城市数据信息，合肥使用四级城市信息
-     */
-    private static Location threeFourCityPostionCity = null;//
 
     private Context context;
 
     private static GlobalApp instance;
 
-    private GeoCoder mSearch; // 地理编码检索；
+
     private boolean walletDebug;
 
     public boolean isWalletDebug() {
@@ -97,10 +93,6 @@ public class GlobalApp extends MultiDexApplication {
         this.walletDebug = walletDebug;
     }
 
-    /**
-     * 特殊标记字段
-     */
-    public static boolean specialFlag = false;
     /**
      * 返回功能的特殊字段
      */
@@ -303,7 +295,9 @@ public class GlobalApp extends MultiDexApplication {
      * 请重新定位
      */
     public void toReposition() {
+
         mCity.msg = getString(R.string.is_located);
+
         mLocationClient.start();
     }
 
@@ -350,6 +344,59 @@ public class GlobalApp extends MultiDexApplication {
         return option;
     }
 
+
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setSelectedCity(String cityId, String cityName) {
+
+        selectedCity.cityName = cityName;
+
+        selectedCity.cityId = cityId;
+
+        updateLngLatByCity();
+    }
+
+    /**
+     * 地址-->经纬度；
+     */
+    public void updateLngLatByCity() {
+
+        NationalCountryPresenter presenter = new NationalCountryPresenter();
+
+        NationalCountryBean nationalCountryBean = presenter.selectOneDataByCityIdFromDb(selectedCity.cityId);//
+
+        if (nationalCountryBean != null) {
+
+            selectedCity.cityId = nationalCountryBean.getCityId() + "";
+
+            selectedCity.provinceId = nationalCountryBean.getParentId() + "";
+
+            selectedCity.cityName = nationalCountryBean.getCityName();
+
+            selectedCity.latitude = Double.parseDouble(nationalCountryBean.getLat());
+
+            selectedCity.longitude = Double.parseDouble(nationalCountryBean.getLng());
+
+            selectedCity.cityLevel = nationalCountryBean.getCityLevel();
+
+        } else {
+
+        }
+
+        if (onCityChangeListeners.size() > 0) {
+            for (OnCityChangeListener listener : onCityChangeListeners) {
+                listener.onCityChange(selectedCity);
+            }
+        }
+
+        presenter = null;
+    }
+
+    private GeoCoder mSearch; // 地理编码检索；
+
     /**
      * 地址-->经纬度；
      */
@@ -385,17 +432,8 @@ public class GlobalApp extends MultiDexApplication {
         }
     }
 
-    public Context getContext() {
-        return context;
-    }
-
-    public void setSelectedCity(String cityId, String cityName) {
-        selectedCity.cityName = cityName;
-        selectedCity.cityId = cityId;
-        updateLngLatByCity(selectedCity);
-    }
-
     public void setSelectedCity(Location selectedCity) {
+
         GlobalApp.selectedCity = selectedCity;
     }
 
@@ -446,17 +484,18 @@ public class GlobalApp extends MultiDexApplication {
         return bean;
     }
 
-
+    /**
+     * 获取用户选择的城市（）
+     * @return
+     */
     public static Location getSelectedCity() {
         return selectedCity;
     }
 
-    public static Location getThreeFourCityPostionCity() {
-
-        return threeFourCityPostionCity;
-    }
-
-
+    /**
+     * 获取用户所在的当前位置信息
+     * @return
+     */
     public static Location getPositionedCity() {
         return mCity;
     }
@@ -497,40 +536,29 @@ public class GlobalApp extends MultiDexApplication {
     }
 
     /**
-     * 根据城市名查询城市信息
+     * 根据城市名查询城市信息（百度定位的地理信息对应平台城市数据信息）
      */
     public void queryCityInfoByCityName() {
+
         NationalCountryPresenter presenter = new NationalCountryPresenter();
 
-        NationalCountryBean nationalCountryBean = presenter.selectOneDataByCityNameFromDb(mCity.cityName);
+        NationalCountryBean nationalCountryBean = presenter.selectOneDataByCityNameFromDb(mCity.cityName);//
+
         if (nationalCountryBean != null) {
+
             mCity.cityId = nationalCountryBean.getCityId() + "";
+
             mCity.provinceId = nationalCountryBean.getParentId() + "";
+
             mCity.cityName = nationalCountryBean.getCityName();
+
             mCity.cityLevel = nationalCountryBean.getCityLevel();
-            LogUtil.e(nationalCountryBean.getCityId() + "----1----" + nationalCountryBean.getCityLevel());
+
         } else {
+
         }
 
-//        NationalCountryBean nationalCountryBeanTemp = presenter.selectOneDataByNameFromDb(mCity.cityName);
-//
-//        if(nationalCountryBeanTemp != null){
-
-        threeFourCityPostionCity = new Location(mCity);
-//
-//            threeFourCityPostionCity.setCityId(nationalCountryBeanTemp.getCityId()+"");
-//
-//            threeFourCityPostionCity.setProvinceId(nationalCountryBeanTemp.getParentId()+"");
-//
-//            threeFourCityPostionCity.setCityName(nationalCountryBeanTemp.getCityName());
-//
-//            threeFourCityPostionCity.setCityLevel(nationalCountryBeanTemp.getCityLevel());
-//
-//            LogUtil.e(nationalCountryBeanTemp.getCityId()+"----2----"+nationalCountryBeanTemp.getCityLevel());
-//        }
-
         selectedCity = new Location(mCity);
-
 
         presenter = null;
     }

@@ -1018,6 +1018,8 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                     HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
 
                     List<SubItemBean> tempList = productListParam.getHotelBaseFilterList();
+                    //清理下曾经已经选择的数据
+                    tempList.clear();
 
                     StringBuffer youhuiSb = new StringBuffer();
 
