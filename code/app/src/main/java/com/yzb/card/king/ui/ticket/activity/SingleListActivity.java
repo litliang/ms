@@ -39,6 +39,7 @@ import com.yzb.card.king.ui.transport.adapter.SingleListAdapter;
 import com.yzb.card.king.ui.user.LoginActivity;
 import com.yzb.card.king.util.DateUtil;
 import com.yzb.card.king.util.LogUtil;
+import com.yzb.card.king.util.SharePrefUtil;
 import com.yzb.card.king.util.StringUtils;
 import com.yzb.card.king.util.ToastUtil;
 import com.yzb.card.king.util.UiUtils;
@@ -472,6 +473,8 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
     private void loadListData()
     {
         pageStart = 0;
+        String singleline_filter_copany = SharePrefUtil.getValueFromSp(getBaseContext(),"singleline"+"-filter-company","MU");
+        commonparam.put("operaCode", singleline_filter_copany);
         commonparam.put("depCityId", currentFlight.getStartCity().getCityId());
         commonparam.put("timeSeres", DateUtil.date2String(currentFlight.getStartDate(), DateUtil.DATE_HOUR_MINIT));
         commonparam.put("arrCityId", currentFlight.getEndCity().getCityId());

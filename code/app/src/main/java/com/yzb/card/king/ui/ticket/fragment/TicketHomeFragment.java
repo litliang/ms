@@ -347,6 +347,20 @@ public class TicketHomeFragment extends BaseFragment implements View.OnClickList
 
             tvAirLine.setText(name);
 
+            String currline = "";
+            switch(currentLine ){
+                case MULTI_LINE:
+                    currline = "multiline";
+                    break;
+                case SINGLE_LINE:
+                    currline = "singleline";
+                    break;
+                case ROUND_LINE:
+                    currline = "roundline";
+                    break;
+            }
+            SharePrefUtil.saveToSp(getContext(),currline+"-filter-company","");
+
         }
     };
 

@@ -147,7 +147,7 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
         initTopFuction();
         initContent();
         initBottom();
-        //
+        //f
 
     }
 

@@ -11,6 +11,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.Html;
 import android.text.TextPaint;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -329,7 +330,6 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
         headerView.findViewById(R.id.ll_location).setOnClickListener(this);
 
         headerView.findViewById(R.id.llMyPostion).setOnClickListener(this);
-
         tv_destination = (TextView) headerView.findViewById(R.id.tv_destination);
 
         tvLevel = (TextView) headerView.findViewById(R.id.tv_level);
