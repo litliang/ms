@@ -146,7 +146,6 @@ public class BaseActivity extends AppCompatActivity
           if(selectedCity != null){
 
 
-
               cityId =  positionedCity.cityId;
 
               cityName = positionedCity.getCityName();
