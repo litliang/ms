@@ -14,14 +14,21 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.yzb.card.king.R;
+import com.yzb.card.king.bean.hotel.HotelProductListParam;
 import com.yzb.card.king.bean.my.CouponInfoBean;
 import com.yzb.card.king.ui.base.BaseListAdapter;
 import com.yzb.card.king.ui.bonus.activity.UseInstructionsActivity;
+import com.yzb.card.king.ui.hotel.HotelLogicManager;
+import com.yzb.card.king.ui.hotel.activtiy.HotelProductListActivity;
+import com.yzb.card.king.util.AppUtils;
+import com.yzb.card.king.util.DateUtil;
 import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.Utils;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
+
+import java.util.Date;
 
 /**
  * Created by 玉兵 on 2017/10/29.
@@ -60,7 +67,6 @@ public class MyDaijinquanCouponeAdapter extends BaseListAdapter<CouponInfoBean> 
 
         holder.tvGoldDate.setText(bean.getStartDate() + "至" + bean.getEndDate());
 
-
         holder.tvAmount.setTextColor(Color.parseColor("#8e8e8e"));
 
         holder.tvAmount.setText("抵");
@@ -89,13 +95,51 @@ public class MyDaijinquanCouponeAdapter extends BaseListAdapter<CouponInfoBean> 
 
             holder.tvGet.setBackgroundResource(R.drawable.style_btn_gray_circle);
 
+            holder.tvGet.setOnClickListener(null);
+
         } else if (receiveStatus == 3) {
 
             holder.tvGet.setText("立即使用");
-
             holder.tvGet.setTextColor(Color.parseColor("#ffffff"));
+            //检测是否在有效期间内容
+            boolean e = AppUtils.checkStartEndDate(bean.getStartDate(),bean.getEndDate());
 
-            holder.tvGet.setBackgroundResource(R.drawable.style_btn_blue_deep_circle);
+            if(e){
+
+                holder.tvGet.setBackgroundResource(R.drawable.style_btn_blue_deep_circle);
+
+                holder.tvGet.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Date startDate = new Date();
+
+                        Date endDate = DateUtil.addDay(startDate, 1);
+
+                        //设置日期
+                        HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
+
+                        productListParam.setArrDate(DateUtil.date2String(startDate, DateUtil.DATE_FORMAT_DATE));
+
+                        productListParam.setDepDate(DateUtil.date2String(endDate, DateUtil.DATE_FORMAT_DATE));
+
+                        Intent intent = new Intent(mContext, HotelProductListActivity.class);
+
+                        intent.putExtra("CouponInfo",bean);
+
+                        mContext.startActivity(intent);
+
+                    }
+                });
+
+            }else {
+
+                holder.tvGet.setBackgroundResource(R.drawable.style_btn_gray_deep_circle);
+
+                holder.tvGet.setOnClickListener(null);
+
+            }
+
 
         } else if (receiveStatus == 5) {
 
@@ -104,6 +148,8 @@ public class MyDaijinquanCouponeAdapter extends BaseListAdapter<CouponInfoBean> 
             holder.tvGet.setTextColor(Color.parseColor("#ffffff"));
 
             holder.tvGet.setBackgroundResource(R.drawable.style_btn_gray_deep_circle);
+
+            holder.tvGet.setOnClickListener(null);
         }
 
         holder.tvShuoming.setOnClickListener(new View.OnClickListener() {

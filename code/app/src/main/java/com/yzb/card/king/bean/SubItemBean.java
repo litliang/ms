@@ -116,6 +116,19 @@ public class SubItemBean implements Serializable{
         this.localDataHotelRoomCode = localDataHotelRoomCode;
     }
 
+    public boolean ifSame(SubItemBean bean){
+
+        if(filterId.equals(bean.getFilterId()) && childTypeCode.equals(bean.getChildTypeCode())){
+
+            return true;
+
+        }else {
+
+            return false;
+        }
+
+    }
+
     public List<ChildSubItemBean> getChildList() {
         return childList;
     }

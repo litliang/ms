@@ -325,9 +325,13 @@ public class MoreFunctionPublicTitleView implements View.OnClickListener {
         if (ifUpdateCity) {
 
             ifUpdateCity = false;
+
             String cityName = CitySelectManager.getInstance().getPlaceName();
+
             String cityId = CitySelectManager.getInstance().getPlaceId();
+
             GlobalApp.getInstance().setSelectedCity(cityId, cityName);
+
             if (tvCityName != null) {
                 tvCityName.setText(cityName);
             }

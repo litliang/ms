@@ -37,18 +37,21 @@ public class HotelProductHolder extends BaseViewHolder<HotelProductObjectBean> i
 
     private TextView tvHotelName,tvBackMoney,tvHotelVote,tvHoteVoteMessage,tvHotelType,tvHotelCityDistance,tvBankPre,tvQuan,tvQiang,tvKaquanyi,tvTodayLeftRoom,tvNewsMessage,tvHotelRoomPrice;
 
-    public HotelProductHolder(ViewGroup parent)
+    private int searchAddrType;
+
+    public HotelProductHolder(ViewGroup parent,int searchAddrType)
     {
         super(parent, R.layout.view_hotel_product_item);
 
         context = parent.getContext();
+
+        this.searchAddrType = searchAddrType;
     }
 
     @Override
     public void setData(HotelProductObjectBean data)
     {
         super.setData(data);
-
 
         tvHotelName.setText(data.getHotelName());
 
@@ -127,7 +130,16 @@ public class HotelProductHolder extends BaseViewHolder<HotelProductObjectBean> i
 
         tvHotelType.setText(data.getBrandTypeDesc());
 
-        tvHotelCityDistance.setText("距离市中心"+data.getDis()+"m");
+        if(searchAddrType == 1){
+
+            tvHotelCityDistance.setText("距离我"+data.getDis()+"米");
+
+        }else {
+
+            tvHotelCityDistance.setText("距离市中心"+data.getDis()+"米");
+        }
+
+
 
         tvNewsMessage.setText(data.getLastReserve());
 

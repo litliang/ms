@@ -66,8 +66,55 @@ public class GetCouponModel {
 
             }
         });
+    }
+
+    /**
+     * 可使用优惠券列表表事件
+     * @param issuePlatform
+     * @param industryId
+     * @param shopId
+     * @param storeId
+     * @param goodsId
+     */
+    public void sendCanBuyCashCouponListAction(int issuePlatform,int industryId,long shopId,long storeId,long goodsId,final int type){
+
+        CanReceiveCouponRequest request =   new CanReceiveCouponRequest( industryId, shopId, storeId, goodsId);
+
+        request.setGoodsCouponUrl();
+
+        request.sendRequest(new HttpCallBackData() {
+            @Override
+            public void onStart() {
+
+            }
+
+            @Override
+            public void onSuccess(Object o) {
+
+                dataCallBack.requestSuccess(o,type);
+
+            }
+
+            @Override
+            public void onFailed(Object o) {
+
+                dataCallBack.requestFailedDataCall(o,type);
+
+            }
+
+            @Override
+            public void onCancelled(Object o) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
 
     }
+
     /**
      * 可使用优惠券列表表事件
      * @param issuePlatform

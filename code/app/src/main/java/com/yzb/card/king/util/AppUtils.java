@@ -258,13 +258,11 @@ public class AppUtils
             BigDecimal b = new BigDecimal(l);
             double f1 = b.setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue();
             String lTemp = String.valueOf(f1);
-            ;
 
             String[] str = lTemp.split("\\.");
 
             if (str.length == 2)
             {
-
 
                 int xiaoshu = Integer.parseInt(str[1]);
 
@@ -640,6 +638,40 @@ public class AppUtils
         return sd;
     }
 
+    /**
+     * 检测当前日期是否在有效期间内容。
+     * @param startDate
+     * @param endDate
+     * @return
+     */
+    public static boolean checkStartEndDate(String startDate,String endDate){
+
+        if(TextUtils.isEmpty(startDate)){
+
+            return true;
+        }
+
+        if(TextUtils.isEmpty(endDate)){
+
+            return true;
+        }
+
+        long startLong = Utils.toTimestamp(startDate,4);
+
+        long endLong = Utils.toTimestamp(endDate,4);
+
+        long curentLong = System.currentTimeMillis();
+
+        if(curentLong >= startLong && curentLong <= endLong){
+
+            return true;
+
+        }else {
+
+            return  false;
+        }
+
+    }
 
 
 }

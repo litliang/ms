@@ -4,7 +4,9 @@ import android.content.Context;
 import android.view.ViewGroup;
 
 import com.yzb.card.king.bean.hotel.HotelBean;
+import com.yzb.card.king.bean.hotel.HotelProductListParam;
 import com.yzb.card.king.bean.hotel.HotelProductObjectBean;
+import com.yzb.card.king.ui.hotel.HotelLogicManager;
 import com.yzb.card.king.ui.hotel.holder.HotelProductHolder;
 
 import cn.lemon.view.adapter.BaseViewHolder;
@@ -19,9 +21,15 @@ import cn.lemon.view.adapter.RecyclerAdapter;
  */
 public class HotelProductItemAdapter extends RecyclerAdapter<HotelProductObjectBean> {
 
+    private int searchAddrType = 0;
+
     public HotelProductItemAdapter(Context context)
     {
         super(context);
+
+        HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
+
+        searchAddrType= productListParam.getSearchAddrType();
     }
 
 
@@ -53,12 +61,7 @@ public class HotelProductItemAdapter extends RecyclerAdapter<HotelProductObjectB
     @Override
     public BaseViewHolder<HotelProductObjectBean> onCreateBaseViewHolder(ViewGroup parent, int viewType)
     {
-//        if (viewType == 10000) {
-            return new HotelProductHolder(parent);
-//        } else {
-//            return new HotelProductHolderTemp(parent);
-//
-//        }
+            return new HotelProductHolder(parent,searchAddrType);
 
     }
 

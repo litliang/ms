@@ -60,7 +60,6 @@ public class HotelRoomInfoFragment extends Fragment implements View.OnClickListe
 
         gvFactivity = (SpecHeightGridView) view.findViewById(R.id.gvFactivity);
 
-
         List<HotelRoomInfoBean.RoomService>  roomServiceList =  hotelRoomComboInfoBean.getRoomInfo().getBaseServiceList();
 
         HotelInfoFacitityAdapter hotelFacitityAdapter = new HotelInfoFacitityAdapter(inflater,roomServiceList);
@@ -135,12 +134,24 @@ public class HotelRoomInfoFragment extends Fragment implements View.OnClickListe
 
         llGetCoupon.setOnClickListener(this);
 
-        if ("1".equals(hotelProductPre.getTicketStatus())) {
+        if ("1".equals(hotelProductPre.getCouponStatus())) {//优惠券
 
             llGetCoupon.setVisibility(View.VISIBLE);
         } else {
 
             llGetCoupon.setVisibility(View.GONE);
+        }
+
+        LinearLayout llGetCashCoupon = (LinearLayout) view.findViewById(R.id.llGetCashCoupon);
+
+        llGetCashCoupon.setOnClickListener(this);
+
+        if ("1".equals(hotelProductPre.getCouponStatus())) {//代金券
+
+            llGetCashCoupon.setVisibility(View.VISIBLE);
+        } else {
+
+            llGetCashCoupon.setVisibility(View.GONE);
         }
 
         LinearLayout llMerchantIntegral = (LinearLayout) view.findViewById(R.id.llMerchantIntegral);
@@ -196,9 +207,16 @@ public class HotelRoomInfoFragment extends Fragment implements View.OnClickListe
 
                 break;
 
-            case R.id.llGetCoupon:
+            case R.id.llGetCoupon://优惠券
                 if (dataCall != null)
                     dataCall.getCouponAction();
+
+                break;
+
+            case R.id.llGetCashCoupon://代金券
+                if (dataCall != null)
+                    dataCall.getCashCouponAction();
+
 
                 break;
             case R.id.llLifeStage:

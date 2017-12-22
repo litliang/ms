@@ -88,7 +88,7 @@
                 android:drawablePadding="3dp"
                 android:hint="输入商家名称"
                 android:singleLine="true"
-                android:textColor="@color/color_999999"
+                android:textColor="#333333"
                 android:textSize="@dimen/title_size_14" />
 
             <LinearLayout

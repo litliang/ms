@@ -185,15 +185,20 @@ public class HotelRoomFragment extends BaseFragment implements AsyncExpandableLi
     private void initRequest(boolean flag)
     {
         if (flag) {
+
             ProgressDialogUtil.getInstance().showProgressDialogMsg("正在请求数据……", getContext(), false);
         }
 
         HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
 
         HotelRoomParam param = new HotelRoomParam(hotelId, productListParam.getArrDate(), productListParam.getDepDate());
+
         param.setDirectStatus(directStatus);
+
         param.setPaymentType(paymentType);
+
         param.setMealType(mealType);
+
         param.setRoomsType(roomsType);
 
         persenter.sendRoomProductRequest(param);
@@ -556,6 +561,11 @@ public class HotelRoomFragment extends BaseFragment implements AsyncExpandableLi
 
         if (type == HotelServicePersenter.HOTEL_ROOM_PRODUCT_CODE) {
 
+           if( mAsyncExpandableListView.getVisibility() == View.GONE){
+
+               mAsyncExpandableListView.setVisibility(View.VISIBLE);
+           }
+
             List<HotelRoomInfoBean> list = JSONArray.parseArray(o + "", HotelRoomInfoBean.class);
 
             CollectionView.Inventory<HotelRoomInfoBean, HotelRoomComboInfoBean> inventory = new CollectionView.Inventory<>();
@@ -598,8 +608,8 @@ public class HotelRoomFragment extends BaseFragment implements AsyncExpandableLi
 
             if (HttpConstant.NOINFO.equals(error.getCode())) {
 
-
                     mAsyncExpandableListView.setVisibility(View.GONE);
+
             }else {
 
                 HttpUtil.responseCallBackMessage(error.getCode());
@@ -738,7 +748,6 @@ public class HotelRoomFragment extends BaseFragment implements AsyncExpandableLi
         newsItemHolder.tvTitle.setText(item.getMealTypeDesc());
 
         HotelRoomInfoBean hotelRoomInfoBean = mAsyncExpandableListView.getHeader(mGroupOrdinal);
-
 
         item.setHotelName(hotelName);
 

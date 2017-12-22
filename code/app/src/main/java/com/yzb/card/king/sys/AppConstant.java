@@ -277,8 +277,6 @@ public class AppConstant
      */
     public static final String transport_id = "9";
 
-
-
     /**
      * 礼品卡
      */

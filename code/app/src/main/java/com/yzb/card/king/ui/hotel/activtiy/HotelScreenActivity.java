@@ -68,7 +68,6 @@ public class HotelScreenActivity extends BaseActivity implements View.OnClickLis
         initRequest();
     }
 
-
     /**
      * 初始观察者请求
      */
@@ -89,9 +88,18 @@ public class HotelScreenActivity extends BaseActivity implements View.OnClickLis
 
             case R.id.tvClear://清空数据
 
-                reInitializeData();
+//                List<SubItemBean>  selectorListTemp =  calSelectoredList();
+//
+//                if(selectorListTemp.size()>0){
 
-                hotelBrandTypeAdapter.reSetView(false);
+                    reInitializeData();
+
+                   hotelBrandTypeAdapter.addNewData(monthBeanList);
+
+                 //   hotelBrandTypeAdapter.reSetView(false);
+        //        }
+
+
 
                 break;
             case R.id.tvConfirm://确定
@@ -172,7 +180,6 @@ public class HotelScreenActivity extends BaseActivity implements View.OnClickLis
 
         if(type ==-1){
 
-
             List<CatalogueTypeBean>  catalogueTypeBeanList = JSONArray.parseArray(o+"",CatalogueTypeBean.class);
 
             loadUiData(catalogueTypeBeanList);
@@ -181,7 +188,9 @@ public class HotelScreenActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     public void callFailedViewLogic(Object o, int type) {
+
         dimissPdialog();
+
         if(type ==-1){
 
             loadUiData(null);
@@ -193,6 +202,9 @@ public class HotelScreenActivity extends BaseActivity implements View.OnClickLis
         if(catalogueTypeBeanList == null){
 
             catalogueTypeBeanList = new ArrayList<CatalogueTypeBean>();
+
+        }else {
+
         }
 
         HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
@@ -216,7 +228,6 @@ public class HotelScreenActivity extends BaseActivity implements View.OnClickLis
                                 targetBean.getFilterLng()== bean.getFilterLng() &&
                                 targetBean.getFilterLat() == bean.getFilterLng()){
 
-
                             targetBean.setDefault(true);
 
                             break;
@@ -227,7 +238,6 @@ public class HotelScreenActivity extends BaseActivity implements View.OnClickLis
                         }
 
                     }
-
 
                 }
 

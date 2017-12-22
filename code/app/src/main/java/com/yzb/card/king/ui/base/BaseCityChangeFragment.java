@@ -26,6 +26,7 @@ public class BaseCityChangeFragment extends BaseFragment implements GlobalApp.On
     public void onResume()
     {
         super.onResume();
+
         CitySelectManager sm = CitySelectManager.getInstance();
 
         //如果该Fragment  attach的Activity继承了BaseCityChangeActivity,
@@ -33,6 +34,7 @@ public class BaseCityChangeFragment extends BaseFragment implements GlobalApp.On
         if (!TextUtils.isEmpty(sm.getPlaceId()))
         {
             cityId = sm.getPlaceId();
+
             cityName = sm.getPlaceName();
             //触发onCityChange方法；
             GlobalApp.getInstance().setSelectedCity(cityId, cityName);

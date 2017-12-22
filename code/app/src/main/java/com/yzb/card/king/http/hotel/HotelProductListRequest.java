@@ -50,6 +50,11 @@ public class HotelProductListRequest extends BaseRequest {
         param.put("pageStart", hotelParam.getPageStart());
         param.put("pageSize", hotelParam.getPageSize());
 
+        if(!TextUtils.isEmpty(hotelParam.getCashCouponId())) {
+
+            param.put("cashCouponId", hotelParam.getCashCouponId());
+        }
+
         if(!TextUtils.isEmpty( hotelParam.getMinVote())){
             param.put("minVote", hotelParam.getMinVote());
         }
@@ -100,6 +105,11 @@ public class HotelProductListRequest extends BaseRequest {
         param.put("sort", 3);//地图模式下，默认距离优先
         param.put("pageStart", hotelParam.getPageStart());
         param.put("pageSize", hotelParam.getPageSize());
+
+        if(!TextUtils.isEmpty(hotelParam.getCashCouponId())) {
+
+            param.put("cashCouponId", hotelParam.getCashCouponId());
+        }
 
         if(!TextUtils.isEmpty( hotelParam.getMinVote())){
             param.put("minVote", hotelParam.getMinVote());

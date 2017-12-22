@@ -1,6 +1,7 @@
 package com.yzb.card.king.ui.appwidget;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -48,6 +49,22 @@ public class DefineTopView implements View.OnClickListener{
 
         tabView.setOnClickListener(this);
 
+    }
+
+    private  boolean noClickTab = true;
+
+    /**
+     * 设置颜色和背景色
+     */
+    public void setUiColor(){
+
+        tvTabName.setBackgroundResource(R.drawable.shap_corner_gray_gray);
+
+        tvTabName.setTextColor(Color.parseColor("#999999"));
+
+        ivRight.setVisibility(View.INVISIBLE);
+
+        noClickTab = false;
 
     }
 
@@ -95,14 +112,16 @@ public class DefineTopView implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
+        if(noClickTab){
 
-        setTabCheckStatus(true);
+            setTabCheckStatus(true);
 
-        if(clickAction != null){
+            if(clickAction != null){
 
-            clickAction.onTabClickItem((int)v.getTag(),null,true);
+                clickAction.onTabClickItem((int)v.getTag(),null,true);
+            }
+
         }
-
 
     }
 

@@ -31,7 +31,7 @@ import java.util.List;
  * 日  期：2017/7/20
  * 描  述：目录类型 --- 经济邢、 舒适型、豪华型
  */
-public class HotelBrandPopup  implements View.OnClickListener ,BaseViewLayerInterface {
+public class HotelBrandPopup implements View.OnClickListener, BaseViewLayerInterface {
 
     private BaseFullPP baseBottomFullPP;
 
@@ -43,16 +43,14 @@ public class HotelBrandPopup  implements View.OnClickListener ,BaseViewLayerInte
 
     private CatalogueTypeAdapter hotelBrandTypeAdapter;
 
-     private HotelBrandPopup.ViewDataCallBack callBack;
+    private HotelBrandPopup.ViewDataCallBack callBack;
 
     /**
-     *
      * @param activity
-     * @param defineHeight  自定义子视图的高度
+     * @param defineHeight 自定义子视图的高度
      * @param industryFun  酒店（1酒店列表；2礼品套餐；）
      */
-    public HotelBrandPopup(Activity activity, int defineHeight,String industryFun)
-    {
+    public HotelBrandPopup(Activity activity, int defineHeight, String industryFun) {
 
         this.activity = activity;
 
@@ -63,7 +61,7 @@ public class HotelBrandPopup  implements View.OnClickListener ,BaseViewLayerInte
 
         if (defineHeight > 0) {
 
-            ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, CommonUtil.dip2px(activity,defineHeight) );
+            ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, CommonUtil.dip2px(activity, defineHeight));
 
 
             view.setLayoutParams(lp);
@@ -72,30 +70,29 @@ public class HotelBrandPopup  implements View.OnClickListener ,BaseViewLayerInte
 
         baseBottomFullPP.addChildView(view);
 
-        baseBottomFullPP.setListener(new BaseFullPP.PpOndismisssListener() {
-            @Override
-            public void onClickListenerDismiss()
-            {
-                if(callBack!=null){
-                    callBack.onConfirm(calSelectoredList());
-                }
-            }
-        });
+//        baseBottomFullPP.setListener(new BaseFullPP.PpOndismisssListener() {
+//            @Override
+//            public void onClickListenerDismiss()
+//            {
+//
+//                if(callBack!=null){
+//
+//                    callBack.onConfirm(calSelectoredList());
+//                }
+//            }
+//        });
 
         view.findViewById(R.id.tvClear).setOnClickListener(this);
 
         view.findViewById(R.id.tvConfirm).setOnClickListener(this);
 
-
         wvLvData = (RecyclerView) view.findViewById(R.id.wvLvData);
 
         wvLvData.setLayoutManager(new GridLayoutManager(activity, 1));
 
-        hotelBrandTypeAdapter = new CatalogueTypeAdapter(activity,monthBeanList);
-
+        hotelBrandTypeAdapter = new CatalogueTypeAdapter(activity, monthBeanList);
 
         wvLvData.setAdapter(hotelBrandTypeAdapter);
-
 
         initRequest(industryFun);
     }
@@ -111,8 +108,8 @@ public class HotelBrandPopup  implements View.OnClickListener ,BaseViewLayerInte
 
         ProgressDialogUtil.getInstance().showProgressDialogMsg("正在请求数据……", activity, true);
     }
-    public void showPP(View rootView)
-    {
+
+    public void showPP(View rootView) {
 
         baseBottomFullPP.showBottomAsView(rootView);
     }
@@ -120,20 +117,19 @@ public class HotelBrandPopup  implements View.OnClickListener ,BaseViewLayerInte
     /**
      * 计算出选择内容
      */
-    public  List<SubItemBean> calSelectoredList(){
+    public List<SubItemBean> calSelectoredList() {
 
         List<SubItemBean> selectorList = new ArrayList<SubItemBean>();
 
-        for (CatalogueTypeBean brandTypeBean :monthBeanList){
+        for (CatalogueTypeBean brandTypeBean : monthBeanList) {
 
+            List<SubItemBean> list = brandTypeBean.getChildList();
 
-            List<SubItemBean>  list =   brandTypeBean.getChildList();
-
-            for(SubItemBean brandBean :list){
+            for (SubItemBean brandBean : list) {
 
                 boolean flag = brandBean.isDefault();
 
-                if(flag){
+                if (flag) {
 
                     selectorList.add(brandBean);
                 }
@@ -142,29 +138,27 @@ public class HotelBrandPopup  implements View.OnClickListener ,BaseViewLayerInte
 
         }
 
-        return selectorList ;
+        return selectorList;
     }
 
     /**
      * 设置初始化数据
      */
-    public  void reInitializeData(){
+    public void reInitializeData() {
 
-        for (CatalogueTypeBean brandTypeBean :monthBeanList){
+        for (CatalogueTypeBean brandTypeBean : monthBeanList) {
 
+            List<SubItemBean> list = brandTypeBean.getChildList();
 
-            List<SubItemBean>  list =   brandTypeBean.getChildList();
-
-            for(SubItemBean brandBean :list){
+            for (SubItemBean brandBean : list) {
 
                 boolean flag = brandBean.isDefault();
 
-                if(flag){
+                if (flag) {
 
                     brandBean.setDefault(false);
                 }
             }
-
 
         }
 
@@ -172,9 +166,8 @@ public class HotelBrandPopup  implements View.OnClickListener ,BaseViewLayerInte
 
 
     @Override
-    public void onClick(View v)
-    {
-        switch (v.getId()){
+    public void onClick(View v) {
+        switch (v.getId()) {
 
             case R.id.tvClear://清理
 
@@ -184,8 +177,12 @@ public class HotelBrandPopup  implements View.OnClickListener ,BaseViewLayerInte
 
                 break;
             case R.id.tvConfirm://确定
-                if(callBack!=null){
-                    callBack.onConfirm(calSelectoredList());
+
+                if (callBack != null) {
+
+                    selectedData = calSelectoredList();
+
+                    callBack.onConfirm(selectedData);
                 }
                 baseBottomFullPP.dismiss();
 
@@ -196,8 +193,7 @@ public class HotelBrandPopup  implements View.OnClickListener ,BaseViewLayerInte
         }
     }
 
-    public void setCallBack(ViewDataCallBack callBack)
-    {
+    public void setCallBack(ViewDataCallBack callBack) {
         this.callBack = callBack;
     }
 
@@ -205,7 +201,7 @@ public class HotelBrandPopup  implements View.OnClickListener ,BaseViewLayerInte
     public void callSuccessViewLogic(Object o, int type) {
         ProgressDialogUtil.getInstance().closeProgressDialog();
 
-        if(type ==-1) {
+        if (type == -1) {
 
             List<CatalogueTypeBean> catalogueTypeBeanList = JSONArray.parseArray(o + "", CatalogueTypeBean.class);
 
@@ -220,6 +216,37 @@ public class HotelBrandPopup  implements View.OnClickListener ,BaseViewLayerInte
 
         ProgressDialogUtil.getInstance().closeProgressDialog();
 
+    }
+
+    private List<SubItemBean> selectedData;
+
+    public void showSelectedData() {
+
+        if (selectedData != null && selectedData.size() > 0) {
+
+            reInitializeData();
+
+            for (SubItemBean bean : selectedData) {
+
+                for (CatalogueTypeBean brandTypeBean : monthBeanList) {
+
+                    List<SubItemBean> list = brandTypeBean.getChildList();
+
+                    for (SubItemBean brandBean : list) {
+
+                        if (bean.ifSame(brandBean)) {
+
+                            brandBean.setDefault(true);
+
+                            break;
+                        }
+                    }
+                }
+            }
+
+            hotelBrandTypeAdapter.addNewData(monthBeanList);
+
+        }
     }
 
     public interface ViewDataCallBack {

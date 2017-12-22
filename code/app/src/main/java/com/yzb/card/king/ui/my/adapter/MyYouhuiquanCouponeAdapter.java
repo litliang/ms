@@ -20,6 +20,7 @@ import com.yzb.card.king.ui.appwidget.StarBar;
 import com.yzb.card.king.ui.base.BaseListAdapter;
 import com.yzb.card.king.ui.hotel.HotelLogicManager;
 import com.yzb.card.king.ui.hotel.activtiy.HotelProductInfoActivity;
+import com.yzb.card.king.util.AppUtils;
 import com.yzb.card.king.util.DateUtil;
 import com.yzb.card.king.util.Utils;
 import com.yzb.card.king.util.XImageOptionUtil;
@@ -125,34 +126,44 @@ public class MyYouhuiquanCouponeAdapter extends BaseListAdapter<CouponInfoBean>
 
             holder.tvGet.setBackgroundResource(R.drawable.style_btn_red_circle);
 
-            holder.tvAmount.setBackgroundResource(R.mipmap.icon_coupon_bg2);
+            //检测是否在有效期间内容
+            boolean e = AppUtils.checkStartEndDate(bean.getStartDate(),bean.getEndDate());
 
-            holder.tvGet.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            if(e) {
 
-                  if(bean.getReceiveStatus()== 3){
+                holder.tvAmount.setBackgroundResource(R.mipmap.icon_coupon_bg2);
 
-                      //其它产品订单
-                      Date startDate = new Date();
-                      Date endDate = DateUtil.addDay(startDate, 1);
+                holder.tvGet.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
 
-                      String startDateStr = DateUtil.date2String(startDate, DateUtil.DATE_FORMAT_DATE);
-                      String endDateStr = DateUtil.date2String(endDate, DateUtil.DATE_FORMAT_DATE);
-                      //设置查看酒店详情参数
-                      HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
-                      productListParam.setArrDate(startDateStr);
-                      productListParam.setDepDate(endDateStr);
+                        if (bean.getReceiveStatus() == 3) {
 
-                      //目前只处理酒店的优惠券
-                      long storeId = bean.getStoreId();
-                      Intent intent = new Intent(mContext, HotelProductInfoActivity.class);
-                      intent.putExtra("hotelId", storeId + "");
-                      mContext.startActivity(intent);
+                            //其它产品订单
+                            Date startDate = new Date();
+                            Date endDate = DateUtil.addDay(startDate, 1);
 
-                  }
-                }
-            });
+                            String startDateStr = DateUtil.date2String(startDate, DateUtil.DATE_FORMAT_DATE);
+                            String endDateStr = DateUtil.date2String(endDate, DateUtil.DATE_FORMAT_DATE);
+                            //设置查看酒店详情参数
+                            HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
+                            productListParam.setArrDate(startDateStr);
+                            productListParam.setDepDate(endDateStr);
+
+                            //目前只处理酒店的优惠券
+                            long storeId = bean.getStoreId();
+                            Intent intent = new Intent(mContext, HotelProductInfoActivity.class);
+                            intent.putExtra("hotelId", storeId + "");
+                            mContext.startActivity(intent);
+
+                        }
+                    }
+                });
+            }else{
+
+                holder.tvAmount.setBackgroundResource(R.mipmap.bg_gray_youhuiquan_no);
+                holder.tvGet.setOnClickListener(null);
+            }
 
         }else if(receiveStatus == 5){
 

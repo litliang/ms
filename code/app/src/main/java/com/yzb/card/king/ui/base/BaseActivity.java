@@ -33,6 +33,7 @@ import com.yzb.card.king.ui.discount.bean.Location;
 import com.yzb.card.king.ui.manage.UserManager;
 import com.yzb.card.king.ui.my.pop.RealNameCertificationDialog;
 import com.yzb.card.king.ui.user.LoginActivity;
+import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.ProgressDialogUtil;
 import com.yzb.card.king.util.ToastUtil;
 import com.yzb.card.king.util.UiUtils;
@@ -100,6 +101,7 @@ public class BaseActivity extends AppCompatActivity
             RsaUtil.init();
 
         }
+
         reSetCityInfo();
     }
 
@@ -112,22 +114,73 @@ public class BaseActivity extends AppCompatActivity
 
         selectedCity = GlobalApp.getSelectedCity();
 
+        //检测用户是否选择了城市信息
         if(selectedCity != null){
+
+            cityId =  selectedCity.cityId;
+
+            cityName = selectedCity.getCityName();
 
             positionLatitude = selectedCity.getLatitude();
 
             positionLongitude = selectedCity.getLongitude();
+
+
+        }else {
+
+            cityId =  positionedCity.cityId;
+
+            cityName = positionedCity.getCityName();
+
+            positionLatitude = positionedCity.getLatitude();
+
+            positionLongitude = positionedCity.getLongitude();
+
+
         }
 
+      }
+
+      public void updateUseCurrentPositionInfor(){
+
+          positionedCity = GlobalApp.getPositionedCity();
+
+          selectedCity = GlobalApp.getSelectedCity();
+
+          //检测用户是否选择了城市信息
+          if(selectedCity != null){
 
 
-        if(selectedCity != null){
+              cityId =  positionedCity.cityId;
 
-            cityId = isEmpty(selectedCity.cityId) ? positionedCity.cityId : selectedCity.cityId;
+              cityName = positionedCity.getCityName();
 
-            cityName = selectedCity.getCityName();
-        }
+              positionLatitude = positionedCity.getLatitude();
 
+              positionLongitude = positionedCity.getLongitude();
+          }else {
+
+              cityId =  selectedCity.cityId;
+
+              cityName = selectedCity.getCityName();
+
+              positionLatitude = selectedCity.getLatitude();
+
+              positionLongitude = selectedCity.getLongitude();
+
+
+          }
+
+      }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        //礼品卡和红包消息监听；
+        MsgIntentService.listenGiftAndBouns(getApplicationContext());
+
+        reSetCityInfo();
     }
 
 
@@ -378,19 +431,6 @@ public class BaseActivity extends AppCompatActivity
         ProgressDialogUtil.getInstance().closeProgressDialog();
     }
 
-
-    @Override
-    protected void onResume()
-    {
-        super.onResume();
-        //礼品卡和红包消息监听；
-        MsgIntentService.listenGiftAndBouns(getApplicationContext());
-
-        positionedCity = GlobalApp.getPositionedCity();
-        selectedCity = GlobalApp.getSelectedCity();
-        if(GlobalApp.getSelectedCity() != null)
-        cityId = isEmpty(selectedCity.cityId) ? positionedCity.cityId : selectedCity.cityId;
-    }
 
     /**
      * 是否应用状态栏一体化；

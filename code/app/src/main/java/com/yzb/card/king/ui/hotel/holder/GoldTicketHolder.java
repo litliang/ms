@@ -3,6 +3,7 @@ package com.yzb.card.king.ui.hotel.holder;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +13,13 @@ import com.yzb.card.king.R;
 import com.yzb.card.king.bean.common.BaseCouponBean;
 import com.yzb.card.king.ui.appwidget.popup.GoLoginDailog;
 import com.yzb.card.king.ui.manage.UserManager;
+import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.Utils;
 
 import cn.lemon.view.adapter.BaseViewHolder;
 
 /**
- * 类  名：代金券视图控制类
+ * 类  名：酒店--优惠券
  * 作  者：Li Yubing
  * 日  期：2017/8/9
  * 描  述：
@@ -54,11 +56,19 @@ public class GoldTicketHolder extends BaseViewHolder<BaseCouponBean> implements 
     public void setData(BaseCouponBean data)
     {
 
-        String recieveStatus = data.getRecieveStatus();
+        String recieveStatus = data.getReceiveStatus();
 
         tvFuctionGet.setTag(data);
 
-        tvCouponDesc.setText("【" + data.getActName() + "】" + data.getActDesc());
+        String desc = "【" + data.getActName() + "】";
+
+        if(!TextUtils.isEmpty(data.getActDesc())){
+
+            desc = desc+data.getActDesc();
+
+        }
+
+        tvCouponDesc.setText(desc);
 
         tvCouponData.setText(data.getStartDate() + "至" + data.getEndDate());
 
@@ -66,7 +76,7 @@ public class GoldTicketHolder extends BaseViewHolder<BaseCouponBean> implements 
 
         if ("1".equals(type)) {//1满减券
 
-            tvPrice.setText( Utils.subZeroAndDot(data.getCutValue() + ""));
+            tvPrice.setText( Utils.subZeroAndDot(data.getCutAmount() + ""));
 
             tvUnite.setVisibility(View.VISIBLE);
 
@@ -100,7 +110,7 @@ public class GoldTicketHolder extends BaseViewHolder<BaseCouponBean> implements 
 
         } else if ("2".equals(type)) {//2折扣券
 
-            String zhekouStr = Utils.handNumberToString(data.getCutValue());
+            String zhekouStr = Utils.handNumberToString(data.getCutAmount());
 
             tvUnite.setVisibility(View.GONE);
 
@@ -129,30 +139,6 @@ public class GoldTicketHolder extends BaseViewHolder<BaseCouponBean> implements 
             } else if ("0".equals(recieveStatus)) {
 
                 tvFuctionGet.setText("立即领取");
-
-                tvFuctionGet.setBackgroundResource(R.drawable.bg_round_corner_red);
-
-            }
-
-        }else if("3".equals(type)){//抵扣券；
-
-            tvPrice.setText( Utils.subZeroAndDot(data.getFullAmount() +""));
-
-            tvUnite.setVisibility(View.VISIBLE);
-
-            tvPrice.setTextSize(TypedValue.COMPLEX_UNIT_SP,15);
-
-            tvCondition.setText("抵扣");
-
-            if ("1".equals(recieveStatus)) {
-
-                tvFuctionGet.setText("已购买");
-
-                tvFuctionGet.setBackgroundResource(R.drawable.bg_round_corner_gray);
-
-            } else if ("0".equals(recieveStatus)) {
-
-                tvFuctionGet.setText("立即购买");
 
                 tvFuctionGet.setBackgroundResource(R.drawable.bg_round_corner_red);
 
@@ -195,7 +181,7 @@ public class GoldTicketHolder extends BaseViewHolder<BaseCouponBean> implements 
 
                     BaseCouponBean  baseCouponBean = (BaseCouponBean) v.getTag();
 
-                    String recieveStatus = baseCouponBean.getRecieveStatus();
+                    String recieveStatus = baseCouponBean.getReceiveStatus();
 
                     if ("0".equals(recieveStatus)) {
 

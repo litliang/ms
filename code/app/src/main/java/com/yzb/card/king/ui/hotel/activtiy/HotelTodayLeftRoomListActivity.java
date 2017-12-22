@@ -129,9 +129,13 @@ public class HotelTodayLeftRoomListActivity extends BaseActivity implements Base
         mAdapter = new HotelTodayLeftRoomItemAdapter(this);
 
         mRecyclerView = (RefreshRecyclerView) findViewById(R.id.recycler_view);
+
         mRecyclerView.setSwipeRefreshColors(0xFF437845, 0xFFE44F98, 0xFF2FAC21);
+
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 1));
+
         mRecyclerView.setAdapter(mAdapter);
+
         mRecyclerView.setRefreshAction(new Action() {
             @Override
             public void onAction() {
@@ -149,7 +153,9 @@ public class HotelTodayLeftRoomListActivity extends BaseActivity implements Base
         mRecyclerView.post(new Runnable() {
             @Override
             public void run() {
+
                 mRecyclerView.showSwipeRefresh();
+
                 getData(true);
             }
         });
@@ -227,8 +233,6 @@ public class HotelTodayLeftRoomListActivity extends BaseActivity implements Base
                 hotelStarPricePopup.showBottomByViewPP(llTop);
 
             }
-
-
         }
     };
 
@@ -395,7 +399,6 @@ public class HotelTodayLeftRoomListActivity extends BaseActivity implements Base
 
                 productListParam.setRoomsTypes(sb.toString());
 
-
             }
 
             mRecyclerView.showSwipeRefresh();
@@ -411,15 +414,21 @@ public class HotelTodayLeftRoomListActivity extends BaseActivity implements Base
         List<RoomInfoBean> list = JSONArray.parseArray(o + "", RoomInfoBean.class);
 
         if (page == 0) {
+
             mAdapter.clear();
+
             mAdapter.addAll(list);
+
             mRecyclerView.dismissSwipeRefresh();
+
             mRecyclerView.getRecyclerView().scrollToPosition(0);
+
         } else {
             mAdapter.addAll(list);
         }
 
         int size = list.size();
+
         if (size < AppConstant.MAX_PAGE_NUM) {
 
             mRecyclerView.showNoMore();
@@ -447,8 +456,11 @@ public class HotelTodayLeftRoomListActivity extends BaseActivity implements Base
             if (resultCode == 5001) {//选择城市
 
                 reSetCityInfo();
+
                 tvCityName.setText(cityName);
+
                 mRecyclerView.showSwipeRefresh();
+
                 getData(true);
 
             }

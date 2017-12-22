@@ -19,6 +19,14 @@ public class FavInfoBean implements Serializable{
      */
     private String bankDesc;
     /**
+     * 优惠券状态（1有；0无）
+     */
+    private String couponStatus;
+    /**
+     * 代金券状态（1有；0无）
+     */
+    private String cashCouponStatus;
+    /**
      * 券状态（1有；0无）
      */
     private String ticketStatus;
@@ -140,6 +148,22 @@ public class FavInfoBean implements Serializable{
     public String getShopPointsStatus()
     {
         return shopPointsStatus;
+    }
+
+    public String getCouponStatus() {
+        return couponStatus;
+    }
+
+    public void setCouponStatus(String couponStatus) {
+        this.couponStatus = couponStatus;
+    }
+
+    public String getCashCouponStatus() {
+        return cashCouponStatus;
+    }
+
+    public void setCashCouponStatus(String cashCouponStatus) {
+        this.cashCouponStatus = cashCouponStatus;
     }
 
     public void setShopPointsStatus(String shopPointsStatus)

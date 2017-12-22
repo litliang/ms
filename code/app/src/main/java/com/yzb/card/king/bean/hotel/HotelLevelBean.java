@@ -51,4 +51,15 @@ public class HotelLevelBean {
     public void setStartValue(String startValue) {
         this.startValue = startValue;
     }
+
+    public boolean ifSame(HotelLevelBean bean){
+
+        if(startName.equals(bean.getStartName())&& startValue.equals(bean.getStartValue())){
+
+            return true;
+        }else {
+            return  false;
+        }
+
+    }
 }

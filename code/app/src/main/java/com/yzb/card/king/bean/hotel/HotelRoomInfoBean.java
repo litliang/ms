@@ -206,8 +206,6 @@ public class HotelRoomInfoBean implements Serializable{
     private List<RoomService> baseServiceList;
 
 
-
-
     public static class RoomService implements Serializable{
 
         /**

@@ -60,7 +60,6 @@ public class MsgIntentService extends IntentService implements KeyInfoView
             {
                 //口令内容；
                 String command = clipData.getItemAt(0).getText().toString();
-                LogUtil.i("口令内容==" + command);
 
                 if (!TextUtils.isEmpty(command))
                 {

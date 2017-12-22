@@ -198,17 +198,19 @@ public class HotelLifeStageListActivity extends BaseActivity implements View.OnC
 
                 currentBankId = bankSelectPopup.getAllBankIds();
 
-            }else if(selectIndex == 1){//我的银行
-
-                currentBankId = bankSelectPopup.getMyBankIds();
-
-            }else if(selectIndex > 1){//其它银行
+            }
+//            else if(selectIndex == 1){//我的银行
+//
+//                currentBankId = bankSelectPopup.getMyBankIds();
+//
+//            }
+            else if(selectIndex >= 1){//其它银行
 
                 List<PaymethodAndBankPreStageBean> bankList =  bankSelectPopup.getTotalList();
 
                 if(bankList != null){
 
-                    PaymethodAndBankPreStageBean bean = bankList.get(selectIndex-2);
+                    PaymethodAndBankPreStageBean bean = bankList.get(selectIndex-1);
 
                     currentBankId = bean.getBankId()+"";
 

@@ -529,13 +529,21 @@ public class DiscountIndexFragment extends BaseFragment implements View.OnClickL
         }
 
         if (!StringUtils.isEmpty(CitySelectManager.getInstance().getPlaceId())) {
+
             isLoad = true;
+
             cityName = CitySelectManager.getInstance().getPlaceName();
+
             cityId = CitySelectManager.getInstance().getPlaceId();
+
             GlobalApp.getInstance().setSelectedCity(cityId, cityName);
+
             moreFunctionPublicTitleView.setCityName(cityName);
+
             tvCityName.setText(cityName);
+
             CitySelectManager.getInstance().clearData();
+
             srl.post(new Runnable() {
                 @Override
                 public void run()

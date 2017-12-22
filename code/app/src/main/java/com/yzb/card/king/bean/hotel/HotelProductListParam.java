@@ -91,6 +91,10 @@ public class HotelProductListParam {
      */
     private String bankIds;
     /**
+     * 代金券id
+     */
+    private String cashCouponId;
+    /**
      * 优惠促销项
      */
     private String disTypes;
@@ -350,6 +354,14 @@ public class HotelProductListParam {
      */
     private String roomsTypes;
 
+    public String getCashCouponId() {
+        return cashCouponId;
+    }
+
+    public void setCashCouponId(String cashCouponId) {
+        this.cashCouponId = cashCouponId;
+    }
+
     public int getActType() {
         return actType;
     }
@@ -422,7 +434,9 @@ public class HotelProductListParam {
     }
 
     public void setHotelPositionList(List<SubItemBean> hotelPositionList) {
+
         clearCacheSubItemData(this.hotelPositionList);//在总集合里面清理之前的数据
+
         this.hotelPositionList = hotelPositionList;
     }
 
@@ -435,14 +449,19 @@ public class HotelProductListParam {
         this.hotelKeyWordList = hotelKeyWordList;
     }
     public List<SubItemBean> getHotelBaseFilterList() {
+
         if(hotelBaseFilterList == null){
+
             hotelBaseFilterList = new ArrayList<SubItemBean>();
         }
+
         return hotelBaseFilterList;
     }
 
     public void setHotelBaseFilterList(List<SubItemBean> hotelBaseFilterList) {
+
         clearCacheSubItemData(this.hotelBaseFilterList);//在总集合里面清理之前的数据
+
         this.hotelBaseFilterList = hotelBaseFilterList;
     }
     /**
@@ -461,11 +480,7 @@ public class HotelProductListParam {
 
                     for (SubItemBean bean : list) {
 
-                        if (targetBean.getFilterId().equals(bean.getFilterId()) &&
-                                targetBean.getChildTypeCode().equals(bean.getChildTypeCode()) &&
-                                targetBean.getFilterName().equals(bean.getFilterName()) &&
-                                targetBean.getFilterLat() == bean.getFilterLat() &&
-                                targetBean.getFilterLng() == bean.getFilterLng()) {//检测到相同的数据则先删除
+                        if (targetBean.ifSame(bean)) {//检测到相同的数据则先删除
 
                             filterList.remove(i);
 

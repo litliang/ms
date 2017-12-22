@@ -26,8 +26,11 @@ public class HotelRoomRequest extends BaseRequest {
     {
         // 公共参数
         param.put("hotelId", hotelRoomParam.getHotelId());
+
         param.put("arrDate", hotelRoomParam.getArrDate());
+
         param.put("depDate", hotelRoomParam.getDepDate());
+
         if( hotelRoomParam.directStatus!=-1){
             param.put("directStatus", hotelRoomParam.directStatus);
         }

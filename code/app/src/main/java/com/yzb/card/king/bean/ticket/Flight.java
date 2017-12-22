@@ -47,7 +47,7 @@ public class Flight implements Serializable
     {
         startCity = new City();
 
-        Location selectedCity = GlobalApp.getThreeFourCityPostionCity();
+        Location selectedCity = GlobalApp.getSelectedCity();
 
         if (TextUtils.isEmpty(selectedCity.cityName))
         {
