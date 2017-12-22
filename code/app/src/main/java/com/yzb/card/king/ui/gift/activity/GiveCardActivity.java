@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -141,9 +142,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
 //            gridLayout.removeAllViews();
 //            addItemToGrid();
         } else if (pageType == TYPE_BOUNS) {
-            title = "选择联系人";//
-
-
+            title = "选择联系人";
         }
         favorPayeePresenter = new FavorPayeePresenter(this);
 
@@ -256,6 +255,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
         int totalAB = sizeA + sizeB;
 
         tvNum.setText("已选择 " + totalAB);
+        changeStatus();
     }
 
     /**
@@ -304,6 +304,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
                 payeeWvadapter.addNewDataList(list);
                 payeeWvadapter.notifyDataSetChanged();
                 calculateNumber();
+
                 break;
             case REQ_GET_MOBILE: //获取手机号；
                 Serializable obj = data.getSerializableExtra("payeeData");
@@ -333,6 +334,14 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
 
             default:
                 break;
+        }
+    }
+
+    private void changeStatus() {
+        if(payeeWvadapter.getList().size()==totalNum){
+            findViewById(R.id.tvSend).setBackgroundResource(R.color.titleRed);
+        }else{
+            findViewById(R.id.tvSend).setBackgroundColor(Color.parseColor("#999999"));
         }
     }
 
@@ -596,6 +605,7 @@ public class GiveCardActivity extends BaseActivity implements View.OnClickListen
                 payeeWvadapter.addNewData(tempPay);
 
                 calculateNumber();
+
             } else {
 
                 ToastUtil.i(this, R.string.account_no_registered);

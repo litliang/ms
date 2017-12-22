@@ -99,7 +99,7 @@ public class TicketAgentListAdapter extends BaseRecyAdapter<FlightDetailBean.Tic
 
             viewHolder.tvDiscount.setText(data.getQabinName()+" 退改签详情");
 
-            viewHolder.llDiscount.setOnClickListener(new ClickListenerImpl(OP_TYPE_DISCOUNT, position));
+            viewHolder.tvDiscount.setOnClickListener(new ClickListenerImpl(OP_TYPE_DISCOUNT, position));
 
 
             FavInfoBean pre = data.getDisMap();

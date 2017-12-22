@@ -7,7 +7,7 @@
               android:background="@color/white_ffffff"
               android:orientation="vertical">
 
-    <include layout="@layout/header"/>
+    <include layout="@layout/header_white"/>
 
     <LinearLayout
         android:id="@+id/llParentContent"

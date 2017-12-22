@@ -108,8 +108,9 @@
                             android:ellipsize="end"
                             android:maxLines="1"
                             android:text="上海爱尚居酒店"
-                            android:textColor="@color/color_333333"
-                            android:textSize="18dip"/>
+                            android:textColor="#5e5e5e"
+                            android:textSize="15.5dip"/>
+
 
                         <TextView
                             android:id="@+id/tvBackMoney"

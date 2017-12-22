@@ -474,7 +474,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
     {
         pageStart = 0;
         String singleline_filter_copany = SharePrefUtil.getValueFromSp(getBaseContext(),"singleline"+"-filter-company","MU");
-        commonparam.put("operaCode", singleline_filter_copany);
+//        commonparam.put("operaCode", singleline_filter_copany);
         commonparam.put("depCityId", currentFlight.getStartCity().getCityId());
         commonparam.put("timeSeres", DateUtil.date2String(currentFlight.getStartDate(), DateUtil.DATE_HOUR_MINIT));
         commonparam.put("arrCityId", currentFlight.getEndCity().getCityId());
