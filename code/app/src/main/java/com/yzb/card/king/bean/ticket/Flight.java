@@ -29,6 +29,16 @@ public class Flight implements Serializable
 
     private City endCity;
 
+    private String operaCode;
+
+    public String getOperaCode() {
+        return operaCode;
+    }
+
+    public void setOperaCode(String operaCode) {
+        this.operaCode = operaCode;
+    }
+
     public Flight(){
 
     }

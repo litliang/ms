@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -20,7 +19,8 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <TextView android:id="@+id/title"
+                <TextView
+                    android:id="@+id/title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/color_f0f0f0"
@@ -28,9 +28,10 @@
                     android:paddingLeft="@dimen/title_l_r"
                     android:paddingTop="8dp"
                     android:text="@string/send_hilife_account"
-                    android:textColor="#666666"/>
+                    android:textColor="#666666" />
 
-                <LinearLayout android:id="@+id/search"
+                <LinearLayout
+                    android:id="@+id/search"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white_ffffff"
@@ -54,11 +55,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:inputType="number"
                             android:background="@android:color/transparent"
-                            android:maxLength="11"
                             android:hint="请输入对方账户"
-                            android:textSize="@dimen/title_size_16"/>
+                            android:inputType="number"
+                            android:maxLength="11"
+                            android:textSize="@dimen/title_size_16" />
 
                         <LinearLayout
                             android:id="@+id/llAddContact"
@@ -71,37 +72,25 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="8dp"
                                 android:layout_marginRight="8dp"
-                                android:background="@color/bg_focus"/>
+                                android:background="@color/bg_focus" />
 
-                            <ImageView android:id="@+id/clear"
+                            <ImageView
+                                android:id="@+id/clear"
                                 android:layout_width="23dp"
                                 android:layout_height="23dp"
-                                android:background="@mipmap/clear"/>
+                                android:background="@mipmap/clear" />
                         </LinearLayout>
                     </LinearLayout>
 
 
-                    <ImageView android:src="@mipmap/portrait"
+                    <ImageView
                         android:id="@+id/tvAddAccount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/title_l_r"
-                        />
+                        android:src="@mipmap/portrait" />
 
                 </LinearLayout>
-            <LinearLayout
-                android:id="@+id/oftenuse"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <!--发送添加的联系人-->
-                <com.yzb.card.king.ui.appwidget.WholeRecyclerView
-                    android:id="@+id/addPayeeWv"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                </com.yzb.card.king.ui.appwidget.WholeRecyclerView>
-
 
                 <TextView
                     android:layout_width="match_parent"
@@ -111,8 +100,25 @@
                     android:paddingLeft="@dimen/title_l_r"
                     android:paddingTop="8dp"
                     android:text="@string/send_used_payee"
-                    android:textColor="#666666"/>
-            </LinearLayout>
+                    android:textColor="#666666" />
+
+                <LinearLayout
+                    android:id="@+id/oftenuse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <!--发送添加的联系人-->
+                    <com.yzb.card.king.ui.appwidget.WholeRecyclerView
+                        android:id="@+id/addPayeeWv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </com.yzb.card.king.ui.appwidget.WholeRecyclerView>
+
+
+                </LinearLayout>
                 <!--发送添加的常用收款人-->
                 <com.yzb.card.king.ui.appwidget.WholeRecyclerView
                     android:id="@+id/payeeWv"
@@ -124,12 +130,12 @@
         </ScrollView>
     </LinearLayout>
 
-
+    <!--android:background="@color/titleRed"-->
     <RelativeLayout
         android:id="@+id/tvSend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/titleRed"
+        android:background="#999999"
         android:paddingBottom="10dp"
         android:paddingLeft="@dimen/title_l_r"
         android:paddingRight="@dimen/title_l_r"
@@ -140,10 +146,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="已选择"
+            android:text=""
             android:textColor="@color/white_ffffff"
             android:textSize="@dimen/title_size_14"
-            android:visibility="invisible"/>
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -151,7 +157,7 @@
             android:layout_centerInParent="true"
             android:text="发送"
             android:textColor="@color/white_ffffff"
-            android:textSize="@dimen/title_size_20"/>
+            android:textSize="@dimen/title_size_20" />
 
     </RelativeLayout>
 

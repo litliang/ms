@@ -29,7 +29,7 @@ import cn.lemon.view.adapter.BaseViewHolder;
  */
 public class HotelProductHolder extends BaseViewHolder<HotelProductObjectBean> implements View.OnClickListener{
 
-    private LinearLayout llOne;
+    private View llOne;
 
     private Context context;
 

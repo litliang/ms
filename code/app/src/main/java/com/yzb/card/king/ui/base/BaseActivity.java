@@ -12,6 +12,7 @@ import android.os.Message;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -64,6 +65,10 @@ public class BaseActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        DisplayMetrics d = new DisplayMetrics();
+        this.getWindowManager().getDefaultDisplay().getMetrics(d);
+        float f = d.densityDpi;
+
         //配置xUtil jar包
         x.view().inject(this);
         GlobalApp.getInstance().setPublicActivity(this);
