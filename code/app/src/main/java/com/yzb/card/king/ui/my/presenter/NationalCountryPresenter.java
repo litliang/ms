@@ -184,7 +184,7 @@ public class NationalCountryPresenter implements DataCallBack {
 
             List<NationalCountryBean> list1 = db.selector(NationalCountryBean.class).where("cityLevel", "=", "2").findAll();
 
-            //过滤出中国香港、中国澳门、中国台湾，按序列放置到集合顶部位置
+            //过滤出中国、中国香港、中国澳门、中国台湾，按序列放置到集合顶部位置
             int index = 0;
 
             for (int a = 0 ; a < list1.size() ; a++){
@@ -216,9 +216,17 @@ public class NationalCountryPresenter implements DataCallBack {
                     list1.add(3,bean);
 
                     index= index+1;
+
+                }else if("中国".equals(coutryName)){
+
+                    list1.remove(bean);
+
+                    list1.add(0,bean);
+
+                    index= index+1;
                 }
 
-                if(index == 3){
+                if(index == 4){
 
                     break;
                 }

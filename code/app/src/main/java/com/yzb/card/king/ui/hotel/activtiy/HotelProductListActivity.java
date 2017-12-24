@@ -140,7 +140,6 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
         initTopFuction();
         initContent();
         initBottom();
-        //f
 
     }
 
@@ -195,7 +194,6 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                 mAdapter.setHeader(textView);
 
                 //禁止银行优惠和生活分期选择
-
                 bankFlag = false;
 
                 DefineTopView oneDefineTopView = defineTopViewList.get(1);

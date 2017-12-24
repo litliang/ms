@@ -102,9 +102,13 @@ public class DiscountDao implements DiscountImpl {
 
 
         Map<String, Object> param = new HashMap<String, Object>();
+
         param.put("parentId", AppConstant.discount_type_parentid);
+
         param.put("category", AppConstant.discount_channel_category);
+
         task.setParamData(param);
+
         task.sendRequest(null);
     }
 
@@ -112,7 +116,6 @@ public class DiscountDao implements DiscountImpl {
     @Override
     public void sendCouponRequest()
     {
-
 
         new CouponDataRequest().sendRequest(new HttpCallBackData() {
             @Override

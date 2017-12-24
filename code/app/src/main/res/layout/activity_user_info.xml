@@ -92,7 +92,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/user_center_gray"
+                    android:singleLine="true"
+                    android:textColor="@color/user_center_black"
                     android:textSize="@dimen/sp_15"
                     android:background="@android:color/transparent"/>
 
@@ -309,7 +310,6 @@
 
             <TextView
                 android:layout_marginLeft="20dip"
-
                 android:id="@+id/tvRegion"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

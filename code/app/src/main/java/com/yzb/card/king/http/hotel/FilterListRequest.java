@@ -45,6 +45,27 @@ public class FilterListRequest extends BaseRequest {
         params.put("keyword",keyWord);
     }
 
+    /**
+     * 酒店礼品卡套餐关键字搜索请求构造器
+     * @param addrId
+     * @param giftsType 7 卡权益；8限时抢购
+     * @param industryId  行业id
+     * @param searchName
+     * @param pageStart
+     */
+    public FilterListRequest(String addrId,int giftsType,int industryId,String searchName,int pageStart){
+        serverName= CardConstant.HOTEL_SEARCHGIFTSSTORE;
+        params.put("addrId", addrId);
+        params.put("giftsType",giftsType);
+
+        params.put("industryId", industryId);
+        params.put("searchName",searchName);
+
+        params.put("pageStart", pageStart);
+
+        params.put("pageSize", AppConstant.MAX_PAGE_NUM);
+    }
+
 
 
     @Override

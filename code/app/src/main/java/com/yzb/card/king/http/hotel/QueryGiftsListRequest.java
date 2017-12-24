@@ -32,7 +32,9 @@ public class QueryGiftsListRequest extends BaseRequest
     {
         // 公共参数
         param.put("addrId", hotelParam.getAddrId());
+
         param.put("industryId", hotelParam.getIndustryId());
+
         if(hotelParam.getStoreName() != null){
             param.put("storeName", hotelParam.getStoreName());
         }
@@ -46,11 +48,17 @@ public class QueryGiftsListRequest extends BaseRequest
         }
 
         param.put("bgnPrice", hotelParam.getBgnPrice());
+
         param.put("endPrice", hotelParam.getEndPrice());
+
         param.put("sort", hotelParam.getSort());
+
         param.put("pageStart", hotelParam.getPageStart());
+
         param.put("pageSize", hotelParam.getPageSize());
+
         if(hotelParam.getFilterList() != null){
+
             param.put("filterList", JSON.toJSONString(hotelParam.getFilterList()));
         }
 

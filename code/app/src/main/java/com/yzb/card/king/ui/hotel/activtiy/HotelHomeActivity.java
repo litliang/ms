@@ -12,7 +12,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.TextPaint;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +20,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
 import com.yzb.card.king.R;
 import com.yzb.card.king.bean.SearchReusultBean;
 import com.yzb.card.king.bean.SubItemBean;
@@ -52,10 +50,7 @@ import com.yzb.card.king.ui.hotel.persenter.HotelHomePersenter;
 import com.yzb.card.king.ui.hotel.view.HotelHomeView;
 import com.yzb.card.king.ui.other.activity.CivilInternationCityActivity;
 import com.yzb.card.king.ui.ticket.activity.AirTicketHomeActivity;
-import com.yzb.card.king.util.AppUtils;
 import com.yzb.card.king.util.DateUtil;
-import com.yzb.card.king.util.LogUtil;
-import com.yzb.card.king.util.SharePrefUtil;
 import com.yzb.card.king.util.SwipeRefreshSettings;
 import com.yzb.card.king.util.ToastUtil;
 

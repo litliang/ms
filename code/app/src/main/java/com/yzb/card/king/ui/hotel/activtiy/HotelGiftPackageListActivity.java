@@ -13,6 +13,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.yzb.card.king.R;
+import com.yzb.card.king.bean.SearchGiftResultBean;
 import com.yzb.card.king.bean.SubItemBean;
 import com.yzb.card.king.bean.GiftComboBean;
 import com.yzb.card.king.bean.common.Error;
@@ -120,9 +121,12 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
 
         productListParamCard.setIndustryId(Integer.parseInt(AppConstant.hotel_id));
 
+        industryId = Integer.parseInt(AppConstant.hotel_id);
+
         presenterl = new HotelProductListPresenter(this);
 
         initTitleView();
+
         initTopFuction();
 
         initContent();
@@ -133,12 +137,16 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
         findViewById(R.id.llSelectedAddress).setOnClickListener(this);
 
         tvCityName.setText(selectedCity.getCityName());
+
+        llSearch.setFocusable(false);
+
+        llSearch.setHint("输入门店名称");
+
+        llSearch.setOnClickListener(this);
     }
 
     private void initTopFuction()
     {
-
-        llSearch.setFocusable(false);
 
         defineTopViewList = new ArrayList<DefineTopView>();
 
@@ -161,7 +169,6 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
             defineTopViewList.add(defindTabView);
         }
 
-        llSearch.setHint("输入门店名称");
     }
 
     private DefineTopView.OnClickAction onClickAction = new DefineTopView.OnClickAction() {
@@ -415,6 +422,8 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
 
     private boolean productType = true;//限时抢购
 
+    private int giftsType = 8;
+
     private GiftComboPopup.BottomDataListCallBack callBack = new GiftComboPopup.BottomDataListCallBack() {
         @Override
         public void onClickItemDataBack(String name, int nameValue, int selectIndex)
@@ -435,16 +444,19 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
 
                 productType = true;
 
+                giftsType = 8;
+
             } else if (selectIndex == 1) {//卡权益
 
                 productType = false;
+
+                giftsType = 7;
             }
 
 
             HotelProductListParam productListParam;
 
             if (productType) {
-
 
                 productListParam = HotelLogicManager.getInstance().getFlashSaleHotelParam();
 
@@ -477,6 +489,8 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
         }
     };
 
+    private int  industryId ;
+
     private ChannelTypePopup.BottomDataListCallBack callBackChannelTypePopup = new ChannelTypePopup.BottomDataListCallBack() {
         @Override
         public void onClickItemDataBack(String name, int nameValue, int selectIndex)
@@ -504,6 +518,8 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
             }
 
             productListParam.setIndustryId(nameValue);
+
+            industryId = nameValue;
 
             mRecyclerView.showSwipeRefresh();
 
@@ -583,7 +599,6 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
         });
 
         tvCityName.setText(cityName);
-
 
     }
 
@@ -687,6 +702,16 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
 
                 break;
 
+            case R.id.llSearch:
+                Intent intentSearch = new Intent(HotelGiftPackageListActivity.this, HotelGiftSearchActivity.class);
+
+                intentSearch.putExtra("giftsType",giftsType);
+
+                intentSearch.putExtra("industryId",industryId);
+
+                startActivityForResult(intentSearch, 1000);
+                break;
+
             default:
                 break;
         }
@@ -703,12 +728,34 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
             if (resultCode == 5001) {//选择城市
 
                 reSetCityInfo();
+
                 tvCityName.setText(cityName);
+
                 mRecyclerView.showSwipeRefresh();
+
                 getData(true);
 
-            }
+            }else if(resultCode == 1041){
 
+                String  searchGiftResultBean =  data.getStringExtra("storeName");
+
+                HotelProductListParam productListParam;
+
+                if (productType) {
+
+                    productListParam = HotelLogicManager.getInstance().getFlashSaleHotelParam();
+
+                } else {
+
+                    productListParam = HotelLogicManager.getInstance().getCardRightHotelParam();
+                }
+
+                productListParam.setStoreName(searchGiftResultBean);
+
+                mRecyclerView.showSwipeRefresh();
+
+                getData(true);
+            }
         }
     }
 }

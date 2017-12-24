@@ -192,7 +192,14 @@ public class UserInfoActivity extends BaseActivity implements
     }
 
     private void initSex() {
-        selectSex("1".equals(UserManager.getInstance().getUserBean().getSex()));
+
+        if(TextUtils.isEmpty(UserManager.getInstance().getUserBean().getSex())){
+
+        }else {
+
+            selectSex("1".equals(UserManager.getInstance().getUserBean().getSex()));
+        }
+
     }
 
     private void initBirthday() {
@@ -362,9 +369,10 @@ public class UserInfoActivity extends BaseActivity implements
 
 
     @Override
-    public void finish() {
+    protected void onDestroy() {
+        super.onDestroy();
+
         save(null);
-        super.finish();
     }
 
     @NonNull
@@ -488,8 +496,8 @@ public class UserInfoActivity extends BaseActivity implements
 
     @Override
     public void callSuccessViewLogic(Object o, int type) {
-        setResult(RESULT_OK);
-        finish();
+//        setResult(RESULT_OK);
+//        finish();
     }
 
     @Override

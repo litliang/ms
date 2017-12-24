@@ -10,7 +10,7 @@ import com.yzb.card.king.ui.hotel.model.FilterListModel;
 /**
  * Created by 玉兵 on 2017/7/28.
  *
- * 过滤项列表观察者,酒店搜索关键字
+ * 过滤项列表观察者,酒店搜索关键字\礼品卡套餐搜索
  */
 
 public class FilterListPersenter implements DataCallBack {
@@ -79,6 +79,19 @@ public class FilterListPersenter implements DataCallBack {
     public  void sendHotelKeywordSearchAction(String cityName,String keyWord){
 
         filterListModel.sendHotelKeywordSearchRequest(cityName,keyWord);
+    }
+
+    /**
+     *  发起酒店礼品卡关键字搜索
+     * @param addrId
+     * @param giftsType
+     * @param industryId
+     * @param searchName
+     * @param pageStart
+     */
+    public  void sendHotelGiftKeywordSearchAction(String addrId,int giftsType,int industryId,String searchName,int pageStart){
+
+        filterListModel.sendHotelGiftKeywordSearchRequest(addrId,giftsType,industryId,searchName,pageStart);
     }
 
     @Override

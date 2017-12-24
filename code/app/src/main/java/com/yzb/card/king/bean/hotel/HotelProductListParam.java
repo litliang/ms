@@ -214,6 +214,12 @@ public class HotelProductListParam {
     }
 
     public void setLevels(String levels) {
+
+        boolean  f =  levels.endsWith(",");
+
+        if(f){
+            levels = levels.substring(0, levels.length()-1);
+        }
         this.levels = levels;
     }
 
@@ -222,6 +228,12 @@ public class HotelProductListParam {
     }
 
     public void setBrandTypes(String brandTypes) {
+
+        boolean  f =  brandTypes.endsWith(",");
+
+        if(f){
+            brandTypes = brandTypes.substring(0, brandTypes.length()-1);
+        }
         this.brandTypes = brandTypes;
     }
 
