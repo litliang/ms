@@ -21,6 +21,7 @@ import com.yzb.card.king.bean.ticket.ShippingSpace;
 import com.yzb.card.king.http.HttpConstant;
 import com.yzb.card.king.sys.AppConstant;
 import com.yzb.card.king.sys.GlobalApp;
+import com.yzb.card.king.sys.GlobalVariable;
 import com.yzb.card.king.ui.appwidget.picks.SelectNumberPick;
 import com.yzb.card.king.ui.appwidget.popup.AirLineCompanyPP;
 import com.yzb.card.king.ui.appwidget.popup.CalendarPop;
@@ -110,7 +111,7 @@ public class TicketHomeFragment extends BaseFragment implements View.OnClickList
 
     private AirLineCompanyPP invoiceContentPp = null;
 
-    private  int selectedCInvoicIndex = 0;
+    private int selectedCInvoicIndex = 0;
 
     public static TicketHomeFragment newInstance() {
         TicketHomeFragment fragment = new TicketHomeFragment();
@@ -118,9 +119,9 @@ public class TicketHomeFragment extends BaseFragment implements View.OnClickList
         return fragment;
     }
 
-    public TextView getCangweiTv(){
+    public TextView getCangweiTv() {
 
-        return  tv_cangwei;
+        return tv_cangwei;
     }
 
     @Override
@@ -330,7 +331,9 @@ public class TicketHomeFragment extends BaseFragment implements View.OnClickList
 
                     invoiceContentPp.setLogicData(nameArray, null);
 
-                    invoiceContentPp.setSelectIndex(selectedCInvoicIndex);
+                    String singleline_filter_copany = SharePrefUtil.getValueFromSp(GlobalApp.getInstance(), "singleline" + "-filter-company", "");
+                    singleline_filter_copany = singleline_filter_copany.equals("") ? "0" : singleline_filter_copany;
+                    invoiceContentPp.setSelectIndex(Integer.parseInt(singleline_filter_copany));
 
                     invoiceContentPp.setCallBack(invoiceCCallBack);
                 }
@@ -348,7 +351,7 @@ public class TicketHomeFragment extends BaseFragment implements View.OnClickList
             tvAirLine.setText(name);
 
             String currline = "";
-            switch(currentLine ){
+            switch (currentLine) {
                 case MULTI_LINE:
                     currline = "multiline";
                     break;
@@ -359,7 +362,11 @@ public class TicketHomeFragment extends BaseFragment implements View.OnClickList
                     currline = "roundline";
                     break;
             }
-            SharePrefUtil.saveToSp(getContext(),currline+"-filter-company","");
+            if (name.equals("东方航空")) {
+                SharePrefUtil.saveToSp(getContext(), currline + "-filter-company", "1");
+            } else {
+                SharePrefUtil.saveToSp(getContext(), currline + "-filter-company", "");
+            }
 
         }
     };
@@ -493,12 +500,12 @@ public class TicketHomeFragment extends BaseFragment implements View.OnClickList
 
                 refresh(view);
 
-                 int vZero =  tv_cangwei.getVisibility();
+                int vZero = tv_cangwei.getVisibility();
 
-                 if(vZero == View.INVISIBLE){
+                if (vZero == View.INVISIBLE) {
 
-                     tv_cangwei.setVisibility(View.VISIBLE);
-                 }
+                    tv_cangwei.setVisibility(View.VISIBLE);
+                }
 
                 break;
             case 1:  //往返
@@ -520,9 +527,9 @@ public class TicketHomeFragment extends BaseFragment implements View.OnClickList
 
                 currentFragment = rf;
 
-                int vOne =  tv_cangwei.getVisibility();
+                int vOne = tv_cangwei.getVisibility();
 
-                if(vOne == View.INVISIBLE){
+                if (vOne == View.INVISIBLE) {
 
                     tv_cangwei.setVisibility(View.VISIBLE);
                 }
@@ -551,9 +558,9 @@ public class TicketHomeFragment extends BaseFragment implements View.OnClickList
                 }
 
                 currentFragment = f;
-                int vTwo =  tv_cangwei.getVisibility();
+                int vTwo = tv_cangwei.getVisibility();
 
-                if(vTwo == View.VISIBLE){
+                if (vTwo == View.VISIBLE) {
 
                     tv_cangwei.setVisibility(View.INVISIBLE);
                 }

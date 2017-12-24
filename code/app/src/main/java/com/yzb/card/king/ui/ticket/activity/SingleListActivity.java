@@ -304,8 +304,8 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
         if (flightManager.getCurrentLine() == TYPE_ROUND) {
             icon = R.mipmap.jipiao_arrow_wang_fan;
             if (flightManager.getFlights().size() == 1) {
-                startCityName = currentFlight.getEndCity().getCityName();
-                endCityName = currentFlight.getStartCity().getCityName();
+                startCityName = currentFlight.getStartCity().getCityName();
+                endCityName = currentFlight.getEndCity().getCityName();
             }
         }
         setTitle(startCityName, icon, endCityName);
@@ -473,8 +473,8 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
     private void loadListData()
     {
         pageStart = 0;
-        String singleline_filter_copany = SharePrefUtil.getValueFromSp(getBaseContext(),"singleline"+"-filter-company","MU");
-//        commonparam.put("operaCode", singleline_filter_copany);
+        String singleline_filter_copany = SharePrefUtil.getValueFromSp(getBaseContext(),"singleline"+"-filter-company","1");
+        commonparam.put("operaCode", singleline_filter_copany);
         commonparam.put("depCityId", currentFlight.getStartCity().getCityId());
         commonparam.put("timeSeres", DateUtil.date2String(currentFlight.getStartDate(), DateUtil.DATE_HOUR_MINIT));
         commonparam.put("arrCityId", currentFlight.getEndCity().getCityId());

@@ -16,6 +16,8 @@ import com.yzb.card.king.bean.ticket.Filter;
 import com.yzb.card.king.bean.ticket.FilterData;
 import com.yzb.card.king.bean.ticket.LowHeight;
 import com.yzb.card.king.bean.ticket.MorningNight;
+import com.yzb.card.king.ui.appwidget.popup.AirLineCompanyPP;
+import com.yzb.card.king.ui.ticket.activity.SingleListActivity;
 import com.yzb.card.king.ui.ticket.holder.ItemView;
 import com.yzb.card.king.util.UiUtils;
 
@@ -31,6 +33,7 @@ import java.util.Map;
 public class TicketFilterView extends LinearLayout
 {
     public static FilterData filterData = new FilterData();
+    private Context context;
     private List<AbsFilter> items = new ArrayList<>();
     private List<ItemView> itemViews;
     //最后两个Item：从早到晚，从低到高
@@ -45,6 +48,7 @@ public class TicketFilterView extends LinearLayout
     public TicketFilterView(Context context)
     {
         super(context);
+        this.context = context;
         init();
     }
 
@@ -72,7 +76,13 @@ public class TicketFilterView extends LinearLayout
     {
         items.clear();
         items.add(new Filter());
-        items.add(new AirLineCompanyFilter());//航空公司
+        items.add(new AirLineCompanyFilter().setInvoiceCCallBack(new AirLineCompanyPP.BottomDataListCallBack(){
+
+            @Override
+            public void onClickItemDataBack(String name, int nameValue, int selectIndex) {
+                ((SingleListActivity)context).refreshData();
+            }
+        }));//航空公司
       //  items.add(new DirectFlight());
         items.add(new DiscountActivityFilter());//优惠活动
         //

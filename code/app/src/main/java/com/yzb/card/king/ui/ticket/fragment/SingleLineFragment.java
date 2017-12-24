@@ -2,6 +2,7 @@ package com.yzb.card.king.ui.ticket.fragment;
 
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,7 +88,7 @@ public class SingleLineFragment extends BaseFragment implements ITicketFragment 
 
            flight =  flightSingleList.get(0);
 
-           if(flight.getShippingSpace() != null){
+           if(fragment.getCangweiTv()!=null&&flight.getShippingSpace() != null&& !TextUtils.isEmpty(flight.getShippingSpace().getQabinName())){
 
                fragment.getCangweiTv().setText(flight.getShippingSpace().getQabinName());
 

@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yzb.card.king.R;
 import com.yzb.card.king.bean.ticket.PlaneTicket;
@@ -29,6 +30,7 @@ import com.yzb.card.king.ui.transport.presenter.impl.CommonPresenterImpl;
 import com.yzb.card.king.ui.transport.view.CommonView;
 import com.yzb.card.king.util.DateUtil;
 import com.yzb.card.king.util.SwipeRefreshSettings;
+import com.yzb.card.king.util.ToastUtil;
 import com.yzb.card.king.util.ViewUtil;
 
 import java.util.Calendar;
@@ -333,7 +335,7 @@ public abstract class BaseTicketActivity extends BaseActivity implements CommonV
      * 数据初始化调用，相当于下拉刷新； 此时
      * pageStart=0;
      */
-    protected void refreshData()
+    public void refreshData()
     {
         if (this.commonparam != null)
         {
@@ -395,6 +397,7 @@ public abstract class BaseTicketActivity extends BaseActivity implements CommonV
     @Override
     public void onLoadFail(String failMsg)
     {
+        ToastUtil.i(GlobalApp.getInstance(),failMsg);
         swipeRefreshLayout.setRefreshing(false);
         clearData();
         setMsg(getString(R.string.server_error));

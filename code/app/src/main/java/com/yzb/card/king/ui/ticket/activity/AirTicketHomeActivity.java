@@ -103,6 +103,12 @@ public class AirTicketHomeActivity extends BaseActivity implements View.OnClickL
     }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SharePrefUtil.saveToSp(this, "singleline"+ "-filter-company", "");
+    }
+
     private List<DefindTabView> defindTabViewList = new ArrayList<DefindTabView>();
 
     //初始化底部

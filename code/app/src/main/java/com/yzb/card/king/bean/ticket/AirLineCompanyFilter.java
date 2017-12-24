@@ -13,6 +13,8 @@ import com.yzb.card.king.ui.appwidget.SortTopListPop;
 import com.yzb.card.king.ui.appwidget.popup.AirLineCompanyPP;
 import com.yzb.card.king.ui.appwidget.popup.BaseFullPP;
 import com.yzb.card.king.ui.appwidget.popup.TicketDiscountActivityPopup;
+import com.yzb.card.king.util.SharePrefUtil;
+import com.yzb.card.king.util.ToastUtil;
 import com.yzb.card.king.util.UiUtils;
 
 import java.util.ArrayList;
@@ -24,24 +26,22 @@ import java.util.List;
  * 日  期：2017/9/21
  * 描  述：
  */
-public class AirLineCompanyFilter extends AbsFilter{
+public class AirLineCompanyFilter extends AbsFilter {
 
-    private boolean ifShow  = false;
+    private boolean ifShow = false;
 
     private AirLineCompanyPP invoiceContentPp = null;
 
     int selectedCInvoicIndex = 0;
 
 
-    public AirLineCompanyFilter()
-    {
+    public AirLineCompanyFilter() {
         super("航空公司", R.drawable.selector_air_line_company, UiUtils.getColorStateList(R.drawable.selector_filter_text));
 
     }
 
     @Override
-    public void clickAction(View view)
-    {
+    public void clickAction(View view) {
 
         if (invoiceContentPp == null) {
 
@@ -51,42 +51,53 @@ public class AirLineCompanyFilter extends AbsFilter{
 
             invoiceContentPp.setLogicData(nameArray, null);
 
-            invoiceContentPp.setSelectIndex(selectedCInvoicIndex);
 
-            invoiceContentPp.setCallBack(invoiceCCallBack);
+
+            invoiceContentPp.setCallBack(getInvoiceCCallBack());
 
             invoiceContentPp.getBaseBottomFullPP().setOnDismissListener(new PopupWindow.OnDismissListener() {
                 @Override
-                public void onDismiss()
-                {
+                public void onDismiss() {
 
-                    if(ifShow ){
+                    if (ifShow) {
                         ifShow = false;
                     }
 
                 }
             });
         }
-
-        if(ifShow){
+        String singleline_filter_copany = SharePrefUtil.getValueFromSp(GlobalApp.getInstance(),"singleline"+"-filter-company"," ");
+        singleline_filter_copany = singleline_filter_copany.trim().equals("")?"0":singleline_filter_copany;
+//        ToastUtil.i(GlobalApp.getInstance().getPublicActivity(),""+singleline_filter_copany);
+        invoiceContentPp.setSelectIndex(Integer.parseInt(singleline_filter_copany));
+        if (ifShow) {
             invoiceContentPp.getBaseBottomFullPP().dismiss();
-        }else{
+        } else {
 
             invoiceContentPp.showToByView(view);
 
-            invoiceContentPp.setSelectIndex(selectedCInvoicIndex);
+
         }
-        ifShow= invoiceContentPp.getBaseBottomFullPP().isShowing();
+
+
+        ifShow = invoiceContentPp.getBaseBottomFullPP().isShowing();
 
     }
 
     private AirLineCompanyPP.BottomDataListCallBack invoiceCCallBack = new AirLineCompanyPP.BottomDataListCallBack() {
         @Override
-        public void onClickItemDataBack(String name, int nameValue, int selectIndex)
-        {
+        public void onClickItemDataBack(String name, int nameValue, int selectIndex) {
 
 
         }
     };
 
+    public AirLineCompanyPP.BottomDataListCallBack getInvoiceCCallBack() {
+        return invoiceCCallBack;
+    }
+
+    public AirLineCompanyFilter setInvoiceCCallBack(AirLineCompanyPP.BottomDataListCallBack invoiceCCallBack) {
+        this.invoiceCCallBack = invoiceCCallBack;
+        return this;
+    }
 }
