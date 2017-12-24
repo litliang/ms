@@ -1,3 +1,6 @@
 [submodule "code/imagescale"]
 	path = code/imagescale
 	url = https://github.com/LinJZong/AndroidProject.git
+[submodule "auto"]
+	path = auto
+	url = https://gitee.com/cheln/auto.git

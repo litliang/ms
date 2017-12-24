@@ -149,6 +149,16 @@ public class TicketDetailFragmentDialog  extends DialogFragment implements View.
 
             bundle.putString("localData","localData");
 
+            int issuePlatform =  bundle.getInt("issuePlatform");
+
+            int industryId =  bundle.getInt("industryId");
+
+            long shopId =  bundle.getLong("shopId");
+
+            long storeId =  bundle.getLong("storeId");
+
+            long goodsId =  bundle.getLong("goodsId");
+
             twoFragment.setArguments(bundle);
 
             twoFragment.setTicketDetailDataCall(ticketDialogInterface);

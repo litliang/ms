@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="20dip"
+    android:paddingRight="20dip">
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:hint="参数名字，用于接口对接"
+        android:textSize="18dip" />
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:hint="参数描述，用于索引和备忘"
+        android:textSize="18dip" />
+
+
+    <RadioGroup
+        android:id="@+id/type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip">
+
+        <RadioButton
+            android:id="@+id/path"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="路径拼接" />
+
+        <RadioButton
+            android:id="@+id/param"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="参数拼接" />
+    </RadioGroup>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        >
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="✎"
+        android:textSize="18dip"
+        android:layout_alignParentRight="true"
+        android:id="@+id/edit"/>
+        <EditText
+            android:layout_toLeftOf="@+id/edit"
+        android:id="@+id/defaultvalue"
+        android:layout_width="278dp"
+        android:layout_height="wrap_content"
+        android:hint="参数测试值"
+        android:textSize="18dip" />
+
+    </RelativeLayout>
+    <Button
+        android:id="@+id/ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:gravity="center"
+        android:padding="15dip"
+        android:text="确认"
+        android:textSize="18dip" />
+</LinearLayout>

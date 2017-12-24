@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:background="@color/theme_color">
+
+        <TextView
+            android:id="@+id/left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dip"
+            android:text=""
+            android:textColor="@color/auto_white"
+            android:textSize="16dip" />
+
+        <TextView
+            android:id="@+id/right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dip"
+            android:text=""
+            android:textColor="@color/auto_white"
+            android:textSize="16dip" />
+
+        <TextView
+            android:id="@+id/center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@id/right"
+            android:layout_toRightOf="@id/left"
+            android:text=""
+            android:textColor="@color/auto_white"
+            android:textSize="16dip" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dip">
+
+        <Button
+            android:id="@+id/addope"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dip"
+            android:layout_marginTop="20dip"
+            android:gravity="center"
+            android:padding="15dip"
+            android:text="+"
+            android:textStyle="bold" />
+
+        <ListView
+            android:id="@+id/intfs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/addope"
+            android:layout_alignParentTop="true"
+            android:cacheColorHint="@android:color/transparent"
+            android:footerDividersEnabled="true"
+            android:scrollbars="none"
+            android:tag="fake:[[1,2,3],[2,3,5]];layout:auto_param_item" />
+    </RelativeLayout>
+
+</LinearLayout>
+

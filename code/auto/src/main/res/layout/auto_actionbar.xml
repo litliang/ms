@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="145px"
+    android:background="@color/theme_color"
+
+    >
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30px"
+        android:gravity="center_vertical"
+        android:src="@mipmap/auto_arrow_left" />
+
+    <TextView
+        android:id="@+id/ivLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15px"
+        android:layout_toRightOf="@+id/iv_back"
+
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:padding="3dip"
+        android:text="返回"
+        android:textColor="@color/auto_white"
+        android:textSize="52px"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:lines="1"
+        android:textColor="@android:color/white"
+        android:textSize="54px" />
+
+    <LinearLayout
+        android:id="@+id/ll_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/ivRight_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50px"
+            android:background="@color/color_transparent"
+            android:focusable="true"
+            android:gravity="right|center"
+            android:singleLine="true"
+            android:textColor="@color/auto_white"
+            android:textSize="48px"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/ivRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50px"
+            android:focusable="true"
+            android:paddingLeft="30px"
+            android:paddingRight="30px"
+            android:visibility="gone" />
+    </LinearLayout>
+
+
+</RelativeLayout>

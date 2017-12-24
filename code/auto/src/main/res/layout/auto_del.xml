@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dip"
+    >
+    <View android:layout_width="match_parent" android:layout_height="match_parent"
+        android:id="@+id/bg"/>
+    <TextView android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:textSize="20dip"
+
+        android:gravity="left"
+        android:background="@drawable/auto_round_corner_white_del"
+        android:text="删除"
+        android:textColor="@color/auto_black"
+        android:padding="10dip"
+        android:id="@+id/del"
+        android:layout_centerInParent="true"
+        >
+</TextView>
+</RelativeLayout>

@@ -1,1 +1,1 @@
-include ':app',  ':PickTimeIos', ':xutils','yzb_wallet'
+include ':app',  ':PickTimeIos', ':xutils','yzb_wallet',':auto'

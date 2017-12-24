@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:background="@color/theme_color">
+
+        <TextView
+            android:id="@+id/test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dip"
+            android:text="测试"
+            android:textColor="@color/auto_white"
+            android:textSize="16dip" />
+
+        <TextView
+            android:id="@+id/save_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dip"
+            android:text="保存"
+            android:textColor="@color/auto_white"
+            android:textSize="16dip" />
+    </RelativeLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip">
+
+        <EditText
+            android:id="@+id/intfid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:hint="接口id"
+            android:textSize="18dip"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/domain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+
+                android:text="域名"
+                android:textSize="18dip" />
+
+            <EditText
+                android:id="@+id/url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:layout_toLeftOf="@+id/domain"
+                android:hint="输入访问url"
+                android:maxLines="2"
+                android:textSize="18dip" />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:hint="接口描述"
+            android:textSize="18dip" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioGroup
+                android:id="@+id/type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dip">
+
+                <RadioButton
+                    android:id="@+id/POST"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="POST"
+                    android:textSize="18dip" />
+
+                <RadioButton
+                    android:id="@+id/GET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="GET"
+                    android:textSize="18dip" />
+
+            </RadioGroup>
+
+            <!--<Button
+                android:layout_toRightOf="@+id/type"
+                android:id="@+id/del"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="删除"
+                android:textColor="@color/auto_white" />-->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dip">
+
+            <Button
+                android:id="@+id/addope"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="15dip"
+                android:layout_marginTop="20dip"
+                android:gravity="center"
+                android:padding="15dip"
+                android:text="+"
+                android:textStyle="bold" />
+
+            <ListView
+                android:id="@+id/param"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/addope"
+                android:layout_alignParentTop="true"
+                android:cacheColorHint="@android:color/transparent"
+                android:footerDividersEnabled="true"
+                android:scrollbars="none" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

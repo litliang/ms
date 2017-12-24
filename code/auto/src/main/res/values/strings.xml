@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">auto</string>
+    <string name="left">&lt;</string>
+    <string name="right">&gt;</string>
+    <string name="equal">&lt;&gt;</string>
+    <string name="nav">=&gt;</string>
+    <string name="navpre">&lt;=</string>
+</resources>
