@@ -17,6 +17,7 @@ android {
             storeFile file('test_keystore123456.jks')
             storePassword '123456'
         }
+
     }
 
     String name = "1.0.0." + new SimpleDateFormat("yyMMdd").format(new Date());
@@ -33,6 +34,7 @@ android {
         versionName name
         multiDexEnabled = true
         manifestPlaceholders = [ver: "117"]
+
 //        outputFile = new File(
 //                                outputFile.parent,
 //                                "app-${variant.buildType.name}-${variant.productFlavors[0].name}-${variant.versionName}-115.apk".toLowerCase())
@@ -43,10 +45,17 @@ android {
 
         release {
             minifyEnabled false
+            zipAlignEnabled true
+            shrinkResources false
+            signingConfig signingConfigs.debug
+            ndk {
+                abiFilters  'armeabi-v7a'
+// 'armeabi-v7a',armeabi' 'armeabi-v7a', 'arm64-v8a',   'mips', 'mips64'
+            }
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            manifestPlaceholders = [ver: "117"]
+
 
 //            applicationVariants.all { variant ->
 //                variant.outputs.each { output ->
@@ -64,7 +73,7 @@ android {
             signingConfig signingConfigs.debug
             debuggable true
             ndk {
-                abiFilters 'armeabi-v7a', 'x86-64','x86'
+                abiFilters  'x86_64','armeabi-v7a'
 // 'armeabi-v7a',armeabi' 'armeabi-v7a', 'arm64-v8a',   'mips', 'mips64'
             }
         }
@@ -123,9 +132,6 @@ dependencies {
     compile files('libs/SocialSDK_QQZone_3.jar')
     compile files('libs/SocialSDK_Sina.jar')
     compile files('libs/weiboSDKCore_3.1.4.jar')
-    compile files('libs/SocialSDK_tencentWB_1.jar')
-    compile files('libs/SocialSDK_tencentWB_2.jar')
-    compile files('libs/SocialSDK_tencentWB_3.jar')
     compile files('libs/SocialSDK_WeiXin_1.jar')
     compile files('libs/SocialSDK_WeiXin_2.jar')
     compile files('libs/BaiduLBS_Android.jar')
@@ -138,7 +144,6 @@ dependencies {
     compile(name: 'coverflow_sdk', ext: 'aar')
     compile(name: 'calendarLibrary-release', ext: 'aar')
     compile(name: 'RefreshRecyclerView-release', ext: 'aar')
-
     compile(name: 'FlycoTabLayout_Lib', ext: 'aar')
     compile 'com.jungly:GridPasswordView:0.1'
     compile 'com.android.support:design:23.4.0'
