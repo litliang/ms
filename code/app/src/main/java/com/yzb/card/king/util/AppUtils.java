@@ -504,10 +504,10 @@ public class AppUtils
         if(specialCityList==null){
 
             specialCityList = new ArrayList<String>();
-            specialCityList.add("北京市");
-            specialCityList.add("天津市");
-            specialCityList.add("上海市");
-            specialCityList.add("重庆市");
+            specialCityList.add("北京");
+            specialCityList.add("天津");
+            specialCityList.add("上海");
+            specialCityList.add("重庆");
 
         }
 

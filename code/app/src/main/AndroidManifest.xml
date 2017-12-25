@@ -237,6 +237,13 @@
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
+            android:name=".ui.hotel.activtiy.HotelGiftSearchActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|fontScale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
             android:name=".ui.hotel.activtiy.HotelProductListActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|fontScale"
             android:label="@string/app_name"

@@ -119,6 +119,7 @@ public class HotelSearchResultAdapter extends RecyclerView.Adapter<RecyclerView.
         }
 
         SearchReusultBean bean;
+
         public void initData(int position)
         {
 

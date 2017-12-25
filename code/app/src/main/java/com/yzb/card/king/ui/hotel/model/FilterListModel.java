@@ -96,5 +96,48 @@ public class FilterListModel {
     }
 
 
+    /**
+     * 发送酒店礼品卡套餐关键字搜索请求
+     * @param addrId
+     * @param giftsType
+     * @param industryId
+     * @param searchName
+     * @param pageStart
+     */
+    public void sendHotelGiftKeywordSearchRequest(String addrId,int giftsType,int industryId,String searchName,int pageStart){
+
+        FilterListRequest request = new FilterListRequest(addrId,giftsType,industryId,searchName,pageStart);
+
+        request.sendRequest(new HttpCallBackData(){
+            @Override
+            public void onStart() {
+
+            }
+
+            @Override
+            public void onSuccess(Object o) {
+
+                dataCallBack.requestSuccess(o,-4443);
+
+            }
+
+            @Override
+            public void onFailed(Object o) {
+                dataCallBack.requestFailedDataCall(o,-4443);
+            }
+
+            @Override
+            public void onCancelled(Object o) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+
+
+    }
 
 }

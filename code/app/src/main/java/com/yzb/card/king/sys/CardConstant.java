@@ -144,6 +144,11 @@ public class CardConstant {
      * 酒店关键字搜索
      */
     public static String  HOTEL_KEYWORD_SEARCH = "HotelKeywordSearch";
+
+    /**
+     * 酒店礼品套餐关键字搜索
+     */
+    public static String  HOTEL_SEARCHGIFTSSTORE = "SearchGiftsStore";
     /**
      * 合作银行列表接口
      */

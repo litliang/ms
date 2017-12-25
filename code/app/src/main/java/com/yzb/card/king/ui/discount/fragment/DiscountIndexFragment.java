@@ -447,20 +447,12 @@ public class DiscountIndexFragment extends BaseFragment implements View.OnClickL
                 break;
             case R.id.discount_recommend_coupon_text:
             case R.id.panelMoreCoupon://进入优惠卷商城
-//                FragmentMessageEvent event1 = new FragmentMessageEvent();
-//                event1.setFragmentIndex(5);//此处与appFactory里面的getHomeTabFragmentList方法排序一直
-//                event1.setTag(true);
-//                EventBus.getDefault().post(event1);
 
                 Intent moreIntent = new Intent(getContext(), BoundCenterActivty.class);
                 startActivity(moreIntent);
+
                 break;
             case R.id.discount_card_more://新意卡
-//                FragmentMessageEvent event = new FragmentMessageEvent();
-//                event.setTag(true);
-//                event.setFragmentIndex(4);//此处与appFactory里面的getHomeTabFragmentList方法排序一直
-//
-//                EventBus.getDefault().post(event);
                 if (UserManager.getInstance().isLogin()) {
 
                     goNext(new OnIDValid() {
@@ -543,7 +535,7 @@ public class DiscountIndexFragment extends BaseFragment implements View.OnClickL
             tvCityName.setText(cityName);
 
             CitySelectManager.getInstance().clearData();
-
+            initShow1ItemView();
             srl.post(new Runnable() {
                 @Override
                 public void run()

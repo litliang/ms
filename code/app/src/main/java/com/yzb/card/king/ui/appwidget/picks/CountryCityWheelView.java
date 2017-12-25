@@ -59,6 +59,7 @@ public class CountryCityWheelView {
     {
 
         this.type = type;
+
         this.timepickerview = timepickerview;
 
         presenter = new NationalCountryPresenter();
@@ -72,7 +73,6 @@ public class CountryCityWheelView {
         wvQuYu = (WheelView) timepickerview.findViewById(R.id.wvQuYu);
 
         init(type);
-
 
     }
 
@@ -143,7 +143,6 @@ public class CountryCityWheelView {
 
             NationalCountryBean contryBean = countryList.get(defaulIndex);
 
-
             resetProviceData(contryBean);
 
         } else if (type == Type.COUNTRY) {
@@ -200,12 +199,12 @@ public class CountryCityWheelView {
 
             wvQuYu.setOnItemSelectedListener(areanListener);
 
-            NationalCountryBean ben = presenter.selectOneDataByNameFromDb("中国大陆");
+            NationalCountryBean ben = presenter.selectOneDataByNameFromDb("中国");
+
             if(ben != null){
                 //设置省份数据
                 resetProviceData(ben);
             }
-
         }
 
     }
@@ -218,7 +217,9 @@ public class CountryCityWheelView {
         public void onItemSelected(int index)
         {
             if (countryList.size() > 0) {
+
                 if (type == Type.ALL) {
+
                     NationalCountryBean contryBean = countryList.get(index);
 
                     resetProviceData(contryBean);
@@ -274,8 +275,6 @@ public class CountryCityWheelView {
 
                 }
             }
-
-
         }
     };
 
@@ -287,6 +286,7 @@ public class CountryCityWheelView {
         @Override
         public void onItemSelected(int index)
         {
+
             if (areanList != null && areanList.size() > 0) {
 
                 areanBean = areanList.get(index);
@@ -305,8 +305,6 @@ public class CountryCityWheelView {
         countryBean = index;
 
         int parentId = index.getCityId();
-
-        LogUtil.e("AAAA","parentId="+parentId);
 
         provinceList = presenter.selectAllDataForParentIdFromDb(parentId + "");
 
@@ -359,6 +357,7 @@ public class CountryCityWheelView {
         this.provinceBean = provinceBean;
 
         String cityName = provinceBean.getCityName();
+
         int provinceParentId = provinceBean.getCityId();
         /*
            检查省级信息是不是直辖市
@@ -369,7 +368,7 @@ public class CountryCityWheelView {
 
             int size = list.size();
 
-            if (list != null && size == 1) {
+            if (list != null && size >= 1) {
 
                 NationalCountryBean tempSpecialCity = list.get(0);
 
@@ -396,9 +395,9 @@ public class CountryCityWheelView {
         cityBean = cityList.get(index);
 
         int cityId = cityBean.getCityId();
-
         //加载城市下，区域信息
         areanList = presenter.selectAllDataForParentIdFromDb(cityId + "");
+
 
         if (areanList != null && areanList.size() > 0) {
 
@@ -420,9 +419,7 @@ public class CountryCityWheelView {
 
             wvQuYu.setAdapter(wvAreaAdapter);
 
-
         }
-
 
     }
 
