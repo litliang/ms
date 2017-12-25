@@ -583,11 +583,11 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
         public void onConfirm(List<PromotionTypeBean> selectoredListData) {
             DefineTopView defineTopView = defineTopViewList.get(0);
             int size = selectoredListData.size();
+
+            HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
             if (size > 0) {
 
                 defineTopView.setTabCheckStatus(true);
-
-                HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
 
                 StringBuffer youhuiSb = new StringBuffer();
 
@@ -607,6 +607,8 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                 productListParam.setDisTypes(youhuiSb.toString());
 
             } else {
+
+                productListParam.setDisTypes(null);
 
                 defineTopView.setTabCheckStatus(false);
             }

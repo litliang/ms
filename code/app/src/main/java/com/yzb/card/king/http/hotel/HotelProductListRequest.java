@@ -37,17 +37,29 @@ public class HotelProductListRequest extends BaseRequest {
         // 公共参数
        // param.put("addrId", hotelParam.getAddrId());
         param.put("addrName", hotelParam.getAddrName());
+
         param.put("searchAddrType", hotelParam.getSearchAddrType());
+
         param.put("searchAddrLng", hotelParam.getSearchAddrLng());
+
         param.put("searchAddrLat", hotelParam.getSearchAddrLat());
+
         param.put("bgnPrice", hotelParam.getBgnPrice());
+
         param.put("endPrice", hotelParam.getEndPrice());
+
         param.put("levels", hotelParam.getLevels());
+
         param.put("brandTypes", hotelParam.getBrandTypes());
+
         param.put("arrDate", hotelParam.getArrDate());
+
         param.put("depDate", hotelParam.getDepDate());
+
         param.put("sort", hotelParam.getSort());
+
         param.put("pageStart", hotelParam.getPageStart());
+
         param.put("pageSize", hotelParam.getPageSize());
 
         if(!TextUtils.isEmpty(hotelParam.getCashCouponId())) {
@@ -75,7 +87,6 @@ public class HotelProductListRequest extends BaseRequest {
         List<SubItemBean> filterList = hotelParam.getFilterList();
         if ( filterList!= null && filterList.size() > 0) {
 
-            LogUtil.e("size --end---="+filterList.size() );
             param.put("filterList", JSON.toJSONString(filterList));
         }
 
@@ -91,19 +102,31 @@ public class HotelProductListRequest extends BaseRequest {
      */
     public void setHotelMapProductInterfaceData(HotelProductListParam hotelParam) {
         serverName = CardConstant.hotel_queryhotelmaplist;
-        param.put("addrLevel", hotelParam.getAddrLevel());
-        param.put("addrId", hotelParam.getAddrId());
+       // param.put("addrLevel", hotelParam.getAddrLevel());
+        param.put("addrName", hotelParam.getAddrName());
+
         param.put("searchAddrType", hotelParam.getSearchAddrType());
+
         param.put("searchAddrLng", hotelParam.getSearchAddrLng());
+
         param.put("searchAddrLat", hotelParam.getSearchAddrLat());
+
         param.put("bgnPrice", hotelParam.getBgnPrice());
+
         param.put("endPrice", hotelParam.getEndPrice());
+
         param.put("levels", hotelParam.getLevels());
+
         param.put("brandTypes", hotelParam.getBrandTypes());
+
         param.put("arrDate", hotelParam.getArrDate());
+
         param.put("depDate", hotelParam.getDepDate());
+
         param.put("sort", 3);//地图模式下，默认距离优先
+
         param.put("pageStart", hotelParam.getPageStart());
+
         param.put("pageSize", hotelParam.getPageSize());
 
         if(!TextUtils.isEmpty(hotelParam.getCashCouponId())) {

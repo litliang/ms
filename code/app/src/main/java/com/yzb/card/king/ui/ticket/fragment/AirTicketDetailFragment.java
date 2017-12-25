@@ -5,9 +5,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.yzb.card.king.R;
+import com.yzb.card.king.bean.common.FavInfoBean;
 import com.yzb.card.king.bean.ticket.FlightDetailBean;
 
 /**
@@ -30,11 +32,8 @@ public class AirTicketDetailFragment extends Fragment implements View.OnClickLis
 
         view.findViewById(R.id.llBackChange).setOnClickListener(this);
 
-        view.findViewById(R.id.llGetCoupon).setOnClickListener(this);
 
-        view.findViewById(R.id.llBankFavorable).setOnClickListener(this);
 
-        view.findViewById(R.id.llLifeStage).setOnClickListener(this);
 
         TextView tvTitle = (TextView) view.findViewById(R.id.tvTitle);
 
@@ -51,6 +50,56 @@ public class AirTicketDetailFragment extends Fragment implements View.OnClickLis
         tvTitle.setText(storeName+flightNumber+bean.getQabinName());
 
         tvAgent.setText(bean.getAgent());
+
+        FavInfoBean hotelProductPre = bean.getDisMap();
+        //代金券
+        LinearLayout llGetCoupon = (LinearLayout) view.findViewById(R.id.llGetCoupon);
+        llGetCoupon .setOnClickListener(this);
+        String  cashCouponStatus =  hotelProductPre.getCashCouponStatus();
+
+        if("1".equals(cashCouponStatus)){
+
+            llGetCoupon.setVisibility(View.VISIBLE);
+        }else {
+            llGetCoupon.setVisibility(View.GONE);
+        }
+
+        //生活分期
+        LinearLayout llLifeStagen = (LinearLayout) view.findViewById(R.id.llLifeStage);
+
+        llLifeStagen.setOnClickListener(this);
+
+        String stageStatus = hotelProductPre.getStageStatus();
+
+        if ("1".equals(stageStatus)) {
+
+            llLifeStagen.setVisibility(View.VISIBLE);
+
+            TextView tvBankStageDesc = (TextView) view.findViewById(R.id.tvBankStageDesc);
+
+            tvBankStageDesc.setText(hotelProductPre.getStageDesc());
+
+        } else {
+
+            llLifeStagen.setVisibility(View.GONE);
+        }
+
+        //银行优惠
+        LinearLayout llBankFavorable = (LinearLayout) view.findViewById(R.id.llBankFavorable);
+
+        llBankFavorable.setOnClickListener(this);
+
+        if ("1".equals(hotelProductPre.getBankStatus())) {
+
+            llBankFavorable.setVisibility(View.VISIBLE);
+
+            TextView tvBankFavDesc = (TextView) view.findViewById(R.id.tvBankFavDesc);
+
+            tvBankFavDesc.setText(hotelProductPre.getBankDesc());
+        } else {
+
+            llBankFavorable.setVisibility(View.GONE);
+        }
 
         return view;
     }

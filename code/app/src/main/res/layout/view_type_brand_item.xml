@@ -28,15 +28,15 @@
 
             <LinearLayout
                 android:id="@+id/llArrowGray"
-                android:layout_width="30dp"
-                android:gravity="center_horizontal"
+                android:layout_width="60dp"
+                android:gravity="right|center_vertical"
                 android:layout_height="18dp">
 
                 <ImageButton
                     android:id="@+id/tvSpread"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
+                    android:layout_gravity="right|center_vertical"
                     android:background="@android:color/transparent"
                     android:src="@mipmap/icon_arrow_down_gray_item"/>
 
@@ -45,9 +45,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/color_456992"
-                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:layout_gravity="right|center_vertical"
                     android:visibility="gone"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     android:text="@string/hotel_btn_clear"/>
             </LinearLayout>
         </LinearLayout>

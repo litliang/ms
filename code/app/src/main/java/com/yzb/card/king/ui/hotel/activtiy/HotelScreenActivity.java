@@ -88,18 +88,9 @@ public class HotelScreenActivity extends BaseActivity implements View.OnClickLis
 
             case R.id.tvClear://清空数据
 
-//                List<SubItemBean>  selectorListTemp =  calSelectoredList();
-//
-//                if(selectorListTemp.size()>0){
-
                     reInitializeData();
 
                    hotelBrandTypeAdapter.addNewData(monthBeanList);
-
-                 //   hotelBrandTypeAdapter.reSetView(false);
-        //        }
-
-
 
                 break;
             case R.id.tvConfirm://确定

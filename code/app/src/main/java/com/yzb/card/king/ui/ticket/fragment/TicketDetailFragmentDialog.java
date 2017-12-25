@@ -14,7 +14,10 @@ import android.view.Window;
 import android.widget.TextView;
 
 import com.yzb.card.king.R;
+import com.yzb.card.king.bean.common.GoldTicketParam;
+import com.yzb.card.king.bean.hotel.HotelProductListParam;
 import com.yzb.card.king.bean.ticket.FlightDetailBean;
+import com.yzb.card.king.ui.hotel.HotelLogicManager;
 import com.yzb.card.king.ui.hotel.fragment.BankFavorableFragment;
 import com.yzb.card.king.ui.hotel.fragment.BankLifeStageFragment;
 import com.yzb.card.king.ui.hotel.fragment.GetCouponFragment;
@@ -101,8 +104,6 @@ public class TicketDetailFragmentDialog  extends DialogFragment implements View.
 
         }
 
-
-
         return  view;
     }
 
@@ -147,7 +148,6 @@ public class TicketDetailFragmentDialog  extends DialogFragment implements View.
 
             Bundle bundle = new Bundle();
 
-            bundle.putString("localData","localData");
 
             int issuePlatform =  bundle.getInt("issuePlatform");
 
@@ -166,18 +166,40 @@ public class TicketDetailFragmentDialog  extends DialogFragment implements View.
             fragmentTransaction.replace(R.id.contentll, twoFragment).commit();
 
 
+
+
+
         }
 
         @Override
         public void lifeStageAction()
         {
+
+            int industryId =  bundle.getInt("industryId");
+
+            long shopId =  bundle.getLong("shopId");
+
+            long goodsId =  bundle.getLong("goodsId");
+
+            GoldTicketParam goldTicketParam = new GoldTicketParam();
+
+            goldTicketParam.setIndustryId(industryId);
+
+            goldTicketParam.setShopId(shopId);
+
+            goldTicketParam.setGoodsId(goodsId);
+
             BankLifeStageFragment twoFragment = new BankLifeStageFragment();
 
             FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
 
             Bundle bundle = new Bundle();
 
-            bundle.putString("localData","localData");
+            bundle.putSerializable("goldTicketParam",goldTicketParam);
+
+            bundle.putInt("goodsType",-1);
+
+            bundle.putDouble("productMoney",Double.parseDouble(Utils.subZeroAndDot((bean.getFareAdult() + bean.getFueltaxAdult())+"")));
 
             twoFragment.setArguments(bundle);
 
@@ -189,11 +211,33 @@ public class TicketDetailFragmentDialog  extends DialogFragment implements View.
         @Override
         public void bankFavorableAction()
         {
+
+            String startDate = bundle.getString("startDate");
+
+            int industryId =  bundle.getInt("industryId");
+
+            long shopId =  bundle.getLong("shopId");
+
+            long goodsId =  bundle.getLong("goodsId");
+
+            GoldTicketParam goldTicketParam = new GoldTicketParam();
+
+            goldTicketParam.setIndustryId(industryId);
+
+            goldTicketParam.setShopId(shopId);
+
+            goldTicketParam.setGoodsId(goodsId);
+
             BankFavorableFragment twoFragment = new BankFavorableFragment();
 
             Bundle bundle = new Bundle();
 
-            bundle.putString("localData","localData");
+            bundle.putSerializable("goldTicketParam",goldTicketParam);
+
+            bundle.putInt("goodsType",-1);
+
+            bundle.putString("startDate",startDate);
+           // bundle.putString("startDate",startDate);
 
             twoFragment.setArguments(bundle);
 
@@ -242,7 +286,7 @@ public class TicketDetailFragmentDialog  extends DialogFragment implements View.
         public void getBackChangeAction();
 
         /**
-         * 领券中心
+         * 领券中心（代金券）
          */
         public void getCouponAction();
         /**

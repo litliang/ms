@@ -194,11 +194,22 @@ public class HotelSearchActivity extends BaseActivity implements View.OnClickLis
                 @Override
                 public void selectedCallDataBack(SearchReusultBean bean) {
 
-                    Intent selectResult = new Intent();
+                    if(bean.isIfProcduct()){
 
-                    selectResult.putExtra("selectoSubItemBean", bean);
+                        Intent intent = new Intent(HotelSearchActivity.this, HotelProductInfoActivity.class);
+                        intent.putExtra("hotelId", bean.getSearchId() + "");
+                        startActivity(intent);
 
-                    setResult(1041, selectResult);
+                    }else {
+
+                        Intent selectResult = new Intent();
+
+                        selectResult.putExtra("selectoSubItemBean", bean);
+
+                        setResult(1041, selectResult);
+
+                    }
+
 
                     finish();
 

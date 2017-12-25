@@ -72,16 +72,12 @@ public class HotelBankActivityPersenter implements DataCallBack {
     /**
      * 查询银行优惠活动的详情
      */
-    public void sendBankPreActivityDetailRequest(GoldTicketParam goldTicketParam ,int goodsType){
+    public void sendBankPreActivityDetailRequest(GoldTicketParam goldTicketParam ,int goodsType,String startDate){
 
         if(baseViewLayerInterface == null){
 
             return;
         }
-
-        HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
-
-        String startDate = productListParam.getArrDate();
 
         model.quereyBankPreAcitivityDetailAction(goldTicketParam.getIndustryId(), goldTicketParam.getShopId(), goldTicketParam.getStoreId(), goodsType, goldTicketParam.getGoodsId(), startDate, QUERY_BANK_PRE_DETAIL_CODE);
     }

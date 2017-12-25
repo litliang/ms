@@ -18,6 +18,8 @@ public class SearchReusultBean implements Serializable{
      * 类别编码
      */
     private String typeCode;
+
+    private boolean ifProcduct = false;
     /**
      * 搜索项id
      */
@@ -41,6 +43,15 @@ public class SearchReusultBean implements Serializable{
 
     public void setTypeCode(String typeCode) {
         this.typeCode = typeCode;
+        if("HotelName".equals(typeCode)){
+
+            ifProcduct = true;
+
+        }else {
+
+            ifProcduct = false;
+
+        }
     }
 
     public String getSearchId() {
@@ -57,5 +68,13 @@ public class SearchReusultBean implements Serializable{
 
     public void setSearchName(String searchName) {
         this.searchName = searchName;
+    }
+
+    public boolean isIfProcduct() {
+        return ifProcduct;
+    }
+
+    public void setIfProcduct(boolean ifProcduct) {
+        this.ifProcduct = ifProcduct;
     }
 }
