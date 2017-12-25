@@ -90,7 +90,9 @@ public class ProductBankPrivilegeHolder extends BaseViewHolder<BankActivityInfoB
 
                     HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
 
-                    productListParam.setBankIds(data.getBankId()+"");
+                    productListParam.setBankActId(data.getActId()+"");
+
+                    productListParam.setBankStageId(null);
 
                     Intent intent = new Intent(context, HotelProductListActivity.class);
 

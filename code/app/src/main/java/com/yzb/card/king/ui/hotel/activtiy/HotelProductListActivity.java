@@ -205,6 +205,12 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                 twoDefineTopView.setUiColor();
             }
 
+        }else {
+
+            //清理银行优惠活动和银行生活分期活动id
+            HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
+            productListParam.setBankStageId(null);
+            productListParam.setBankActId(null);
         }
 
         //检测是否有代金券

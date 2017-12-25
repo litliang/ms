@@ -75,7 +75,15 @@ public class HotelProductListRequest extends BaseRequest {
         if (!TextUtils.isEmpty(hotelParam.getBankIds())) {
             param.put("bankIds", hotelParam.getBankIds());
         }
+        if(!TextUtils.isEmpty(hotelParam.getBankActId())) {
 
+            param.put("bankActId", hotelParam.getBankActId());
+        }
+
+        if(!TextUtils.isEmpty(hotelParam.getBankStageId())) {
+
+            param.put("bankStageId", hotelParam.getBankStageId());
+        }
         if(!TextUtils.isEmpty( hotelParam.getDisTypes())){
             param.put("disTypes", hotelParam.getDisTypes());
         }
@@ -132,6 +140,15 @@ public class HotelProductListRequest extends BaseRequest {
         if(!TextUtils.isEmpty(hotelParam.getCashCouponId())) {
 
             param.put("cashCouponId", hotelParam.getCashCouponId());
+        }
+        if(!TextUtils.isEmpty(hotelParam.getBankActId())) {
+
+            param.put("bankActId", hotelParam.getBankActId());
+        }
+
+        if(!TextUtils.isEmpty(hotelParam.getBankStageId())) {
+
+            param.put("bankStageId", hotelParam.getBankStageId());
         }
 
         if(!TextUtils.isEmpty( hotelParam.getMinVote())){
