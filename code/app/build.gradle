@@ -128,6 +128,7 @@ dependencies {
     compile files('libs/zxing.jar')
     compile files('libs/umeng_social_sdk.jar')
     compile files('libs/mta-sdk-1.6.2.jar')
+    compile files('libs/pgyer_sdk_android_2.8.1.jar')
     compile files('libs/open_sdk_r5509.jar')
     compile files('libs/SocialSDK_QQZone_3.jar')
     compile files('libs/SocialSDK_Sina.jar')
@@ -172,4 +173,5 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile project(':yzb_wallet')
     compile(name: 'andBase', ext: 'aar')
+
 }

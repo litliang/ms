@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.baidu.mapapi.BMapManager;
+import com.pgyersdk.update.PgyUpdateManager;
 import com.yzb.card.king.R;
 import com.yzb.card.king.bean.common.FragmentMessageEvent;
 import com.yzb.card.king.sys.AppConstant;
@@ -102,6 +103,9 @@ public class AppHomeActivity extends BaseActivity {
         nPresenter.sendRequest("2");
         //注册事件
         EventBus.getDefault().register(this);
+//        if (ServiceDispatcher.base_url_api.contains("117")) {
+            PgyUpdateManager.register(this);
+//        }
         findViewById(R.id.rl_shfw).setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -119,34 +123,36 @@ public class AppHomeActivity extends BaseActivity {
         });
         findViewById(R.id.rl_xyk).setOnLongClickListener(new View.OnLongClickListener() {
 
-            @Override
-            public boolean onLongClick(View v) {
-                ServiceDispatcher.change(v.getContext(), "");
-                String ver = (String) new StorageUtil(StorageUtil.testpath).getKeyedV("ver");
-                ToastUtil.i(v.getContext(), "切换为" + com.yzb.wallet.sys.ServiceDispatcher.app_url_api+", 请重启");
-                clearAppUserData(v.getContext().getPackageName());
-                ActivityManager manager = (ActivityManager) v.getContext().getSystemService(Context.ACTIVITY_SERVICE);
-                manager.restartPackage(v.getContext().getPackageName());
-                return false;
-            }
-            public  Process clearAppUserData(String packageName) {
-                Process p = execRuntimeProcess("pm clear " + packageName);
-                if (p == null) {
-                } else {
-                }
-                return p;
-            }
-            public  Process execRuntimeProcess(String commond) {
-                Process p = null;
-                try {
-                    p = Runtime.getRuntime().exec(commond);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                return p;
-            }
-        }
-    );
+                                                             @Override
+                                                             public boolean onLongClick(View v) {
+                                                                 ServiceDispatcher.change(v.getContext(), "");
+                                                                 String ver = (String) new StorageUtil(StorageUtil.testpath).getKeyedV("ver");
+                                                                 ToastUtil.i(v.getContext(), "切换为" + com.yzb.wallet.sys.ServiceDispatcher.app_url_api + ", 请重启");
+                                                                 clearAppUserData(v.getContext().getPackageName());
+                                                                 ActivityManager manager = (ActivityManager) v.getContext().getSystemService(Context.ACTIVITY_SERVICE);
+                                                                 manager.restartPackage(v.getContext().getPackageName());
+                                                                 return false;
+                                                             }
+
+                                                             public Process clearAppUserData(String packageName) {
+                                                                 Process p = execRuntimeProcess("pm clear " + packageName);
+                                                                 if (p == null) {
+                                                                 } else {
+                                                                 }
+                                                                 return p;
+                                                             }
+
+                                                             public Process execRuntimeProcess(String commond) {
+                                                                 Process p = null;
+                                                                 try {
+                                                                     p = Runtime.getRuntime().exec(commond);
+                                                                 } catch (IOException e) {
+                                                                     e.printStackTrace();
+                                                                 }
+                                                                 return p;
+                                                             }
+                                                         }
+        );
     }
 
     private void initView() {
