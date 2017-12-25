@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.yzb.card.king.R;
@@ -122,6 +123,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
                 @Override
                 public void onItemClick(CalendarDay data)
                 {
+                    pageStart = 0;
                     getDateFromMana(data.getDay());
                     calendarPop.dismiss();
                 }
@@ -396,12 +398,14 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
         @Override
         public void onDataChanged()
         {
+            pageStart = 0;
             loadListData();
         }
 
         @Override
         public void onBankChanged(boolean selected)
         {
+            pageStart = 0;
             bankSelected = selected;
             loadListData();
         }
@@ -472,7 +476,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
 
     private void loadListData()
     {
-        pageStart = 0;
+
         String singleline_filter_copany = SharePrefUtil.getValueFromSp(getBaseContext(),"singleline"+"-filter-company","1");
         commonparam.put("operaCode", singleline_filter_copany);
         commonparam.put("depCityId", currentFlight.getStartCity().getCityId());
@@ -483,6 +487,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
         commonparam.put("pageSize", pageSize);
         commonparam.put("time", TicketFilterView.filterData.getTime().getCode());
         commonparam.put("price", TicketFilterView.filterData.getPrice().getCode());
+
         commonparam.put("screen", TicketFilterView.filterData.getFilterList());
         commonparam.put("bankStruts", TicketFilterView.filterData.getDisBankCode());
 
@@ -514,6 +519,10 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
     @Override
     protected void onSucess(boolean event_tag, String data)
     {
+        if(pageStart==-1){
+            ToastUtil.i(this,"已经是最后一页了");
+            return;
+        }
         LogUtil.e("event_tag="+event_tag+"  pageStart="+pageStart);
 
         List<PlaneTicket> dataList = JSON.parseArray(data, PlaneTicket.class);
@@ -521,6 +530,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
         if (event_tag) {
             adapter.clear();
             if (dataList.size() <= 0) {
+
                 setEmptyDataMsg();
             } else {
                 llNoData.setVisibility(View.GONE);
@@ -528,6 +538,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
                 setMsg("");
             }
         }
+
         adapter.appendData(dataList);
         recyclerView.notifyData();
         if (dataList.size() < pageSize) {
@@ -537,8 +548,16 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
         } else {
 
         }
-        if(adapter.getDataList().size() == pageSize){
-            pageStart++;
+        if(adapter.getDataList().size() % pageSize>0){
+
+            pageStart = -1;
+        }else {
+            if (dataList.size() == 0) {
+                pageStart = -1;
+            } else {
+                pageStart++;
+
+            }
         }
 
     }
@@ -662,6 +681,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
             currentFlight.setStartDate(DateUtil.addDay(currentFlight.getStartDate(), 1));
         }
         startDate.setText(DateUtil.date2String(currentFlight.getStartDate(), DateUtil.DATE_FORMAT_DATE_DAY2));
+        pageStart = 0;
         initData();
     }
 

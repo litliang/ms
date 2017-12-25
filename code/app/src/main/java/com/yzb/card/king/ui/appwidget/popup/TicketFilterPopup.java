@@ -142,7 +142,7 @@ public class TicketFilterPopup extends PopupWindow
                 if(flag){
 
                     FilterType filterType = new FilterType();
-
+                    filterType.setBaseCabinCode(brandBean.getFilterId());
                     filterType.setType(brandBean.getChildTypeCode());
 
                     filterType.setCode(brandBean.getFilterId());

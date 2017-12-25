@@ -11,12 +11,21 @@ public class FilterType implements IFilterPopItem
     //上级类型
     private String type;
     private String code;
+    private String baseCabinCode;
     //子类型
     private String childType;
 
     private double lng;
     private double lat;
     private String starDate;
+
+    public String getBaseCabinCode() {
+        return baseCabinCode;
+    }
+
+    public void setBaseCabinCode(String baseCabinCode) {
+        this.baseCabinCode = baseCabinCode;
+    }
 
     public String getEndDate()
     {
