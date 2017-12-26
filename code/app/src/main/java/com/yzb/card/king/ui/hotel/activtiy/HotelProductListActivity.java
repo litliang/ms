@@ -28,6 +28,7 @@ import com.yzb.card.king.bean.hotel.PromotionTypeBean;
 import com.yzb.card.king.bean.my.CouponInfoBean;
 import com.yzb.card.king.http.HttpConstant;
 import com.yzb.card.king.sys.AppConstant;
+import com.yzb.card.king.sys.GlobalApp;
 import com.yzb.card.king.ui.appwidget.DefindTabView;
 import com.yzb.card.king.ui.appwidget.DefineTopView;
 import com.yzb.card.king.ui.appwidget.popup.AppCalendarPopup;
@@ -39,6 +40,7 @@ import com.yzb.card.king.ui.appwidget.popup.HotelStarPricePopup;
 import com.yzb.card.king.ui.appwidget.popup.ProductPromotionTypePopup;
 import com.yzb.card.king.ui.base.BaseActivity;
 import com.yzb.card.king.ui.base.BaseViewLayerInterface;
+import com.yzb.card.king.ui.discount.bean.Location;
 import com.yzb.card.king.ui.hotel.HotelLogicManager;
 import com.yzb.card.king.ui.hotel.adapter.HotelProductItemAdapter;
 import com.yzb.card.king.ui.hotel.persenter.GetCouponPersenter;
@@ -132,7 +134,14 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+        HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
+
+        int searchAddrType = productListParam.getSearchAddrType();
+
+        getCityInfo(searchAddrType);
 
         defaultFlag = true;
         hotelProductListPresenter = new HotelProductListPresenter(this);
@@ -144,13 +153,12 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
     }
 
     private void initTitleView() {
+
         findViewById(R.id.llSelectedAddress).setOnClickListener(this);
 
         findViewById(R.id.headerLeftImage).setOnClickListener(this);
 
-        if (selectedCity != null) {
-            tvCityName.setText(selectedCity.getCityName());
-        }
+        tvCityName.setText(cityName);
 
         tvMapController.setOnClickListener(this);
     }
@@ -205,7 +213,7 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                 twoDefineTopView.setUiColor();
             }
 
-        }else {
+        } else {
 
             //清理银行优惠活动和银行生活分期活动id
             HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
@@ -1186,6 +1194,30 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                     getData(true);
                 }
 
+            } else if(resultCode == 5002){//城市搜索页面--当前城市
+
+                Location city =   GlobalApp.getPositionedCity();
+
+                updateUseCurrentPositionInfor();
+
+                HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
+
+                productListParam.setSearchAddrLat(positionLatitude);
+
+                productListParam.setSearchAddrLng(positionLongitude);
+
+                productListParam.setSearchAddrType(1);
+
+                productListParam.setAddrName(cityName);
+
+                tvCityName.setText(cityName);
+
+                getCityInfo(productListParam.getSearchAddrType());
+
+                mRecyclerView.showSwipeRefresh();
+
+                getData(true);
+
             } else if (resultCode == 5001) {//选择城市
 
                 reSetCityInfo();
@@ -1201,6 +1233,8 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                 productListParam.setAddrName(cityName);
 
                 tvCityName.setText(cityName);
+
+                getCityInfo(productListParam.getSearchAddrType());
 
                 mRecyclerView.showSwipeRefresh();
 

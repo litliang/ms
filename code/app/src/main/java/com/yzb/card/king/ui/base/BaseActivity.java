@@ -48,6 +48,7 @@ import org.xutils.x;
  * 描  述：
  */
 public class BaseActivity extends AppCompatActivity {
+
     protected Location positionedCity, selectedCity;
 
     protected double positionLatitude, positionLongitude;
@@ -101,6 +102,22 @@ public class BaseActivity extends AppCompatActivity {
         reSetCityInfo();
     }
 
+    private int searchAddrType = 0;
+
+    public void getCityInfo(int searchAddrType){
+
+        this.searchAddrType =  searchAddrType;
+
+        if(searchAddrType == 1){//表示当前位置
+
+            updateUseCurrentPositionInfor();
+        }else {
+
+            reSetCityInfo();
+        }
+
+    }
+
     /**
      * 重新设置城市信息
      */
@@ -145,8 +162,7 @@ public class BaseActivity extends AppCompatActivity {
         selectedCity = GlobalApp.getSelectedCity();
 
         //检测用户是否选择了城市信息
-        if (selectedCity != null) {
-
+        if (positionedCity != null) {
 
             cityId = positionedCity.cityId;
 
@@ -176,7 +192,7 @@ public class BaseActivity extends AppCompatActivity {
         //礼品卡和红包消息监听；
         MsgIntentService.listenGiftAndBouns(getApplicationContext());
 
-        reSetCityInfo();
+        getCityInfo(searchAddrType);
     }
 
 

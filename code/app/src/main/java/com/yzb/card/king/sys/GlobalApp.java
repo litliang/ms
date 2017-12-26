@@ -83,7 +83,6 @@ public class GlobalApp extends MultiDexApplication {
 
     private static GlobalApp instance;
 
-
     private boolean walletDebug;
 
     public boolean isWalletDebug() {
@@ -436,7 +435,12 @@ public class GlobalApp extends MultiDexApplication {
 
     public void setSelectedCity(Location selectedCity) {
 
-        GlobalApp.selectedCity = selectedCity;
+        this.selectedCity = selectedCity;
+    }
+
+    public void setMCity(Location mCity){
+
+        this.mCity = mCity;
     }
 
     /**

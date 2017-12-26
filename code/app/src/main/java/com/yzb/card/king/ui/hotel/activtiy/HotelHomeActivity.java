@@ -850,7 +850,7 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
         tv_destination.setText(city.addressInfoStr());
 
-        GlobalApp.getInstance().setSelectedCity(city);
+        GlobalApp.getInstance().setMCity(city);
 
         cityId = city.getCityId() + "";
 
@@ -860,6 +860,8 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
         updateUseCurrentPositionInfor();
 
         HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
+
+        productListParam.setAddrName(city.cityName);
 
         productListParam.setSearchAddrLat(positionLatitude);
 
