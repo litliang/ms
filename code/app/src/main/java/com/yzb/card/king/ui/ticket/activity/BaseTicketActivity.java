@@ -72,7 +72,7 @@ public abstract class BaseTicketActivity extends BaseActivity implements CommonV
     protected String typeChildId;  //等效于typeId；
 
     protected CommonPresenter commonPresenter;
-    protected int pageStart = 0; //分页的下标；
+    public int pageStart = 0; //分页的下标；
     protected int pageSize = 15; //每页的大小；
     private ChannelPopWindow channelPopWindow;
     private TicketFilterView ticketFilterView;

@@ -1,10 +1,14 @@
 package com.yzb.card.king.ui.appwidget.headfootrecyclerview;
 
+import android.app.Activity;
+import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
+
+import com.yzb.card.king.ui.ticket.activity.SingleListActivity;
 
 /**
  * Created by cundong on 2015/10/9.
@@ -74,11 +78,25 @@ public class EndlessRecyclerOnScrollListener extends RecyclerView.OnScrollListen
     public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
         super.onScrollStateChanged(recyclerView, newState);
         currentScrollState = newState;
+        if(newState == 0){
+            Context ctx = recyclerView.getContext();
+            if (ctx instanceof SingleListActivity) {
+                ((SingleListActivity) ctx).pageStart = 0;
+                onLoadNextPage(recyclerView);
+                return;
+            }
+        }
         RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
         int visibleItemCount = layoutManager.getChildCount();
         int totalItemCount = layoutManager.getItemCount();
         if ((visibleItemCount > 0 && currentScrollState == RecyclerView.SCROLL_STATE_IDLE && (lastVisibleItemPosition) >= totalItemCount - 1)) {
-            onLoadNextPage(recyclerView);
+            Context ctx = recyclerView.getContext();
+            if (ctx instanceof SingleListActivity) {
+                if (((SingleListActivity) ctx).pageStart == -1) {
+
+                } else
+                    onLoadNextPage(recyclerView);
+            }
         }
     }
 
