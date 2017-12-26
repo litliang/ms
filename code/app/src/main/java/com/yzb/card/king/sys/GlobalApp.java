@@ -24,6 +24,7 @@ import com.baidu.mapapi.search.geocode.GeoCodeResult;
 import com.baidu.mapapi.search.geocode.GeoCoder;
 import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
+import com.pgyersdk.crash.PgyCrashManager;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.Config;
 import com.umeng.socialize.PlatformConfig;
@@ -155,6 +156,7 @@ public class GlobalApp extends MultiDexApplication {
         x.Ext.init(this);
         x.Ext.setDebug(true);
         instance = this;
+        PgyCrashManager.register(this);
     }
 
     public void initApp() {
