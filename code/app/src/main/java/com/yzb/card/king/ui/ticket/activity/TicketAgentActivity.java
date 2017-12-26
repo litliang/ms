@@ -239,11 +239,11 @@ public class TicketAgentActivity extends BaseTicketActivity implements FlightAmo
         //行业id
         int industryId =  GlobalVariable.industryId;
 
-        long shopId = Long.parseLong(flightDetailBean.getShopId());
+        long shopId = Long.parseLong(bean.getAgentId());
 
-        long goodsId = flightDetailBean.getFlightId();
+        long goodsId = Long.parseLong(bean.getFlightId());
 
-        LogUtil.e("AAAA",industryId+"-----------"+ flightDetailBean.getShopId()+"   -------------"+flightDetailBean.getFlightId()+"----"+flightDetailBean.getDepTime());
+        LogUtil.e("AAAA",industryId+"-----------"+ shopId+"   -------------"+goodsId+"----"+flightDetailBean.getTimeSeres());
 
         TicketDetailFragmentDialog ticketDetailFragmentDialog = new TicketDetailFragmentDialog();
 
@@ -267,7 +267,7 @@ public class TicketAgentActivity extends BaseTicketActivity implements FlightAmo
 
         bundle.putLong("goodsId",goodsId);
 
-        bundle.putString("startDate",flightDetailBean.getDepTime());
+        bundle.putString("startDate",flightDetailBean.getTimeSeres());
 
         ticketDetailFragmentDialog.setArguments(bundle);
 
