@@ -92,8 +92,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
     private TextView tvApplyCard;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         colorStatusResId = R.color.color_436a8e;
         super.onCreate(savedInstanceState);
         if (presenter == null)
@@ -108,8 +107,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
         EventBus.getDefault().register(this);
     }
 
-    private void initLisener()
-    {
+    private void initLisener() {
         rlBankMore.setOnClickListener(new MoreBankClickListener());
 
         if (calendarPop == null) {
@@ -121,8 +119,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
             calendarPop.setTicketParams(param);
             calendarPop.setListener(new OnItemClickListener<CalendarDay>() {
                 @Override
-                public void onItemClick(CalendarDay data)
-                {
+                public void onItemClick(CalendarDay data) {
                     pageStart = 0;
                     getDateFromMana(data.getDay());
                     calendarPop.dismiss();
@@ -132,14 +129,13 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
 
         tvBindCard.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 if (UserManager.getInstance().isLogin()) {
                     //startActivity(new Intent(SingleListActivity.this, AddNoPayCardActivity.class));
 
                     Intent intent = new Intent(SingleListActivity.this, AddCardAllActivity.class);
-                    intent.putExtra(AddCardAllActivity.BUSINESS_ADD_CARD,AddCardAllActivity.PART_BUSINESS_VALUE);
-                    startActivityForResult(intent,1000);
+                    intent.putExtra(AddCardAllActivity.BUSINESS_ADD_CARD, AddCardAllActivity.PART_BUSINESS_VALUE);
+                    startActivityForResult(intent, 1000);
 
                 } else {
                     startActivity(new Intent(SingleListActivity.this, LoginActivity.class));
@@ -149,16 +145,14 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
 
         tvApplyCard.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 startActivity(new Intent(SingleListActivity.this, CreditOnlineCardActivity.class));
             }
         });
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
-    public void mainEventThread(ActivityMessageEvent event)
-    {
+    public void mainEventThread(ActivityMessageEvent event) {
         if ("singleListActivity".equals(event.getActivityName())) {//
 
             int pagetypet = AppFactory.channelIdToFragmentIndex(event.getChildTypeBean().id);
@@ -178,8 +172,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
      */
     private Handler myHandler = new Handler() {
         @Override
-        public void handleMessage(Message msg)
-        {
+        public void handleMessage(Message msg) {
             super.handleMessage(msg);
 
             int what = msg.what;
@@ -207,8 +200,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
     /**
      * 接收Intent数据；
      */
-    private void recvIntentData()
-    {
+    private void recvIntentData() {
         flightManager = (FlightManager) getIntent().getSerializableExtra("flightManager");
         if (flightManager != null) {
             currentFlight = flightManager.getCurrentFlight();
@@ -217,8 +209,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
     }
 
     @Override
-    protected boolean isInternational()
-    {
+    protected boolean isInternational() {
         String startType = currentFlight.getStartCity().getType();
         String endType = currentFlight.getEndCity().getType();
         if (startType != null) {
@@ -228,20 +219,17 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
     }
 
     @Override
-    protected void refresh()
-    {
+    protected void refresh() {
         initData();
     }
 
     @Override
-    public void onStart()
-    {
+    public void onStart() {
         super.onStart();
         getCityFrommMana();
     }
 
-    private void getDateFromMana(Date date)
-    {
+    private void getDateFromMana(Date date) {
         if (null != date) {
             if (flightManager.getCurrentLine() == TYPE_ROUND && flightManager.getTickets().size() == 1) {//如果用户修改返程时间则进行判断
                 Date startDate = getDepDate(flightManager.getTickets().get(0));
@@ -264,8 +252,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
         }
     }
 
-    private void getCityFrommMana()
-    {
+    private void getCityFrommMana() {
         if (!StringUtils.isEmpty(CitySelectManager.getInstance().getPlaceId())) {
             String cityName = CitySelectManager.getInstance().getPlaceName();
             City startCity = currentFlight.getStartCity();
@@ -291,8 +278,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
         }
     }
 
-    private void initView()
-    {
+    private void initView() {
         super.initView(this);
         View v = View.inflate(this, R.layout.second_title_single, null);
         setSecondTitle(v);
@@ -346,16 +332,14 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
 
     private class MoreBankClickListener implements View.OnClickListener {
         @Override
-        public void onClick(View v)
-        {
+        public void onClick(View v) {
             TicketFilterView.filterData.setBankDisCode("2");
         }
     }
 
     private SingleListAdapter.ICallBack adapterClickCallBack = new SingleListAdapter.ICallBack() {
         @Override
-        public void callBack(int position)
-        {
+        public void callBack(int position) {
             PlaneTicket map = adapter.getDataList().get(position);
             Flight flight = flightManager.getCurrentFlight();
             map.setStartCity(flight.getStartCity().getCityName());
@@ -385,8 +369,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
      * @param planeTicket
      * @return Date
      */
-    private Date getDepDate(PlaneTicket planeTicket)
-    {
+    private Date getDepDate(PlaneTicket planeTicket) {
         String arrDayTime = planeTicket.getArrDay() + " " + planeTicket.getArrTime();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(DateUtil.string2Date(arrDayTime, DateUtil.DATE_HOUR_MINIT));
@@ -396,23 +379,20 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
 
     private FilterData.OnDataChangeListener listener = new FilterData.OnDataChangeListener() {
         @Override
-        public void onDataChanged()
-        {
+        public void onDataChanged() {
             pageStart = 0;
             loadListData();
         }
 
         @Override
-        public void onBankChanged(boolean selected)
-        {
+        public void onBankChanged(boolean selected) {
             pageStart = 0;
             bankSelected = selected;
             loadListData();
         }
     };
 
-    private void initData()
-    {
+    private void initData() {
         //往返情况下不能换城市
         if (flightManager.getCurrentLine() == TYPE_ROUND) {
             setChangePlaceEnable(false);
@@ -432,8 +412,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
         TicketFilterView.filterData.setListener(listener);
     }
 
-    private void initSecondView()
-    {
+    private void initSecondView() {
 
         Date startDay = currentFlight.getStartDate();
         setCalendarDate(startDay);
@@ -447,21 +426,18 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
         }
     }
 
-    private void setCalendarDate(Date date)
-    {
+    private void setCalendarDate(Date date) {
         startDate.setText(DateUtil.date2String(date, DateUtil.DATE_FORMAT_DATE_DAY2)
                 + "/" + DateUtil.getDateExplain(date));
     }
 
-    private void setPreLayoutEnable(boolean enable)
-    {
+    private void setPreLayoutEnable(boolean enable) {
         tvPreDay.setEnabled(enable);
         tvPrePrice.setEnabled(enable);
         llPreLayout.setEnabled(enable);
     }
 
-    private void addTicketMsg()
-    {
+    private void addTicketMsg() {
         int size = flightManager.getTickets().size();
         clearMsg();
         for (int i = 0; i < size; i++) {
@@ -474,10 +450,9 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
         }
     }
 
-    private void loadListData()
-    {
+    private void loadListData() {
 
-        String singleline_filter_copany = SharePrefUtil.getValueFromSp(getBaseContext(),"singleline"+"-filter-company","1");
+        String singleline_filter_copany = SharePrefUtil.getValueFromSp(getBaseContext(), "singleline" + "-filter-company", "1");
         commonparam.put("operaCode", singleline_filter_copany);
         commonparam.put("depCityId", currentFlight.getStartCity().getCityId());
         commonparam.put("timeSeres", DateUtil.date2String(currentFlight.getStartDate(), DateUtil.DATE_HOUR_MINIT));
@@ -495,14 +470,12 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
         refreshData();
     }
 
-    private String getServiceName()
-    {
+    private String getServiceName() {
         return UserManager.getInstance().isLogin() ? CardConstant.card_app_queryonwayticket
                 : CardConstant.card_app_airfarequerylistnotlogin;
     }
 
-    private void loadHeaderPrice()
-    {
+    private void loadHeaderPrice() {
         Map<String, Object> map = new HashMap<>();
         map.put("depCityId", currentFlight.getStartCity().getCityId());
         map.put("depDay", DateUtil.date2String(currentFlight.getStartDate(), DateUtil.DATE_FORMAT_DATE));
@@ -517,13 +490,12 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
      * @param data
      */
     @Override
-    protected void onSucess(boolean event_tag, String data)
-    {
-        if(pageStart==-1){
-            ToastUtil.i(this,"已经是最后一页了");
+    protected void onSucess(boolean event_tag, String data) {
+        if (pageStart == -1) {
+            ToastUtil.i(this, "已经是最后一页了");
             return;
         }
-        LogUtil.e("event_tag="+event_tag+"  pageStart="+pageStart);
+        LogUtil.e("event_tag=" + event_tag + "  pageStart=" + pageStart);
 
         List<PlaneTicket> dataList = JSON.parseArray(data, PlaneTicket.class);
         setTvMoreBankVisibility();
@@ -538,7 +510,10 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
                 setMsg("");
             }
         }
-
+        if (pageStart == 0) {
+            adapter.clear();
+            recyclerView.notifyData();
+        }
         adapter.appendData(dataList);
         recyclerView.notifyData();
         if (dataList.size() < pageSize) {
@@ -548,10 +523,10 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
         } else {
 
         }
-        if(adapter.getDataList().size() % pageSize>0){
+        if (adapter.getDataList().size() % pageSize > 0) {
 
             pageStart = -1;
-        }else {
+        } else {
             if (dataList.size() == 0) {
                 pageStart = -1;
             } else {
@@ -562,8 +537,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
 
     }
 
-    private void setTvMoreBankVisibility()
-    {
+    private void setTvMoreBankVisibility() {
         String code = TicketFilterView.filterData.getDisBankCode();
         if ("1".equals(code)) {
             rlBankMore.setVisibility(View.VISIBLE);
@@ -572,8 +546,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
         }
     }
 
-    private void setEmptyDataMsg()
-    {
+    private void setEmptyDataMsg() {
         String msg = "";
         String bankMsg = "";
         if (!STATE_ALL.equals(getDisBankCode())) {//银行优惠状态
@@ -604,18 +577,15 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
         setBankMsg(bankMsg);
     }
 
-    private void setBankMsg(String msg)
-    {
+    private void setBankMsg(String msg) {
         tvBankMsg.setText(msg);
     }
 
-    protected void setMsg(String msg)
-    {
+    protected void setMsg(String msg) {
         setNormalMsg(tvMsg, msg);
     }
 
-    private void setNormalMsg(TextView tvMsg, String msg)
-    {
+    private void setNormalMsg(TextView tvMsg, String msg) {
         if (tvMsg != null) {
             if (TextUtils.isEmpty(msg)) {
                 tvMsg.setVisibility(View.GONE);
@@ -626,8 +596,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
         }
     }
 
-    private String getDisBankCode()
-    {
+    private String getDisBankCode() {
         return TicketFilterView.filterData.getDisBankCode();
     }
 
@@ -636,14 +605,12 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
      *
      * @return
      */
-    private PlaneTicket getAd()
-    {
+    private PlaneTicket getAd() {
         return null;
     }
 
     @Override
-    protected void clearData()
-    {
+    protected void clearData() {
         adapter.clear();
         recyclerView.notifyData();
     }
@@ -653,22 +620,19 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
      *
      * @param v
      */
-    public void getPlace(View v)
-    {
+    public void getPlace(View v) {
         currentView = v;
         startActivity(new Intent(this, SelectPlaceActivity.class));
     }
 
-    public void getDate(View v)
-    {
+    public void getDate(View v) {
         currentView = v;
 
         calendarPop.setPositionDate(currentFlight.getStartDate());
         calendarPop.showAtLocation(v, Gravity.TOP, 0, 0);
     }
 
-    public void refresh(View v)
-    {
+    public void refresh(View v) {
         if (v.getId() == R.id.pre_layout) {
             Date preDate = (DateUtil.addDay(currentFlight.getStartDate(), -1));
             if (preDate.getTime() <= getToday()) {
@@ -685,8 +649,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
         initData();
     }
 
-    private long getToday()
-    {
+    private long getToday() {
         Date date = new Date();
         String dateStr = DateUtil.date2String(date, DateUtil.DATE_FORMAT_DATE);
         Date today = DateUtil.string2Date(dateStr, DateUtil.DATE_FORMAT_DATE);
@@ -694,16 +657,14 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
     }
 
     @Override
-    public void initHeaderPrice(String prePrice, String todayPrice, String tomorrowPrice)
-    {
+    public void initHeaderPrice(String prePrice, String todayPrice, String tomorrowPrice) {
         tvCenterPrice.setText(todayPrice);
         tvPrePrice.setText(prePrice);
         tvNextPrice.setText(tomorrowPrice);
     }
 
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         super.onDestroy();
         TicketFilterView.filterData.reset();
         //取消注册事件
@@ -714,11 +675,10 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode== 1000 && resultCode == Activity.RESULT_OK){
+        if (requestCode == 1000 && resultCode == Activity.RESULT_OK) {
             pageStart = 0;
             refreshData();
         }
