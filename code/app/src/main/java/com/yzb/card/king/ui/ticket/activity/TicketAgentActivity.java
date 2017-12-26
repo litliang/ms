@@ -20,6 +20,7 @@ import com.yzb.card.king.bean.ticket.TicketAmountBean;
 import com.yzb.card.king.sys.AppConstant;
 import com.yzb.card.king.sys.CardConstant;
 import com.yzb.card.king.sys.GlobalApp;
+import com.yzb.card.king.sys.GlobalVariable;
 import com.yzb.card.king.ui.app.interfaces.DiscountListener;
 import com.yzb.card.king.ui.appwidget.DividerDecoration;
 import com.yzb.card.king.ui.appwidget.FlightDetailTitleView;
@@ -235,6 +236,15 @@ public class TicketAgentActivity extends BaseTicketActivity implements FlightAmo
 
         String flightNumber = flightDetailBean.getFlightNumber();
 
+        //行业id
+        int industryId =  GlobalVariable.industryId;
+
+        long shopId = Long.parseLong(flightDetailBean.getShopId());
+
+        long goodsId = flightDetailBean.getFlightId();
+
+        LogUtil.e("AAAA",industryId+"-----------"+ flightDetailBean.getShopId()+"   -------------"+flightDetailBean.getFlightId()+"----"+flightDetailBean.getDepTime());
+
         TicketDetailFragmentDialog ticketDetailFragmentDialog = new TicketDetailFragmentDialog();
 
         ticketDetailFragmentDialog.setDialogHandler(dialogHandler);
@@ -250,6 +260,14 @@ public class TicketAgentActivity extends BaseTicketActivity implements FlightAmo
         bundle.putSerializable("storeName", storeName);
 
         bundle.putSerializable("flightNumber", flightNumber);
+
+        bundle.putInt("industryId",industryId);
+
+        bundle.putLong("shopId",shopId);
+
+        bundle.putLong("goodsId",goodsId);
+
+        bundle.putString("startDate",flightDetailBean.getDepTime());
 
         ticketDetailFragmentDialog.setArguments(bundle);
 

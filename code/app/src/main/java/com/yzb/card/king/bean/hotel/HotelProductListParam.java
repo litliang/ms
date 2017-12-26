@@ -95,6 +95,14 @@ public class HotelProductListParam {
      */
     private String cashCouponId;
     /**
+     * 银行优惠活动id
+     */
+    private String bankActId;
+    /**
+     * 银行分期活动id
+     */
+    private String bankStageId;
+    /**
      * 优惠促销项
      */
     private String disTypes;
@@ -235,6 +243,22 @@ public class HotelProductListParam {
             brandTypes = brandTypes.substring(0, brandTypes.length()-1);
         }
         this.brandTypes = brandTypes;
+    }
+
+    public String getBankActId() {
+        return bankActId;
+    }
+
+    public void setBankActId(String bankActId) {
+        this.bankActId = bankActId;
+    }
+
+    public String getBankStageId() {
+        return bankStageId;
+    }
+
+    public void setBankStageId(String bankStageId) {
+        this.bankStageId = bankStageId;
     }
 
     public String getArrDate() {

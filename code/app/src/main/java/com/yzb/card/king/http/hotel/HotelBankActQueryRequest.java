@@ -87,8 +87,17 @@ public class HotelBankActQueryRequest extends BaseRequest {
         // 公共参数
         param.put("industryId", industryId);
         param.put("shopId", shopId);
-        param.put("storeId", storeId);
-        param.put("goodsType", goodsType);
+
+        if(storeId>0){
+            param.put("storeId", storeId);
+        }
+
+
+        if(goodsType>0){
+
+            param.put("goodsType", goodsType);
+        }
+
         param.put("goodsId", goodsId);
         param.put("startDate", startDate);
     }
@@ -108,11 +117,21 @@ public class HotelBankActQueryRequest extends BaseRequest {
         serverName = CardConstant.QUERY_BANKSTAGEINFO_HTTP;
         // 公共参数
         param.put("industryId", industryId);
-        param.put("shopId", shopId);
-        param.put("storeId", storeId);
-        param.put("goodsType", goodsType);
+
         param.put("goodsId", goodsId);
+
         param.put("goodsAmount", goodsAmount);
+        param.put("shopId", shopId);
+        if(storeId>0){
+            param.put("storeId", storeId);
+        }
+
+
+        if(goodsType >0){
+            param.put("goodsType", goodsType);
+        }
+
+
     }
 
     @Override

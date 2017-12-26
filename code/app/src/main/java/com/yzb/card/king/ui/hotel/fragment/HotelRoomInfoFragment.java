@@ -71,6 +71,7 @@ public class HotelRoomInfoFragment extends Fragment implements View.OnClickListe
         FavInfoBean hotelProductPre = hotelRoomComboInfoBean.getDisMap();
 
         LinearLayout llLifeStagen = (LinearLayout) view.findViewById(R.id.llLifeStage);
+
         llLifeStagen.setOnClickListener(this);
 
         String stageStatus = hotelProductPre.getStageStatus();

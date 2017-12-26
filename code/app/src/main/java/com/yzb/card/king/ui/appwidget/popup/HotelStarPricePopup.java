@@ -264,9 +264,11 @@ public class HotelStarPricePopup implements View.OnClickListener{
     private int selectedCurrentBarMax =1001;
 
     public void showSelectedData() {
+
         currentBarMix = 0;
 
         currentBarMax = 1001;
+
         setTextViewMaxMinValue(selectedCurrentBarMix,selectedCurrentBarMax);
 
         rangSbPrice.setRangeValues(currentBarMix, currentBarMax);

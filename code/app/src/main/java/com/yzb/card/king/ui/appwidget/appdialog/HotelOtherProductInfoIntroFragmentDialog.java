@@ -22,8 +22,10 @@ import com.yzb.card.king.bean.common.GoldTicketParam;
 import com.yzb.card.king.bean.hotel.ExtraGoodsComboBean;
 import com.yzb.card.king.bean.hotel.Hotel;
 import com.yzb.card.king.bean.hotel.HotelExtraProductBean;
+import com.yzb.card.king.bean.hotel.HotelProductListParam;
 import com.yzb.card.king.sys.GlobalVariable;
 import com.yzb.card.king.ui.appwidget.popup.GoLoginDailog;
+import com.yzb.card.king.ui.hotel.HotelLogicManager;
 import com.yzb.card.king.ui.hotel.activtiy.HotelOtherProductOrderActivity;
 import com.yzb.card.king.ui.hotel.fragment.BankFavorableFragment;
 import com.yzb.card.king.ui.hotel.fragment.BankLifeStageFragment;
@@ -312,6 +314,12 @@ public class HotelOtherProductInfoIntroFragmentDialog extends DialogFragment imp
             bundle.putInt("goodsType",goodsTypeInt);
 
             bundle.putSerializable("goldTicketParam",goldTicketParam);
+
+            HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
+
+            String startDate = productListParam.getArrDate();
+
+            bundle.putString("startDate",startDate);
 
             twoFragment.setArguments(bundle);
 

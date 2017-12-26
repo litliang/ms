@@ -78,12 +78,8 @@ public class BankFavorableFragment extends Fragment implements View.OnClickListe
             @Override
             public void run()
             {
-                /**
-                 *
-                 */
 
                     initData();
-
 
             }
         });
@@ -101,74 +97,12 @@ public class BankFavorableFragment extends Fragment implements View.OnClickListe
 
             int goodsType = bundle.getInt("goodsType");
 
+            String startDate = bundle.getString("startDate");
+
             ProgressDialogUtil.getInstance().showProgressDialogMsg("正在请求数据……", getContext(), false);
 
-            hotelBankActivityPersenter.sendBankPreActivityDetailRequest(goldTicketParam,goodsType);
+            hotelBankActivityPersenter.sendBankPreActivityDetailRequest(goldTicketParam,goodsType,startDate);
 
-
-        }else  if(bundle.containsKey("localData")) {
-
-            ProgressDialogUtil.getInstance().closeProgressDialog();
-
-            List<BankActivityInfoBean> bankList = new ArrayList<BankActivityInfoBean>();
-
-            BankActivityInfoBean oneBean = new BankActivityInfoBean();
-
-            oneBean.setBankId(57);
-
-            oneBean.setEndDate("2018-01-04");
-
-            oneBean.setActId("1");
-
-            oneBean.setBankName("浦发银行");
-
-            oneBean.setBankLogo("20170222150339169817021678");
-
-            oneBean.setActName("满减1");
-
-            oneBean.setStartDate("2017-08-17");
-
-            bankList.add(oneBean);
-
-            BankActivityInfoBean twoBean = new BankActivityInfoBean();
-
-            twoBean.setBankId(46);
-
-            twoBean.setEndDate("2018-01-04");
-
-            twoBean.setActId("2");
-
-            twoBean.setBankName("民生银行");
-
-            twoBean.setBankLogo("20170222150250236017021675");
-
-            twoBean.setActName("满减2");
-
-            twoBean.setStartDate("2017-08-17");
-
-            bankList.add(twoBean);
-
-
-            BankActivityInfoBean threeBean = new BankActivityInfoBean();
-            threeBean.setBankId(48);
-
-            threeBean.setEndDate("2018-01-04");
-
-            threeBean.setActId("3");
-
-            threeBean.setBankName("光大银行");
-
-            threeBean.setBankLogo("20170222150121211517021670");
-
-            threeBean.setActName("满减3");
-
-            threeBean.setStartDate("2017-08-17");
-
-            bankList.add(threeBean);
-
-            mAdapter.clear();
-
-            mAdapter.addAll(BankLifeStageHolder.class, bankList);
 
         }
     }

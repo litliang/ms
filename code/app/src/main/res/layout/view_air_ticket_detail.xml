@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="@dimen/title_view_height"
-        android:gravity="center_vertical"
-        >
+        android:gravity="center_vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -31,7 +30,7 @@
                     android:background="@mipmap/icon_arrow_back_black"
                     android:maxHeight="20dp"
                     android:maxWidth="20dp"
-                    android:scaleType="centerInside"/>
+                    android:scaleType="centerInside" />
 
             </LinearLayout>
 
@@ -40,51 +39,51 @@
                 android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_toRightOf="@+id/llLeft"
-                android:layout_marginLeft="10dp"
                 android:layout_centerVertical="true"
-                android:maxLines="1"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/llLeft"
                 android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
                 android:text="输入商家名称"
                 android:textColor="#333333"
-                android:textSize="18sp"
-                />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvAgent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginLeft="10dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:maxLines="1"
+                android:layout_marginLeft="10dp"
                 android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
                 android:text="输入商家名称"
                 android:textColor="@color/color_999999"
                 android:textSize="@dimen/title_size_16"
-                android:visibility="invisible"
-                />
+                android:visibility="invisible" />
 
         </RelativeLayout>
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="#cdcdcd"/>
+        android:background="#cdcdcd" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none">
+
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/white_ffffff"
             android:orientation="vertical"
-            android:paddingRight="@dimen/title_l_r"
             android:paddingLeft="@dimen/title_l_r"
-            android:layout_height="wrap_content">
+            android:paddingRight="@dimen/title_l_r">
 
 
             <LinearLayout
@@ -92,194 +91,220 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:paddingTop="9dp"
-                android:visibility="gone"
+                android:orientation="vertical"
                 android:paddingBottom="9dp"
-                android:orientation="vertical">
+                android:paddingTop="9dp"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
+                    android:text="退改详情"
                     android:textColor="@color/color_333333"
-                    android:text="退改详情"/>
+                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="9dp"
-                    android:textColor="@color/color_666666"
                     android:lineSpacingExtra="9dp"
-                    android:textSize="12sp"
-                    android:text="起飞前两小时前：￥1100/成人 ￥1100/儿童\n起飞前两小时后：￥1600/成人 ￥1600/儿童"/>
+                    android:text="起飞前两小时前：￥1100/成人 ￥1100/儿童\n起飞前两小时后：￥1600/成人 ￥1600/儿童"
+                    android:textColor="@color/color_666666"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:visibility="gone"
-                android:background="#cdcdcd"/>
+                android:background="#cdcdcd"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingBottom="10dp">
+
                 <LinearLayout
                     android:id="@+id/llGetCoupon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="top"
-                        android:layout_weight="3.5"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
                         android:orientation="horizontal">
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top"
+                            android:layout_weight="3.5"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/shap_corner_blue"
+                                android:padding="3dp"
+                                android:text="代金券"
+                                android:textColor="@color/color_476b98"
+                                android:textSize="10sp" />
+
+
+                        </LinearLayout>
+
                         <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="7dp"
+                            android:layout_marginRight="7dp"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:text="可领取代金券"
+                            android:textColor="@color/color_666666"
+                            android:textSize="12sp" />
+
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/shap_corner_blue"
-                            android:padding="3dp"
-                            android:text="代金券"
-                            android:textColor="@color/color_476b98"
-                            android:textSize="10sp"/>
+                            android:background="@mipmap/icon_arrow_right_item_gray" />
 
 
                     </LinearLayout>
 
-                    <TextView
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="7dp"
-                        android:layout_marginRight="7dp"
-                        android:layout_weight="1"
-                        android:ellipsize="end"
-                        android:maxLines="2"
-                        android:text="可领取代金券"
-                        android:textColor="@color/color_666666"
-                        android:textSize="12sp"/>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@mipmap/icon_arrow_right_item_gray"/>
-
-
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#cdcdcd" />
                 </LinearLayout>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="10dp"
-                    android:background="#cdcdcd"/>
 
                 <LinearLayout
                     android:id="@+id/llBankFavorable"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="top"
-                        android:layout_weight="3.5"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
                         android:orientation="horizontal">
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top"
+                            android:layout_weight="3.5"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/shap_corner_blue"
+                                android:padding="3dp"
+                                android:text="银行优惠"
+                                android:textColor="@color/color_476b98"
+                                android:textSize="10sp" />
+
+
+                        </LinearLayout>
+
                         <TextView
+                            android:id="@+id/tvBankFavDesc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="7dp"
+                            android:layout_marginRight="7dp"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:text="交通银行、农业银行、交通银行"
+                            android:textColor="@color/color_666666"
+                            android:textSize="12sp" />
+
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/shap_corner_blue"
-                            android:padding="3dp"
-                            android:text="银行优惠"
-                            android:textColor="@color/color_476b98"
-                            android:textSize="10sp"/>
+                            android:background="@mipmap/icon_arrow_right_item_gray" />
 
 
                     </LinearLayout>
 
-                    <TextView
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="7dp"
-                        android:layout_marginRight="7dp"
-                        android:layout_weight="1"
-                        android:ellipsize="end"
-                        android:maxLines="2"
-                        android:text="交通银行、农业银行、交通银行"
-                        android:textColor="@color/color_666666"
-                        android:textSize="12sp"/>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@mipmap/icon_arrow_right_item_gray"/>
-
-
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#cdcdcd" />
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="10dp"
-                    android:background="#cdcdcd"/>
                 <LinearLayout
                     android:id="@+id/llLifeStage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                     <LinearLayout
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="top"
-                        android:layout_weight="3.5"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
                         android:orientation="horizontal">
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top"
+                            android:layout_weight="3.5"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/shap_corner_blue"
+                                android:padding="3dp"
+                                android:text="生活分期"
+                                android:textColor="@color/color_476b98"
+                                android:textSize="10sp" />
+
+
+                        </LinearLayout>
+
                         <TextView
+                            android:id="@+id/tvBankStageDesc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="7dp"
+                            android:layout_marginRight="7dp"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:text="交通银行、农业银行、交通银行"
+                            android:textColor="@color/color_666666"
+                            android:textSize="12sp" />
+
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/shap_corner_blue"
-                            android:padding="3dp"
-                            android:text="生活分期"
-                            android:textColor="@color/color_476b98"
-                            android:textSize="10sp"/>
+                            android:background="@mipmap/icon_arrow_right_item_gray" />
 
 
                     </LinearLayout>
 
-                    <TextView
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="7dp"
-                        android:layout_marginRight="7dp"
-                        android:layout_weight="1"
-                        android:ellipsize="end"
-                        android:maxLines="2"
-                        android:text="交通银行、农业银行、交通银行"
-                        android:textColor="@color/color_666666"
-                        android:textSize="12sp"/>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@mipmap/icon_arrow_right_item_gray"/>
-
-
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#cdcdcd" />
                 </LinearLayout>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="10dp"
-                    android:background="#cdcdcd"/>
+
                 <LinearLayout
                     android:id="@+id/llSuperGive"
                     android:layout_width="match_parent"
@@ -302,7 +327,7 @@
                             android:padding="3dp"
                             android:text="积分"
                             android:textColor="@color/color_476b98"
-                            android:textSize="10sp"/>
+                            android:textSize="10sp" />
 
 
                     </LinearLayout>
@@ -318,21 +343,21 @@
                         android:maxLines="3"
                         android:text="现在购买可获取航司卡积分，满1000增100积分，积分可用于购买航空公司直销机票，兑换比例100积分=1元"
                         android:textColor="@color/color_666666"
-                        android:textSize="12sp"/>
+                        android:textSize="12sp" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_gravity="top"
-                        android:layout_height="wrap_content">
-                    <ImageView
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@mipmap/icon_arrow_right_item_gray"/>
+                        android:layout_gravity="top">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/icon_arrow_right_item_gray" />
                     </LinearLayout>
 
                 </LinearLayout>
             </LinearLayout>
-
 
 
         </LinearLayout>
