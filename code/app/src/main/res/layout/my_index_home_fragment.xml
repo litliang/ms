@@ -616,6 +616,7 @@
                     android:background="@color/white_ffffff"
                     android:orientation="vertical"
                     android:paddingLeft="@dimen/title_l_r"
+                    android:visibility="gone"
                     android:paddingRight="@dimen/title_l_r">
 
                     <LinearLayout
@@ -656,6 +657,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:visibility="gone"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
                         android:paddingBottom="10dp"
