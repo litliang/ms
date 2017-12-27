@@ -37,7 +37,11 @@ public class HotelBankActQueryRequest extends BaseRequest {
         serverName = CardConstant.QUERY_BANK_ACTIVITY_LIST;
         // 公共参数
         param.put("cityId", cityId);
-        param.put("bankIds", bankIds);
+        if(!TextUtils.isEmpty(bankIds)){
+
+            param.put("bankIds", bankIds);
+        }
+
         param.put("industryId", industryId);
         param.put("actType", actType);
         param.put("effMonth", effMonth);

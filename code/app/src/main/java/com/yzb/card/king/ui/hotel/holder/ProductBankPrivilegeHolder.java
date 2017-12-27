@@ -12,10 +12,13 @@ import com.bumptech.glide.Glide;
 import com.yzb.card.king.R;
 import com.yzb.card.king.bean.BankActivityInfoBean;
 import com.yzb.card.king.bean.hotel.HotelProductListParam;
+import com.yzb.card.king.sys.GlobalVariable;
 import com.yzb.card.king.sys.ServiceDispatcher;
 import com.yzb.card.king.ui.hotel.HotelLogicManager;
+import com.yzb.card.king.ui.hotel.activtiy.HotelBankPreferentialListActivity;
 import com.yzb.card.king.ui.hotel.activtiy.HotelProductListActivity;
 import com.yzb.card.king.ui.hotel.persenter.HotelBankActivityPersenter;
+import com.yzb.card.king.util.ToastUtil;
 
 import cn.lemon.view.adapter.BaseViewHolder;
 
@@ -84,6 +87,13 @@ public class ProductBankPrivilegeHolder extends BaseViewHolder<BankActivityInfoB
 
             case R.id.llBankPreOne:
 
+                if(HotelBankPreferentialListActivity.industryId !=  GlobalVariable.industryId){
+
+                    ToastUtil.i(context,"当前不支持其它行业银行优惠");
+
+                    return;
+                }
+
                 if(v.getTag() != null){
 
                     BankActivityInfoBean data = (BankActivityInfoBean) v.getTag();
@@ -91,6 +101,10 @@ public class ProductBankPrivilegeHolder extends BaseViewHolder<BankActivityInfoB
                     HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
 
                     productListParam.setBankActId(data.getActId()+"");
+
+                    productListParam.setBankIds(data.getBankId()+"");
+
+                    productListParam.setBankStageId(null);
 
                     productListParam.setBankStageId(null);
 

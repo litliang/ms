@@ -18,6 +18,7 @@ import com.yzb.card.king.bean.GiftComboBean;
 import com.yzb.card.king.bean.common.PaymethodAndBankPreStageBean;
 import com.yzb.card.king.bean.hotel.BankActivityParam;
 import com.yzb.card.king.bean.hotel.HotelProductObjectBean;
+import com.yzb.card.king.http.HttpConstant;
 import com.yzb.card.king.sys.AppConstant;
 import com.yzb.card.king.sys.GlobalVariable;
 import com.yzb.card.king.ui.appwidget.DefineTopView;
@@ -67,8 +68,6 @@ public class HotelLifeStageListActivity extends BaseActivity implements View.OnC
 
     private ProductCardLifeStagesAdapter mAdapter;
 
-    private Handler mHandler;
-
     private List<DefineTopView> defineTopViewList;
 
     private ChannelTypePopup channelTypePopup;
@@ -87,7 +86,10 @@ public class HotelLifeStageListActivity extends BaseActivity implements View.OnC
 
     private HotelBankActivityPersenter hotelBankAcitivityPresenter;
 
-    private String currentBankId = null;
+
+    private String bankIds = null;
+
+    public static int industryId = GlobalVariable.industryId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -194,29 +196,32 @@ public class HotelLifeStageListActivity extends BaseActivity implements View.OnC
 
             defineTopView.setTabName(name);
 
-            if(selectIndex == 0){//全部银行
+            if (selectIndex == 0) {//全部银行
 
-                currentBankId = bankSelectPopup.getAllBankIds();
+                bankIds = bankSelectPopup.getAllBankIds();
 
             }
-//            else if(selectIndex == 1){//我的银行
-//
-//                currentBankId = bankSelectPopup.getMyBankIds();
-//
-//            }
-            else if(selectIndex >= 1){//其它银行
+            else if (selectIndex >= 1) {//其它银行
 
-                List<PaymethodAndBankPreStageBean> bankList =  bankSelectPopup.getTotalList();
+                List<PaymethodAndBankPreStageBean> bankList = bankSelectPopup.getTotalList();
 
-                if(bankList != null){
+                if (bankList != null) {
 
-                    PaymethodAndBankPreStageBean bean = bankList.get(selectIndex-1);
+                    int numnber = 1;
 
-                    currentBankId = bean.getBankId()+"";
 
+                    PaymethodAndBankPreStageBean bean = bankList.get(selectIndex - numnber);
+
+
+                    bankIds = bean.getBankId() + "";
+
+                }else {
+
+                    bankIds = null;
                 }
 
             }
+
 
             mRecyclerView.showSwipeRefresh();
 
@@ -240,15 +245,7 @@ public class HotelLifeStageListActivity extends BaseActivity implements View.OnC
 
             temp = name;
 
-            if (selectIndex == 0) {//酒店
-
-
-            } else if (selectIndex == 1) {//机票
-
-
-            }else if (selectIndex == 3){//旅游
-
-            }
+            industryId = nameValue;
 
             mRecyclerView.showSwipeRefresh();
 
@@ -288,7 +285,6 @@ public class HotelLifeStageListActivity extends BaseActivity implements View.OnC
 
     private void initContent()
     {
-        mHandler = new Handler();
         mAdapter = new ProductCardLifeStagesAdapter(this);
         mRecyclerView = (RefreshRecyclerView) findViewById(R.id.recycler_view);
         mRecyclerView.setSwipeRefreshColors(0xFF437845, 0xFFE44F98, 0xFF2FAC21);
@@ -411,8 +407,14 @@ public class HotelLifeStageListActivity extends BaseActivity implements View.OnC
         if(page == 0){
 
             mRecyclerView.dismissSwipeRefresh();
+
+            //错误信息
+            if (HttpConstant.chechNoInfo(o + "")) {
+                mAdapter.clear();
+            }
         }
     }
+
 
     @Override
     public BankActivityParam getQueryParam()
@@ -421,13 +423,13 @@ public class HotelLifeStageListActivity extends BaseActivity implements View.OnC
 
         param.setCityId(Integer.parseInt(cityId));
 
-        param.setIndustryId(  GlobalVariable.industryId);
-
-        param.setBankIds(currentBankId);
+        param.setIndustryId(industryId);
 
         param.setStage(stage);
 
         param.setPageStart(page);
+
+        param.setBankIds(bankIds);
 
         return param;
     }

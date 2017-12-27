@@ -15,6 +15,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.yzb.card.king.R;
 import com.yzb.card.king.bean.BankActivityInfoBean;
 import com.yzb.card.king.bean.MonthBean;
+import com.yzb.card.king.bean.common.PaymethodAndBankPreStageBean;
 import com.yzb.card.king.bean.hotel.BankActivityParam;
 import com.yzb.card.king.http.HttpConstant;
 import com.yzb.card.king.sys.AppConstant;
@@ -66,7 +67,6 @@ public class HotelBankPreferentialListActivity extends BaseActivity  implements 
 
     private ProductBankPrivilegeAdapter mAdapter;
 
-    private Handler mHandler;
 
     private List<DefineTopView> defineTopViewList;
 
@@ -93,6 +93,10 @@ public class HotelBankPreferentialListActivity extends BaseActivity  implements 
     private int effMonth = 0;
 
     private int actType = 0;
+
+    private String bankIds = null;
+
+    public static int industryId = GlobalVariable.industryId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -253,6 +257,31 @@ public class HotelBankPreferentialListActivity extends BaseActivity  implements 
 
                 return;
             }
+            if (selectIndex == 0) {//全部银行
+
+                bankIds = bankSelectPopup.getAllBankIds();
+
+            }
+            else if (selectIndex >= 1) {//其它银行
+
+                List<PaymethodAndBankPreStageBean> bankList = bankSelectPopup.getTotalList();
+
+                if (bankList != null) {
+
+                    int numnber = 1;
+
+
+                    PaymethodAndBankPreStageBean bean = bankList.get(selectIndex - numnber);
+
+
+                    bankIds = bean.getBankId() + "";
+
+                }else {
+
+                    bankIds = null;
+                }
+
+            }
 
             defineTopView.setTabName(name);
 
@@ -275,18 +304,10 @@ public class HotelBankPreferentialListActivity extends BaseActivity  implements 
 
             defineTopView.setTabName(name);
 
+            industryId = nameValue;
 
             temp = name;
 
-            if (selectIndex == 0) {//酒店
-
-
-            } else if (selectIndex == 1) {//机票
-
-
-            } else if (selectIndex == 2) {//旅游
-
-            }
             mRecyclerView.showSwipeRefresh();
 
             getData(true);
@@ -295,22 +316,7 @@ public class HotelBankPreferentialListActivity extends BaseActivity  implements 
 
     private void initContent()
     {
-        mHandler = new Handler();
         mAdapter = new ProductBankPrivilegeAdapter(this);
-//        //添加Header
-//        final TextView textView = new TextView(this);
-//        textView.setLayoutParams(new LinearLayoutCompat.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, CommonUtil.dip2px(this, 48)));
-//        textView.setTextSize(16);
-//        textView.setGravity(Gravity.CENTER);
-//        textView.setText("重庆邮电大学");
-//        mAdapter.setHeader(textView);
-//        //添加footer
-//        final TextView footer = new TextView(this);
-//        footer.setLayoutParams(new LinearLayoutCompat.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, CommonUtil.dip2px(this, 48)));
-//        footer.setTextSize(16);
-//        footer.setGravity(Gravity.CENTER);
-//        footer.setText("-- Footer --");
-//        mAdapter.setFooter(footer);
 
         mRecyclerView = (RefreshRecyclerView) findViewById(R.id.recycler_view);
         mRecyclerView.setSwipeRefreshColors(0xFF437845, 0xFFE44F98, 0xFF2FAC21);
@@ -449,13 +455,15 @@ public class HotelBankPreferentialListActivity extends BaseActivity  implements 
 
         param.setCityId(Integer.parseInt(cityId));
 
-        param.setIndustryId(GlobalVariable.industryId);
+        param.setIndustryId(industryId);
 
         param.setEffMonth(effMonth);
 
         param.setActType(actType);
 
         param.setPageStart(page);
+
+        param.setBankIds(bankIds);
 
         return param;
     }

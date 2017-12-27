@@ -14,10 +14,13 @@ import com.yzb.card.king.R;
 import com.yzb.card.king.bean.BankActivityInfoBean;
 import com.yzb.card.king.bean.GiftComboBean;
 import com.yzb.card.king.bean.hotel.HotelProductListParam;
+import com.yzb.card.king.sys.GlobalVariable;
 import com.yzb.card.king.sys.ServiceDispatcher;
 import com.yzb.card.king.ui.hotel.HotelLogicManager;
+import com.yzb.card.king.ui.hotel.activtiy.HotelLifeStageListActivity;
 import com.yzb.card.king.ui.hotel.activtiy.HotelProductListActivity;
 import com.yzb.card.king.ui.hotel.persenter.HotelBankActivityPersenter;
+import com.yzb.card.king.util.ToastUtil;
 
 import cn.lemon.view.adapter.BaseViewHolder;
 
@@ -87,6 +90,13 @@ public class ProductCardLifeStagesHolder extends BaseViewHolder<BankActivityInfo
 
             case R.id.llBankLifeStageOne:
 
+                if(HotelLifeStageListActivity.industryId != GlobalVariable.industryId){
+
+                    ToastUtil.i(context,"暂不支持其它行业的银行分期活动");
+
+                    return;
+                }
+
                 if(v.getTag() != null){
 
                     BankActivityInfoBean data = (BankActivityInfoBean) v.getTag();
@@ -95,7 +105,11 @@ public class ProductCardLifeStagesHolder extends BaseViewHolder<BankActivityInfo
 
                     productListParam.setBankStageId(data.getActId()+"");
 
+                    productListParam.setBankStageId(data.getBankId()+"");
+
                     productListParam.setBankActId(null);
+
+                    productListParam.setBankIds(null);
 
                     Intent intent = new Intent(context, HotelProductListActivity.class);
 

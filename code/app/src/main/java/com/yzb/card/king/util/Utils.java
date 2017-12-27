@@ -311,7 +311,7 @@ public class Utils {
         }
 
         NumberFormat bf = NumberFormat.getInstance();
-
+        bf.setMaximumFractionDigits(2);
         bf.setGroupingUsed(false);
 
         double number = Double.parseDouble(numStr);
