@@ -165,10 +165,6 @@ public class TicketDetailFragmentDialog  extends DialogFragment implements View.
 
             fragmentTransaction.replace(R.id.contentll, twoFragment).commit();
 
-
-
-
-
         }
 
         @Override

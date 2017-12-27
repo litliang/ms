@@ -2,6 +2,7 @@ package com.yzb.card.king.ui.credit.watcher;
 
 import android.text.Editable;
 import android.text.Selection;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
@@ -88,7 +89,14 @@ public class CardTextWatcher implements TextWatcher
                     @Override
                     protected CardBin parseData(String data)
                     {
-                        return JSON.parseObject(data, CardBin.class);
+
+                        if(TextUtils.isEmpty(data) || "{}".equals(data)){
+
+                            return null;
+                        }else {
+                            return JSON.parseObject(data, CardBin.class);
+                        }
+
                     }
                 };
             }

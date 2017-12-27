@@ -16,6 +16,7 @@ import com.yzb.card.king.ui.base.BaseActivity;
 import com.yzb.card.king.ui.credit.bean.CardBin;
 import com.yzb.card.king.ui.credit.watcher.CardTextWatcher;
 import com.yzb.card.king.ui.other.controller.ScanCardController;
+import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.UiUtils;
 
 import org.xutils.view.annotation.ContentView;
@@ -118,8 +119,12 @@ public class IaAddBankActivity extends BaseActivity {
             return;
         }
 
-        if (cardBin != null)
+        LogUtil.e("AAAAA","--------------0------------"+(cardBin != null));
+
+        if (cardBin != null && userAuthenticationBean != null)
         {
+            LogUtil.e("AAAAA","--------------1------------"+(cardBin != null));
+
             userAuthenticationBean.setBankId(cardBin.getBankId());
 
             userAuthenticationBean.setCardType(Integer.parseInt(cardBin.getType()));
