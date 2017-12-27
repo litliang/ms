@@ -333,10 +333,35 @@ public class BankLifeStageFragment extends Fragment implements View.OnClickListe
             if(b == 1){
 
                 double t1 = tatalMoney+shouxuMoney;
+
                 String a1 = Utils.subZeroAndDot(t1+"");
+
                 sb.append(a1);
 
+            }else if(b==stageNumber){//最后一期
+
+               double ab =Double.parseDouble(Utils.subZeroAndDot(avgMone+""));
+
+                double  lastStageMoney =   productMoney-ab*stageNumber;
+
+                if(lastStageMoney == 0){
+
+                    String a1 = Utils.subZeroAndDot(tatalMoney+"");
+
+                    sb.append(a1);
+
+                }else {
+
+                   double lastMoney = lastStageMoney+avgMone;
+
+                    String a2 = Utils.subZeroAndDot(lastMoney+lastMoney*stageBean.getRate()+"");
+
+                    sb.append(a2);
+                }
+
+
             }else {
+
                 String a1 = Utils.subZeroAndDot(tatalMoney+"");
                 sb.append(a1);
 

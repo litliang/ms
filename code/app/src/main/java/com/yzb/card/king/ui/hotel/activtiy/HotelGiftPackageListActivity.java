@@ -9,22 +9,14 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import com.yzb.card.king.R;
-import com.yzb.card.king.bean.SearchGiftResultBean;
-import com.yzb.card.king.bean.SubItemBean;
 import com.yzb.card.king.bean.GiftComboBean;
-import com.yzb.card.king.bean.common.Error;
+import com.yzb.card.king.bean.SubItemBean;
 import com.yzb.card.king.bean.hotel.HotelProductListParam;
-import com.yzb.card.king.bean.hotel.RoomInfoBean;
 import com.yzb.card.king.http.HttpConstant;
-import com.yzb.card.king.http.HttpUtil;
 import com.yzb.card.king.sys.AppConstant;
-import com.yzb.card.king.sys.GlobalVariable;
 import com.yzb.card.king.ui.appwidget.DefineTopView;
-import com.yzb.card.king.ui.appwidget.popup.BaseFullPP;
 import com.yzb.card.king.ui.appwidget.popup.ChannelTypePopup;
 import com.yzb.card.king.ui.appwidget.popup.GiftComboPopup;
 import com.yzb.card.king.ui.appwidget.popup.HotelBrandPopup;
@@ -38,7 +30,6 @@ import com.yzb.card.king.ui.hotel.holder.HotelCardEquityHolder;
 import com.yzb.card.king.ui.hotel.holder.HotelFlashSaleHolder;
 import com.yzb.card.king.ui.hotel.persenter.HotelProductListPresenter;
 import com.yzb.card.king.ui.other.activity.CivilInternationCityActivity;
-import com.yzb.card.king.util.LogUtil;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
@@ -84,34 +75,33 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
 
     private int selectedIndex = 0;
 
-    private ChannelTypePopup channelTypePopup;
+    private ChannelTypePopup channelTypePopup,cardChannelTypePopup;
 
     private int selectedTypeIndex = 0;
 
-    private HotelSortTypePopup hotelSortTypePopup;
+    private HotelSortTypePopup hotelSortTypePopup,cardHotelSortTypePopup;
 
-    private int selectedGiftComboIndex = 0;
+    private int sortTypeIndex = 0;
 
-    private HotelBrandPopup hotelBrandPopup;
+    private HotelBrandPopup hotelBrandPopup;//限时抢购品牌
+
+    private HotelBrandPopup  cardHotelBrandPopup;//卡权益品牌
 
     private HotelFiltratePopup hotelFiltratePopup;
 
-    private HotelFileFlashSalePopup hotelFileFlashSalePopup;
+    private HotelFileFlashSalePopup fileFlashSalePopup;
 
     private HotelProductListPresenter presenterl;
 
-    private boolean oneTopClick = true;
+    private boolean productType = true;//限时抢购
+
+    private int giftsType = 8;//7卡权益；8限时抢购
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
 
-        if(getIntent().hasExtra("oneTopClick")){
-
-            oneTopClick = getIntent().getBooleanExtra("oneTopClick",true);
-
-        }
 
         HotelProductListParam productListParam = HotelLogicManager.getInstance().getFlashSaleHotelParam();
 
@@ -156,7 +146,7 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
 
             DefineTopView defindTabView = new DefineTopView(this, onClickAction);
 
-            if(i == 0 && !oneTopClick){//设置选中
+            if(i == 0 || i==1|| i==4){//设置选中
 
                 defindTabView.setTabCheckStatus(true);
 
@@ -176,7 +166,7 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
         public void onTabClickItem(int index, TextView textView, boolean selectedStatus)
         {
 
-            if (index == 0 && oneTopClick) {//礼品套餐
+            if (index == 0 ) {//礼品套餐
 
                 if (giftComboPopup == null) {
 
@@ -194,59 +184,102 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
                 giftComboPopup.showPP(llTop);
 
             } else if (index == 1) {//频道类型
+                if (productType) {
+                    if (channelTypePopup == null) {
 
-                if (channelTypePopup == null) {
+                        channelTypePopup = new ChannelTypePopup(HotelGiftPackageListActivity.this, -1);
 
-                    channelTypePopup = new ChannelTypePopup(HotelGiftPackageListActivity.this, -1);
+                        channelTypePopup.setSelectIndex(selectedTypeIndex);
 
-                    channelTypePopup.setSelectIndex(selectedTypeIndex);
+                        channelTypePopup.setCallBack(callBackChannelTypePopup);
+                    }
 
-                    channelTypePopup.setCallBack(callBackChannelTypePopup);
+                    channelTypePopup.showPP(llTop);
+                }else {
+
+                    if (cardChannelTypePopup == null) {
+
+                        cardChannelTypePopup = new ChannelTypePopup(HotelGiftPackageListActivity.this, -1);
+
+                        cardChannelTypePopup.setSelectIndex(selectedTypeIndex);
+
+                        cardChannelTypePopup.setCallBack(callBackChannelTypePopup);
+                    }
+
+                    cardChannelTypePopup.showPP(llTop);
+
                 }
 
-                channelTypePopup.showPP(llTop);
+            } else if (index == 4) {//排序
+                if (productType) {
+                    if (hotelSortTypePopup == null) {
 
-            } else if (index == 4) {
+                        hotelSortTypePopup = new HotelSortTypePopup(HotelGiftPackageListActivity.this, -1);
 
-                if (hotelSortTypePopup == null) {
+                        hotelSortTypePopup.setSelectIndex(sortTypeIndex);
 
-                    hotelSortTypePopup = new HotelSortTypePopup(HotelGiftPackageListActivity.this, -1);
+                        String[] nameArray = getResources().getStringArray(R.array.gift_combo_sort_name_array);
 
-                    hotelSortTypePopup.setSelectIndex(selectedGiftComboIndex);
+                        int[] valueArray = getResources().getIntArray(R.array.gift_combo_sort_value_array);
 
-                    String[] nameArray = getResources().getStringArray(R.array.gift_combo_sort_name_array);
+                        hotelSortTypePopup.setLogicData(nameArray, valueArray);
 
-                    int[] valueArray = getResources().getIntArray(R.array.gift_combo_sort_value_array);
+                        hotelSortTypePopup.setCallBack(callBackGiftCombo);
+                    }
 
-                    hotelSortTypePopup.setLogicData(nameArray, valueArray);
+                    hotelSortTypePopup.showPP(llTop);
+                }else {
 
-                    hotelSortTypePopup.setCallBack(callBackGiftCombo);
+                    if (cardHotelSortTypePopup == null) {
+
+                        cardHotelSortTypePopup = new HotelSortTypePopup(HotelGiftPackageListActivity.this, -1);
+
+                        cardHotelSortTypePopup.setSelectIndex(sortTypeIndex);
+
+                        String[] nameArray = getResources().getStringArray(R.array.gift_combo_sort_name_array);
+
+                        int[] valueArray = getResources().getIntArray(R.array.gift_combo_sort_value_array);
+
+                        cardHotelSortTypePopup.setLogicData(nameArray, valueArray);
+
+                        cardHotelSortTypePopup.setCallBack(callBackGiftCombo);
+                    }
+
+                    cardHotelSortTypePopup.showPP(llTop);
                 }
-
-                hotelSortTypePopup.showPP(llTop);
-
 
             } else if (index == 2) {//品牌
 
-                if (hotelBrandPopup == null) {
+                if (productType) {
+                    if (hotelBrandPopup == null) {
 
-                    hotelBrandPopup = new HotelBrandPopup(HotelGiftPackageListActivity.this, 313, "2");
+                        hotelBrandPopup = new HotelBrandPopup(HotelGiftPackageListActivity.this, 313, "2");
 
-                    hotelBrandPopup.setCallBack(entryCallBack);
+                        hotelBrandPopup.setCallBack(entryCallBack);
+                    }
+                    hotelBrandPopup.showPP(llTop);
+                }else {
+
+                    if (cardHotelBrandPopup == null) {
+
+                        cardHotelBrandPopup = new HotelBrandPopup(HotelGiftPackageListActivity.this, 313, "2");
+
+                        cardHotelBrandPopup.setCallBack(entryCallBack);
+                    }
+                    cardHotelBrandPopup.showPP(llTop);
                 }
-                hotelBrandPopup.showPP(llTop);
             } else if (index == 3) {//筛选
 
                 if (productType) {
 
-                    if (hotelFileFlashSalePopup == null) {
+                    if (fileFlashSalePopup == null) {
 
-                        hotelFileFlashSalePopup = new HotelFileFlashSalePopup(HotelGiftPackageListActivity.this, -1);
+                        fileFlashSalePopup = new HotelFileFlashSalePopup(HotelGiftPackageListActivity.this, -1);
 
-                        hotelFileFlashSalePopup.setCallBack(flashSaleCallBack);
+                        fileFlashSalePopup.setCallBack(hotelFiltrateCallBack);
                     }
+                    fileFlashSalePopup.showPP(llTop);
 
-                    hotelFileFlashSalePopup.showPP(llTop);
                 } else {
 
                     if (hotelFiltratePopup == null) {
@@ -287,9 +320,9 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
                 productListParam = HotelLogicManager.getInstance().getCardRightHotelParam();
             }
             if (size > 0) {
-                productListParam.setFilterList(selectedBean);
+                productListParam.setHotelBrandList(selectedBean);
             } else {
-                productListParam.setFilterList(null);
+                productListParam.setHotelBrandList(null);
             }
 
             mRecyclerView.showSwipeRefresh();
@@ -298,66 +331,6 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
         }
     };
 
-    private HotelFileFlashSalePopup.ViewDataCallBack flashSaleCallBack = new HotelFileFlashSalePopup.ViewDataCallBack() {
-        @Override
-        public void onConfirm(List<SubItemBean> selectedBean, int minValue, int maxValue)
-        {
-            DefineTopView defineTopView = defineTopViewList.get(3);
-
-            int size1 = selectedBean.size();
-
-            if (size1 == 0 && minValue == 100 && maxValue == 1001) {
-
-                defineTopView.setTabCheckStatus(false);
-
-            } else {
-                defineTopView.setTabCheckStatus(true);
-            }
-
-            HotelProductListParam productListParam = HotelLogicManager.getInstance().getFlashSaleHotelParam();
-
-            productListParam.setStoreUseType(null);
-
-            productListParam.setEffMonth(null);
-
-            if (size1 > 0) {
-
-                for (SubItemBean temp : selectedBean) {
-
-                    int localData = temp.getLocalDataCode();
-
-                    if (localData == 3) {//有效期
-
-                        productListParam.setEffMonth(temp.getFilterId());
-
-                    } else if (localData == 4) {//适用门店
-
-                        productListParam.setStoreUseType(temp.getFilterId());
-
-                    }
-
-                }
-            }
-
-            if (maxValue == 1001) {
-
-                productListParam.setBgnPrice(minValue + "");
-
-                productListParam.setEndPrice(Integer.MAX_VALUE + "");
-
-            } else {
-
-                productListParam.setBgnPrice(minValue + "");
-
-                productListParam.setEndPrice(maxValue + "");
-
-            }
-
-            mRecyclerView.showSwipeRefresh();
-
-            getData(true);
-        }
-    };
 
 
     private HotelFiltratePopup.ViewDataCallBack hotelFiltrateCallBack = new HotelFiltratePopup.ViewDataCallBack() {
@@ -369,7 +342,7 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
 
             int size1 = selectedBean.size();
 
-            if (size1 == 0 && minValue == 100 && maxValue == 1001) {
+            if (size1 == 0 && minValue == 0 && maxValue == 1001) {
 
                 defineTopView.setTabCheckStatus(false);
 
@@ -377,10 +350,20 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
                 defineTopView.setTabCheckStatus(true);
             }
 
-            HotelProductListParam productListParam = HotelLogicManager.getInstance().getCardRightHotelParam();
+            HotelProductListParam productListParam;
+
+            if (productType) {
+
+                productListParam = HotelLogicManager.getInstance().getFlashSaleHotelParam();
+            } else {
+
+                productListParam = HotelLogicManager.getInstance().getCardRightHotelParam();
+            }
 
             productListParam.setStoreUseType(null);
+
             productListParam.setEffMonth(null);
+
             if (size1 > 0) {
 
                 for (SubItemBean temp : selectedBean) {
@@ -415,14 +398,11 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
             }
 
             mRecyclerView.showSwipeRefresh();
+
             getData(true);
         }
     };
 
-
-    private boolean productType = true;//限时抢购
-
-    private int giftsType = 8;
 
     private GiftComboPopup.BottomDataListCallBack callBack = new GiftComboPopup.BottomDataListCallBack() {
         @Override
@@ -430,12 +410,6 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
         {
 
             DefineTopView defineTopView = defineTopViewList.get(0);
-
-            if (name == null) {
-
-                defineTopView.setTabCheckStatus(false);
-                return;
-            }
 
 
             defineTopView.setTabName(name);
@@ -465,23 +439,75 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
                 productListParam = HotelLogicManager.getInstance().getCardRightHotelParam();
             }
 
-            boolean isShow = false;
+            /**
+             * 检测行业类型选择的内容
+             */
 
-            if (productListParam.getEffMonth() != null || productListParam.getStoreUseType() != null || !String.valueOf(Integer.MAX_VALUE).equals(productListParam.getEndPrice()) || !"100".equals(productListParam.getBgnPrice())) {
+            if (channelTypePopup == null) {
 
-                isShow = true;
+                channelTypePopup = new ChannelTypePopup(HotelGiftPackageListActivity.this, -1);
+
+                channelTypePopup.setSelectIndex(selectedTypeIndex);
+
+                channelTypePopup.setCallBack(callBackChannelTypePopup);
             }
 
+
+            DefineTopView defineTopViewOne = defineTopViewList.get(1);
+
+            int industryId = productListParam.getIndustryId();
+
+            defineTopViewOne.setTabName(channelTypePopup.getTypeName(industryId));
+
+            /**
+             * 检测排序选择的内容
+             */
+            if (hotelSortTypePopup == null) {
+
+                hotelSortTypePopup = new HotelSortTypePopup(HotelGiftPackageListActivity.this, -1);
+
+                hotelSortTypePopup.setSelectIndex(sortTypeIndex);
+
+                String[] nameArray = getResources().getStringArray(R.array.gift_combo_sort_name_array);
+
+                int[] valueArray = getResources().getIntArray(R.array.gift_combo_sort_value_array);
+
+                hotelSortTypePopup.setLogicData(nameArray, valueArray);
+
+                hotelSortTypePopup.setCallBack(callBackGiftCombo);
+            }
+
+            DefineTopView defineTopViewFource = defineTopViewList.get(4);
+
+            int sort = productListParam.getSort();
+
+            defineTopViewFource.setTabName(hotelSortTypePopup.getTypeName(sort));
+
+            /*
+                检测品牌内容
+             */
+            DefineTopView defineTopViewTwo = defineTopViewList.get(2);
+            if(productListParam.getFilterList().size()>0){
+
+                defineTopViewTwo.setTabCheckStatus(true);
+
+            }else {
+
+                defineTopViewTwo.setTabCheckStatus(false);
+            }
+
+            /*
+               检测筛选是否有选择的内容
+             */
             DefineTopView defineTopViewThree = defineTopViewList.get(3);
 
-            if (isShow) {
+            if (productListParam.getEffMonth() != null || productListParam.getStoreUseType() != null || !String.valueOf(Integer.MAX_VALUE).equals(productListParam.getEndPrice()) || !"0".equals(productListParam.getBgnPrice())) {
 
                 defineTopViewThree.setTabCheckStatus(true);
+            }else {
 
-            } else {
                 defineTopViewThree.setTabCheckStatus(false);
             }
-
 
             mRecyclerView.showSwipeRefresh();
 
@@ -497,13 +523,6 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
         {
 
             DefineTopView defineTopView = defineTopViewList.get(1);
-
-            if (name == null) {
-
-                defineTopView.setTabCheckStatus(false);
-
-                return;
-            }
 
             defineTopView.setTabName(name);
 
@@ -534,13 +553,6 @@ public class HotelGiftPackageListActivity extends BaseActivity implements BaseVi
         {
 
             DefineTopView defineTopView = defineTopViewList.get(4);
-
-            if (name == null) {
-
-                defineTopView.setTabCheckStatus(false);
-
-                return;
-            }
 
             defineTopView.setTabName(name);
 

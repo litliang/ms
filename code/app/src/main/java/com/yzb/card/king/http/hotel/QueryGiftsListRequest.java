@@ -57,7 +57,7 @@ public class QueryGiftsListRequest extends BaseRequest
 
         param.put("pageSize", hotelParam.getPageSize());
 
-        if(hotelParam.getFilterList() != null){
+        if(hotelParam.getFilterList() != null && hotelParam.getFilterList() .size()>0){
 
             param.put("filterList", JSON.toJSONString(hotelParam.getFilterList()));
         }

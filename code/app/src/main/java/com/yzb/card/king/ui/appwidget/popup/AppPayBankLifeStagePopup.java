@@ -141,7 +141,7 @@ public class AppPayBankLifeStagePopup {
                      */
                     double avgMone =  totalMoneyKouMoney/ stageNumber;
 
-                    String msgStr = "¥"+Utils.subZeroAndDot(avgMone+"") + "×" + stageBean.getStage()+"期";
+                    String msgStr = "¥"+Utils.subZeroAndDot(avgMone+"") + "×" + stageBean.getStage();
 
                     tvTwo.setText(msgStr);
                 }

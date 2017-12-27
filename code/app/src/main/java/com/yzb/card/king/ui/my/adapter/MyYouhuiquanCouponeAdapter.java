@@ -15,6 +15,8 @@ import android.widget.TextView;
 import com.yzb.card.king.R;
 import com.yzb.card.king.bean.hotel.HotelProductListParam;
 import com.yzb.card.king.bean.my.CouponInfoBean;
+import com.yzb.card.king.sys.AppConstant;
+import com.yzb.card.king.sys.GlobalVariable;
 import com.yzb.card.king.sys.ServiceDispatcher;
 import com.yzb.card.king.ui.appwidget.StarBar;
 import com.yzb.card.king.ui.base.BaseListAdapter;
@@ -139,6 +141,11 @@ public class MyYouhuiquanCouponeAdapter extends BaseListAdapter<CouponInfoBean>
 
                         if (bean.getReceiveStatus() == 3) {
 
+                            /**
+                             * 目前只有酒店
+                             */
+
+                            GlobalVariable.industryId = Integer.parseInt(AppConstant.hotel_id);
                             //其它产品订单
                             Date startDate = new Date();
                             Date endDate = DateUtil.addDay(startDate, 1);

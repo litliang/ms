@@ -301,6 +301,7 @@ public class Utils {
      * @return
      */
     public static String subZeroAndDot(String numStr) {
+
         if (TextUtils.isEmpty(numStr)) {
             return "0";
         }

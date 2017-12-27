@@ -98,7 +98,7 @@ public class HotelFlashSaleHolder extends BaseViewHolder<GiftComboBean> implemen
 
         tvShopName.setText("适用门店：" + data.getStoreDesc());
 
-        tvValidPeriod.setText("有效期限：" + data.getEffMonthDesc());
+        tvValidPeriod.setText("有效期限：" + data.getEffDateDesc());
 
         tvLowPrice.setText("¥" + Utils.subZeroAndDot(data.getStorePrice()+""));
 

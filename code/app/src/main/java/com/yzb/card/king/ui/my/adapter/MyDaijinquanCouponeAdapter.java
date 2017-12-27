@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.yzb.card.king.R;
 import com.yzb.card.king.bean.hotel.HotelProductListParam;
 import com.yzb.card.king.bean.my.CouponInfoBean;
+import com.yzb.card.king.sys.AppConstant;
+import com.yzb.card.king.sys.GlobalVariable;
 import com.yzb.card.king.ui.base.BaseListAdapter;
 import com.yzb.card.king.ui.bonus.activity.UseInstructionsActivity;
 import com.yzb.card.king.ui.hotel.HotelLogicManager;
@@ -77,7 +79,7 @@ public class MyDaijinquanCouponeAdapter extends BaseListAdapter<CouponInfoBean> 
 
         holder.tvAmount.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13);
 
-        String priceStr = "¥" + Utils.subZeroAndDot(bean.getCutAmount() + "");
+        String priceStr = "¥" + Utils.subZeroAndDot(bean.getFullAmount() + "");
 
         SpannableString msp = new SpannableString(priceStr);
 
@@ -112,6 +114,11 @@ public class MyDaijinquanCouponeAdapter extends BaseListAdapter<CouponInfoBean> 
                     @Override
                     public void onClick(View v) {
 
+
+                        /**
+                         * 目前只有酒店
+                         */
+                        GlobalVariable.industryId = Integer.parseInt(AppConstant.hotel_id);
                         Date startDate = new Date();
 
                         Date endDate = DateUtil.addDay(startDate, 1);

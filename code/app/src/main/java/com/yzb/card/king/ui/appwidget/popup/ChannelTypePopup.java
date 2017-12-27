@@ -92,18 +92,18 @@ public class ChannelTypePopup {
 
         baseBottomFullPP.addChildView(view);
 
-        baseBottomFullPP.setListener(new BaseFullPP.PpOndismisssListener() {
-            @Override
-            public void onClickListenerDismiss()
-            {
-                if (callBack != null) {
-
-                    int value = -1;
-
-                    callBack.onClickItemDataBack(null, value, value);
-                }
-            }
-        });
+//        baseBottomFullPP.setListener(new BaseFullPP.PpOndismisssListener() {
+//            @Override
+//            public void onClickListenerDismiss()
+//            {
+//                if (callBack != null) {
+//
+//                    int value = -1;
+//
+//                    callBack.onClickItemDataBack(null, value, value);
+//                }
+//            }
+//        });
 
         tvTitleName = (TextView) view.findViewById(R.id.tvTitleName);
 
@@ -179,6 +179,34 @@ public class ChannelTypePopup {
         baseBottomFullPP.show(rootView);
 
     }
+
+    /**
+     *  根据类型编号获取类型名
+     * @param typeInt
+     * @return
+     */
+    public String getTypeName(int typeInt){
+
+        int index = 0 ;
+
+        int leng = nameValueArray.length;
+
+        for(int i = 0 ; i < leng ; i++){
+
+            int a = nameValueArray[i];
+
+            if(a == typeInt){
+
+                index = i;
+
+                break;
+            }
+
+        }
+
+        return  nameArray[index];
+    }
+
 
     private class CurrentPpAdapter extends BaseAdapter {
 
