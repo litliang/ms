@@ -5,6 +5,7 @@ import com.yzb.card.king.bean.ticket.OrderOutBean;
 import com.yzb.card.king.sys.CardConstant;
 import com.yzb.card.king.ui.base.BaseModelImpl;
 import com.yzb.card.king.ui.base.BaseMultiLoadListener;
+import com.yzb.card.king.util.IpUtil;
 
 import java.util.Map;
 
@@ -25,6 +26,7 @@ public class EcardOrderCreateModel extends BaseModelImpl
     public void loadData(boolean event_tag, Map<String, Object> paramMap)
     {
         this.serviceName = CardConstant.card_ecardordercreate;
+        paramMap.put("transIp", IpUtil.getNetIp());
         super.loadData(event_tag, paramMap);
     }
 

@@ -3,6 +3,7 @@ package com.yzb.card.king.ui.my.model;
 import com.yzb.card.king.sys.CardConstant;
 import com.yzb.card.king.ui.base.BaseModelImpl;
 import com.yzb.card.king.ui.base.BaseMultiLoadListener;
+import com.yzb.card.king.util.IpUtil;
 
 import java.util.Map;
 
@@ -21,6 +22,7 @@ public class ActivatePhysCardModel extends BaseModelImpl
     public void loadData(Map<String, Object> paramMap)
     {
         this.serviceName = CardConstant.card_giftcardrecharge;
+        paramMap.put("transIp", IpUtil.getNetIp());
         this.paramMap = paramMap;
         sendRequest();
     }

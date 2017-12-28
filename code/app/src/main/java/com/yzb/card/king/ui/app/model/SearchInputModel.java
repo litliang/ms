@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.yzb.card.king.bean.hotel.SearchResultBean;
 import com.yzb.card.king.ui.base.BaseModelImpl;
 import com.yzb.card.king.ui.base.BaseMultiLoadListener;
+import com.yzb.card.king.util.IpUtil;
 
 import java.util.List;
 import java.util.Map;

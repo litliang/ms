@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.yzb.card.king.sys.CardConstant;
 import com.yzb.card.king.ui.base.BaseModelImpl;
 import com.yzb.card.king.ui.base.BaseMultiLoadListener;
+import com.yzb.card.king.util.IpUtil;
 
 import java.util.Map;
 
@@ -29,6 +30,7 @@ public class RecvCardModel extends BaseModelImpl
         this.orderId = String.valueOf(paramMap.get("orderId"));
 
         this.serviceName = CardConstant.card_receivemindcard;
+        paramMap.put("transIp", IpUtil.getNetIp());
         super.loadData(event_tag, paramMap);
     }
 

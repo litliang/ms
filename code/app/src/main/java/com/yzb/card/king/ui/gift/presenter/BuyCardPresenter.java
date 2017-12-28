@@ -7,6 +7,7 @@ import com.yzb.card.king.ui.gift.modle.BuyCardModel;
 import com.yzb.card.king.ui.gift.modle.EcardOrderCreateModel;
 import com.yzb.card.king.ui.gift.modle.EntitycardOrderCreateModel;
 import com.yzb.card.king.ui.gift.view.BuyCardView;
+import com.yzb.card.king.util.IpUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -134,7 +135,7 @@ public class BuyCardPresenter implements BaseMultiLoadListener {
 
             args.put("deliveryAddress", express);
         }
-
+        args.put("transIp", IpUtil.getNetIp());
         entitycardOrderCreateModel.loadData(true, args);
     }
 
