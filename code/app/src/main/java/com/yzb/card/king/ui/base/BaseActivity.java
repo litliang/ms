@@ -13,6 +13,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -35,6 +36,7 @@ import com.yzb.card.king.ui.my.pop.RealNameCertificationDialog;
 import com.yzb.card.king.ui.user.LoginActivity;
 import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.ProgressDialogUtil;
+import com.yzb.card.king.util.ScreenSchema;
 import com.yzb.card.king.util.ToastUtil;
 import com.yzb.card.king.util.UiUtils;
 import com.yzb.card.king.util.encryption.RsaUtil;
@@ -64,10 +66,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        DisplayMetrics d = new DisplayMetrics();
-        this.getWindowManager().getDefaultDisplay().getMetrics(d);
-        float f = d.densityDpi;
-
+        ScreenSchema.getInstance().adapt(this);
         //配置xUtil jar包
         x.view().inject(this);
         GlobalApp.getInstance().setPublicActivity(this);

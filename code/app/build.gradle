@@ -7,8 +7,8 @@ repositories {
     }
     google()
 }
-android {
 
+android {
 
     signingConfigs {
         debug {
@@ -173,5 +173,4 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile project(':yzb_wallet')
     compile(name: 'andBase', ext: 'aar')
-
 }

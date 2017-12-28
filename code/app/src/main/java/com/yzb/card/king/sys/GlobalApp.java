@@ -40,6 +40,7 @@ import com.yzb.card.king.util.AppUtils;
 import com.yzb.card.king.util.CommonUtil;
 import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.ProgressDialogUtil;
+import com.yzb.card.king.util.ScreenSchema;
 import com.yzb.card.king.util.SharePrefUtil;
 import com.yzb.card.king.util.StorageUtil;
 import com.yzb.card.king.util.ToastUtil;
@@ -148,6 +149,7 @@ public class GlobalApp extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        ScreenSchema.init(1080,480);
         StorageUtil.init(this);
         this.context = getApplicationContext();
         ServiceDispatcher.init(this);
