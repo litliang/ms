@@ -151,7 +151,7 @@
                         android:inputType="number"
                         android:paddingLeft="20dp"
                         android:background="@null"
-                        android:textColor="@color/setting_919191"
+                        android:textColor="#333333"
                         android:textSize="15sp"/>
 
                 </LinearLayout>
@@ -181,7 +181,7 @@
                         android:inputType="number"
                         android:paddingLeft="20dp"
                         android:background="@null"
-                        android:textColor="@color/setting_919191"
+                        android:textColor="#333333"
                         android:textSize="15sp"/>
 
                     <TextView
