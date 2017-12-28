@@ -27,26 +27,37 @@ public class QueryLeftHotelListRequest extends BaseRequest
     {
         // 公共参数
         param.put("addrId", hotelParam.getAddrId());
+
         if(!TextUtils.isEmpty( hotelParam.getRoomsTypes())){
+
             param.put("roomsTypes", hotelParam.getRoomsTypes());
         }
 
         param.put("bgnPrice", hotelParam.getBgnPrice());
+
         param.put("endPrice", hotelParam.getEndPrice());
+
         if(!TextUtils.isEmpty( hotelParam.getLevels())){
+
             param.put("levels", hotelParam.getLevels());
+
         }else {
             param.put("levels",0);
         }
 
         if(!TextUtils.isEmpty( hotelParam.getBrandTypes())){
+
             param.put("brandTypes", hotelParam.getBrandTypes());
+
         }else {
+
             param.put("brandTypes", 0);
         }
 
         param.put("sort", hotelParam.getSort());
+
         param.put("pageStart", hotelParam.getPageStart());
+
         param.put("pageSize", hotelParam.getPageSize());
 
     }

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yzb.card.king.R;
@@ -30,7 +31,7 @@ public class PreferentialTypePopup {
 
     private TextView tvTitleName;
 
-    private WholeListView wvLvData;
+    private ListView wvLvData;
 
     private PreferentialTypePopup.CurrentPpAdapter ppAdapter;
 
@@ -91,7 +92,7 @@ public class PreferentialTypePopup {
 
         view.findViewById(R.id.tvLine).setVisibility(View.GONE);
 
-        wvLvData = (WholeListView) view.findViewById(R.id.wvLvData);
+        wvLvData = (ListView) view.findViewById(R.id.wvLvData);
 
         nameArray = activity.getResources().getStringArray(R.array.preferential_type_name_array);
 

@@ -467,4 +467,23 @@ public class HotelTodayLeftRoomListActivity extends BaseActivity implements Base
 
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        HotelProductListParam productListParam = HotelLogicManager.getInstance().getTodayLeftRoomHotelParam();
+
+        productListParam.setRoomsTypes(null);
+
+        productListParam.setBgnPrice(0+"");
+
+        productListParam.setEndPrice(Integer.MAX_VALUE+"");
+
+        productListParam.setLevels(null);
+
+        productListParam.setBrandTypes(null);
+
+        productListParam.setSort(0);
+    }
 }

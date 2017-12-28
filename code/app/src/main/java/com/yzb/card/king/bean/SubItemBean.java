@@ -41,6 +41,15 @@ public class SubItemBean implements Serializable{
      */
     private int localDataHotelRoomCode = -1;
 
+    private String childTypeName;
+
+    public String getChildTypeName() {
+        return childTypeName;
+    }
+
+    public void setChildTypeName(String childTypeName) {
+        this.childTypeName = childTypeName;
+    }
 
     private List<ChildSubItemBean> childList;
 

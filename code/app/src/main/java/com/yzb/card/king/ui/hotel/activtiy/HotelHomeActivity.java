@@ -410,8 +410,6 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
                 Intent giftPackageIntent = new Intent(HotelHomeActivity.this, HotelGiftPackageListActivity.class);
 
-                giftPackageIntent.putExtra("oneTopClick", false);
-
                 startActivity(giftPackageIntent);
 
                 break;

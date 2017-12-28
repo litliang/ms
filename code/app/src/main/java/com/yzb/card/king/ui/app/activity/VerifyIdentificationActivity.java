@@ -157,11 +157,13 @@ public class VerifyIdentificationActivity extends BaseActivity implements View.O
      */
 
     private void safeVerify() {
-        showPDialog("");
+
         getVerifyCode();
         if (true) {
             return;
         }
+
+        showPDialog("");
         final String name = etName.getText().toString().trim();
         final String idNumber = etIdNumber.getText().toString().trim();
 

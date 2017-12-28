@@ -296,7 +296,11 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
         HotelProductListParam productListParam = HotelLogicManager.getInstance().getHotelProductListParam();
 
-        productListParam.setAddrId(Integer.parseInt(cityId));
+        productListParam.setAddrName(cityName);
+
+        productListParam.setSearchAddrLat(positionLatitude);
+
+        productListParam.setSearchAddrLng(positionLongitude);
 
         productListParam.setPageStart(page);
 

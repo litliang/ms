@@ -708,7 +708,6 @@ public class AppPaymentMethodActivity extends BaseActivity implements View.OnCli
 
                 selectPayMethod = payMethod;
 
-                LogUtil.e("AAAA="+payMethod.getAccountType());
                 /**
                  * 计算出选择支付方式的满额减、随机立减
                  */

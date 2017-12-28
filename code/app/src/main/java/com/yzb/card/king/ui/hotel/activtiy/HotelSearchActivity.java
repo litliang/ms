@@ -416,13 +416,25 @@ public class HotelSearchActivity extends BaseActivity implements View.OnClickLis
         @Override
         public void onSelectorItem(SubItemBean subItemBean) {
 
-            Intent selectResult = new Intent();
 
-            selectResult.putExtra("selectoSubItemBean", subItemBean);
+           if("热门酒店".equals(subItemBean.getChildTypeName())) {
 
-            setResult(1040, selectResult);
+               Intent intent = new Intent(HotelSearchActivity.this, HotelProductInfoActivity.class);
+               intent.putExtra("hotelId", subItemBean.getFilterId() );
+               startActivity(intent);
 
-            finish();
+           }else {
+
+               Intent selectResult = new Intent();
+
+               selectResult.putExtra("selectoSubItemBean", subItemBean);
+
+               setResult(1040, selectResult);
+
+               finish();
+           }
+
+
 
         }
     };

@@ -42,7 +42,7 @@ public class HotelFiltratePopup implements View.OnClickListener {
 
     private TextView tvMinValue, tvMaxValue;
 
-    private  int currentBarMix = 100;
+    private  int currentBarMix = 0;
 
     private int currentBarMax =1001;
 
@@ -71,16 +71,16 @@ public class HotelFiltratePopup implements View.OnClickListener {
 
         baseBottomFullPP.addChildView(view);
 
-        baseBottomFullPP.setListener(new BaseFullPP.PpOndismisssListener() {
-            @Override
-            public void onClickListenerDismiss()
-            {
-                if(callBack!=null){
-                    callBack.onConfirm(calSelectoredList(),currentBarMix,currentBarMax);
-                }
-
-            }
-        });
+//        baseBottomFullPP.setListener(new BaseFullPP.PpOndismisssListener() {
+//            @Override
+//            public void onClickListenerDismiss()
+//            {
+//                if(callBack!=null){
+//                    callBack.onConfirm(calSelectoredList(),currentBarMix,currentBarMax);
+//                }
+//
+//            }
+//        });
 
         view.findViewById(R.id.tvClear).setOnClickListener(this);
 
@@ -198,8 +198,8 @@ public class HotelFiltratePopup implements View.OnClickListener {
             tvMaxValue.setText("¥1000+");
 
             if(maxNumber == mixNumber){
-                tvMinValue.setText("¥100");
-                mixNumber = 100;
+                tvMinValue.setText("¥0");
+                mixNumber = 0;
             }
 
         } else {
@@ -214,7 +214,7 @@ public class HotelFiltratePopup implements View.OnClickListener {
      */
     public void reSetPpData()
     {
-        currentBarMix = 100;
+        currentBarMix = 0;
 
         currentBarMax = 1001;
 

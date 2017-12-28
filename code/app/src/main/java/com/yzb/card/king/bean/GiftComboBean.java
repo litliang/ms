@@ -28,9 +28,13 @@ public class GiftComboBean implements Serializable {
      */
     private String actName;
     /**
-     * 有效期限描述
+     * 有效期限描述（卡权益）
      */
     private String effMonthDesc;
+    /**
+     * 有效期限描述（限时抢购）
+     */
+    private String effDateDesc;
     /**
      * 适用门店说明
      */
@@ -92,6 +96,14 @@ public class GiftComboBean implements Serializable {
     public void setEffMonthDesc(String effMonthDesc)
     {
         this.effMonthDesc = effMonthDesc;
+    }
+
+    public String getEffDateDesc() {
+        return effDateDesc;
+    }
+
+    public void setEffDateDesc(String effDateDesc) {
+        this.effDateDesc = effDateDesc;
     }
 
     public String getStoreDesc()

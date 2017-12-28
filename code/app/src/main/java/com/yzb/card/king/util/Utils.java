@@ -301,6 +301,7 @@ public class Utils {
      * @return
      */
     public static String subZeroAndDot(String numStr) {
+
         if (TextUtils.isEmpty(numStr)) {
             return "0";
         }
@@ -310,7 +311,7 @@ public class Utils {
         }
 
         NumberFormat bf = NumberFormat.getInstance();
-
+        bf.setMaximumFractionDigits(2);
         bf.setGroupingUsed(false);
 
         double number = Double.parseDouble(numStr);

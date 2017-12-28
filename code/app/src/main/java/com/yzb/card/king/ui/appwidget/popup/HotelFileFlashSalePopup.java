@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 类  名：
+ * 类  名：礼品卡套餐--筛选
  * 作  者：Li Yubing
  * 日  期：2017/9/15
  * 描  述：
@@ -38,13 +38,13 @@ public class HotelFileFlashSalePopup implements View.OnClickListener {
 
     private CatalogueTypeAdapter hotelBrandTypeAdapter;
 
-    private HotelFileFlashSalePopup.ViewDataCallBack callBack;
+    private HotelFiltratePopup.ViewDataCallBack callBack;
 
     private RangeSeekBar rangSbPrice;
 
     private TextView tvMinValue, tvMaxValue;
 
-    private int currentBarMix = 100;
+    private int currentBarMix = 0;
 
     private int currentBarMax = 1001;
 
@@ -73,16 +73,16 @@ public class HotelFileFlashSalePopup implements View.OnClickListener {
 
         baseBottomFullPP.addChildView(view);
 
-        baseBottomFullPP.setListener(new BaseFullPP.PpOndismisssListener() {
-            @Override
-            public void onClickListenerDismiss()
-            {
-                if (callBack != null) {
-                    callBack.onConfirm(calSelectoredList(), currentBarMix, currentBarMax);
-                }
-
-            }
-        });
+//        baseBottomFullPP.setListener(new BaseFullPP.PpOndismisssListener() {
+//            @Override
+//            public void onClickListenerDismiss()
+//            {
+//                if (callBack != null) {
+//                    callBack.onConfirm(calSelectoredList(), currentBarMix, currentBarMax);
+//                }
+//
+//            }
+//        });
 
         view.findViewById(R.id.tvClear).setOnClickListener(this);
 
@@ -201,8 +201,8 @@ public class HotelFileFlashSalePopup implements View.OnClickListener {
             tvMaxValue.setText("¥1000+");
 
             if (maxNumber == mixNumber) {
-                tvMinValue.setText("¥100");
-                mixNumber = 100;
+                tvMinValue.setText("¥0");
+                mixNumber = 0;
             }
 
         } else {
@@ -217,7 +217,7 @@ public class HotelFileFlashSalePopup implements View.OnClickListener {
      */
     public void reSetPpData()
     {
-        currentBarMix = 100;
+        currentBarMix = 0;
 
         currentBarMax = 1001;
 
@@ -320,15 +320,12 @@ public class HotelFileFlashSalePopup implements View.OnClickListener {
         }
     }
 
-    public void setCallBack(HotelFileFlashSalePopup.ViewDataCallBack callBack)
+    public void setCallBack(HotelFiltratePopup.ViewDataCallBack callBack)
     {
         this.callBack = callBack;
     }
 
-    public interface ViewDataCallBack {
 
-        void onConfirm(List<SubItemBean> selectedBean, int minValue, int maxValue);
-    }
 
 }
 

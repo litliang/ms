@@ -116,7 +116,7 @@ public class HotelProductListParam {
      */
     private List<SubItemBean> filterList;
     /**
-     * 酒店品牌(酒店列表头部)
+     * 酒店品牌(酒店列表头部)/礼品卡套餐品牌（列表头部）
      */
     private List<SubItemBean> hotelBrandList;
     /**
