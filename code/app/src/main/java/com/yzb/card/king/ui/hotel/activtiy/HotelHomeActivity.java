@@ -12,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.TextPaint;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -48,9 +49,11 @@ import com.yzb.card.king.ui.hotel.adapter.HotelTodayRecommendedAdapter;
 import com.yzb.card.king.ui.hotel.model.IhotelHome;
 import com.yzb.card.king.ui.hotel.persenter.HotelHomePersenter;
 import com.yzb.card.king.ui.hotel.view.HotelHomeView;
+import com.yzb.card.king.ui.manage.HotelPopupRecordDataInstance;
 import com.yzb.card.king.ui.other.activity.CivilInternationCityActivity;
 import com.yzb.card.king.ui.ticket.activity.AirTicketHomeActivity;
 import com.yzb.card.king.util.DateUtil;
+import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.SwipeRefreshSettings;
 import com.yzb.card.king.util.ToastUtil;
 
@@ -102,6 +105,21 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
     private AddCount addCount;
 
     private boolean specialFlag = true;
+    /**
+     * 搜索关键字
+     */
+    private SubItemBean subItemBean;
+
+    /**
+     * 当前页面的星级和价格数据
+     */
+    private String levels = null;
+
+    private String brandTypes = null;
+
+    private String bgnPrice = null;
+
+    private String endPrice = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,6 +136,7 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
         initData();
     }
+
 
     private void initData() {
         //自动刷新
@@ -178,11 +197,11 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
                 boolean flag = !recyclerView.canScrollVertically(-1);
 
-                if(flag){
+                if (flag) {
 
                     rlHotelHomeTitle.setVisibility(View.VISIBLE);
 
-                }else {
+                } else {
 
                     rlHotelHomeTitle.setVisibility(View.INVISIBLE);
                 }
@@ -419,9 +438,11 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
                     hotelStarPricePopup = new HotelStarPricePopup(HotelHomeActivity.this, BaseFullPP.ViewPostion.VIEW_BOTTOM);
 
+                    hotelStarPricePopup.setRecordDataFlag(true);
+
                     hotelStarPricePopup.setViewDataCallBack(ppViewDataCallBack);
 
-                }else {
+                } else {
 
                     hotelStarPricePopup.showSelectedData();
                 }
@@ -470,14 +491,38 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
                 ivClearStarPrice.setVisibility(View.VISIBLE);
 
+                //清理查询查询数据
+                HotelProductListParam hotelProductListParam = HotelLogicManager.getInstance().getHotelProductListParam();
+
+                hotelProductListParam.setBgnPrice("0");
+
+                hotelProductListParam.setEndPrice(Integer.MAX_VALUE + "");
+
+                hotelProductListParam.setLevels("0");
+
+                hotelProductListParam.setBrandTypes("0");
+
+                levels = null;
+
+                brandTypes = null;
+
+                bgnPrice = null;
+
+                endPrice = null;
+
+                //清理记录的popup数据
+                HotelPopupRecordDataInstance.getInstance().initHotelStartPriceRecordData();
+
                 break;
             case R.id.tv_key://关键字查询
 
                 Intent intent = new Intent(HotelHomeActivity.this, HotelSearchActivity.class);
 
                 if (subItemBean != null) {
+
                     intent.putExtra("transmitData", subItemBean);
                 }
+
                 startActivityForResult(intent, 1000);
 
                 break;
@@ -495,11 +540,6 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
                 HotelLogicManager.getInstance().getHotelProductListParam().setHotelKeyWordList(null);
 
-                HotelProductListParam productListParamClare = HotelLogicManager.getInstance().getHotelProductListParam();
-
-                productListParamClare.setSearchAddrLat(0);
-
-                productListParamClare.setSearchAddrLng(0);
                 break;
 
             default:
@@ -629,13 +669,21 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
             }
 
+            //记录搜索的星级、价格信息
+            levels = productListParam.getLevels();
+            brandTypes = productListParam.getBrandTypes();
+            bgnPrice = productListParam.getBgnPrice();
+            endPrice = productListParam.getEndPrice();
         }
     };
+
+
     private ChannelTypePopup channelTypePopup;
 
     private int selectedIndex = 0;
 
     private ChannelPopWindow channelPopWindow;
+
     //app频道选择方法
     public void onMenuAction(View v) {
 
@@ -653,7 +701,7 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 //
 //        channelTypePopup.showBottomByViewPP(rootView);
 
-        if(channelPopWindow == null){
+        if (channelPopWindow == null) {
 
             channelPopWindow = new ChannelPopWindow(channelChangeHandler, this);
 
@@ -661,7 +709,8 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
         channelPopWindow.showAsDropDown(rlHotelHomeTitle, channelPopWindow.getWidth(), 0);
     }
-    private Handler channelChangeHandler = new Handler(){
+
+    private Handler channelChangeHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -669,28 +718,25 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
             int what = msg.what;
 
-            if(what == 0){//
+            if (what == 0) {//
 
-                ChildTypeBean  bean = (ChildTypeBean) msg.obj;
+                ChildTypeBean bean = (ChildTypeBean) msg.obj;
 
-                int  pagetypet = AppFactory.channelIdToFragmentIndex(bean.id);
+                int pagetypet = AppFactory.channelIdToFragmentIndex(bean.id);
 
-                if(pagetypet != -1){
+                if (pagetypet != -1) {
 
                     GlobalVariable.industryId = Integer.parseInt(bean.id);
 
-                    if(pagetypet == 2){//酒店
+                    if (pagetypet == 2) {//酒店
 
 
-
-                    }
-                    else if(pagetypet == 1){//机票
+                    } else if (pagetypet == 1) {//机票
 
                         startActivity(new Intent(HotelHomeActivity.this, AirTicketHomeActivity.class));
 
                         finish();
-                    }
-                    else{//旅游
+                    } else {//旅游
                         String typeId = AppConstant.travel_id;
 
                         int index = AppFactory.channelIdToFragmentIndex(typeId);
@@ -710,8 +756,8 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
                         finish();
                     }
 
-                }else{
-                    ToastUtil.i(HotelHomeActivity.this,"敬请期待");
+                } else {
+                    ToastUtil.i(HotelHomeActivity.this, "敬请期待");
                 }
             }
         }
@@ -844,7 +890,7 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
         }
     };
 
-    private void reSetUseAddress(Location city){
+    private void reSetUseAddress(Location city) {
 
         tv_destination.setText(city.addressInfoStr());
 
@@ -877,7 +923,7 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
         reSetCityInfo();
 
-        if (cityName != null && !cityName.equals(cityNameStr)&&specialFlag) {
+        if (cityName != null && !cityName.equals(cityNameStr) && specialFlag) {
 
             tv_destination.setText(cityName);
 
@@ -885,9 +931,69 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
             specialFlag = true;
         }
+
+        /**
+         * 加载请求参数信息,恢复之前选择的星级、价格、搜索项数据；或者回复初始状态
+         */
+        HotelProductListParam hotelProductListParam = HotelLogicManager.getInstance().getHotelProductListParam();
+
+        if (subItemBean != null) {
+
+            List<SubItemBean> hotelKeyWordList = hotelProductListParam.getHotelKeyWordList();
+
+            if (hotelKeyWordList == null) {
+
+                hotelKeyWordList = new ArrayList<SubItemBean>();
+            } else {
+                hotelKeyWordList.clear();
+            }
+
+            hotelKeyWordList.add(subItemBean);
+
+            hotelProductListParam.setHotelKeyWordList(hotelKeyWordList);
+
+        }else {
+
+            hotelProductListParam.setHotelKeyWordList(null);
+        }
+
+        if(TextUtils.isEmpty(levels)){
+
+            hotelProductListParam.setLevels("0");
+
+        }else {
+
+            hotelProductListParam.setLevels(levels);
+        }
+
+        if(TextUtils.isEmpty(brandTypes)){
+
+            hotelProductListParam.setBrandTypes("0");
+
+        }else {
+
+            hotelProductListParam.setBrandTypes(brandTypes);
+        }
+
+        if(TextUtils.isEmpty(bgnPrice)){
+
+            hotelProductListParam.setBgnPrice("0");
+
+        }else {
+
+            hotelProductListParam.setBgnPrice(bgnPrice);
+        }
+
+        if(TextUtils.isEmpty(endPrice)){
+
+            hotelProductListParam.setEndPrice(Integer.MAX_VALUE+"");
+
+        }else {
+
+            hotelProductListParam.setEndPrice(endPrice);
+        }
     }
 
-    private SubItemBean subItemBean;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -990,11 +1096,11 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
 
                 initShow1ItemView();
 
-            }else if(resultCode == 5002){//城市搜索页面--当前城市
+            } else if (resultCode == 5002) {//城市搜索页面--当前城市
 
                 specialFlag = false;
 
-                Location   city =   GlobalApp.getPositionedCity();
+                Location city = GlobalApp.getPositionedCity();
 
                 reSetUseAddress(city);
 
@@ -1129,5 +1235,8 @@ public class HotelHomeActivity extends BaseActivity implements SwipeRefreshLayou
         unregisterReceiver(addCount);
 
         HotelLogicManager.getInstance().clearData();
+
+        //清理popwindow数据
+        HotelPopupRecordDataInstance.getInstance().initHotelStartPriceRecordData();
     }
 }

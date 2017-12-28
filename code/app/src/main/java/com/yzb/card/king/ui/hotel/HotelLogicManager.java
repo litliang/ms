@@ -126,17 +126,14 @@ public class HotelLogicManager {
 
             hotelProductListParam.setSearchList(null);
 
-            hotelProductListParam.setHotelKeyWordList(null);
 
             hotelProductListParam.setHotelPositionList(null);
 
             hotelProductListParam.setHotelBrandList(null);
 
+            hotelProductListParam.setSearchList(null);
+
             hotelProductListParam.setHotelBaseFilterList(null);
-
-           // hotelProductListParam.setBrandTypes("0");
-
-          //  hotelProductListParam.setLevels("0");
 
             hotelProductListParam.setSort(0);
 

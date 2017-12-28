@@ -439,13 +439,22 @@ public class HotelDiningRoomFragment extends BaseFragment implements AsyncExpand
             newsItemHolder.tvBankPre.setVisibility(View.GONE);
         }
 
-        if ("1".equals(pre.getTicketStatus())) {
+        if ("1".equals(pre.getCouponStatus())) {//
 
             newsItemHolder.tvQuan.setVisibility(View.VISIBLE);
         } else {
 
             newsItemHolder.tvQuan.setVisibility(View.GONE);
         }
+
+        if ("1".equals(pre.getCashCouponStatus())) {//tvJin
+
+            newsItemHolder.tvJin.setVisibility(View.VISIBLE);
+        } else {
+
+            newsItemHolder.tvJin.setVisibility(View.GONE);
+        }
+
 
         if ("1".equals(pre.getFlashsaleStatus())) {
 
@@ -629,7 +638,7 @@ public class HotelDiningRoomFragment extends BaseFragment implements AsyncExpand
 
         public final TextView tvDescription;
 
-        public final TextView tvBackMoney, tvBankPre, tvQuan, tvQiang, tvKaquanyi, tvLeftRoom;
+        public final TextView tvBackMoney, tvBankPre, tvQuan, tvQiang, tvKaquanyi, tvLeftRoom,tvJin;
 
         public final ImageView ivLifeStages;
 
@@ -682,6 +691,8 @@ public class HotelDiningRoomFragment extends BaseFragment implements AsyncExpand
             tvBankPre = (TextView) v.findViewById(R.id.tvBankPre);
 
             tvQuan = (TextView) v.findViewById(R.id.tvQuan);
+
+            tvJin = (TextView) v.findViewById(R.id.tvJin);
 
             tvQiang = (TextView) v.findViewById(R.id.tvQiang);
 

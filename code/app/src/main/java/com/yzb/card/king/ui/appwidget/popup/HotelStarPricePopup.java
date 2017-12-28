@@ -16,6 +16,7 @@ import com.yzb.card.king.bean.hotel.HotelLevelBean;
 import com.yzb.card.king.jpush.util.DecorationUtil;
 import com.yzb.card.king.sys.GlobalApp;
 import com.yzb.card.king.ui.appwidget.WholeRecyclerView;
+import com.yzb.card.king.ui.manage.HotelPopupRecordDataInstance;
 import com.yzb.card.king.util.CommonUtil;
 import com.yzb.card.king.util.LogUtil;
 
@@ -28,7 +29,7 @@ import java.util.List;
  * 日  期：2017/7/19
  * 描  述：酒店 的價格 星級
  */
-public class HotelStarPricePopup implements View.OnClickListener{
+public class HotelStarPricePopup implements View.OnClickListener {
 
     private BaseFullPP baseBottomFullPP;
 
@@ -46,16 +47,19 @@ public class HotelStarPricePopup implements View.OnClickListener{
 
     private TextView tvMinValue, tvMaxValue;
 
-    private  int currentBarMix = 0;
+    private int currentBarMix = 0;
 
-    private int currentBarMax =1001;
+    private int currentBarMax = 1001;
+    /**
+     * 用户操作的页面数据，记录在另一个文件上，以便第二个页面展示此页面的操作数据
+     */
+    private boolean recordDataFlag = false;
 
     /**
      * @param activity
      * @param defineHeight 自定义子视图的高度
      */
-    public HotelStarPricePopup(Activity activity, int defineHeight, BaseFullPP.ViewPostion postion)
-    {
+    public HotelStarPricePopup(Activity activity, int defineHeight, BaseFullPP.ViewPostion postion) {
 
         this.activity = activity;
 
@@ -84,44 +88,25 @@ public class HotelStarPricePopup implements View.OnClickListener{
         initView(view);
 
     }
+
     /**
      * @param activity
      */
-    public HotelStarPricePopup(Activity activity , BaseFullPP.ViewPostion postion)
-    {
+    public HotelStarPricePopup(Activity activity, BaseFullPP.ViewPostion postion) {
 
         this.activity = activity;
 
-        AppBaseDataBean bean = GlobalApp.getInstance().getAppBaseDataBean();
-
         baseBottomFullPP = new BaseFullPP(activity, postion);
-
 
         View view = LayoutInflater.from(this.activity).inflate(R.layout.view_hotel_start_price_selector_pp, null);
 
-
         baseBottomFullPP.addChildView(view);
-
 
         initView(view);
 
     }
 
-    private void initView(View view){
-
-//        baseBottomFullPP.setListener(new BaseFullPP.PpOndismisssListener() {
-//            @Override
-//            public void onClickListenerDismiss()
-//            {
-//                if(callBack != null){
-//
-//
-//                    callBack.onConfirm(ppAdapter.getSelectorDataList(),currentBarMix,currentBarMax);
-//                }
-//
-//            }
-//        });
-
+    private void initView(View view) {
 
         tvMinValue = (TextView) view.findViewById(R.id.tvMinValue);
 
@@ -143,11 +128,11 @@ public class HotelStarPricePopup implements View.OnClickListener{
 
         String[] strArray = activity.getResources().getStringArray(R.array.hotel_start_name_array);
 
-        String[] valueArray =  activity.getResources().getStringArray(R.array.hotel_start_name_value_array);
+        String[] valueArray = activity.getResources().getStringArray(R.array.hotel_start_name_value_array);
 
         int size = strArray.length;
 
-        for(int a = 0 ; a < size ; a++){
+        for (int a = 0; a < size; a++) {
             HotelLevelBean beanTemp = new HotelLevelBean();
 
             beanTemp.setStartName(strArray[a]);
@@ -163,14 +148,13 @@ public class HotelStarPricePopup implements View.OnClickListener{
 
         rangSbPrice.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener() {
             @Override
-            public void onRangeSeekBarValuesChanged(RangeSeekBar bar, Object minValue, Object maxValue)
-            {
+            public void onRangeSeekBarValuesChanged(RangeSeekBar bar, Object minValue, Object maxValue) {
 
                 int mixNumber = bar.getSelectedMinValue().intValue();
 
                 int maxNumber = bar.getSelectedMaxValue().intValue();
 
-                setTextViewMaxMinValue(mixNumber,maxNumber);
+                setTextViewMaxMinValue(mixNumber, maxNumber);
 
                 currentBarMix = mixNumber;
 
@@ -183,10 +167,11 @@ public class HotelStarPricePopup implements View.OnClickListener{
 
         view.findViewById(R.id.tvConfirm).setOnClickListener(this);
 
+
     }
 
 
-    private void setTextViewMaxMinValue(int mixNumber, int maxNumber){
+    private void setTextViewMaxMinValue(int mixNumber, int maxNumber) {
 
         tvMinValue.setText("¥" + mixNumber);
 
@@ -194,7 +179,7 @@ public class HotelStarPricePopup implements View.OnClickListener{
 
             tvMaxValue.setText("¥1000+");
 
-            if(maxNumber == mixNumber){
+            if (maxNumber == mixNumber) {
                 tvMinValue.setText("¥0");
                 mixNumber = 0;
             }
@@ -206,30 +191,56 @@ public class HotelStarPricePopup implements View.OnClickListener{
         }
     }
 
+    public void setRecordDataFlag(boolean recordDataFlag) {
+        this.recordDataFlag = recordDataFlag;
+    }
+    public void showRecordData(boolean showRecordDataFlag) {
+
+        if (showRecordDataFlag) {//展示记录的数据
+
+            HotelPopupRecordDataInstance instance = HotelPopupRecordDataInstance.getInstance();
+
+            selectedCurrentBarMix = instance.getSelectedCurrentBarMix();
+
+            selectedCurrentBarMax = instance.getSelectedCurrentBarMax();
+
+            selectedList = instance.getSelectedList();
+
+            showSelectedData();
+        }
+    }
+
     @Override
-    public void onClick(View v)
-    {
-        switch (v.getId()){
+    public void onClick(View v) {
+        switch (v.getId()) {
 
             case R.id.tvClear://清理
 
                 reSetPpData();
-               // baseBottomFullPP.dismiss();
+                // baseBottomFullPP.dismiss();
                 break;
             case R.id.tvConfirm://确定
 
                 baseBottomFullPP.dismiss();
 
-                 if(callBack != null){
+                if (callBack != null) {
 
-                     selectedList = ppAdapter.getSelectorDataList();
+                    selectedList = ppAdapter.getSelectorDataList();
 
-                     selectedCurrentBarMix = currentBarMix;
+                    selectedCurrentBarMix = currentBarMix;
 
-                     selectedCurrentBarMax = currentBarMax;
+                    selectedCurrentBarMax = currentBarMax;
 
-                     callBack.onConfirm(selectedList,currentBarMix,currentBarMax);
-                 }
+                     /*
+                      * 是否记录用户操作的数据信息
+                      */
+                    if (recordDataFlag) {//记录页面操作的数据
+
+                        HotelPopupRecordDataInstance.getInstance().saveHotelStartPriceData(selectedList, selectedCurrentBarMix, selectedCurrentBarMax);
+                    }
+
+                    callBack.onConfirm(selectedList, currentBarMix, currentBarMax);
+                }
 
 
                 break;
@@ -242,13 +253,12 @@ public class HotelStarPricePopup implements View.OnClickListener{
     /**
      * 重置星級價格數據
      */
-    public void reSetPpData()
-    {
+    public void reSetPpData() {
         currentBarMix = 0;
 
         currentBarMax = 1001;
 
-        setTextViewMaxMinValue(currentBarMix,currentBarMax);
+        setTextViewMaxMinValue(currentBarMix, currentBarMax);
 
         rangSbPrice.setRangeValues(currentBarMix, currentBarMax);
 
@@ -257,11 +267,11 @@ public class HotelStarPricePopup implements View.OnClickListener{
         ppAdapter.setClearData();//清理星级
     }
 
-    private  List<HotelLevelBean> selectedList;
+    private List<HotelLevelBean> selectedList;
 
-    private  int selectedCurrentBarMix = 0;
+    private int selectedCurrentBarMix = 0;
 
-    private int selectedCurrentBarMax =1001;
+    private int selectedCurrentBarMax = 1001;
 
     public void showSelectedData() {
 
@@ -269,7 +279,7 @@ public class HotelStarPricePopup implements View.OnClickListener{
 
         currentBarMax = 1001;
 
-        setTextViewMaxMinValue(selectedCurrentBarMix,selectedCurrentBarMax);
+        setTextViewMaxMinValue(selectedCurrentBarMix, selectedCurrentBarMax);
 
         rangSbPrice.setRangeValues(currentBarMix, currentBarMax);
 
@@ -277,15 +287,15 @@ public class HotelStarPricePopup implements View.OnClickListener{
 
         rangSbPrice.setSelectedMaxValue(selectedCurrentBarMax);
 
-        if(selectedList != null && selectedList.size() > 0){
+        if (selectedList != null && selectedList.size() > 0) {
 
             ppAdapter.setClearData();//清理星级
 
-            for(HotelLevelBean beanTotal : selectedList){
+            for (HotelLevelBean beanTotal : selectedList) {
 
-                for (HotelLevelBean bean :monthBeanList){
+                for (HotelLevelBean bean : monthBeanList) {
 
-                    if(beanTotal.ifSame(bean)){
+                    if (beanTotal.ifSame(bean)) {
 
                         bean.setDeafault(true);
                         break;
@@ -304,8 +314,7 @@ public class HotelStarPricePopup implements View.OnClickListener{
         private boolean selectZero = false;
 
         @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
-        {
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
             View view = LayoutInflater.from(activity).inflate(R.layout.common_top_tab, null);
 
@@ -316,8 +325,7 @@ public class HotelStarPricePopup implements View.OnClickListener{
         }
 
         @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position)
-        {
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
             if (holder instanceof HotelStarPricePopup.MyPPadapter.CurrentViewHolder) {
 
@@ -330,17 +338,15 @@ public class HotelStarPricePopup implements View.OnClickListener{
         }
 
         @Override
-        public int getItemCount()
-        {
+        public int getItemCount() {
             return monthBeanList.size();
         }
 
-        public void setClearData()
-        {
+        public void setClearData() {
 
             selectZero = false;
 
-            for (HotelLevelBean bean :monthBeanList){
+            for (HotelLevelBean bean : monthBeanList) {
 
                 bean.setDeafault(false);
             }
@@ -349,13 +355,12 @@ public class HotelStarPricePopup implements View.OnClickListener{
 
         }
 
-        public List<HotelLevelBean> getSelectorDataList()
-        {
+        public List<HotelLevelBean> getSelectorDataList() {
             List<HotelLevelBean> selectorDataList = new ArrayList<HotelLevelBean>();
 
-            for (HotelLevelBean bean :monthBeanList){
+            for (HotelLevelBean bean : monthBeanList) {
 
-                if(bean.isDeafault()){
+                if (bean.isDeafault()) {
 
                     selectorDataList.add(bean);
                 }
@@ -373,8 +378,7 @@ public class HotelStarPricePopup implements View.OnClickListener{
             private ImageView ivRight;
 
 
-            public CurrentViewHolder(View itemView)
-            {
+            public CurrentViewHolder(View itemView) {
                 super(itemView);
 
                 this.itemView = itemView;
@@ -385,8 +389,7 @@ public class HotelStarPricePopup implements View.OnClickListener{
 
             }
 
-            public void initData(int position)
-            {
+            public void initData(int position) {
                 HotelLevelBean bean = monthBeanList.get(position);
 
                 tvTabName.setText(bean.getStartName());
@@ -397,7 +400,7 @@ public class HotelStarPricePopup implements View.OnClickListener{
 
                     ivRight.setVisibility(View.VISIBLE);
 
-                    if("0".equals(bean.getStartValue())){
+                    if ("0".equals(bean.getStartValue())) {
 
                         selectZero = true;
                     }
@@ -410,8 +413,7 @@ public class HotelStarPricePopup implements View.OnClickListener{
 
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v)
-                    {
+                    public void onClick(View v) {
 
                         int index = (int) v.getTag();
 
@@ -472,34 +474,31 @@ public class HotelStarPricePopup implements View.OnClickListener{
 
     public interface ViewDataListCallBack {
 
-        void onConfirm(List<HotelLevelBean> selectedList,int minValue, int maxValue);
+        void onConfirm(List<HotelLevelBean> selectedList, int minValue, int maxValue);
     }
 
-    public void showPP(View rootView)
-    {
+    public void showPP(View rootView) {
 
         baseBottomFullPP.showTopByView(rootView);
 
     }
 
-    public void showFull(View view){
+    public void showFull(View view) {
 
         baseBottomFullPP.show(view);
     }
 
 
-    public void showBottomByViewPP(View rootView)
-    {
+    public void showBottomByViewPP(View rootView) {
 
         baseBottomFullPP.showAsDropDown(rootView);
 
     }
 
-    public void setViewDataCallBack(ViewDataListCallBack callBack){
+    public void setViewDataCallBack(ViewDataListCallBack callBack) {
 
         this.callBack = callBack;
     }
-
 
 
 }

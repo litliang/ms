@@ -46,11 +46,13 @@ import com.yzb.card.king.ui.hotel.adapter.HotelProductItemAdapter;
 import com.yzb.card.king.ui.hotel.persenter.GetCouponPersenter;
 import com.yzb.card.king.ui.hotel.persenter.HotelBankActivityPersenter;
 import com.yzb.card.king.ui.hotel.persenter.HotelProductListPresenter;
+import com.yzb.card.king.ui.manage.HotelPopupRecordDataInstance;
 import com.yzb.card.king.ui.manage.UserManager;
 import com.yzb.card.king.ui.other.activity.CivilInternationCityActivity;
 import com.yzb.card.king.ui.other.fragment.HotelMapModelFragment;
 import com.yzb.card.king.util.CommonUtil;
 import com.yzb.card.king.util.DateUtil;
+import com.yzb.card.king.util.LogUtil;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
@@ -161,6 +163,13 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
         tvCityName.setText(cityName);
 
         tvMapController.setOnClickListener(this);
+
+        List<SubItemBean> hotelKeyWordList = HotelLogicManager.getInstance().getHotelProductListParam().getHotelKeyWordList();
+
+        if(hotelKeyWordList != null && hotelKeyWordList.size() == 1){
+
+            tvSearch.setText(hotelKeyWordList.get(0).getFilterName());
+        }
     }
 
     private void initContent() {
@@ -694,6 +703,8 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
 
                 defindTabView.setViewData(R.string.tab_price_start, drawable1);
 
+                defindTabView.setSelectedTabStatus(HotelPopupRecordDataInstance.getInstance().ifSelectedData());
+
             } else if (i == 2) {//出发时间
                 int[] drawable2 = new int[]{R.mipmap.con_tab_location_nochecke, R.mipmap.icon_tab_location_checked};
                 defindTabView.setViewData(R.string.tab_lcation_area, drawable2);
@@ -723,6 +734,8 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                 if (hotelStarPricePopup == null) {
 
                     hotelStarPricePopup = new HotelStarPricePopup(HotelProductListActivity.this, -1, BaseFullPP.ViewPostion.VIEW_BOTTOM);
+
+                    hotelStarPricePopup.showRecordData(true);
 
                     hotelStarPricePopup.setViewDataCallBack(ppViewDataCallBack);
 
@@ -1265,6 +1278,9 @@ public class HotelProductListActivity extends BaseActivity implements View.OnCli
                         hotelKeyWordList.add(subItemBean);
 
                         HotelLogicManager.getInstance().getHotelProductListParam().setHotelKeyWordList(hotelKeyWordList);
+
+                        tvSearch.setText(subItemBean.getFilterName());
+
                     } else {
 
                         HotelLogicManager.getInstance().getHotelProductListParam().setHotelKeyWordList(null);
