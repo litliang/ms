@@ -39,6 +39,7 @@ import com.yzb.card.king.util.ProgressDialogUtil;
 import com.yzb.card.king.util.ScreenSchema;
 import com.yzb.card.king.util.ToastUtil;
 import com.yzb.card.king.util.UiUtils;
+import com.yzb.card.king.util.crashreport.CrashHandler;
 import com.yzb.card.king.util.encryption.RsaUtil;
 
 import org.xutils.x;
@@ -67,6 +68,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ScreenSchema.getInstance().adapt(this);
+        CrashHandler.errorDialog();
         //配置xUtil jar包
         x.view().inject(this);
         GlobalApp.getInstance().setPublicActivity(this);

@@ -24,12 +24,12 @@ android {
 
     Integer code = Integer.parseInt(new SimpleDateFormat("yyMMdd").format(new Date())+"");
 
-    compileSdkVersion 23
+    compileSdkVersion 25
     buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.yzb.card.king"
-        minSdkVersion 17
-        targetSdkVersion 22
+        minSdkVersion 18
+        targetSdkVersion 25
         versionCode code
         versionName name
         multiDexEnabled = true
@@ -173,4 +173,5 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile project(':yzb_wallet')
     compile(name: 'andBase', ext: 'aar')
+    compile project(path: ':auto')
 }

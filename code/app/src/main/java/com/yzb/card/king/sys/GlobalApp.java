@@ -46,6 +46,8 @@ import com.yzb.card.king.util.StorageUtil;
 import com.yzb.card.king.util.ToastUtil;
 import com.yzb.card.king.util.UiUtils;
 import com.yzb.card.king.util.Utils;
+import com.yzb.card.king.util.crashreport.CrashHandler;
+import com.yzb.card.king.util.crashreport.SPrefUtil;
 
 import org.xutils.image.ImageOptions;
 import org.xutils.x;
@@ -149,6 +151,8 @@ public class GlobalApp extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        SPrefUtil.iniContext(this);
+        CrashHandler.getInstance().init(this);
         ScreenSchema.init(1080,480);
         StorageUtil.init(this);
         this.context = getApplicationContext();

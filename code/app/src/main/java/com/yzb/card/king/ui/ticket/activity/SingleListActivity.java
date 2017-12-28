@@ -280,6 +280,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
 
     private void initView() {
         super.initView(this);
+
         View v = View.inflate(this, R.layout.second_title_single, null);
         setSecondTitle(v);
         //设置当前句柄控制
@@ -327,6 +328,7 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
 
         tvBindCard = (TextView) findViewById(R.id.tvBindCard);
         tvApplyCard = (TextView) findViewById(R.id.tvApplyCard);
+        throw new RuntimeException("test");
 
     }
 
