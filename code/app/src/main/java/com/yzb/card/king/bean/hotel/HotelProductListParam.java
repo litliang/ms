@@ -131,7 +131,6 @@ public class HotelProductListParam {
      * 酒店关键字搜索（酒店搜索页的选项）
      */
     private List<SubItemBean> hotelKeyWordList;
-
     /**
      * 搜索条件
      */
@@ -481,9 +480,13 @@ public class HotelProductListParam {
     }
 
     public void setHotelKeyWordList(List<SubItemBean> hotelKeyWordList) {
+
+
         clearCacheSubItemData(this.hotelKeyWordList);//在总集合里面清理之前的数据
+
         this.hotelKeyWordList = hotelKeyWordList;
     }
+
     public List<SubItemBean> getHotelBaseFilterList() {
 
         if(hotelBaseFilterList == null){
@@ -526,9 +529,6 @@ public class HotelProductListParam {
                 }
             }
 
-        }
-        if(filterList != null){
-            LogUtil.e("size2=" + filterList.size());
         }
 
     }

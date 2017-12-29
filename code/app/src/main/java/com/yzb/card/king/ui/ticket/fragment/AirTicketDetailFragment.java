@@ -32,9 +32,6 @@ public class AirTicketDetailFragment extends Fragment implements View.OnClickLis
 
         view.findViewById(R.id.llBackChange).setOnClickListener(this);
 
-
-
-
         TextView tvTitle = (TextView) view.findViewById(R.id.tvTitle);
 
         TextView tvAgent = (TextView) view.findViewById(R.id.tvAgent);

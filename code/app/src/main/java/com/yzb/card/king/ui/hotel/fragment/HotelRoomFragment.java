@@ -813,9 +813,16 @@ public class HotelRoomFragment extends BaseFragment implements AsyncExpandableLi
 
             newsItemHolder.tvBankPre.setVisibility(View.GONE);
         }
+        //代金券
+        if ("1".equals(pre.getCashCouponStatus())) {
 
+            newsItemHolder.tvJin.setVisibility(View.VISIBLE);
+        } else {
 
-        if ("1".equals(pre.getTicketStatus())) {
+            newsItemHolder.tvJin.setVisibility(View.GONE);
+        }
+        //优惠券
+        if ("1".equals(pre.getCouponStatus())) {
 
             newsItemHolder.tvQuan.setVisibility(View.VISIBLE);
         } else {
@@ -974,7 +981,7 @@ public class HotelRoomFragment extends BaseFragment implements AsyncExpandableLi
 
         public final TextView tvDescription;
 
-        public final TextView tvBackMoney, tvBankPre, tvQuan, tvQiang, tvKaquanyi, tvLeftRoom;
+        public final TextView tvBackMoney, tvBankPre, tvQuan, tvQiang, tvKaquanyi, tvLeftRoom,tvJin;
 
         public final ImageView ivLifeStages;
 
@@ -1014,6 +1021,8 @@ public class HotelRoomFragment extends BaseFragment implements AsyncExpandableLi
                 }
             });
             tvTitle = (TextView) v.findViewById(R.id.tvMealTypeDesc);
+
+            tvJin = (TextView) v.findViewById(R.id.tvJin);
 
             tvDescription = (TextView) v.findViewById(R.id.tvShopName);
 

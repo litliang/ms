@@ -147,7 +147,16 @@
                             android:text="券"
                             android:textColor="@color/color_476b98"
                             android:textSize="8sp"/>
-
+                        <TextView
+                            android:id="@+id/tvJin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:background="@drawable/shap_corner_lightyellow"
+                            android:padding="3dp"
+                            android:text="券"
+                            android:textColor="@color/color_b59849"
+                            android:textSize="8sp"/>
                         <TextView
                             android:id="@+id/tvQiang"
                             android:layout_width="wrap_content"
