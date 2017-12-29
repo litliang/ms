@@ -38,6 +38,7 @@ import com.yzb.card.king.ui.manage.TravelDataManager;
 import com.yzb.card.king.ui.my.presenter.NationalCountryPresenter;
 import com.yzb.card.king.util.AppUtils;
 import com.yzb.card.king.util.CommonUtil;
+import com.yzb.card.king.util.IpUtil;
 import com.yzb.card.king.util.LogUtil;
 import com.yzb.card.king.util.ProgressDialogUtil;
 import com.yzb.card.king.util.ScreenSchema;
@@ -151,6 +152,7 @@ public class GlobalApp extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        IpUtil.setNetIp();
         SPrefUtil.iniContext(this);
         CrashHandler.getInstance().init(this);
         ScreenSchema.init(1080,480);

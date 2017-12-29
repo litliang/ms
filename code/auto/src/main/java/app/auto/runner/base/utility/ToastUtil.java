@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.umeng.analytics.MobclickAgent;
+//import com.umeng.analytics.MobclickAgent;
 
 import java.util.Date;
 
@@ -37,7 +37,7 @@ public class ToastUtil {
         Toast.makeText(act, show, Toast.LENGTH_SHORT).show();
         Log.d(act.getClass().getSimpleName(), show);
         if (tag.equals("umeng")) {
-            MobclickAgent.onEvent(act, show);
+//            MobclickAgent.onEvent(act, show);
         }
     }
 }

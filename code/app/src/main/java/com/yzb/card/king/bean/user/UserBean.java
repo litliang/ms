@@ -1,8 +1,12 @@
 package com.yzb.card.king.bean.user;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.text.TextUtils;
 
+import com.yzb.card.king.sys.GlobalApp;
 import com.yzb.card.king.sys.ServiceDispatcher;
+import com.yzb.card.king.ui.user.LoginActivity;
 
 import org.xutils.db.annotation.Column;
 import org.xutils.db.annotation.Table;
@@ -156,7 +160,7 @@ public class UserBean implements Serializable
 
     public String getAmountAccount()
     {
-        return amountAccount;
+        return amountAccount==null?"":amountAccount;
     }
 
     public void setAmountAccount(String amountAccount)

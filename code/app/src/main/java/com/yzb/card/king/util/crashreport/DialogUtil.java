@@ -108,7 +108,7 @@ public class DialogUtil {
 			dialog.setMessage(abtract.message);
 		}
 		AlertDialog ad = dialog.create();
-		
+		ad.show();
 		return ad;
 	}
 

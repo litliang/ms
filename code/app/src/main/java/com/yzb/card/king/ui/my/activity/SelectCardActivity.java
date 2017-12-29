@@ -159,7 +159,9 @@ public class SelectCardActivity extends BaseActivity implements DataCallBack
                     LogUtil.e("PayMethodDefaultLogic=返回结果=>code" + RESULT_CODE + "返回数据=>" + resultMap);
                     cardList.clear();
                     cardList.addAll(JSON.parseArray(resultMap.get("data"), PayMethod.class));
-                    adapter.notifyDataSetChanged();
+                    if(adapter!=null){
+                        adapter.notifyDataSetChanged();
+                    }
                 }
 
                 @Override
@@ -167,7 +169,9 @@ public class SelectCardActivity extends BaseActivity implements DataCallBack
                 {
                     LogUtil.e("PayMethodDefaultLogic=返回结果=>code" + RESULT_CODE + "错误提示：" + ERROR_MSG);
                     cardList.clear();
-                    adapter.notifyDataSetChanged();
+                    if(adapter!=null){
+                        adapter.notifyDataSetChanged();
+                    }
                 }
             });
         }

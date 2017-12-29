@@ -163,7 +163,7 @@ public class GiftCardGiveMindActivity extends BaseActivity implements View.OnCli
                 } else {
 
                     Double amountTxt = Double.parseDouble(s.toString());
-                    tvTotalAmount.setText("¥" + new BigDecimal(amountTxt).setScale(2,BigDecimal.ROUND_UP).doubleValue());
+                    tvTotalAmount.setText("¥" + new BigDecimal(amountTxt).setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue());
                     ;
                 }
             }

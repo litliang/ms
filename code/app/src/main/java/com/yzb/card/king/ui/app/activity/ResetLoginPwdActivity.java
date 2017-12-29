@@ -134,7 +134,7 @@ public class ResetLoginPwdActivity extends BaseActivity implements View.OnClickL
         Map<String, Object> params = new HashMap<>();
         params.put("customerMod", UserBean.MOD);
         params.put("passwd", MD5.md5(newPwd));
-        params.put("resetMobile",UserManager.getInstance().getUserBean().getAccount());
+        params.put("resetMobile",UserManager.getInstance().getUserBean()!=null?UserManager.getInstance().getUserBean().getAccount():getIntent().getStringExtra("userPhone"));
         resetLoginPwdPresenter.loadData(params);
     }
 

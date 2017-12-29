@@ -138,7 +138,9 @@ public class VerifyIdentificationActivity extends BaseActivity implements View.O
 
     private void nextActivity() {
         if ("ResetPayPwdActivity".equals(source)) {
-            readyGo(VerifyIdentificationActivity.this, ResetNewPayPwdActivity.class);
+            Intent it = new Intent(VerifyIdentificationActivity.this, ResetLoginPwdActivity.class);
+            it.putExtra("userPhone", etBindedPhone.getText().toString().trim());
+            startActivity(it);
         } else {
             Intent it = new Intent(VerifyIdentificationActivity.this, ResetLoginPwdActivity.class);
             it.putExtra("userPhone", etBindedPhone.getText().toString().trim());

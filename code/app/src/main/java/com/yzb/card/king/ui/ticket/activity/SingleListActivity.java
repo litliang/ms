@@ -328,8 +328,6 @@ public class SingleListActivity extends BaseTicketActivity implements SingleList
 
         tvBindCard = (TextView) findViewById(R.id.tvBindCard);
         tvApplyCard = (TextView) findViewById(R.id.tvApplyCard);
-        throw new RuntimeException("test");
-
     }
 
     private class MoreBankClickListener implements View.OnClickListener {

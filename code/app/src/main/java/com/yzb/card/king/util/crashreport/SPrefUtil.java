@@ -44,7 +44,7 @@ public class SPrefUtil {
 	public static void putValue(Context context, String spname, String key,
 			Object value) {
 		SharedPreferences.Editor spedit = onOpen(context, spname).edit();
-		if (value == null||new String(value+"").trim().equals("")) {
+		if (value == null) {
 			return;
 		} else if (value instanceof Boolean) {
 			spedit.putBoolean(key, (Boolean) value);

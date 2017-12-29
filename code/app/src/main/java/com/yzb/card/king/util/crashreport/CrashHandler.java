@@ -1,6 +1,7 @@
 package com.yzb.card.king.util.crashreport;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -215,6 +216,8 @@ public class CrashHandler implements UncaughtExceptionHandler {
 
 			}
 		}
+
+		ActivityStack.getInstance().finishAllActivity();
 		System.exit(0);
 	}
 
@@ -225,11 +228,12 @@ public class CrashHandler implements UncaughtExceptionHandler {
 		if (out.equals("")) {
 			return;
 		}
+		Activity a = GlobalApp.getInstance().getPublicActivity();
 		SpannableStringBuilder spannable = new TextHighLightDecorator(
-				Color.YELLOW).setMatcher(GlobalApp.getInstance().getPackageName())
+				Color.DKGRAY).setMatcher(GlobalApp.getInstance().getPackageName())
 				.getDecorated(out, out, out);
-		com.yzb.card.king.util.crashreport.DialogUtil.DialogInfo dialogInfo = new com.yzb.card.king.util.crashreport.DialogUtil.DialogInfo(ActivityPool.currAty);
-		dialogInfo.aty = ActivityPool.currAty;
+		com.yzb.card.king.util.crashreport.DialogUtil.DialogInfo dialogInfo = new com.yzb.card.king.util.crashreport.DialogUtil.DialogInfo(a);
+		dialogInfo.aty = a;
 		dialogInfo.message = spannable;
 		dialogInfo.negativeButtonText = "发送";
 		dialogInfo.negativeButtonClickListener = new DialogUtil.DialogClicker() {
@@ -248,7 +252,8 @@ public class CrashHandler implements UncaughtExceptionHandler {
 
 			}
 		};
-		DialogUtil.showChoiceDialog(dialogInfo, true);
 		Cache.getInstance().putValue(Cache.KEY_error, "");
+		DialogUtil.showChoiceDialog(dialogInfo, true);
+		Cache.getInstance().clearCache(Cache.getInstance().getCopyName());
 	}
 }
